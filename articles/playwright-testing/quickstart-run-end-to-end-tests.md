@@ -3,7 +3,7 @@ title: 'Quickstart: Run Playwright tests at scale'
 description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, build-2024
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
@@ -235,6 +235,91 @@ Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test run me
 :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png":::
 
 The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
+
+
+## View test results in the Playwright portal
+
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. This feature is only available as an [invite only feature](https://aka.ms/mpt/reporting-signup). 
+
+> [!Important]
+> The reporting feature of Microsoft Playwright Testing service is free of charge during the invite-only preview. However, existing functionality of any cloud-hosted browsers continues to bill per the Azure pricing plan. 
+
+Once you have access to the reporting tool, use the following steps to set up your tests.
+
+1.  From the workspace home page, navigate to *Settings*.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-select-settings.png" alt-text="Screenshot that shows settings selection for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-select-settings.png":::
+
+3. From *Settings*, select **General** and make sure reporting is **Enabled**.
+   
+   :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows how to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-enable-reporting.png":::
+
+4. Make sure the environment is set up correctly as mentioned in the section **Set up your environment**.
+
+5. Install reporting package
+
+    Since the feature is currently not public, you need to perform a few extra steps to install the package. These steps won't be needed once the feature becomes public.
+
+    1. Create a file with name `.npmrc` at the same location as your Playwright config file.
+
+    1. Add the following content to the file and save.
+        ```bash
+        @microsoft:registry=https://npm.pkg.github.com
+        ```
+    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+
+    You need to provide `read:packages` permissions to the token. This token is referred to as `PAT_TOKEN_PACKAGE` for the rest of this article.
+
+    1. Run the following command in your terminal, at the location of your Playwright config file. Replace `PAT_TOKEN_PACKAGE` with the token generated in the previous step.
+        ```bash
+            npm set //npm.pkg.github.com/:_authToken PAT_TOKEN_PACKAGE
+        ```
+
+    1. Update package.json file with the package.
+        
+        ```json
+         "dependencies": {
+                    "@microsoft/mpt-reporter": "0.1.0-19072024-private-preview"
+            }
+        ```
+        
+
+    1. Run `npm install` to install the package.
+
+6.  Update Playwright.config file
+
+    Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
+
+    ```typescript
+    import { defineConfig } from '@playwright/test';
+
+    export default defineConfig({
+        reporter: [
+        ['list'],
+        ['json', {  outputFile: 'test-results.json' }],
+        ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
+        ],
+    });
+    ```
+    Make sure that the artifacts are enabled in the config for better troubleshooting.
+    
+    ```typescript
+    use: {
+        // ...
+        trace: 'on-first-retry',
+        video:'retain-on-failure',
+        screenshot:'only-on-failure',
+        }
+    ```
+
+7.  Run Playwright tests
+
+    You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal.
+    
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png" alt-text="Screenshot that shows the test runs for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png":::
+
+> [!TIP]
+> You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature.
 
 ## Optimize parallel worker configuration
 

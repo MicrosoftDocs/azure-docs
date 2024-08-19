@@ -26,7 +26,7 @@ The standard storage with cool access feature provides options for the “coolne
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
-* You can't use large volumes with Standard storage with cool access.
+* You can't use [large volume](large-volumes-requirements-considerations.md) with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md): 
     * The cool access setting on the destination is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.

@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 08/13/2024
 
 ms.reviewer: nachakra
 ms.devlang: powershell
@@ -50,7 +50,7 @@ The following table summarizes how the two settings together affect anonymous ac
 | **Anonymous access is disallowed for the storage account** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
 | **Anonymous access is allowed for the storage account** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
 
-When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
+When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed *without* an `Authorization` header is accepted by the service, and the blob's data is returned in the response. However, if the request is passed *with* an `Authorization` header, then anonymous access on the storage account is ignored, and the request is authorized based on the provided credentials.
 
 ## Detect anonymous requests from client applications
 
@@ -137,19 +137,19 @@ When Blob Storage receives an anonymous request, that request will succeed if al
 - The targeted container is configured to allow anonymous access.
 - The request is for read access.
 
-If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
+If any of those conditions aren't true, the request fails. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
 
 - If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
-- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
+- If the anonymous request was made with a service version that doesn't support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
 - If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is allowed for the storage account, then the service returns error code 404 (Not Found).
 
 For more information about the bearer challenge, see [Bearer challenge](/rest/api/storageservices/authorize-with-azure-active-directory#bearer-challenge).
 
 ## Remediate anonymous access for the storage account
 
-After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
+After you evaluate anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
 
-The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you've disallowed anonymous access for the account, you don't also need to disable anonymous access for individual containers.
+The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you disallow anonymous access for the account, you don't also need to disable anonymous access for individual containers.
 
 If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved for anonymous access. You can then disallow anonymous access for any other storage accounts.
 
@@ -382,56 +382,6 @@ end {
 }
 ```
 
-## Verify that anonymous access has been remediated
-
-To verify that you've remediated anonymous access for a storage account, you can test that anonymous access to a blob isn't permitted, that modifying a container's access setting isn't permitted, and that it's not possible to create a container with anonymous access enabled.
-
-### Verify that anonymous access to a blob isn't permitted
-
-To verify that anonymous access to a specific blob is disallowed, you can attempt to download the blob via its URL. If the download succeeds, then the blob is still publicly available. If the blob isn't publicly accessible because anonymous access has been disallowed for the storage account, then you'll see an error message indicating that anonymous access isn't permitted on this storage account.
-
-The following example shows how to use PowerShell to attempt to download a blob via its URL. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$url = "<absolute-url-to-blob>"
-$downloadTo = "<file-path-for-download>"
-Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
-```
-
-### Verify that modifying the container's access setting isn't permitted
-
-To verify that a container's access setting can't be modified after anonymous access is disallowed for the storage account, you can attempt to modify the setting. Changing the container's access setting fails if anonymous access is disallowed for the storage account.
-
-The following example shows how to use PowerShell to attempt to change a container's access setting. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
-```
-
-### Verify that a container can't be created with anonymous access enabled
-
-If anonymous access is disallowed for the storage account, then you won't be able to create a new container with anonymous access enabled. To verify, you can attempt to create a container with anonymous access enabled.
-
-The following example shows how to use PowerShell to attempt to create a container with anonymous access enabled. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
-```
-
 ### Check the anonymous access setting for multiple accounts
 
 To check the anonymous access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
@@ -445,13 +395,13 @@ resources
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
 
-The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property has been explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property hasn't been set for a storage account, it appears as blank (or **null**) in the query results.
+The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property is explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property isn't set for a storage account, it appears as blank (or **null**) in the query results.
 
 :::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot showing query results for anonymous access setting across storage accounts":::
 
 ## Use Azure Policy to audit for compliance
 
-If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
+If you have a large number of storage accounts, you might want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
 
 ### Create a policy with an Audit effect
 

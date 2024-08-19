@@ -6,12 +6,13 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/25/2024
 ms.service: azure-storage
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
 # Relocate Azure Storage Account to another region
+
 
 This article shows you how to relocate an Azure Storage Account to a new region by creating a copy of your storage account into another region. You also learn how to relocate your data to that account by using AzCopy, or another tool of your choice.
 

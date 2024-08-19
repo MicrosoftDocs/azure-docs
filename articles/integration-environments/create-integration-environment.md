@@ -4,15 +4,15 @@ description: Create an integration environment to centrally organize and manage 
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/22/2023
+ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want a way to centrally and logically organize Azure resoruces related to my organization's integration solutions.
 ---
 
-# Create an integration environment (preview)
+# Create an integration environment (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To centrally and logically organize and manage Azure resources associated with your integration solutions, create an integration environment. For more information, see [What is Azure Integration Environments](overview.md)?
@@ -23,9 +23,13 @@ To centrally and logically organize and manage Azure resources associated with y
 
   > [!NOTE]
   >
-  > Your integration environment and the Azure resources that you want to organize must exist in the same Azure subscription. 
+  > Your integration environment and *all* Azure resources that you want to organize 
+  > into application groups must use the same Azure subscription, including any 
+  > [**Business Process** resources](../business-process-tracking/overview.md) 
+  > that you want to link your application group. See 
+  > [Supported Azure resources](overview.md#supported-resources).
 
-- Register the **Microsoft.IntegrationSpaces** resource provider for the Azure Integration Environment resource.
+- Register the **Microsoft.IntegrationSpaces** resource provider for the Azure Integration Environments resource.
 
   1. In the [Azure portal](https://portal.azure.com) search box, enter and select **Subscriptions**.
 
@@ -38,6 +42,8 @@ To centrally and logically organize and manage Azure resources associated with y
   1. On the **Resource providers** toolbar, select **Register**.
 
      After the Azure portal completes the registration, the **Microsoft.IntegrationSpaces** resource provider status changes to **Registered**.
+
+<a name="create-integration-environment"></a>
 
 ## Create an integration environment
 
@@ -67,6 +73,7 @@ To centrally and logically organize and manage Azure resources associated with y
 
 1. Now [create an application group](create-application-group.md) in your integration environment.
 
-## Next steps
+## Next step
 
-[Create an application group](create-application-group.md)
+> [!div class="nextstepaction"]
+> [Create an application group](create-application-group.md)

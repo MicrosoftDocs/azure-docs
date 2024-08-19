@@ -11,6 +11,8 @@ ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Azure App Service provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
 ## Why use the built-in authentication?
@@ -21,7 +23,7 @@ Implementing a secure solution for authentication (signing-in users) and authori
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
-- You can integrate with multiple login providers. For example, Microsoft Entra, Facebook, Google, Twitter.
+- You can integrate with multiple login providers. For example, Microsoft Entra, Facebook, Google, X.
 
 Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
 
@@ -31,10 +33,10 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft identity platform login](configure-authentication-provider-aad.md) |
+| [Microsoft Entra](/entra/index) | `/.auth/login/aad` | [App Service Microsoft Entra platform login](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
+| [X](https://developer.x.com/en/docs/basics/authentication) | `/.auth/login/x` | [App Service X login](configure-authentication-provider-twitter.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) | `/.auth/login/github` | [App Service GitHub login](configure-authentication-provider-github.md) |
 | [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service Sign in With Apple login (Preview)](configure-authentication-provider-apple.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [App Service OpenID Connect login](configure-authentication-provider-openid-connect.md) |

@@ -6,7 +6,7 @@ summary: Azure Container Registry allows you to build, store, and manage contain
 metadata:
   title: Azure Container Registry documentation
   description: Learn about Azure's private registry service to host Docker container images and related artifacts. Azure Container Registry service also supports ACR Tasks, a suite of services to build, manage, and patch container images.
-  ms.service: container-registry
+  ms.service: azure-container-registry
   ms.subservice: subservice
   ms.topic: landing-page
   author: tejaswikolli-web
@@ -92,7 +92,7 @@ landingContent:
           - text: Geo-replication
             url: container-registry-tutorial-prepare-registry.md
           - text: Artifact Cache
-            url: tutorial-artifact-cache.md
+            url: container-registry-artifact-cache.md
   # Card
   - title: ACR Tasks
     linkLists:
@@ -136,13 +136,15 @@ landingContent:
             url: policy-reference.md
           - text: Deprecated APIs
             url: container-registry-api-deprecation.md
+          - text: Service Tags
+            url: container-registry-service-tag.md
   # Card (optional)    
   - title: Security
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Push and pull supply chain artifacts (Preview)
-            url: container-registry-oras-artifacts.md
+            url: container-registry-manage-artifact.md
           - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
             url: container-registry-tutorial-sign-build-push.md
           - text: Connect to ACR with Azure Private Link

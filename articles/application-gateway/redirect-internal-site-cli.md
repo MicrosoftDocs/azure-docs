@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2023
@@ -23,7 +23,7 @@ In this article, you learn how to:
 * Create a virtual machine scale set with the backend pool
 * Create a CNAME record in your domain
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

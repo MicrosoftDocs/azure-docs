@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 11/24/2021
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
+ms.service: azure-automation
 ---
 
 # Tutorial: Create Automation PowerShell runbook using managed identity

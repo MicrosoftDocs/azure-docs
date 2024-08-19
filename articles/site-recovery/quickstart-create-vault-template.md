@@ -1,12 +1,12 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using an Azure Resource Manager template.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
-ms.date: 12/15/2023
+ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template
@@ -17,7 +17,7 @@ continuity and disaster recovery (BCDR) strategy so your business applications s
 planned and unplanned outages. Site Recovery manages disaster recovery of on-premises machines and
 Azure virtual machines (VM), including replication, failover, and recovery.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 To protect VMware or physical server, see [Modernized architecture](./physical-server-azure-architecture-modernized.md).
 
@@ -43,7 +43,7 @@ Two Azure resources are defined in the template:
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): configures the vault's backup redundancy settings.
 
 The template includes optional parameters for the vault's backup configuration. The storage
-redundancy settings are locally-redundant storage (LRS) or geo-redundant storage (GRS). For more
+redundancy settings are locally redundant storage (LRS) or geo-redundant storage (GRS). For more
 information, see [Set storage redundancy](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
 For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
@@ -167,7 +167,4 @@ Write-Host "Press [ENTER] to continue..."
 ## Next steps
 
 In this quickstart, you created a Recovery Services vault. To learn more about disaster recovery,
-continue to the next quickstart article.
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-quickstart.md)
+continue to the next quickstart article - [Set up disaster recovery](azure-to-azure-quickstart.md).

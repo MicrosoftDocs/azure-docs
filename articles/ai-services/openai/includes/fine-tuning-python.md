@@ -15,16 +15,12 @@ ms.author: mbullwin
 
 - Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 - The following Python libraries: `os`, `json`, `requests`, `openai`.
 - The OpenAI Python library **should be at least version 0.28.1**.
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
 - If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
 
-
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
 
 ## Models
 
@@ -35,6 +31,12 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
+- `gpt-4` (0613)**<sup>*</sup>**
+- `gpt-4o-mini` (2024-07-18)**<sup>*</sup>**
+
+**<sup>*</sup>** Fine-tuning for this model is currently in public preview.
+
+If you plan to use `gpt-4` for fine-tuning, please refer to the [GPT-4 public preview safety evaluation guidance](#safety-evaluation-gpt-4-fine-tuning---public-preview)
 
 Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
 
@@ -166,7 +168,7 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2024-02-01"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  api_version="2024-05-01-preview"  # This API version or later is required to access seed/events/checkpoint capabilities
 )
 
 training_file_name = 'training_set.jsonl'
@@ -233,11 +235,14 @@ The following Python code shows an example of how to create a new fine-tune job 
 
 # [OpenAI Python 1.x](#tab/python-new)
 
+In this example we are also passing the seed parameter. The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but may differ in rare cases. If a seed isn't specified, one will be generated for you.
+
 ```python
 response = client.fine_tuning.jobs.create(
     training_file=training_file_id,
     validation_file=validation_file_id,
-    model="gpt-35-turbo-0613" # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+    model="gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+    seed = 105  # seed parameter controls reproducibility of the fine-tuning job. If no seed is specified one will be generated automatically.
 )
 
 job_id = response.id
@@ -329,29 +334,71 @@ print(response)
 
 ---
 
-## Deploy a customized model
+## List fine-tuning events
+
+To examine the individual fine-tuning events that were generated during training:
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+You may need to upgrade your OpenAI client library to the latest version with `pip install openai --upgrade` to run this command.
+
+```python
+response = client.fine_tuning.jobs.list_events(fine_tuning_job_id=job_id, limit=10)
+print(response.model_dump_json(indent=2))
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the latest release.
+
+---
+
+## Checkpoints
+
+When each training epoch completes a checkpoint is generated. A checkpoint is a fully functional version of a model which can both be deployed and used as the target model for subsequent fine-tuning jobs. Checkpoints can be particularly useful, as they can provide a snapshot of your model prior to overfitting having occurred. When a fine-tuning job completes you will have the three most recent versions of the model available to deploy. The final epoch will be represented by your fine-tuned model, the previous two epochs will be available as checkpoints.
+
+You can run the list checkpoints command to retrieve the list of checkpoints associated with an individual fine-tuning job:
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+You may need to upgrade your OpenAI client library to the latest version with `pip install openai --upgrade` to run this command.
+
+```python
+response = client.fine_tuning.jobs.list_events(fine_tuning_job_id=job_id, limit=10)
+print(response.model_dump_json(indent=2))
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the latest release.
+
+---
+
+## Safety evaluation GPT-4 fine-tuning - public preview
+
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
+
+## Deploy a fine-tuned model
 
 When the fine-tuning job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/azureopenai/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
-You can use either [Azure OpenAI](#deploy-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
+You can also use [Azure OpenAI Studio](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error occurs if you select an already-deployed customized model.
-
-## Deploy fine-tuned model
 
 Unlike the previous SDK commands, deployment must be done using the control plane API which requires separate authorization, a different API path, and a different API version.
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
-| subscription | The subscription ID for the associated Azure OpenAI resource |
-| resource_group | The resource group name for your Azure OpenAI resource |
-| resource_name | The Azure OpenAI resource name |
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable. |
+| subscription | The subscription ID for the associated Azure OpenAI resource. |
+| resource_group | The resource group name for your Azure OpenAI resource. |
+| resource_name | The Azure OpenAI resource name. |
 | model_deployment_name | The custom name for your new fine-tuned model deployment. This is the name that will be referenced in your code when making chat completion calls. |
-| fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You will need to add that value to the deploy_data json. |
+| fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You will need to add that value to the deploy_data json. Alternatively you can also deploy a checkpoint, by passing the checkpoint ID which will appear in the format `ftchkpt-e559c011ecc04fc68eaa339d8227d02d` |
 
 ```python
 import json
@@ -583,15 +630,15 @@ The result file is a CSV file that contains a header row and a row for each trai
 | --- | --- |
 | `step` | The number of the training step. A training step represents a single pass, forward and backward, on a batch of training data. |
 | `train_loss` | The loss for the training batch. |
-| `training_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `train_mean_token_accuracy` | The percentage of tokens in the training batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `valid_loss` | The loss for the validation batch. |
-| `valid_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_mean_token_accuracy` | The percentage of tokens in the validation batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `full_valid_loss` | The validation loss calculated at the end of each epoch. When training goes well, loss should decrease. |
+|`full_valid_mean_token_accuracy` | The valid mean token accuracy calculated at the end of each epoch. When training is going well, token accuracy should increase. |
 
 You can also view the data in your results.csv file as plots in Azure OpenAI Studio. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
 
-Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data, that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
+Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data that can indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
 
 ## Clean up your deployments, customized models, and training files
 

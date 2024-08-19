@@ -1,9 +1,9 @@
 ---
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/30/2024
 ---
 
 # Use Bicep linter
@@ -48,8 +48,11 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [use-parent-property](./linter-rule-use-parent-property.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
+- [use-recent-module-versions](./linter-rule-use-recent-module-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
 - [use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md)
+- [use-safe-access](./linter-rule-use-safe-access.md)
+- [use-secure-value-for-secure-inputs](./linter-rule-use-secure-value-for-secure-inputs.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 

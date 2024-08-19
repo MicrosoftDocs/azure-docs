@@ -36,7 +36,7 @@ After you receive confirmation that a transfer request was submitted, you can us
 
 You can also seek help, report misconduct, or suspicious activity using any of the options at the [Microsoft Legal](https://www.microsoft.com/legal/) web site. The option to report a concern is under Compliance & ethics.
 
-## Next steps
+## Related content
 
 - To give your new partner Azure RBAC access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Obtain permissions to manage a customers service or subscription](/partner-center/customers-revoke-admin-privileges).

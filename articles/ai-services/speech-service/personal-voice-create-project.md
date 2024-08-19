@@ -1,29 +1,29 @@
 ---
 title: Create a project for personal voice - Speech service
 titleSuffix: Azure AI services
-description: Learn about how to create a project for personal voice. 
+description: Learn about how to create a project for personal voice.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 2/7/2024
 ms.author: eur
 ---
 
-# Create a project for personal voice (preview)
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Create a project for personal voice
 
 Personal voice projects contain the user consent statement and the personal voice ID. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
 
 ## Create a project
 
-To create a personal voice project, use the [Projects_Create](/rest/api/speechapi/projects/create) operation of the custom voice API. Construct the request body according to the following instructions:
+To create a personal voice project, use the [Projects_Create](/rest/api/aiservices/speechapi/projects/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `kind` property to `PersonalVoice`. The kind can't be changed later.
 - Optionally, set the `description` property for the project description. The project description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following [Projects_Create](/rest/api/speechapi/projects/create) example. 
+Make an HTTP PUT request using the URI as shown in the following [Projects_Create](/rest/api/aiservices/speechapi/projects/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `ProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI and can't be changed later. 
@@ -32,7 +32,7 @@ Make an HTTP PUT request using the URI as shown in the following [Projects_Creat
 curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "Project description",
   "kind": "PersonalVoice"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/projects/ProjectId?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/projects/ProjectId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:

@@ -1,10 +1,10 @@
 ---
-title: Create test certificates - Azure IoT Edge | Microsoft Docs
+title: Create test certificates - Azure IoT Edge
 description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/05/2022
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -223,11 +223,11 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 ---
 
-## Create edge CA certificates
+## Create Edge CA certificates
 
-These certificates are required for **gateway scenarios** because the edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
+These certificates are required for **gateway scenarios** because the Edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
 
-The **edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
+The **Edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if Edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 # [Windows](#tab/windows)
 

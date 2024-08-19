@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Edge security manager/module runtime - Azure IoT Edge
-description: Manages the IoT Edge device security stance and the integrity of security services.
+title: Azure IoT Edge security manager and module runtime
+description: Understand how Azure IoT Edge security manager and module runtime enable IoT Edge device security and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
 author: PatAltimore
 ms.author: patricka
 ms.reviewer: eustacea
-ms.date: 05/27/2022
+ms.date: 06/06/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -84,7 +84,7 @@ The cloud interface enables access to cloud services that complement device secu
 
 The management API is called by the IoT Edge agent when creating/starting/stopping/removing an IoT Edge module. The module runtime stores "registrations" for all active modules. These registrations map a module's identity to some properties of the module. For example, these module properties include the process identifier (pid) of the process running in the container and the hash of the docker container's contents.
 
-These properties are used by the workload API (described below) to verify that the caller is authorized for an action.
+These properties are used by the workload API to verify that the caller is authorized for an action.
 
 The management API is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge module runtime bootstraps and starts the IoT Edge agent, it verifies that the IoT Edge agent hasn't been tampered with, then it can create an implicit registration for the IoT Edge agent. The same attestation process that the workload API uses also restricts access to the management API to only the IoT Edge agent.
 
@@ -118,7 +118,7 @@ The IoT Edge security manager implements the Trusted Platform Module and PKCS#11
 
 ## Secure silicon root of trust hardware
 
-Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
+Secure silicon is necessary to anchor trust inside the IoT Edge device hardware. Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies. The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
 
 The IoT Edge security manager aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening. Third parties, like device makers, should make use of custom security features available with their device hardware.  
 

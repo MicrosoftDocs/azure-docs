@@ -4,7 +4,7 @@ description: Understand the data redundancy options available in Azure file shar
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/27/2024
+ms.date: 08/08/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -54,7 +54,7 @@ With ZRS, your data is still accessible for both read and write operations even 
 
 A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
 
-An advantage of using ZRS for Azure Files workloads is that if a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required. We recommend using ZRS in the primary region for scenarios that require high availability and low RPO/RTO. We also recommend ZRS for restricting replication of data to a particular country or region to meet data governance requirements.
+An advantage of using ZRS for Azure Files workloads is that if a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required. We recommend using ZRS in the primary region for scenarios that require high availability. We also recommend ZRS for restricting replication of data to a particular country or region to meet data governance requirements.
 
 > [!NOTE]
 > Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia. In most cases, we recommend that Azure File Sync users configure storage accounts to use ZRS or GZRS.
@@ -88,7 +88,7 @@ For applications requiring high durability for SMB file shares, you can choose g
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
-Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares that don't have the **large file shares** setting enabled on the storage account (up to 5 TiB), unless you've registered for [Azure Files geo-redundancy for large file shares](geo-redundant-storage-for-large-file-shares.md).
+Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares.
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.

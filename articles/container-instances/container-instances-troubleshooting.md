@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues when your deploy, run, or m
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli, linux-related-content
@@ -98,7 +98,7 @@ This error indicates that due to heavy load in the region in which you are attem
 ## Issues during container group runtime
 ### Container had an isolated restart without explicit user input
 
-There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends applying observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends applying observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](monitor-azure-container-instances.md#get-metrics), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 ### Container continually exits and restarts (no long-running process)
 

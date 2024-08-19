@@ -216,25 +216,12 @@
     - name: Manage
       items:
         - name: Create an IoT hub
-          items:
-            - name: Use Azure portal
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-through-portal.md
-            - name: Use Visual Studio Code
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-use-iot-toolkit.md
-            - name: Use Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-using-powershell.md
-            - name: Use Azure CLI
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, az iot hub create
-              href: iot-hub-create-using-cli.md
-            - name: Use the REST API
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-rest.md
-            - name: Use a template from Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-template-powershell.md
+          displayName: create IoT Hub, delete IoT hub, portal, CLI
+          href: create-hub.md
+        - name: Create and connect a device
+          href: create-connect-device.md
+        - name: Manage device twins
+          href: manage-device-twins.md
         - name: Create message routes and endpoints
           items:
             - name: Azure portal
@@ -288,46 +275,16 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-        - name: Manage device twin tags
-          href: iot-hubs-manage-device-twin-tags.md
     - name: Develop
       items:
         - name: Send cloud-to-device messages
-          items:
-            - name: .NET
-              displayName: cloud-to-device messages, C2D, csharp, C#
-              href: c2d-messaging-dotnet.md
-            - name: Python
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-python.md
-            - name: Node.js
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-node.md
-            - name: Java
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-java.md
-            - name: iOS
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-ios.md
+          displayName: cloud-to-device messages
+          href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
-          items:
-            - name: .NET
-              displayName: file upload, upload files, csharp, C#
-              href: file-upload-dotnet.md
-            - name: Python
-              displayName: file upload, upload files
-              href: file-upload-python.md
-            - name: Node.js
-              displayName: file upload, upload files
-              href: file-upload-node.md
-            - name: Java
-              displayName: file upload, upload files
-              href: file-upload-java.md
+          displayName: file upload, upload files
+          href: how-to-file-upload.md
         - name: Get started with device twins
           items:
-            - name: CLI
-              displayName: device twins
-              href: device-twins-cli.md
             - name: .NET
               displayName: device twins
               href: device-twins-dotnet.md
@@ -345,9 +302,6 @@
             - name: Portal
               displayName: module twins, module identity
               href: module-twins-portal-dotnet.md
-            - name: CLI
-              displayName: module twins, module identity
-              href: module-twins-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: module-twins-dotnet.md
@@ -357,9 +311,6 @@
             - name: Node.js
               displayName: module twins, module identity
               href: module-twins-node.md
-            - name: C
-              displayName: module twins, module identity
-              href: module-twins-c.md
         - name: Get started with device management
           items:
             - name: CLI
@@ -403,8 +354,6 @@
       items:
         - name: Monitor IoT Hub
           href: monitor-iot-hub.md
-        - name: Monitoring data reference
-          href: monitor-iot-hub-reference.md
         - name: Enable message tracing
           displayName: monitor, distributed tracing
           href: iot-hub-distributed-tracing.md
@@ -513,6 +462,8 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+    - name: Monitoring data reference
+      href: monitor-iot-hub-reference.md
 - name: Resources
   items:
     - name: Support and help options
@@ -600,6 +551,6 @@
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=iot-hub
     - name: Technical case studies
-      href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+      href: https://microsoft.github.io/generative-ai-for-beginners/#technology=IoT&sortBy=featured
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub

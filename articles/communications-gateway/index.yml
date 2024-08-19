@@ -5,11 +5,11 @@ summary: Learn about Azure Communications Gateway for telecommunications operato
 metadata:
   title: Azure Communications Gateway documentation
   description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering services.
-  ms.service: communications-gateway
+  ms.service: azure-communications-gateway
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 11/06/2023
+  ms.date: 04/25/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -78,7 +78,7 @@ landingContent:
             url: emergency-calls-operator-connect.md
       - linkListType: how-to-guide
         links:
-          - text: Manage enterprises and numbers in the Number Management Portal
+          - text: Manage customers in the Number Management Portal
             url: manage-enterprise-operator-connect.md
 
   # Card
@@ -88,10 +88,6 @@ landingContent:
         links:
           - text: Connect to Microsoft Teams Direct Routing
             url: connect-teams-direct-routing.md
-          - text: Configure a test customer
-            url: configure-test-customer-teams-direct-routing.md
-          - text: Configure test numbers
-            url: configure-test-numbers-teams-direct-routing.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic-teams-direct-routing.md
       - linkListType: concept
@@ -100,6 +96,10 @@ landingContent:
             url: interoperability-teams-direct-routing.md
           - text: Emergency calling
             url: emergency-calls-teams-direct-routing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Direct Routing customers
+            url: manage-enterprise-teams-direct-routing.md
 
   # Card
   - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
@@ -108,8 +108,6 @@ landingContent:
         links:
           - text: Connect to Zoom Phone Cloud Peering
             url: connect-zoom.md
-          - text: Configure test numbers
-            url: configure-test-numbers-zoom.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic-zoom.md
       - linkListType: concept
@@ -118,6 +116,10 @@ landingContent:
             url: interoperability-zoom.md
           - text: Emergency calling
             url: emergency-calls-zoom.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Zoom Phone Cloud Peering customers
+            url: manage-enterprise-zoom.md
 
   # Card
   - title: Manage Azure Communications Gateway

@@ -74,7 +74,7 @@ client = AzureOpenAI(
 )
 
 response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
+    model="gpt-35-turbo", # model = "deployment_name"
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
@@ -135,7 +135,7 @@ deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the
 # Send a completion call to generate an answer
 print('Sending a test completion job')
 start_phrase = 'Write a tagline for an ice cream shop. '
-response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
+response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10) # model = "deployment_name"
 print(response.choices[0].text)
 ```
 
@@ -221,7 +221,7 @@ async def main():
       api_version = "2024-02-01",
       azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
-    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}]) # model = model deployment name
 
     print(response.model_dump_json(indent=2))
 
@@ -246,7 +246,7 @@ client = AzureOpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="deployment-name",  # gpt-35-instant
+    model="deployment-name",  # model = "deployment_name"
     messages=[
         {
             "role": "user",
@@ -281,7 +281,7 @@ client = openai.AzureOpenAI(
 )
 
 completion = client.chat.completions.create(
-    model=deployment,
+    model=deployment, # model = "deployment_name"
     messages=[
         {
             "role": "user",

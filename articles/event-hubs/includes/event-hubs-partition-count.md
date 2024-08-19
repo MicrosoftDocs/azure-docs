@@ -2,7 +2,7 @@
 title: Event Hubs partition overview
 description: Provides a description of a partition in Azure Event Hubs. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 11/27/2023
 ms.author: spelluru

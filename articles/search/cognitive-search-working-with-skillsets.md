@@ -1,35 +1,33 @@
 ---
 title: Skillset concepts
 titleSuffix: Azure AI Search
-description: Skillsets are where you author an AI enrichment pipeline in Azure AI Search. Learn important concepts and details about skillset composition.
+description: Skillsets are used to apply AI processing to indexing pipelines in Azure AI Search. Learn important concepts and details about skillset composition.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 06/06/2024
 ---
 
 # Skillset concepts in Azure AI Search
 
-This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [AI enrichment](cognitive-search-concept-intro.md).
+This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [applied AI](cognitive-search-concept-intro.md) in Azure AI Search.
 
-A skillset is a reusable resource in Azure AI Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable object in Azure AI Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
 The following diagram illustrates the basic data flow of skillset execution. 
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
-From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree). Initially, an enriched document is just the raw content extracted from a data source (articulated as the `"/document"` root node). With each skill execution, the enriched document gains structure and substance as skill writes its output as nodes in the graph. 
+From the onset of skillset processing to its conclusion, skills read from and write to an [*enriched document*](#enrichment-tree) that exists in memory. Initially, an enriched document is just the raw content extracted from a data source (articulated as the `"/document"` root node). With each skill execution, the enriched document gains structure and substance as each skill writes its output as nodes in the graph. 
 
-After skillset execution is done, the output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
+After skillset execution is done, the output of an enriched document finds its way into an index through user-defined *output field mappings*. Any raw content that you want transferred intact, from source to an index, is defined through *field mappings*.
 
-To configure enrichment, you'll specify settings in a skillset and indexer.
+To configure applied AI, specify settings in a skillset and indexer.
 
 ## Skillset definition
 
-A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or OCR on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
+A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or optical character recognition (OCR) on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
 Skills have a context, inputs, and outputs:
 
@@ -43,13 +41,15 @@ Skills have a context, inputs, and outputs:
 
 ### Skill context
 
-Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). A context determines:
+Each skill has a context, which can be the entire document (`/document`) or a node lower in the tree (`/document/countries/*`). 
 
-+ The number of times the skill executes, over a single value (once per field, per document), or for context values of type collection, where adding an `/*` results in skill invocation, once for each instance in the collection. 
+A context determines:
+
++ The number of times the skill executes, over a single value (once per field, per document), or for a collection, where adding an `/*` results in skill invocation for each instance in the collection. 
 
 + Output declaration, or where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node.
 
-+ Shape of the inputs. For multi-level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of ZIP codes, how you set the context will determine how the input is interpreted.
++ Shape of the inputs. For multi-level collections, setting the context to the parent collection affects the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of ZIP codes, how you set the context determines how the input is interpreted.
 
   |Context|Input|Shape of Input|Skill Invocation|
   |-------|-----|--------------|----------------|
@@ -60,7 +60,7 @@ Each skill has a context, which can be the entire document (`/document`) or a no
 
 Skills can execute independently and in parallel, or sequentially if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that execute in sequence:
 
-+ Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes for skills like sentiment detection.
++ Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5,000 characters as output. Splitting large text into smaller chunks can produce better outcomes for skills like sentiment detection.
 
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
 
@@ -148,7 +148,7 @@ Although you can visualize and work with an enrichment tree through the [Debug S
 
 Enrichments are immutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. 
 
-You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition will determine what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
+You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use. The [output field mappings](cognitive-search-output-field-mapping.md) in your indexer definition determines what content actually gets ingested in the search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
 
 > [!NOTE]
 > The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata won't be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
@@ -187,11 +187,11 @@ Conceptually, the initial enrichment tree looks as follows:
 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
 
-The root node for all enrichments is `"/document"`. When you're working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When the data is CSV, as in this example, the column names will map to nodes beneath `"/document"`.
+The root node for all enrichments is `"/document"`. When you're working with blob indexers, the `"/document"` node has child nodes of `"/document/content"` and `"/document/normalized_images"`. When the data is CSV, as in this example, the column names map to nodes beneath `"/document"`.
 
 ### Skill #1: Split skill
 
-When source content consists of large chunks of text, it's helpful to break it into smaller components for greater accuracy of language, sentiment, and key phrase detection. There are two grains available: pages and sentences. A page consists of approximately 5000 characters.
+When source content consists of large chunks of text, it's helpful to break it into smaller components for greater accuracy of language, sentiment, and key phrase detection. There are two grains available: pages and sentences. A page consists of approximately 5,000 characters.
 
 A text split skill is typically first in a skillset.
 
@@ -204,25 +204,26 @@ A text split skill is typically first in a skillset.
 "textSplitMode": "pages",
 "maximumPageLength": 5000,
 "inputs": [
-{
-    "name": "text",
-    "source": "/document/reviews_text"
-}
+    {
+        "name": "text",
+        "source": "/document/reviews_text"
+    }
 ],
 "outputs": [
-{
-    "name": "textItems",
-    "targetName": "pages"
-}
+    {
+        "name": "textItems",
+        "targetName": "pages"
+    }
+]
 ```
 
-With the skill context of `"/document/reviews_text"`, the split skill executes once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it's added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
+With the skill context of `"/document/reviews_text"`, the split skill executes once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5,000 character segments. The output from the split skill is named `pages` and it's added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
 
 The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. 
  
 ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
-To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference enrichments](cognitive-search-concept-annotations-syntax.md).
+To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference enrichments](cognitive-search-concept-annotations-syntax.md).
 
 ### Skill #2 Language detection
 
@@ -236,13 +237,13 @@ While the language detection skill is the third (skill #3) skill defined in the 
 
 Customer feedback reflects a range of positive and negative experiences. The sentiment analysis skill analyzes the feedback and assigns a score along a continuum of negative to positive numbers, or neutral if sentiment is undetermined. Parallel to sentiment analysis, key phrase detection identifies and extracts words and short phrases that appear consequential.
 
-Given the context of `/document/reviews_text/pages/*`, both sentiment analysis and key phrase skills will be invoked once for each of the items in the `pages` collection. The output from the skill will be a node under the associated page element. 
+Given the context of `/document/reviews_text/pages/*`, both sentiment analysis and key phrase skills are invoked once for each of the items in the `pages` collection. The output from the skill will be a node under the associated page element. 
 
-You should now be able to look at the rest of the skills in the skillset and visualize how the tree of enrichments will continue to grow with the execution of each skill. Some skills, such as the merge skill and the shaper skill, also create new nodes but only use data from existing nodes and don't create net new enrichments.
+You should now be able to look at the rest of the skills in the skillset and visualize how the tree of enrichments continue to grow with the execution of each skill. Some skills, such as the merge skill and the shaper skill, also create new nodes but only use data from existing nodes and don't create net new enrichments.
 
 ![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Enrichment tree after  all skills")
 
-The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually and won't be part of the object returned when selecting the parent node.
+The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes need to be addressed individually and won't be part of the object returned when selecting the parent node.
 
 ### Skill #5 Shaper skill
 

@@ -4,9 +4,11 @@ description: Learn more about the features of the API gateway component of Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: conceptual
-ms.date: 03/28/2024
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
+ms.topic: concept-article
+ms.date: 07/11/2024
 ms.author: danlep
 ---
 
@@ -39,7 +41,7 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 API Management offers both managed and self-hosted gateways:
 
-* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
+* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. A standalone managed gateway can also be associated with a [workspace](workspaces-overview.md) in an API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
 
     > [!NOTE]
     > Because of differences in the underlying service architecture, the gateways provided in the different API Management service tiers have some differences in capabilities. For details, see the section [Feature comparison: Managed versus self-hosted gateways](#feature-comparison-managed-versus-self-hosted-gateways).
@@ -62,6 +64,7 @@ The following tables compare features available in the following API Management 
 * **V2** - the managed gateway available in the Basic v2 and Standard v2 tiers
 * **Consumption** - the managed gateway available in the Consumption tier
 * **Self-hosted** - the optional self-hosted gateway available in select service tiers
+* **Workspace** - the managed gateway available in a [workspace](workspaces-overview.md) in select service tiers
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
@@ -70,50 +73,49 @@ The following tables compare features available in the following API Management 
 
 ### Infrastructure
 
-| Feature support  | Classic  | V2  | Consumption | Self-hosted  |
+| Feature support  | Classic  | V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- |
-| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ |
-| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ |
-| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ❌ | ❌ | ✔️<sup>1</sup> |
-| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ |
-| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ |
-| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
+| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> | ✔️ |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ | ❌ |
+| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ | ✔️ |
+| [Availability zones](zone-redundancy.md)  |  Premium | ✔️<sup>3</sup>  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
+| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>4</sup> |  ❌ |
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>5</sup> | ✔️<sup>5</sup> |❌ | ✔️ | ❌ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
-<sup>3</sup>CA root certificates for self-hosted gateway are managed separately per gateway<br/>
-<sup>4</sup> Client protocol needs to be enabled.
+<sup>3</sup> Two zones are enabled by default; not configurable.<br/>
+<sup>4</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>5</sup> Client protocol needs to be enabled.
 
 ### Backend APIs
 
-| Feature support  | Classic  |  V2  | Consumption | Self-hosted  |
-| --- | --- | ----- | ----- | ---------- |
-| [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [WSDL specification](import-soap-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| WADL specification |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |✔️ | 
-| [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ |  ✔️ | ✔️ |
-| [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ |❌ | ❌ | 
-| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
-| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ |
-| [Pass-through gRPC](grpc-api.md) (preview) |  ❌ | ❌ | ❌ | ✔️ |
-| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ | ✔️ |
-| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
-| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ | ✔️ | ❌ | ✔️ |
-| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) (preview) |  ✔️ | ✔️ | ✔️ | ✔️ |
+| Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
+| --- | --- | ----- | ----- | ---------- | ----- |
+| [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [WSDL specification](import-soap-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| WADL specification |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |✔️ | ✔️ | 
+| [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ |  ✔️ | ✔️ | ✔️ |
+| [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
+| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
+| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
+| [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
+| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
@@ -121,33 +123,33 @@ The following tables compare features available in the following API Management 
 
 Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions.
 
-| Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  |
-| --- | --- | ----- | ----- | ---------- |
-| [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ |
-| [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ |
-| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ |
-| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> |
+| Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
+| --- | --- | ----- | ----- | ---------- | ----- |
+| [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
+| [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
+| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The quota by key policy isn't available in the v2 tiers.<br/>
-<sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>3</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+<sup>3</sup> The rate limit by key, quota by key, and Azure OpenAI token limit policies aren't available in the Consumption tier.<br/>
+<sup>4</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 
 
 ### Monitoring
 
 For details about monitoring options, see [Observability in Azure API Management](observability.md).
 
-| Feature support  | Classic  |  V2  | Consumption | Self-hosted  |
-| --- | --- | ----- | ----- | ---------- |
-| [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ |
-| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ |
-| [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ |
-| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> |
-| [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ |
-| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ |
+| Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
+| --- | --- | ----- | ----- | ---------- | ----- |
+| [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ | ❌ | 
+| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | 
+| [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
+| [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> | ❌ |
+| [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ | ❌ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
 <sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
@@ -157,9 +159,9 @@ For details about monitoring options, see [Observability in Azure API Management
 
 Managed and self-hosted gateways support all available [API authentication and authorization options](authentication-authorization-overview.md) with the following exceptions.
 
-| Feature support  | Classic  |  V2  | Consumption | Self-hosted  |
-| --- | --- | ----- | ----- | ---------- |
-| [Credential manager](credentials-overview.md) |  ✔️ | ✔️ | ✔️ | ❌ |
+| Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
+| --- | --- | ----- | ----- | ---------- | ----- |
+| [Credential manager](credentials-overview.md) |  ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 
 
 ## Gateway throughput and scaling
@@ -188,6 +190,10 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 ### Self-hosted gateway
 * In environments such as [Kubernetes](how-to-self-hosted-gateway-on-kubernetes-in-production.md), add multiple gateway replicas to handle expected usage.
 * Optionally [configure autoscaling](how-to-self-hosted-gateway-on-kubernetes-in-production.md#autoscaling) to meet traffic demands.
+
+### Workspace gateway
+
+Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace gateway.
 
 ## Related content
 

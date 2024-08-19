@@ -1,20 +1,22 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS Network Protection - Bicep'
+title: 'QuickStart: Create and configure Azure DDoS Network Protection - Bicep'
 description: Learn how to create and enable an Azure DDoS Protection plan using Bicep.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: abell
-ms.date: 02/14/2024
+ms.date: 07/17/2024
 ---
 
-# Quickstart: Create and configure Azure DDoS Network Protection using Bicep
+# QuickStart: Create and configure Azure DDoS Network Protection using Bicep
 
-This quickstart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enable the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This QuickStart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enable the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
+
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

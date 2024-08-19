@@ -1,7 +1,7 @@
 ---
 title: ENCODE
 description: Learn how to use the ENCODE dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -12,7 +12,7 @@ The [Encyclopedia of DNA Elements (ENCODE) Consortium](https://www.encodeproject
 
 ENCODE investigators employ various assays and methods to identify functional elements. The discovery and annotation of gene elements is accomplished primarily by sequencing a diverse range of RNA sources, comparative genomics, integrative bioinformatic methods, and human curation. Regulatory elements are typically investigated through DNA hypersensitivity assays, assays of DNA methylation, and immunoprecipitation (IP) of proteins that interact with DNA and RNA, that is, modified histones, transcription factors, chromatin regulators, and RNA-binding proteins, followed by sequencing.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

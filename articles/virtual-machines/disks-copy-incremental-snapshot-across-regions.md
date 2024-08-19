@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 07/08/2024
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -26,6 +26,8 @@ This article covers copying an incremental snapshot from one region to another. 
 - If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
 - You can only copy one incremental snapshot of a particular disk at a time.
 - Snapshots must be copied in the order they were created.
+- Only incremental snapshots can be copied across regions. Full snapshots can't be copied across regions.
+
 
 ## Managed copy
 
@@ -39,7 +41,7 @@ The following script copies an incremental snapshot from one region to another:
 subscriptionId=<yourSubscriptionID>
 resourceGroupName=<yourResourceGroupName>
 targetSnapshotName=<name>
-sourceSnapshotResourceId=<sourceSnapshotResourceId>
+sourceSnapshotName=<name>
 targetRegion=<validRegion>
 
 sourceSnapshotId=$(az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [id] -o tsv)
@@ -99,9 +101,9 @@ $targetSnapshot.CompletionPercent
 
 # [Portal](#tab/azure-portal)
 
-You can also copy an incremental snapshot across regions in the Azure portal. However, you must use this specific link to access the portal, for now: https://aka.ms/incrementalsnapshot 
+You can also copy an incremental snapshot across regions in the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the [Azure portal](https://aka.ms/incrementalsnapshot) and navigate to the incremental snapshot you'd like to migrate.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the incremental snapshot you'd like to migrate.
 1. Select **Copy snapshot**.
 
     :::image type="content" source="media/disks-incremental-snapshots/disks-copy-snapshot.png" alt-text="Screenshot of snapshot overview, copy snapshot highlighted." lightbox="media/disks-incremental-snapshots/disks-copy-snapshot.png":::

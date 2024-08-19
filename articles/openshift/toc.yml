@@ -7,27 +7,33 @@
       href: intro-openshift.md
     - name: What's new with Azure Red Hat OpenShift?
       href: azure-redhat-openshift-release-notes.md
-- name: Tutorials
+    - name: Azure Red Hat OpenShift service definition
+      href: openshift-service-definitions.md
+    - name: Support policies for Azure Red Hat OpenShift 4
+      href: support-policies-v4.md
+    - name: Responsibility matrix
+      href: responsibility-matrix.md
+- name: Quickstart
   expanded: true
   items:
-    - name: 1 - Create an Azure Red Hat OpenShift cluster
-      href: tutorial-create-cluster.md
-    - name: 2 - Connect to an Azure Red Hat OpenShift cluster
-      href: tutorial-connect-cluster.md
-    - name: 3 - Delete an Azure Red Hat OpenShift cluster
-      href: tutorial-delete-cluster.md
-- name: Quickstarts
-  items:
-    - name: Deploy an Azure Red Hat OpenShift cluster with Azure portal 
-      href: quickstart-portal.md
-    - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
-      href: quickstart-openshift-arm-bicep-template.md
+    - name: Create an Azure Red Hat OpenShift cluster
+      href: create-cluster.md
+    - name: Connect to an Azure Red Hat OpenShift cluster
+      href: connect-cluster.md
+    - name: Delete an Azure Red Hat OpenShift cluster
+      href: delete-cluster.md
 - name: How-to guides
   items:
+    - name: Frequently asked questions
+      href: openshift-faq.yml
     - name: Cluster operations
       items:
+        - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
+          href: quickstart-openshift-arm-bicep-template.md
         - name: Upgrade an Azure Red Hat OpenShift cluster
           href: howto-upgrade.md
+        - name: Deploy large Azure Red Hat OpenShift clusters spot nodes
+          href: howto-large-clusters.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
         - name: Deploy infrastructure nodes
@@ -117,6 +123,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Deploy a JBoss EAP Java app
           href: howto-deploy-java-jboss-enterprise-application-platform-app.md
+        - name: Deploy a JBoss EAP Java app from source code with automatic deployment
+          href: howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md
 - name: Concepts
   items:
     - name: Networking
@@ -137,18 +145,10 @@
       href: ./index.yml
 - name: Resources
   items:
-    - name: Frequently asked questions
-      href: openshift-faq.yml
-    - name: Azure Red Hat OpenShift service definition
-      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
-    - name: Support policies for Azure Red Hat OpenShift 4
-      href: support-policies-v4.md
     - name: Support lifecycle for Azure Red Hat OpenShift 4
       href: support-lifecycle.md
-    - name: Responsibility matrix
-      href: responsibility-matrix.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift 4 documentation

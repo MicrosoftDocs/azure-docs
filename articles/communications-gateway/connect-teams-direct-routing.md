@@ -3,7 +3,7 @@ title: Connect Azure Communications Gateway to Microsoft Teams Direct Routing
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Microsoft Phone System for Microsoft Teams Direct Routing.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
@@ -59,9 +59,9 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 1. Select your Communications Gateway resource. Check that you're on the **Overview** of your Azure Communications Gateway resource.
 1. Select **Properties**.
 1. Find the field named **Domain**. This name is your deployment's _base domain name_.
-1. Work out the _per-region domain names_ for connecting to Microsoft Teams Direct Routing. These use the form `1-r<region-number>.<base-domain-name>`.
-    - A production deployment has two service regions and therefore two per-region domain names: `1-r1.<base-domain-name>` and `1-r2.<base-domain-name>`
-    - A lab deployment has one service region and therefore one per-region domain name: `1-r1.<base-domain-name>`.
+1. Work out the _per-region domain names_ for connecting to Microsoft Teams Direct Routing. These use the form `1r<region-number>.<base-domain-name>`.
+    - A production deployment has two service regions and therefore two per-region domain names: `1r1.<base-domain-name>` and `1r2.<base-domain-name>`
+    - A lab deployment has one service region and therefore one per-region domain name: `1r1.<base-domain-name>`.
 1. Note down the base domain name and the per-region domain names. You'll need these values in the next steps.
 
 > [!IMPORTANT]
@@ -147,4 +147,4 @@ Confirm that the SIP OPTIONS status of each SIP trunk is Active.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure a test customer](configure-test-customer-teams-direct-routing.md)
+> [Prepare for live traffic](prepare-for-live-traffic-teams-direct-routing.md)

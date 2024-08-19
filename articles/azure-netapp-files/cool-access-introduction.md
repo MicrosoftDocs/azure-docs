@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 08/20/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -24,8 +24,7 @@ The following diagram illustrates an application with a volume enabled for cool 
 
 In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
-By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier. Additionally, sequential reads for Azure NetApp Files, cross-region replication, or cross-zone replication do ***not*** "warm" the data.
-<!-- confirm update with SMEs -->
+By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
 >[!IMPORTANT]
 >If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
@@ -53,6 +52,7 @@ Standard storage with cool access is supported for the following regions:
 * Germany North 
 * Germany West Central
 * Israel Central
+* Italy North 
 * Japan East
 * Japan West 
 * Korea Central

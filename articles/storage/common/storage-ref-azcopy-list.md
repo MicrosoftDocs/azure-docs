@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy list com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 05/31/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -38,13 +38,17 @@ azcopy list [containerURL] --properties [semicolon(;) separated list of attribut
 
 `-h`, `--help`    Help for list
 
-`--machine-readable`    Lists file sizes in bytes.
+`--location`  Optionally specifies the location. For Example: `Blob`,`File`, `BlobFS`.
 
-`--mega-units`    Displays units in orders of 1000, not 1024.
+`--machine-readable`    False by default.  Lists file sizes in bytes.
 
-`--properties`    (string)    delimiter (;) separated values of properties required in list output.
+`--mega-units`    False by default. Displays units in orders of 1000, not 1024.
 
-`--running-tally`    Counts the total number of files and their sizes.
+`--properties`     Properties to be displayed in list output. Possible properties include: `LastModifiedTime`, `VersionId`, `BlobType`, `BlobAccessTier`, `ContentType`, `ContentEncoding`, `ContentMD5`, `LeaseState`, `LeaseDuration`, `LeaseStatus`, `ArchiveStatus`. Delimiter (;) should be used to separate multiple values of properties (For example: 'LastModifiedTime;VersionId;BlobType').
+
+`--running-tally`    False by default. Counts the total number of files and their sizes.
+
+`--trailing-dot`  Enabled by default to treat file share related operations in a safe manner. Available options: `Enable`, `Disable`. Choose `Disable` to go back to legacy (potentially unsafe) treatment of trailing dot files where the file service will trim any trailing dots in paths. This can result in potential data corruption if the transfer contains two paths that differ only by a trailing dot (For example `mypath` and `mypath.`). If this flag is set to `Disable` and AzCopy encounters a trailing dot file, it will warn customers in the scanning log but will not attempt to abort the operation. If the destination does not support trailing dot files (Windows or Blob Storage), AzCopy will fail if the trailing dot file is the root of the transfer and skip any trailing dot paths encountered during enumeration.
 
 ## Options inherited from parent commands
 

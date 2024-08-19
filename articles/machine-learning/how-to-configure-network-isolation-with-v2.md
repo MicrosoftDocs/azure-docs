@@ -3,13 +3,13 @@ title: Network isolation change with our new API platform on Azure Resource Mana
 titleSuffix: Azure Machine Learning
 description: 'Explain network isolation changes with our new API platform on Azure Resource Manager and how to maintain network isolation'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 09/13/2023
 ---
 

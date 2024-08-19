@@ -1,18 +1,26 @@
 ---
-title: Configure multiple IP addresses for ARO cluster load balancers (Preview)
+title: Configure multiple IP addresses for ARO cluster load balancers
 description: Discover how to configure multiple IP addresses for ARO cluster load balancers.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2024
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
 # Configure multiple IP addresses per ARO cluster load balancer
 
-ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
+ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 65. To be able to scale your cluster to the maximum supported number of 250 nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
+
+> [!CAUTION]
+> Before deleting a large cluster, descale the cluster to 120 nodes or below.
+> 
+
+> [!NOTE]
+> The [API](/rest/api/openshift/open-shift-clusters/update?view=rest-openshift-2023-11-22&tabs=HTTP) method for using this feature is generally available. General availability for using the CLI for this feature is coming soon. The [preview version](#download-aro-extension-wheel-file-preview-only) of this feature can still be used through the CLI.
+> 
 
 ## Requirements
 
@@ -35,6 +43,12 @@ az network lb list -g $CLUSTER_RESOURCEGROUP -o table
 ```
 
 If you have a loadbalancer named `$CLUSTER-public-lb`, the cluster has the older network architecture and can't use the multiple public IP feature.
+
+### Download ARO extension wheel file (Preview only)
+
+In order to run the commands in this article, you must first download the ARO extension wheel file from [https://aka.ms/az-aroext-latest](https://aka.ms/az-aroext-latest). To install the extension, run the following command:
+
+`az extension add -s <path to downloaded whl file>`
 
 ## Create the cluster with multiple IP addresses 
 

@@ -4,6 +4,8 @@ description: Understand typical use case scenarios for Service Connector, and le
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom:
+  - build-2024
 ms.topic: overview
 ms.date: 05/06/2024
 ---
@@ -45,7 +47,7 @@ Once a service connection is created, developers can validate and check the heal
 
 **Target Services:**
 
-* Apache Kafka on Confluent Cloud
+* Azure AI services
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
@@ -58,6 +60,7 @@ Once a service connection is created, developers can validate and check the heal
 * Azure SignalR Service
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Web PubSub
+* Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?
 

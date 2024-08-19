@@ -2,7 +2,7 @@
 title: Azure Disk Encryption sample scripts
 description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: linux
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, linux-related-content
 # Azure Disk Encryption sample scripts for Linux VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
@@ -279,7 +279,7 @@ To configure encryption during the distribution installation, do the following s
 
    ![openSUSE 13.2 Setup - Provide passphrase on boot](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-152). Don't run the last step (deprovisioning the VM) yet.
+3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-154). Don't run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following steps:
 

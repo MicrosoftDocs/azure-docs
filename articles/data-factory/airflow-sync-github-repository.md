@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions for how to sync a G
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 09/19/2023
 ---
@@ -14,7 +13,7 @@ ms.date: 09/19/2023
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
 In this article, you learn how to synchronize your GitHub repository in Azure Data Factory Workflow Orchestration Manager in two different ways:
 

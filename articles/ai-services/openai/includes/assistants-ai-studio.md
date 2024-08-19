@@ -5,20 +5,18 @@ description: Walkthrough on how to get started with Azure OpenAI assistants with
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 03/04/2024
 ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An [Azure AI hub resource](../../../ai-studio/how-to/create-azure-ai-resource.md) with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 - An [Azure AI project](../../../ai-studio/how-to/create-projects.md) in Azure AI Studio.
 
@@ -26,7 +24,7 @@ author: mrbullwinkle
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../../../ai-studio//how-to/create-projects.md) in Azure AI Studio.
-1. From the Azure AI Studio Home page, select **Build** > **Playground**.
+1. From your project overview, select **Assistants**, located under **Project playground**.
 
     The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
     
@@ -39,22 +37,19 @@ author: mrbullwinkle
     | **Deployment** | This is where you set which model deployment to use with your assistant. |
     | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications. Not used in this quickstart. |
     | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
-    | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
-    
-    
-1. Select your deployment from the **Deployments** dropdown.
-1. Select **Assistants** from the **Mode** dropdown menu.
+    | **Files** | You can upload up to 10,000 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
     
     :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 
 ## Create your first Assistant
 
+1. Select your deployment from the **Deployments** dropdown.
 1. From the Assistant setup drop-down, select **New**.
-2. Give your Assistant a name.
-3. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
-4. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
-5. Select the toggle enabling code interpreter.
-6. Select Save.
+1. Give your Assistant a name.
+1. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
+1. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
+1. Select the toggle enabling code interpreter.
+1. Select Save.
 
     :::image type="content" source="../media/quickstarts/assistant-configuration.png" alt-text="Screenshot of the assistant with configuration details entered." lightbox="../media/quickstarts/assistant-configuration.png":::
 
@@ -121,7 +116,7 @@ By default there are three panels: assistant setup, chat session, and Logs. **Sh
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 Alternatively you can delete the [assistant](../assistants-reference.md#delete-assistant), or [thread](../assistants-reference-threads.md#delete-thread) via the [Assistant's API](../assistants-reference.md).

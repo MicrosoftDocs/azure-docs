@@ -6,7 +6,7 @@ summary: Azure Virtual Machine Scale Sets let you create and manage a group of l
 metadata:
   title: Virtual Machine Scale Sets documentation
   description: Learn how to create, configure, manage, and autoscale Virtual Machine Scale Sets.
-  ms.service: virtual-machine-scale-sets
+  ms.service: azure-virtual-machine-scale-sets
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman

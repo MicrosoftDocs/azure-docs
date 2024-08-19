@@ -3,7 +3,7 @@ title: API server Azure Static Web Apps CLI
 description: API server Azure Static Web Apps CLI
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 02/02/2024
 ms.author: cshoe

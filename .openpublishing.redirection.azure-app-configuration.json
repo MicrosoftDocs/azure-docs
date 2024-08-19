@@ -24,6 +24,11 @@
             "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
             "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/concept-github-action.md",
+            "redirect_url": "/azure/azure-app-configuration/push-kv-github-action",
+            "redirect_document_id": false
         }
     ]
 }

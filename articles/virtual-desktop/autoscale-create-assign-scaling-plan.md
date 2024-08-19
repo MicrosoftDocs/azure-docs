@@ -1,12 +1,11 @@
 ---
 title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
 description: How to create and assign an autoscale scaling plan to optimize deployment costs.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 04/18/2024
-ms.author: helohr
-manager: femila
-ms.custom: references_regions, devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: references_regions, devx-track-azurepowershell, docs_inherited
 ---
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
@@ -27,14 +26,15 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 To use scaling plans, make sure you follow these guidelines:
 
 - Scaling plan configuration data must be stored in the same region as the host pool configuration. Deploying session host VMs is supported in all Azure regions.
-- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
-- You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
-- If you want to use personal desktop autoscale with hibernation (preview), you will need to enable the hibernation feature when [creating VMs](deploy-azure-virtual-desktop.md) for your personal host pool. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
 
-    > [!IMPORTANT]
-    > Hibernation is currently in PREVIEW.
-    > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
+
+- You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
+
+- If you want to use personal desktop autoscale with hibernation, you'll need to enable the hibernation feature for VMs in your personal host pool. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
+
 - If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+
 - If you are [configuring a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune), you will need: 
     - A Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role.
     - A group containing the devices you want to configure.

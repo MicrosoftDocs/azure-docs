@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 08/14/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -17,7 +17,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
@@ -107,19 +107,19 @@ We don’t allow changing billing frequency after a reservation is purchased. If
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -AppliedScopeType Single -AppliedScope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     ```
 
 ## Cancel, exchange, or refund reservations

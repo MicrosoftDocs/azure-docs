@@ -1,13 +1,13 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 10/26/2023
-ms.service: bastion
+ms.date: 04/30/2024
+ms.service: azure-bastion
 ms.topic: include
 ms.custom: references_regions
 ---
 
-The Developer SKU (Preview) is currently available in the following regions:
+The Developer SKU is currently available in the following regions:
 
 * Central US EUAP
 * East US 2 EUAP

@@ -134,11 +134,6 @@
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/physical-server-azure-architecture-preview.md",
-            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
-            "redirect_document_id": false
         }
     ]
 }

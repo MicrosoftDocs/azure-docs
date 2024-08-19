@@ -1,15 +1,15 @@
 ---
-title: Overview - On-premises AD DS authentication to Azure file shares
-description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over supported scenarios, availability, and explains how the permissions work between your AD DS and Microsoft Entra ID.
+title: Overview of on-premises AD DS authentication for Azure Files
+description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares over SMB, including supported scenarios and how permissions work between AD DS and Microsoft Entra ID.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 recommendations: false
 ---
 
-# Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares
+# Overview: On-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
@@ -31,7 +31,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Supports single sign-on experience.
-- Only supported on Windows clients running OS versions Windows 8/Windows Server 2012 or newer, or Linux VMs (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure.
+- Only supported on Windows clients running OS versions Windows 8/Windows Server 2012 or newer, or Linux VMs (Ubuntu 18.04+ or an equivalent RHEL or SLES VM).
 - Only supported against the AD forest that the storage account is registered to. Users belonging to different domains within the same forest should be able to access the file share and underlying directories/files as long as they have the appropriate permissions.  
 - You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Doesn't support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC. You can either [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow computer accounts to access the share, or consider using a service logon account instead.
@@ -95,6 +95,6 @@ The following diagram illustrates the end-to-end workflow for enabling AD DS aut
 
 Identities used to access Azure file shares must be synced to Microsoft Entra ID to enforce share-level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-premises file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
 
-## Next steps
+## Next step
 
 To get started, you must [enable AD DS authentication for your storage account](storage-files-identity-ad-ds-enable.md).

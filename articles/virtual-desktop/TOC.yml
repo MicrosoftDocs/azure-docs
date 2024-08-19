@@ -125,19 +125,19 @@
         href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load balancing methods
-      href: host-pool-load-balancing.md
-      displayName: load-balancing, lb
-    - name: FSLogix Profile Container
+    - name: User profile management
       items:
-      - name: FSLogix Profile Container and Azure Files
+      - name: FSLogix profile container
         displayName: user profiles
-        href: fslogix-containers-azure-files.md
-      - name: Storage options for FSLogix Profile Container
+        href: fslogix-profile-containers.md
+      - name: Storage options for FSLogix profile container
         displayName: user profiles
         href: store-fslogix-profile.md
     - name: Applications
       items:
+      - name: Preferred application group type
+        displayName: applications, apps
+        href: preferred-application-group-type.md
       - name: App attach
         displayName: applications, apps, msix app attach, app attach, app packages, appx packages
         href: app-attach-overview.md
@@ -150,7 +150,11 @@
     - name: Azure Virtual Desktop FAQ
       href: faq.yml
     - name: Deploy on Azure Stack HCI
+      displayName: session hosts, virtual machines, vms, on-premises, on premises
       href: azure-stack-hci-overview.md
+    - name: Deploy on Azure Extended Zones
+      displayName: session hosts, virtual machines, vms, low latency
+      href: azure-extended-zones.md
     - name: Example architecture scenarios
       items:
       - name: Azure Virtual Desktop for the enterprise
@@ -227,6 +231,9 @@
       - name: Uniform Resource Identifier schemes
         displayName: uri schemes
         href: uri-scheme.md
+    - name: Peripheral and resource redirection
+      displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
+      href: redirection-remote-desktop-protocol.md
     - name: Multimedia redirection
       displayName: mmr
       href: multimedia-redirection-intro.md
@@ -249,18 +256,18 @@
   - name: Deploy
     items:
       - name: Deploy Azure Virtual Desktop
-        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure extended zones
         href: deploy-azure-virtual-desktop.md
-      - name: Use the getting started feature
-        displayName: deploy, create, get started
-        href: getting-started-feature.md
+      - name: Quickstart
+        displayName: deploy, create, get started, quickstart
+        href: quickstart.md
       - name: Session hosts
         items:
         - name: Add session hosts to a host pool
-          displayName: deploy, get started
+          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
           href: add-session-hosts-host-pool.md
         - name: Enable GPU acceleration
-          displayName: graphics, multimedia, videos, cad, session hosts
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
           href: enable-gpu-acceleration.md
         - name: Customize session host images
           items:
@@ -284,6 +291,9 @@
           - name: Windows 11 Enterprise images
             displayName: languages, language packs
             href: windows-11-language-packs.md
+        - name: Configure default chroma value
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
+          href: configure-default-chroma-value.md
       - name: Applications
         items:
         - name: Publish applications with RemoteApp
@@ -306,6 +316,9 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
+        - name: Set preferred application group type
+          displayName: applications, apps, host pool properties
+          href: set-preferred-application-group-type.md
         - name: Specific applications
           items:
           - name: Use Microsoft Teams
@@ -342,9 +355,6 @@
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
-        - name: Limit RDP Shortpath port range
-          displayName: network, udp
-          href: configure-rdp-shortpath-limit-ports-public-networks.md
         - name: Set up Azure Private Link
           displayName: network, private endpoints
           href: private-link-setup.md
@@ -440,7 +450,7 @@
         href: configure-automatic-updates.md
       - name: Start VM on Connect
         items:
-        - name: Set up Start VM on Connect
+        - name: Configure Start VM on Connect
           displayName: svmonc
           href: start-virtual-machine-connect.md
         - name: Start VM on Connect FAQ
@@ -454,12 +464,9 @@
       - name: Watermarking
         displayName: security
         href: watermarking.md
-      - name: Configure clipboard transfer direction
-        displayName: security
-        href: clipboard-transfer-direction-data-types.md
-    - name: Set up a disaster recovery plan
-      displayName: bcdr, bc dr
-      href: disaster-recovery.md
+      - name: Onboard to Purview forensic evidence
+        displayName: security, purview insider risk management
+        href: purview-forensic-evidence.md
   - name: Connect
     items:
     - name: Windows App
@@ -507,8 +514,46 @@
       - name: Install the Remote Desktop client for Windows on a per-user basis
         displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
         href: install-windows-client-per-user.md
-    - name: Configure device redirections
-      href: configure-device-redirections.md
+    - name: Configure redirection
+      items:
+      - name: Audio and video
+        displayName: devices, peripherals, redirections, speakers, microphone, headset, multimedia, playback
+        href: redirection-configure-audio-video.md
+      - name: Cameras, webcams, and video capture
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-camera-webcam-video-capture.md
+      - name: Clipboard
+        displayName: devices, peripherals, redirections, copy, paste
+        href: redirection-configure-clipboard.md
+      - name: Clipboard transfer direction and data types
+        displayName: security, unidirectional, copy, paste
+        href: clipboard-transfer-direction-data-types.md
+      - name: Drives and storage
+        displayName: devices, peripherals, redirections, usb, drives, storage, flash drive
+        href: redirection-configure-drives-storage.md
+      - name: Location
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-location.md
+      - name: MTP and PTP
+        displayName: devices, peripherals, redirections, plug n play, digital cameras, media players
+        href: redirection-configure-plug-play-mtp-ptp.md
+      - name: Printers
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-printers.md
+      - name: Serial/COM ports
+        displayName: devices, peripherals, redirections, rs232
+        href: redirection-configure-serial-com-ports.md
+      - name: Smart cards
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-smart-cards.md
+      - name: USB
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-usb.md
+      - name: WebAuthn
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-webauthn.md
+    - name: Configure client redirection using Intune
+      href: client-device-redirection-intune.md
     - name: Set up email discovery
       displayName: connect
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
@@ -551,9 +596,9 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Getting started feature
+  - name: Quickstart
     displayName: troubleshooting
-    href: troubleshoot-getting-started.md
+    href: troubleshoot-quickstart.md
   - name: Host pool creation
     displayName: troubleshooting
     href: troubleshoot-set-up-issues.md
@@ -656,8 +701,6 @@
     href: msixmgr-tool-syntax-description.md 
 - name: Resources
   items:
-  - name: User experience estimator
-    href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing
     items:
     - name: Azure Virtual Desktop pricing
@@ -679,8 +722,6 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
-  - name: Azure Virtual Desktop roadmap
-    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     displayName: arm
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates

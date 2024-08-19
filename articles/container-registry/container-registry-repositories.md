@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # View container registry repositories in the Azure portal
@@ -43,7 +43,7 @@ For example, if you pushed the Nginx image as instructed in [Push and pull an im
 
 ## Next steps
 
-Now that you know the basics of viewing and working with repositories in the portal, try using Azure Container Registry with an [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
+Now that you know the basics of viewing and working with repositories in the portal, try using Azure Container Registry with an [Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-prepare-app) cluster.
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

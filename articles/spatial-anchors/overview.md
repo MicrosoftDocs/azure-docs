@@ -13,6 +13,9 @@ ms.service: azure-spatial-anchors
 
 # Azure Spatial Anchors overview
 
+> [!NOTE]
+> Please note that Azure Spatial Anchors (ASA) will be retired on **November 20, 2024**. More details [here](https://azure.microsoft.com/updates/azure-spatial-anchors-retirement/).
+
 Welcome to Azure Spatial Anchors. Azure Spatial Anchors empowers developers with essential capabilities to build spatially aware
 mixed reality applications. These applications may support Microsoft HoloLens, iOS-based devices supporting ARKit, and
 Android-based devices supporting ARCore. Azure Spatial Anchors enables developers to work with mixed reality platforms to

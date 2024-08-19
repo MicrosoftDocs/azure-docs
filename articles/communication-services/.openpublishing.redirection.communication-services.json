@@ -231,11 +231,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-overview.md",
-            "redirect_url": "/communication-services/tutorials/calling-widget/calling-widget-tutorial",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-tutorial-part-1-creating-your-widget.md",
             "redirect_url": "/communication-services/tutorials/calling-widget/calling-widget-tutorial",
             "redirect_document_id": false
@@ -429,6 +424,31 @@
         {
             "source_path_from_root": "/articles/communication-services/quickstarts/relay-token.md",
             "redirect_url": "https://azure.microsoft.com/updates/retirement-notice-azure-communication-services-network-traversal-turn-public-preview-is-retiring/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/media-comp.md",
+            "redirect_url": "/azure/communication-services/concepts/voice-video-calling/calling-sdk-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/media-composition/define-media-composition.md",
+            "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/media-composition/get-started-media-composition.md",
+            "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/azure/communication-services/how-tos/call-automation/audio-streaming-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/azure/communication-services/concepts/call-automation/audio-streaming-concept",
             "redirect_document_id": false
         }
     ]

@@ -4,9 +4,9 @@ titleSuffix: Azure Virtual Network
 description: Learn how to use the Azure portal to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.author: allensu
-ms.date: 06/06/2023
+ms.date: 05/29/2024
 ms.topic: quickstart
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: ai-video-concept
 #Customer intent: As a network administrator, I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
@@ -15,7 +15,7 @@ ms.custom: ai-video-concept
 
 This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, deploy Azure Bastion to securely connect to the VMs from the internet, and start private communication between the VMs.
 
-:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-portal/virtual-network-qs-resources.png":::
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
@@ -29,7 +29,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [create-two-virtual-machines.md](../../includes/create-two-virtual-machines.md)]
 
@@ -81,7 +81,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. Close the Bastion connection to **vm-2**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

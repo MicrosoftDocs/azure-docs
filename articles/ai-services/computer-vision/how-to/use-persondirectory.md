@@ -56,7 +56,7 @@ var client = new HttpClient();
 // Request headers
 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");
 
-var addPersonUri = "https:// {endpoint}/face/v1.0-preview/persons";
+var addPersonUri = "https://{endpoint}/face/v1.0-preview/persons";
 
 HttpResponseMessage response;
 
@@ -113,10 +113,7 @@ Stopwatch s = Stopwatch.StartNew();
 string status = "notstarted";
 do
 {
-    if (status == "succeeded")
-    {
-        await Task.Delay(500);
-    }
+    await Task.Delay(500);
 
     var operationResponseMessage = await client.GetAsync(operationLocation);
 
@@ -385,8 +382,7 @@ HttpResponseMessage response;
 var body = new Dictionary<string, object>();
 body.Add("faceId", "{guid1}");
 body.Add("personId", "{guid1}");
-var jsSerializer = new JavaScriptSerializer();
-byte[] byteData = Encoding.UTF8.GetBytes(jsSerializer.Serialize(body));
+byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))
 {

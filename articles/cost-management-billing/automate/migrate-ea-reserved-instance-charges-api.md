@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Charges API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -45,7 +45,7 @@ Old response:
         "armSkuName": "Standard_F1s",
         "term": "P1Y",
         "region": "eastus",
-        "PurchasingsubscriptionGuid": "00000000-0000-0000-0000-000000000000",
+        "PurchasingsubscriptionGuid": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "PurchasingsubscriptionName": "string",
         "accountName": "string",
         "accountOwnerEmail": "string",
@@ -54,7 +54,7 @@ Old response:
         "currentEnrollment": "string",
         "billingFrequency": "OneTime",
         "eventDate": "string",
-        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+        "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "description": "Standard_F1s eastus 1 Year",
         "eventType": "Purchase",
         "quantity": int,
@@ -75,7 +75,7 @@ New response:
   "tags": [],
   "properties": {
     "eventDate": "2019-09-09T19:19:04Z",
-    "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+    "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
     "description": "Standard_DS1_v2 westus 1 Year",
     "eventType": "Refund",
     "quantity": 1,
@@ -86,7 +86,7 @@ New response:
     "armSkuName": "Standard_DS1_v2",
     "term": "P1Y",
     "region": "westus",
-    "purchasingSubscriptionGuid": "a838a8c3-a408-49e1-ac90-42cb95bff9b2",
+    "purchasingSubscriptionGuid": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "purchasingSubscriptionName": "Infrastructure Subscription",
     "accountName": "Microsoft Infrastructure",
     "accountOwnerEmail": "admin@microsoft.com",
@@ -100,6 +100,6 @@ New response:
 }
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

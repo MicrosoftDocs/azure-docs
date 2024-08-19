@@ -1,7 +1,7 @@
 ---
 title: Configure catalogs in Azure HDInsight on AKS
 description: Add catalogs to an existing Trino cluster in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to 
 ms.date: 10/19/2023
@@ -79,7 +79,7 @@ This article demonstrates how you can add a new catalog to your cluster using AR
                         },
                         {
                             "fileName": "trinotestdb1.properties",
-                            "content":"connector.name=sqlserver\nconnection-url=jdbc:sqlserver://mysqlserver1.database.windows.net:1433;database=db1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;\nconnection-user=${SECRET_REF:trinotest-admin-user}\nconnection-password=${SECRET_REF:trinotest-admin-pwd}\n"
+                            "content":"connector.name=sqlserver\nconnection-url=jdbc:sqlserver://server-name.database.windows.net:1433;database=db1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;\nconnection-user=${SECRET_REF:trinotest-admin-user}\nconnection-password=${SECRET_REF:trinotest-admin-pwd}\n"
                         },
                     ]
                 }

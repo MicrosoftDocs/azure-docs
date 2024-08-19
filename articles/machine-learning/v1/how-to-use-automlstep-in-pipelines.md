@@ -3,7 +3,7 @@ title: Use automated ML in ML pipelines
 titleSuffix: Azure Machine Learning
 description: The AutoMLStep allows you to use automated machine learning in your pipelines.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 author: manashgoswami
 ms.author: manashg

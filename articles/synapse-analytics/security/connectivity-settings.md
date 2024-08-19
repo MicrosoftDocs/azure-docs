@@ -5,7 +5,7 @@ author: danzhang-msft
 ms.author: danzhang
 ms.reviewer: wiassaf
 ms.date: 02/28/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ---
@@ -25,6 +25,7 @@ You can use the public network access feature to allow incoming public network c
 > This feature is only available to Azure Synapse workspaces associated with [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md). However, you can still open your Synapse workspaces to the public network regardless of its association with managed VNet.
 > 
 > When the public network access is disabled, access to GIT mode in Synapse Studio and commit changes won't be blocked as long as the user has enough permission to access the integrated Git repo or the corresponding Git branch. However, the publish button won't work because the access to Live mode is blocked by the firewall settings.
+> When the public network access is disabled, the self-hosted integration runtime can still communicate with Synapse. We do not currently support establishing a private link between a self-hosted integration runtime and Synapse control plane.
 
 Selecting the **Disable** option will not apply any firewall rules that you might configure. Additionally, your firewall rules will appear grayed out in the Network setting in Synapse portal. Your firewall configurations are reapplied when you enable public network access again. 
 

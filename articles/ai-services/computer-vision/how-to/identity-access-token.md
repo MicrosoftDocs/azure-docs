@@ -19,7 +19,7 @@ Independent software vendors (ISVs) can manage the Face API usage of their clien
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The limited access token feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
+The limited access token feature is a part of the existing Azure AI Services token service. We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
@@ -33,9 +33,9 @@ If the ISV learns that a client is using the LimitedAccessToken for non-approved
 
 ## Prerequisites
 
-* [cURL](https://curl.haxx.se/) installed (or another tool that can make HTTP requests).
-* The ISV needs to have either an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or an [Azure AI services multi-service](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
-* The client needs to have an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
+* [cURL](https://curl.se/) installed (or another tool that can make HTTP requests).
+* The ISV needs to have either an [Azure AI Face](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or an [Azure AI services multi-service](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
+* The client needs to have an [Azure AI Face](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
 
 ## Step 1: ISV obtains client's Face resource ID
 
@@ -112,65 +112,54 @@ curl -X POST 'https://<client-endpoint>/face/v1.0/identify' \
 
 #### [C#](#tab/csharp)
 
-The following code snippets show you how to use an access token with the [Face SDK for C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face).
+The following code snippets show you how to use an access token with the [Face SDK for C#](https://aka.ms/azsdk-csharp-face-pkg).
 
-The following class uses an access token to create a **ServiceClientCredentials** object that can be used to authenticate a Face API client object. It automatically adds the access token as a header in every request that the Face client will make.
+The following class uses an access token to create a **HttpPipelineSynchronousPolicy** object that can be used to authenticate a Face API client object. It automatically adds the access token as a header in every request that the Face client will make.
 
 ```csharp
-public class LimitedAccessTokenWithApiKeyClientCredential : ServiceClientCredentials 
+public class LimitedAccessTokenPolicy : HttpPipelineSynchronousPolicy
 {
-    /// <summary> 
-    /// Creates a new instance of the LimitedAccessTokenWithApiKeyClientCredential class 
-    /// </summary> 
-    /// <param name="apiKey">API Key for the Face API or CognitiveService endpoint</param> 
-    /// <param name="limitedAccessToken">LimitedAccessToken to bypass the limited access program, requires ISV sponsership.</param> 
-
-    public LimitedAccessTokenWithApiKeyClientCredential(string apiKey, string limitedAccessToken) 
-    { 
-        this.ApiKey = apiKey; 
-        this.LimitedAccessToken = limitedAccessToken; 
+    /// <summary>
+    /// Creates a new instance of the LimitedAccessTokenPolicy class
+    /// </summary>
+    /// <param name="limitedAccessToken">LimitedAccessToken to bypass the limited access program, requires ISV sponsership.</param>
+    public LimitedAccessTokenPolicy(string limitedAccessToken)
+    {
+        _limitedAccessToken = limitedAccessToken;
     }
 
-    private readonly string ApiKey; 
-    private readonly string LimitedAccesToken; 
+    private readonly string _limitedAccessToken;
 
-    /// <summary> 
-    /// Add the Basic Authentication Header to each outgoing request 
-    /// </summary> 
-    /// <param name="request">The outgoing request</param>
-    /// <param name="cancellationToken">A token to cancel the operation</param> 
-    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken) 
-    { 
-        if (request == null) 
-            throw new ArgumentNullException("request"); 
-        request.Headers.Add("Ocp-Apim-Subscription-Key", ApiKey); 
-        request.Headers.Add("LimitedAccessToken", $"Bearer {LimitedAccesToken}");
-
-        return Task.FromResult<object>(null); 
-    } 
-} 
+    /// <summary>
+    /// Add the authentication header to each outgoing request
+    /// </summary>
+    /// <param name="message">The outgoing message</param>
+    public override void OnSendingRequest(HttpMessage message)
+    {
+        message.Request.Headers.Add("LimitedAccessToken", $"Bearer {_limitedAccessToken}");
+    }
+}
 ```
 
 In the client-side application, the helper class can be used like in this example:
 
 ```csharp
-static void Main(string[] args) 
-{ 
+static void Main(string[] args)
+{
     // create Face client object
-    var faceClient = new FaceClient(new LimitedAccessTokenWithApiKeyClientCredential(apiKey: "<client-face-key>", limitedAccessToken: "<token>")); 
-
-    faceClient.Endpoint = "https://willtest-eastus2.cognitiveservices.azure.com"; 
+    var clientOptions = new AzureAIVisionFaceClientOptions();
+    clientOptions.AddPolicy(new LimitedAccessTokenPolicy("<token>"), HttpPipelinePosition.PerCall);
+    FaceClient faceClient = new FaceClient(new Uri("<client-endpoint>"), new AzureKeyCredential("<client-face-key>"), clientOptions);
 
     // use Face client in an API call
-    using (var stream = File.OpenRead("photo.jpg")) 
+    using (var stream = File.OpenRead("photo.jpg"))
     {
-        var result = faceClient.Face.DetectWithStreamAsync(stream, detectionModel: "Detection_03", recognitionModel: "Recognition_04", returnFaceId: true).Result; 
+        var response = faceClient.Detect(BinaryData.FromStream(stream), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true);
 
-        Console.WriteLine(JsonConvert.SerializeObject(result)); 
+        Console.WriteLine(JsonConvert.SerializeObject(response.Value));
     }
 }
 ```
 ---
 
-## Next steps
-* [LimitedAccessToken API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueLimitedAccessToken)
+

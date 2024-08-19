@@ -3,7 +3,7 @@ title: Hive Warehouse Connector 2.0 APIs in Azure HDInsight
 description: Learn about how to use HWC 2.0 Supported APIs
 author: rishikeshmohanty
 ms.author: mohantyr
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 01/04/2024
 ---

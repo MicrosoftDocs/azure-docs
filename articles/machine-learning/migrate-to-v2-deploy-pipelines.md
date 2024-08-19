@@ -3,13 +3,13 @@ title: Upgrade pipeline endpoints to SDK v2
 titleSuffix: Azure Machine Learning
 description: Upgrade pipeline endpoints from v1 to v2 of Azure Machine Learning SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-author: santiagxf
-ms.author: fasantia
+author: sdgilley
+ms.author: sgilley
 ms.date: 05/01/2023
-ms.reviewer: sgilley
+ms.reviewer: fasantia
 ms.custom:
   - migration
   - ignite-2023

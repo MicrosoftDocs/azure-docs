@@ -5,7 +5,9 @@ description: Details of known issues and restrictions on OpenAPI, WSDL, and WADL
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/24/2024
 ms.author: danlep
@@ -46,7 +48,7 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 | Requirement | Description |
 | ----------- | ----------- |
-| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template.</li></ul>  |
+| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template. Names are case-insensitive.</li></ul>  |
 | **Defined URL parameter** | Must be part of the URL template. |
 | **Available source file URL** | Applied to relative server URLs. |
 | **`\$ref` pointers** | Can't reference external files. |
@@ -256,7 +258,7 @@ Namespaces other than the target aren't preserved on export. While you can impor
 WSDL files can define multiple services and endpoints (ports) by one or more `wsdl:service` and `wsdl:port` elements. However, the API Management gateway is able to import and proxy requests to only a single service and endpoint. If multiple services or endpoints are defined in the WSDL file, identify the target service name and endpoint when importing the API by using the [wsdlSelector](/rest/api/apimanagement/apis/create-or-update#wsdlselector) property.
 
 > [!TIP]
-> If you want to load-balance requests across multiple services and endpoints, consider configuring a [load-balanced backend pool](backends.md#load-balanced-pool-preview).
+> If you want to load-balance requests across multiple services and endpoints, consider configuring a [load-balanced backend pool](backends.md#load-balanced-pool).
 
 ### Arrays 
 SOAP-to-REST transformation supports only wrapped arrays shown in the example below:

@@ -1,11 +1,11 @@
 ---
-title: NG sub-family VM size series
-description: Overview of the 'NG' sub-family of virtual machine sizes
+title: NG family VM size series
+description: List of sizes in the NG family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/18/2024
+ms.date: 06/06/2024
 ms.author: mattmcinnes
 ---
 
@@ -22,11 +22,14 @@ ms.author: mattmcinnes
 ## Series in family
 
 ### NGads V620-series
-[!INCLUDE [ngads-v620-series-summary](./includes/ngads-v620-series-summary.md)]
+[!INCLUDE [ngads-v620-series-summary](./includes/ngadsv620-series-summary.md)]
 
-[View the full NGads v620-series page](../../ngads-v-620-series.md).
+[View the full NGads v620-series page](./ngadsv620-series.md).
 
-[!INCLUDE [ngads-v620-series-specs](./includes/ngads-v620-series-specs.md)]
+[!INCLUDE [ngads-v620-series-specs](./includes/ngadsv620-series-specs.md)]
 
+
+### Previous-generation NG family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

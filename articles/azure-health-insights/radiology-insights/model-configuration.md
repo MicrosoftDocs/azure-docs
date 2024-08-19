@@ -50,7 +50,7 @@ false  | No Evidence is returned
 **FindingOptions**
 - provideFocusedSentenceEvidence
 - type: boolean
-- Provide a single focused sentence as evidence for the finding, default is false.
+- Provide a single focused sentence as evidence for the finding, default is true.
 
 **FollowupRecommendationOptions**
 - includeRecommendationsWithNoSpecifiedModality
@@ -64,7 +64,7 @@ false  | No Evidence is returned
 
 - provideFocusedSentenceEvidence
     - type: boolean
-    - description: Provide a single focused sentence as evidence for the recommendation, default is false.
+    - description: Provide a single focused sentence as evidence for the recommendation, default is true.
 
 
 IncludeEvidence
@@ -80,17 +80,23 @@ IncludeEvidence
 
 **Example 1** 
 
-CDARecommendation_GuidelineFalseUnspecTrueLimited
-
+followupRecommendationOptions:
 - includeRecommendationsWithNoSpecifiedModality is true
 - includeRecommendationsInReferences are false
-- provideFocusedSentenceEvidence for recommendations is true
-- includeEvidence is true
+- provideFocusedSentenceEvidence for recommendations is false
 
-As a result, the model includes evidence for all inferences. 
-- The model checks for follow-up recommendations with a specified modality.
-- The model checks for follow-up recommendations with no specific radiologic modality.
-- The model provides a single focused sentence as evidence for the recommendation. 
+ 
+
+As a result:
+
+The model checks for follow-up recommendations with a specified modality (such as DIAGNOSTIC ULTRASONOGRAPHY)
+and for recommendations with no specific radiologic modality (such as RADIOGRAPHIC IMAGING PROCEDURE).
+The model does not check for a recommendation in a guideline.
+The model does not provide a single focused sentence as evidence for the recommendation.
+ 
+ 
+- includeEvidence is true. (The model includes evidence for all inferences.)
+
 
 Examples request/response json:
 
@@ -103,17 +109,16 @@ Examples request/response json:
 
 **Example 2**
 
-CDARecommendation_GuidelineTrueUnspecFalseLimited
-
+followupRecommendationOptions:
 - includeRecommendationsWithNoSpecifiedModality is false
 - includeRecommendationsInReferences are true
 - provideFocusedSentenceEvidence for findings is true
 - includeEvidence is true 
 
-As a result, the model includes evidence for all inferences. 
-- The model checks for follow-up recommendations with a specified modality.
-- The model checks for a recommendation in a guideline.
-- The model provides a single focused sentence as evidence for the finding. 
+As a result:
+The model checks for follow-up recommendations with a specified modality, not for and for recommendations with a nonspecific radiologic modality.
+The model checks for a recommendation in a guideline.
+The model provides a single focused sentence as evidence for the recommendation. 
 
 
 Examples request/response json:

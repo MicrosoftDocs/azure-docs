@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 07/19/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -36,7 +36,7 @@ This article describes how to perform lifecycle management operations on bare me
 
 1. Install the latest version of the
    [appropriate CLI extensions](./howto-install-cli-extensions.md).
-1. Get the name of the resource group for the BMM.
+1. Get the name of the resource group for the BMM - Cluster managed resource group name (cluster_MRG) .
 1. Get the name of the bare metal machine that requires a lifecycle management operation.
 1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`.
    1. This prerequisite isn't applicable for the `start` command.
@@ -48,7 +48,7 @@ This command will `power-off` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine power-off \
   --name "bareMetalMachineName"  \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 ## Start the BMM
@@ -58,7 +58,7 @@ This command will `start` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine start \
   --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 ## Restart the BMM
@@ -68,7 +68,7 @@ This command will `restart` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine restart \
   --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 ## Make a BMM unschedulable (cordon)
@@ -85,7 +85,7 @@ parameter, the workloads that are running on the BMM are `stopped` and the BMM i
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -98,12 +98,12 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 ```azurecli
 az networkcloud baremetalmachine uncordon \
   --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 ## Reimage a BMM
 
-You can restore the runtime version on a BMM by executing the `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't affect the tenant workload files on this BMM.
+You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM. In the event of a write or edit action being performed on the node via BMM access, this 'reimage' action is required to restore Microsoft support and the changes will be lost, restoring the node to it's expected state.
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, before executing the `reimage` command.
 
@@ -115,7 +115,7 @@ command, with `evacuate "True"`, before executing the `reimage` command.
 ```azurecli
 az networkcloud baremetalmachine reimage \
   –-name "bareMetalMachineName"  \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_MRG"
 ```
 
 ## Replace BMM
@@ -130,10 +130,10 @@ Use the `replace` command when a server encounters hardware issues requiring a c
 ```azurecli
 az networkcloud baremetalmachine replace \
   --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --bmc-credentials password="{password}" username="{user}" \
   --bmc-mac-address "00:00:4f:00:57:ad" \
   --boot-mac-address "00:00:4e:00:58:af" \
-  --machine-name "name" \
+  --machine-name "OS_hostname" \
   --serial-number "BM1219XXX"
 ```

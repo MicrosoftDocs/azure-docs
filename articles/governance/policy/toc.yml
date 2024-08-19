@@ -21,7 +21,7 @@
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
   - name: Assign a policy - REST
-    displayName: armclient, postman
+    displayName: az rest
     href: ./assign-policy-rest-api.md
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
@@ -139,6 +139,8 @@
         href: ./samples/rbi-itf-nbfc-2017.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
+      - name: Spain ENS
+        href: ./samples/spain-ens.md
       - name: SOC 2 Type 2
         href: ./samples/soc-2.md
       - name: SWIFT CSP-CSCF 2021
@@ -311,12 +313,12 @@
       href: ./concepts/policy-for-kubernetes.md
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
-      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Key Vault integration
     items:
     - name: Integrate Key Vault with Azure Policy
       displayName: key vault, certificate, key
-      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+      href: /azure/key-vault/general/azure-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale

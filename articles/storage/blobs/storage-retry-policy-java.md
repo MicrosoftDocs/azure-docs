@@ -6,8 +6,8 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/03/2024
-ms.custom: devx-track-java, devguide-java
+ms.date: 08/05/2024
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Implement a retry policy with Java
@@ -43,7 +43,7 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 ```
 
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requestsYou can configure various retry strategies for service clients based on the needs of your app.
+In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
 
 ## Related content
 

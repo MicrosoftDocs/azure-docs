@@ -29,7 +29,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 The DocumentExtractionSkill can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Skill parameters
 

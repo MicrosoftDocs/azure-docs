@@ -2,9 +2,87 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 4/22/2024
+ms.date: 7/12/2024
 ms.author: eur
 ---
+
+### August 2024 release
+
+#### Language learning (Preview)
+
+Language learning is now available in public preview. Interactive language learning can make your learning experience more engaging and effective. For more information, see [Interactive language learning with pronunciation assessment](../../language-learning-with-pronunciation-assessment.md).
+
+#### Pronunciation assessment
+
+Speech [pronunciation assessment](../../how-to-pronunciation-assessment.md) now supports 33 languages generally available, and each language is available on all Speech to text [regions](../../regions.md#speech-service). For more information, see the full [language list for Pronunciation assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+| Language | Locale (BCP-47) | 
+|--|--|
+|Arabic (Egypt)|`ar-EG` |
+|Arabic (Saudi Arabia)|`ar-SA` |
+|Catalan|`ca-ES`|
+|Chinese (Cantonese, Traditional)|`zh-HK`|
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`|
+|Danish (Denmark)|`da-DK`|
+|Dutch (Netherlands)|`nl-NL`|
+|English (Australia)|`en-AU`|
+|English (Canada)|`en-CA` |
+|English (India)|`en-IN` |
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|  
+|Finnish (Finland)|`fi-FI`|  
+|French (Canada)|`fr-CA`| 
+|French (France)|`fr-FR`|  
+|German (Germany)|`de-DE`|
+|Hindi (India)|`hi-IN`|
+|Italian (Italy)|`it-IT`|
+|Japanese (Japan)|`ja-JP`|
+|Korean (Korea)|`ko-KR`|
+|Malay (Malaysia)|`ms-MY`|
+|Norwegian Bokmål (Norway)|`nb-NO`|
+|Polish (Poland)|`pl-PL`|
+|Portuguese (Brazil)|`pt-BR`|
+|Portuguese (Portugal)|`pt-PT`|
+|Russian (Russia)|`ru-RU`|
+|Spanish (Mexico)|`es-MX` | 
+|Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`|
+|Tamil (India)|`ta-IN` | 
+|Thai (Thailand)|`th-TH` | 
+|Vietnamese (Vietnam)|`vi-VN` |
+
+
+### July 2024 release
+
+#### Fast Transcription API (Preview)
+
+Fast transcription is now available in public preview. Fast transcription allows you to transcribe audio file to text accurately and synchronously, with a high speed factor. It can transcribe a 30-minutes audio in less than 1 minute. For more information, see the [fast transcription API guide](../../fast-transcription-create.md).
+
+> [!TIP]
+> Try out fast transcription in [Azure AI Studio](https://aka.ms/fasttranscription/studio).
+
+### June 2024 release
+
+#### Speech to text REST API v3.2 general availability
+
+The Speech to text REST API version 3.2 is now generally available. For more information about speech to text REST API v3.2, see the [Speech to text REST API v3.2 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true) and the [Speech to text REST API guide](../../rest-speech-to-text.md). 
+
+> [!NOTE]
+> Preview versions *3.2-preview.1* and *3.2-preview.2* will be removed in September 2024.
+
+[Speech to text REST API](../../rest-speech-to-text.md) v3.1 will be retired on a date to be announced. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
+
+
+### May 2024 release
+
+#### Video translation (Preview)
+
+Video translation is now available in public preview. Video translation is a feature in Azure AI Speech that enables you to seamlessly translate and generate videos in multiple languages automatically. This feature is designed to help you localize your video content to cater to diverse audiences around the globe. You can efficiently create immersive, localized videos across various use cases such as vlogs, education, news, enterprise training, advertising, film, TV shows, and more. For more information, see the [video translation overview](../../video-translation-overview.md).
+
+#### Pronunciation Assessment
+
+Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 24 languages generally available (with one new language added), with 7 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
 ### April 2024 release
 
@@ -52,37 +130,6 @@ Check out [What is the Whisper model?](../../whisper-overview.md) to learn more 
 #### Pronunciation Assessment
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 23 languages generally available (with 5 new languages added), with 3 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
-
-| Language | Locale (BCP-47) | 
-|--|--|
-|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
-|Arabic (Saudi Arabia)|`ar-SA` |
-|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
-|Chinese (Mandarin, Simplified)|`zh-CN`|
-|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
-|English (Australia)|`en-AU`|
-|English (Canada)|`en-CA` |
-|English (India)|`en-IN` |
-|English (United Kingdom)|`en-GB`|
-|English (United States)|`en-US`|  
-|French (Canada)|`fr-CA`| 
-|French (France)|`fr-FR`|  
-|German (Germany)|`de-DE`|
-|Hindi (India)|`hi-IN`|
-|Italian (Italy)|`it-IT`|
-|Japanese (Japan)|`ja-JP`|
-|Korean (Korea)|`ko-KR`|
-|Malay (Malaysia)|`ms-MY`|
-|Norwegian Bokmål (Norway)|`nb-NO`|
-|Portuguese (Brazil)|`pt-BR`|
-|Russian (Russia)|`ru-RU`|
-|Spanish (Mexico)|`es-MX` | 
-|Spanish (Spain)|`es-ES` | 
-|Swedish (Sweden)|`sv-SE`|
-|Tamil (India)|`ta-IN` | 
-|Vietnamese (Vietnam)|`vi-VN` |
-
-<sup>1</sup> The language is in public preview for pronunciation assessment.
 
 #### Phrase list
 

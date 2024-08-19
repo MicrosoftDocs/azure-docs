@@ -7,18 +7,15 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 08/28/2023
+ms.date: 05/20/2024
 ---
 
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
 - Azure PowerShell. For more information, see [How to install the Azure PowerShell](/powershell/azure/install-azure-powershell).
+- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repository to contact Microsoft.
 
 ## Sign in to the Azure PowerShell
 
@@ -88,6 +85,8 @@ $sku = New-Object -TypeName "Microsoft.Azure.Management.CognitiveServices.Models
 
 New-AzCognitiveServicesAccountDeployment -ResourceGroupName OAIResourceGroup -AccountName MyOpenAIResource -Name MyModel -Properties $properties -Sku $sku
 ```
+
+The `Name` property of the `$sku` variable accepts the following deployment types: `Standard`, `GlobalBatch`, `GlobalStandard`, and `ProvisionedManaged`. Learn more about [deployment type options](../how-to/deployment-types.md).
 
 > [!IMPORTANT]
 > When you access the model via the API, you need to refer to the deployment name rather than the underlying model name in API calls, which is one of the [key differences](../how-to/switching-endpoints.yml) between OpenAI and Azure OpenAI. OpenAI only requires the model name. Azure OpenAI always requires deployment name, even when using the model parameter. In our docs, we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.

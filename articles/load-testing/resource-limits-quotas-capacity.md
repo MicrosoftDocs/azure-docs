@@ -3,7 +3,7 @@ title: Service limits
 titleSuffix: Azure Load Testing
 description: 'Service limits used for capacity planning and configuring high-scale load tests in Azure Load Testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
 ms.author: ninallam
 author: ninallam

@@ -1,6 +1,106 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/notebooks-troubleshoot.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
+            "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/detect-threats-built-in.md",
+            "redirect_url": "/azure/sentinel/threat-detection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/detect-threats-custom.md",
+            "redirect_url": "/azure/sentinel/create-analytics-rules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
+            "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#how-to-run-a-playbook",
+            "redirect_url": "/azure/sentinel/playbooks/run-manage-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#recommended-playbooks",
+            "redirect_url": "/azure/sentinel/playbooks/playbooks-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/authenticate-playbooks-to-sentinel.md",
+            "redirect_url": "/azure/sentinel/automation/authenticate-playbooks-to-sentinel",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/automate-responses-with-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automation.md",
+            "redirect_url": "/azure/sentinel/automation/automation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/create-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/create-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/create-tasks-playbook.md",
+            "redirect_url": "/azure/sentinel/automation/create-tasks-playbook",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/define-playbook-access-restrictions.md",
+            "redirect_url": "/azure/sentinel/automation/define-playbook-access-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/logic-apps-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/logic-apps-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/migrate-playbooks-to-automation-rules.md",
+            "redirect_url": "/azure/sentinel/automation/migrate-playbooks-to-automation-rules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/playbook-recommendations.md",
+            "redirect_url": "/azure/sentinel/automation/playbook-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/playbook-triggers-actions.md",
+            "redirect_url": "/azure/sentinel/automation/playbook-triggers-actions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/run-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/run-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/tutorial-respond-threats-playbook.md",
+            "redirect_url": "/azure/sentinel/automation/tutorial-respond-threats-playbook",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/use-playbook-templates.md",
+            "redirect_url": "/azure/sentinel/automation/use-playbook-templates",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/sap/deploy-data-connector-agent-container-other-methods.md",
             "redirect_url": "/azure/sentinel/sap/deploy-data-connector-agent-container",
             "redirect_document_id": true
@@ -62,8 +162,8 @@
         },
         {
             "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
@@ -1122,8 +1222,8 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberark-enterprise-password-vault-epv-events.md",
@@ -1508,6 +1608,42 @@
         {
             "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet-fortiweb-web-application-firewall.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-via-legacy-agent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-stealthwatch.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        }
+,
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management.md",
+            "redirect_url": "/azure/sentinel/data-connectors/tenable-vulnerability-management",
             "redirect_document_id": false
         }
     ]

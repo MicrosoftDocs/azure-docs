@@ -4,7 +4,7 @@ description: Configure rules to access an Azure container registry from behind a
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 

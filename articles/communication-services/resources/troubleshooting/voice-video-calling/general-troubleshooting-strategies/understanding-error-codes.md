@@ -6,31 +6,57 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 04/03/2024
+ms.date: 05/13/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Understanding error messages and codes
+# Understanding calling codes and subcodes errors
 
-The ACS Calling SDK uses a unified framework to represent errors.
-Through error codes, subcodes, and result categories, you can more easily handle errors and find corresponding explanations.
+The Calling SDK and respective server infrastructure use a unified framework to represent errors. Using  error codes, subcodes, and their corresponding result categories, as a developer you can more easily understand these errors and find explanations as to why they happened and how to mitigate in the future. The details about the error results can be viewed as:
+ 
+**Code** Are modeled as 3 digit integers that indicate the response status of a client or server response. They're grouped into:<br>
+- Successful responses (**200-299**)<br>
+- Client error (**400-499**) <br>
+- Server error (**500-599**) <br>
 
-## resultCategories
-
-The `resultCategories` property indicates the type of the error. Depending on the context, the value can be `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`.
-
-For client errors, if the `resultCategories` property is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
-Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app,
-or when the current system state doesn't allow the API call.
-The application should check the error reason and the logic for invoking API.
-
-## Azure Communication Services Calling SDK client error codes
-This document provides a list of codes, subcodes that the Calling SDK API throws. This article also guides you on how to best mitigate these errors.
+**Subcode** Are defined as an integer, where each number indicates a unique reason, specific to a group of scenarios or specific scenario outcome.<br>
+**Message** Describes the outcome, and provides hints how to mitigate the issue problem if an outcome is a failure.<br>
+**ResultCategory** - Indicates the type of the error. Depending on the context, the value can be `Success`, `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
+## Azure Communication Services Calling End call codes and subcodes
+There are different explanations for why a call ended. Here are the meanings of the end of call codes and subcodes that show how a call can end.
+
+| Subcode | Code | Message  (public preview) | Result Categories (public preview) | Advice |
+|---------|------|---------|--------------------------------------|--------|
+| 0 | 0 | Call ended successfully by local participant. | Success | |
+| 0 | 487 | Call ended successfully as caller canceled the call. | Success | |
+| 0 | 603 | Call ended successfully as it was declined by the callee. | Success | |
+| 3100 | 410 | Call setup failed due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
+| 3101 | 410 | Call dropped due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | |
+| 3112 | 410 |  Call setup failed due to network configuration problem on the client side, please check client's network configuration, and retry. | ExpectedError | |
+| 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
+| 4507 | 495 | Call ended as application didn't provide a valid Azure Communication Services token. | UnexpectedClientError |- Ensure that your application implements token refresh mechanism correctly. |
+| 4521 | 0 | Call ended because user disconnected from the call abruptly, this may be a result of a user closing the application that hosted the call, eg a user terminated application, closed browser of browser tab without proper hang-up. | ExpectedError | |
+| 5000 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
+| 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
+| 5300 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
+| 7000 | 0 | Call ended by Azure Communication Services platform. | Success | |
+| 10003 | 487 | Call was accepted elsewhere, by another endpoint of this user. | Success | |
+| 10004 | 487 | Call was canceled on timeout, no callee endpoint accepted on time. Ensure that user saw the notification and try to initiate that call again. | ExpectedError | |
+| 10024 | 487 | Call ended successfully as it was declined by all callee endpoints. | Success | - Try to place the call again. |
+| 10057 | 408 | Call failed, callee failed to finalize call setup, most likely callee lost network or terminated the application abruptly. Ensure clients are connected and available. | ExpectedError | |
+| 301005 | 410 | Participant was removed from the call by the Azure Communication Services infrastructure due to loss of media connectivity with Azure Communication Services infrastructure, this usually happens if participant leaves the call abruptly or looses network connectivity. If participant wants to continue the call, it should reconnect. | UnexpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
+| 510403 | 403 | Call ended, as it has been marked as a spam and got blocked. | ExpectedError | - Ensure that your Communication Services token is valid and not expired.<br>  - Ensure to pass in AlternateId in the call options.<br> |
+| 540487 | 487 | Call ended successfully as caller canceled the call. | Success | |
+| 560000 | 0 | Call ended successfully by remote PSTN participant. | Success |Possible causes:<br> - User ended the call.<br> - Call was ended by media agent.<br> |
+| 560486 | 486 | Call ended because remote PSTN participant was busy. The number called was already in a call or having technical issues. | Success | - For Direct Routing calls, check your Session Border Control logs and settings and timeouts configuration.<br> Possible causes: <br>  - The number called was already in a call or having technical issues.<br> |
+
+## Azure Communication Services Calling SDK client error codes and subcodes
+For client errors, if the resultCategories property is `ExpectedError`, the error is expected from the SDK's perspective. Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app, or when the current system state doesn't allow the API call. The application should check the error reason and the logic for invoking API.
 
 | Subcode | Code | Message | Result categories (public preview *)| Advice |
 |---------|------|---------|--------------------------|------------------|

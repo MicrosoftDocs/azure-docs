@@ -2,7 +2,7 @@
 title: Migrate Azure Virtual Machines and Azure Virtual Machine Scale Sets to availability zone support 
 description: Learn how to migrate your Azure Virtual Machines and Virtual Machine Scale Sets to availability zone support.
 author: faister
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 09/21/2023
 ms.author: anaharris 
@@ -122,9 +122,6 @@ Now that you have migrated your data to ZRS managed disks or zonal managed disks
 
 This section details how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
-
-> [!IMPORTANT]
-> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 
 ###  Key benefits of regional to zonal move
 

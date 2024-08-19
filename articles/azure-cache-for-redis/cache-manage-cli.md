@@ -4,7 +4,7 @@ description: Learn how to install the Azure classic CLI on any platform, how to 
 author: flang-msft
 
 
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: franlanglois 

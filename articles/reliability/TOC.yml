@@ -40,8 +40,8 @@
         href: migrate-container-instances.md
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
-      - name: Azure Cosmos DB
-        href: /azure/cosmos-db/high-availability?toc=/azure/reliability
+      - name: Azure Cosmos DB for NoSQL
+        href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
       - name: Azure Database for PostgreSQL
@@ -67,7 +67,7 @@
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
       - name: Azure Service Bus
-        href: /azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability
+        href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
         href: migrate-sql-database.md
       - name: Azure Storage accounts
@@ -85,21 +85,25 @@
   - name: Business continuity management program
     href: business-continuity-management-program.md
   - name: Cross-region replication
-    href: cross-region-replication-azure.md
+    items:
+    - name: Cross-region replication overview
+      href: cross-region-replication-azure.md
+    - name: Solutions for non-paired regions
+      href: cross-region-replication-azure-no-pair.md
 - name: Reliability guides by service
   items:
   - name: Overview
     href: overview-reliability-guidance.md
   - name: Foundational services
     items:
-      - name: Azure Cosmos DB
+      - name: Azure Cosmos DB for NoSQL
         items:
-        - name: Availability zones
-          href:  ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: ../cosmos-db/how-to-multi-master.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Proactive resiliency
+          href: resiliency-recommendations/recommend-cosmos-db-nosql.md
+        - name: Reliability guide
+          href: reliability-cosmos-db-nosql.md
       - name: Azure Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-event-hubs.md
       - name: Azure ExpressRoute
         items:
         - name: Availability zones
@@ -107,7 +111,7 @@
         - name: Disaster recovery
           href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
       - name: Azure Key Vault
-        href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Load Balancer
         items:
         - name: Availability zones
@@ -119,7 +123,7 @@
       - name: Azure Public IP
         href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
       - name: Azure Service Bus
-        href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+        href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
       - name: Azure Service Fabric
         items:
         - name: Availability zones
@@ -183,11 +187,9 @@
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Bastion
-      href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
+      href: reliability-bastion.md
     - name: Azure Batch
       href: reliability-batch.md
-    - name: Azure Cognitive Search
-      href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
       items:
       - name: Availability zones
@@ -229,11 +231,7 @@
     - name: Azure DNS 
       href: reliability-dns.md
     - name: Azure Event Grid
-      items:
-      - name: Availability zones
-        href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../event-grid/custom-disaster-recovery-client-side.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ./reliability-event-grid.md
     - name: Azure Firewall
       href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall Manager
@@ -247,7 +245,7 @@
     - name: Azure Image Builder
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)
-      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Load Balancer
       href: reliability-load-balancer.md
     - name: Azure Logic Apps
@@ -340,6 +338,8 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Spring Apps
       href: reliability-spring-apps.md
+    - name: Azure Storage Actions
+      href: reliability-storage-actions.md
     - name: Azure Storage Mover
       href: reliability-azure-storage-mover.md
     - name: Azure VMware Solution

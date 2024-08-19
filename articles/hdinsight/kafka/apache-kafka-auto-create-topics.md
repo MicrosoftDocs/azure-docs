@@ -1,10 +1,10 @@
 ---
 title: Enable automatic topic creation in Apache Kafka - Azure HDInsight
 description: Learn how to configure Apache Kafka on HDInsight to automatically create topics. You can configure Kafka by setting `auto.create.topics.enable` to true through Ambari. Or during cluster creation through PowerShell or Resource Manager templates.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/22/2023
+ms.date: 06/14/2024
 ---
 
 # How to configure Apache Kafka on HDInsight to automatically create topics
@@ -21,7 +21,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
 
     :::image type="content" source="./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png" alt-text="Image of the portal with cluster dashboard selected." border="true":::
 
-    When prompted, authenticate using the login (admin) credentials for the cluster. Instead, you can connect to Amabri directly from `https://CLUSTERNAME.azurehdinsight.net/` where `CLUSTERNAME` is the name of your Kafka cluster.
+    When prompted, authenticate using the login (admin) credentials for the cluster. Instead, you can connect to Ambari directly from `https://CLUSTERNAME.azurehdinsight.net/` where `CLUSTERNAME` is the name of your Kafka cluster.
 
 1. Select the Kafka service from the list on the left of the page.
 
@@ -46,7 +46,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
     :::image type="content" source="./media/apache-kafka-auto-create-topics/restart-all-affected.png" alt-text="`Apache Ambari restart all affected`." border="true":::
 
 > [!NOTE]  
-> You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Manage HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
+> You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Managed HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
 
 ## Resource Manager templates
 

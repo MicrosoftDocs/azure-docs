@@ -6,34 +6,35 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 04/30/2024
-ms.reviewer: eur
+ms.date: 5/21/2024
+ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt
 ---
 
 # Content risk mitigation strategies with Azure AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
- 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 Mitigating content risks and poor quality generations presented by large language models (LLMs) such as the Azure OpenAI models requires an iterative, layered approach that includes experimentation and continual measurement. We recommend developing a mitigation plan that encompasses four layers of mitigations for the identified risks in the earlier stages of the process:
 
 :::image type="content" source="../media/evaluations/mitigation-layers.png" alt-text="Diagram of strategy to mitigate potential risks of generative AI applications." lightbox="../media/evaluations/mitigation-layers.png":::
 
 ## Model layer
 
-At the model level, it's important to understand the models you'll be use and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially risky uses and outcomes. For example, we have collaborated with OpenAI on using techniques such as Reinforcement learning from human feedback (RLHF) and fine-tuning in the base models to build safety into the model itself, and you see safety built into the model to mitigate unwanted behaviors.
+At the model level, it's important to understand the models you'll use and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially risky uses and outcomes. For example, we have collaborated with OpenAI on using techniques such as Reinforcement learning from human feedback (RLHF) and fine-tuning in the base models to build safety into the model itself, and you see safety built into the model to mitigate unwanted behaviors.
 
-Besides these enhancements, Azure AI Studio also offers model catalog that enables you to better understand each model’s capabilities before you even start building your AI applications. You can explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](../how-to/model-catalog.md), you can explore model cards to understand model capabilities and limitations, and any safety fine-tuning performed. You can further run sample inferences to see how a model’s responds to typical prompts for a specific use case and experiment with sample inferences.
+Besides these enhancements, Azure AI Studio also offers a model catalog that enables you to better understand  the capabilities of each model before you even start building your AI applications. You can explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](../how-to/model-catalog-overview.md), you can explore model cards to understand model capabilities and limitations and any safety fine-tuning performed. You can further run sample inferences to see how a model responds to typical prompts for a specific use case and experiment with sample inferences.
 
-The model catalog also provides model benchmarks to help users compare each model’s accuracy using public datasets.
+The model catalog also provides model benchmarks to help users compare each model's accuracy using public datasets.
 
 The catalog has over 1,600 models today, including leading models from OpenAI, Mistral, Meta, Hugging Face, and Microsoft.
 
 ## Safety systems layer
 
-Choosing a great base model is just the first step. For most AI applications, it’s not enough to rely on the safety mitigations built into the model itself. Even with fine-tuning, LLMs can make mistakes and are susceptible to attacks such as jailbreaks. In many applications at Microsoft, we use another AI-based safety system, [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/), to provide an independent layer of protection, helping you to block the output of risky content. Azure AI Content Safety is a content moderation offering that goes around the model and monitors the inputs and outputs to help identify and prevent attacks from being successful and catches places where the models make a mistake.
+Choosing a great base model is just the first step. For most AI applications, it's not enough to rely on the safety mitigations built into the model itself. Even with fine-tuning, LLMs can make mistakes and are susceptible to attacks such as jailbreaks. In many applications at Microsoft, we use another AI-based safety system, [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/), to provide an independent layer of protection, helping you to block the output of risky content. Azure AI Content Safety is a content moderation offering that goes around the model and monitors the inputs and outputs to help identify and prevent attacks from being successful and catches places where the models make a mistake.
  
 When you deploy your model through the model catalog or deploy your LLM applications to an endpoint, you can use [Azure AI Content Safety](../concepts/content-filtering.md). This safety system works by running both the prompt and completion for your model through an ensemble of classification models aimed at detecting and preventing the output of harmful content across a range of [categories](/azure/ai-services/content-safety/concepts/harm-categories):
 
@@ -46,31 +47,31 @@ The default configuration is set to filter risky content at the medium severity 
 
 ## Metaprompt and grounding layer
 
-System message (otherwise known as metaprompt) design and proper data grounding are at the heart of every generative AI application. They provide an application’s unique differentiation and are also a key component in reducing errors and mitigating risks. At Microsoft, we find [retrieval augmented generation](./retrieval-augmented-generation.md) (RAG) to be an effective and flexible architecture. With RAG, you enable your application to retrieve relevant knowledge from selected data and incorporate it into your system message to the model. In this pattern, rather than using the model to store information, which can change over time and based on context, the model functions as a reasoning engine over the data provided to it during the query. This improves the freshness, accuracy, and relevancy of inputs and outputs. In other words, RAG can ground your model in relevant data for more relevant results.
+System message (otherwise known as metaprompt) design and proper data grounding are at the heart of every generative AI application. They provide an application's unique differentiation and are also a key component in reducing errors and mitigating risks. At Microsoft, we find [retrieval augmented generation (RAG)](./retrieval-augmented-generation.md) to be an effective and flexible architecture. With RAG, you enable your application to retrieve relevant knowledge from selected data and incorporate it into your system message to the model. In this pattern, rather than using the model to store information, which can change over time and based on context, the model functions as a reasoning engine over the data provided to it during the query. This improves the freshness, accuracy, and relevancy of inputs and outputs. In other words, RAG can ground your model in relevant data for more relevant results.
 
-Now the other part of the story is how you teach the base model to use that data or to answer the questions effectively in your application. When you create a system message, you’re giving instructions to the model in natural language to consistently guide its behavior on the backend. Tapping into the trained data of the models is valuable but enhancing it with your information is critical.
+Now the other part of the story is how you teach the base model to use that data or to answer the questions effectively in your application. When you create a system message, you're giving instructions to the model in natural language to consistently guide its behavior on the backend. Tapping into the trained data of the models is valuable but enhancing it with your information is critical.
 
-Here’s what a system message should look like. You must:
+Here's what a system message should look like. You must:
 
-- Define the model’s profile, capabilities, and limitations for your scenario.
-- Define the model’s output format.
+- Define the model's profile, capabilities, and limitations for your scenario.
+- Define the model's output format.
 - Provide examples to demonstrate the intended behavior of the model.
 - Provide additional behavioral guardrails.
 
 Recommended System Message Framework:
 
-- Define the model’s profile, capabilities, and limitations for your scenario.
-    - **Define the specific task(s)** you would like the model to complete. Describe who the end users will be, what inputs will be provided to the model, and what you expect the model to output.
-    - **Define how the model should complete the task**, including any additional tools (like APIs, code, plug-ins) the model can use.
+- Define the model's profile, capabilities, and limitations for your scenario.
+    - **Define the specific task(s)** you would like the model to complete. Describe who the end users are, what inputs are provided to the model, and what you expect the model to output.
+    - **Define how the model should complete the task**, including any extra tools (like APIs, code, plug-ins) the model can use.
     - **Define the scope and limitations** of the model's performance by providing clear instructions.
     - **Define the posture and tone** the model should exhibit in its responses.
-- Define the model’s output format.
+- Define the model's output format.
     - **Define the language and syntax** of the output format. For example, if you want the output to be machine parse-able, you may want tot structure the output to be in JSON, XSON orXML.
     - **Define any styling or formatting** preferences for better user readability like bulleting or bolding certain parts of the response
 - Provide examples to demonstrate the intended behavior of the model
-    - **Describe difficult use cases** where the prompt is ambiguous or complicated, to give the model additional visibility into how to approach such cases.
+    - **Describe difficult use cases** where the prompt is ambiguous or complicated, to give the model more visibility into how to approach such cases.
     - **Show chain-of-thought** reasoning to better inform the model on the steps it should take to achieve the desired outcomes.
-- Provide additional behavioral guardrails
+- Provide more behavioral guardrails
     - **Define specific behaviors and safety mitigations** to mitigate risks that have been identified and prioritized for the scenario.
 
 Here we outline a set of best practices instructions you can use to augment your task-based system message instructions to minimize different content risks:
@@ -91,7 +92,7 @@ Here we outline a set of best practices instructions you can use to augment your
 ### Sample system message instructions for ungrounded answers
 
 ```
-- Your answer **must not** include any speculation or inference about the background of the document or the user’s gender, ancestry, roles, positions, etc.  
+- Your answer **must not** include any speculation or inference about the background of the document or the user's gender, ancestry, roles, positions, etc.  
 - You **must not** assume or change dates and times.  
 - You **must always** perform searches on [insert relevant documents that your feature can search on] when the user is seeking information (explicitly or implicitly), regardless of internal knowledge or information.
 ```

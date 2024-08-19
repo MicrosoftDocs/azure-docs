@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: backup
 author: v-amallick
-ms.service: backup
+ms.service: azure-backup
 ms.topic: include
 ms.date: 11/15/2022
 ms.author: v-amallick
@@ -40,7 +40,7 @@ If you are a US Government customer, ensure that you have access to the followin
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
-When backing up files and folders from Azure VMs using the MARS Agent, you also need to configure the Azure virtual network to allow access. If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../articles/virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (AzureActiveDirectory) and Azure Storage (Storage).
+When backing up files and folders from Azure VMs using the MARS Agent, you also need to configure the Azure virtual network to allow access. If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../articles/virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (`AzureActiveDirectory`) and Azure Storage (`Storage`).
 
 To create a rule for the Azure Backup tag, follow these steps:
 

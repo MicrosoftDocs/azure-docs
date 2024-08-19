@@ -1,9 +1,9 @@
 ---
 title: Use Grafana on Azure HDInsight
 description: Learn how to access the Grafana dashboard with Apache Hadoop clusters in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/09/2024
 ---
 
 # Access Grafana in Azure HDInsight

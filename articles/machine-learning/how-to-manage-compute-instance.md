@@ -3,13 +3,13 @@ title: Manage a compute instance
 titleSuffix: Azure Machine Learning
 description: Learn how to manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: jesscioffi
-ms.author: jcioffi
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/03/2024
 ---
 
@@ -145,6 +145,10 @@ For each compute instance in a workspace that you created (or that was created f
 
 * Access Jupyter, JupyterLab, RStudio on the compute instance.
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab gives you details for SSH connection such as IP address, username, and port number. In a virtual network deployment, disabling SSH prevents SSH access from public internet. You can still SSH from within virtual network using private IP address of compute instance node and port 22.
+
+    > [!TIP]
+    > If the compute instances is in a *managed* virtual network and the public IP address is disabled, use the `az ml compute connect-ssh` command to connect to the compute instance.
+
 * Select the compute name to:
     * View details about a specific compute instance such as IP address, and region.
     * Create or modify the schedule for starting and stopping the compute instance. Scroll down to the bottom of the page to edit the schedule.

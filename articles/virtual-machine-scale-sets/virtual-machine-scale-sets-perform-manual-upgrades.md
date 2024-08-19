@@ -1,20 +1,20 @@
 ---
-title: Performing manual upgrades on Virtual Machine Scale Sets
+title: Performing manual upgrades on Virtual Machine Scale Sets (Preview)
 description: Learn about how to perform a manual upgrade on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 03/07/2024
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 6/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
-# Performing manual upgrades on Virtual Machine Scale Sets
+# Performing manual upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Manual upgrade policy is available for both Virtual Machine Scale Sets with Uniform Orchestration and Virtual Machine Scale Sets with Flexible Orchestration. 
+> Manual upgrade policy for Virtual Machine Scale Sets with Uniform Orchestration is in general availability (GA).
 >
->**Manual upgrade policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>**Manual upgrade policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
  
 If you have the upgrade policy set to manual, any changes made to the scale set model won't be applied automatically. You need to manually trigger upgrades on each individual virtual machine. The manual upgrade functionality updates the selected instances according to the virtual machine configuration set in the scale set profile.
 

@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---
@@ -296,7 +296,7 @@ This method allows you to consolidate data from a variety of sources, so you can
 
 ### Microsoft Defender for Cloud
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Defender for Cloud analyzes the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
 
