@@ -4,7 +4,7 @@ description: Understand how to run Azure Functions in Kubernetes in the cloud or
 author: eamonoreilly
 ms.topic: conceptual
 ms.custom: build-2023, build-2024
-ms.date: 05/11/2023
+ms.date: 08/19/2024
 ms.author: eamono
 ---
 
@@ -13,7 +13,7 @@ ms.author: eamono
 The Azure Functions runtime provides flexibility in hosting where and how you want. [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
 
 > [!IMPORTANT]
-> Running your containerized function apps on Kubernetes, either by using KEDA or by direct deployment, is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community by using [GitHub issues in the Azure Functions repository](https://github.com/Azure/Azure-Functions/issues). Please use these issues to report bugs and raise feature requests. For managed Kubernetes deployments, instead consider [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+> Running your containerized function apps on Kubernetes, either by using KEDA or by direct deployment, is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community by using [GitHub issues in the Azure Functions repository](https://github.com/Azure/Azure-Functions/issues). Please use these issues to report bugs and raise feature requests. For fully-supported Kubernetes deployments, instead consider [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
 ## How Kubernetes-based functions work
 
