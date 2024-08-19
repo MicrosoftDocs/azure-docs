@@ -295,8 +295,6 @@ items:
       href: how-to/quota.md
     - name: Increase rate limit
       href: how-to/autoscale.md
-    - name: Use commitment tier pricing
-      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management
