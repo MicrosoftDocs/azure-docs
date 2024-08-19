@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The following tables provides an overview of the different types of gateways, their respective limitations, and their expected performance metrics. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates these testing conditions.
+The following tables provide an overview of the different types of gateways, their respective limitations, and their expected performance metrics. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates these testing conditions.
 
 #### Testing conditions
 
