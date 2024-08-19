@@ -122,7 +122,7 @@ Use the following steps to create each of the resources necessary to create a co
     | **Environment name** | Enter **my-environment**. |
     | **Zone redundancy** | Select **Disabled**.  |
 
-  Select the **Create** button, and then select the **Container** tab.
+    Select the **Create** button, and then select the **Container** tab.
 
 1. In *Container* tab, enter the following values.
 
@@ -134,7 +134,7 @@ Use the following steps to create each of the resources necessary to create a co
     | **Registry login server** | Enter **mcr.microsoft.com**. |
     | **Image and tag** | Enter **javacomponents/samples/sample-service-config-client:latest**. |
 
-  Select the **Ingress** tab.
+    Select the **Ingress** tab.
 
 1. In *Ingress* tab, enter the following and leave the rest of the form with their default values.
 
@@ -145,7 +145,7 @@ Use the following steps to create each of the resources necessary to create a co
     | **Ingress type** | Select **HTTP**. |
     | **Target port** | Enter **8080**. |
 
-  Select **Review + create**.
+    Select **Review + create**.
 
 1. Once the validation checks pass, select **Create** to create your container app.
 
@@ -205,7 +205,7 @@ Now that you have an existing environment and config server client container app
     | **Type** | Select **HTTP**. |
     | **URI** | Enter **https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git**. |
 
-  Leave the rest of the fields with the default values and select **Add**.
+    Leave the rest of the fields with the default values and select **Add**.
 
 1. Select **Next**.
 
