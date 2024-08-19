@@ -24,7 +24,7 @@ Azure OpenAI Service offers a diverse set of models with different capabilities 
 
 To modify and interact with an Azure OpenAI model in the [Azure AI Studio](https://ai.azure.com) playground, first you need to deploy a base Azure OpenAI model to your project. Once the model is deployed and available in your project, you can consume its REST API endpoint as-is or customize further with your own data and other components (embeddings, indexes, and more).  
 
-## Deploy an Azure OpenAI model from the model catalog
+## Deploy an Azure OpenAI model from the model catalog to an Azure OpenAI Resource
 
 Follow the steps below to deploy an Azure OpenAI model such as `gpt-4` to a real-time endpoint from the AI Studio [model catalog](./model-catalog-overview.md):
 
@@ -36,7 +36,7 @@ Follow the steps below to deploy an Azure OpenAI model such as `gpt-4` to a real
 
 1. Select a model such as `gpt-4` from the Azure OpenAI collection.
 1. Select **Deploy** to open the deployment window. 
-1. Select the hub that you want to deploy the model to. If you don't have a hub, you can create one.
+1. Select the Azure OpenAI resource that you want to deploy the model to. You can create new Azure OpenAI resources in the Azure Portal. 
 1. Specify the deployment name and modify other default settings depending on your requirements.
 1. Select **Deploy**.
 1. You land on the deployment details page. Select **Open in playground**.
