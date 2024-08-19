@@ -20,8 +20,8 @@ This Vertica connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; (only for the legacy driver version) &#9313;|
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; (only for the legacy driver version) &#9313;|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; (only for version 1.0) &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; (only for version 1.0) &#9313;|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -31,9 +31,20 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. If you use the version 2.0 (Preview), your self-hosted integration runtime version should be 5.44.8969.2 or above.
 
-To use the Vertica connector with the recommended driver version, install the Vertica ODBC driver on the machine running the self-hosted Integration runtime by following these steps:
+For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](data-access-strategies.md).
+
+### For version 1.0
+
+If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allow list.
+
+ You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
+
+
+### Install Vertica ODBC driver for the version 2.0 (Preview)
+
+To use Vertica connector with version 2.0 (Preview), install the Vertica ODBC driver on the machine running the self-hosted Integration runtime by following these steps:
 
 1. Download the Vertica client setup for ODBC driver from [Client Drivers | OpenText™ Vertica™](https://www.vertica.com/download/vertica/client-drivers/). Take Windows system setup as an example:
 
@@ -84,7 +95,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use the recommended driver version, the following properties are supported for Vertica linked service:
+If you use version 2.0 (Preview), the following properties are supported for Vertica linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -94,7 +105,7 @@ If you use the recommended driver version, the following properties are supporte
 | database | Name of the Vertica database. | Yes |
 | uid | The user ID that is used to connect to the database.  | Yes |
 | pwd | The password that the application uses to connect to the database. | Yes |
-| version | The version when you select the recommended driver version. The value is `2.0`. | Yes |
+| version | The version when you select version 2.0 (Preview). The value is `2.0`. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime and its version should be 5.44.8969.2 or above. |No |
 
 **Example:**
@@ -153,7 +164,7 @@ If you use the recommended driver version, the following properties are supporte
 }
 ```
 
-If you use the legacy driver version, the following properties are supported:
+If you use version 1.0, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -257,13 +268,13 @@ To copy data from Vertica, set the source type in the copy activity to **Vertica
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Vertica driver version 
+## Upgrade the Vertica version 
 
-Here are steps that help you upgrade your Vertica driver version: 
+Here are steps that help you upgrade your Vertica version: 
 
-1. Install a Vertica driver by following the steps in [Prerequisite](#prerequisites). 
-1. In **Edit linked service page**, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
-1. Apply a self-hosted integration runtime with version 5.44.8969.2 or above. Azure integration runtime is not supported by the recommended driver version. 
+1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20-preview). 
+1. In **Edit linked service page**, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
+1. Apply a self-hosted integration runtime with version 5.44.8969.2 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
