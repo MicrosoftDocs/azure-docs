@@ -206,6 +206,8 @@
                   href: tutorial-connect-msi-sql-database.md
                 - name: Connect Java Tomcat to Postgres
                   href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+                - name: Connect Python Django app to Postgres
+                  href: /azure/developer/python/tutorial-python-managed-identity-user-assigned-cli?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
             - name: Connect to Microsoft Graph with managed identity
               items: 
                 - name: Use .NET
