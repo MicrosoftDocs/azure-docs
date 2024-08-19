@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 chat model with vision with Azure Machine Learning
+title: How to use Phi-3.5 chat model with vision with Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how to use Phi-3 chat model with vision with Azure Machine Learning.
+description: Learn how to use Phi-3.5 chat model with vision with Azure Machine Learning.
 ms.service: azure-machine-learning
 ms.subservice: inferencing
 manager: scottpolly
@@ -15,33 +15,34 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat model with vision with Azure Machine Learning
+# How to use Phi-3.5 chat model with vision with Azure Machine Learning
 
-In this article, you learn about Phi-3 chat model with vision and how to use them.
-The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
+In this article, you learn about Phi-3.5 chat model with vision and how to use them.
+The Phi-3.5 small language models (SLMs) are a collection of instruction-tuned generative text models.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat model with vision
+## Phi-3.5 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
+Phi-3.5 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens)that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
 
-* Phi-3-vision-128k-Instruct
+* Phi-3.5-vision-Instruct
+
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure Machine Learning, you need the following prerequisites:
+To use Phi-3.5 chat model with vision with Azure Machine Learning, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -69,7 +70,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -120,7 +121,7 @@ print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
-Model name: Phi-3-vision-128k-Instruct
+Model name: Phi-3.5-vision-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -141,7 +142,7 @@ response = client.complete(
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-vision-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -157,7 +158,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -254,7 +255,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to Phi-3 chat model with vision:
+The following extra parameters can be passed to Phi-3.5 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -266,10 +267,10 @@ The following extra parameters can be passed to Phi-3 chat model with vision:
 
 ## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3.5-vision-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3.5-vision-Instruct for vision in a chat fashion:
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
+> Phi-3.5-vision-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
 
 To see this capability, download an image and encode the information as `base64` string. The resulting data should be inside of a [data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs):
 
@@ -296,7 +297,7 @@ import IPython.display as Disp
 Disp.Image(requests.get(image_url).content)
 ```
 
-:::image type="content" source="media/how-to-deploy-models-phi-3-visions/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="media/how-to-deploy-models-phi-3-vision/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -331,7 +332,7 @@ print("\tTotal tokens:", response.usage.total_tokens)
 
 ```console
 ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there might be other factors at play that influence a model's performance.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 2380
   Completion tokens: 126
@@ -343,25 +344,25 @@ Usage:
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 chat model with vision
+## Phi-3.5 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
+Phi-3.5 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens)that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
 
-* Phi-3-vision-128k-Instruct
+* Phi-3.5-vision-Instruct
 
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
+To use Phi-3.5 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -387,7 +388,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -438,7 +439,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Phi-3-vision-128k-Instruct
+Model name: Phi-3.5-vision-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -461,7 +462,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-vision-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -481,7 +482,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -591,7 +592,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to Phi-3 chat model with vision:
+The following extra parameters can be passed to Phi-3.5 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -603,10 +604,10 @@ The following extra parameters can be passed to Phi-3 chat model with vision:
 
 ## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3.5-vision-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3.5-vision-Instruct for vision in a chat fashion:
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
+> Phi-3.5-vision-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
 
 To see this capability, download an image and encode the information as `base64` string. The resulting data should be inside of a [data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs):
 
@@ -630,7 +631,7 @@ img.src = data_url;
 document.body.appendChild(img);
 ```
 
-:::image type="content" source="media/how-to-deploy-models-phi-3-visions/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="media/how-to-deploy-models-phi-3-vision/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -674,7 +675,7 @@ console.log("\tTotal tokens:", response.body.usage.total_tokens);
 
 ```console
 ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there might be other factors at play that influence a model's performance.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 2380
   Completion tokens: 126
@@ -686,25 +687,25 @@ Usage:
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat model with vision
+## Phi-3.5 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
+Phi-3.5 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens)that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
 
-* Phi-3-vision-128k-Instruct
+* Phi-3.5-vision-Instruct
 
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
+To use Phi-3.5 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -753,7 +754,7 @@ using System.Reflection;
 In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -796,7 +797,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Phi-3-vision-128k-Instruct
+Model name: Phi-3.5-vision-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -818,7 +819,7 @@ Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-vision-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -834,7 +835,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -946,7 +947,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to Phi-3 chat model with vision:
+The following extra parameters can be passed to Phi-3.5 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -958,10 +959,10 @@ The following extra parameters can be passed to Phi-3 chat model with vision:
 
 ## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3.5-vision-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3.5-vision-Instruct for vision in a chat fashion:
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
+> Phi-3.5-vision-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
 
 To see this capability, download an image and encode the information as `base64` string. The resulting data should be inside of a [data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs):
 
@@ -978,7 +979,7 @@ string dataUrl = $"data:image/{imageFormat};base64,{imageBase64}";
 
 Visualize the image:
 
-:::image type="content" source="media/how-to-deploy-models-phi-3-visions/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="media/how-to-deploy-models-phi-3-vision/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -1014,7 +1015,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there might be other factors at play that influence a model's performance.
-Model: Phi-3-vision-128k-Instruct
+Model: Phi-3.5-vision-Instruct
 Usage: 
   Prompt tokens: 2380
   Completion tokens: 126
@@ -1026,25 +1027,25 @@ Usage:
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 chat model with vision
+## Phi-3.5 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
+Phi-3.5 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens)that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
 
-* Phi-3-vision-128k-Instruct
+* Phi-3.5-vision-Instruct
 
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
+To use Phi-3.5 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1060,10 +1061,10 @@ Models deployed with the [Azure AI Model Inference API](reference-model-inferenc
 
 ## Work with chat completions
 
-In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -1087,7 +1088,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Phi-3-vision-128k-Instruct",
+    "model_name": "Phi-3.5-vision-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Microsoft"
 }
@@ -1113,7 +1114,7 @@ The following example shows how you can create a basic chat completions request 
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-vision-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -1123,7 +1124,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-vision-128k-Instruct",
+    "model": "Phi-3.5-vision-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1180,7 +1181,7 @@ You can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-vision-128k-Instruct",
+    "model": "Phi-3.5-vision-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1203,7 +1204,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-vision-128k-Instruct",
+    "model": "Phi-3.5-vision-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1224,7 +1225,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
 
 #### Explore more parameters supported by the inference client
 
-Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](reference-model-inference-api.md).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 ```json
 {
@@ -1254,7 +1255,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-vision-128k-Instruct",
+    "model": "Phi-3.5-vision-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1311,7 +1312,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to Phi-3 chat model with vision:
+The following extra parameters can be passed to Phi-3.5 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1323,19 +1324,19 @@ The following extra parameters can be passed to Phi-3 chat model with vision:
 
 ## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3.5-vision-Instruct can reason across text and images and generate text completions based on both kinds of input. In this section, you explore the capabilities of Phi-3.5-vision-Instruct for vision in a chat fashion:
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
+> Phi-3.5-vision-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. If you add multiple images, it results in an error.
 
 To see this capability, download an image and encode the information as `base64` string. The resulting data should be inside of a [data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs):
 
 > [!TIP]
-> You will need to construct the data URL using an scripting or programming language. This tutorial use [this sample image](media/how-to-deploy-models-phi-3-visions/) in JPEG format. A data URL has a format as follows: `data:image/jpg;base64,0xABCDFGHIJKLMNOPQRSTUVWXYZ...`.
+> You will need to construct the data URL using an scripting or programming language. This tutorial use [this sample image](../media/how-to/sdks/slms-chart-example.jpg) in JPEG format. A data URL has a format as follows: `data:image/jpg;base64,0xABCDFGHIJKLMNOPQRSTUVWXYZ...`.
 
 Visualize the image:
 
-:::image type="content" source="media/how-to-deploy-models-phi-3-visions/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="media/how-to-deploy-models-phi-3-vision/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -1373,7 +1374,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-vision-128k-Instruct",
+    "model": "Phi-3.5-vision-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1419,8 +1420,9 @@ It is a good practice to start with a low number of instances and scale up as ne
 
 ## Related content
 
+
 * [Azure AI Model Inference API](reference-model-inference-api.md)
-* [Model Catalog and Collections](concept-model-catalog.md)
-* [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
-* [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
-* [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
