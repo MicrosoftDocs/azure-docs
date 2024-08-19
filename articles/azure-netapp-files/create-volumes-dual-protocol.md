@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files

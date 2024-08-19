@@ -14,6 +14,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## August 2024
+
 * [Azure NetApp Files storage with cool access](cool-access-introduction.md) is now generally available (GA) and supported with the Standard, Premium, and Ultra service levels. Cool access is also now supported for destination volumes in cross-region/cross-zone relationships. 
 
     With the announcement of cool access's general availability, you can now enable cool access for volumes in Premium and Ultra service level capacity pools, in addition to volumes in Standard service levels capacity pools. With cool access, you can transparently store data in a more cost effective manner on Azure storage accounts based on the data's access pattern. 
@@ -23,9 +25,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     In a cross-region or cross-zone replication setting, cool access can now be configured for destination only volumes to ensure data protection. This capability provides cost savings without any latency impact on source volumes.
 
     You still must [register the feature](manage-cool-access.med#register-the-feature) before enabling cool access. 
-
-
-## August 2024
 
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
 

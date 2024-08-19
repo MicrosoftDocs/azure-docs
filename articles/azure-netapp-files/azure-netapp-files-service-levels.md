@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
