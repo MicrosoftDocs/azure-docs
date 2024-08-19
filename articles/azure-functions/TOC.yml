@@ -31,6 +31,9 @@
           - name: Command line
             displayName: C#, quickstart, get started
             href: create-first-function-cli-csharp.md
+          - name: Azure Developer CLI
+            displayName: C#, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azd-cli.md?pivots=programming-language-csharp
         - name: Java  
           items:
           - name: Eclipse
