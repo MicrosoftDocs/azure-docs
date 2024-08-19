@@ -26,11 +26,11 @@ By default, this feature will use the latest available AI model on your input. Y
 
 ### Language support
 
-Currently the conversational PII preview API only supports English language.
+See the [PII Language Support page](articles/ai-services/language-service/personally-identifiable-information/language-support.md) for more details. Currently the conversational PII GA model only supports the English language. The preview model and API support the [same list languages](articles/ai-services/language-service/concepts/language-support.md) as the other Language services.
 
 ### Region support
 
-Currently the conversational PII preview API supports all Azure regions supported by the Language service.
+The conversational PII API supports all Azure regions supported by the Language service.
 
 ## Submitting data
 
@@ -82,7 +82,7 @@ When you get results from PII detection, you can stream the results to an applic
 Use the following example if you have conversations transcribed using the Speech service's [speech to text](../../Speech-Service/speech-to-text.md) feature:
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2024-05-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -195,7 +195,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
             "taskName": "analyze 1",
             "kind": "ConversationalPIITask",
             "parameters": {
-                "modelVersion": "2022-05-15-preview",
+                "modelVersion": "2023-04-15-preview",
                 "redactionSource": "text",
                 "includeAudioRedaction": true,
                 "piiCategories": [
@@ -213,7 +213,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Use the following example if you have conversations that originated in text. For example, conversations through a text-based chat client.
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2024-05-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -251,7 +251,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
             "taskName": "analyze 1",
             "kind": "ConversationalPIITask",
             "parameters": {
-                "modelVersion": "2022-05-15-preview"
+                "modelVersion": "2023-04-15-preview"
             }
         }
     ]
