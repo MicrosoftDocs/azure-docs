@@ -20,10 +20,6 @@ Hibernation is a power-saving state that saves your running applications to your
 
 You can hibernate your dev box through the Microsoft Dev Box developer portal or the CLI. You can't hibernate your dev box from within the virtual machine.
 
-> [!IMPORTANT]
-> Dev Box Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Hibernate your dev box using the developer portal 
 
 To hibernate your dev box through the Microsoft Dev Box developer portal: 
@@ -76,4 +72,4 @@ Some settings aren't compatible with hibernation and prevent your dev box from h
  ## Related content
 
 - [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)
-- [How to configure Dev Box Hibernation (preview)](how-to-configure-dev-box-hibernation.md)
+- [How to configure Dev Box Hibernation](how-to-configure-dev-box-hibernation.md)
