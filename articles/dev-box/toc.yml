@@ -82,7 +82,7 @@ items:
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Access a dev box with Task view
+  - name: Connect with Task view
     href: how-to-access-dev-box-task-view.md
 - name: Security
   items:
