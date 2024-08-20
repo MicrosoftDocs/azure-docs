@@ -1013,4 +1013,5 @@ Azure routes traffic between subnets by default. You might instead, choose to ro
 
 To learn how to create a route table, advance to the next tutorial.
 
-[!div class="nextstepaction"][Create a route table](./tutorial-create-route-table-portal.md)
+> [!div class="nextstepaction"]
+> [Create a route table](./tutorial-create-route-table-portal.md)
