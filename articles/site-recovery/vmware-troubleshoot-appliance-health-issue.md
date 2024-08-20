@@ -24,6 +24,10 @@ Before you start troubleshooting, ensure that:
 
 ## Troubleshoot process
 
+If you see the following error in the appliance health status:
+
+### Troubleshoot certificate renewal
+
 This document describes how to troubleshoot replication appliance health issues in Azure Site Recovery for the following critical replication appliance issues:
 
 | Issue | Error ID |
@@ -41,17 +45,14 @@ To troubleshoot these issues, follow these steps:
 2. Open the Microsoft Appliance configuration manager and ensure to upgrade all the appliance components to the latest version. Find the latest versions [here](./site-recovery-whats-new.md#supported-updates) and follow the upgrade steps [here](./upgrade-mobility-service-modernized.md#upgrade-appliance).
 3. Navigate to the **Certificate renewal** section and select **Renew certificate**. This triggers the certificate renewal operation. Wait for it to complete.
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error.":::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of appliance health error.":::
    
-## Troubleshoot certificate renewal
-
-If you see the following error in the appliance health status:s
 
 #### Error
 
 **If you see the following for your web app in replication appliance:**
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel.":::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of appliance health error excel.":::
     
 Follow these steps:
 

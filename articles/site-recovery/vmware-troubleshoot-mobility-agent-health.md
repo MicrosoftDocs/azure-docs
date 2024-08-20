@@ -22,7 +22,12 @@ Before you start troubleshooting, ensure that:
 - You understand how to [deploy Azure Site Recovery replication appliance - Modernized](./deploy-vmware-azure-replication-appliance-modernized.md).
 - Review the [support requirements for Azure Site Recovery replication appliance](./replication-appliance-support-matrix.md).
 
+
 ## Troubleshoot process
+
+If you see the following error in the appliance health status:
+
+### Troubleshoot certificate renewal
 
 To troubleshoot mobility agent health errors, follow these recommendations:
 
@@ -31,10 +36,6 @@ To troubleshoot mobility agent health errors, follow these recommendations:
     - **Linux**: `/var/log/svagents_curr<>.log`
     - **Windows**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
-
-## Troubleshoot certificate renewal
-
-If you see the following error in the appliance health status:
 
 ### Error 1 - ClientCertificateIsInvalidOrExpired
 

@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/15/2024
+ms.date: 08/16/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -881,6 +881,19 @@ For more information about this compliance standard, see
 |---|---|---|---|---|
 |SO.3 - Customer-Managed Keys | SO.3 |Azure products must be configured to use Customer-Managed Keys when possible. |[Managed disks should be double encrypted with both platform-managed and customer-managed keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fca91455f-eace-4f96-be59-e6e2c35b4816) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DoubleEncryptionRequired_Deny.json) |
 |SO.4 - Azure Confidential Computing | SO.4 |Azure products must be configured to use Azure Confidential Computing SKUs when possible. |[Allowed virtual machine size SKUs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json) |
+
+## Microsoft Cloud for Sovereignty Baseline Global Policies
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for MCfS Sovereignty Baseline Global Policies](/azure/governance/policy/samples/mcfs-baseline-global).
+For more information about this compliance standard, see
+[Microsoft Cloud for Sovereignty Policy portfolio](/industry/sovereignty/policy-portfolio-baseline).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|SO.5 - Trusted Launch | SO.5 |VMs should be configured with Trusted Launch SKUs and Trusted Launch enabled when possible. |[Disks and OS image should support TrustedLaunch](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb03bb370-5249-4ea4-9fce-2552e87e45fa) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Trusted%20Launch/Disks_and_OS_Should_Support_TrustedLaunch.json) |
+|SO.5 - Trusted Launch | SO.5 |VMs should be configured with Trusted Launch SKUs and Trusted Launch enabled when possible. |[Virtual Machine should have TrustedLaunch enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95b54ad-0614-4633-ab29-104b01235cbf) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Trusted%20Launch/VirtualMachine_Should_Have_TrustedLaunch%20enabled.json) |
 
 ## Microsoft cloud security benchmark
 
