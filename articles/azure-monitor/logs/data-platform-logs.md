@@ -23,6 +23,14 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-overview.png" lightbox="media/data-platform-logs/azure-monitor-logs-overview.png" alt-text="A diagram that shows how Azure Monitor and Azure Monitor Logs provide an end-to-end solution for collecting, managing, retrieving, and working with log data.":::
 
+## Data collection, routing, and transformation
+
+Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
+
+:::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
+
+For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
+
 ## Log Analytics workspace    
 
 A [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) is a data store that holds tables into which you collect data. 
@@ -39,34 +47,6 @@ To address the data storage and consumption needs of various personas who use a 
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
-## Kusto Query Language (KQL) and Log Analytics 
-
-You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly. Use KQL to explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
-
-Log Analytics is a tool in the Azure portal for running log queries and analyzing their results. [Log Analytics Simple mode](log-analytics-simple-mode.md) lets any user, regardless of their knowledge of KQL, retrieve data from one or more tables with one click. A set of controls lets you explore and analyze the retrieved data using the most popular Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience.
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
-
-If you're familiar with KQL, you can use Log Analytics KQL mode to edit and create queries, which you can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
-
-For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). 
-
-## Built-in insights and custom dashboards, workbooks, and reports
-
-Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
-
-:::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
-
-You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
-
-
-## Data collection, routing, and transformation
-
-Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
-
-:::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
-
-For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
 
 ## Table plans
 
@@ -104,6 +84,26 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 > [!NOTE]
 > The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+
+## Kusto Query Language (KQL) and Log Analytics 
+
+You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly. Use KQL to explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
+
+Log Analytics is a tool in the Azure portal for running log queries and analyzing their results. [Log Analytics Simple mode](log-analytics-simple-mode.md) lets any user, regardless of their knowledge of KQL, retrieve data from one or more tables with one click. A set of controls lets you explore and analyze the retrieved data using the most popular Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience.
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
+
+If you're familiar with KQL, you can use Log Analytics KQL mode to edit and create queries, which you can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
+
+For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). 
+
+## Built-in insights and custom dashboards, workbooks, and reports
+
+Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
+
+:::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
+
+You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
 
 ## Use cases 
 
