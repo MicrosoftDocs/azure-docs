@@ -13,6 +13,10 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
+|[Msv3/Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)| Medium Memory | GA|
+|[Mbsv3/Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)| Medium Memory| Preview|
+|Msv3/Mdsv3| High Memory | Preview|
+|Msv3/Mdsv3| Very High Memory | Preview|
 | [Dlsv6/Dldsv6](/azure/virtual-machines/dlsv6-dldsv6-series)  | General Purpose              | Preview    |
 | [Dsv6/Ddsv6](/azure/virtual-machines/dsv6-ddsv6-series)      | General Purpose              | Preview    |
 | [Esv6/Edsv6](/azure/virtual-machines/esv6-edsv6-series)      | Memory Optimized             | Preview    |
