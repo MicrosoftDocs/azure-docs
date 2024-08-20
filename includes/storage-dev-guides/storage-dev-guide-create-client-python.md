@@ -9,9 +9,6 @@ ms.date: 08/19/2024
 ms.author: pauljewell
 ms.custom: include file
 ---
-
-#### Create a client object
-
 To connect an app to Blob Storage, create an instance of [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient). The following example shows how to create a client object using `DefaultAzureCredential` for authorization:
 
 ```python

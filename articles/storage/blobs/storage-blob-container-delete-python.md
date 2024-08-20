@@ -25,7 +25,9 @@ To learn about deleting a blob container using asynchronous APIs, see [Delete a 
 
 ## Set up your environment
 
-| Setup task | Guidance |
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+| | |
 |---|---|
 | Install packages | `pip install azure-storage-blob azure-identity` |
 | Add import statements | :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_container.py" id="Snippet_imports"::: |
