@@ -361,7 +361,7 @@ You are being charged for compute resources and data that you loaded into your d
 
 Follow these steps to clean up resources as you desire.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), and select your data warehouse.
 
 1. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
 
