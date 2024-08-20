@@ -322,7 +322,7 @@ To view the analysis report for an API definition in your API center:
 
 The **API Analysis Report** opens, and it displays the API definition and errors, warnings, and information based on the configured API style guide. The following screenshot shows an example of an API analysis report.
 
-:::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal.":::
+:::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-report.png":::
 
 ### API analysis summary
 
@@ -331,7 +331,7 @@ To view a summary of analysis reports for all API definitions in your API center
 1. In the portal, navigate to your API center.
 1. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
 
-    :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal.":::
+    :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-summary.png":::
 
 ## Related content
 

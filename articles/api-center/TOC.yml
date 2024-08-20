@@ -46,7 +46,9 @@
   items:
       - name: Use metadata for governance
         href: metadata.md
-      - name: Analyze APIs using linting rules
+      - name: Analyze APIs using linting rules - Microsoft managed
+        href: enable-managed-api-analysis-linting.md
+      - name: Analyze APIs using linting rules - self-managed
         href: enable-api-analysis-linting.md
       - name: Discover shadow APIs with Dev Proxy
         href: discover-shadow-apis-dev-proxy.md
