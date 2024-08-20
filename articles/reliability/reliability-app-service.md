@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: app-service
+ms.service: azure-app-service
 ms.date: 09/26/2023
 ---
 

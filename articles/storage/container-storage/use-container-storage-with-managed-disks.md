@@ -17,8 +17,7 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-> [!NOTE]
-> To use Azure Container Storage with Azure managed disks, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+- To use Azure Container Storage with Azure managed disks, your AKS cluster must have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Create and attach persistent volumes
 
@@ -154,7 +153,7 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) when you create your storage pool to encrypt the persistent volumes that you'll create.
 
-To use your own key for server-side encryption, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+To use your own key for server-side encryption, you must have an [Azure Key Vault](/azure/key-vault/general/overview) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 When creating your storage pool, you must define the CMK parameters. The required CMK encryption parameters are:
 

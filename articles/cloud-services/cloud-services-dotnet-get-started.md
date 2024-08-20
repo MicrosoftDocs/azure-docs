@@ -2,7 +2,7 @@
 title: Get started with Azure Cloud Services (classic) and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET Model-View-Controller (MVC) and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

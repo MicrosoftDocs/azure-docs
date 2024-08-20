@@ -6,7 +6,7 @@ services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: roastala
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 05/31/2024
 ms.topic: how-to
@@ -55,6 +55,8 @@ To use a service principal (SP), you must first create the SP. Then grant it acc
 > When using a service principal, grant it the __minimum access required for the task__ it is used for. For example, you would not grant a service principal owner or contributor access if all it is used for is reading the access token for a web deployment.
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
+> 
+> You should rotate secrets such as the service principal password on a regular basis.
 
 The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli). To create a service principal and grant it access to your workspace, use the following steps:
 

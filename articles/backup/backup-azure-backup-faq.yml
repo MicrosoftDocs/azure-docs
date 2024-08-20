@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 08/05/2024
+  ms.date: 08/09/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -103,6 +103,11 @@ sections:
           | Recovery Services vault | Backup vault |
           | --- | --- |
           | Supported datasources: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - Azure Files <br> - SAP HANA in Azure VM <br> - Azure Backup Server <br> - Azure Backup agent <br> - DPM    |   Supported datasources: <br><br> - Azure Disks <br> - Azure Blobs <br> - Azure Database for PostgreSQL server <br> - Kubernetes services (preview) |
+
+      - question: |
+          Can I copy restore points created by the Azure Backup service portal from one region to another?
+        answer: |
+          No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](../virtual-machines/manage-restore-points.md#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
 
   - name: Azure Backup agent
     questions:

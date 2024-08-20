@@ -9,12 +9,12 @@ ms.custom: subject-cost-optimization
 ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/06/2024
 ---
 
 # Manage and optimize Azure Machine Learning costs
 
-Learn how to manage and optimize costs when training and deploying machine learning models to Azure Machine Learning.
+This article shows you how to manage and optimize costs when training and deploying machine learning models to Azure Machine Learning.
 
 Use the following tips to help you manage and optimize your compute resource costs.
 
@@ -42,7 +42,7 @@ For information on planning and monitoring costs, see the [plan to manage costs 
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
-Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports various GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
+Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports various GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance, and governance at Azure IaaS cloud scale.
 
 Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning compute](how-to-create-attach-compute-cluster.md).
 

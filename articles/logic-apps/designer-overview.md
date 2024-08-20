@@ -17,7 +17,7 @@ When you work with Azure Logic Apps in the Azure portal, you can edit your [*wor
 > [!IMPORTANT]
 > Currently, the latest version of the designer is available only for *Standard* logic app resources, which run in the 
 > *single-tenant* Azure Logic Apps environment. For more information about different resource types and runtime 
-> environments in Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+> environments in Logic Apps, review [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
 

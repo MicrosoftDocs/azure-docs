@@ -12,7 +12,7 @@ This dataset includes two human-genome references assembled by the [Genome Refer
 
 For more information on Hg19 (GRCh37) data, see the [GRCh37 report at NCBI](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.13/).
 
-For more information on Hg38 data, see the [GRCh38 report at NCBI](http://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.26/).
+For more information on Hg38 data, see the [GRCh38 report at NCBI](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/).
 
 Other details about the data can be found at [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) site.
 
