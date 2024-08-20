@@ -24,7 +24,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     In a cross-region or cross-zone replication setting, cool access can now be configured for destination only volumes to ensure data protection. This capability provides cost savings without any latency impact on source volumes.
 
-    You still must [register the feature](manage-cool-access.med#register-the-feature) before enabling cool access. 
+    You still must [register the feature](manage-cool-access.md#register-the-feature) before enabling cool access. 
 
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
 
