@@ -10,7 +10,7 @@ ms.date: 08/05/2024
 ---
 
 
-# Quickstart: Azure Health De-identification client library for .NET
+# Quickstart: Azure Health Deidentification client library for .NET
 
 Get started with the Azure Health De-identification client library for .NET to de-identify your health data. Follow these steps to install the package and try out example code for basic tasks.
 
@@ -23,7 +23,7 @@ Get started with the Azure Health De-identification client library for .NET to d
 
 ## Setting up
 
-### Create a De-identification service (preview)
+### Create a Deidentification service (preview)
 
 A De-identification service (preview) provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
 
@@ -90,7 +90,7 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 ### Create a deidentification client
 
-Before you can create the client, you need to find your **Deidentification service (preview) endpoint URL**.
+Before you can create the client, you need to find your **De-identification service (preview) endpoint URL**.
 
 You can find the endpoint URL with the Azure CLI:
 
@@ -175,7 +175,7 @@ dotnet run
 
 ## Clean up resources
 
-### Delete de-identification service
+### Delete deidentification service
 
 ```bash
 az resource delete -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices
