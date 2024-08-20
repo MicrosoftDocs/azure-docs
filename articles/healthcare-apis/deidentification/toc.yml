@@ -22,6 +22,8 @@ items:
         href: manage-access-rbac.md
   - name: Reference
     items:
+      - name: REST API
+        href: /rest/api/healthdata
       - name: .NET SDK
         href: /dotnet/api/overview/azure/healthdeidentification
       - name: Python SDK
