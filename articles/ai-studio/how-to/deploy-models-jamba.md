@@ -20,36 +20,31 @@ In this article, you learn how to use Azure AI Studio to deploy AI21's Jamba fam
 
 The Jamba family models are AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba family models are built for reliable commercial use with respect to quality and performance.
 
+> [!TIP]
+> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
+
 ## Deploy the Jamba family models as a serverless API
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription. 
 
-# [AI21 Jamba-Instruct](#tab/ai21-jamba-instruct)
+# [AI21 Jamba 1.5 Mini](#tab/ai21-jamba-1-5)
 
-The [AI21-Jamba-Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
+The [AI21 Jamba 1.5 mini model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5). AI21 can change or update the terms of use and pricing of this model.
 
-To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
+To get started with Jamba 1.5 mini deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-azure-api-sample).
 
-> [!TIP]
-> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
+# [AI21 Jamba 1.5 Large](#tab/ai21-jamba-1-5-large)
 
-# [AI21 Jamba-1.5](#tab/ai21-jamba-1-5)
-
-The [AI21-Jamba-1.5 model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5). AI21 can change or update the terms of use and pricing of this model.
-
-To get started with Jamba 1.5 deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-azure-api-sample).
-
-> [!TIP]
-> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
-
-# [AI21 Jamba-1.5 Large](#tab/ai21-jamba-1-5-large)
-
-The [AI21-Jamba-1.5-large model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-large) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-large). AI21 can change or update the terms of use and pricing of this model.
+The [AI21-Jamba 1.5 large model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-large) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-large). AI21 can change or update the terms of use and pricing of this model.
 
 To get started with Jamba 1.5 large deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-large-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-large-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-large-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-large-azure-api-sample).
 
-> [!TIP]
-> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
+
+# [AI21 Jamba Instruct](#tab/ai21-jamba-instruct)
+
+The [AI21 Jamba Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
+
+To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
 
 ---
 
@@ -95,12 +90,12 @@ These steps demonstrate the deployment of AI21-Jamba family models. To create a 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
-1. Search for and select a AI21 model like **AI21-Jamba-Instruct** or **AI21-Jamba-1.5** or **AI21-Jamba-1.5-large** to open its Details page.
+1. Search for and select a AI21 model like `AI21 Jamba 1.5 Mini` or `AI21 Jamba 1.5 Large` or `AI21 Jamba Instruct` to open its Details page.
 1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select a AI21 model like **AI21-Jamba-Instruct** or **AI21-Jamba-1.5** or **AI21-Jamba-1.5-large** to open the Model's Details page.
+    1. Search for and select a AI21 model like `AI21 Jamba 1.5 Mini` or `AI21 Jamba 1.5 Large` or `AI21 Jamba Instruct` to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the AI21-Jamba family models, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
@@ -183,16 +178,19 @@ Content-type: application/json
 
 Payload is a JSON formatted string containing the following parameters:
 
-| Key           | Type           | Required/Default | Allowed values    | Description                                                                                                                                                                                                                                                                                         |
+| Key           | Type           | Required/Default | Allowed values    | Description |
 | ------------- | -------------- | :-----------------:| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model`       | `string`       | Y    | Must be `jamba-1.5` or `jamba-1.5-large` or  `jamba-instruct`                                                                                                                                                                                                                                                                          |
-| `messages`    | `list[object]` | Y     | A list of objects, one per message, from oldest to newest. The oldest message can be role `system`. All later messages must alternate between user and assistant roles. See the message object definition below.                                                                                    |
-| `max_tokens`  | `integer`      | N <br>`4096` |  0 – 4096     | The maximum number of tokens to allow for each generated response message. Typically the best way to limit output length is by providing a length limit in the system prompt (for example, "limit your answers to three sentences")                                                                 |
+| `model`       | `string`       | Y    | Must be `jamba-1.5` or `jamba-1.5-large` or  `jamba-instruct`|
+| `messages`    | `list[object]` | Y     | A list of objects, one per message, from oldest to newest. The oldest message can be role `system`. All later messages must alternate between user and assistant roles. See the message object definition below.|
+| `max_tokens`  | `integer`      | N <br>`4096` |  0 – 4096     | The maximum number of tokens to allow for each generated response message. Typically the best way to limit output length is by providing a length limit in the system prompt (for example, "limit your answers to three sentences")|
 | `temperature` | `float`        | N <br>`1`  |  0.0 – 2.0      | How much variation to provide in each answer. Setting this value to 0 guarantees the same response to the same question every time. Setting a higher value encourages more variation. Modifies the distribution from which tokens are sampled. We recommend altering this or `top_p`, but not both. |
-| `top_p`       | `float`        | N <br>`1`  | 0 < _value_ <=1.0 | Limit the pool of next tokens in each step to the top N percentile of possible tokens, where 1.0 means the pool of all possible tokens, and 0.01 means the pool of only the most likely next tokens.                                                                                                |
+| `top_p`       | `float`        | N <br>`1`  | 0 < _value_ <=1.0 | Limit the pool of next tokens in each step to the top N percentile of possible tokens, where 1.0 means the pool of all possible tokens, and 0.01 means the pool of only the most likely next tokens. |
 | `stop`        | `string` OR `list[string]`      | N <br>  | ""  | String or list of strings containing the word(s) where the API should stop generating output. Newlines are allowed as "\n". The returned text won't contain the stop sequence. |
-| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. With Azure AI Studio's Playground, `n=1` as we work on multi-response Playground.                                                                                                                                                                                              |
-| `stream`   | `boolean`      | N <br>`False` | `True` OR `False` | Whether to enable streaming. If true, results are returned one token at a time. If set to true, `n` must be 1, which is automatically set.                                                                                                                                                                                     |
+| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. With Azure AI Studio's Playground, `n=1` as we work on multi-response Playground. |
+| `stream`   | `boolean`      | N <br>`False` | `True` OR `False` | Whether to enable streaming. If true, results are returned one token at a time. If set to true, `n` must be 1, which is automatically set.|
+| `tools`   | `array[tool]` | N | "" | A list of `tools` the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.|
+| `response_format`   | `object` | N <br>`null` | "" | Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON.|
+| `documents`   | `array[document]` | N | "" | A list of relevant `documents` the model can ground its responses on, if the user explicitly says so in the prompt. Essentially acts as an extension to the prompt, with the ability to add metadata. each document is a dictionary.|
 
 The `messages` object has the following fields:
   - `role`: [_string, required_] The author or purpose of the message. One of the following values:
@@ -201,14 +199,46 @@ The `messages` object has the following fields:
     - `system`:  Initial instructions to provide general guidance on the tone and voice of the generated message. An initial system message is optional, but recommended to provide guidance on the tone of the chat. For example, "You are a helpful chatbot with a background in earth sciences and a charming French accent."
   - `content`: [_string, required_] The content of the message.
 
+The `tool` object has the following fields:
+- `type` (required; str) - The type of the tool. Currently, only "function" is supported.
+- `function` (required; object) - The function details.
+  - `name` (required; str) - The name of the function to be called.
+  - `description` (optional; str) - A description of what the function does.
+  - `parameters` (optional; object) - The parameters the function accepts, described as a JSON Schema object.
+
+The `document` object has the following fields:
+- `id` (optional; str) - unique identifier. will be linked to in citations. up to 128 characters.
+- `content` (required; str) - the content of the document
+- `metadata` (optional; array of **Metadata)**
+  - `key` (required; str) - type of metadata, like ‘author’, ‘date’, ‘url’, etc. Should be things the model understands.
+  - `value` (required; str) - value of the metadata
 
 #### Request example
 
-__Single-turn example__
+__Single-turn example Jamba 1.5 mini and Jamba 1.5 large__
 
 ```JSON
 {
-    "model": "model-name", <jamba-1.5|jamba-1.5-large|jamba-instruct>
+   "model_name":"model-name", <jamba-1.5|jamba-1.5-large>
+   "messages":[
+      {
+         "role":"user",
+         "content":"I need help with your product. Can you please assist?"
+      }
+   ],
+   "temperature":1,
+   "top_p":1,
+   "n":1,
+   "stop":"\n",
+   "stream":false
+}
+```
+
+__Single-turn example Jamba Instruct__
+
+```JSON
+{
+    "model": "jamba-instruct",
     "messages": [
     {
       "role":"user",
@@ -263,24 +293,45 @@ The response payload is a dictionary with the following fields.
 | `id`      | `string`  | A unique identifier for the request.                                |
 | `model`   | `string`  | Name of the model used.                                   |
 | `choices` | `list[object`]|The model-generated response text. For a non-streaming response it is a list with `n` items. For a streaming response, it is a single object containing a single token. See the object description below. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                 |
 | `usage`   | `object`  | Usage statistics for the completion request. See below for details. |
 
 The `choices` response object contains the model-generated response. The object has the following fields:
 
-| Key             | Type      | Description                                                                                                                                                                                                                                                                                                                                      |
+| Key             | Type      | Description |
 | --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `index`         | `integer` | Zero-based index of the message in the list of messages. Might not correspond to the position in the list. For streamed messages this is always zero.                                                                                                                                                                                           |
-| `message` OR `delta`      | `object`  | The generated message (or token in a streaming response). Same object type as described in the request with two changes:<br> - In a non-streaming response, this object is called `message`. <br>- In a streaming response, it is called `delta`, and contains either `message` or `role` but never both.                                                                                                                                                                                                                                        |
+| `index`         | `integer` | Zero-based index of the message in the list of messages. Might not correspond to the position in the list. For streamed messages this is always zero.|
+| `message` OR `delta`      | `object`  | The generated message (or token in a streaming response). Same object type as described in the request with two changes:<br> - In a non-streaming response, this object is called `message`. <br>- In a streaming response, it is called `delta`, and contains either `message` or `role` but never both. |
 | `finish_reason` | `string`  | The reason the model stopped generating tokens: <br>- `stop`: The model reached a natural stop point, or a provided stop sequence. <br>- `length`: Max number of tokens have been reached. <br>- `content_filter`: The generated response violated a responsible AI policy. <br>- `null`: Streaming only. In a streaming response, all responses except the last will be `null`. |
+
+The `message` response object contains the model-generated response. The object has the following fields:
+
+| Key             | Type      | Description |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `role`         | `string` | The role of the author of this message.|
+| `content`      | `string or null`  | The contents of the message. |
+| `tool_calls` | `array or null`  | The tool calls generated by the model.|
+
+The `tool_calls` response object contains the model-generated response. The object has the following fields:
+
+| Key             | Type      | Description |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`         | `string` | The ID of the tool call.|
+| `type`      | `string`  | The type of the tool. Currently, only `function` is supported. |
+| `function` | `object`  | The function that the model called.|
+
+The `function` response object contains the model-generated response. The object has the following fields:
+
+| Key             | Type      | Description |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`         | `string` | The name of the function to call.|
+| `arguments`      | `string`  | The arguments to call the function with, as generated by the model in JSON format. |
 
 The `usage` response object contains the following fields. 
 
-| Key                 | Type      | Value                                                                                                                                                                                                                                                                                                                   |
+| Key                 | Type      | Value  |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `prompt_tokens`     | `integer` | Number of tokens in the prompt. Note that the prompt token count includes extra tokens added by the system to format the prompt list into a single string as required by the model. The number of extra tokens is typically proportional to the number of messages in the thread, and should be relatively small. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion.                                                                                                                                                                                                                                                                           |
+| `completion_tokens` | `integer` | Number of tokens generated in the completion.|
 | `total_tokens`      | `integer` | Total tokens. 
 
 #### Non-streaming response example
