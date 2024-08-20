@@ -76,6 +76,20 @@ You can also call these methods to update device twins:
 * Call [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace device twin tags and desired properties.
 * Call [update_twin](/en-us/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to update device twin tags and desired properties.
 
+### Incoming desired twin patch handler
+
+Use [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?view=azure-python&#azure-iot-device-iothubdeviceclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
+
+This example sets up a desired properties patch handler called `DesiredPropertiesPatchHandler`.
+
+```python
+#Define the desired properties patch handler
+device_client.on_twin_desired_properties_patch_received (DesiredPropertiesPatchHandler)
+
+def DesiredPropertiesPatchHandler (desiredPropertyUpdate):
+    print ( 'Received message: {0}'.format(desiredPropertyUpdate) )
+```
+
 ### SDK samples
 
 The Python SDK includes these samples:

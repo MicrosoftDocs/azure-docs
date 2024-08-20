@@ -199,7 +199,7 @@ await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
 
 #### Other twin update methods
 
-You can also apply twin updates using one of these SDK methods:
+You can also apply twin updates using these SDK methods:
 
 * Call [ReplaceTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.replacetwinasync) to replace the entire device twin schema.
 * Call [UpdateTwins2Async](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwins2async) to update a list of twins previously created within the system.
