@@ -234,9 +234,6 @@ items:
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Azure portal documentation
-    tocHref: /azure/virtual-machines/
-    topicHref: /azure/azure-portal/index
-  - name: Azure portal documentation
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
   - name: Internet of Things
@@ -503,9 +500,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Container Instances
-    tocHref: /azure/container-instances/
-    topicHref: /azure/container-instances/
   - name: Kubernetes Fleet Manager
     tocHref: /azure/kubernetes-fleet/
     topicHref: /azure/kubernetes-fleet/
@@ -897,9 +891,6 @@ items:
     - name: Microsoft Defender External Attack Surface Management
       tocHref: /azure/external-attack-surface-management/
       topicHref: /azure/external-attack-surface-management/
-  - name: Service Fabric
-    tocHref: /azure/service-fabric/
-    topicHref: /azure/service-fabric/
   - name: Service Fabric Mesh
     tocHref: /azure/service-fabric-mesh/
     topicHref: /azure/service-fabric-mesh/
@@ -972,9 +963,6 @@ items:
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
-  - name: Virtual Machine Scale Sets
-    tocHref: /azure/virtual-machine-scale-sets/
-    topicHref: /azure/virtual-machine-scale-sets/
   - name: Virtual Machines
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
@@ -989,12 +977,6 @@ items:
       - name: High Performance Computing
         tocHref: /azure/virtual-machines/workloads/hpc/
         topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
-      - name: Oracle
-        tocHref: /azure/virtual-machines/workloads/oracle/
-        topicHref: /azure/virtual-machines/workloads/oracle/index
-      - name: Mainframe rehosting
-        tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
-        topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
     - name: Linux
       tocHref: /azure/virtual-machines/linux/
       topicHref: /azure/virtual-machines/linux/
