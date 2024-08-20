@@ -31,6 +31,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a service endpoint policy
 
+
+
+
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. In search pane, type "service endpoint policy" and select **Service endpoint policy** and then select **Create**.
 
