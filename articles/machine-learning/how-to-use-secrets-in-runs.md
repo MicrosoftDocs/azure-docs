@@ -58,7 +58,9 @@ Before following the steps in this article, make sure you have the following pre
 
     The environment is used to build the Docker image that the training job runs in on the compute cluster.
 
-1. From your training code, use the [Azure Identity SDK](/python/api/overview/azure/identity-readme) and [Key Vault client library](/python/api/overview/azure/keyvault-secrets-readme) to get the managed identity credentials and authenticate to key vault:
+1. From your training code, use the [Azure Identity SDK](/python/api/overview/azure/identity-readme) and [Key Vault client library](/python/api/overview/azure/keyvault-secrets-readme) to get the managed identity credentials and authenticate to key vault.
+
+    If you want to use your credentials instead of a managed identity to get the secrets, add the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme) to your training code:
 
     # [Managed identity](#tab/managed)
 
@@ -85,7 +87,7 @@ Before following the steps in this article, make sure you have the following pre
     secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
     ```
 
-    When you submit the training job, you must specify that it runs in the context of your identity by using `identity=UserIdentityConfiguration()`. The following example submits a job using this parameter:
+    When you submit the training job, you must specify that it runs on behalf of your identity by using `identity=UserIdentityConfiguration()`. The following example submits a job using this parameter:
     
     ```python
     from azure.ai.ml import Input, command
