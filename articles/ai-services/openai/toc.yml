@@ -195,7 +195,7 @@ items:
       - name: Dynamic quota
         href: ./how-to/dynamic-quota.md
       - name: Monitor Azure OpenAI
-        href: ./how-to/monitoring.md
+        href: ./how-to/monitor-openai.md
       - name: Onboarding to Provisioned Throughput Units (PTU)
         href: ./how-to/provisioned-throughput-onboarding.md
         displayName: PTU, provisioned, provisioned throughput units
@@ -311,6 +311,8 @@ items:
             - name: Python
               href: /azure/developer/python/get-started-app-chat-template
               displayName: RAG, rag
+    - name: Azure OpenAI monitoring data reference
+      href: monitor-openai-reference.md
 - name: Resources
   items: 
     - name: Support and help options
