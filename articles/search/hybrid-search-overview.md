@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 08/19/2024
 ---
 
 # Hybrid search using vectors and full text in Azure AI Search
