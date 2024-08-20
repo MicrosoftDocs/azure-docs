@@ -27,7 +27,7 @@ This article shows you how to generate a registration key by using the Azure por
 
 ## Prerequisites
 
-For a general idea of what's required, such as operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
+For a general idea of what's required, such as supported operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
 - You need an existing host pool. Each host pool must contain session hosts only on Azure or only on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 
