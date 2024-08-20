@@ -121,7 +121,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure AI Search.
 
 > [!TIP]
-> * The [__Request Units__](../cosmos-db/request-units.md) for the Azure Cosmos DB instance automatically scale as needed.
+> * The [__Request Units__](/azure/cosmos-db/request-units) for the Azure Cosmos DB instance automatically scale as needed.
 > * If your Azure Machine Learning workspace uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the workspace. You __cannot provide your own VNet for use with the Microsoft-managed resources__. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
 
 > [!IMPORTANT]
@@ -130,7 +130,7 @@ Once the workspace has been created, you'll notice that Azure resource group is 
 > [!WARNING]
 > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group or Microsoft-managed services in it, you must delete the Azure Machine Learning workspace that uses it. The resource group resources are deleted when the associated workspace is deleted.
 
-For more information on customer-managed keys with Azure Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
+For more information on customer-managed keys with Azure Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-cmk).
 
 :::moniker range="azureml-api-1"
 ### Azure Container Instance

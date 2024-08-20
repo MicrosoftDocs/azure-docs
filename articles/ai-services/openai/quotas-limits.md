@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 08/16/2024
 ms.author: mbullwin
 ---
 
@@ -50,8 +50,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
 | Max number of custom headers in API requests<sup>1</sup> | 10 |
 
-<sup>1</sup> Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume.  **In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
-
+<sup>1</sup> Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume. **In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
 
 ## Regional quota limits
 
@@ -59,18 +58,20 @@ The following sections provide you with a quick guide to the default quotas and 
 
 [!INCLUDE [Quota](./includes/global-batch-limits.md)]
 
-## gpt-4o rate limits
+## gpt-4o & GPT-4 Turbo rate limits
 
-`gpt-4o` and `gpt-4o-mini` have rate limit tiers with higher limits for certain customer types.
+`gpt-4o` and `gpt-4o-mini`, and `gpt-4` (`turbo-2024-04-09`) have rate limit tiers with higher limits for certain customer types.
 
-### gpt-4o global standard
+### gpt-4o & GPT-4 Turbo global standard
 
 | Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|---|:---:|:---:|
 |`gpt-4o`|Enterprise agreement | 30 M | 180 K |
 |`gpt-4o-mini` | Enterprise agreement | 50 M | 300 K |
+|`gpt-4` (turbo-2024-04-09) | Enterprise agreement | 2 M | 12 K |
 |`gpt-4o` |Default | 450 K | 2.7 K |
 |`gpt-4o-mini` | Default | 2 M | 12 K  |
+|`gpt-4` (turbo-2024-04-09) | Default | 450 K | 2.7 K |
 
 M = million | K = thousand
 

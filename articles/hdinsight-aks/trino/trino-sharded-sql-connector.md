@@ -1,7 +1,7 @@
 ---
 title: Sharded SQL connector
 description: How to configure and use sharded sql connector.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 02/06/2024
 ---

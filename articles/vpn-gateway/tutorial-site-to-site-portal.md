@@ -125,7 +125,7 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>Create VPN connections
 
-Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate assigned IP address object. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must connect each VM instance to your VPN device.
+Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection.
 
 Create a connection by using the following values:
 
@@ -151,8 +151,6 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 ## Optional steps
 
-This section describes options that are available to you.
-
 ### <a name="resize"></a>Resize a gateway SKU
 
 There are specific rules about resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
@@ -161,15 +159,15 @@ There are specific rules about resizing versus changing a gateway SKU. In this s
 
 ### <a name="reset"></a>Reset a gateway
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways.
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a connection or a gateway](reset-gateway.md#reset-a-gateway).
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
 ### <a name="addconnect"></a>Add another connection
 
-You can create a connection to multiple on-premises sites from the same VPN gateway. If you want to configure multiple connections, the address spaces can't overlap between any of the connections.
+A gateway can have multiple connections. If you want to configure connections to multiple on-premises sites from the same VPN gateway, the address spaces can't overlap between any of the connections.
 
-1. If you're connecting using a site-to-site VPN and you don't have a local network gateway for the site you want to connect to, create another site.
+1. If you're connecting using a site-to-site VPN and you don't have a local network gateway for the site you want to connect to, create another local network gateway and specify the site details. For more information, see [Create a local network gateway](#LocalNetworkGateway).
 1. To add a connection, go to the VPN gateway and then select **Connections** to open the **Connections** page.
 1. Select **+ Add** to add your connection. Adjust the connection type to reflect either VNet-to-VNet (if connecting to another virtual network gateway) or site-to-site.
 1. Specify the shared key that you want to use and then select **OK** to create the connection.

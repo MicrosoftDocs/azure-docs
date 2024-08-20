@@ -207,7 +207,7 @@ The following information lists the known limitations to the use of private endp
 
 - The following services may require all destination ports to be open when using a private endpoint and adding NSG security filters:
 
-    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
 
 ### UDR
 

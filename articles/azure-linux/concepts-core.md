@@ -1,17 +1,17 @@
 ---
 title: Azure Linux Container Host for AKS basic core concepts
 description: Learn the basic core concepts that make up the Azure Linux Container Host for AKS. 
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.topic: conceptual 
-ms.date: 09/29/2023
+ms.date: 08/18/2024
 ms.custom: template-concept, linux-related-content
 ---
 
 # Core concepts for the Azure Linux Container Host for AKS
 
-Microsoft Azure Linux is an open-sourced project maintained by Microsoft, which means that Microsoft is responsible for the entire Azure Linux Container Host stack, from the Linux kernel to the [Common Vulnerabilities and Exposures (CVEs)](https://cve.mitre.org/) infrastructure, support, and end-to-end validation. Microsoft makes it easy for you to create an AKS cluster with Azure Linux, without worrying about details such as verification and critical security vulnerability patches from a third party distribution.
+Microsoft Azure Linux is an open-sourced project maintained by Microsoft, which means that Microsoft is responsible for the entire Azure Linux Container Host stack, from the Linux kernel to the Common Vulnerabilities and Exposures (CVEs) infrastructure, support, and end-to-end validation. Microsoft makes it easy for you to create an AKS cluster with Azure Linux, without worrying about details such as verification and critical security vulnerability patches from a third party distribution.
 
 ## CVE infrastructure
 

@@ -79,6 +79,9 @@ You need an application that can retrieve events from the hybrid connection. The
 
 1. Compile and run the application from Visual Studio.
 
+> [!IMPORTANT]
+> We use connection string to authenticate to Azure Relay namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign the identity an appropriate role (Azure Relay Owner, Azure Relay Listener, or Azure Relay Sender) on the Relay namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources](../azure-relay/authenticate-managed-identity.md).
+
 ## Send an event to your topic
 
 Let's trigger an event to see how Event Grid distributes the message to your endpoint. This article shows how to use Azure CLI to trigger the event. Alternatively, you can use [Event Grid publisher application](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 08/16/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-gpu-pro2-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
-GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU virtual machine. This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also are discussed.
+GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU VM (virtual machine). This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also are discussed.
 
 ## About GPU VMs
 
@@ -26,7 +26,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU driv
 
 You can [install and manage the extension using the Azure Resource Manager templates](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) after VM deployment. In the Azure portal, you can install the GPU extension during or after you deploy a VM; for instructions, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
-If your device will have a Kubernetes cluster configured, be sure to review [deployment considerations for Kubernetes clusters](#gpu-vms-and-kubernetes) before you deploy GPU VMs.
+If your device has a Kubernetes cluster configured, be sure to review [deployment considerations for Kubernetes clusters](#gpu-vms-and-kubernetes) before you deploy GPU VMs.
 
 ## Supported OS and GPU drivers 
 
@@ -34,7 +34,7 @@ The Nvidia GPU driver extensions for Windows and Linux support the following OS 
 
 ### Supported OS for GPU extension for Windows
 
-This extension supports the following operating systems (OSs). Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
+This extension supports the following operating systems (OSs). Other versions may work but haven't been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 | Distribution | Version |
 |---|---|
@@ -43,12 +43,14 @@ This extension supports the following operating systems (OSs). Other versions ma
 
 ### Supported OS for GPU extension for Linux
 
-This extension supports the following OS distros, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
+This extension supports the following OS distro, depending on the driver support for specific OS version. Other versions may work but haven't been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 18.04 LTS |
 | Red Hat Enterprise Linux | 7.4 |
+
+> [!NOTE]
+> Ubuntu 18.04 LTS GPU extension has been deprecated. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local). You may need to download the CUDA signing key before the installation. For an example of installing the signing key, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#in-versions-lower-than-2205-linux-gpu-extension-installs-old-signing-keys-signature-andor-required-key-missing).
 
 ## GPU VM deployment
 
@@ -65,17 +67,17 @@ Before you deploy GPU VMs on your device, review the following considerations if
 
 #### For 1-GPU device: 
 
-- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes will not have access to the GPU in this case.
+- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes won't have access to the GPU in this case.
 
-- **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim the GPU on your device and the VM creation will fail as there are no GPU resources available.
+- **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes claims the GPU on your device and the VM creation will fail as there are no GPU resources available.
 
 #### For 2-GPU device
 
 - **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM that you create will claim one GPU on your device and Kubernetes configuration will also be successful and claim the remaining one GPU.	
 
-- **Create two GPU VMs followed by Kubernetes configuration on your device**: In this scenario, the two GPU VMs will claim the two GPUs on the device and the Kubernetes is configured successfully with no GPUs. 
+- **Create two GPU VMs followed by Kubernetes configuration on your device**: In this scenario, the two GPU VMs claim the two GPUs on the device and the Kubernetes is configured successfully with no GPUs. 
 
-- **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
+- **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes claims both the GPUs on your device and the VM creation will fail as no GPU resources are available.
 
 <!--Li indicated that this is fixed. If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device or create GPU VMs. -->
 

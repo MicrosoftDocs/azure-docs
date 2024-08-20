@@ -135,6 +135,8 @@ kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o j
 
 Use the downloaded `ca.crt` file to configure your client to trust the broker's TLS certificate chain.
 
+If you are connecting to the broker from a different namespace, you must use the full service hostname `aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local`. You must also add the DNS name to the server certificate by including a subject alternative name (SAN) DNS field to the *BrokerListener* resource. For more information, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
+
 ### Authenticate with the broker
 
 By default, MQTT broker only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509. For more information, see [Configure authentication](howto-configure-authentication.md).

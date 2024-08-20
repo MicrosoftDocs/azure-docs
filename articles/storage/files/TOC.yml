@@ -315,7 +315,7 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-  - name: Monitoring data reference
+  - name: Monitoring Files data reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
@@ -390,6 +390,3 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
-  - name: Code samples using deprecated SDKs
-    items:
-    - name: .NET

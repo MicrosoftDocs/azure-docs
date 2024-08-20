@@ -104,6 +104,8 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Meta Llama family models
@@ -293,8 +295,6 @@ items:
       href: how-to/quota.md
     - name: Increase rate limit
       href: how-to/autoscale.md
-    - name: Use commitment tier pricing
-      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management
