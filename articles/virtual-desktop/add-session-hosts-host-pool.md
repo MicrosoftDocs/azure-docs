@@ -29,7 +29,7 @@ This article shows you how to generate a registration key by using the Azure por
 
 For a general idea of what's required, such as supported operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
-- You need an existing host pool. Each host pool must contain session hosts only on Azure or only on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
+- You need an existing host pool. You can't mix session hosts on Azure, Azure Stack HCI, or Azure Extended Zones in the same host pool.
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 
