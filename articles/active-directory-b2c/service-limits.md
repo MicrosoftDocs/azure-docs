@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 05/11/2024
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
@@ -169,7 +169,7 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain)|5.25 million |
+|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |

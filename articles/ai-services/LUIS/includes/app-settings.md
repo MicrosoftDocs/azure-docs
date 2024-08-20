@@ -5,7 +5,7 @@ ms.custom: include file
 ms.date: 01/19/2024
 ---
 
-Use [app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e) APIs to update settings or use the LUIS portal's **Manage** section, **Settings** page.
+Use [app](/rest/api/luis/settings/update) APIs to update settings or use the LUIS portal's **Manage** section, **Settings** page.
 
 
 |UI setting|API setting|Information|

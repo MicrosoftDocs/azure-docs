@@ -20,8 +20,7 @@ At the same time, customers often require a custom answer authoring experience t
 ## Prerequisites
 
 * An existing Azure OpenAI resource. If you don't already have an Azure OpenAI resource, then [create one and deploy a model](../../../openai/how-to/create-resource.md).
-* An Azure Language Service resource and custom question qnswering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
-    * Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. See [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
+* An Azure Language Service resource and custom question answering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
     * Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor role](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) for the Azure OpenAI resource.
 
 
@@ -74,4 +73,4 @@ At the same time, customers often require a custom answer authoring experience t
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
-* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
+* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md)

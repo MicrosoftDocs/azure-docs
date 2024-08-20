@@ -3,12 +3,12 @@ title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
 ms.topic: conceptual
 ms.custom:
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ---
 
 # Enable automatic certificate rotation in a Batch pool
 
-You can create a Batch pool with a certificate that can automatically be renewed. To do so, your pool must be created with a [user-assigned managed identity](managed-identity-pools.md) that has access to the certificate in [Azure Key Vault](../key-vault/general/overview.md).
+You can create a Batch pool with a certificate that can automatically be renewed. To do so, your pool must be created with a [user-assigned managed identity](managed-identity-pools.md) that has access to the certificate in [Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Create a user-assigned identity
 
@@ -20,7 +20,7 @@ Be sure to note the **Client ID** of the user-assigned managed identity. You nee
 
 ## Create your certificate
 
-Next, you need to create a certificate and add it to Azure Key Vault. If you haven't already created a key vault, you need to do that first. For instructions, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+Next, you need to create a certificate and add it to Azure Key Vault. If you haven't already created a key vault, you need to do that first. For instructions, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
 
 When creating your certificate, be sure to set **Lifetime Action Type** to automatically renew, and specify the number of days after which the certificate should renew.
 
@@ -32,7 +32,7 @@ After your certificate has been created, make note of its **Secret Identifier**.
 
 ## Add an access policy in Azure Key Vault
 
-In your key vault, assign a Key Vault access policy that allows your user-assigned managed identity to access secrets and certificates. For detailed instructions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+In your key vault, assign a Key Vault access policy that allows your user-assigned managed identity to access secrets and certificates. For detailed instructions, see [Assign a Key Vault access policy using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 
 ## Create a Batch pool with a user-assigned managed identity
 
@@ -143,7 +143,7 @@ Request Body for Windows node
                                 "requireInitialSync": true,
                                 "observedCertificates": [
                                     {
-                                        "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
+                                        "url": "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
                                         "certificateStoreLocation": "LocalMachine",
                                         "keyExportable": true
                                     }
@@ -186,7 +186,7 @@ root@74773db5fe1b42ab9a4b6cf679d929da000000:/var/lib/waagent/Microsoft.Azure.Key
 
 ## Troubleshooting Key Vault Extension
 
-If Key Vault extension is configured incorrectly, the compute node might be in usuable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
+If Key Vault extension is configured incorrectly, the compute node might be in usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
 
 - [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
 - [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)

@@ -183,7 +183,7 @@ This section shows you how to parse the results of the API call. It includes the
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `<endpoint>/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `<endpoint>/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](/rest/api/computervision/operation-groups?view=rest-computervision-v3.2) for other features that can be called separately.
 
 #### [REST](#tab/rest)
 

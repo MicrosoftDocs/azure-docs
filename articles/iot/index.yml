@@ -22,7 +22,7 @@ highlightedContent:
     # Card
     - title: Get started with device development on Azure IoT
       itemType: get-started
-      url: ../iot-develop/index.yml
+      url: ../iot/concepts-iot-device-development.md
     # Card
     - title: Browse Azure IoT code samples
       itemType: sample
@@ -59,10 +59,10 @@ conceptualContent:
         - url: ./iot-overview-device-development.md
           itemType: overview
           text: Introduction to IoT device development
-        - url: ../iot-develop/about-iot-develop.md
+        - url: ./concepts-iot-device-development.md
           itemType: concept
           text: Tools, SDKs, and hardware
-        - url: ../iot/tutorial-send-telemetry-iot-hub.md
+        - url: ./tutorial-send-telemetry-iot-hub.md
           itemType: tutorial
           text: Send telemetry from a device to an Azure IoT hub
         - url: ./iot-sdks.md#device-sdks

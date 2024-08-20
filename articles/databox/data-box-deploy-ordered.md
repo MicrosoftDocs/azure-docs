@@ -399,11 +399,11 @@ If the device isn't available, you receive a notification. If the device is avai
 
 When the device preparation is complete, the portal shows the order in a **Processed** state.
 
-![A Data Box order that's been processed](media/data-box-overview/data-box-order-status-processed.png)
+:::image type="content" source="media/data-box-overview/data-box-order-status-processed.png" alt-text="Screenshot of a Data Box order that's been processed." lightbox="media/data-box-overview/data-box-order-status-processed-lrg.png":::
 
 Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number after the device is shipped. The portal shows the order in **Dispatched** state.
 
-![A Data Box order that's been dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
+:::image type="content" source="media/data-box-overview/data-box-order-status-dispatched.png" alt-text="Screenshot of a Data Box order that's been dispatched." lightbox="media/data-box-overview/data-box-order-status-dispatched-lrg.png":::
 
 # [Azure CLI](#tab/azure-cli)
 

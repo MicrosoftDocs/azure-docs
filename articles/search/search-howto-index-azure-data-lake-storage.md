@@ -5,7 +5,6 @@ description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate i
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
@@ -42,7 +41,7 @@ For a code sample in C#, see [Index Data Lake Gen2 using Microsoft Entra ID](htt
 
 The ADLS Gen2 indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Determine which blobs to index
 
@@ -136,11 +135,6 @@ Indexers can connect to a blob container using the following connections.
 |-------------------------------------------------------------------|
 | `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }` |
 | The SAS should have the list and read permissions on containers and objects (blobs in this case). |
-
-| Container shared access signature |
-|-----------------------------------|
-| `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
-| The SAS should have the list and read permissions on the container. For more information, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
@@ -237,7 +231,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -289,7 +283,7 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2023-11-01
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 
@@ -310,6 +304,12 @@ PUT /indexers/[indexer name]?api-version=2023-11-01
 | "failOnUnsupportedContentType" | true or false |  If the indexer is unable to determine the content type, specify whether to continue or fail the job. |
 |"failOnUnprocessableDocument" |  true or false | If the indexer is unable to process a document of an otherwise supported content type, specify whether to continue or fail the job. |
 | "indexStorageMetadataOnlyForOversizedDocuments"  | true or false |  Oversized blobs are treated as errors by default. If you set this parameter to true, the indexer will try to index its metadata even if the content cannot be indexed. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md). |
+
+## Limitations
+
+1. Unlike blob indexers, ADLS Gen2 indexers cannot utilize container level SAS tokens for enumerating and indexing content from a storage account. This is because the indexer makes a check to determine if the storage account has hierarchical namespaces enabled by calling the [Filesystem - Get properties API](/rest/api/storageservices/datalakestoragegen2/filesystem/get-properties). For storage accounts where hierarchical namespaces are not enabled, customers are instead recommended to utilize [blob indexers](search-howto-indexing-azure-blob-storage.md) to ensure performant enumeration of blobs.
+
+2. If the property `metadata_storage_path` is mapped to be the index key field, blobs are not guaranteed to get reindexed upon a directory rename. If you desire to reindex the blobs that are part of the renamed directories, update the `LastModified` timestamps for all of them.
 
 ## Next steps
 

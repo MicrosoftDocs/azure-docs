@@ -3,7 +3,7 @@ title: Use R for Apache Spark
 description: Learn about using R and Apache Spark to do data preparation and machine learning in Azure Synapse Analytics notebooks.
 author: midesa
 ms.author: midesa
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/27/2022 
@@ -45,7 +45,7 @@ Libraries provide reusable code that you might want to include in your programs 
 
 ### Manage R workspace packages
 
-In Synapse, workspace packages can be custom or private **R tar.gz** files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions started on the corresponding pool.
+In Synapse, workspace packages can be public or custom/private **<R_Package>.tar.gz** files. **Any dependencies must also be installed.** You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions started on the corresponding pool.
 
 To learn more about how to manage workspace libraries, see the following article:
     - [Manage workspace packages](./apache-spark-manage-workspace-packages.md)

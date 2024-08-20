@@ -3,9 +3,9 @@ title: Monitoring Azure Load Balancer
 description: Start here to learn how to monitor load balancer.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 05/24/2024
 ms.devlang: azurecli
 ms.custom: template-how-to, subject-monitoring, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -31,7 +31,7 @@ Load Balancer insights provide:
 * Connection Monitors
 * Metric Definitions
 
-For more information on Load Balancer insights, see [Using Insights to monitor and configure your Azure Load Balancer](./load-balancer-insights.md)
+For more information on Load Balancer insights, see [Using Insights to monitor and configure your Azure Load Balancer](./load-balancer-insights.md).
 
 ## Monitoring data 
 
@@ -53,12 +53,12 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, or the Azure CLI.
+You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
-When you create a diagnostic setting, you specify which categories of logs to collect. The category for Load Balancer is **AllMetrics**
+When you create a diagnostic setting, you specify which categories of logs to collect. The category for Load Balancer is **AllMetrics**.
 
 ### Portal
 
@@ -74,23 +74,23 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 6. In **Diagnostic settings**, select **+ Add diagnostic setting**.
 
-7. Enter or select the following information in **Diagnostic setting**.
+7. Enter or select the following information in **Diagnostic setting**:
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Diagnostic setting name | Enter a name for the diagnostic setting. |
     | **Category details** |   |
     | metric | Select **AllMetrics**. |
 
 8. Select the **Destination details**. Some of the destinations options are:
-    * **Send to Log Analytics**
-        * Select the **Subscription** and **Log Analytics workspace**.
-    * **Archive to a storage account**
-        * Select the **Subscription** and the **Storage Account**.
-    * **Stream to an event hub**
-        * Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**
-
-9. Select **Save**.
+   
+   | **Option** | **Description** |
+    | ------- | ----- |
+    | **Send to Log Analytics** | Select the **Subscription** and **Log Analytics workspace**. |
+    | **Archive to a storage account** | Select the **Subscription** and the **Storage Account**. |
+    | **Stream to an event hub** | Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**. |
+    
+9.  Select **Save**.
 
 ### PowerShell
 
@@ -271,7 +271,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
-For a list of the platform metrics collected for Load Balancer, see [Monitoring Load Balancer data reference metrics](monitor-load-balancer-reference.md#metrics)  
+For a list of the platform metrics collected for Load Balancer, see [Monitoring Load Balancer data reference metrics](monitor-load-balancer-reference.md#metrics).
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
@@ -281,20 +281,29 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set 
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](./monitor-load-balancer-reference.md)  
+
+## Analyzing Load Balancer Traffic with NSG Flow Logs 
+
+[NSG flow logs](../network-watcher/nsg-flow-logs-overview.md) is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+
+NSG flow logs can be used to analyze traffic flowing through the load balancer. 
+>[!Note]
+>NSG flow logs doesn't contain the load balancers frontend IP address. To analyze the traffic flowing into a load balancer, the NSG flow logs would need to be filtered by the private IP addresses of the load balancer’s backend pool members.
+    
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 If you're creating or running an application that runs on Load Balancer, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) offers other types of alerts.
 
 
 The following table lists common and recommended alert rules for Load Balancer.
 
-| Alert type | Condition | Description  |
+| **Alert type** | **Condition** | **Description**  |
 |:---|:---|:---|
-| Load balancing rule unavailable due to unavailable VMs | If data path availability split by Frontend IP address and Frontend Port (all known and future values) is equal to zero, and in a secondary alert, if health probe status is equal to zero, then fire alerts | These alerts help determine if the data path availability for any configured load balancing rules isn't servicing traffic due to all VMs in the associated backend pool being probed down by the configured health probe. Review load balancer [troubleshooting guide](load-balancer-troubleshoot.md) to investigate the potential root cause. |
+| Load balancing rule unavailable due to unavailable VMs | If data path availability split by Frontend IP address and Frontend Port (all known and future values) is equal to zero, or in a second independent alert, if health probe status is equal to zero, then fire alert(s) | These alerts help determine if the data path availability for any configured load balancing rules isn't servicing traffic due to all VMs in the associated backend pool being probed down by the configured health probe. Review load balancer [troubleshooting guide](load-balancer-troubleshoot.md) to investigate the potential root cause. |
 | VM availability significantly low | If health probe status split by Backend IP and Backend Port is equal to user defined probed-up percentage of total pool size (that is, 25% are probed up), then fire alert | This alert determines if there are less than needed VMs available to serve traffic |
 | Outbound connections to internet endpoint failing | If SNAT Connection Count filtered to Connection State = Failed is greater than zero, then fire alert | This alert fires when SNAT ports are exhausted and VMs are failing to initiate outbound connections. |
 | Approaching SNAT exhaustion | If Used SNAT Ports is greater than user defined number, then fire alert | This alert requires a static outbound configuration where the same number of ports are always allocated. It then fires when a percentage of the allocated ports is used. |

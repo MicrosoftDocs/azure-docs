@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 08/19/2024
 ---
 
 # Full text search in Azure AI Search
@@ -51,7 +51,7 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure AI Search using the [REST API](/rest/api/searchservice/search-documents).  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+POST /indexes/hotels/docs/search?api-version=2024-07-01
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",

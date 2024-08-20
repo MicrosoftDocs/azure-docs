@@ -3,11 +3,11 @@ title: Azure network round-trip latency statistics
 description: Learn about round-trip latency statistics between Azure regions.
 services: networking
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: article
-ms.date: 07/21/2023
+ms.date: 06/20/2024
 ms.author: mbender
-ms.custom: references_regions
+ms.custom: references_regions,updatedFY24S2
 ---
 
 # Azure network round-trip latency statistics
@@ -22,7 +22,7 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *July 21, 2023*, and it covers the 30-day period from *June 21, 2023* to *July 21, 2023*.
+The current dataset was taken on *June 20th, 2024*, and it covers the 30-day period ending on *June 19th, 2024*.
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
@@ -51,7 +51,7 @@ Use the following tabs to view latency statistics for each region.
 
 #### [Middle East / Africa](#tab/MiddleEast)
 
-Latency tables for Middle East / Africa regions including UAE, South Africa, and Qatar.
+Latency tables for Middle East / Africa regions including UAE, South Africa, Israel, and Qatar.
 
 Use the following tabs to view latency statistics for each region.
 
@@ -59,726 +59,770 @@ Use the following tabs to view latency statistics for each region.
 
 #### [West US](#tab/WestUS/Americas)
 
-|Source region |West US|West US 2|West US 3|
-|---|---|---|---|
-|Australia Central|144|164|158|
-|Australia Central 2|144|164|158|
-|Australia East|148|160|156|
-|Australia Southeast|159|171|167|
-|Brazil South|180|182|163|
-|Canada Central|61|63|65|
-|Canada East|69|73|73|
-|Central India|218|210|232|
-|Central US|39|38|43|
-|East Asia|149|141|151|
-|East US|64|64|51|
-|East US 2|60|64|47|
-|France Central|142|142|130|
-|France South|151|149|140|
-|Germany North|155|152|143|
-|Germany West Central|147|145|135|
-|Japan East|106|98|108|
-|Japan West|113|105|115|
-|Korea Central|130|123|135|
-|Korea South|123|116|125|
-|North Central US|49|47|51|
-|North Europe|132|130|119|
-|Norway East|160|157|147|
-|Norway West|164|162|150|
-|Qatar Central|264|261|250|
-|South Africa North|312|309|296|
-|South Africa West|294|291|277|
-|South Central US|34|45|20|
-|South India|202|195|217|
-|Southeast Asia|169|162|175|
-|Sweden Central|170|168|159|
-|Switzerland North|153|151|142|
-|Switzerland West|149|148|138|
-|UAE Central|258|254|238|
-|UAE North|258|256|239|
-|UK South|136|134|124|
-|UK West|139|137|128|
-|West Central US|25|24|31|
-|West Europe|147|145|134|
-|West India|221|210|233|
-|West US||23|17|
-|West US 2|23||38|
-|West US 3|17|37||
+| Source              | West US | West US 2 |
+|---------------------|---------|-----------|
+| Australia Central   | 148     | 168       |
+| Australia Central 2 | 148     | 167       |
+| Australia East      | 140     | 161       |
+| Australia Southeast | 153     | 174       |
+| Brazil South        | 186     | 183       |
+| Canada Central      | 61      | 60        |
+| Canada East         | 71      | 69        |
+| Central India       | 220     | 212       |
+| Central US          | 41      | 39        |
+| East Asia           | 151     | 143       |
+| East US             | 71      | 66        |
+| East US 2           | 69      | 70        |
+| France Central      | 150     | 150       |
+| France South        | 153     | 148       |
+| Germany North       | 165     | 164       |
+| Germany West Central| 160     | 157       |
+| Israel Central      | 194     | 190       |
+| Italy North         | 165     | 162       |
+| Japan East          | 108     | 100       |
+| Japan West          | 115     | 107       |
+| Korea Central       | 160     | 124       |
+| Korea South         | 132     | 124       |
+| North Central US    | 51      | 49        |
+| North Europe        | 156     | 152       |
+| Norway East         | 172     | 171       |
+| Norway West         | 167     | 167       |
+| Poland North        | 175     | 177       |
+| Qatar Central       | 264     | 254       |
+| South Africa North  | 294     | 291       |
+| South Africa West   | 278     | 275       |
+| South Central US    | 36      | 48        |
+| South India         | 203     | 196       |
+| Southeast Asia      | 171     | 163       |
+| Sweden Central      | 183     | 182       |
+| Switzerland North   | 167     | 164       |
+| Switzerland West    | 160     | 159       |
+| UAE Central         | 252     | 249       |
+| UAE North           | 255     | 251       |
+| UK South            | 148     | 146       |
+| UK West             | 153     | 149       |
+| West Central US     | 27      | 25        |
+| West Europe         | 154     | 154       |
+| West US             | 24      |           |
+| West US 2           | 25      |           |
+| West US 3           | 19      | 39        |
+
+
 
 #### [Central US](#tab/CentralUS/Americas)
 
-|Source region|North Central US|Central US|South Central US|West Central US|
-|---|---|---|---|---|
-|Australia Central|193|180|175|167|
-|Australia Central 2|193|181|176|167|
-|Australia East|188|176|173|167|
-|Australia Southeast|197|188|184|178|
-|Brazil South|136|147|141|161|
-|Canada Central|17|23|48|38|
-|Canada East|26|31|58|46|
-|Central India|223|235|237|241|
-|Central US|9||26|16|
-|East Asia|186|177|168|163|
-|East US|19|24|32|43|
-|East US 2|22|28|28|45|
-|France Central|97|104|112|120|
-|France South|108|113|122|128|
-|Germany North|111|116|125|131|
-|Germany West Central|103|109|117|124|
-|Japan East|142|134|125|120|
-|Japan West|148|141|132|127|
-|Korea Central|165|158|152|144|
-|Korea South|164|153|142|138|
-|North Central US||9|33|26|
-|North Europe|85|94|98|108|
-|Norway East|115|122|130|135|
-|Norway West|115|127|131|141|
-|Qatar Central|215|227|226|240|
-|South Africa North|263|274|275|287|
-|South Africa West|245|256|259|270|
-|South Central US|33|26||24|
-|South India|247|230|234|216|
-|Southeast Asia|205|197|192|184|
-|Sweden Central|126|132|141|150|
-|Switzerland North|109|115|124|130|
-|Switzerland West|106|112|121|126|
-|UAE Central|209|221|215|234|
-|UAE North|210|222|215|235|
-|UK South|91|98|106|112|
-|UK West|95|100|110|116|
-|West Central US|25|16|24||
-|West Europe|100|109|113|123|
-|West India|220|232|231|242|
-|West US|49|39|34|25|
-|West US 2|47|38|45|24|
-|West US 3|50|43|20|31|
+| Source              | Central US | North Central US | South Central US | West Central US |
+|---------------------|------------|------------------|------------------|-----------------|
+| Australia Central   | 177        | 190              | 166              | 164             |
+| Australia Central 2 | 177        | 190              | 166              | 164             |
+| Australia East      | 174        | 184              | 162              | 160             |
+| Australia Southeast | 185        | 195              | 173              | 171             |
+| Brazil South        | 149        | 137              | 142              | 163             |
+| Canada Central      | 24         | 17               | 47               | 38              |
+| Canada East         | 33         | 26               | 57               | 48              |
+| Central India       | 231        | 224              | 230              | 240             |
+| Central US          |            | 14               | 27               | 18              |
+| East Asia           | 180        | 191              | 171              | 167             |
+| East US             | 31         | 21               | 35               | 45              |
+| East US 2           | 35         | 26               | 34               | 50              |
+| France Central      | 116        | 107              | 112              | 131             |
+| France South        | 116        | 102              | 116              | 130             |
+| Germany North       | 130        | 121              | 128              | 145             |
+| Germany West Central| 123        | 114              | 122              | 138             |
+| Israel Central      | 156        | 144              | 155              | 171             |
+| Italy North         | 127        | 115              | 126              | 141             |
+| Japan East          | 137        | 148              | 128              | 123             |
+| Japan West          | 144        | 155              | 134              | 130             |
+| Korea Central       | 197        | 218              | 166              | 179             |
+| Korea South         | 160        | 174              | 152              | 149             |
+| North Central US    | 14         |                  | 37               | 28              |
+| North Europe        | 112        | 104              | 122              | 132             |
+| Norway East         | 136        | 127              | 136              | 150             |
+| Norway West         | 129        | 118              | 133              | 145             |
+| Poland North        | 141        | 129              | 141              | 155             |
+| Qatar Central       | 226        | 214              | 224              | 240             |
+| South Africa North  | 257        | 245              | 255              | 271             |
+| South Africa West   | 241        | 228              | 239              | 255             |
+| South Central US    | 27         | 36               |                  | 26              |
+| South India         | 232        | 247              | 230              | 223             |
+| Southeast Asia      | 200        | 212              | 203              | 190             |
+| Sweden Central      | 142        | 132              | 142              | 162             |
+| Switzerland North   | 129        | 117              | 127              | 143             |
+| Switzerland West    | 123        | 111              | 125              | 138             |
+| UAE Central         | 214        | 202              | 213              | 229             |
+| UAE North           | 217        | 205              | 215              | 231             |
+| UK South            | 104        | 94               | 114              | 124             |
+| UK West             | 105        | 97               | 117              | 127             |
+| West Central US     | 17         | 27               | 25               |                 |
+| West Europe         | 119        | 109              | 119              | 132             |
+| West US             | 41         | 50               | 36               | 27              |
+| West US 2           | 39         | 49               | 50               | 26              |
+| West US 3           | 45         | 53               | 22               | 34              |
 
 
 #### [East US](#tab/EastUS/Americas)
 
-|Source region|East US|East US 2|
-|---|---|---|
-|Australia Central|213|208|
-|Australia Central 2|213|209|
-|Australia East|204|200|
-|Australia Southeast|216|211|
-|Brazil South|116|114|
-|Canada Central|18|22|
-|Canada East|27|31|
-|Central India|203|203|
-|Central US|24|27|
-|East Asia|199|195|
-|East US||6|
-|East US 2|7||
-|France Central|82|85|
-|France South|92|96|
-|Germany North|94|98|
-|Germany West Central|87|91|
-|Japan East|156|151|
-|Japan West|163|158|
-|Korea Central|184|184|
-|Korea South|181|175|
-|North Central US|19|22|
-|North Europe|67|71|
-|Norway East|100|104|
-|Norway West|96|99|
-|Qatar Central|195|196|
-|South Africa North|243|248|
-|South Africa West|225|228|
-|South Central US|33|28|
-|South India|235|233|
-|Southeast Asia|223|220|
-|Sweden Central|110|115|
-|Switzerland North|94|98|
-|Switzerland West|91|94|
-|UAE Central|189|187|
-|UAE North|190|188|
-|UK South|76|80|
-|UK West|80|84|
-|West Central US|42|43|
-|West Europe|82|86|
-|West India|201|201|
-|West US|64|60|
-|West US 2|64|64|
-|West US 3|51|46|
+| Source              | East US | East US 2 |
+|---------------------|---------|-----------|
+| Australia Central   | 203     | 198       |
+| Australia Central 2 | 203     | 198       |
+| Australia East      | 201     | 197       |
+| Australia Southeast | 213     | 207       |
+| Brazil South        | 119     | 118       |
+| Canada Central      | 20      | 23        |
+| Canada East         | 29      | 32        |
+| Central India       | 203     | 205       |
+| Central US          | 33      | 37        |
+| East Asia           | 213     | 206       |
+| East US             |         | 9         |
+| East US 2           | 10      |           |
+| France Central      | 90      | 85        |
+| France South        | 85      | 89        |
+| Germany North       | 103     | 99        |
+| Germany West Central| 96      | 92        |
+| Israel Central      | 126     | 130       |
+| Italy North         | 97      | 101       |
+| Japan East          | 170     | 163       |
+| Japan West          | 177     | 170       |
+| Korea Central       | 229     | 198       |
+| Korea South         | 188     | 182       |
+| North Central US    | 24      | 27        |
+| North Europe        | 88      | 95        |
+| Norway East         | 108     | 110       |
+| Norway West         | 102     | 103       |
+| Poland North        | 113     | 112       |
+| Qatar Central       | 196     | 199       |
+| South Africa North  | 227     | 230       |
+| South Africa West   | 210     | 214       |
+| South Central US    | 38      | 33        |
+| South India         | 225     | 230       |
+| Southeast Asia      | 234     | 233       |
+| Sweden Central      | 119     | 117       |
+| Switzerland North   | 99      | 103       |
+| Switzerland West    | 93      | 97        |
+| UAE Central         | 184     | 188       |
+| UAE North           | 187     | 190       |
+| UK South            | 79      | 89        |
+| UK West             | 83      | 92        |
+| West Central US     | 47      | 51        |
+| West Europe         | 90      | 91        |
+| West US             | 74      | 67        |
+| West US 2           | 69      | 73        |
+| West US 3           | 60      | 56        |
 
 #### [Canada / Brazil](#tab/Canada/Americas)
 
-|Source region|Brazil</br>South|Canada</br>Central|Canada</br>East|
-|---|---|---|---|
-|Australia Central|323|204|212|
-|Australia Central 2|323|204|212|
-|Australia East|319|197|205|
-|Australia Southeast|329|209|217|
-|Brazil South||129|137|
-|Canada Central|128||12|
-|Canada East|137|13||
-|Central India|305|216|224|
-|Central US|147|24|31|
-|East Asia|328|198|206|
-|East US|115|18|26|
-|East US 2|114|22|31|
-|France Central|183|98|108|
-|France South|193|110|118|
-|Germany North|195|112|121|
-|Germany West Central|189|105|114|
-|Japan East|275|154|162|
-|Japan West|285|162|170|
-|Korea Central|301|179|187|
-|Korea South|296|175|183|
-|North Central US|135|18|26|
-|North Europe|170|83|92|
-|Norway East|203|117|126|
-|Norway West|197|107|117|
-|Qatar Central|296|207|215|
-|South Africa North|345|256|264|
-|South Africa West|326|237|245|
-|South Central US|141|48|57|
-|South India|337|252|260|
-|Southeast Asia|340|218|226|
-|Sweden Central|206|129|137|
-|Switzerland North|196|111|120|
-|Switzerland West|192|108|117|
-|UAE Central|291|201|210|
-|UAE North|292|202|211|
-|UK South|177|93|102|
-|UK West|180|97|106|
-|West Central US|161|42|46|
-|West Europe|183|97|106|
-|West India|302|213|221|
-|West US|179|62|69|
-|West US 2|182|64|73|
-|West US 3|162|66|73|
+| Source              | Brazil South | Canada Central | Canada East |
+|---------------------|--------------|----------------|-------------|
+| Australia Central   | 304          | 201            | 211         |
+| Australia Central 2 | 304          | 200            | 211         |
+| Australia East      | 316          | 196            | 206         |
+| Australia Southeast | 312          | 207            | 216         |
+| Brazil South        |              | 131            | 136         |
+| Canada Central      | 130          |                | 15          |
+| Canada East         | 135          | 15             |             |
+| Central India       | 307          | 213            | 218         |
+| Central US          | 149          | 25             | 34          |
+| East Asia           | 320          | 203            | 212         |
+| East US             | 116          | 18             | 28          |
+| East US 2           | 116          | 23             | 33          |
+| France Central      | 190          | 103            | 113         |
+| France South        | 186          | 99             | 109         |
+| Germany North       | 204          | 117            | 126         |
+| Germany West Central| 197          | 110            | 119         |
+| Israel Central      | 226          | 138            | 144         |
+| Italy North         | 197          | 110            | 117         |
+| Japan East          | 278          | 159            | 169         |
+| Japan West          | 281          | 166            | 176         |
+| Korea Central       | 302          | 236            | 193         |
+| Korea South         | 308          | 179            | 188         |
+| North Central US    | 137          | 18             | 28          |
+| North Europe        | 187          | 99             | 106         |
+| Norway East         | 211          | 114            | 124         |
+| Norway West         | 199          | 110            | 115         |
+| Poland North        | 210          | 123            | 129         |
+| Qatar Central       | 296          | 208            | 213         |
+| South Africa North  | 326          | 239            | 244         |
+| South Africa West   | 311          | 223            | 228         |
+| South Central US    | 142          | 48             | 58          |
+| South India         | 326          | 237            | 242         |
+| Southeast Asia      | 343          | 223            | 233         |
+| Sweden Central      | 213          | 125            | 131         |
+| Switzerland North   | 199          | 111            | 119         |
+| Switzerland West    | 193          | 106            | 116         |
+| UAE Central         | 284          | 196            | 202         |
+| UAE North           | 287          | 199            | 204         |
+| UK South            | 179          | 90             | 99          |
+| UK West             | 181          | 93             | 102         |
+| West Central US     | 162          | 39             | 49          |
+| West Europe         | 185          | 95             | 102         |
+| West US             | 186          | 62             | 71          |
+| West US 2           | 184          | 62             | 71          |
+| West US 3           | 163          | 66             | 75          |
+
 
 #### [Australia](#tab/Australia/APAC)
 
-| Source | Australia</br>Central | Australia</br>Central 2 | Australia</br>East | Australia</br>Southeast |
-|--------|-------------------|---------------------|----------------|---------------------|
-| Australia Central |   | 2 | 8 | 14 |
-| Australia Central 2 | 2 |   | 8 | 14 |
-| Australia East | 7 | 8 |   | 14 |
-| Australia Southeast | 14 | 14 | 14 |   |
-| Brazil South | 323 | 323 | 319 | 330 |
-| Canada Central | 203 | 204 | 197 | 209 |
-| Canada East | 212 | 212 | 205 | 217 |
-| Central India | 144 | 144 | 140 | 133 |
-| Central US | 180 | 181 | 176 | 188 |
-| East Asia | 125 | 126 | 123 | 117 |
-| East US | 213 | 213 | 204 | 216 |
-| East US 2 | 208 | 209 | 200 | 212 |
-| France Central | 237 | 238 | 232 | 230 |
-| France South | 227 | 227 | 222 | 219 |
-| Germany North | 249 | 249 | 244 | 241 |
-| Germany West Central | 242 | 242 | 237 | 234 |
-| Japan East | 127 | 127 | 101 | 113 |
-| Japan West | 135 | 135 | 109 | 120 |
-| Korea Central | 152 | 152 | 129 | 141 |
-| Korea South | 144 | 144 | 139 | 148 |
-| North Central US | 193 | 193 | 188 | 197 |
-| North Europe | 251 | 251 | 246 | 243 |
-| Norway East | 262 | 262 | 257 | 254 |
-| Norway West | 258 | 258 | 253 | 250 |
-| Qatar Central | 190 | 191 | 186 | 183 |
-| South Africa North | 383 | 384 | 378 | 375 |
-| South Africa West | 399 | 399 | 394 | 391 |
-| South Central US | 175 | 175 | 173 | 184 |
-| South India | 126 | 126 | 121 | 118 |
-| Southeast Asia | 94 | 94 | 89 | 83 |
-| Sweden Central | 265 | 266 | 261 | 258 |
-| Switzerland North | 237 | 237 | 232 | 230 |
-| Switzerland West | 234 | 234 | 229 | 226 |
-| UAE Central | 170 | 170 | 167 | 161 |
-| UAE North | 170 | 171 | 167 | 162 |
-| UK South | 242 | 243 | 238 | 235 |
-| UK West | 245 | 245 | 240 | 237 |
-| West Central US | 166 | 166 | 169 | 180 |
-| West Europe | 244 | 245 | 239 | 237 |
-| West India | 145 | 145 | 141 | 137 |
-| West US | 143 | 144 | 148 | 160 |
-| West US 2 | 164 | 164 | 160 | 172 |
-| West US 3 | 158 | 158 | 156 | 167 |
+| Source              | Australia Central | Australia Central 2 | Australia East | Australia Southeast |
+|---------------------|-------------------|---------------------|----------------|---------------------|
+| Australia Central   |                   | 3                   | 10             | 18                  |
+| Australia Central 2 | 4                 |                     | 9              | 15                  |
+| Australia East      | 10                | 9                   |                | 16                  |
+| Australia Southeast | 19                | 15                  | 16             |                     |
+| Brazil South        | 305               | 304                 | 317            | 312                 |
+| Canada Central      | 201               | 199                 | 194            | 205                 |
+| Canada East         | 210               | 209                 | 204            | 214                 |
+| Central India       | 148               | 147                 | 147            | 135                 |
+| Central US          | 178               | 177                 | 174            | 185                 |
+| East Asia           | 124               | 123                 | 120            | 114                 |
+| East US             | 200               | 199                 | 201            | 211                 |
+| East US 2           | 196               | 195                 | 198            | 204                 |
+| France Central      | 287               | 278                 | 294            | 266                 |
+| France South        | 275               | 267                 | 268            | 255                 |
+| Germany North       | 297               | 288                 | 298            | 278                 |
+| Germany West Central| 290               | 282                 | 296            | 270                 |
+| Israel Central      | 314               | 307                 | 307            | 295                 |
+| Italy North         | 286               | 278                 | 279            | 266                 |
+| Japan East          | 108               | 107                 | 104            | 115                 |
+| Japan West          | 115               | 114                 | 110            | 122                 |
+| Korea Central       | 133               | 132                 | 134            | 144                 |
+| Korea South         | 129               | 129                 | 136            | 137                 |
+| North Central US    | 190               | 190                 | 185            | 195                 |
+| North Europe        | 296               | 283                 | 290            | 281                 |
+| Norway East         | 309               | 300                 | 303            | 290                 |
+| Norway West         | 305               | 294                 | 307            | 286                 |
+| Poland North        | 306               | 297                 | 303            | 286                 |
+| Qatar Central       | 184               | 182                 | 182            | 170                 |
+| South Africa North  | 280               | 278                 | 279            | 266                 |
+| South Africa West   | 295               | 294                 | 295            | 282                 |
+| South Central US    | 166               | 165                 | 162            | 173                 |
+| South India         | 132               | 131                 | 131            | 119                 |
+| Southeast Asia      | 100               | 98                  | 95             | 86                  |
+| Sweden Central      | 313               | 305                 | 307            | 294                 |
+| Switzerland North   | 287               | 280                 | 281            | 268                 |
+| Switzerland West    | 285               | 279                 | 280            | 262                 |
+| UAE Central         | 178               | 177                 | 178            | 166                 |
+| UAE North           | 183               | 180                 | 180            | 168                 |
+| UK South            | 287               | 275                 | 281            | 272                 |
+| UK West             | 289               | 277                 | 284            | 274                 |
+| West Central US     | 164               | 163                 | 160            | 171                 |
+| West Europe         | 291               | 279                 | 286            | 272                 |
+| West US             | 148               | 147                 | 140            | 153                 |
+| West US 2           | 169               | 168                 | 162            | 174                 |
+| West US 3           | 149               | 148                 | 145            | 156                 |
+
 
 #### [Japan](#tab/Japan/APAC)
 
-|Source region|Japan East|Japan West|
-|---|---|---|
-|Australia Central|127|134|
-|Australia Central 2|127|135|
-|Australia East|102|109|
-|Australia Southeast|113|120|
-|Brazil South|275|283|
-|Canada Central|154|161|
-|Canada East|163|170|
-|Central India|118|125|
-|Central US|134|141|
-|East Asia|46|47|
-|East US|156|162|
-|East US 2|152|158|
-|France Central|212|225|
-|France South|202|215|
-|Germany North|224|238|
-|Germany West Central|217|231|
-|Japan East||10|
-|Japan West|10||
-|Korea Central|31|38|
-|Korea South|20|12|
-|North Central US|143|148|
-|North Europe|232|239|
-|Norway East|236|250|
-|Norway West|233|247|
-|Qatar Central|170|175|
-|South Africa North|358|371|
-|South Africa West|374|388|
-|South Central US|125|132|
-|South India|103|111|
-|Southeast Asia|70|77|
-|Sweden Central|240|255|
-|Switzerland North|212|226|
-|Switzerland West|209|222|
-|UAE Central|147|153|
-|UAE North|148|154|
-|UK South|217|231|
-|UK West|220|234|
-|West Central US|120|126|
-|West Europe|219|233|
-|West India|122|126|
-|West US|106|113|
-|West US 2|99|105|
-|West US 3|108|115|
+| Source              | Japan East | Japan West |
+|---------------------|------------|------------|
+| Australia Central   | 108        | 114        |
+| Australia Central 2 | 107        | 114        |
+| Australia East      | 103        | 110        |
+| Australia Southeast | 115        | 122        |
+| Brazil South        | 278        | 280        |
+| Canada Central      | 158        | 165        |
+| Canada East         | 167        | 174        |
+| Central India       | 121        | 128        |
+| Central US          | 137        | 144        |
+| East Asia           | 49         | 42         |
+| East US             | 169        | 175        |
+| East US 2           | 160        | 167        |
+| France Central      | 251        | 257        |
+| France South        | 244        | 249        |
+| Germany North       | 264        | 267        |
+| Germany West Central| 250        | 261        |
+| Israel Central      | 278        | 284        |
+| Italy North         | 249        | 256        |
+| Japan East          |            | 11         |
+| Japan West          | 12         |            |
+| Korea Central       | 33         | 19         |
+| Korea South         | 27         | 13         |
+| North Central US    | 149        | 155        |
+| North Europe        | 252        | 257        |
+| Norway East         | 272        | 276        |
+| Norway West         | 264        | 269        |
+| Poland North        | 277        | 279        |
+| Qatar Central       | 155        | 161        |
+| South Africa North  | 252        | 259        |
+| South Africa West   | 268        | 274        |
+| South Central US    | 127        | 134        |
+| South India         | 104        | 111        |
+| Southeast Asia      | 72         | 75         |
+| Sweden Central      | 279        | 283        |
+| Switzerland North   | 256        | 263        |
+| Switzerland West    | 251        | 258        |
+| UAE Central         | 152        | 160        |
+| UAE North           | 155        | 162        |
+| UK South            | 244        | 249        |
+| UK West             | 245        | 251        |
+| West Central US     | 123        | 129        |
+| West Europe         | 250        | 253        |
+| West US             | 108        | 114        |
+| West US 2           | 100        | 107        |
+| West US 3           | 111        | 117        |
 
 #### [Western Europe](#tab/WesternEurope/Europe)
 
-|Source region|France Central|France South|West Europe|
-|---|---|---|---|
-|Australia Central|238|227|245|
-|Australia Central 2|238|227|245|
-|Australia East|233|222|240|
-|Australia Southeast|230|219|237|
-|Brazil South|184|193|184|
-|Canada Central|99|109|100|
-|Canada East|109|118|109|
-|Central India|126|115|132|
-|Central US|104|113|105|
-|East Asia|180|169|187|
-|East US|82|91|83|
-|East US 2|86|95|87|
-|France Central||13|11|
-|France South|14||23|
-|Germany North|18|25|13|
-|Germany West Central|10|17|8|
-|Japan East|212|201|219|
-|Japan West|226|215|234|
-|Korea Central|215|204|222|
-|Korea South|209|198|216|
-|North Central US|98|108|99|
-|North Europe|17|26|18|
-|Norway East|28|41|21|
-|Norway West|24|33|17|
-|Qatar Central|117|105|124|
-|South Africa North|172|161|183|
-|South Africa West|158|171|158|
-|South Central US|112|122|114|
-|South India|156|146|169|
-|Southeast Asia|147|137|156|
-|Sweden Central|36|43|22|
-|Switzerland North|15|12|13|
-|Switzerland West|12|8|17|
-|UAE Central|111|100|118|
-|UAE North|112|101|119|
-|UK South|8|18|9|
-|UK West|13|22|14|
-|West Central US|118|129|119|
-|West Europe|10|21||
-|West India|123|112|130|
-|West US|141|151|143|
-|West US 2|140|149|142|
-|West US 3|130|140|131|
+| Source              | France Central | France South | Italy North | West Europe |
+|---------------------|----------------|--------------|-------------|-------------|
+| Australia Central   | 285            | 274          | 288         | 291         |
+| Australia Central 2 | 278            | 267          | 282         | 281         |
+| Australia East      | 293            | 267          | 281         | 287         |
+| Australia Southeast | 266            | 255          | 267         | 273         |
+| Brazil South        | 190            | 186          | 198         | 186         |
+| Canada Central      | 102            | 98           | 110         | 95          |
+| Canada East         | 111            | 107          | 117         | 104         |
+| Central India       | 126            | 131          | 137         | 135         |
+| Central US          | 116            | 116          | 128         | 118         |
+| East Asia           | 212            | 201          | 216         | 219         |
+| East US             | 87             | 83           | 96          | 89          |
+| East US 2           | 84             | 88           | 100         | 91          |
+| France Central      |                | 14           | 25          | 12          |
+| France South        | 15             |              | 16          | 22          |
+| Germany North       | 19             | 26           | 28          | 16          |
+| Germany West Central| 11             | 19           | 20          | 11          |
+| Israel Central      | 55             | 44           | 51          | 69          |
+| Italy North         | 24             | 15           |             | 25          |
+| Japan East          | 252            | 244          | 252         | 251         |
+| Japan West          | 257            | 249          | 259         | 254         |
+| Korea Central       | 247            | 236          | 250         | 254         |
+| Korea South         | 241            | 229          | 243         | 248         |
+| North Central US    | 107            | 102          | 117         | 109         |
+| North Europe        | 19             | 28           | 41          | 19          |
+| Norway East         | 32             | 41           | 39          | 25          |
+| Norway West         | 25             | 35           | 39          | 18          |
+| Poland North        | 28             | 35           | 34          | 23          |
+| Qatar Central       | 124            | 114          | 126         | 132         |
+| South Africa North  | 156            | 154          | 167         | 163         |
+| South Africa West   | 141            | 138          | 152         | 147         |
+| South Central US    | 110            | 114          | 126         | 118         |
+| South India         | 148            | 155          | 162         | 156         |
+| Southeast Asia      | 183            | 179          | 190         | 190         |
+| Sweden Central      | 35             | 43           | 42          | 27          |
+| Switzerland North   | 18             | 17           | 15          | 19          |
+| Switzerland West    | 13             | 10           | 15          | 20          |
+| UAE Central         | 115            | 103          | 115         | 122         |
+| UAE North           | 116            | 104          | 117         | 123         |
+| UK South            | 10             | 20           | 32          | 11          |
+| UK West             | 13             | 23           | 35          | 15          |
+| West Central US     | 129            | 129          | 141         | 132         |
+| West Europe         | 11             | 21           | 24          |             |
+| West US             | 149            | 153          | 165         | 155         |
+| West US 2           | 151            | 149          | 163         | 154         |
+| West US 3           | 136            | 139          | 147         | 139         |
+
 
 #### [Central Europe](#tab/CentralEurope/Europe)
 
-|Source region|Germany North|Germany West Central|Switzerland North|Switzerland West|
-|---|---|---|---|---|
-|Australia Central|248|242|237|234|
-|Australia Central 2|248|242|237|234|
-|Australia East|243|237|232|228|
-|Australia Southeast|240|234|229|226|
-|Brazil South|195|189|196|192|
-|Canada Central|110|105|111|107|
-|Canada East|120|114|120|117|
-|Central India|135|129|124|121|
-|Central US|115|109|115|112|
-|East Asia|191|185|179|176|
-|East US|93|87|93|90|
-|East US 2|97|91|98|94|
-|France Central|17|10|15|11|
-|France South|25|17|12|8|
-|Germany North||10|15|19|
-|Germany West Central|9||7|10|
-|Japan East|223|217|211|208|
-|Japan West|0|231|226|222|
-|Korea Central|226|220|214|211|
-|Korea South|220|214|208|204|
-|North Central US|109|103|109|106|
-|North Europe|28|23|30|25|
-|Norway East|20|26|31|34|
-|Norway West|23|24|29|32|
-|Qatar Central|127|121|116|112|
-|South Africa North|184|180|175|171|
-|South Africa West|168|163|170|166|
-|South Central US|124|117|124|120|
-|South India|160|162|158|157|
-|Southeast Asia|161|155|149|146|
-|Sweden Central|18|27|33|36|
-|Switzerland North|15|7||6|
-|Switzerland West|18|10|6||
-|UAE Central|120|116|110|106|
-|UAE North|122|116|111|107|
-|UK South|21|14|20|16|
-|UK West|23|17|25|21|
-|West Central US|130|124|129|126|
-|West Europe|13|9|14|17|
-|West India|133|127|122|118|
-|West US|153|147|153|149|
-|West US 2|151|145|151|148|
-|West US 3|141|135|141|138|
+| Source              | Germany North | Germany West Central | Poland North | Switzerland North | Switzerland West |
+|---------------------|---------------|----------------------|--------------|-------------------|------------------|
+| Australia Central   | 296           | 292                  | 305          | 284               | 284              |
+| Australia Central 2 | 288           | 284                  | 297          | 278               | 279              |
+| Australia East      | 297           | 296                  | 301          | 278               | 279              |
+| Australia Southeast | 277           | 272                  | 286          | 265               | 261              |
+| Brazil South        | 204           | 199                  | 209          | 197               | 193              |
+| Canada Central      | 115           | 110                  | 126          | 109               | 104              |
+| Canada East         | 124           | 119                  | 135          | 118               | 113              |
+| Central India       | 140           | 135                  | 150          | 139               | 132              |
+| Central US          | 130           | 126                  | 141          | 127               | 123              |
+| East Asia           | 223           | 219                  | 233          | 212               | 214              |
+| East US             | 101           | 96                   | 111          | 94                | 90               |
+| East US 2           | 97            | 92                   | 108          | 99                | 95               |
+| France Central      | 18            | 13                   | 27           | 16                | 13               |
+| France South        | 26            | 21                   | 35           | 15                | 10               |
+| Germany North       |               | 13                   | 13           | 16                | 18               |
+| Germany West Central| 11            |                      | 20           | 8                 | 11               |
+| Israel Central      | 67            | 61                   | 69           | 48                | 51               |
+| Italy North         | 25            | 20                   | 34           | 13                | 13               |
+| Japan East          | 263           | 252                  | 276          | 254               | 250              |
+| Japan West          | 267           | 263                  | 279          | 262               | 258              |
+| Korea Central       | 258           | 254                  | 267          | 247               | 249              |
+| Korea South         | 252           | 247                  | 261          | 240               | 236              |
+| North Central US    | 121           | 115                  | 131          | 114               | 110              |
+| North Europe        | 33            | 28                   | 39           | 33                | 27               |
+| Norway East         | 23            | 27                   | 31           | 30                | 33               |
+| Norway West         | 27            | 27                   | 35           | 30                | 33               |
+| Poland North        | 13            | 22                   |              | 25                | 27               |
+| Qatar Central       | 136           | 131                  | 145          | 125               | 122              |
+| South Africa North  | 170           | 164                  | 179          | 165               | 161              |
+| South Africa West   | 154           | 151                  | 163          | 148               | 145              |
+| South Central US    | 127           | 123                  | 137          | 127               | 124              |
+| South India         | 159           | 153                  | 165          | 163               | 150              |
+| Southeast Asia      | 193           | 189                  | 202          | 185               | 184              |
+| Sweden Central      | 21            | 30                   | 27           | 32                | 35               |
+| Switzerland North   | 18            | 12                   | 27           |                   | 8                |
+| Switzerland West    | 19            | 14                   | 28           | 7                 |                  |
+| UAE Central         | 125           | 120                  | 134          | 113               | 110              |
+| UAE North           | 127           | 122                  | 136          | 116               | 112              |
+| UK South            | 24            | 19                   | 31           | 24                | 18               |
+| UK West             | 26            | 20                   | 34           | 28                | 20               |
+| West Central US     | 142           | 140                  | 154          | 141               | 136              |
+| West Europe         | 16            | 12                   | 24           | 16                | 19               |
+| West US             | 163           | 162                  | 173          | 163               | 159              |
+| West US 2           | 164           | 160                  | 176          | 162               | 158              |
+| West US 3           | 152           | 147                  | 159          | 150               | 146              |
+
 
 #### [Norway / Sweden](#tab/NorwaySweden/Europe)
 
-|Source region|Norway East|Norway West|Sweden Central|
-|---|---|---|---|
-|Australia Central|262|258|265|
-|Australia Central 2|262|258|266|
-|Australia East|257|253|261|
-|Australia Southeast|254|250|258|
-|Brazil South|203|197|206|
-|Canada Central|117|107|128|
-|Canada East|126|117|138|
-|Central India|149|144|153|
-|Central US|122|127|133|
-|East Asia|204|200|208|
-|East US|99|95|109|
-|East US 2|104|100|114|
-|France Central|28|23|35|
-|France South|41|33|43|
-|Germany North|23|23|19|
-|Germany West Central|26|23|27|
-|Japan East|236|232|240|
-|Japan West|251|247|255|
-|Korea Central|239|235|243|
-|Korea South|233|229|237|
-|North Central US|115|115|127|
-|North Europe|37|33|45|
-|Norway East||9|9|
-|Norway West|9||16|
-|Qatar Central|140|137|144|
-|South Africa North|200|196|204|
-|South Africa West|177|171|180|
-|South Central US|130|131|141|
-|South India|181|177|185|
-|Southeast Asia|174|170|178|
-|Sweden Central|9|16||
-|Switzerland North|31|29|33|
-|Switzerland West|34|32|36|
-|UAE Central|135|131|139|
-|UAE North|136|132|140|
-|UK South|27|23|37|
-|UK West|29|25|40|
-|West Central US|135|140|150|
-|West Europe|22|16|27|
-|West India|146|142|150|
-|West US|160|164|170|
-|West US 2|157|162|168|
-|West US 3|147|150|159|
+| Source              | Norway East | Norway West | Sweden Central |
+|---------------------|-------------|-------------|----------------|
+| Australia Central   | 308         | 304         | 312            |
+| Australia Central 2 | 300         | 294         | 305            |
+| Australia East      | 302         | 306         | 306            |
+| Australia Southeast | 290         | 286         | 294            |
+| Brazil South        | 210         | 199         | 213            |
+| Canada Central      | 113         | 108         | 123            |
+| Canada East         | 122         | 113         | 129            |
+| Central India       | 153         | 146         | 157            |
+| Central US          | 136         | 129         | 141            |
+| East Asia           | 236         | 232         | 240            |
+| East US             | 105         | 97          | 117            |
+| East US 2           | 108         | 101         | 116            |
+| France Central      | 31          | 25          | 35             |
+| France South        | 41          | 35          | 43             |
+| Germany North       | 23          | 27          | 21             |
+| Germany West Central| 25          | 25          | 28             |
+| Israel Central      | 83          | 81          | 85             |
+| Italy North         | 38          | 37          | 41             |
+| Japan East          | 272         | 264         | 279            |
+| Japan West          | 276         | 268         | 283            |
+| Korea Central       | 271         | 267         | 275            |
+| Korea South         | 265         | 260         | 268            |
+| North Central US    | 127         | 117         | 132            |
+| North Europe        | 39          | 34          | 43             |
+| Norway East         |             | 10          | 11             |
+| Norway West         | 11          |             | 17             |
+| Poland North        | 29          | 34          | 26             |
+| Qatar Central       | 149         | 144         | 153            |
+| South Africa North  | 183         | 176         | 186            |
+| South Africa West   | 167         | 160         | 170            |
+| South Central US    | 136         | 132         | 141            |
+| South India         | 170         | 162         | 173            |
+| Southeast Asia      | 206         | 202         | 210            |
+| Sweden Central      | 11          | 17          |                |
+| Switzerland North   | 31          | 32          | 35             |
+| Switzerland West    | 33          | 33          | 36             |
+| UAE Central         | 137         | 133         | 141            |
+| UAE North           | 140         | 135         | 144            |
+| UK South            | 30          | 24          | 33             |
+| UK West             | 33          | 25          | 38             |
+| West Central US     | 149         | 142         | 161            |
+| West Europe         | 23          | 17          | 27             |
+| West US             | 170         | 166         | 182            |
+| West US 2           | 170         | 167         | 181            |
+| West US 3           | 157         | 148         | 165            |
 
 #### [UK / North Europe](#tab/UKNorthEurope/Europe)
 
-|Source region|UK South|UK West|North Europe|
-|---|---|---|---|
-|Australia Central|243|245|251|
-|Australia Central 2|243|245|251|
-|Australia East|238|240|246|
-|Australia Southeast|235|237|243|
-|Brazil South|178|180|170|
-|Canada Central|93|96|84|
-|Canada East|103|106|93|
-|Central India|130|132|137|
-|Central US|98|100|89|
-|East Asia|185|187|193|
-|East US|76|79|67|
-|East US 2|80|84|71|
-|France Central|8|12|17|
-|France South|18|22|26|
-|Germany North|22|25|29|
-|Germany West Central|14|17|22|
-|Japan East|217|219|231|
-|Japan West|231|234|238|
-|Korea Central|220|222|228|
-|Korea South|214|216|222|
-|North Central US|92|95|83|
-|North Europe|11|14||
-|Norway East|27|29|35|
-|Norway West|23|25|32|
-|Qatar Central|122|124|130|
-|South Africa North|173|174|179|
-|South Africa West|152|154|160|
-|South Central US|106|110|97|
-|South India|161|167|169|
-|Southeast Asia|153|158|163|
-|Sweden Central|37|40|45|
-|Switzerland North|20|25|29|
-|Switzerland West|17|21|25|
-|UAE Central|116|118|124|
-|UAE North|116|119|125|
-|UK South||5|11|
-|UK West|6||14|
-|West Central US|112|115|103|
-|West Europe|9|11|17|
-|West India|127|130|135|
-|West US|136|139|127|
-|West US 2|134|137|125|
-|West US 3|124|127|115|
+| Source                | North Europe | UK South | UK West |
+|-----------------------|--------------|----------|---------|
+| Australia Central     | 296          | 287      | 290     |
+| Australia Central 2   | 286          | 276      | 278     |
+| Australia East        | 291          | 280      | 284     |
+| Australia Southeast   | 282          | 272      | 275     |
+| Brazil South          | 189          | 179      | 182     |
+| Canada Central        | 99           | 89       | 92      |
+| Canada East           | 108          | 98       | 101     |
+| Central India         | 146          | 131      | 137     |
+| Central US            | 113          | 104      | 104     |
+| East Asia             | 227          | 217      | 220     |
+| East US               | 87           | 77       | 82      |
+| East US 2             | 96           | 88       | 91      |
+| France Central        | 20           | 10       | 13      |
+| France South          | 30           | 20       | 23      |
+| Germany North         | 35           | 25       | 27      |
+| Germany West Central  | 27           | 17       | 19      |
+| Israel Central        | 72           | 61       | 64      |
+| Italy North           | 42           | 31       | 35      |
+| Japan East            | 253          | 244      | 245     |
+| Japan West            | 259          | 249      | 252     |
+| Korea Central         | 263          | 252      | 255     |
+| Korea South           | 256          | 246      | 249     |
+| North Central US      | 105          | 94       | 98      |
+| North Europe          |              | 13       | 16      |
+| Norway East           | 40           | 30       | 34      |
+| Norway West           | 35           | 25       | 27      |
+| Poland North          | 41           | 31       | 35      |
+| Qatar Central         | 140          | 130      | 133     |
+| South Africa North    | 172          | 162      | 165     |
+| South Africa West     | 158          | 147      | 151     |
+| South Central US      | 123          | 114      | 117     |
+| South India           | 162          | 149      | 156     |
+| Southeast Asia        | 198          | 188      | 190     |
+| Sweden Central        | 44           | 34       | 39      |
+| Switzerland North     | 36           | 25       | 29      |
+| Switzerland West      | 28           | 18       | 21      |
+| UAE Central           | 130          | 119      | 122     |
+| UAE North             | 131          | 122      | 124     |
+| UK South              | 14           |          | 8       |
+| UK West               | 17           | 7        |         |
+| West Central US       | 132          | 123      | 127     |
+| West Europe           | 20           | 10       | 13      |
+| West US               | 159          | 147      | 152     |
+| West US 2             | 155          | 147      | 150     |
+| West US 3             | 143          | 133      | 136     |
+
+
 
 
 #### [Korea](#tab/Korea/APAC)
 
-|Source region|Korea Central|Korea South|
-|---|---|---|
-|Australia Central|152|144|
-|Australia Central 2|152|144|
-|Australia East|128|139|
-|Australia Southeast|140|148|
-|Brazil South|301|297|
-|Canada Central|178|174|
-|Canada East|187|184|
-|Central India|118|111|
-|Central US|158|152|
-|East Asia|38|31|
-|East US|183|180|
-|East US 2|184|175|
-|France Central|214|208|
-|France South|204|198|
-|Germany North|226|220|
-|Germany West Central|220|213|
-|Japan East|30|19|
-|Japan West|37|12|
-|Korea Central||8|
-|Korea South|8||
-|North Central US|165|164|
-|North Europe|228|222|
-|Norway East|239|233|
-|Norway West|235|229|
-|Qatar Central|169|163|
-|South Africa North|360|354|
-|South Africa West|376|370|
-|South Central US|152|142|
-|South India|104|96|
-|Southeast Asia|68|61|
-|Sweden Central|243|237|
-|Switzerland North|214|208|
-|Switzerland West|211|204|
-|UAE Central|146|140|
-|UAE North|147|141|
-|UK South|219|213|
-|UK West|222|216|
-|West Central US|143|137|
-|West Europe|221|215|
-|West India|120|114|
-|West US|130|123|
-|West US 2|122|116|
-|West US 3|135|124|
+| Source              | Korea Central | Korea South |
+|---------------------|---------------|-------------|
+| Australia Central   | 132           | 129         |
+| Australia Central 2 | 132           | 129         |
+| Australia East      | 131           | 135         |
+| Australia Southeast | 143           | 137         |
+| Brazil South        | 303           | 309         |
+| Canada Central      | 235           | 177         |
+| Canada East         | 191           | 187         |
+| Central India       | 118           | 111         |
+| Central US          | 198           | 160         |
+| East Asia           | 40            | 33          |
+| East US             | 224           | 185         |
+| East US 2           | 188           | 180         |
+| France Central      | 247           | 240         |
+| France South        | 236           | 229         |
+| Germany North       | 258           | 252         |
+| Germany West Central| 251           | 244         |
+| Israel Central      | 276           | 269         |
+| Italy North         | 248           | 241         |
+| Japan East          | 32            | 26          |
+| Japan West          | 19            | 13          |
+| Korea Central       |               | 9           |
+| Korea South         | 10            |             |
+| North Central US    | 218           | 173         |
+| North Europe        | 261           | 254         |
+| Norway East         | 271           | 265         |
+| Norway West         | 267           | 260         |
+| Poland North        | 267           | 261         |
+| Qatar Central       | 152           | 145         |
+| South Africa North  | 250           | 241         |
+| South Africa West   | 265           | 257         |
+| South Central US    | 165           | 150         |
+| South India         | 101           | 94          |
+| Southeast Asia      | 69            | 62          |
+| Sweden Central      | 275           | 268         |
+| Switzerland North   | 249           | 242         |
+| Switzerland West    | 249           | 236         |
+| UAE Central         | 149           | 144         |
+| UAE North           | 152           | 145         |
+| UK South            | 252           | 245         |
+| UK West             | 255           | 248         |
+| West Central US     | 154           | 149         |
+| West Europe         | 253           | 246         |
+| West US             | 159           | 131         |
+| West US 2           | 124           | 124         |
+| West US 3           | 147           | 132         |
 
 
 #### [India](#tab/India/APAC)
 
-|Source region|Central India|West India|South India|
-|---|---|---|---|
-|Australia Central|145|145|126|
-|Australia Central 2|144|145|126|
-|Australia East|140|141|121|
-|Australia Southeast|133|137|118|
-|Brazil South|305|302|337|
-|Canada Central|215|213|252|
-|Canada East|224|222|260|
-|Central India||5|23|
-|Central US|235|232|230|
-|East Asia|83|85|68|
-|East US|202|200|235|
-|East US 2|203|201|233|
-|France Central|125|123|156|
-|France South|115|113|146|
-|Germany North|136|133|168|
-|Germany West Central|129|127|161|
-|Japan East|118|122|102|
-|Japan West|126|127|111|
-|Korea Central|119|120|104|
-|Korea South|111|114|96|
-|North Central US|223|220|247|
-|North Europe|138|135|169|
-|Norway East|148|146|181|
-|Norway West|144|143|177|
-|Qatar Central|38|36|64|
-|South Africa North|270|267|302|
-|South Africa West|287|284|317|
-|South Central US|237|231|234|
-|South India|23|30||
-|Southeast Asia|50|54|35|
-|Sweden Central|153|150|184|
-|Switzerland North|124|122|157|
-|Switzerland West|121|118|157|
-|UAE Central|33|29|49|
-|UAE North|33|28|49|
-|UK South|130|127|161|
-|UK West|132|130|167|
-|West Central US|241|242|216|
-|West Europe|132|129|169|
-|West India|5||29|
-|West US|218|221|202|
-|West US 2|210|211|195|
-|West US 3|232|233|217|
+| Source              | Central India | South India | West India |
+|---------------------|---------------|-------------|------------|
+| Australia Central   | 148           | 131         | 173        |
+| Australia Central 2 | 149           | 131         | 172        |
+| Australia East      | 147           | 131         | 170        |
+| Australia Southeast | 137           | 119         | 160        |
+| Brazil South        | 307           | 327         | 322        |
+| Canada Central      | 213           | 236         | 235        |
+| Canada East         | 218           | 240         | 239        |
+| Central India       |               | 24          | 29         |
+| Central US          | 233           | 232         | 254        |
+| East Asia           | 84            | 66          | 105        |
+| East US             | 200           | 224         | 222        |
+| East US 2           | 206           | 228         | 225        |
+| France Central      | 127           | 148         | 147        |
+| France South        | 132           | 154         | 153        |
+| Germany North       | 142           | 159         | 162        |
+| Germany West Central| 134           | 151         | 153        |
+| Israel Central      | 159           | 174         | 182        |
+| Italy North         | 138           | 159         | 154        |
+| Japan East          | 122           | 104         | 143        |
+| Japan West          | 129           | 111         | 150        |
+| Korea Central       | 119           | 101         | 140        |
+| Korea South         | 113           | 95          | 134        |
+| North Central US    | 225           | 248         | 243        |
+| North Europe        | 146           | 160         | 164        |
+| Norway East         | 154           | 170         | 176        |
+| Norway West         | 148           | 162         | 172        |
+| Poland North        | 151           | 165         | 173        |
+| Qatar Central       | 41            | 55          | 65         |
+| South Africa North  | 138           | 153         | 158        |
+| South Africa West   | 153           | 168         | 174        |
+| South Central US    | 230           | 230         | 252        |
+| South India         | 26            |             | 44         |
+| Southeast Asia      | 55            | 36          | 77         |
+| Sweden Central      | 158           | 173         | 180        |
+| Switzerland North   | 141           | 164         | 161        |
+| Switzerland West    | 133           | 151         | 154        |
+| UAE Central         | 35            | 53          | 56         |
+| UAE North           | 38            | 56          | 62         |
+| UK South            | 133           | 149         | 155        |
+| UK West             | 138           | 155         | 158        |
+| West Central US     | 240           | 222         | 262        |
+| West Europe         | 136           | 160         | 155        |
+| West US             | 221           | 203         | 242        |
+| West US 2           | 214           | 196         | 234        |
+| West US 3           | 232           | 214         | 253        |
+
+
+> [!NOTE]
+> Round-trip latency to West India from other Azure regions is included in the table. However, West India is not a source region so roundtrips from West India are not included in the table.]
 
 #### [Asia](#tab/Asia/APAC)
 
-|Source region|East Asia|Southeast Asia|
-|---|---|---|
-|Australia Central|125|94|
-|Australia Central 2|125|94|
-|Australia East|122|89|
-|Australia Southeast|116|83|
-|Brazil South|328|341|
-|Canada Central|197|218|
-|Canada East|206|227|
-|Central India|83|50|
-|Central US|177|197|
-|East Asia||34|
-|East US|199|222|
-|East US 2|195|218|
-|France Central|179|147|
-|France South|169|137|
-|Germany North|192|162|
-|Germany West Central|185|155|
-|Japan East|46|70|
-|Japan West|47|77|
-|Korea Central|38|69|
-|Korea South|32|61|
-|North Central US|186|205|
-|North Europe|193|164|
-|Norway East|204|174|
-|Norway West|200|171|
-|Qatar Central|133|98|
-|South Africa North|327|296|
-|South Africa West|342|312|
-|South Central US|168|192|
-|South India|68|35|
-|Southeast Asia|34||
-|Sweden Central|208|179|
-|Switzerland North|179|150|
-|Switzerland West|176|146|
-|UAE Central|111|78|
-|UAE North|112|80|
-|UK South|185|153|
-|UK West|188|158|
-|West Central US|163|184|
-|West Europe|187|156|
-|West India|85|54|
-|West US|149|169|
-|West US 2|142|162|
-|West US 3|151|175|
+| Source              | East Asia | Southeast Asia |
+|---------------------|-----------|----------------|
+| Australia Central   | 127       | 101            |
+| Australia Central 2 | 127       | 100            |
+| Australia East      | 123       | 91             |
+| Australia Southeast | 119       | 86             |
+| Brazil South        | 323       | 344            |
+| Canada Central      | 205       | 223            |
+| Canada East         | 215       | 232            |
+| Central India       | 87        | 55             |
+| Central US          | 184       | 202            |
+| East Asia           |           | 36             |
+| East US             | 215       | 233            |
+| East US 2           | 208       | 232            |
+| France Central      | 217       | 186            |
+| France South        | 206       | 181            |
+| Germany North       | 228       | 195            |
+| Germany West Central| 220       | 188            |
+| Israel Central      | 245       | 213            |
+| Italy North         | 218       | 188            |
+| Japan East          | 52        | 73             |
+| Japan West          | 46        | 73             |
+| Korea Central       | 43        | 70             |
+| Korea South         | 37        | 64             |
+| North Central US    | 195       | 213            |
+| North Europe        | 229       | 198            |
+| Norway East         | 240       | 208            |
+| Norway West         | 236       | 204            |
+| Poland North        | 237       | 205            |
+| Qatar Central       | 121       | 90             |
+| South Africa North  | 218       | 188            |
+| South Africa West   | 233       | 203            |
+| South Central US    | 174       | 204            |
+| South India         | 70        | 38             |
+| Southeast Asia      |           | 38             |
+| Sweden Central      | 244       | 212            |
+| Switzerland North   | 219       | 189            |
+| Switzerland West    | 217       | 187            |
+| UAE Central         | 119       | 87             |
+| UAE North           | 121       | 90             |
+| UK South            | 221       | 189            |
+| UK West             | 223       | 191            |
+| West Central US     | 170       | 188            |
+| West Europe         | 222       | 190            |
+| West US             | 154       | 172            |
+| West US 2           | 147       | 165            |
+| West US 3           | 158       | 188            |
 
-#### [UAE / Qatar](#tab/uae-qatar/MiddleEast)
+#### [Israel / Qatar / UAE](#tab/israel-qatar-uae/MiddleEast)
 
-|Source region|Qatar Central|UAE Central|UAE North|
-|---|---|---|---|
-|Australia Central|191|170|170|
-|Australia Central 2|191|170|171|
-|Australia East|187|167|167|
-|Australia Southeast|184|160|162|
-|Brazil South|297|291|292|
-|Canada Central|207|201|202|
-|Canada East|215|210|211|
-|Central India|38|33|33|
-|Central US|227|221|222|
-|East Asia|133|112|112|
-|East US|194|188|189|
-|East US 2|197|187|188|
-|France Central|116|111|111|
-|France South|106|100|101|
-|Germany North|128|122|123|
-|Germany West Central|120|115|116|
-|Japan East|169|147|148|
-|Japan West|175|153|156|
-|Korea Central|170|146|148|
-|Korea South|163|140|141|
-|North Central US|215|209|210|
-|North Europe|130|124|125|
-|Norway East|140|135|136|
-|Norway West|137|131|132|
-|Qatar Central||62|62|
-|South Africa North|268|256|257|
-|South Africa West|276|272|273|
-|South Central US|226|215|215|
-|South India|64|49|50|
-|Southeast Asia|98|78|80|
-|Sweden Central|144|139|140|
-|Switzerland North|116|110|111|
-|Switzerland West|112|106|107|
-|UAE Central|62||6|
-|UAE North|62|6||
-|UK South|122|115|116|
-|UK West|124|118|119|
-|West Central US|240|234|235|
-|West Europe|123|117|118|
-|West India|36|29|29|
-|West US|264|258|258|
-|West US 2|262|254|256|
-|West US 3|250|237|239|
+| Source              | Israel Central | Qatar Central | UAE Central | UAE North |
+|---------------------|----------------|---------------|-------------|-----------|
+| Australia Central   | 313            | 184           | 178         | 182       |
+| Australia Central 2 | 307            | 183           | 178         | 181       |
+| Australia East      | 306            | 182           | 177         | 180       |
+| Australia Southeast | 294            | 171           | 165         | 168       |
+| Brazil South        | 226            | 296           | 284         | 287       |
+| Canada Central      | 136            | 208           | 195         | 198       |
+| Canada East         | 142            | 212           | 200         | 203       |
+| Central India       | 158            | 41            | 34          | 37        |
+| Central US          | 155            | 227           | 214         | 217       |
+| East Asia           | 241            | 118           | 116         | 118       |
+| East US             | 123            | 194           | 182         | 184       |
+| East US 2           | 128            | 198           | 186         | 189       |
+| France Central      | 54             | 125           | 114         | 116       |
+| France South        | 44             | 114           | 102         | 105       |
+| Germany North       | 67             | 138           | 125         | 128       |
+| Germany West Central| 59             | 130           | 118         | 120       |
+| Israel Central      |                | 155           | 142         | 145       |
+| Italy North         | 50             | 126           | 113         | 116       |
+| Japan East          | 277            | 156           | 152         | 155       |
+| Japan West          | 284            | 163           | 160         | 162       |
+| Korea Central       | 276            | 153           | 149         | 152       |
+| Korea South         | 269            | 146           | 144         | 146       |
+| North Central US    | 144            | 214           | 202         | 205       |
+| North Europe        | 70             | 139           | 127         | 129       |
+| Norway East         | 83             | 150           | 138         | 140       |
+| Norway West         | 81             | 146           | 134         | 136       |
+| Poland North        | 69             | 146           | 134         | 136       |
+| Qatar Central       | 153            |               | 16          | 17        |
+| South Africa North  | 195            | 117           | 105         | 102       |
+| South Africa West   | 183            | 132           | 121         | 118       |
+| South Central US    | 153            | 224           | 212         | 214       |
+| South India         | 173            | 55            | 52          | 56        |
+| Southeast Asia      | 211            | 88            | 85          | 88        |
+| Sweden Central      | 84             | 154           | 141         | 144       |
+| Switzerland North   | 50             | 128           | 115         | 118       |
+| Switzerland West    | 51             | 124           | 110         | 112       |
+| UAE Central         | 142            | 17            |             | 6         |
+| UAE North           | 144            | 18            | 6           |           |
+| UK South            | 61             | 131           | 119         | 121       |
+| UK West             | 64             | 133           | 120         | 123       |
+| West Central US     | 170            | 240           | 227         | 230       |
+| West Europe         | 67             | 132           | 121         | 122       |
+| West US             | 193            | 263           | 251         | 254       |
+| West US 2           | 190            | 255           | 249         | 251       |
+| West US 3           | 171            | 242           | 229         | 232       |
+
 
 ### [South Africa](#tab/southafrica/MiddleEast)
 
-|Source region|South Africa North|South Africa West|
-|---|---|---|
-|Australia Central|384|399|
-|Australia Central 2|384|399|
-|Australia East|378|394|
-|Australia Southeast|376|391|
-|Brazil South|345|326|
-|Canada Central|256|237|
-|Canada East|265|245|
-|Central India|270|287|
-|Central US|274|256|
-|East Asia|327|342|
-|East US|243|224|
-|East US 2|248|229|
-|France Central|172|157|
-|France South|162|171|
-|Germany North|187|169|
-|Germany West Central|180|163|
-|Japan East|358|373|
-|Japan West|372|388|
-|Korea Central|361|376|
-|Korea South|354|370|
-|North Central US|263|245|
-|North Europe|180|160|
-|Norway East|200|177|
-|Norway West|194|171|
-|Qatar Central|269|277|
-|South Africa North||19|
-|South Africa West|19||
-|South Central US|276|259|
-|South India|302|318|
-|Southeast Asia|296|311|
-|Sweden Central|202|180|
-|Switzerland North|176|170|
-|Switzerland West|172|166|
-|UAE Central|256|272|
-|UAE North|257|272|
-|UK South|173|151|
-|UK West|174|154|
-|West Central US|288|270|
-|West Europe|183|157|
-|West India|268|284|
-|West US|312|294|
-|West US 2|310|291|
-|West US 3|296|277|
+| Source              | South Africa North | South Africa West |
+|---------------------|--------------------|------------------|
+| Australia Central   | 280                | 295              |
+| Australia Central 2 | 281                | 294              |
+| Australia East      | 280                | 294              |
+| Australia Southeast | 268                | 282              |
+| Brazil South        | 327                | 311              |
+| Canada Central      | 239                | 221              |
+| Canada East         | 243                | 226              |
+| Central India       | 137                | 151              |
+| Central US          | 258                | 241              |
+| East Asia           | 216                | 230              |
+| East US             | 225                | 208              |
+| East US 2           | 230                | 213              |
+| France Central      | 157                | 141              |
+| France South        | 155                | 138              |
+| Germany North       | 171                | 154              |
+| Germany West Central| 164                | 148              |
+| Israel Central      | 196                | 183              |
+| Italy North         | 168                | 150              |
+| Japan East          | 253                | 267              |
+| Japan West          | 261                | 274              |
+| Korea Central       | 251                | 265              |
+| Korea South         | 244                | 258              |
+| North Central US    | 246                | 228              |
+| North Europe        | 172                | 155              |
+| Norway East         | 184                | 167              |
+| Norway West         | 177                | 160              |
+| Poland North        | 180                | 163              |
+| Qatar Central       | 118                | 131              |
+| South Africa North  |                    | 20               |
+| South Africa West   | 21                 |                  |
+| South Central US    | 256                | 238              |
+| South India         | 154                | 169              |
+| Southeast Asia      | 187                | 201              |
+| Sweden Central      | 188                | 170              |
+| Switzerland North   | 168                | 150              |
+| Switzerland West    | 163                | 145              |
+| UAE Central         | 108                | 121              |
+| UAE North           | 104                | 118              |
+| UK South            | 163                | 146              |
+| UK West             | 165                | 150              |
+| West Central US     | 271                | 254              |
+| West Europe         | 163                | 146              |
+| West US             | 295                | 277              |
+| West US 2           | 292                | 275              |
+| West US 3           | 274                | 256              |
+
 
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Create an SMB Azure file share and connect it to a Windows virtual machine using the Azure portal
+title: Create an SMB Azure file share and connect it to a Windows VM
 description: This tutorial covers how to create an SMB Azure file share using the Azure portal, connect it to a Windows VM, upload a file to the file share, create a snapshot, and restore the share from the snapshot.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 10/09/2023
+ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
@@ -25,6 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Create and delete a share snapshot
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -67,17 +68,17 @@ Next, create an SMB Azure file share.
 
 ### Deploy a VM
 
-So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM with Windows Server 2019 Datacenter to represent the on-premises server.
+So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM to represent the on-premises server.
 
-1. Expand the menu on the left side of the portal and select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Under **Popular services** select **Virtual machine**.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Under **Popular services**, select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::
 
 1. Under **Instance details**, name the VM *qsVM*.
 1. For **Security type**, select **Standard**.
-1. For **Image**, select **Windows Server 2019 Datacenter - x64 Gen2**.
+1. For **Image**, select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**.
 1. Leave the default settings for **Region**, **Availability options**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
@@ -99,16 +100,15 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/local-host2.png" alt-text="Screenshot of the VM log in prompt, more choices is highlighted.":::
 
-
-1. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
+1. You might receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
 ### Map the Azure file share to a Windows drive
 
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
 1. Select a drive letter and then **Show script**.
-1. Copy the script and paste it in **Notepad**.
+1. Copy the script from the Azure portal and paste it into **Notepad**, as in the following example.
 
-   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the contents of the box that you should copy and paste in Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
+   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the script that you should copy from the Azure portal and paste into Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
 
 1. In the VM, open **PowerShell** and paste in the contents of the **Notepad**, then press enter to run the command. It should map the drive.
 
@@ -119,7 +119,6 @@ Now that you've mapped the drive, create a snapshot.
 1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot** and then **OK**.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/create-snapshot.png" alt-text="Screenshot of the storage account snapshots tab.":::
-
 
 1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.
@@ -184,7 +183,7 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Use an Azure file share with Windows](storage-how-to-use-files-windows.md)

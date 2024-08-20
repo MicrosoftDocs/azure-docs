@@ -3,24 +3,24 @@ title: Import data (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: ambadal
-author: AmarBadal
-ms.reviewer: franksolomon
-ms.date: 06/19/2023
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: ambadal
+ms.date: 04/18/2024
 ms.custom: data4ml
 ---
 
 # Import data assets (preview)
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to import data into the Azure Machine Learning platform from external sources. A successful import automatically creates and registers an Azure Machine Learning data asset with the name provided during the import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most-frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
+In this article, you learn how to import data into the Azure Machine Learning platform from external sources. A successful data import automatically creates and registers an Azure Machine Learning data asset with the name provided during that import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most-frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
 
 A data import creates a cache of the source data, along with metadata, for faster and reliable data access in Azure Machine Learning training jobs. The data cache avoids network and connection constraints. The cached data is versioned to support reproducibility. This provides versioning capabilities for data imported from SQL Server sources. Additionally, the cached data provides data lineage for auditing tasks. A data import uses ADF (Azure Data Factory pipelines) behind the scenes, which means that users can avoid complex interactions with ADF. Behind the scenes, Azure Machine Learning also handles management of ADF compute resource pool size, compute resource provisioning, and tear-down, to optimize data transfer by determining proper parallelization.
 
-The transferred data is partitioned and securely stored in Azure storage, as parquet files. This enables faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. Azure storage hosts that external source.
+The transferred data is partitioned and securely stored as parquet files in Azure storage. This enables faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. Azure storage hosts that external source.
 
 The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs, compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. This leads to fewer reruns, and fewer training failures.
 
@@ -41,7 +41,7 @@ To create and work with data assets, you need:
 * [Workspace connections created](how-to-connection.md)
 
 > [!NOTE]
-> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
+> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.15.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
 >
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI as shown here:
 
@@ -58,8 +58,8 @@ az extension show -n ml #(the version value needs to be 2.15.1 or later)
 # [Python SDK](#tab/python)
 
 ```python
-pip uninstall azure-ai-ml
-pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.15.0 or later)
 ```
 
 # [Studio](#tab/azure-studio)
@@ -132,7 +132,7 @@ ml_client.data.import_data(data_import=data_import)
 
 1. Navigate to the [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Under **Assets** in the left navigation, select **Data**. Next, select the **Data Import** tab. Then select Create as shown in this screenshot:
+1. Under **Assets** in the left navigation, select **Data**. Next, select the **Data Import** tab. Then select Create, as shown in this screenshot:
 
    :::image type="content" source="media/how-to-import-data-assets/create-new-data-import.png" lightbox="media/how-to-import-data-assets/create-new-data-import.png" alt-text="Screenshot showing creation of a new data import in Azure Machine Learning studio UI.":::
 
@@ -153,13 +153,13 @@ ml_client.data.import_data(data_import=data_import)
    :::image type="content" source="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" lightbox="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" alt-text="Screenshot that shows details of the data source to output.":::
 
    > [!NOTE]
-   > To choose your own datastore, select **Other datastores**. In this case, you must select the path for the location of the data cache.
+   > To choose your own datastore, select **Other datastores**. In that case, you must select the path for the location of the data cache.
 
 1. You can add a schedule. Select **Add schedule** as shown in this screenshot:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot that shows the selection of the Add schedule button.":::
    
-   A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
+   A new panel opens, where you can define either a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot that shows selection of the Add recurrence schedule button.":::
 
@@ -205,7 +205,7 @@ ml_client.data.import_data(data_import=data_import)
             | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
             | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
 
-      - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+      - For more information about crontab expressions, visit the [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
 
       > [!IMPORTANT]
       > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
@@ -228,7 +228,7 @@ ml_client.data.import_data(data_import=data_import)
 > [!NOTE]
 > An Amazon S3 data resource can serve as an external file system resource.
 
-The `connection` that handles the data import action determines the details of the external data source. The connection defines an Amazon S3 bucket as the target. The connection expects a valid `path` value. An asset value imported from an external file system source has a `type` of `uri_folder`.
+The `connection` that handles the data import action determines the aspects of the external data source. The connection defines an Amazon S3 bucket as the target. The connection expects a valid `path` value. An asset value imported from an external file system source has a `type` of `uri_folder`.
 
 The next code sample imports data from an Amazon S3 resource.
 
@@ -360,7 +360,7 @@ ml_client.data.import_data(data_import=data_import)
             | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
             | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
 
-      - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+      - For more information about crontab expressions, visit the [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
 
       > [!IMPORTANT]
       > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.

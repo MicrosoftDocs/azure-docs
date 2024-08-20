@@ -30,7 +30,7 @@ Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-s
 ## Prebuilt standard voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource that was created prior to September 1, 2021 then you can continue to do so until August 31, 2024. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md?tabs=tts). After August 31, 2024 the standard voices won't be supported with any Speech resource.
+> We are retiring the standard voices from September 1, 2021 through August 31, 2024. Speech resources created after September 1, 2021 could never use standard voices. We are gradually sunsetting standard voice support for Speech resources created prior to September 1, 2021. By August 31, 2024 the standard voices won’t be available for all customers. You can choose from the supported [neural voice names](language-support.md?tabs=tts).
 > 
 > The pricing for prebuilt standard voice is different from prebuilt neural voice. Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details in the collapsable "Deprecated" section. Prebuilt standard voice (retired) is referred as **Standard**. 
 

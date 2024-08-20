@@ -2,7 +2,7 @@
 title: Troubleshoot common Azure Chaos Studio problems
 description: Learn to troubleshoot common problems when you use Azure Chaos Studio.
 author: c-ashton
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
 ms.topic: troubleshooting
@@ -53,7 +53,7 @@ Some problems are caused by missing prerequisites.
 
 ### Agent-based faults fail on a virtual machine
 Agent-based faults might fail for various reasons related to missing prerequisites:
-* On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#disk-io-pressure-linux), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stress) faults all require that the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) is installed on your VM. For more information on how to install stress-ng, see the fault prerequisite sections.
+* On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#linux-disk-io-pressure), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stressor) faults all require that the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) is installed on your VM. For more information on how to install stress-ng, see the fault prerequisite sections.
 * On either Linux or Windows VMs, the user-assigned managed identity provided during agent-based target enablement must also be added to the VM.
 * On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted the Reader role on the VM. (Seemingly elevated roles like Virtual Machine Contributor don't include the \*/Read operation that's necessary for the Chaos Studio agent to read the microsoft-agent target proxy resource on the VM.)
 
@@ -126,14 +126,38 @@ From the **Experiments** list in the Azure portal, select the experiment name to
 
 ![Screenshot that shows experiment history.](images/run-experiment-history.png)
 
+Alternatively, use the REST API to obtain the experiment's execution details. Learn more in the [REST API sample article](chaos-studio-samples-rest-api.md).
+
+```azurecli
+az rest --method post --url "https://management.azure.com/{experimentId}/executions/{executionDetailsId}/getExecutionDetails?api-version={apiVersion}" 
+```
+
 ### My agent-based fault failed with the error "Verify that the target is correctly added and proper read permissions are provided to the experiment msi"
 
 This error might happen if you added the agent by using the Azure portal, which has a known issue. Enabling an agent-based target doesn't assign the user-assigned managed identity to the VM or virtual machine scale set.
 
 To resolve this problem, go to the VM or virtual machine scale set in the Azure portal and go to **Identity**. Open the **User assigned** tab and add your user-assigned identity to the VM. After you're finished, you might need to reboot the VM for the agent to connect.
 
+### My agent-based fault failed with the error "Agent is already performing another task"
+
+This error will happen if you try to run multiple agent faults at the same time. Today the agent only supports running a single agent-fault at a time, and will fail if you define an experiment that runs multiple agent faults at the same time.
+
+### The experiment didn't start or failed immediately
+
+After starting an experiment, you might see an error message like: `The long-running operation has failed. InternalServerError. The target resource(s) could not be resolved. Error Code: OperationFailedException`. Usually, this indicates that the experiment's identity doesn't have the necessary permissions.
+
+To resolve this error, ensure that the experiment's system-assigned or user-assigned managed identity has permission to all resources in the experiment. Learn more about permissions here: [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md). For example, if the experiment targets a virtual machine, navigate to the virtual machine's identity page and assign the "Virtual Machine Contributor" role to the experiment's managed identity. 
+
 ## Problems when setting up a managed identity
 
 ### When I try to add a system-assigned/user-assigned managed identity to my existing experiment, it fails to save. 
 
 If you are trying to add a user-assigned or system-assigned managed identity to an experiment that **already** has a managed identity assigned to it, the experiment fails to deploy. You need to delete the existing user-assigned or system-assigned managed identity on the desired experiment **first** before adding your desired managed identity. 
+
+### When I run an experiment configured to automatically create and assign a custom role, I get the error "The target resource(s) could not be resolved. ErrorCode: AccessDenied. Target Resource(s):"
+
+When the "Custom role permissions" checkbox is selected for an experiment, Chaos Studio creates and assigns a custom role with the necessary permissions to the experiment's identity. However, this is subject to the following role assignment and role definition limits:
+* Each Azure subscription has a limit of 4000 role assignments.
+* Each Microsoft Entra tenant has a limit of 5000 role definitions (or 2000 role definitions for Azure in China).
+
+When one of these limits has been reached, this error will occur. To work around this, grant permissions to the experiment identity manually instead.

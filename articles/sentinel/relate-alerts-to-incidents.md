@@ -31,6 +31,8 @@ You can also use this automation to add alerts to [manually created incidents](c
 
     You *can* add Microsoft Defender XDR alerts to non-Defender incidents, and non-Defender alerts to Defender incidents, in the Microsoft Sentinel portal.
 
+- If you onboarded Microsoft Sentinel to the unified security operations portal, you can no longer add Microsoft Sentinel alerts to incidents, or remove Microsoft Sentinel alerts from incidents, in Microsoft Sentinel (in the Azure portal). You can do this only in the Microsoft Defender portal. For more information, see [Capability differences between portals](microsoft-sentinel-defender-portal.md#capability-differences-between-portals).
+
 - An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
 ## Add alerts using the entity timeline (Preview)

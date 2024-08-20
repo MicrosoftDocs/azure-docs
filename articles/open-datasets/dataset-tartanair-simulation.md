@@ -1,7 +1,7 @@
 ---
 title: TartanAir AirSim dataset
 description: Learn how to use the TartanAir dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -9,7 +9,7 @@ ms.date: 04/16/2021
 
 Simultaneous Localization and Mapping (SLAM) is one of the most fundamental capabilities necessary for robots. Due to the ubiquitous availability of images, Visual SLAM (V-SLAM) has become an important component of many autonomous systems. Impressive progress has been made with both geometric-based methods and learning-based methods. However, developing robust and reliable SLAM methods for real-world applications is still a challenging problem. Real-life environments are full of difficult cases such as light changes or lack of illumination, dynamic objects, and texture-less scenes. This dataset takes advantages of the advancing computer graphics technology, and aims to cover diverse scenarios with challenging features in simulation.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ![Collage of images of built and natural environments](./media/dataset-tartanair-simulation/airsim-sample-images.png)  
 

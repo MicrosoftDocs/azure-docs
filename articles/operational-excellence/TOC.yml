@@ -17,35 +17,53 @@
       - name: Azure Event Hubs Cluster
         href: relocation-event-hub-cluster.md
       - name: Azure Site Recovery (Recovery Services vaults)
-        href: ../site-recovery/move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-site-recovery.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
+      - name: Azure Virtual Network
+        items:
+        - name: Move Azure VMs to another region
+          href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json
+        - name: Move encrypted Azure VMs to another region
+          href: ../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/operational-excellence/toc.json
       - name: Network Security Groups (NSG)
         href: relocation-virtual-network-nsg.md
     - name: Mainstream services
       items:
       - name: Azure AI Search
         href: ../search/search-howto-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Application Gateway and Web Application Firewall
+        href: relocation-app-gateway.md
       - name: Azure API Management
         href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
       - name: Azure App Service
-        href: ../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json
-      - name: Azure Backup (Recovery Services vault)
-        href: ../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-app-service.md
+      - name: Azure Backup
+        href: relocation-backup.md
       - name: Azure Batch
         href: ../batch/account-move.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Cache for Redis
         href: ../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Container Registry
-        href: ../container-registry/manual-regional-move.md
+        href: relocation-container-registry.md
       - name: Azure Cosmos DB
-        href: ../cosmos-db/how-to-move-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-cosmos-db.md
       - name: Azure Database for MariaDB Server
-        href: ../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
+        href: /azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for MySQL Server
-        href: ../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
+        href: /azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
+      - name: Azure Firewall
+        href: relocation-firewall.md
+      - name: Azure Event Grid
+        items:
+        - name: Relocate Azure Event Grid domains
+          href: relocation-event-grid-domains.md
+        - name: Relocate Azure Event Grid custom topics
+          href: relocation-event-grid-custom-topics.md
+        - name: Relocate Azure Event Grid system topics
+          href: relocation-event-grid-system-topics.md
       - name: Azure Functions
         href: ../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Logic apps

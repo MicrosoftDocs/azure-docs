@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/22/2023
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 ---
 

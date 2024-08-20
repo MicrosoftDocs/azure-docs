@@ -77,4 +77,4 @@ Follow these steps to check your access to the previously selected Azure resourc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)

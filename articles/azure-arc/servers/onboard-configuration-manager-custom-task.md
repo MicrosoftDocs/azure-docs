@@ -15,6 +15,8 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Generate a service principal
 
 Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale). Assign the **Azure Connected Machine Onboarding** role to your service principal, and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal ID and Service Principal Secret, as you'll need these values later.

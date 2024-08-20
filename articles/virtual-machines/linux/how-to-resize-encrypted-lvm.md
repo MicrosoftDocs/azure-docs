@@ -2,12 +2,12 @@
 title: How to resize disks encrypted using Azure Disk Encryption
 description: This article provides instructions for resizing ADE encrypted disks by using logical volume management.
 author: jofrance
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.custom: linux-related-content
 ms.topic: article
 ms.author: jofrance
-ms.date: 04/11/2023
+ms.date: 08/06/2024
 ---
 
 # How to resize logical volume management devices that use Azure Disk Encryption
@@ -45,6 +45,7 @@ The procedures in this article apply to the following scenarios:
 - Traditional LVM and LVM-on-crypt configurations
 - Traditional LVM encryption
 - LVM-on-crypt
+- Data disks only. OS disk resizing is not supported.
 
 ### Traditional LVM and LVM-on-crypt configurations
 
@@ -191,7 +192,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
 
     ![Screenshot showing the code that checks the output of l s b l k. The command and the results are highlighted.](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-lsblk.png)
 
-6. Attach the new disk to the VM by following the instructions in [Attach a data disk to a Linux VM](attach-disk-portal.md).
+6. Attach the new disk to the VM by following the instructions in [Attach a data disk to a Linux VM](attach-disk-portal.yml).
 
 7. Check the disk list, and notice the new disk.
 
@@ -383,7 +384,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 6. Resize the data disks by following the instructions in [Expand an Azure managed disk](expand-disks.md#expand-an-azure-managed-disk). You can use the portal, the CLI, or PowerShell.
 
     >[!IMPORTANT]
-    >You can't resize virtual disks while the VM is running. Deallocate your VM for this step.
+    >Some data disks on Linux VMs can be resized without Deallocating the VM, please check [Expand virtual hard disks on a Linux VM](/azure/virtual-machines/linux/expand-disks? tabs=ubuntu#expand-an-azure-managed-disk) in order to verify your disks meet the requirements.
 
 7. Start the VM and check the new sizes by using `fdisk`.
 
@@ -499,7 +500,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
 
     ![Screenshot showing an alternative code that checks the size of the disks. The results are highlighted.](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
-    To add the new disk, you can use PowerShell, the Azure CLI, or the Azure portal. For more information, see [Attach a data disk to a Linux VM](attach-disk-portal.md).
+    To add the new disk, you can use PowerShell, the Azure CLI, or the Azure portal. For more information, see [Attach a data disk to a Linux VM](attach-disk-portal.yml).
 
     The kernel name scheme applies to the newly added device. A new drive is normally assigned the next available letter. In this case, the added disk is `sdd`.
 

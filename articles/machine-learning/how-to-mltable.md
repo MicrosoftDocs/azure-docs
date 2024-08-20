@@ -3,13 +3,13 @@ title: Working with tables in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to work with tables (meltable) in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: samkemp
-author: samuel100
-ms.reviewer: franksolomon
-ms.date: 06/02/2023
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: samkemp
+ms.date: 04/18/2024
 ms.custom: data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
@@ -21,19 +21,19 @@ ms.custom: data4ml
 Azure Machine Learning supports a Table type (`mltable`). This allows for the creation of a *blueprint* that defines how to load data files into memory as a Pandas or Spark data frame. In this article you learn:
 
 > [!div class="checklist"]
-> - When to use Azure Machine Learning Tables instead of Files or Folders.
-> - How to install the `mltable` SDK.
-> - How to define a data loading blueprint using an `mltable` file.
-> - Examples that show how `mltable` is used in Azure Machine Learning.
-> - How to use the `mltable` during interactive development (for example, in a notebook).
+> - When to use Azure Machine Learning Tables instead of Files or Folders
+> - How to install the `mltable` SDK
+> - How to define a data loading blueprint using an `mltable` file
+> - Examples that show how `mltable` is used in Azure Machine Learning
+> - How to use the `mltable` during interactive development (for example, in a notebook)
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't already have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/)
 
-- The [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+- The [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install)
 
-- An Azure Machine Learning workspace.
+- An Azure Machine Learning workspace
 
 > [!IMPORTANT]
 > Ensure you have the latest `mltable` package installed in your Python environment:
@@ -52,7 +52,7 @@ git clone --depth 1 https://github.com/Azure/azureml-examples
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces the time needed to complete the operation.
 
-The examples relevant to Azure Machine Learning Tables can be found in the following folder of the cloned repo:
+You can find examples relevant to Azure Machine Learning Tables in this folder of the cloned repo:
 
 ```bash
 cd azureml-examples/sdk/python/using-mltable
@@ -63,15 +63,15 @@ cd azureml-examples/sdk/python/using-mltable
 Azure Machine Learning Tables (`mltable`) allow you to define how you want to *load* your data files into memory, as a Pandas and/or Spark data frame. Tables have two key features:
 
 1. **An MLTable file.** A YAML-based file that defines the data loading *blueprint*. In the MLTable file, you can specify:
-    - The storage location(s) of the data - local, in the cloud, or on a public http(s) server.
+    - The storage location or locations of the data - local, in the cloud, or on a public http(s) server.
     - *Globbing* patterns over cloud storage. These locations can specify sets of filenames, with wildcard characters (`*`).
     - *read transformation* - for example, the file format type (delimited text, Parquet, Delta, json), delimiters, headers, etc.
-    - Column type conversions (enforce schema).
+    - Column type conversions (to enforce schema).
     - New column creation, using folder structure information - for example, creation of a year and month column, using the `{year}/{month}` folder structure in the path.
     - *Subsets of data* to load - for example, filter rows, keep/drop columns, take random samples.
 1. **A fast and efficient engine** to load the data into a Pandas or Spark dataframe, according to the blueprint defined in the MLTable file. The engine relies on [Rust](https://www.rust-lang.org/) for high speed and memory efficiency.
 
-Azure Machine Learning Tables are useful in the following scenarios:
+Azure Machine Learning Tables are useful in these scenarios:
 
 - You need to [glob](https://wikipedia.org/wiki/Glob_(programming)) over storage locations.
 - You need to create a table using data from different storage locations (for example, different blob containers).
@@ -83,13 +83,13 @@ Azure Machine Learning Tables are useful in the following scenarios:
 - You want to train ML models using Azure Machine Learning AutoML.
 
 > [!TIP]
-> Azure Machine Learning *doesn't require* use of Azure Machine Learning Tables (`mltable`) for tabular data. You can use Azure Machine Learning File (`uri_file`) and Folder (`uri_folder`) types, and your own parsing logic loads the data into a Pandas or Spark data frame.
+> For tabular data, Azure Machine Learning *doesn't require* use of Azure Machine Learning Tables (`mltable`). You can use Azure Machine Learning File (`uri_file`) and Folder (`uri_folder`) types, and your own parsing logic loads the data into a Pandas or Spark data frame.
 >
-> If you have a simple CSV file or Parquet folder, it's **easier** to use Azure Machine Learning Files/Folders instead of Tables.
+> For a simple CSV file or Parquet folder, it's **easier** to use Azure Machine Learning Files/Folders instead of Tables.
 
 ## Azure Machine Learning Tables Quickstart
 
-In this quickstart, you create a Table (`mltable`) of the [NYC Green Taxi Data](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets) from Azure Open Datasets. The data has a parquet format, and it covers years 2008-2021. On a publicly accessible blob storage account, the data files have the following folder structure:
+In this quickstart, you create a Table (`mltable`) of the [NYC Green Taxi Data](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets) from Azure Open Datasets. The data has a parquet format, and it covers the years 2008-2021. On a publicly accessible blob storage account, the data files have this folder structure:
 
 ```text
 /
@@ -113,26 +113,26 @@ In this quickstart, you create a Table (`mltable`) of the [NYC Green Taxi Data](
             └── part-XXX.snappy.parquet
 ```
 
-With this data, you want to load into a Pandas data frame:
+With this data, you need to load into a Pandas data frame:
 
-- Only the parquet files for years 2015-19.
-- A random sample of the data.
-- Only rows with a rip distance greater than 0.
-- Relevant columns for Machine Learning.
-- New columns - year and month - using the path information (`puYear=X/puMonth=Y`).
+- Only the parquet files for years 2015-19
+- A random sample of the data
+- Only rows with a rip distance greater than 0
+- Relevant columns for Machine Learning
+- New columns - year and month - using the path information (`puYear=X/puMonth=Y`)
 
 Pandas code handles this. However, achieving *reproducibility* would become difficult because you must either:
 
-- Share code, which means that if the schema changes (for example, a column name change) then all users must update their code, or
-- Write an ETL pipeline, which has heavy overhead.
+- Share code, which means that if the schema changes (for example, a column name might change) then all users must update their code
+- Write an ETL pipeline, which has heavy overhead
 
 Azure Machine Learning Tables provide a light-weight mechanism to serialize (save) the data loading steps in an `MLTable` file. Then, you and members of your team can *reproduce* the Pandas data frame. If the schema changes, you only update the `MLTable` file, instead of updates in many places that involve Python data loading code.
 
 ### Clone the quickstart notebook or create a new notebook/script
 
-If you use an Azure Machine Learning compute instance, [Create a new notebook](quickstart-run-notebooks.md#create-a-new-notebook). If you use an IDE, then create a new Python script.
+If you use an Azure Machine Learning compute instance, [Create a new notebook](quickstart-run-notebooks.md#create-a-new-notebook). If you use an IDE, you should create a new Python script.
 
-Additionally, the [quickstart notebook is available in the Azure Machine Learning examples GitHub repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mltable/quickstart/mltable-quickstart.ipynb). Use this code to clone and access the Notebook:
+Additionally, the quickstart notebook is available in the [Azure Machine Learning examples GitHub repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mltable/quickstart/mltable-quickstart.ipynb). Use this code to clone and access the Notebook:
 
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -205,28 +205,27 @@ You can optionally choose to load the MLTable object into Pandas, using:
 #### Save the data loading steps
 Next, save all your data loading steps into an MLTable file. Saving your data loading steps in an MLTable file allows you to reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
 
-You can choose to save the MLTable yaml file to a cloud storage, or you can also save it to local paths.
+You can save the MLTable yaml file to a cloud storage resource, or you can save it to local path resources.
 ```python
-# save the data loading steps in an MLTable file to a cloud storage
+# save the data loading steps in an MLTable file to a cloud storage resource
 # NOTE: the tbl object was defined in the previous snippet.
 tbl.save(path="azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", colocated=True, show_progress=True, overwrite=True)
 ```
 
 ```python
-# save the data loading steps in an MLTable file to local
+# save the data loading steps in an MLTable file to a local resource
 # NOTE: the tbl object was defined in the previous snippet.
 tbl.save("./titanic")
 ```
 
 > [!IMPORTANT]
-> - If colocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
-> - If colocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
-> - We don’t support this parameter combination: data is in local, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
+> - If colocated == True, then we will copy the data to the same folder with the MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
+> - If colocated == False, we will not move the data, we will use absolute paths for cloud data, and use relative paths for local data.
+> - We don’t support this parameter combination: data is stored in a local resource, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud, and use the cloud data paths for MLTable instead.
 >
 
-
 ### Reproduce data loading steps
-Now that the data loading steps have been serialized into a file, you can reproduce them at any point in time, with the load() method. This way, you don't need to redefine your data loading steps in code, and you can more easily share the file.
+Now that you serialized the data loading steps into a file, you can reproduce them at any point in time with the load() method. This way, you don't need to redefine your data loading steps in code, and you can more easily share the file.
 
 ```python
 import mltable
@@ -251,7 +250,7 @@ tbl.show(5)
 
 #### Create a data asset to aid sharing and reproducibility
 
-Your MLTable file is currently saved on disk, which makes it hard to share with Team members. When you create a data asset in Azure Machine Learning, your MLTable is uploaded to cloud storage and "bookmarked". Your Team members can access the MLTable with a friendly name. Also, the data asset is versioned.
+You might have your MLTable file currently saved on disk, which makes it hard to share with team members. When you create a data asset in Azure Machine Learning, your MLTable is uploaded to cloud storage and "bookmarked."Your team members can then access the MLTable with a friendly name. Also, the data asset is versioned.
 
 # [CLI](#tab/cli)
 
@@ -264,7 +263,7 @@ az ml data create --name green-quickstart --version 1 --path ./nyc_taxi --type m
 
 # [Python](#tab/Python-SDK)
 
-Set your subscription, resource group and workspace:
+Set your subscription, resource group, and workspace:
 
 ```python
 subscription_id = "<SUBSCRIPTION_ID>"
@@ -307,7 +306,7 @@ ml_client.data.create_or_update(my_data)
 
 #### Read the data asset in an interactive session
 
-Now that you have your MLTable stored in the cloud, you and Team members can access it with a friendly name in an interactive session (for example, a notebook):
+Now that you have your MLTable stored in the cloud, you and team members can access it with a friendly name in an interactive session (for example, a notebook):
 
 ```python
 import mltable
@@ -434,11 +433,11 @@ ml_client.jobs.create_or_update(job)
 
 ## Authoring MLTable Files
 
-To directly create the MLTable file, we recommend that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
+To directly create the MLTable file, we suggest that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
 
 ### Supported file types
 
-You can create an MLTable using a range of different file types:
+You can create an MLTable with a range of different file types:
 
 | File Type | `MLTable` Python SDK  |
 |---------|---------|
@@ -448,11 +447,11 @@ You can create an MLTable using a range of different file types:
 |JSON Lines     |   `from_json_lines_files(paths=[path])`      |
 |Paths<br>(Create a table with a column of paths to stream)     |   `from_paths(paths=[path])`      |
 
-For more information, read the [MLTable reference documentation](/python/api/mltable/mltable.mltable.mltable)
+For more information, read the [MLTable reference resource](/python/api/mltable/mltable.mltable.mltable)
 
 ### Defining paths
 
-For delimited text, parquet, JSON lines and paths, define a list of Python dictionaries that defines the path(s) from which to read:
+For delimited text, parquet, JSON lines, and paths, define a list of Python dictionaries that defines the path or paths from which to read:
 
 ```python
 import mltable
@@ -473,7 +472,7 @@ tbl = mltable.from_delimited_files(paths=paths)
 # tbl = mltable.from_paths(paths=paths)
 ```
 
-MLTable supports the following path types:
+MLTable supports these path types:
 
 |Location  | Examples  |
 |---------|---------|
@@ -486,7 +485,7 @@ MLTable supports the following path types:
 > `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
 
 #### A note on defining paths for Delta Lake Tables
-Defining paths to read Delta Lake tables is different compared to the other file types. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the "_delta_log" folder and data files. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
+Compared to the other file types, defining paths to read Delta Lake tables is different. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the "_delta_log" folder and data files. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
 
 ```python
 import mltable
@@ -501,7 +500,7 @@ tbl = mltable.from_delta_lake(
 )
 ```
 
-If you want to get the latest version of Delta Lake data, you can pass current timestamp into `timestamp_as_of`.
+To get the latest version of Delta Lake data, you can pass current timestamp into `timestamp_as_of`.
 
 ```python
 import mltable
@@ -517,7 +516,7 @@ df = tbl.to_pandas_dataframe()
 ```
 
 > [!IMPORTANT]
-> **Limitation**: `mltable` doesn't support extracting partition keys when reading data from Delta Lake.
+> **Limitation**: `mltable` doesn't support partition key extraction when reading data from Delta Lake.
 > The `mltable` transformation `extract_columns_from_partition_format` won't work when you are reading Delta Lake data via `mltable`.
 
 > [!IMPORTANT]
@@ -530,8 +529,7 @@ Azure Machine Learning Tables support reading from:
 - file(s), for example: `abfss://<file_system>@<account_name>.dfs.core.windows.net/my-csv.csv`
 - folder(s), for example `abfss://<file_system>@<account_name>.dfs.core.windows.net/my-folder/`
 - [glob](https://wikipedia.org/wiki/Glob_(programming)) pattern(s), for example `abfss://<file_system>@<account_name>.dfs.core.windows.net/my-folder/*.csv`
-- Or, a combination of files, folders and globbing patterns
-
+- a combination of files, folders, and globbing patterns
 
 ### Supported data loading transformations
 
@@ -598,7 +596,7 @@ tbl.show(5)
 
 #### Save the data loading steps
 
-Next, save all your data loading steps into an MLTable file. Saving your data loading steps in an MLTable file allows you to reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
+Next, save all your data loading steps into an MLTable file. When you save your data loading steps in an MLTable file, you can reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
 
 ```python
 # save the data loading steps in an MLTable file
@@ -619,7 +617,7 @@ tbl = mltable.load("./titanic/")
 
 #### Create a data asset to aid sharing and reproducibility
 
-You have your MLTable file currently saved on disk, which makes it hard to share with Team members. When you create a data asset in Azure Machine Learning, your MLTable is uploaded to cloud storage and "bookmarked", which allows your Team members to access the MLTable using a friendly name. Also, the data asset is versioned.
+You might have your MLTable file currently saved on disk, which makes it hard to share with team members. When you create a data asset in Azure Machine Learning, your MLTable is uploaded to cloud storage and "bookmarked." Your team members can then access the MLTable with a friendly name. Also, the data asset is versioned.
 
 ```python
 import time
@@ -652,7 +650,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-Now that you have your MLTable stored in the cloud, you and Team members can access it with a friendly name in an interactive session (for example, a notebook):
+Now that you have your MLTable stored in the cloud, you and team members can access it with a friendly name in an interactive session (for example, a notebook):
 
 ```python
 import mltable
@@ -681,7 +679,7 @@ You can also easily access the data asset in a job.
 
 ### Parquet files
 
-The [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) shows how to read parquet files.
+The [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) explains how to read parquet files.
 
 ### Paths: Create a table of image files
 You can create a table containing the paths on cloud storage. This example has several dog and cat images located in cloud storage, in the following folder structure:
@@ -697,7 +695,7 @@ You can create a table containing the paths on cloud storage. This example has s
     1.jpeg
 ```
 
-The `mltable` can construct a table that contains the storage paths of these images and their folder names (labels), which can be used to stream the images. The following code shows how to create the MLTable:
+The `mltable` can construct a table that contains the storage paths of these images and their folder names (labels), which can be used to stream the images. This code creates the MLTable:
 
 ```python
 import mltable
@@ -720,7 +718,7 @@ print(df.head())
 tbl.save("./pets")
 ```
 
-The following code shows how to open the storage location in the Pandas data frame, and plot the images:
+This code shows how to open the storage location in the Pandas data frame, and plot the images:
 
 ```python
 # plot images on a grid. Note this takes ~1min to execute.
@@ -740,7 +738,7 @@ for i in range(1, columns*rows +1):
 
 #### Create a data asset to aid sharing and reproducibility
 
-You have your `mltable` file currently saved on disk, which makes it hard to share with Team members. When you create a data asset in Azure Machine Learning, the `mltable` is uploaded to cloud storage and "bookmarked", which allows your Team members to access the `mltable` using a friendly name. Also, the data asset is versioned.
+You might have your `mltable` file currently saved on disk, which makes it hard to share with team members. When you create a data asset in Azure Machine Learning, the `mltable` is uploaded to cloud storage and "bookmarked." Your team members can then access the `mltable` with a friendly name. Also, the data asset is versioned.
 
 ```python
 import time
@@ -769,7 +767,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-Now that the `mltable` is stored in the cloud, you and your Team members can access it with a friendly name in an interactive session (for example, a notebook):
+Now that the `mltable` is stored in the cloud, you and your team members can access it with a friendly name in an interactive session (for example, a notebook):
 
 ```python
 import mltable

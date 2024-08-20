@@ -3,11 +3,11 @@ title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
 description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota and limit increases.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-author: SimranArora904
-ms.author: siarora
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: siarora
 ms.date: 09/15/2023
 ms.topic: how-to
 ms.custom: troubleshooting
@@ -108,9 +108,13 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
 ### Azure Machine Learning shared quota
-Azure Machine Learning provides a pool of shared quota that is available for different users across various regions to use concurrently. Depending upon availability, users can temporarily access quota from the shared pool, and use the quota to perform testing for a limited amount of time. The specific time duration depends on the use case. By temporarily using quota from the quota pool, you no longer need to file a support ticket for a short-term quota increase or wait for your quota request to be approved before you can proceed with your workload. 
 
-Use of the shared quota pool is available for running Spark jobs and for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the Model Catalog. You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should request dedicated quota by [filing a support ticket](https://ml.azure.com/quota). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. To opt out of shared quota for Spark jobs, please fill out [this](https://forms.office.com/r/n2DFPMeZYW) form.
+Azure Machine Learning provides a shared quota pool from which users across various regions can access quota to perform testing for a limited amount of time, depending upon availability. The specific time duration depends on the use case. By temporarily using quota from the quota pool, you no longer need to file a support ticket for a short-term quota increase or wait for your quota request to be approved before you can proceed with your workload.
+
+Use of the shared quota pool is available for running Spark jobs and for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the Model Catalog for a short time. Before you can deploy these models via the shared quota, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md). For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+
+You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should request dedicated quota by [filing a support ticket](https://ml.azure.com/quota). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. To opt out of shared quota for Spark jobs, fill out the [Azure Machine Learning shared capacity allocation opt out form](https://forms.office.com/r/n2DFPMeZYW).
+
 
 ### Azure Machine Learning online endpoints and batch endpoints
 
@@ -125,8 +129,8 @@ To request an exception from the Azure Machine Learning product team, use the st
 
 | **Resource**&nbsp;&nbsp; | **Limit <sup>1</sup>** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Allows exception** | **Applies to** |
 | --- | ---- | --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 6-62 characters in total length | - | All types of endpoints <sup>3</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 6-62 characters in total length | - | All types of endpoints <sup>3</sup> |
 | Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
 | Number of endpoints per cluster | 60 | - | Kubernetes online endpoint |
 | Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
@@ -140,16 +144,20 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Total connections active at endpoint level for all deployments  | 500 <sup>5</sup> | Yes | Managed online endpoint |
 | Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>5</sup> | Yes | Managed online endpoint |
 
-
 <sup>1</sup> This is a regional limit. For example, if current limit on number of endpoint is 100, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to all the other limits. 
 
 <sup>2</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
 <sup>3</sup> Endpoints and deployments can be of different types, but limits apply to the sum of all types. For example, the sum of managed online endpoints, Kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region by default. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region by default.
 
-<sup>4</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error. There are some VM SKUs that are exempt from extra quota. See [virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment) for more.
+<sup>4</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error. There are some VM SKUs that are exempt from extra quota. For more information on quota allocation, see [virtual machine quota allocation for deployment](#virtual-machine-quota-allocation-for-deployment).
 
-<sup>5</sup> Requests per second, connections, bandwidth etc are related. If you request for increase for any of these limits, ensure estimating/calculating other related limites together.
+<sup>5</sup> Requests per second, connections, bandwidth, etc. are related. If you request to increase any of these limits, ensure that you estimate/calculate other related limits together.
+
+#### Virtual machine quota allocation for deployment
+
+[!INCLUDE [quota-allocation-online-deployment](includes/quota-allocation-online-deployment.md)]
+
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -159,13 +167,6 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
 
-
-### Azure Machine Learning job schedules
-[Azure Machine Learning job schedules](how-to-schedule-pipeline-job.md) have the following limits.
-
-| **Resource** | **Limit** |
-| --- | --- |
-| Schedules per region | 100 |
 
 ### Azure Machine Learning integration with Synapse
 
@@ -182,7 +183,7 @@ For example, consider a subscription with a US East total VM core limit of 30, a
 
 You can't raise limits for virtual machines above the values shown in the following table.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Container Instances
 

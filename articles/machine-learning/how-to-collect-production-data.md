@@ -1,26 +1,23 @@
 ---
-title: Collect production data from models deployed for real-time inferencing (preview)
+title: Collect production data from models deployed for real-time inferencing
 titleSuffix: Azure Machine Learning
 description: Collect inference data from a model deployed to a real-time endpoint on Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ahughes-msft
-ms.author: alehughes
-ms.date: 01/29/2024
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.date: 04/15/2024
+ms.reviewer: alehughes
 ms.custom: devplatv2, build-2023
 ---
 
-# Collect production data from models deployed for real-time inferencing (preview)
+# Collect production data from models deployed for real-time inferencing
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you learn how to use Azure Machine Learning **Data collector** to collect production inference data from a model that is deployed to an Azure Machine Learning managed online endpoint or a Kubernetes online endpoint.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can enable data collection for new or existing online endpoint deployments. Azure Machine Learning data collector logs inference data in Azure Blob Storage. Data collected with the Python SDK is automatically registered as a data asset in your Azure Machine Learning workspace. This data asset can be used for model monitoring.
 
@@ -482,7 +479,7 @@ To view the collected data in Blob Storage from the studio UI:
 
 If you're deploying an MLflow model to an Azure Machine Learning online endpoint, you can enable production inference data collection with single toggle in the studio UI. If data collection is toggled on, Azure Machine Learning auto-instruments your scoring script with custom logging code to ensure that the production data is logged to your workspace Blob Storage. Your model monitors can then use the data to monitor the performance of your MLflow model in production.
 
-While you're configuring the deployment of your model, you can enable production data collection. Under the **Deployment** tab, select **Enabled** for **Data collection (preview)**.
+While you're configuring the deployment of your model, you can enable production data collection. Under the **Deployment** tab, select **Enabled** for **Data collection**.
 
 After you've enabled data collection, production inference data will be logged to your Azure Machine Learning workspace Blob Storage and two data assets will be created with names `<endpoint_name>-<deployment_name>-model_inputs` and `<endpoint_name>-<deployment_name>-model_outputs`. These data assets are updated in real time as you use your deployment in production. Your model monitors can then use the data assets to monitor the performance of your model in production.
 

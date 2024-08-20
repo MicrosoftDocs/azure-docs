@@ -4,9 +4,9 @@ description: Learn how to use the Application Health extension to monitor the he
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 04/12/2023
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 ---
@@ -154,6 +154,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -168,7 +169,8 @@ The following JSON shows the schema for the Application Health extension. The ex
             "numberOfProbes": 1
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```
@@ -201,6 +203,7 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -216,7 +219,8 @@ The following JSON shows the schema for the Rich Health States extension. The ex
             "gracePeriod": 600
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```

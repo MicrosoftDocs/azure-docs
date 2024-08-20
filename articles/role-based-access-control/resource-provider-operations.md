@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -179,6 +179,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
+> | [Microsoft.ApiCenter](./permissions/integration.md#microsoftapicenter) |  | [Azure API Center](/azure/api-center/overview) |
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |

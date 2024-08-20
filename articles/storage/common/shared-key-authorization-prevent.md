@@ -8,9 +8,9 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -193,22 +193,9 @@ Azure Storage logging in Azure Monitor supports using log queries to analyze log
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings**.
-1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
-
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests." lightbox="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png":::
-
-You can create a diagnostic setting for each type of Azure Storage resource in your storage account.
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
 For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
@@ -290,6 +277,16 @@ az storage account update \
     --allow-shared-key-access false
 ```
 
+# [Template](#tab/template)
+
+To disallow Shared Key authorization for a storage account with an Azure Resource Manager template or Bicep file, you can modify the following property:
+
+```json
+"allowSharedKeyAccess": false
+```
+
+To learn more, see the [storageAccounts specification](/azure/templates/microsoft.storage/storageaccounts).
+
 ---
 
 After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns an error indicating that key-based authorization is not permitted on the storage account.
@@ -298,15 +295,16 @@ The **AllowSharedKeyAccess** property is supported for storage accounts that use
 
 ## Verify that Shared Key access is not allowed
 
-To verify that Shared Key authorization is no longer permitted, you can attempt to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Remember to replace the placeholder values in brackets with your own values:
+To verify that Shared Key authorization is no longer permitted, you can query the Azure Storage Account settings with the following command. Replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
-az storage container create \
-    --account-name <storage-account> \
-    --name sample-container \
-    --account-key <key> \
-    --auth-mode key
+az storage account show \
+    --name <storage-account-name> \
+    --resource-group <resource-group-name> \
+    --query "allowSharedKeyAccess"
 ```
+
+The command returns **false** if Shared Key authorization is disallowed for the storage account.
 
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous read access. For more information, see [Configure anonymous read access for containers and blobs](../blobs/anonymous-read-access-configure.md).

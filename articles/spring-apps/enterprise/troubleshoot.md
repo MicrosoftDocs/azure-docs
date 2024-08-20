@@ -2,9 +2,9 @@
 title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 09/08/2020
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -105,7 +105,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](../basic-standard/how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
+* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
@@ -148,7 +148,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/11111111-1111-1111-1111-111111111111`.
 
 ### I can't deploy a source package
 
@@ -276,7 +276,7 @@ When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascm
 
 The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See the [Supported geographic locations](/partner-center/marketplace/marketplace-geo-availability-currencies#supported-geographic-locations) section of [Geographic availability and currency support for the commercial marketplace](/partner-center/marketplace/marketplace-geo-availability-currencies).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 

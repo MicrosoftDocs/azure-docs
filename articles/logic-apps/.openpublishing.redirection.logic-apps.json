@@ -1,6 +1,46 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/monitor-logic-apps.md",
+            "redirect_url": "/azure/logic-apps/view-workflow-status-run-history",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-move-from-mabs.md",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/export-from-microsoft-flow-logic-app-template.md",
+            "redirect_url": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-function-sb-trigger.md",
+            "redirect_url": "/azure/connectors/connectors-create-api-servicebus",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-create-logic-apps-from-templates.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-add-run-inline-code.md",
+            "redirect_url": "/azure/logic-apps/add-run-javascript",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-azure-functions.md",
+            "redirect_url": "/azure/logic-apps/call-azure-functions-from-workflows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/target-based-scaling-standard.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-limits-and-config?tabs=standard#scale-for-high-throughput",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/call-from-power-automate-power-apps.md",
             "redirect_url": "/azure/logic-apps/call-from-power-apps",
             "redirect_document_id": true
@@ -137,77 +177,77 @@
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-dashboard-monitor-scale-tabs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-editions-feature-chart.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-issuer-name-issuer-key.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-migrating-to-edi-guide.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-process-edifact-invoice.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-provision-services.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-release-notes.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-services-administration-and-development-task-list.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-service-state-chart.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-throttling-thresholds.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-troubleshoot-using-ops-logs.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/index.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/integration-hybrid-connection-create-manage.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/integration-hybrid-connection-overview.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+            "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": false
         },
         {

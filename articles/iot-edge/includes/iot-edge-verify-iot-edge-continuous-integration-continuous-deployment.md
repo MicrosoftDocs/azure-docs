@@ -1,9 +1,9 @@
 ---
-author: v-tcassi
+author: PatAltimore
 ms.service: iot-edge
 ms.topic: include
-ms.date: 12/23/2022
-ms.author: v-tcassi
+ms.date: 06/10/2024
+ms.author: patricka
 ---
 
 ## Verify IoT Edge CI/CD with the build and release pipelines
@@ -28,7 +28,7 @@ To trigger a build job, you can either push a commit to source code repository o
 
     ![Release to dev](media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/pending-approval.png)
 
-6. Click **dev** stage to see release logs.
+6. Select **dev** stage to see release logs.
 
     ![Release logs](media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
 

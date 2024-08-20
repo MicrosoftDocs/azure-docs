@@ -1,14 +1,14 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/01/2024
 ms.author: danlep
 ---
 
-## Automatic rollback if migration fails
+## Revert automatically if migration fails
 
-If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. If the migration completes successfully (the platform version of the instance shows as `stv2` or `stv2.1` and the status as **Online**), you can't roll back to the `stv1` platform.
+If there's a failure during the migration process, the instance will automatically revert to the `stv1` platform. If the migration completes successfully (the platform version of the instance shows as `stv2` or `stv2.1` and the status as **Online**), you can't roll back to the `stv1` platform.
 
 For help if migration fails, contact Azure support.
 

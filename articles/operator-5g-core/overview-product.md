@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: references_regions 
 ms.topic: overview 
-ms.date: 02/21/2024
+ms.date: 04/12/2024
 
 ---
 
@@ -14,9 +14,9 @@ ms.date: 02/21/2024
 
 Azure Operator 5G Core Preview is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. Azure Operator 5G Core is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
 
- [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core-expanded.png#lightbox)
+ [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core.png#lightbox)
 
-The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft’s Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
+The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft's Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
 Sophisticated management tools and automated lifecycle management simplify and streamline network operations. Operators can efficiently accelerate migration to 5G in standalone and non-standalone architectures, while continuing to support all legacy mobile network access technologies (2G, 3G, & 4G). 
  
@@ -31,7 +31,7 @@ Azure Operator 5G Core includes the following key features for operating secure,
 
 ### Any-G 
 
-Azure Operator 5G Core is a unified, ‘Any-G’ packet core network solution that uses cloud native capabilities to address 2G/3G/4G and 5G functionalities. It allows operators to deploy network functions compatible with not only legacy technologies but also with the latest 5G networks, modernizing operator networks while operating on a single, consistent platform to minimize costs. ‘Any-G’ offers the following features: 
+Azure Operator 5G Core is a unified, 'Any-G' packet core network solution that uses cloud native capabilities to address 2G/3G/4G and 5G functionalities. It allows operators to deploy network functions compatible with not only legacy technologies but also with the latest 5G networks, modernizing operator networks while operating on a single, consistent platform to minimize costs. 'Any-G' offers the following features: 
 
 - Common anchor points (combination nodes) that allow seamless mobility across Radio Access Technologies (RAT).  
 - Common UPF instances that support all RAT types for mobility and footprint reduction.  
@@ -68,7 +68,7 @@ Azure Operator 5G Core offers the following network functions: 
 
 Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive  NF deployment topologies. Network Functions can be placed geographically closer to the users for scenarios such as consumer, low latency, and MEC or centralized for machine to machine (Internet of Things) and enterprise scenarios. Deployment is API driven regardless of the placement of the network functions.  
 
- [:::image type="content" source="media/overview-product/deployment-models.png" alt-text="Diagram describing supported deployment models for Azure Operator 5G Core.":::](media/overview-product/deployment-models-expanded.png#lightbox)
+ [:::image type="content" source="media/overview-product/deployment-models.png" alt-text="Diagram describing supported deployment models for Azure Operator 5G Core.":::](media/overview-product/deployment-models.png#lightbox)
   
 
 ### Resiliency  
@@ -81,7 +81,7 @@ Azure Operator 5G Core enables provisioning, configuration, management, and auto
 
 :::image type="content" source="media/overview-product/services-and-network-functions.png" alt-text="Diagram of text boxes showing the services available in Azure and the network functions that run on Nexus and Azure.":::
 
-Azure Operator 5G Core’s Resource Provider (RP) provides an inventory of the deployed resources and supports monitoring and health status of current and ongoing deployments.  
+Azure Operator 5G Core's Resource Provider (RP) provides an inventory of the deployed resources and supports monitoring and health status of current and ongoing deployments.  
 
 ### Observability
 
@@ -107,7 +107,7 @@ The key benefits of Azure Operator 5G Core include: 
 - API-based NF lifecycle management (LCM) via Azure, regardless of deployment model.
 - Advanced analytics via Azure Operator Insights.
 - Cloud-native architecture with no rigid deployment constraints.
-- Support for  Microsoft’s Zero-Trust security model. 
+- Support for  Microsoft's Zero-Trust security model. 
 
 ## Supported regions
 

@@ -35,6 +35,8 @@
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
       - name: Send push notifications to specific users
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+      - name: Send push notifications using Firebase SDK version 0.6
+        href: notification-hubs-android-push-notification-google-fcm-get-started.md
       - name: Send push notifications to Xamarin Android apps 
         href: xamarin-notification-hubs-push-notifications-android-gcm.md
   - name: iOS
@@ -158,9 +160,9 @@
     href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Use APNS VOIP through Notification Hubs
     href: voip-apns.md  
-  - name: Monitor
+  - name: Monitor Notification Hubs
     href: monitor-notification-hubs.md
-  - name: Enable diagnostic logs
+  - name: Enable resource logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
   items:  

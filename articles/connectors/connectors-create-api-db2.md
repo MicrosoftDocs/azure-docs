@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Access and manage IBM DB2 resources by using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [IBM DB2 connector](/connectors/db2/), you can create automated 
@@ -430,10 +430,6 @@ Expand the **Delete row** action.
 ## Connector reference
 
 For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/db2/).
-
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

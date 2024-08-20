@@ -3,9 +3,9 @@ title: 'Configure active-active VPN gateways: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active virtual network gateways using the Azure portal.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/17/2024
 ms.author: cherylmc
 
 ---
@@ -17,7 +17,7 @@ This article helps you create highly available active-active VPN gateways using 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic or Standard. See [About Gateway SKUs](about-gateway-skus.md) article for the latest information about gateway SKUs, performance, and supported features.
+> The active-active mode is available for all SKUs except Basic or Standard. See [About Gateway SKUs](about-gateway-skus.md) article for the latest information about gateway SKUs, performance, and supported features. For this configuration, Standard SKU Public IP addresses are required. You can't use a Basic SKU Public IP address.
 >
 
 The steps in this article help you configure a VPN gateway in active-active mode. There are a few differences between active-active and active-standby modes. The other properties are the same as the non-active-active gateways.

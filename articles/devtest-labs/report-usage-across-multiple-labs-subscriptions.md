@@ -30,17 +30,7 @@ Before you can export DevTest Labs resource usage, you have to set up an Azure S
     > [!NOTE]
     > The date parameter doesn't include a time stamp so the data includes everything from midnight based on the time zone where the lab is located.
 
-Once the export is complete, there will be multiple CSV files in the blob storage with the different resource information.
-  
-Currently there are two CSV files:
-
-* *virtualmachines.csv* - contains information about the virtual machines in the lab
-* *disks.csv* - contains information about the different disks in the lab 
-
-These files are stored in the *labresourceusage* blob container. The files are under the lab name, lab unique ID, date executed, and either `full` or the start date of the export request. An example blob structure is:
-
-* `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD26-MM6-2019YYYY/full/virtualmachines.csv`
-* `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD-MM-YYYY/26-6-2019/20-6-2019<Start>DD-MM-YYYY/virtualmachines.csv`
+Once the export is complete, there will be a CSV file in the blob storage with the different resource information.
 
 ## Exporting usage for all labs
 

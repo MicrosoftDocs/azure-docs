@@ -3,7 +3,7 @@ title: 'Tutorial: Create site-to-site connections using Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 01/31/2024
 ms.author: cherylmc
@@ -106,7 +106,7 @@ The device configuration file contains the settings to use when configuring your
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Address space** of the virutal networks that are connected to the virtual hub.<br>Example:
+    * **Address space** of the virtual networks that are connected to the virtual hub.<br>Example:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -242,9 +242,9 @@ If you need instructions to configure your device, you can use the instructions 
 
 ## <a name="gateway-config"></a>View or edit gateway settings
 
-You can view and edit your VPN gateway settings at any time. Go to your **Virtual HUB -> VPN (Site to site)** and select **View/Configure**.
+You can view and edit your VPN gateway settings at any time. Go to your **Virtual HUB -> VPN (Site to site)** and click on the **Gateway configuration**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with red box around the Gateway configuration." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 On the **Edit VPN Gateway** page, you can see the following settings:
 

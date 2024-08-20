@@ -3,12 +3,12 @@ title: Share models, components, and environments across workspaces with registr
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
-ms.date: 11/02/2023
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, build-2023
 ---

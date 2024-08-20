@@ -3,12 +3,12 @@ title: Advance your maturity level for LLMOps
 titleSuffix: Azure Machine Learning
 description: Learn about the different stages of Large Language Operations (LLMOps) and how to advance your organization's capabilities.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.topic: conceptual
-author: ssahami1
-ms.author: sasahami
-ms.reviewer: sgilley; tahiguch; setuchokshi
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: sasahami
 ms.date: 03/28/2024
 ---
 
@@ -20,7 +20,15 @@ Large Language Model Operations, or **LLMOps**, describes the operational practi
 
 Use the descriptions below to find your *LLMOps Maturity Model* ranking level. These levels provide a general understanding and practical application level of your organization. The guidelines provide you with helpful links to expand your LLMOps knowledge base.  
 
+> [!TIP]
+> Use the [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/) to determine your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
+>
+> Your results from the assessment corresponds to a *LLMOps Maturity Model* ranking level, providing a general understanding and practical application level of your organization. These guidelines provide you with helpful links to expand your LLMOps knowledge base. 
+
 ## <a name="level1"></a>Level 1 - initial
+
+> [!TIP]
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): initial (0-9).
 
 **Description:** Your organization is at the initial foundational stage of LLMOps maturity. You're exploring the capabilities of LLMs but haven't yet developed structured practices or systematic approaches.
 
@@ -43,6 +51,9 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 
 ## <a name="level2"></a> Level 2 - defined
 
+> [!TIP]
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (10-14).
+
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
 To improve your capabilities and skills, learn how to develop more complex prompts and begin integrating them effectively into applications. During this journey, you’ll want to implement a systematic approach for LLM application deployment, possibly exploring CI/CD integration. Once you understand the core, you can begin employing more advanced evaluation metrics like groundedness, relevance, and similarity. Ultimately, you’ll want to focus on content safety and ethical considerations in LLM usage.
@@ -61,6 +72,9 @@ To improve your capabilities and skills, learn how to develop more complex promp
 
 ## <a name="level3"></a> Level 3 - managed
 
+> [!TIP]
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (15-19).
+
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
 To expand your base knowledge, focus on continuous improvement and innovation in your LLM applications. As you progress, you can enhance your monitoring strategies with predictive analytics and comprehensive content safety measures. Learn to optimize and fine-tune your LLM applications for specific requirements. Ultimately, you want to strengthen your asset management strategies through advanced version control and rollback capabilities.
@@ -73,6 +87,9 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 - [***Elevate LLM Apps to Production with LLMOps***](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/elevate-your-llm-applications-to-production-via-llmops/ba-p/3979114)
 
 ## <a name="level4"></a> Level 4 - optimized
+
+> [!TIP]
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): optimized (20-28).
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 

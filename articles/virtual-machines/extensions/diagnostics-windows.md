@@ -5,7 +5,7 @@ ms.topic: article
 ms.author: gabsta
 author: GabstaMSFT
 ms.reviewer: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.date: 03/09/2023

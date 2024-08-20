@@ -2,12 +2,12 @@
 title: Release notes for 2021 Azure Health Data Services monthly releases 
 description: 2021 - Explore the new capabilities and benefits of Azure Health Data Services in 2021. Learn about the features and enhancements introduced in the FHIR, DICOM, and MedTech services that help you manage and analyze health data. 
 services: healthcare-apis
-author: kgaddam10
-ms.service: healthcare-apis
+author: shellyhaverkamp
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: kavitagaddam 
+ms.author: jasteppe
 ms.custom: references_regions
 ---
 
@@ -88,7 +88,7 @@ We updated Azure Health Data Services GitHub samples repo to include a [Te
 [PR #2169](https://github.com/microsoft/fhir-server/pull/2169).
 
 
-- **Fixed: [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) results in an infinite loop**. See [PR #2269](https://github.com/microsoft/fhir-server/pull/2269).
+- **Fixed: [Conditional Delete](././../healthcare-apis/fhir/rest-api-capabilities.md#conditional-delete) results in an infinite loop**. See [PR #2269](https://github.com/microsoft/fhir-server/pull/2269).
 
 - **Fixed: Resolved 500 error possibly caused by a malformed transaction body in a bundle POST**. We added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. See [PR #2255](https://github.com/microsoft/fhir-server/pull/2255).
 

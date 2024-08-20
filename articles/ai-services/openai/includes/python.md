@@ -14,9 +14,6 @@ ms.date: 01/03/2024
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
@@ -45,11 +42,11 @@ pip install openai==0.28.1
 ---
 
 > [!NOTE]
-> This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
+> This library is maintained by OpenAI. Refer to the [release history](https://github.com/openai/openai-python/releases) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 
-To successfully make a call against the Azure OpenAI service, you'll need the following:
+To successfully make a call against the Azure OpenAI Service, you'll need the following:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -61,10 +58,7 @@ Go to your resource in the Azure portal. The **Keys and Endpoint** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
-
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
@@ -120,7 +114,7 @@ print(start_phrase+text)
 ---
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 1. Run the application with the `python` command on your quickstart file:
 
@@ -152,7 +146,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

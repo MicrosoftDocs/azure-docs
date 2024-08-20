@@ -36,7 +36,7 @@ You can buy a virtual machine software reservation in the Azure portal. To buy a
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 

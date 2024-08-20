@@ -130,15 +130,15 @@
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
-      href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-template-linux?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
-      href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-template-windows?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Windows virtual machines
       href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/learn/quick-kubernetes-deploy-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/aks/learn/quick-kubernetes-deploy-rm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
@@ -150,19 +150,19 @@
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure Cosmos DB
-      href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/cosmos-db/sql/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
-      href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL
-      href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL - Flexible Server
-      href: ../../mysql/flexible-server/quickstart-create-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/mysql/flexible-server/quickstart-create-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for PostgreSQL
-      href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/postgresql/quickstart-create-postgresql-server-database-using-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for PostgreSQL - Flexible Server
-      href: ../../postgresql/flexible-server/quickstart-create-server-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/postgresql/flexible-server/quickstart-create-server-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database Migration Service
-      href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/dms/create-dms-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
       href: /azure/azure-sql/database/single-database-create-arm-template-quickstart?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Managed Instance
@@ -266,13 +266,13 @@
   - name: Security
     items:
     - name: Attestation
-      href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/attestation/quickstart-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/defender-for-cloud/quickstart-automation-alert?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - key
-      href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/key-vault/keys/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
-      href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/key-vault/secrets/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -415,7 +415,7 @@
     - name: Create parameter file
       href: parameter-files.md
     - name: Pass sensitive values
-      displayname: key vault
+      displayName: key vault
       href: key-vault-parameter.md
   - name: Export templates
     items:
@@ -459,8 +459,6 @@
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
       href: update-visual-studio-deployment-script.md
-    - name: IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Reference
   items:
   - name: Template reference

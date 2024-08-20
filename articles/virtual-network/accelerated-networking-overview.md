@@ -2,7 +2,7 @@
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
 author: EllieMelissa
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/18/2023
@@ -12,7 +12,7 @@ ms.author: ealume
 # Accelerated Networking overview
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
 
@@ -21,7 +21,7 @@ This article describes the benefits, constraints, and supported configurations o
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 
-:::image type="content" source="./media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-network/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
 
 **Without Accelerated Networking**, all networking traffic in and out of the VM traverses the host and the virtual switch. The [virtual switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch) provides all policy enforcement to network traffic. Policies include network security groups, access control lists, isolation, and other network virtualized services.
 

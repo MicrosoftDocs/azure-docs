@@ -4,7 +4,7 @@ description: Learn about failover and failback in Azure Site Recovery - Moderniz
 ms.topic: conceptual
 ms.date: 02/13/2024
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ---
 # About on-premises disaster recovery failover/failback - Modernized
@@ -37,6 +37,8 @@ Failover is a two-phase activity:
     - You can then commit the failover to the selected recovery point or select a different point for the commit.
     - After committing the failover, the recovery point can't be changed.
 
+>[!NOTE]
+> Use crash consistent recovery point on Windows Server 2012 or older versions, as the boot time of failed over VMs may be longer for these versions in case of application consistent recovery point.
 
 ## Connect to Azure after failover
 

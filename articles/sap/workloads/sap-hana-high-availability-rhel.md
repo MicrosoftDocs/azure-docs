@@ -8,9 +8,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 01/22/2024
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
+
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide-general.md
@@ -113,10 +114,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ---
 
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
@@ -760,7 +758,7 @@ pcs resource move SAPHana_HN1_03-master
 pcs resource move SAPHana_HN1_03-clone --master
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this command should migrate the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`. 
 
 After the migration is done, the `sudo pcs status` output looks like:
 
@@ -775,7 +773,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-The SAP HANA resource on `hn1-db-0` is stopped. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
 
 ```bash
 sapcontrol -nr 03 -function StopWait 600 10

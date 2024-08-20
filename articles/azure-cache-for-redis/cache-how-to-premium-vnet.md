@@ -2,9 +2,9 @@
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: conceptual
 ms.date: 08/29/2023
 
@@ -58,7 +58,7 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 
 1. Select the **Networking** tab, or select the **Networking** button at the bottom of the page.
 
-1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
+1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
    > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails. The failure is because Azure Cache for Redis uses a basic load balancer that is not compatible with a NAT Gateway.

@@ -3,13 +3,13 @@ title: Prebuilt Docker images
 titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
-ms.date: 11/04/2022
-ms.topic: conceptual
-ms.reviewer: mopeakande
+ms.author: mopeakande
+author: msakande
+ms.date: 04/08/2024
+ms.topic: concept-article
+ms.reviewer: sehan
 ms.custom: deploy, docker, prebuilt
 ---
 
@@ -19,19 +19,19 @@ Prebuilt Docker container images for inference are used when deploying a model w
 
 ## Why should I use prebuilt images?
 
-* Reduces model deployment latency.
-* Improves model deployment success rate.
-* Avoid unnecessary image build during model deployment.
-* Only have required dependencies and access right in the image/container. 
+* Reduces model deployment latency
+* Improves model deployment success rate
+* Avoids unnecessary image build during model deployment
+* Includes only the required dependencies and access right in the image/container
 
 ## List of prebuilt Docker images for inference 
 
 > [!IMPORTANT]
-> The list provided below includes only **currently supported** inference docker images by Azure Machine Learning.
+> The list provided in the following table includes only the inference Docker images that Azure Machine Learning **currently supports**.
 
-* All the docker images run as non-root user.
-* We recommend using `latest` tag for docker images. Prebuilt docker images for inference are published to Microsoft container registry (MCR), to query list of tags available, follow [instructions on the GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
-* If you want to use a specific tag for any inference docker image, we support from `latest` to the tag that is *6 months* old from the `latest`.  
+* All the Docker images run as non-root user.
+* We recommend using the `latest` tag for Docker images. Prebuilt Docker images for inference are published to the Microsoft container registry (MCR). For information on how to query the list of tags available, see the [MCR GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
+* If you want to use a specific tag for any inference Docker image, Azure Machine Learning supports tags that range from `latest` to *six months* older than `latest`.  
 
 **Inference minimal base images**
 
@@ -42,12 +42,11 @@ NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cuda11.6.2-g
 NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cpu-inference:latest`
 NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cuda11.8-gpu-inference:latest`
 
-## How to use inference prebuilt docker images?
+> [!NOTE]
+> Azure Machine Learning supports [Curated environments](resource-curated-environments.md). You can [browse curated environments](how-to-manage-environments-in-studio.md#browse-curated-environments) and add filter for `Tags: Inferencing`.
 
-[Check examples in the Azure machine learning GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container)
+## Related content
 
-## Next steps
-
+* [GitHub examples of how to use inference prebuilt Docker images](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container)
 * [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
-* [Learn more about custom containers](how-to-deploy-custom-container.md)
-* [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online)
+* [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md)

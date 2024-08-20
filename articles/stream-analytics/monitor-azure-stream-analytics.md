@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: spelluru
 ms.author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # Monitor Azure Stream Analytics
@@ -121,7 +121,7 @@ For detailed instructions on how to set up an alert for Azure Stream Analytics, 
 
 ## Related content
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for general details on monitoring Azure resources.
 - See [Azure Stream Analytics monitoring data reference](monitor-azure-stream-analytics-reference.md) for a reference of the metrics, logs, and other important values created for Azure Stream Analytics.
 - See the following Azure Stream Analytics monitoring and troubleshooting articles:
   - [Monitor jobs using Azure portal](stream-analytics-monitoring.md)

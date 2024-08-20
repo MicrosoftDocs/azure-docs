@@ -47,11 +47,11 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 The following script gets the resource ID of the relay namespace. It constructs the ID for the hybrid connection, and subscribes to an Event Grid topic. The script sets the endpoint type to `hybridconnection` and uses the hybrid connection ID for the endpoint.
 
 ```azurecli-interactive
-relayname=<namespace-name>
+relaynsname=<namespace-name>
 relayrg=<resource-group-for-relay>
 hybridname=<hybrid-name>
 
-relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
+relayid=$(az relay namespace show --resource-group $relayrg --name $relaynsname --query id --output tsv)
 hybridid="$relayid/hybridConnections/$hybridname"
 topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
@@ -78,6 +78,9 @@ You need an application that can retrieve events from the hybrid connection. The
 1. In Program.cs, replace `<relayConnectionString>` and `<hybridConnectionName>` with the relay connection string and hybrid connection name that you created.
 
 1. Compile and run the application from Visual Studio.
+
+> [!IMPORTANT]
+> We use connection string to authenticate to Azure Relay namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign the identity an appropriate role (Azure Relay Owner, Azure Relay Listener, or Azure Relay Sender) on the Relay namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources](../azure-relay/authenticate-managed-identity.md).
 
 ## Send an event to your topic
 

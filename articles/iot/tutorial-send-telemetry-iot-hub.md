@@ -1,6 +1,6 @@
 ---
-title: Send device telemetry to Azure IoT Hub quickstart
-description: "This quickstart shows device developers how to connect a device securely to Azure IoT Hub. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian). Then you connect and send telemetry."
+title: Send device telemetry to Azure IoT Hub tutorial
+description: This tutorial shows device developers how to connect a device securely to Azure IoT Hub. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian). Then you connect and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/04/2024
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content, devx-track-js
 ms.devlang: azurecli
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
 
-# Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub
+# Tutorial: Send telemetry from an IoT Plug and Play device to Azure IoT Hub
 
 :::zone pivot="programming-language-ansi-c"
 
@@ -46,7 +46,7 @@ ms.devlang: azurecli
 :::zone-end
     
 ## Clean up resources
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete them.
+If you no longer need the Azure resources created in this tutorial, you can use the Azure CLI to delete them.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
@@ -65,7 +65,7 @@ To delete a resource group by name:
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect it to the hub, and send telemetry. You also used Azure CLI to monitor telemetry.
+In this tutorial, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect it to the hub, and send telemetry. You also used Azure CLI to monitor telemetry.
 
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 

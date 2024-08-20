@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 03/06/2024
+ms.collection: ce-skilling-ai-copilot
+ms.date: 06/14/2024
 ---
 
 # What is Azure Logic Apps?
@@ -28,7 +29,18 @@ The following partial example enterprise workflow uses conditions and switches t
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
-If you're ready to try creating your first logic app workflow, see [Get started](#get-started). To continue learning more, try this video:
+> [!TIP]
+>
+> To learn more, you can ask Azure Copilot these questions:
+>
+> - *What problems can I solve with Azure Logic Apps?*
+> - *What benefits does Azure Logic Apps provide?*
+>
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
+
+If you're ready to try creating your first logic app workflow, see [Get started](#get-started).
+
+To continue learning more, try this video:
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=integrate-your-mainframes-and-midranges-with-azure-logic-apps]
 
@@ -46,8 +58,8 @@ The following table briefly defines core terminology and concepts in Azure Logic
 | **Workflow** | A series of operations that define a task, business process, or workload. Each workflow always starts with a single trigger operation, after which you must add one or more action operations. |
 | **Trigger** | The first operation in any workflow that specifies the criteria to meet before running any subsequent operations in that workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account. |
 | **Action** | Each subsequent operation that follows the trigger in the workflow. |
-| **Built-in connector** | This connector or operation type is "built in" to the Azure Logic Apps runtime so that operations run natively and directly with the runtime for faster performance, compared to Microsoft-managed connectors that are hosted and run in Azure. <br><br>Built-in operations provide ways for you to control your workflow's schedule or structure, run your own code, manage and manipulate data, send or receive requests to an endpoint, and complete other tasks in your workflow. <br><br>For example, you can start almost any workflow on a schedule when you use the **Recurrence** trigger. Or, you can have your workflow wait until called when you use the **Request** trigger. These operations don't usually require that you create a connection from your workflow. <br><br>While most built-in operations aren't associated with any service or system, some built-in operations are available for specific services, such as Azure Functions, Azure Blob Storage, Azure App Service, and more. The availability for these built-in operations depends on whether you're working on a Consumption or Standard logic app workflow. For more information and examples, see [Built-in connectors for Azure Logic Apps](../connectors/built-in.md). |
-| **Managed connector** | This connector or operation type is "Microsoft-managed" and is a prebuilt proxy or wrapper for a service or system's REST API that you can use to access a specific app, data, service, or system. Before you can use most managed connectors, you must first create a connection from your workflow and authenticate your identity. Managed connectors are published, hosted, and maintained by Microsoft. <br><br>For example, you can start your workflow with a trigger or run an action that works with a service such as Office 365, Salesforce, or file servers. For more information, see [Managed connectors for Azure Logic Apps](../connectors/managed.md). |
+| **Built-in connector** | This connector or operation type is "built in" to the Azure Logic Apps runtime so that operations run natively and directly along with the runtime for faster performance, compared to Microsoft-managed connectors that are hosted and run in Azure. <br><br>Built-in operations provide ways for you to control your workflow's schedule or structure, run your own code, manage and manipulate data, send or receive requests to an endpoint, and complete other tasks in your workflow. <br><br>For example, you can start almost any workflow on a schedule when you use the **Recurrence** trigger. Or, you can have your workflow wait until called when you use the **Request** trigger. These operations don't usually require that you create a connection from your workflow. <br><br>While most built-in operations aren't associated with any service or system, some built-in operations are available for specific services, such as Azure Functions, Azure Blob Storage, Azure App Service, and more. The availability for these built-in operations depends on whether you're working on a Consumption or Standard logic app workflow. For more information and examples, see [Built-in connectors for Azure Logic Apps](../connectors/built-in.md). |
+| **Managed connector** | This connector or operation type is Microsoft-published, managed, hosted, and run in Azure and is a prebuilt proxy or wrapper for a service or system's REST API, which you can use to access a specific app, data, service, or system. Before you can use most managed connectors, you must first create a connection from your workflow and authenticate your identity. <br><br>For example, you can start your workflow with a trigger or run an action that works with a service such as Office 365, Salesforce, or file servers. For more information, see [Managed connectors for Azure Logic Apps](../connectors/managed.md). |
 | **Integration account** | Create this Azure resource when you want to define and store B2B artifacts for use in your workflows. After you [create and link an integration account](logic-apps-enterprise-integration-create-integration-account.md) to your logic app, your workflows can use these B2B artifacts. Your workflows can also exchange messages that follow Electronic Data Interchange (EDI) and Enterprise Application Integration (EAI) standards. <br><br>For example, you can define trading partners, agreements, schemas, maps, and other B2B artifacts. You can create workflows that use these artifacts and exchange messages over protocols such as AS2, EDIFACT, X12, and RosettaNet. |
 
 ## Why use Azure Logic Apps
@@ -72,11 +84,11 @@ For more information, see the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/introduction.md)
 
-* [Managed connectors](../connectors/managed.md)
-
 * [Built-in connectors](../connectors/built-in.md)
 
-You usually don't have to write any code. However, if you do need to write code, you can create code snippets using [Azure Functions](../azure-functions/functions-overview.md) and run that code from your workflow. You can also create code snippets that run in your workflow by using the [**Inline Code** action](logic-apps-add-run-inline-code.md). If your workflow needs to interact with events from Azure services, custom apps, or other solutions, you can monitor, route, and publish events using [Azure Event Grid](../event-grid/overview.md).
+* [Managed connectors](../connectors/managed.md)
+
+When you build workflows in Azure Logic Apps, you usually don't have to write any code. However, if you do need to write some code, you can add and run JavaScript code snippets or C# scripts in your workflow by using the **Inline Code** action for [JavaScript](add-run-javascript.md) or [C#](add-run-csharp-scripts.md), respectively. You can also add and run code by using [Azure Functions](../azure-functions/functions-overview.md). If your workflow needs to interact with events from other Azure services, custom apps, or other solutions, you can monitor, route, and publish events by using [Azure Event Grid](../event-grid/overview.md) or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Azure Logic Apps is fully managed by Microsoft Azure, which frees you from worrying about hosting, scaling, managing, monitoring, and maintaining solutions built with these services. When you use these capabilities to create ["serverless" apps and solutions](logic-apps-serverless-overview.md), you can just focus on the business logic and functionality. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps using little to no code.
 
@@ -84,17 +96,15 @@ To learn how other companies improved their agility and increased focus on their
 
 ## How does Azure Logic Apps differ from Functions, WebJobs, and Power Automate?
 
-All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Logic Apps, Functions, WebJobs, and Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Azure Logic Apps, Azure Functions, Azure WebJobs, and Microsoft Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## More about Azure Logic Apps
+## How quickly can I ramp up my solutions with Azure Logic Apps?
 
 You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, Azure Logic Apps helps you implement and scale up to more mature integration scenarios by providing the following capabilities and benefits.
 
 ### Visually create and edit workflows with easy-to-use tools
 
 Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
-
-If you're creating a multitenant based logic app workflow, get started faster when you [create a workflow from the templates gallery](logic-apps-create-logic-apps-from-templates.md). These templates are available for common workflow patterns, which range from simple connectivity for Software-as-a-Service (SaaS) apps to advanced B2B solutions plus "just for fun" templates.
 
 ### Connect different systems across various environments
 
@@ -104,9 +114,9 @@ Some patterns and processes are easy to describe but hard to implement in code. 
 
 ### Create and deploy to different environments
 
-Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
+Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
 
-The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, integration service environment (ISE), single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -128,25 +138,23 @@ For example, if you use Microsoft BizTalk Server, your workflows can communicate
 
 ### Write once, reuse often
 
-Create your logic apps as Azure Resource Manager templates so that you can [set up and automate deployments](logic-apps-azure-resource-manager-templates-overview.md) across multiple environments and regions.
+Create your logic app workflows as Azure Resource Manager templates so that you can [set up and automate deployments](logic-apps-azure-resource-manager-templates-overview.md) across multiple environments and regions.
 
 ### Built-in extensibility
 
-If no suitable connector is available to run the code you want, you can create and call your own code snippets from your workflow by using [Azure Functions](../azure-functions/functions-overview.md). Or, create your own [APIs](logic-apps-create-api-app.md) and [custom connectors](custom-connector-overview.md) that you can call from your workflows.
+If no suitable connector is available to run the code you want, you can create and run code snippets from your workflow by using the **Inline Code** action for [JavaScript](add-run-javascript.md) or [C# scripts](add-run-csharp-scripts.md), you can use [Azure Functions](../azure-functions/functions-overview.md). You can also create [APIs](logic-apps-create-api-app.md) and [custom connectors](custom-connector-overview.md) that you can call from your workflows.
 
 ### Direct access to resources in Azure virtual networks
 
-Logic app workflows can access secured resources such as virtual machines (VMs), other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use either [Azure Logic Apps (Standard)](single-tenant-overview-compare.md) or an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). Both Azure Logic Apps (Standard) and an ISE are dedicated instances of Azure Logic Apps that use dedicated resources and run separately from global multitenant Azure Logic Apps.
+Logic app workflows can access secured resources such as virtual machines, other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use [Azure Logic Apps (Standard)](single-tenant-overview-compare.md). Azure Logic Apps (Standard) is a single-tenant instance Azure Logic Apps that uses dedicated resources and runs separately from global, multitenant Azure Logic Apps.
 
 Hosting and running logic app workflows in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Azure Logic Apps (Standard) and an ISE also provide the following benefits:
+Azure Logic Apps (Standard) provides the following benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that logic apps share in multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
-
-When you create an ISE, Azure *injects* or deploys that ISE into your Azure virtual network. You can then use this ISE as the location for the logic apps and integration accounts that need access. For more information about creating an ISE, review [Connect to Azure virtual networks from Azure Logic Apps](connect-virtual-network-vnet-isolated-environment.md).
 
 <a name="how-do-logic-apps-work"></a>
 
@@ -176,7 +184,7 @@ You can visually create workflows using the Azure Logic Apps workflow designer i
 
 ## Pricing options
 
-Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3), integration service environment), has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
+Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3)) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
 
 ## Get started
 
@@ -198,4 +206,4 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 ## Next steps
 
-* [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps in the Azure portal](quickstart-create-example-consumption-workflow.md)

@@ -16,7 +16,7 @@ When you set up a domain or TLS/SSL certificate for your web apps in Azure App S
 
 At any point in this article, you can get more help by contacting Azure experts on the [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, to file an Azure support incident, go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Certificate problems
 
@@ -297,7 +297,7 @@ This problem happens for one of the following reasons:
   
 - You're not the subscription owner, so you don't have permission to purchase a domain.
 
-  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
+  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.yml) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
 
 ### You can't add a host name to an app 
 
@@ -389,4 +389,4 @@ The certificate file format must be a .pfx file with a password applied to the f
 
 **How do I generate a certificate signing request (CSR) for an App Service Certificate?**
 
-For an App Service Certificate, you would purchase through the Azure portal or using a Powershell/CLI command. A CSR is not needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [here](../key-vault/certificates/create-certificate-signing-request.md).
+For an App Service Certificate, you would purchase through the Azure portal or using a Powershell/CLI command. A CSR is not needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [here](/azure/key-vault/certificates/create-certificate-signing-request).

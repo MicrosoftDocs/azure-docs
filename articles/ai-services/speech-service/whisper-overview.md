@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 3/26/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 
@@ -14,7 +14,7 @@ ms.author: eur
 
 The Whisper model is a speech to text model from OpenAI that you can use to transcribe audio files. The model is trained on a large dataset of English audio and text. The model is optimized for transcribing audio files that contain speech in English. The model can also be used to transcribe audio files that contain speech in other languages. The output of the model is English text.
 
-Whisper models are available via the Azure OpenAI Service or via Azure AI Speech. The features differ for those offerings. In Azure AI Speech, Whisper is just one of several speech to text models that you can use.
+Whisper models are available via the Azure OpenAI Service or via Azure AI Speech. The features differ for those offerings. In Azure AI Speech, Whisper is just one of several models that you can use for speech to text.
 
 You might ask:
 
@@ -60,8 +60,8 @@ Whisper Model via Azure AI Speech might be best for:
 - Customization of the Whisper base model to improve accuracy for your scenario (coming soon)
 
 Regional support is another consideration. 
-- The Whisper model via Azure OpenAI Service is available in the following regions: EastUS 2, India South, North Central, Norway East, Sweden Central, and West Europe. 
-- The Whisper model via Azure AI Speech is available in the following regions: Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe.
+- The Whisper model via Azure OpenAI Service is available in the following regions: East US 2, India South, North Central, Norway East, Sweden Central, and West Europe. 
+- The Whisper model via Azure AI Speech is available in the following regions: Australia East, East US, North Central US, South Central US, Southeast Asia, UK South, and West Europe.
 
 ## Next steps
 

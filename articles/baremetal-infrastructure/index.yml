@@ -8,9 +8,9 @@ metadata:
   author: jjaygbay1
   ms.author: jacobjaygbay
   description: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
-  ms.service: baremetal-infrastructure
+  ms.service: azure-baremetal-infrastructure
   ms.topic: landing-page
-  ms.date: 04/01/2023
+  ms.date: 08/15/2024
 
 
 # card 1
@@ -113,29 +113,11 @@ landingContent:
     linkLists: 
       - linkListType: overview
         links:
-         - text: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
-           url: workloads/nc2-on-azure/nc2-baremetal-overview.md
          - text: About BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
            url: workloads/nc2-on-azure/about-nc2-on-azure.md
+         - text: Architecture
+           url: workloads/nc2-on-azure/architecture.md
+         - text: Getting started
+           url: workloads/nc2-on-azure/get-started.md         
          - text: FAQ
            url: workloads/nc2-on-azure/faq.md
-      - linkListType: get-started
-        links:
-         - text: Getting started
-           url: workloads/nc2-on-azure/get-started.md
-         - text: Use cases and supported scenarios
-           url: workloads/nc2-on-azure/use-cases-and-supported-scenarios.md  
-         - text: Requirements
-           url: workloads/nc2-on-azure/requirements.md
-         - text: Supported instances and regions
-           url: ./workloads/nc2-on-azure/supported-instances-and-regions.md
-         - text: SKUs
-           url: workloads/nc2-on-azure/skus.md
-      - linkListType: architecture
-        links:
-         - text: Architecture
-           url: workloads/nc2-on-azure/architecture.md 
-      - linkListType: concept
-        links:
-         - text: Solution design
-           url: workloads/nc2-on-azure/solution-design.md

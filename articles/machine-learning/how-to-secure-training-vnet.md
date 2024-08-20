@@ -3,13 +3,13 @@ title: Secure training environments with virtual networks
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 04/14/2023
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 04/08/2024
 ms.custom:
   - tracking-python
   - references_regions
@@ -162,8 +162,8 @@ To create a compute cluster in an Azure Virtual Network in a different region th
 
 ## Compute instance/cluster or serverless compute with no public IP
 
-> [!WARNING]
-> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+> [!IMPORTANT]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, compute resources can't be deployed in your Azure Virtual Network. For information on using a managed virtual network, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 > [!IMPORTANT]
 > If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
@@ -257,7 +257,7 @@ ml_client.begin_create_or_update(entity=compute)
 1. Select the **Compute** page from the left navigation bar.
 1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
 1. Configure the VM size and configuration you need, then select **Next**.
-1. From the **Advanced Settings**, Select **Enable virtual network**, your virtual network and subnet, and finally select the **No Public IP** option under the VNet/subnet section.
+1. From **Security**, select **Enable virtual network**, your virtual network and subnet, and finally select the **No Public IP** option under the VNet/subnet section.
 
     :::image type="content" source="./media/how-to-secure-training-vnet/no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance and compute cluster." lightbox="./media/how-to-secure-training-vnet/no-public-ip.png":::
 
@@ -331,7 +331,7 @@ Use Azure CLI or Python SDK to configure **serverless compute** nodes with no pu
 ## <a name="compute-instancecluster-with-public-ip"></a>Compute instance/cluster or serverless compute with public IP
 
 > [!IMPORTANT]
-> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, compute resources can't be deployed in your Azure Virtual Network. For information on using a managed virtual network, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** compute instances/clusters that have a public IP. They also apply to serverless compute:
 
@@ -428,7 +428,7 @@ ml_client.begin_create_or_update(entity=compute)
 1. Select the **Compute** page from the left navigation bar.
 1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
 1. Configure the VM size and configuration you need, then select **Next**.
-1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
+1. From **Security**, select **Enable virtual network** and then select your virtual network and subnet.
 
     :::image type="content" source="./media/how-to-secure-training-vnet/with-public-ip.png" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="./media/how-to-secure-training-vnet/with-public-ip.png":::
 
@@ -529,7 +529,7 @@ Allow Azure Machine Learning to communicate with the SSH port on the VM or clust
 
 1. In the __Source service tag__ drop-down list, select __AzureMachineLearning__.
 
-    ![Inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
+    :::image type="content" source="./media/how-to-secure-training-vnet/experimentation-virtual-network-inbound.png" alt-text="A screenshot of inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network." lightbox="./media/how-to-secure-training-vnet/experimentation-virtual-network-inbound.png":::
 
 1. In the __Source port ranges__ drop-down list, select __*__.
 

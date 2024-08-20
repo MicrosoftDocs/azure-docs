@@ -13,9 +13,10 @@ keywords: "qna maker, low code chat bots, multi-turn conversations"
 
 # What is QnA Maker?
 
-[!INCLUDE [Custom question answering](../includes/new-version.md)]
+> [!NOTE]
+> [Azure OpenAI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure OpenAI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
-[!INCLUDE [Azure AI services rebrand](../../includes/rebrand-note.md)]
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 

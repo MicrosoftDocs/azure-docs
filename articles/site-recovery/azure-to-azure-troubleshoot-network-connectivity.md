@@ -5,8 +5,8 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: how-to
-ms.service: site-recovery
-ms.date: 01/03/2024
+ms.service: azure-site-recovery
+ms.date: 05/02/2024
 ---
 
 # Troubleshoot Azure-to-Azure VM network connectivity issues
@@ -19,7 +19,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can use an allow-list for the specific storage account URLs. For example, `cache1.blob.core.windows.net` and `cache2.blob.core.windows.net` instead of `*.blob.core.windows.net`. |
 | Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Required for authorization and authentication to the Site Recovery service URLs. |
-| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	| Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding _Site Recovery IP_ if your firewall proxy supports IPs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`	| Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding _Site Recovery IP_ if your firewall proxy supports IPs. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding _Site Recovery Monitoring IP_ if your firewall proxy supports IPs. |
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
@@ -111,11 +111,11 @@ If you are using an Azure Network Security Group (NSG) rule/firewall proxy to co
 
 #### Possible cause
 
-The custom proxy settings are invalid and the Azure Site Recovery Mobility service agent didn't autodetect the proxy settings from Internet Explorer (IE).
+The custom proxy settings are invalid and the Azure Site Recovery Mobility service agent didn't autodetect the proxy settings from Internet Explorer.
 
 #### Resolution
 
-1. The Mobility service agent detects the proxy settings from IE on Windows and `/etc/environment` on Linux.
+1. The Mobility service agent detects the proxy settings from Internet Explorer on Windows and `/etc/environment` on Linux.
 1. If you prefer to set proxy only for Azure Site Recovery Mobility service, you can provide the proxy details in _ProxyInfo.conf_ located at:
 
    - **Linux**: `/usr/local/InMage/config/`

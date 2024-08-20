@@ -2,7 +2,7 @@
 title: Schedule updates and enable periodic assessment at scale using policy.
 description: In this tutorial, you learn on how enable periodic assessment or update the deployment using policy.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 04/23/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -65,6 +65,8 @@ You can monitor the compliance of resources under **Compliance** and remediation
 	- Machine locations: You can optionally specify the regions that you want to select. By default, all are selected.
 	- Tags on machines: You can use tags to scope down further. By default, all are selected.
 	- Tags operator: In case you have selected multiple tags, you can specify if you want the scope to be machines that have all the tags or machines which have any of those tags.
+	  
+      :::image type="content" source="./media/tutorial-assessment-deployment-using-policy/tags-syntax.png" alt-text="Screenshot that shows the syntax to add tags." lightbox="./media/tutorial-assessment-deployment-using-policy/tags-syntax.png":::
 
 1. In **Remediation**, **Managed Identity**, **Type of Managed Identity**, select System assigned managed identity and **Permissions** is already set as *Contributor* according to the policy definition.
 

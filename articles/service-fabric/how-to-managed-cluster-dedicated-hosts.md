@@ -25,7 +25,7 @@ Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. This guide shows how to deploy a Standard SKU cluster with two node types and 12 nodes.
-* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC](../role-based-access-control/role-assignments-portal.md?tabs=current#prerequisites).
+* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC](../role-based-access-control/role-assignments-portal.yml?tabs=current#prerequisites).
 
 
 ## Review the template
@@ -34,7 +34,7 @@ The template used in this guide is from [Azure Samples - Service Fabric cluster 
 ## Create a client certificate
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal.md). Note the certificate thumbprint as it will be required to deploy the template in the next step. 
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](/azure/key-vault/certificates/quick-create-portal). Note the certificate thumbprint as it will be required to deploy the template in the next step. 
 
 ## Deploy Dedicated Host resources and configure access to Service Fabric Resource Provider
 
@@ -108,7 +108,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
    * Cluster Name: Enter a unique name for your cluster, such as mysfcluster.
    * Admin Username: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
    * Admin Password: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate.
+   * Client Certificate Thumbprint: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
    * Node Type Name: Enter a unique name for your node type, such as nt1.
 
 3. Deploy an ARM template through one of the methods below:

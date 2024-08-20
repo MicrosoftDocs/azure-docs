@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -202,7 +202,7 @@ Use the following steps to try out APIs:
 1. Select the API you would like to try.
 1. Select **EXECUTE**, and the response appears.
 
-   :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
+   :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of the API portal that shows the Execute option selected.":::
 
 ## Enable/disable API portal after service creation
 

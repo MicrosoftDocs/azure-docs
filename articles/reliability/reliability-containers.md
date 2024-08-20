@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.date: 11/29/2022
 #Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
@@ -32,17 +32,14 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 
 - Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](../container-instances/container-instances-region-availability.md).
 
-- Availability zone support is only available on ACI API version 09-01-2021 or later. 
-- For Azure CLI, version 2.30.0 or later must be installed.
-- For PowerShell, version 2.1.1-preview or later must be installed.
-- For Java SDK, version 2.9.0 or later must be installed.
+* If using Azure CLI, ensure version `2.30.0` or later is installed.
+* If using PowerShell, ensure version `2.1.1-preview` or later is installed.
+* If using the Java SDK, ensure version `2.9.0` or later is installed.
+* Availability zone support is only available on ACI API version `09-01-2021` or later.
 
 
-The following container groups *do not* support availability zones at this time:
-
- - Container groups with GPU resources 
- - Virtual Network injected container groups
- - Windows Server 2016 container groups
+> [!IMPORTANT]
+> Container groups with GPU resources don't support availability zones at this time.
 
 ### Availability zone redeployment and migration
 
@@ -217,3 +214,12 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 
 - [Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 - [Reliability in Azure](./overview.md)
+
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az_container_create
+[container-regions]: ../container-instances-region-availability.md
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment#az_deployment_group_create
+[availability-zone-overview]: ./availability-zones-overview.md

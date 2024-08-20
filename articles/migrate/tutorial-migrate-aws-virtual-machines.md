@@ -5,14 +5,14 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/24/2024
-ms.custom: MVC, engagement-fy23
+ms.date: 07/05/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
@@ -97,7 +97,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 ### Create an Azure network
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare AWS instances for migration
 
@@ -240,7 +240,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.

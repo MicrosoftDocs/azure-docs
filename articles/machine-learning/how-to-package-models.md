@@ -2,11 +2,10 @@
 title: Package a model for deployment (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how you can package a model and deploy it for online inferencing.
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: devx-track-python, update-code
 ms.date: 12/08/2023
@@ -31,6 +30,10 @@ Before following the steps in this article, make sure you have the following pre
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+* A model to package. This example, uses an MLflow model registered in the workspace.
+
+    > [!CAUTION]
+    > Model packaging is not supported for models in the Azure AI model catalog, including large language models. Models in the Azure AI model catalog are optimized for inference on Azure AI deployment targets and are not suitable for packaging. 
 
 ## About this example
 
@@ -230,21 +233,21 @@ You can create model packages in Azure Machine Learning, using the Azure CLI or 
 
 ## Package a model that has dependencies in private Python feeds
 
-Model packages can resolve Python dependencies that are available in private feeds. To use this capability, you need to create a connection from your workspace to the feed and specify the credentials. The following Python code shows how you can configure the workspace where you're running the package operation.
+Model packages can resolve Python dependencies that are available in private feeds. To use this capability, you need to create a connection from your workspace to the feed and specify the PAT token configuration. The following Python code shows how you can configure the workspace where you're running the package operation.
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import SasTokenConfiguration
+from azure.ai.ml.entities import PatTokenConfiguration
 
 # fetching secrets from env var to secure access, these secrets can be set outside or source code
-python_feed_sas = os.environ["PYTHON_FEED_SAS"]
+git_pat = os.environ["GIT_PAT"]
 
-credentials = SasTokenConfiguration(sas_token=python_feed_sas)
+credentials = PatTokenConfiguration(pat=git_pat)
 
 ws_connection = WorkspaceConnection(
-    name="<connection_name>",
-    target="<python_feed_url>",
-    type="python_feed",
+    name="<workspace_connection_name>",
+    target="<git_url>",
+    type="git",
     credentials=credentials,
 )
 

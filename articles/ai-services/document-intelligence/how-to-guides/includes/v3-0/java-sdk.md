@@ -5,11 +5,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+ms.custom: devx-track-csharp, ignite-2023, linux-related-content
 monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
@@ -23,7 +21,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../../sdk-overview-v3-0.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../../sdk-overview-v3-0.md)
 :::moniker-end
 
 ## Prerequisites
@@ -36,10 +34,10 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 
   If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
-  - A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
+  - A [**Java Development Kit (JDK)**](/java/openjdk/download#openjdk-17) version 8 or later. For more information, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
   - [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
-- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
   > [!TIP]
   > Create an Azure AI services resource if you plan to access multiple Azure AI services by using a single endpoint and key. For Document Intelligence access only, create a Document Intelligence resource. You need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../../active-directory/authentication/overview-authentication.md).

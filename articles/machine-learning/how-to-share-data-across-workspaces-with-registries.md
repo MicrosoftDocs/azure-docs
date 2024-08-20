@@ -3,12 +3,12 @@ title: Share data across workspaces with registries (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams by sharing data through registries.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
-ms.date: 03/21/2023
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2, build-2023
 ---
@@ -267,7 +267,7 @@ jobs:
 ```  
 
 > [!WARNING]
-> * Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the data.
+> * Before running the pipeline job, confirm that the workspace in which you will run the job is in an Azure region that is supported by the registry in which you created the data.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
 
 Run the pipeline job with the `az ml job create` command.
@@ -306,7 +306,7 @@ print(pipeline_job)
 ```
 
 > [!WARNING]
-> * Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
+> * Confirm that the workspace in which you will run this job is in an Azure location that is supported by the registry in which you created the component before you run the pipeline job.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or update it `pipeline_job.settings.default_compute=<compute-cluster-name>`.
 
 Run the pipeline job and wait for it to complete. 

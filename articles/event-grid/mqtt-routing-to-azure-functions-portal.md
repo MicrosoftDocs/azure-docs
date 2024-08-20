@@ -51,7 +51,7 @@ You use this Azure function as an event handler for a topic's subscription later
 > - This tutorial has been tested with an Azure function that uses .NET 8.0 (isolated) runtime stack.
 
 ## Create an Event Grid topic (custom topic)
-Create an Event Grid topic. See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
+Create an Event Grid topic. See [Create a custom topic using the portal](custom-event-quickstart-portal.md). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
 
 :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/create-topic-cloud-event-schema.png" alt-text="Screenshot that shows the Advanced page of the Create Topic wizard.":::
 

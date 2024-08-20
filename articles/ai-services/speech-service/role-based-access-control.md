@@ -1,12 +1,12 @@
 ---
-title: Role-based access control for Speech resources - Speech service
+title: Role-based access control for Speech resources
 titleSuffix: Azure AI services
 description: Learn how to assign access roles for a Speech resource.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/21/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 
@@ -39,7 +39,7 @@ A role definition is a collection of permissions. When you create a Speech resou
 
 Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
 
-For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload custom speech datasets, but without permission to deploy a custom speech model to an endpoint. 
+For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload custom speech datasets, but without permission to deploy a custom speech model to an endpoint. 
 
 ## Authentication with keys and tokens
 
@@ -59,7 +59,7 @@ If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn'
 
 | Authentication credential | Feature availability | 
 | ---| ---|  
-|Speech resource key|Full access limited only by the assigned role permissions.|
+|Speech resource key|Full access. Role configuration is ignored if resource key is used.|
 |Microsoft Entra token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
 |Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a custom speech model or custom neural voice. But you can't use a custom speech model or custom neural voice.|
 

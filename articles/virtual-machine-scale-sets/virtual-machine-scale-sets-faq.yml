@@ -5,8 +5,8 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.topic: faq
-  ms.service: virtual-machine-scale-sets
-  ms.date: 11/22/2022
+  ms.service: azure-virtual-machine-scale-sets
+  ms.date: 06/14/2024
   ms.reviewer: jushiman
   ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
   ms.devlang: azurecli
@@ -52,7 +52,7 @@ sections:
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
       - question: |
-          What is the difference betweeen OS Image Upgrade and Reimage?
+          What is the difference between OS Image Upgrade and Reimage?
         answer: |
           OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads. 
           
@@ -724,7 +724,7 @@ sections:
           > [!NOTE]
           > If your scale set `upgradePolicy` is set to manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In the Azure CLI, this is `az vmss update-instances`.
 
-          [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+          [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
   - name: Troubleshooting
     questions:

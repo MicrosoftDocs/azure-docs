@@ -262,7 +262,7 @@
                   href: change-tracking/extension-version-details.md
             - name: Supported regions
               href: change-tracking/region-mappings-monitoring-agent.md
-            - name: Enable change tracking from portal
+            - name: Enable change tracking and inventory
               href: change-tracking/enable-vms-monitoring-agent.md
             - name: Manage change tracking and inventory
               href: change-tracking/manage-change-tracking-monitoring-agent.md

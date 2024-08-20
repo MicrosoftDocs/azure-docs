@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis'
 description: In this tutorial, you learn how to use Azure Functions and Azure Cache for Redis to create a write-behind cache.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
@@ -76,7 +76,9 @@ This example uses the portal:
 
 ## Configure the Redis trigger
 
-First, make a copy of the same VS Code project that you used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
+First, make a copy of the same VS Code project that you used in the previous [tutorial](cache-tutorial-functions-getting-started.md). Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
+
+Second, delete the _RedisBindings.cs_ and _RedisTriggers.cs_ files.
 
 In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
 
@@ -94,82 +96,88 @@ To configure the trigger:
      dotnet add package System.Data.SqlClient
    ```
 
-1. Copy and paste the following code in _redisfunction.cs_ to replace the existing code:
+1. Create a new file called _RedisFunction.cs_. Make sure you've deleted the _RedisBindings.cs_ and _RedisTriggers.cs_ files.
 
-   ```csharp
-   using Microsoft.Extensions.Logging;
-   using StackExchange.Redis;
-   using System;
-   using System.Data.SqlClient;
+1. Copy and paste the following code in _RedisFunction.cs_ to replace the existing code:
 
-   namespace Microsoft.Azure.WebJobs.Extensions.Redis
-   {
-       public static class WriteBehind
-       {
-           public const string connectionString = "redisConnectionString";
-           public const string SQLAddress = "SQLConnectionString";
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Redis;
+using System.Data.SqlClient;
 
-           [FunctionName("KeyeventTrigger")]
-           public static void KeyeventTrigger(
-               [RedisPubSubTrigger(connectionString, "__keyevent@0__:set")] string message,
-               ILogger logger)
-           {
-               // Retrieve a Redis connection string from environmental variables.
-               var redisConnectionString = System.Environment.GetEnvironmentVariable(connectionString);
-            
-               // Connect to a Redis cache instance.
-               var redisConnection = ConnectionMultiplexer.Connect(redisConnectionString);
-               var cache = redisConnection.GetDatabase();
-            
-               // Get the key that was set and its value.
-               var key = message;
-               var value = (double)cache.StringGet(key);
-               logger.LogInformation($"Key {key} was set to {value}");
+public class WriteBehindDemo
+{
+    private readonly ILogger<WriteBehindDemo> logger;
 
-               // Retrieve a SQL connection string from environmental variables.
-               String SQLConnectionString = System.Environment.GetEnvironmentVariable(SQLAddress);
-            
-               // Define the name of the table you created and the column names.
-               String tableName = "dbo.inventory";
-               String column1Value = "ItemName";
-               String column2Value = "Price";
-           
-              // Connect to the database. Check if the key exists in the database. If it does, update the value. If it doesn't, add it to the database.
-               using (SqlConnection connection = new SqlConnection(SQLConnectionString))
-               {
-                   connection.Open();
-                   using (SqlCommand command = new SqlCommand())
-                   {
-                       command.Connection = connection;
+    public WriteBehindDemo(ILogger<WriteBehindDemo> logger)
+    {
+        this.logger = logger;
+    }
+    
+    public string SQLAddress = System.Environment.GetEnvironmentVariable("SQLConnectionString");
 
-                       //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
-                       //An example query would be something like "UPDATE dbo.inventory SET Price = 1.75 WHERE ItemName = 'Apple'".
-                       command.CommandText = "UPDATE " + tableName + " SET " + column2Value + " = " + value + " WHERE " + column1Value + " = '" + key + "'";
-                       int rowsAffected = command.ExecuteNonQuery(); //The query execution returns the number of rows affected by the query. If the key doesn't exist, it will return 0.
+    //This example uses the PubSub trigger to listen to key events on the 'set' operation. A Redis Input binding is used to get the value of the key being set.
+    [Function("WriteBehind")]
+    public void WriteBehind(
+        [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] Common.ChannelMessage channelMessage,
+        [RedisInput(Common.connectionString, "GET {Message}")] string setValue)
+    {
+        var key = channelMessage.Message; //The name of the key that was set
+        var value = 0.0;
 
-                       if (rowsAffected == 0) //If key doesn't exist, add it to the database
-                    {
-                            //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
-                            //An example query would be something like "INSERT INTO dbo.inventory (ItemName, Price) VALUES ('Bread', '2.55')".
-                           command.CommandText = "INSERT INTO " + tableName + " (" + column1Value + ", " + column2Value + ") VALUES ('" + key + "', '" + value + "')";
-                           command.ExecuteNonQuery();
-                        
-                           logger.LogInformation($"Item " + key + " has been added to the database with price " + value + "");
-                       }
-                    
-                       else {
-                           logger.LogInformation($"Item " + key + " has been updated to price " + value + "");
-                       }
-                   }
-                   connection.Close();
-               }
-            
-               //Log the time that the function was executed.
-               logger.LogInformation($"C# Redis trigger function executed at: {DateTime.Now}");
-           }
-       }
-   }
-   ```
+        //Check if the value is a number. If not, log an error and return.
+        if (double.TryParse(setValue, out double result))
+        {
+            value = result; //The value that was set. (i.e. the price.)
+            logger.LogInformation($"Key '{channelMessage.Message}' was set to value '{value}'");
+        }
+        else
+        {
+            logger.LogInformation($"Invalid input for key '{key}'. A number is expected.");
+            return;
+        }        
+
+        // Define the name of the table you created and the column names.
+        String tableName = "dbo.inventory";
+        String column1Value = "ItemName";
+        String column2Value = "Price";        
+        
+        logger.LogInformation($" '{SQLAddress}'");
+        using (SqlConnection connection = new SqlConnection(SQLAddress))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+
+                    //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
+                    //An example query would be something like "UPDATE dbo.inventory SET Price = 1.75 WHERE ItemName = 'Apple'".
+                    command.CommandText = "UPDATE " + tableName + " SET " + column2Value + " = " + value + " WHERE " + column1Value + " = '" + key + "'";
+                    int rowsAffected = command.ExecuteNonQuery(); //The query execution returns the number of rows affected by the query. If the key doesn't exist, it will return 0.
+
+                    if (rowsAffected == 0) //If key doesn't exist, add it to the database
+                 {
+                         //Form the SQL query to update the database. In practice, you would want to use a parameterized query to prevent SQL injection attacks.
+                         //An example query would be something like "INSERT INTO dbo.inventory (ItemName, Price) VALUES ('Bread', '2.55')".
+                        command.CommandText = "INSERT INTO " + tableName + " (" + column1Value + ", " + column2Value + ") VALUES ('" + key + "', '" + value + "')";
+                        command.ExecuteNonQuery();
+
+                        logger.LogInformation($"Item " + key + " has been added to the database with price " + value + "");
+                    }
+
+                    else {
+                        logger.LogInformation($"Item " + key + " has been updated to price " + value + "");
+                    }
+                }
+                connection.Close();
+            }
+
+            //Log the time that the function was executed.
+            logger.LogInformation($"C# Redis trigger function executed at: {DateTime.Now}");
+    }
+}
+```
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use parameterized SQL queries to prevent SQL injection attacks.
@@ -183,14 +191,14 @@ You need to update the _local.settings.json_ file to include the connection stri
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
     "redisConnectionString": "<redis-connection-string>",
     "SQLConnectionString": "<sql-connection-string>"
   }
 }
 ```
 
-To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area of **Settings**.
+To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. Locate the string is in the **Access Keys** area on the Resource menu.
 
 To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab.
 The string is in the **ADO.NET (SQL authentication)** area.
@@ -198,7 +206,7 @@ The string is in the **ADO.NET (SQL authentication)** area.
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](/azure/service-connector/tutorial-portal-key-vault) to store connection string information or [use Azure EntraID for SQL authentication](/azure/azure-sql/database/authentication-aad-configure).
 >
 
 ## Build and run the project
@@ -239,13 +247,13 @@ This tutorial builds on the previous tutorial. For more information, see [Deploy
 
 This tutorial builds on the previous tutorial. For more information on the `redisConnectionString`, see [Add connection string information](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started#add-connection-string-information).
 
-1. Go to your function app in the Azure portal. On the resource menu, select **Configuration**.
+1. Go to your function app in the Azure portal. On the resource menu, select **Environment variables**.
 
-1. Select **New application setting**. For **Name**, enter **SQLConnectionString**. For **Value**, enter your connection string.
+1. In the **App Settings** pane, enter **SQLConnectionString** as a new field. For **Value**, enter your connection string.
 
-1. Set **Type** to **Custom**, and then select **Ok** to close the menu.
+1. Select **Apply**.
 
-1. On the **Configuration** pane, select **Save** to confirm. The function app restarts with the new connection string information.
+1. Go to the **Overview** blade and select **Restart** to restart the app with the new connection string information.
 
 ## Verify deployment
 

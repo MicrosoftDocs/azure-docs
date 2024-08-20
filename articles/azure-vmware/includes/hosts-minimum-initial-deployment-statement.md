@@ -3,7 +3,7 @@ title: Minimum initial host deployment
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 1/04/2024
+ms.date: 5/15/2024
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters. The minimum number of hosts per cluster and the initial deployment is three. 
 
-You use vCenter Server and NSX-T Manager to manage most aspects of cluster configuration and operation. All local storage of each host in a cluster is under the control of VMware vSAN.
+You use vCenter Server and NSX Manager to manage most aspects of cluster configuration and operation. All local storage of each host in a cluster is under the control of VMware vSAN.
 
 The Azure VMware Solution management and control plane have the following resource requirements that need to be accounted for during solution sizing of a **standard private cloud**.
 
@@ -27,11 +27,11 @@ The Azure VMware Solution management and control plane have the following resour
 | VMware vSphere | ESXi node 2 | N/A | N/A | N/A | 5.1 | 0.2 | N/A |
 | VMware vSphere | ESXi node 3 | N/A | N/A | N/A | 5.1 | 0.2 | N/A |
 | VMware vSAN | vSAN System Usage | N/A | N/A | N/A | N/A | N/A | 5,458 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 1 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 2 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 3 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
-| VMware NSX-T Data Center | NSX-T Edge VM 1 | 8 | 32 | 200 | 1.3 | 0.6 | 409 |
-| VMware NSX-T Data Center | NSX-T Edge VM 2 | 8 | 32 | 200 | 1.3 | 0.6 | 409 |
+| VMware NSX | NSX Unified Appliance Node 1 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
+| VMware NSX | NSX Unified Appliance Node 2 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
+| VMware NSX | NSX Unified Appliance Node 3 | 12 | 48 | 300 | 2.5 | 13.5 | 613 |
+| VMware NSX | NSX Edge VM 1 | 8 | 32 | 200 | 1.3 | 0.6 | 409 |
+| VMware NSX | NSX Edge VM 2 | 8 | 32 | 200 | 1.3 | 0.6 | 409 |
 | VMware HCX (Optional Add-On) | HCX Manager | 4 | 12 | 65 | 1 | 2.5 | 140 |
 | VMware Site Recovery Manager (Optional Add-On) | SRM Appliance | 4 | 12 | 33 | 1 | 1 | 79 |
 | VMware vSphere (Optional Add-On) | vSphere Replication Manager Appliance | 4 | 8 | 33 | 1 | 0.6 | 75 |
@@ -53,11 +53,11 @@ The Azure VMware Solution management and control plane have the following resour
 | VMware vSphere | ESXi node 5 | N/A | N/A | N/A | 5.1 | 0.2 | N/A |
 | VMware vSphere | ESXi node 6 | N/A | N/A | N/A | 5.1 | 0.2 | N/A |
 | VMware vSAN | vSAN System Usage | N/A | N/A | N/A | N/A | N/A | 10,722 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 1 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 2 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
-| VMware NSX-T Data Center | NSX-T Unified Appliance Node 3 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
-| VMware NSX-T Data Center | NSX-T Edge VM 1 | 8 | 32 | 200 | 1.3 | 0.6 | 817 |
-| VMware NSX-T Data Center | NSX-T Edge VM 2 | 8 | 32 | 200 | 1.3 | 0.6 | 817 |
+| VMware NSX | NSX Unified Appliance Node 1 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
+| VMware NSX | NSX Unified Appliance Node 2 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
+| VMware NSX | NSX Unified Appliance Node 3 | 12 | 48 | 300 | 2.5 | 13.5 | 1,229 |
+| VMware NSX | NSX Edge VM 1 | 8 | 32 | 200 | 1.3 | 0.6 | 817 |
+| VMware NSX | NSX Edge VM 2 | 8 | 32 | 200 | 1.3 | 0.6 | 817 |
 | VMware HCX (Optional Add-On) | HCX Manager | 4 | 12 | 65 | 1 | 2.5 | 270 |
 | | Total | 67 vCPUs | 248.3 GB | 2,286 GB | 42.3 GHz | 49.1 GB | 20,036 GB (17,173 GB with expected 1.2x Data Reduction ratio) |
 
@@ -65,7 +65,7 @@ These resource requirements only apply to the first cluster deployed in an Azure
 
 The virtual appliance **Typical Raw vSAN Datastore Usage** values account for the space occupied by virtual machine files, including configuration and log files, snapshots, virtual disks and swap files.
 
-The VMware ESXi nodes have compute usage values that account for the vSphere VMkernel hypervisor overhead, vSAN overhead and NSX-T distributed router, firewall and bridging overhead. These are estimates for a standard three cluster configuration. The storage requirements are listed as not applicable (N/A) since a boot volume separate from the vSAN Datastore is used.
+The VMware ESXi nodes have compute usage values that account for the vSphere VMkernel hypervisor overhead, vSAN overhead and NSX distributed router, firewall and bridging overhead. These are estimates for a standard three cluster configuration. The storage requirements are listed as not applicable (N/A) since a boot volume separate from the vSAN Datastore is used.
 
 The VMware vSAN System Usage storage overhead accounts for vSAN performance management objects, vSAN file system overhead, vSAN checksum overhead and vSAN deduplication and compression overhead. To view this consumption, select the Monitor, vSAN Capacity object for the vSphere Cluster in the vSphere Client.
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - Downlink data from public satellites 
 description: Learn how to schedule a contact with public satellites by using the Azure Orbital Ground Station service.
-author: apoorvanori
+author: hrshelar
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: apoorvanori
+ms.author: hrshelar
 # Customer intent: As a satellite operator, I want to ingest data from NASA's public satellites into Azure.
 ---
 
@@ -17,7 +17,7 @@ You can communicate with satellites directly from Azure by using the Azure Orbit
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create and authorize a spacecraft for select public satellites.
+> * Create a spacecraft for select public satellites.
 > * Prepare a virtual machine (VM) to receive downlinked data.
 > * Configure a contact profile for a downlink mission.
 > * Schedule a contact with a supported public satellite using Azure Orbital Ground Station and save the downlinked data.
@@ -28,7 +28,7 @@ Azure Orbital Ground Station supports several public satellites including [Aqua]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
-- [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
+- [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit support tickets.
 
 ## Sign in to Azure
 
@@ -81,42 +81,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 8. Click **Review + create**. After the validation is complete, click **Create**.
 
-## Request authorization of the new public spacecraft resource
-
-1. Navigate to the overview page for the newly created spacecraft resource within your resource group.
-2. On the left pane, navigate to **Support + troubleshooting** then click **Diagnose and solve problems**. Under Spacecraft Management and Setup, click **Troubleshoot**, then click **Create a support request**.
-   
-   > [!NOTE]
-   > A [Basic support plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
-
-3. On the **New support request** page, under the **Problem description** tab, enter or select the following information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Issue type** |	Select **Technical**. |
-   | **Subscription** |	Select the subscription in which you created the spacecraft resource. |
-   | **Service** |	Select **My services**. |
-   | **Service type** |	Search for and select **Azure Orbital**. |
-   | **Resource** | Select the spacecraft resource you created. |
-   | **Summary** | Enter **Request authorization for [insert name of public satellite]**. |
-   | **Problem type** |	Select **Spacecraft Management and Setup**. |
-   | **Problem subtype** |	Select **Spacecraft Registration**. |
-
-4. click **Next**. If a Solutions page pops up, click **Return to support request**. click **Next** to move to the **Additional details** tab.
-5. Under the **Additional details** tab, enter the following information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **When did the problem start?** |	Select the **current date and time**. |
-   | **Select Ground Stations** | Select the desired **ground stations**. |
-   | **Supplemental Terms** | Select **Yes** to accept and acknowledge the Azure Orbital [supplemental terms](https://azure.microsoft.com/products/orbital/#overview). |
-   | **Description** |	Enter the satellite's **center frequency** from the table above. |
-   | **File upload** |	No additional files are required. |
-
-6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
-7. Click **Review + create**. After the validation is complete, click **Create**.
-
-After submission, the Azure Orbital Ground Station team reviews your satellite authorization request. Requests for supported public satellites shouldn't take long to approve.
+If your spacecraft resource exactly matches the information in Step 3, your spacecraft is automatically authorized at Microsoft ground stations.
 
    > [!NOTE]
    > You can confirm that your spacecraft resource is authorized by checking that the **Authorization status** shows **Allowed** on the spacecraft's overview page.

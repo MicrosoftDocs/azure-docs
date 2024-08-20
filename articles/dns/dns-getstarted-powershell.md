@@ -7,20 +7,20 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 11/30/2023
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure PowerShell so I can use Azure DNS for my name resolution.
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 In this quickstart, you create your first DNS zone and record using Azure PowerShell. You can also perform these steps using the [Azure portal](dns-getstarted-portal.md) or the [Azure CLI](dns-getstarted-cli.md). 
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described in this article.
 
-:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure PowerShell." border="false":::
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." lightbox="media/dns-getstarted-portal/environment-diagram.png":::
 
 Azure DNS also supports creating private domains. For step-by-step instructions about how create your first private DNS zone and record, see [Get started with Azure DNS private zones using PowerShell](private-dns-getstarted-powershell.md).
 
@@ -29,7 +29,7 @@ Azure DNS also supports creating private domains. For step-by-step instructions 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create the resource group
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot and resolve the connectivity problems tha
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 07/19/2023
 ms.author: allensu
@@ -14,7 +14,7 @@ ms.author: allensu
 
 You might experience connectivity problems between Azure virtual machines (VMs). This article provides troubleshooting steps to help you resolve this problem. 
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Symptom
 
@@ -32,6 +32,9 @@ One Azure VM can't connect to another Azure VM.
 8. [Try to connect to a VM network share](#step-8-try-to-connect-to-a-vm-network-share)
 9. [Check Inter-VNet connectivity](#step-9-check-inter-vnet-connectivity)
 
+> [!NOTE]  
+> You can also use Test-NetConnection module in PowerShell to diagnose information for a connection.
+> 
 ## Troubleshooting steps
 
 Follow these steps to troubleshoot the problem. After you complete each step, check whether the problem is resolved. 
@@ -47,7 +50,7 @@ If the problem occurs after you modify the network interface (NIC), follow these
 1. Add a NIC.
 2. Fix the problems in the bad NIC or remove the bad NIC.  Then add the NIC again.
 
-For more information, see [Add network interfaces to or remove from virtual machines](virtual-network-network-interface-vm.md).
+For more information, see [Add network interfaces to or remove from virtual machines](virtual-network-network-interface-vm.yml).
 
 **Single-NIC VM** 
 
@@ -56,7 +59,7 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [Connection troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) to determine whether there's a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
+Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [Connection troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) to determine whether there's a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow. You may need to add inbound rules on both NSGs. The rules must be at the subnet level and the virtual machine's interface level.
 
 ### Step 3: Check whether network traffic is blocked by VM firewall
 

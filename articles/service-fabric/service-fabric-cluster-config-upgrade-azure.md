@@ -4,7 +4,7 @@ description: Learn how to upgrade the configuration that runs a Service Fabric c
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -18,7 +18,7 @@ This article describes how to customize the various fabric settings for your Ser
 > 
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Customize cluster settings using Resource Manager templates
 Azure clusters can be configured through the JSON Resource Manager template. To learn more about the different settings, see [Configuration settings for clusters](service-fabric-cluster-fabric-settings.md). As an example, the steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.

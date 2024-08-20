@@ -79,7 +79,7 @@ When you add a hierarchical document, QnA Maker determines follow-up prompts fro
 
 ## Create knowledge base with multi-turn prompts with the Create API
 
-You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](/rest/api/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
 
 ## Show questions and answers with context
 
@@ -350,11 +350,11 @@ If you are building a custom application, in the initial question's response, an
 
 ## Display order is supported in the Update API
 
-The [display text and display order](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+The [display text and display order](/rest/api/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](/rest/api/qnamaker/knowledgebase/update).
 
 ## Add or delete multi-turn prompts with the Update API
 
-You can add or delete multi-turn prompts using the [QnA Maker Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
+You can add or delete multi-turn prompts using the [QnA Maker Update API](/rest/api/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
 
 ## Export knowledge base for version control
 

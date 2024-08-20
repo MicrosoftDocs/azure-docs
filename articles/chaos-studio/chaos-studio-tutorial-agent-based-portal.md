@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-how-to
 ---
 
 # Create a chaos experiment that uses an agent-based fault with the Azure portal
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high % of CPU utilization event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A Linux VM running an operating system in the [version compatibility](chaos-studio-versions.md) list. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
 - A user-assigned managed identity *that was assigned to the target VM or virtual machine scale set*. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
@@ -67,7 +67,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
 1. You're now in the Chaos Studio experiment designer. You can build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch**. Then select **Add action > Add fault**.
 
    ![Screenshot that shows the experiment designer.](images/tutorial-agent-based-add-designer.png)
-1. Select **CPU Pressure** from the dropdown list. Fill in **Duration** with the number of minutes to apply pressure. Fill in **pressureLevel** with the amount of CPU pressure to apply. Leave **virtualMachineScaleSetInstances** blank. Select **Next: Target resources**.
+1. Select **CPU Pressure** from the dropdown list. Fill in **Duration** with the number of minutes to apply pressure. Fill in **pressureLevel** with the % of CPU utilization pressure that you want to apply. Leave **virtualMachineScaleSetInstances** blank. Select **Next: Target resources**.
 
    ![Screenshot that shows fault properties.](images/tutorial-agent-based-add-fault.png)
 1. Select your VM and select **Next**.

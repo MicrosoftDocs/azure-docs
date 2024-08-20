@@ -5,7 +5,7 @@ description:  Set up MLflow Tracking with Azure Machine Learning to log metrics 
 services: machine-learning
 author: lgayhardt
 ms.author: lagayhar
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to

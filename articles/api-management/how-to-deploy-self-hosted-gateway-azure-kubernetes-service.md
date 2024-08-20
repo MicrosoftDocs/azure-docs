@@ -3,7 +3,7 @@ title: Deploy a self-hosted gateway to Azure Kubernetes Service
 description: Learn how to deploy self-hosted gateway component of Azure API Management to Azure Kubernetes Service
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 06/11/2021
 ms.author: danlep
@@ -23,7 +23,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- Create an Azure Kubernetes cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
+- Create an Azure Kubernetes cluster [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
 - [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
 ## Deploy the self-hosted gateway to AKS
@@ -35,9 +35,9 @@ This article provides the steps for deploying self-hosted gateway component of A
 5. Make sure **Kubernetes** is selected under **Deployment scripts**.
 6. Select **\<gateway-name\>.yml** file link next to **Deployment** to download the file.
 7. Adjust the `config.service.endpoint`, port mappings, and container name in the .yml file as needed.
-8. Depending on your scenario, you might need to change the [service type](../aks/concepts-network.md#services). 
+8. Depending on your scenario, you might need to change the [service type](/azure/aks/concepts-network-services). 
     * The default value is `LoadBalancer`, which is the external load balancer. 
-    * You can use the [internal load balancer](../aks/internal-lb.md) to restrict the access to the self-hosted gateway to only internal users. 
+    * You can use the [internal load balancer](/azure/aks/internal-lb) to restrict the access to the self-hosted gateway to only internal users. 
     * The sample below uses `NodePort`.
 1. Select the **copy** icon located at the right end of the **Deploy** text box to save the `kubectl` command to clipboard.
 1. Paste the command to the terminal (or command) window. The command expects the downloaded environment file to be present in the current directory.
@@ -74,4 +74,4 @@ This article provides the steps for deploying self-hosted gateway component of A
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).
 * Learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
-* Learn more about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+* Learn more about [Azure Kubernetes Service](/azure/aks/intro-kubernetes).

@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 08/17/2021
+ms.date: 07/02/2024
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -17,6 +17,7 @@ elements for:
 - display name
 - description
 - metadata
+- version
 - parameters
 - policy definitions
 - policy groups (this property is part of the [Regulatory Compliance (Preview) feature](./regulatory-compliance.md))
@@ -30,6 +31,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
         "displayName": "Billing Tags Policy",
         "policyType": "Custom",
         "description": "Specify cost Center tag and product name tag",
+        "version" : "1.0.0",
         "metadata": {
             "version": "1.0.0",
             "category": "Tags"
@@ -52,6 +54,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
         },
         "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "definitionVersion": "1.*.*"
                 "parameters": {
                     "tagName": {
                         "value": "costCenter"
@@ -110,7 +113,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
-  definition.
+  definition. For built-ins, this metadata version follows the version property of the built-in. It's recommended to use the version property over this metadata version.
 - `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
@@ -122,13 +125,23 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 - `deprecated` (boolean): True or false flag for if the policy initiative definition has been marked
   as _deprecated_.
 
-> [!NOTE]
-> The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
-> change to a built-in policy definition or initiative and state. The format of `version` is:
-> `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. For more information about the way
+## Version (preview)
+Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview)
+
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey the level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean** as shown in the common metadata properties.
+
+- Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
+- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removing definitions within an initiative.
+- Patch Version (example: 2.1.4): introduce string or metadata changes and break glass security scenarios (rare).
+
+Built-in initiatives are versioned, and specific versions of built-in policy definitions can be referenced within built-in or custom initiatives as well. For more information, see [reference definition and versions](#policy-definition-properties).
+
+> While in preview, when creating an initiative through the portal, you will not be able to specify versions for built-in policy definition references. All built-in policy references in custom initiatives created through the portal will instead default to the latest version of the policy definition.
+>
+> For more information about
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Parameters
 
@@ -259,6 +272,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
+- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version-preview)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
@@ -270,6 +284,7 @@ passed the same initiative parameter:
     {
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0ec8fc28-d5b7-4603-8fec-39044f00a92b",
         "policyDefinitionReferenceId": "allowedLocationsSQL",
+        "definitionVersion": "1.2.*"
         "parameters": {
             "sql_locations": {
                 "value": "[parameters('init_allowedLocations')]"
@@ -334,7 +349,7 @@ This information is:
 - Displayed in the Azure portal on the overview of a **control** on a Regulatory Compliance
   initiative.
 - Available via REST API. See the `Microsoft.PolicyInsights` resource provider and the
-  [policyMetadata operation group](/rest/api/policy/policymetadata/getresource).
+  [policyMetadata operation group](/rest/api/policyinsights/policy-metadata/get-resource).
 - Available via Azure CLI. See the [az policy metadata](/cli/azure/policy/metadata) command.
 
 > [!IMPORTANT]
@@ -362,7 +377,7 @@ Below is an example of the **policyMetadata** object. This example metadata belo
     "category": "Access Control",
     "title": "Access Control Policy and Procedures",
     "owner": "Shared",
-    "description": "**The organization:**    \na. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:  \n1. An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and  \n2. Procedures to facilitate the implementation of the access control policy and associated access controls; and  \n  
+    "description": "**The organization:**    \na. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:  \n1. An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and  \n2. Procedures to facilitate the implementation of the access control policy and associated access controls; and  \n
 \nb. Reviews and updates the current:  \n1. Access control policy [Assignment: organization-defined frequency]; and  \n2. Access control procedures [Assignment: organization-defined frequency].",
     "requirements": "**a.**  The customer is responsible for developing, documenting, and disseminating access control policies and procedures. The customer access control policies and procedures address access to all customer-deployed resources and customer system access (e.g., access to customer-deployed virtual machines, access to customer-built applications).  \n**b.**  The customer is responsible for reviewing and updating access control policies and procedures in accordance with FedRAMP requirements.",
     "additionalContentUrl": "https://nvd.nist.gov/800-53/Rev4/control/AC-1"

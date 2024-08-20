@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 06/03/2024
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -38,11 +38,11 @@ The following diagrams illustrate the concepts:
 
    [ ![The latest changes are captured in Snapshot2 for a second point in time view of the volume (and the files within).](./media/snapshots-introduction/single-file-snapshot-restore-four.png) ](./media/snapshots-introduction/single-file-snapshot-restore-four.png#lightbox)
 
-When a snapshot is taken, the pointers to the data blocks are copied, and modifications are written to new data locations. The snapshot pointers continue to point to the original data blocks that the file occupied when the snapshot was taken, giving you a live and a historical view of the data. If you were to create a new snapshot, the current pointers (that is, the ones created after the most recent additions and modifications) are copied to a new snapshot `Snapshot2`. This creates access to three generations of data (the live data, `Snapshot2`, and `Snapshot1`, in order of age) without taking up the volume space that three full copies would require.
+When a snapshot is taken, the pointers to the data blocks are copied, and modifications are written to new data locations. The snapshot pointers continue to point to the original data blocks that the file occupied when the snapshot was taken, providing both live and historical views of the data. If you were to create a new snapshot, the current pointers (that is, the ones created after the most recent additions and modifications) are copied to a new snapshot `Snapshot2`. This creates access to three generations of data (the live data, `Snapshot2`, and `Snapshot1`, in order of age) without taking up the volume space that three full copies would require.
 
 A snapshot takes only a copy of the volume metadata (*inode table*). It takes just a few seconds to create, regardless of the volume size, the capacity used, or the level of activity on the volume. As such, taking a snapshot of a 100-TiB volume takes the same (next to zero) amount of time as taking a snapshot of a 100-GiB volume. After a snapshot is created, changes to data files are reflected in the active version of the files, as normal.
 
-Meanwhile, the data blocks that are pointed to from snapshots remain stable and immutable. Because of the “Redirect on Write” nature of Azure NetApp Files volumes, snapshots incur no performance overhead and in themselves do not consume any space. You can store up to 255 snapshots per volume over time, all of which are accessible as read-only and online versions of the data, consuming as little capacity as the number of changed blocks between each snapshot. Modified blocks are stored in the active volume. Blocks pointed to in snapshots are kept (as read-only) in the volume for safekeeping, to be repurposed only when all pointers (in the active volume and snapshots) have been cleared. Therefore, volume utilization will increase over time, by either new data blocks or (modified) data blocks kept in snapshots.
+Meanwhile, the data blocks that are pointed to from snapshots remain stable and immutable. Because of the “Redirect on Write” nature of Azure NetApp Files volumes, snapshots incur no performance overhead and in themselves do not consume any space. You can store up to 255 snapshots per volume over time, all of which are accessible as read-only and online versions of the data, consuming as little capacity as the number of changed blocks between each snapshot. Modified blocks are stored in the active volume. Blocks pointed to in snapshots are kept (as read-only) in the volume for safekeeping, to be repurposed only when all pointers (in the active volume and snapshots) have been cleared. Therefore, volume utilization increases over time, by either new data blocks or (modified) data blocks kept in snapshots.
 
  The following diagram shows a volume’s snapshots and used space over time: 
 
@@ -51,7 +51,7 @@ Meanwhile, the data blocks that are pointed to from snapshots remain stable and 
 Because a volume snapshot records only the block changes since the latest snapshot, it provides the following key benefits:
 
 * Snapshots are ***storage efficient***.  
-    Snapshots consume minimal storage space because they don't copy any data blocks of the entire volume. Two snapshots taken in sequence differ only by the blocks added or changed in the time interval between the two. This block-incremental behavior minimizes associated storage capacity consumption. Many alternative snapshot implementations consume storage volumes equal to the active file system, raising storage capacity requirements. Depending on application daily *block-level* change rates, Azure NetApp Files snapshots will consume more or less capacity, but on changed data only. Average daily snapshot consumption ranges from only 1-5% of used volume capacity for many application volumes, or up to 20-30% for volumes such as SAP HANA database volumes. Be sure to [monitor your volume and snapshot usage](azure-netapp-files-metrics.md#volumes) for snapshot capacity consumption relative to the number of created and maintained snapshots.  
+    Snapshots consume minimal storage space because they don't copy any data blocks of the entire volume. Two snapshots taken in sequence differ only by the blocks added or changed in the time interval between the two. This block-incremental behavior minimizes associated storage capacity consumption. Many alternative snapshot implementations consume storage volumes equal to the active file system, raising storage capacity requirements. Depending on application daily *block-level* change rates, Azure NetApp Files snapshots consume more or less capacity, but on changed data only. Average daily snapshot consumption ranges from only 1-5% of used volume capacity for many application volumes, or up to 20-30% for volumes such as SAP HANA database volumes. Be sure to [monitor your volume and snapshot usage](azure-netapp-files-metrics.md#volumes) for snapshot capacity consumption relative to the number of created and maintained snapshots.  
 
 * Snapshots are ***quick to create, replicate, restore, or clone***.  
     It takes only a few seconds to create, replicate, restore, or clone a snapshot, regardless of the volume size and level of activity on the volume. You can [create a volume snapshot on-demand](azure-netapp-files-manage-snapshots.md). You can also use [snapshot policies](snapshots-manage-policy.md) to specify when Azure NetApp Files should automatically create a snapshot and how many snapshots to keep for a volume. Application consistency can be achieved by orchestrating snapshots with the application layer, for example, by using the [AzAcSnap tool](azacsnap-introduction.md) for SAP HANA.
@@ -75,7 +75,7 @@ You can use several methods to create and maintain snapshots:
 
 * Manually (on-demand), by using:   
     * The [Azure portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) tools
-    * Scripts (see [examples](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts))
+    * Scripts (see [examples](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798))
 
 * Automated, by using:
     * Snapshot policies, via the [Azure portal](snapshots-manage-policy.md), [REST API](/rest/api/netapp/snapshotpolicies), [Azure CLI](/cli/azure/netappfiles/snapshot/policy), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshotpolicy) tools
@@ -103,7 +103,7 @@ The following diagram shows how snapshot data is transferred from the Azure NetA
 
 The Azure NetApp Files backup functionality is designed to keep a longer history of backups as indicated in this simplified example. Notice how the backup repository on the right contains more and older snapshots than the protected volume and snapshots on the left. 
 
-Most use cases will require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several months) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups will use the snapshot mechanism to update the backup repository with only block-incremental updates.
+Most use cases require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several months) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups use the snapshot mechanism to update the backup repository with only block-incremental updates.
 
 ## Ways to restore data from snapshots  
 
@@ -111,7 +111,7 @@ The Azure NetApp Files snapshot technology greatly improves the frequency and re
 
 ### Restoring (cloning) an online snapshot to a new volume
 
-You can restore Azure NetApp Files snapshots to separate, independent volumes (clones). This operation is near-instantaneous, regardless of the volume size and the capacity consumed. The newly created volume is almost immediately available for access, while the actual volume and snapshot data blocks are being copied over. Depending on volume size and capacity, this process can take considerable time during which the parent volume and snapshot cannot be deleted. However, the volume can already be accessed after initial creation, while the copy process is in progress in the background. This capability enables fast volume creation for data recovery or volume cloning for test and development. By nature of the data copy process, storage capacity pool consumption will double when the restore completes, and the new volume will show the full active capacity of the original snapshot. The snapshot used to create the new volume will also be present on the new volume. After this process is completed, the volume will be independent and disassociated from the original volume, and source volumes and snapshot can be managed or removed independently from the new volume.
+You can restore Azure NetApp Files snapshots to separate, independent volumes (clones). This operation is near-instantaneous, regardless of the volume size and the capacity consumed. The newly created volume is almost immediately available for access, while the actual volume and snapshot data blocks are being copied over. Depending on volume size and capacity, this process can take considerable time during which the parent volume and snapshot cannot be deleted. However, the volume can already be accessed after initial creation, while the copy process is in progress in the background. This capability enables fast volume creation for data recovery or volume cloning for test and development. By nature of the data copy process, storage capacity pool consumption doubles when the restore completes, and the new volume show the full active capacity of the original snapshot. The snapshot used to create the new volume is also present on the new volume. After this process is completed, the volume is independent and disassociated from the original volume, and source volumes and snapshot can be managed or removed independently from the new volume.
 
 The following diagram shows a new volume created by restoring (cloning) a snapshot:   
 
@@ -128,7 +128,7 @@ When you restore a snapshot to a new volume, the Volume overview page displays t
 
 ### Restoring (reverting) an online snapshot in-place
 
-In some cases, because the new volume will consume storage capacity, creating a new volume from a snapshot might not be needed or appropriate. To recover from data corruption quickly (for example, database corruption or ransomware attacks), it might be more appropriate to restore a snapshot within the volume itself. This operation can be done using the Azure NetApp Files [snapshot revert](snapshots-revert-volume.md) functionality. This functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system, especially in large, multi-TiB volumes. 
+In some cases, because the new volume consumes storage capacity, creating a new volume from a snapshot might not be needed or appropriate. To recover from data corruption quickly (for example, database corruption or ransomware attacks), it might be more appropriate to restore a snapshot within the volume itself. This operation can be done using the Azure NetApp Files [snapshot revert](snapshots-revert-volume.md) functionality. This functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system, especially in large, multi-TiB volumes. 
 
 Reverting a volume snapshot is near-instantaneous and takes only a few seconds to complete, even for the largest volumes. The active volume metadata (*inode table*) is replaced with the snapshot metadata from the time of snapshot creation, thus rolling back the volume to that specific point in time. No data blocks need to be copied for the revert to take effect. As such, it's more space efficient and faster than restoring a snapshot to a new volume.
 
@@ -139,7 +139,7 @@ The following diagram shows a volume reverting to an earlier snapshot:
 
 
 > [!IMPORTANT]
-> Active filesystem data that was written and snapshots that were taken after the selected snapshot will be lost. The snapshot revert operation will replace all data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation. 
+> Active filesystem data that was written and snapshots that were taken after the selected snapshot is lost. The snapshot revert operation replace all data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation. 
 
 See [Revert a volume using snapshot revert](snapshots-revert-volume.md) about how to use this feature.
 
@@ -151,7 +151,7 @@ The following diagram shows file or directory access to a snapshot using a clien
 
 [![Diagram that shows file or directory access to a snapshot](./media/snapshots-introduction/snapshot-file-directory-access.png)](./media/snapshots-introduction/snapshot-file-directory-access.png#lightbox)
 
-In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, you can restore data by copying files and directories out of a snapshot of choice.
+In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data *appears* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, you can restore data by copying files and directories out of a snapshot of choice.
 
 Similarly, snapshots in target cross-region replication volumes can be accessed read-only for data recovery in the DR region. 
 
@@ -193,12 +193,12 @@ This section explains how online snapshots and vaulted snapshots are deleted.
 
 ### Deleting online snapshots 
 
-Snapshots consume storage capacity. As such, they are not typically kept indefinitely. For data protection, retention, and recoverability, a number of snapshots (created at various points in time) are usually kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. Snapshots can be deleted from the storage service by an administrator at any time. Any snapshot can be deleted regardless of the order in which it was created. Deleting older snapshots will free up space.
+Snapshots consume storage capacity. As such, they are not typically kept indefinitely. For data protection, retention, and recoverability, a number of snapshots (created at various points in time) are usually kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. Snapshots can be deleted from the storage service by an administrator at any time. Any snapshot can be deleted regardless of the order in which it was created. Deleting older snapshots frees up space.
 
 > [!IMPORTANT]
 > The snapshot deletion operation cannot be undone. You should retain offline copies (vaulted snapshots) of the volume for data protection and retention purposes. 
 
-When a snapshot is deleted, all pointers from that snapshot to existing data blocks will be removed. Only when a data block has no more pointers pointing at it (by the active volume, or other snapshots in the volume), the data block is returned to the volume-free space for future use. Therefore, removing snapshots usually frees up more capacity in a volume than deleting data from the active volume, because data blocks are often captured in previously created snapshots. 
+When a snapshot is deleted, all pointers from that snapshot to existing data blocks are removed. Only when a data block has no more pointers pointing at it (by the active volume, or other snapshots in the volume), the data block is returned to the volume-free space for future use. Therefore, removing snapshots usually frees up more capacity in a volume than deleting data from the active volume, because data blocks are often captured in previously created snapshots. 
 
 The following diagram shows the effect on storage consumption of Snapshot 3 deletion from a volume:  
 
@@ -210,11 +210,7 @@ See [Delete snapshots](snapshots-delete.md) about how to manage snapshot deletio
 
 ### Deleting vaulted snapshots
 
-Disabling backups for a volume will delete all vaulted snapshots (backups) stored in Azure storage for that volume.
-
-If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all backups related to the volume are retained in the Azure storage and will be listed under the associated NetApp account.
-
-See [Disable backup functionality for an Azure NetApp Files volume](backup-disable.md) for details. 
+When you delete an Azure NetApp Files volume, the backups are retained under the backup vault. If you don’t want to retain the backups, first delete the older backups followed by the most recent backup.
 
 Vaulted snapshot history is managed automatically by the applied snapshot policy where the oldest snapshot is deleted when a new one is added by the vaulted snapshot (backup) scheduler. You can also manually remove vaulted snapshots.
 
@@ -234,6 +230,5 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

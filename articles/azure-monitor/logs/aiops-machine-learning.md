@@ -5,7 +5,8 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.topic: conceptual 
-ms.date: 02/28/2023
+ms.date: 02/14/2024
+ms.collection: ce-skilling-ai-copilot
 
 # Customer intent: As a DevOps manager or data scientist, I want to understand which AIOps features Azure Monitor offers and how to implement a machine learning pipeline on data in Azure Monitor Logs so that I can use artifical intelligence to improve service quality and reliability of my IT environment.
 
@@ -25,7 +26,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 |-|-|-|
 |Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | Provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
 ||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. |
-||[Microsoft Copilot for Azure](/azure/copilot/get-monitoring-information)| Helps you use Log Analytics to analyze data and troubleshoot issues. Generates example KQL queries based on prompts, such as "Are there any errors in container logs?". |
+||[Microsoft Copilot in Azure](/azure/copilot/get-monitoring-information)| Helps you use Log Analytics to analyze data and troubleshoot issues. Generates example KQL queries based on prompts, such as "Are there any errors in container logs?". |
 |Application performance monitoring|[Application Map Intelligent view](../app/app-map.md)| Maps dependencies between services and helps you spot performance bottlenecks or failure hotspots across all components of your distributed application.|
 ||[Smart detection](../alerts/proactive-diagnostics.md)|Analyzes the telemetry your application sends to Application Insights, alerts on performance problems and failure anomalies, and identifies potential root causes of application performance issues.|
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically sets alert thresholds based on historical data, and identifies anomalies that might indicate service issues.|

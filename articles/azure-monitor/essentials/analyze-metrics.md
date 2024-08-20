@@ -21,6 +21,10 @@ Watch the following video for an overview of creating and working with metrics c
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
+## Create a metric chart using PromQL
+
+You can now create charts using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. For more information, see [Metrics explorer with PromQL (Preview)](./metrics-explorer.md).
+
 ## Create a metric chart
 
 You can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section of any resource. In the Azure portal, select **Metrics**.
@@ -48,7 +52,7 @@ Here's a summary of configuration tasks for creating a chart to analyze metrics:
 The resource **scope picker** lets you scope your chart to view metrics for a single resource or for multiple resources. To view metrics across multiple resources, the resources must be within the same subscription and region location. 
 
 > [!NOTE] 
-> You must have _Monitoring Reader_ permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+> You must have _Monitoring Reader_ permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ### Select a single resource
 
@@ -115,6 +119,8 @@ Use the time picker to change the **Time range** for your data, such as the last
 :::image type="content" source="./media/analyze-metrics/time.png" alt-text="Screenshot that shows how to configure the time range for the resource metric data in the Azure portal." lightbox="./media/analyze-metrics/time.png":::
 
 In addition to changing the time range with the time picker, you can pan and zoom by using the controls in the chart area.
+
+## Interactive chart features
 
 ### Pan across metrics data
 

@@ -15,11 +15,21 @@ There may be situations where a user needs to investigate and resolve issues wit
 
 The command produces an output file containing the results of the data extract located in the Cluster Manager's Azure Storage Account.
 
-## Before you begin
+## Prerequisites
 
 - This article assumes that you've installed the Azure command line interface and the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - The target bare metal machine is on and has readyState set to True.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
+- Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
+
+## Verify Storage Account access
+
+Verify you have access to the Cluster Manager's storage account
+  1. From Azure portal, navigate to Cluster Manager's Storage account.
+  1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+  1. In the Storage browser details, select on **Blob containers**.
+  1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+  1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Executing a run command
 
@@ -46,14 +56,18 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
+- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
+  Command Name: `cluster-cve-report`\
+  Arguments: None
+
 The command syntax is:
 
 ```azurecli-interactive
 az networkcloud baremetalmachine run-data-extract --name "<machine-name>"  \
-  --resource-group "<resource-group>" \
+  --resource-group "<cluster_MRG>" \
   --subscription "<subscription>" \
   --commands '[{"arguments":["<arg1>","<arg2>"],"command":"<command1>"}]'  \
-  --limit-time-seconds <timeout>
+  --limit-time-seconds "<timeout>"
 ```
 
 Specify multiple commands using json format in `--commands` option. Each `command` specifies command and arguments. For a command with multiple arguments, provide as a list to the `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
@@ -68,7 +82,7 @@ This example executes the `hardware-support-data-collection` command and get `Sy
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"arguments":["SysInfo", "TTYLog"],"command":"hardware-support-data-collection"}]' \
   --limit-time-seconds 600
@@ -136,7 +150,7 @@ This example executes the `mde-agent-information` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"mde-agent-information"}]' \
   --limit-time-seconds 600
@@ -183,7 +197,7 @@ This example executes the `mde-support-diagnostics` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"mde-support-diagnostics"}]' \
   --limit-time-seconds 600
@@ -241,7 +255,7 @@ This example executes the `hardware-rollup-status` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "clusete_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"hardware-rollup-status"}]' \
   --limit-time-seconds 600
@@ -297,6 +311,230 @@ __Example JSON Collected__
 [..snip..]
 ```
 
+### Generate Cluster CVE Report
+
+Vulnerability data is collected with the `cluster-cve-report` command and formatted as JSON to `{year}-{month}-{day}-nexus-cluster-vulnerability-report.json`. The JSON file is found in the data extract zip file located in the storage account. The data collected will include vulnerability data per container image in the cluster.
+
+This example executes the `cluster-cve-report` command without arguments.
+
+> [!NOTE]
+> The target machine must be a control-plane node or the action will not execute.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "cluster_MRG" \
+  --subscription "subscription" \
+  --commands '[{"command":"cluster-cve-report"}]' \
+  --limit-time-seconds 600
+```
+
+__`cluster-cve-report` Output__
+
+```azurecli
+====Action Command Output====
+Nexus cluster vulnerability report saved.
+
+
+================================
+Script execution result can be found in storage account:
+https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea38-4394-9db1-21a0d392eff0-action-bmmdataextcmd.tar.gz?se=2023-09-19T18%3A47%3A17Z&sig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%3D&sp=r&spr=https&sr=b&st=2023-09-19T14%3A47%3A17Z&sv=2019-12-12
+```
+
+__CVE Report Schema__
+
+```JSON
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vulnerability Report",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "dateRetrieved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the data was retrieved."
+        },
+        "platform": {
+          "type": "string",
+          "description": "The name of the platform."
+        },
+        "resource": {
+          "type": "string",
+          "description": "The name of the resource."
+        },
+        "runtimeVersion": {
+          "type": "string",
+          "description": "The version of the runtime."
+        },
+        "managementVersion": {
+          "type": "string",
+          "description": "The version of the management software."
+        },
+        "vulnerabilitySummary": {
+          "type": "object",
+          "properties": {
+            "criticalCount": {
+              "type": "integer",
+              "description": "Number of critical vulnerabilities."
+            },
+            "highCount": {
+              "type": "integer",
+              "description": "Number of high severity vulnerabilities."
+            },
+            "mediumCount": {
+              "type": "integer",
+              "description": "Number of medium severity vulnerabilities."
+            },
+            "lowCount": {
+              "type": "integer",
+              "description": "Number of low severity vulnerabilities."
+            },
+            "noneCount": {
+              "type": "integer",
+              "description": "Number of vulnerabilities with no severity."
+            },
+            "unknownCount": {
+              "type": "integer",
+              "description": "Number of vulnerabilities with unknown severity."
+            }
+          },
+          "required": ["criticalCount", "highCount", "mediumCount", "lowCount", "noneCount", "unknownCount"]
+        }
+      },
+      "required": ["dateRetrieved", "platform", "resource", "runtimeVersion", "managementVersion", "vulnerabilitySummary"]
+    },
+    "containers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "namespace": {
+              "type": "string",
+              "description": "The namespace of the container."
+            },
+            "digest": {
+              "type": "string",
+              "description": "The digest of the container image."
+            },
+            "os": {
+              "type": "object",
+              "properties": {
+                "family": {
+                  "type": "string",
+                  "description": "The family of the operating system."
+                }
+              },
+              "required": ["family"]
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "criticalCount": {
+                  "type": "integer",
+                  "description": "Number of critical vulnerabilities in this container."
+                },
+                "highCount": {
+                  "type": "integer",
+                  "description": "Number of high severity vulnerabilities in this container."
+                },
+                "lowCount": {
+                  "type": "integer",
+                  "description": "Number of low severity vulnerabilities in this container."
+                },
+                "mediumCount": {
+                  "type": "integer",
+                  "description": "Number of medium severity vulnerabilities in this container."
+                },
+                "noneCount": {
+                  "type": "integer",
+                  "description": "Number of vulnerabilities with no severity in this container."
+                },
+                "unknownCount": {
+                  "type": "integer",
+                  "description": "Number of vulnerabilities with unknown severity in this container."
+                }
+              },
+              "required": ["criticalCount", "highCount", "lowCount", "mediumCount", "noneCount", "unknownCount"]
+            },
+            "vulnerabilities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the vulnerability."
+                  },
+                  "vulnerabilityID": {
+                    "type": "string",
+                    "description": "Identifier of the vulnerability."
+                  },
+                  "fixedVersion": {
+                    "type": "string",
+                    "description": "The version in which the vulnerability is fixed."
+                  },
+                  "installedVersion": {
+                    "type": "string",
+                    "description": "The currently installed version."
+                  },
+                  "referenceLink": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the vulnerability details."
+                  },
+                  "publishedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date when the vulnerability was published."
+                  },
+                  "score": {
+                    "type": "number",
+                    "description": "The CVSS score of the vulnerability."
+                  },
+                  "severity": {
+                    "type": "string",
+                    "description": "The severity level of the vulnerability."
+                  },
+                  "resource": {
+                    "type": "string",
+                    "description": "The resource affected by the vulnerability."
+                  },
+                  "target": {
+                    "type": "string",
+                    "description": "The target of the vulnerability."
+                  },
+                  "packageType": {
+                    "type": "string",
+                    "description": "The type of the package."
+                  },
+                  "exploitAvailable": {
+                    "type": "boolean",
+                    "description": "Indicates if an exploit is available for the vulnerability."
+                  }
+                },
+                "required": ["title", "vulnerabilityID", "fixedVersion", "installedVersion", "referenceLink", "publishedDate", "score", "severity", "resource", "target", "packageType", "exploitAvailable"]
+              }
+            }
+          },
+          "required": ["namespace", "digest", "os", "summary", "vulnerabilities"]
+        }
+      }
+    }
+  },
+  "required": ["metadata", "containers"]
+}
+```
+
+__CVE Data Details__
+
+The CVE data is refreshed per container image every 24-hours based on Kubernetes resource instantiation or whenever there is a change to the Kubernetes resource referencing the image (whichever occurs first).
+
 ## Viewing the Output
 
 Note the provided link to the tar.gz zipped file from the command execution. The tar.gz file name identifies the file in the Storage Account of the Cluster Manager resource group. You can also use the link to directly access the output zip file. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+Note: Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access. 
+

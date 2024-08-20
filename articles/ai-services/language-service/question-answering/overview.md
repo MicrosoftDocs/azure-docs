@@ -13,6 +13,9 @@ ms.custom: language-service-question-answering
 
 # What is custom question answering?
 
+> [!NOTE]
+> [Azure OpenAI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to Custom Question Answering. If you wish to connect an existing Custom Question Answering project to Azure OpenAI On Your Data, please check out our [guide]( how-to/azure-openai-integration.md).
+
 Custom question answering provides cloud-based Natural Language Processing (NLP) that allows you to create a natural conversational layer over your data. It is used to find appropriate answers from customer input or from a project.
 
 Custom question answering is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications. This offering includes features like enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support.

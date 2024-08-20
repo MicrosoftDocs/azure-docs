@@ -4,9 +4,9 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports URL redirection for their routing rules.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 06/17/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -54,7 +54,7 @@ As part of configuring a redirect routing, you can also change the hostname or d
 For cases where you want to replace the path segment of a URL as part of redirection, you can set this field with the new path value. Otherwise, you can choose to preserve the path value as part of redirect. So, using this field, you can redirect all requests sent to `https://www.contoso.com/\*` to  `https://www.contoso.com/redirected-site`.
 
 ## Query string parameters
-You can also replace the query string parameters in the redirected URL. To replace any existing query string from the incoming request URL, set this field to 'Replace' and then set the appropriate value. Otherwise, you can keep the original set of query strings by setting the field to 'Preserve'. As an example, using this field, you can redirect all traffic sent to `https://www.contoso.com/foo/bar` to `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`. 
+The set of query strings to be used in the redirect URL. The value of this field will overwrite the incoming query strings, leaving this field empty will preserve the incoming query string. Query string must be in `<key>=<value>` format, separated by `&`.
 
 ## Destination fragment
 The destination fragment is the portion of URL after '#', which is used by the browser to land on a specific section of a web page. You can set this field to add a fragment to the redirect URL.

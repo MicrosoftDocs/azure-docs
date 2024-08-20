@@ -3,15 +3,15 @@ title: 'CLI (v2) Azure Data Lake Gen2 datastore YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Data Lake Gen2 datastore YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
 ms.custom: cliv2
 
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 12/15/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ---
 
 # CLI (v2) Azure Data Lake Gen2 YAML schema

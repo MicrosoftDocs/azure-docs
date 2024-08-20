@@ -6,11 +6,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/tutorial-feature-store-domain-specific-language.md",
-        "redirect_url": "/azure/machine-learning/",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false
@@ -177,8 +172,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-fpga-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-and-where.md",
@@ -2013,7 +2008,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-fpga-web-service.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-custom-docker-image.md",
@@ -2982,13 +2977,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-debug-pipelines-application-insights.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-log-pipelines-application-insights",
+        "redirect_url": "/azure/machine-learning/v1/how-to-debug-pipelines",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-log-pipelines-application-insights.md",
-        "redirect_url": "/azure/machine-learning/how-to-log-pipelines-application-insights",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-debug-batch-predictions.md",
@@ -4246,13 +4241,58 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/concept-runtime.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/concept-session",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-create-manage-runtime.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/migrate-managed-inference-runtime.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
+        "redirect_document_id": false
+    },    
+    {
         "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
         "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-customize-environment-runtime.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-customize-session-base-image",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
         "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/troubleshoot-guidance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/troubleshoot-guidance.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/troubleshoot-guidance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/vector-db-lookup-tool.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/vector-index-lookup-tool.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/faiss-index-lookup-tool.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
         "redirect_document_id": false
     }
 ]

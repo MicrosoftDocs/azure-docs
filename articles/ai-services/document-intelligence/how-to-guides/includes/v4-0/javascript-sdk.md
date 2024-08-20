@@ -5,11 +5,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+ms.custom: devx-track-csharp, ignite-2023, linux-related-content
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -25,7 +23,7 @@ ms.custom:
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, see [Node.js in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 - The latest `LTS` version of [Node.js](https://nodejs.org/).
 
-- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
   > [!TIP]
   > Create an Azure AI services resource if you plan to access multiple Azure AI services by using a single endpoint and key. For Document Intelligence access only, create a Document Intelligence resource. You need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../../active-directory/authentication/overview-authentication.md).
@@ -79,7 +77,7 @@ Create a Node.js Express application.
 1. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure/ai-document-intelligence@1.0.0-beta.2 @azure/identity
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/identity
     ```
 
   Your app's *package.json* file is updated with the dependencies.
@@ -106,7 +104,8 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 ## Use the Read model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -202,7 +201,8 @@ Visit the Azure samples repository on GitHub and view the [`read` model output](
 ## Use the Layout model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -272,7 +272,8 @@ Visit the Azure samples repository on GitHub and view the [layout model output](
 ## Use the General document model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -318,7 +319,8 @@ Visit the Azure samples repository on GitHub and view the [general document mode
 ## Use the W-2 tax model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -397,7 +399,8 @@ Visit the Azure samples repository on GitHub and view the [W-2 tax model output]
 ## Use the Invoice model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -459,7 +462,8 @@ Visit the Azure samples repository on GitHub and view the [invoice model output]
 ## Use the Receipt model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -518,7 +522,8 @@ Visit the Azure samples repository on GitHub and view the [receipt model output]
 ## Use the ID document model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];

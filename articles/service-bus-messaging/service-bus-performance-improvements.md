@@ -41,13 +41,13 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your Service Bus namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe is different, based on your scenarios.
 
 #### Compute considerations
 
-Using certain Service Bus features require compute utilization that can decrease the expected throughput. Some of these features are -
+Service Bus operates several background processes that can affect compute utilization. These include, but are not limited to, timers, schedules, and metrics emission. Additionally, using certain Service Bus features require compute utilization that can decrease the expected throughput. Some of these features are -
 
 1. Sessions.
 2. Fanning out to multiple subscriptions on a single topic.
@@ -58,9 +58,7 @@ Using certain Service Bus features require compute utilization that can decrease
 7. Deduplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
-
-You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md).
+If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It is recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
 
 ### Sharding across namespaces
 
@@ -86,10 +84,10 @@ AMQP is the most efficient, because it maintains the connection to Service Bus. 
 
 The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes until 30 September 2026, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for details on how to move from the older SDKs.
 
-| NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
+| NuGet Package | Primary Namespaces | Minimum Platforms | Protocols |
 |---------------|----------------------|---------------------|-------------|
-| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**latest**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**latest**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
 
@@ -236,11 +234,11 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 
 ## Prefetching
 
-[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `ServiceBusReceiver.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
+[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load extra messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `ServiceBusReceiver.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
 
 When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy receives an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
 
-When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
+When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no extra messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. The fetch of the first message, however, takes longer (because of the increased message size). Receiving prefetched messages from the cache is faster because these messages have already been downloaded by the client.
 
@@ -298,8 +296,6 @@ Goal: Maximize the throughput of a single queue. The number of senders and recei
 
 * To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from the queue, use multiple message factories to create receivers.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Multiple high-throughput queues
@@ -312,8 +308,6 @@ To obtain maximum throughput across multiple queues, use the settings outlined t
 
 Goal: Minimize latency of a queue or topic. The number of senders and receivers is small. The throughput of the queue is small or moderate.
 
-* Disable client-side batching. The client immediately sends a message.
-* Disable batched store access. The service immediately writes the message to the store.
 * If using a single client, set the prefetch count to 20 times the processing rate of the receiver. If multiple messages arrive at the queue at the same time, the Service Bus client protocol transmits them all at the same time. When the client receives the next message, that message is already in the local cache. The cache should be small.
 * If using multiple clients, set the prefetch count to 0. By setting the count, the second client can receive the second message while the first client is still processing the first message.
 
@@ -326,8 +320,6 @@ Service Bus enables up to 1,000 concurrent connections to a messaging entity. Th
 To maximize throughput, follow these steps:
 
 * If each sender is in a different process, use only a single factory per process.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Queue with a large number of receivers
@@ -339,8 +331,6 @@ Service Bus enables up to 1,000 concurrent connections to an entity. If a queue 
 To maximize throughput, follow these guidelines:
 
 * If each receiver is in a different process, use only a single factory per process.
-* Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request doesn't affect receiver throughput.
-* Leave batched store access enabled. This access reduces the overall load of the entity. It also increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions
@@ -351,18 +341,14 @@ To maximize throughput, follow these guidelines:
 
 * To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Topic with a large number of subscriptions
 
-Goal: Maximize the throughput of a topic with a large number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is much larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
+Goal: Maximize the throughput of a topic with a large number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
 Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. It's because each message is received many times, and all messages in a topic and all its subscriptions are stored in the same store. The assumption here's that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
 
 To maximize throughput, try the following steps:
 
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected rate at which messages are received. This count reduces the number of Service Bus client protocol transmissions.

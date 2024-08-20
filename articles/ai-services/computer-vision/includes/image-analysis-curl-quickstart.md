@@ -43,7 +43,7 @@ To analyze an image for various visual features, do the following steps:
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
-        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+        [!INCLUDE [Custom subdomains notice](../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the image URL in the request body (`https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.

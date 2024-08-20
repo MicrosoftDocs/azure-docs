@@ -2,13 +2,11 @@
 title: Transform data by using the Stored Procedure activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from an Azure Data Factory or Synapse Analytics pipeline.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics

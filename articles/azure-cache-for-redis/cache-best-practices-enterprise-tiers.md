@@ -1,12 +1,12 @@
 ---
 title: Best practices for the Enterprise tiers
 titleSuffix: Azure Cache for Redis
-description: Learn the best practices when using the high performance Azure Cache for Redis Enterprise and Enterprise Flash tiers
-author: flang-msft
-ms.service: cache
+description: Learn the best practices when using the high performance Azure Cache for Redis Enterprise and Enterprise Flash tiers.
+
+
 ms.topic: conceptual
-ms.date: 09/26/2023
-ms.author: franlanglois
+ms.date: 06/10/2024
+
 ---
 
 # What are the best practices for the Enterprise and Enterprise Flash tiers
@@ -29,7 +29,7 @@ Conversely, the opposite recommendation is true for the Basic, Standard, and Pre
 
 ## Sharding and CPU utilization
 
-In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of virtual CPUs (vCPUs) utilized is straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others.
+In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of virtual CPUs (vCPUs) utilized is straightforward. Each Redis node runs on a dedicated virtual machine (VM). The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others.
 
 When you use clustering, the effect is to spread data across more nodes with one shard per node. By increasing the number of shards, you linearly increase the number of vCPUs you use, based on the number of shards in the cluster.
 
@@ -37,7 +37,14 @@ Redis Enterprise, on the other hand, can use multiple vCPUs for the Redis instan
 
 The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The tables only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance in some usage scenarios.
 
+### E1 (preview)
+
+|Capacity|Effective vCPUs|
+|---:|---:|
+| 2 | 1 (burstable) |
+
 ### E5
+
 |Capacity|Effective vCPUs|
 |---:|---:|
 | 2 | 1 |
@@ -45,6 +52,7 @@ The tables show the number of vCPUs used for the primary shards, not the replica
 | 6 | 6 |
 
 ### E10
+
 |Capacity|Effective vCPUs|
 |---:|---:|
 | 2 | 2 |
@@ -84,6 +92,7 @@ The tables show the number of vCPUs used for the primary shards, not the replica
 |10|30|
 
 ### E200
+
 |Capacity|Effective vCPUs|
 |---:|---:|
 |2|30|
@@ -93,6 +102,7 @@ The tables show the number of vCPUs used for the primary shards, not the replica
 |10|120|
 
 ### E400
+
 |Capacity|Effective vCPUs|
 |---:|---:|
 |2|60|
@@ -139,6 +149,33 @@ You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only th
 
 In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) can only be run on keys that are in the same slot. However, the following multi-key commands are allowed across slots in Active-Active databases: `MGET`, `EXISTS`, and `TOUCH`. For more information, see [Database clustering](https://docs.redis.com/latest/rs/databases/durability-ha/clustering/#multikey-operations).
 
+## Enterprise Flash Best Practices
+
+The Enterprise Flash tier utilizes both NVMe Flash storage and RAM. Because Flash storage is lower cost, using the Enterprise Flash tier allows you to trade off some performance for price efficiency.
+
+On Enterprise Flash instances, 20% of the cache space is on RAM, while the other 80% uses Flash storage. All of the _keys_ are stored on RAM, while the _values_ can be stored either in Flash storage or RAM. The Redis software intelligently determines the location of the values. _Hot_ values that are accessed frequently are stored on RAM, while _Cold_ values that are less commonly used are kept on Flash. Before data is read or written, it must be moved to RAM, becoming _Hot_ data.
+
+Because Redis optimizes for the best performance, the instance first fills up the available RAM before adding items to Flash storage. Filling RAM first has a few implications for performance:
+
+- Better performance and lower latency can occur when testing with low memory usage. Testing with a full cache instance can yield lower performance because only RAM is being used in the low memory usage testing phase.
+- As you write more data to the cache, the proportion of data in RAM compared to Flash storage decreases, typically causing latency and throughput performance to decrease as well.
+
+### Workloads well-suited for the Enterprise Flash tier
+
+Workloads that are likely to run well on the Enterprise Flash tier often have the following characteristics:
+
+- Read heavy, with a high ratio of read commands to write commands.
+- Access is focused on a subset of keys that are used much more frequently than the rest of the dataset.
+- Relatively large values in comparison to key names. (Because key names are always stored in RAM, large values can become a bottleneck for memory growth.)
+
+### Workloads that aren't well-suited for the Enterprise Flash tier
+
+Some workloads have access characteristics that are less optimized for the design of the Flash tier:
+
+- Write heavy workloads.
+- Random or uniform data access patterns across most of the dataset.
+- Long key names with relatively small value sizes.
+
 ## Handling Region Down Scenarios with Active Geo-Replication
 
 Active geo-replication is a powerful feature to dramatically boost availability when using the Enterprise tiers of Azure Cache for Redis. You should take steps, however, to prepare your caches if there's a regional outage.
@@ -157,6 +194,10 @@ It's also possible to use a [circuit breaker pattern](/azure/architecture/patter
 The [data persistence](cache-how-to-premium-persistence.md) feature in the Enterprise and Enterprise Flash tiers is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users.
 
 Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](cache-how-to-import-export-data.md) feature. You can export copies of cache data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools.
+
+## E1 (preview) SKU Limitations
+
+The E1 (preview) SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
 
 ## Related content
 

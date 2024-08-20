@@ -3,9 +3,9 @@ title: What's new?
 description: Learn about the new features and documentation improvements for Azure Synapse Analytics
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: rymajidi, sngun
+ms.reviewer: rymajidi, whhender
 ms.date: 08/01/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---
@@ -249,13 +249,13 @@ Azure Data Explorer (ADX) is a fast and highly scalable data exploration service
 | July 2022 | **Ingest data from Azure Stream Analytics into Synapse Data Explorer (Preview)** | You can now use a Streaming Analytics job to collect data from an event hub and send it to your Azure Data Explorer cluster using the Azure portal or an ARM template. For more information, see [Ingest data from Azure Stream Analytics into Azure Data Explorer](/azure/data-explorer/stream-analytics-connector). |
 | July 2022 | **Render charts for each y column** | Synapse Web Data Explorer now supports rendering charts for each y column. For an example, see the [Azure Synapse Analytics July Update 2022](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-july-update-2022/ba-p/3535089#TOCREF_6).|
 | June 2022 | **Web Explorer new homepage** | The new Azure Synapse [Web Explorer homepage](https://dataexplorer.azure.com/home) makes it even easier to get started with Synapse Web Explorer. |
-| June 2022 | **Web Explorer sample gallery** | The [Web Explorer sample gallery]((https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-in-60-minutes-with-the-new-samples-gallery/ba-p/3447552) provides end-to-end samples of how customers leverage Synapse Data Explorer popular use cases such as Logs Data, Metrics Data, IoT data and Basic big data examples. |
+| June 2022 | **Web Explorer sample gallery** | The [Web Explorer sample gallery](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-in-60-minutes-with-the-new-samples-gallery/ba-p/3447552) provides end-to-end samples of how customers leverage Synapse Data Explorer popular use cases such as Logs Data, Metrics Data, IoT data and Basic big data examples. |
 | June 2022 | **Web Explorer dashboards drill through capabilities** | You can now [use drillthroughs as parameters in your Synapse Web Explorer dashboards](/azure/data-explorer/dashboard-parameters#use-drillthroughs-as-dashboard-parameters). |
 | June 2022 | **Time Zone settings for Web Explorer** | The [Time Zone settings of the Web Explorer](/azure/data-explorer/web-query-data#change-datetime-to-specific-time-zone) now apply to both the Query results and to the Dashboard. By changing the time zone, the dashboards are automatically refreshed to present the data with the selected time zone. |
 
 ## Azure Synapse Link
 
-Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](../cosmos-db/synapse-link.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section summarizes recent news about the Azure Synapse Link feature.
+Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](/azure/cosmos-db/synapse-link?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section summarizes recent news about the Azure Synapse Link feature.
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |

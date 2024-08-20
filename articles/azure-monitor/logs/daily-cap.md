@@ -27,11 +27,12 @@ A daily cap on a Log Analytics workspace allows you to avoid unexpected increase
 ## How the daily cap works
 Each workspace has a daily cap that defines its own data volume limit.  When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace in the Azure portal, and an operation event is sent to the *Operation* table under the **LogManagement** category. You can optionally create an alert rule to send an alert when this event is created.
 
+The data size used for the daily cap is the size after customer-defined data transformations. (Learn more about data [transformations in Data Collection Rules](../essentials/data-collection-transformations.md).)  
+
 Data collection resumes at the reset time which is a different hour of the day for each workspace.  This reset hour can't be configured. You can optionally create an alert rule to send an alert when this event is created.
 
 > [!NOTE]
-> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
-
+> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected. The data collection beyond the daily cap can be particularly large if the workspace is receiving high rates of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 ## When to use a daily cap
 Daily caps are typically used by organizations that are particularly cost conscious. They shouldn't be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. 
 
@@ -59,13 +60,13 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 
 > [!IMPORTANT]
 > Starting September 18, 2023, Azure Monitor caps all billable data types  
-> when the daily cap is met. There is no special behavior for any data types when [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) is enabled on your workspace. 
+> when the daily cap is met. There is no special behavior for any data types when [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) is enabled on your workspace. 
 > This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
 > If you have a daily cap set on a workspace that has Microsoft Defender for Servers enabled, 
 > be sure that the cap is high enough to accommodate this change. 
 > Also, be sure to set an alert (see below) so that you are notified as soon as your daily cap is met. 
 
-Until September 18, 2023, if a workspace enabled the [Microsoft Defenders for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution after June 19, 2017, some security related data types are collected for Microsoft Defender for Cloud or Microsoft Sentinel despite any daily cap configured. The following data types will be subject to this special exception from the daily cap WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection,  SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update, UpdateSummary, CommonSecurityLog and Syslog 
+Until September 18, 2023, if a workspace enabled the [Microsoft Defenders for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) solution after June 19, 2017, some security related data types are collected for Microsoft Defender for Cloud or Microsoft Sentinel despite any daily cap configured. The following data types will be subject to this special exception from the daily cap WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection,  SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update, UpdateSummary, CommonSecurityLog and Syslog 
 
 ## Set the daily cap
 ### Log Analytics workspace

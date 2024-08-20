@@ -3,13 +3,12 @@ title: What are online endpoints?
 titleSuffix: Azure Machine Learning
 description: Learn about online endpoints for real-time inference in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2
 ms.date: 10/24/2023
 
@@ -35,10 +34,10 @@ Azure Machine Learning allows you to perform real-time inferencing on data by us
 To define an endpoint, you need to specify:
 
 - **Endpoint name**: This name must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
-- **Authentication mode**: You can choose between key-based authentication mode and Azure Machine Learning token-based authentication mode for the endpoint. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+- **Authentication mode**: You can choose from key-based authentication mode, Azure Machine Learning token-based authentication mode, or Microsoft Entra token-based authentication (preview) for the endpoint. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
-Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
-To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
+Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your machine learning models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
+To learn how to define a managed online endpoint, see [Define the endpoint](how-to-deploy-online-endpoints.md#define-the-endpoint).
 
 ### Why choose managed online endpoints over ACI or AKS(v1)?
 
@@ -66,7 +65,7 @@ Managed online endpoints can help streamline your deployment process and provide
 
 - Monitoring and logs
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
-    - Debug deployments using the logs and native integration with [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
+    - Debug deployments using the logs and native integration with [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md).
 
     :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency." lightbox="media/concept-endpoints/log-analytics-and-azure-monitor.png":::
 
@@ -107,55 +106,95 @@ The following diagram shows an online endpoint that has two deployments, _blue_ 
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments." lightbox="media/concept-endpoints/endpoint-concept.png":::
 
+To deploy a model, you must have:
+
+- __Model files__ (or the name and version of a model that's already registered in your workspace).
+- A __scoring script__, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output.
+- An __environment__ in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
+- Settings to specify the __instance type__ and __scaling capacity__.
+
+### Key attributes of a deployment
+
 The following table describes the key attributes of a deployment:
 
 | Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name           | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                    |
 | Endpoint name  | The name of the endpoint to create the deployment under.                                                                                                                                                                                                                                                                                                                                       |
-| Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.                                                                                                                                                                                                                                    |
+| Model<sup>1</sup>   | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. For more information on how to track and specify the path to your model, see [Specify model to deploy for use in online endpoint](concept-online-deployment-model-specification.md).                                                                                                                                                                                                                                    |
 | Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. Note: Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
+| Environment<sup>1</sup>    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. __Note:__ Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).                                |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](#virtual-machine-quota-allocation-for-deployment).                                |
+
+<sup>1</sup> Some things to note about the model and environment:
+
+> - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you use a registered model or container image in Azure Container Registry for deployment and remove the model or the container image, the deployments relying on these assets can fail when re-imaging happens. If you remove the model or the container image, ensure that the dependent deployments are re-created or updated with an alternative model or container image.
+> - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
+
+### Virtual machine quota allocation for deployment
+
+[!INCLUDE [quota-allocation-online-deployment](includes/quota-allocation-online-deployment.md)]
+
+#### Shared quota pool
+
+Also, [!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
+
+To deploy Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the model catalog via the shared quota, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md). For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#shared-quota).
+
+For more information on quotas and limits for resources in Azure Machine Learning, see [Manage and increase quotas and limits for resources with Azure Machine Learning](how-to-manage-quotas.md).
 
 ## Deployment for coders and non-coders
 
 Azure Machine Learning supports model deployment to online endpoints for coders and non-coders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
 
 - **No-code deployment** provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton.
-- **Low-code deployment** allows you to provide minimal code along with your ML model for deployment.
+- **Low-code deployment** allows you to provide minimal code along with your machine learning model for deployment.
 - **BYOC deployment** lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​.
 
 The following table highlights key aspects about the online deployment options:
 
 |  | No-code | Low-code | BYOC |
 |--|--|--|--|
-| **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX, via MLflow and Triton. For more information, see [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md). | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks, with updates every two weeks to address vulnerabilities. You provide scoring script and/or Python dependencies. For more information, see [Azure Machine Learning Curated Environments](resource-curated-environments.md). | You provide your complete stack via Azure Machine Learning's support for custom images. For more information, see [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md). |
+| **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX, via MLflow and Triton. For more information, see [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md). | Uses secure, publicly published [curated images](resource-curated-environments.md) for popular frameworks, with updates every two weeks to address vulnerabilities. You provide scoring script and/or Python dependencies. For more information, see [Azure Machine Learning Curated Environments](resource-curated-environments.md). | You provide your complete stack via Azure Machine Learning's support for custom images. For more information, see [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md). |
 | **Custom base image** | No, curated environment will provide this for easy deployment. | Yes and No, you can either use curated image or your customized image. | Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container. |
 | **Custom dependencies** | No, curated environment will provide this for easy deployment. | Yes, bring the Azure Machine Learning environment in which the model runs; either a Docker image with Conda dependencies, or a dockerfile​. | Yes, this will be included in the container image. |
 | **Custom code** | No, scoring script will be autogenerated for easy deployment. | Yes, bring your scoring script. | Yes, this will be included in the container image. |
 
 > [!NOTE]
-> AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
+> AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](how-to-deploy-automl-endpoint.md).
 
 ## Online endpoint debugging
 
+We *highly recommend* that you test-run your endpoint locally to validate and debug your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while Azure Machine Learning studio and ARM template don't.
+
 Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
-#### Local debugging with the Azure Machine Learning inference HTTP server
+- [Local debugging with Azure Machine Learning inference HTTP server](#local-debugging-with-azure-machine-learning-inference-http-server)
+- [Local debugging with local endpoint](#local-debugging-with-local-endpoint)
+- [Local debugging with local endpoint and Visual Studio Code](#local-debugging-with-local-endpoint-and-visual-studio-code-preview)
+- [Debugging with container logs](#debugging-with-container-logs)
+
+#### Local debugging with Azure Machine Learning inference HTTP server
 
 You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
 You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
 
+> [!TIP]
+> You can use the Azure Machine Learning inference HTTP server Python package to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
+
 To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server](how-to-inference-server-http.md).
 
-#### Local debugging
+#### Local debugging with local endpoint
 
 For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
+
+> [!TIP]
+> Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
+> You can use client-side tools such as [Docker Desktop](https://www.docker.com/blog/getting-started-with-docker-desktop/) to debug what happens in the container.
 
 The steps for local debugging typically include:
 
@@ -163,15 +202,21 @@ The steps for local debugging typically include:
 - Invoking the local endpoint for inferencing
 - Reviewing the logs for output of the invoke operation
 
-To learn more about local debugging, see [Deploy and debug locally by using local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+> [!NOTE]
+> Local endpoints have the following limitations:
+> - They do *not* support traffic rules, authentication, or probe settings.
+> - They support only one deployment per endpoint.
+> - They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare a local conda file to use. 
 
-#### Local debugging with Visual Studio Code (preview)
+To learn more about local debugging, see [Deploy and debug locally by using a local endpoint](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint).
+
+#### Local debugging with local endpoint and Visual Studio Code (preview)
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 As with local debugging, you first need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running and then deploy a model to the local Docker environment. Once you have a local deployment, Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features, such as interactive debugging, from inside a Docker container.
 
-To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
+To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 #### Debugging with container logs
 
@@ -227,7 +272,7 @@ To learn how to configure autoscaling, see [How to autoscale online endpoints](h
 
 ### Managed network isolation
 
-When deploying an ML model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
+When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
 You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created for the workspace's managed virtual network.
 
@@ -236,12 +281,6 @@ For more information, see [Network isolation with managed online endpoints](conc
 ### Monitoring online endpoints and deployments
 
 Monitoring for Azure Machine Learning endpoints is possible via integration with [Azure Monitor](monitor-azure-machine-learning.md#what-is-azure-monitor). This integration allows you to view metrics in charts, configure alerts, query from log tables, use Application Insights to analyze events from user containers, and so on.
-
-* **Metrics**: Use Azure Monitor to track various endpoint metrics, such as request latency, and drill down to deployment or status level. You can also track deployment-level metrics, such as CPU/GPU utilization and drill down to instance level. Azure Monitor allows you to track these metrics in charts and set up dashboards and alerts for further analysis.
-
-* **Logs**: Send metrics to the Log Analytics Workspace where you can query logs using the Kusto query syntax. You can also send metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and container logs. Kusto query allows complex analysis joining multiple tables.
-
-* **Application insights**: Curated environments include the integration with Application Insights, and you can enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures, and Performance for further analysis.
 
 For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 

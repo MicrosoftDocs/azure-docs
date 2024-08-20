@@ -3,12 +3,12 @@ title: Manage roles in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to access an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: meyetman
-author: meyetman
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/11/2024
 ms.custom: how-to, devx-track-azurecli, devx-track-arm-template
 monikerRange: 'azureml-api-1 || azureml-api-2'
@@ -223,6 +223,13 @@ You can make custom roles compatible with both V1 and V2 APIs by including both 
 ### Create a workspace using a customer-managed key
 
 When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+
+If your workspace is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
+
+- `Microsoft.Storage/storageAccounts/write`
+- `Microsoft.Search/searchServices/write`
+- `Microsoft.DocumentDB/databaseAccounts/write`
+
 
 Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 

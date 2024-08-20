@@ -1,13 +1,14 @@
 ---
 title: Serp API tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: This article introduces the Serp API tool for flows in Azure AI Studio.
+description: This article introduces you to the Serp API tool for flows in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/6/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -15,30 +16,32 @@ author: lgayhardt
 
 # Serp API tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-The prompt flow *Serp API* tool provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api). 
+The prompt flow Serp API tool provides a wrapper to the [Serp API Google Search Engine Results API](https://serpapi.com/search-api) and [Serp API Bing Search Engine Results API](https://serpapi.com/bing-search-api).
 
-You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can specify a range of search parameters, such as the search query, location, device type, and more.
+You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can specify a range of search parameters, such as the search query, location, and device type.
 
 ## Prerequisites
 
-Sign up at [SERP API homepage](https://serpapi.com/)
+Sign up on the [Serp API home page](https://serpapi.com/).
 
-Create a Serp connection:
+To create a Serp connection:
+
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **AI project settings** > **Connections**.
+1. Go to **Project settings** > **Connections**.
 1. Select **+ New connection**.
 1. Add the following custom keys to the connection:
+
     - `azureml.flow.connection_type`: `Custom`
     - `azureml.flow.module`: `promptflow.connections`
-    - `api_key`: Your_Serp_API_key. You must check the **is secret** checkbox to keep the API key secure.
+    - `api_key`: Your Serp API key. You must select the **is secret** checkbox to keep the API key secure.
     
-    :::image type="content" source="../../media/prompt-flow/serp-custom-connection-keys.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "../../media/prompt-flow/serp-custom-connection-keys.png"::: 
+    :::image type="content" source="../../media/prompt-flow/serp-custom-connection-keys.png" alt-text="Screenshot that shows adding extra information to a custom connection in AI Studio." lightbox = "../../media/prompt-flow/serp-custom-connection-keys.png":::
 
-The connection is the model used to establish connections with Serp API. Get your API key from the SerpAPI account dashboard. 
+The connection is the model used to establish connections with the Serp API. Get your API key from the Serp API account dashboard.
 
-| Type        | Name     | API KEY  |
+| Type        | Name     | API key  |
 |-------------|----------|----------|
 | Serp        | Required | Required |
 
@@ -47,39 +50,34 @@ The connection is the model used to establish connections with Serp API. Get you
 1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Serp API** to add the Serp API tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/serp-api-tool.png" alt-text="Screenshot of the Serp API tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/serp-api-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/serp-api-tool.png" alt-text="Screenshot that shows the Serp API tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/serp-api-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **SerpConnection** if you created a connection with that name. For more information, see [Prerequisites](#prerequisites).
-1. Enter values for the Serp API tool input parameters described [here](#inputs).
-1. Add more tools to your flow as needed, or select **Run** to run the flow.
-1. The outputs are described [here](#outputs).
-
+1. Enter values for the Serp API tool input parameters described in the [Inputs table](#inputs).
+1. Add more tools to your flow, as needed. Or select **Run** to run the flow.
+1. The outputs are described in the [Outputs table](#outputs).
 
 ## Inputs
 
-The following are available input parameters:
-
+The following input parameters are available.
 
 | Name     | Type    | Description                                                   | Required |
 |----------|---------|---------------------------------------------------------------|----------|
 | query    | string  | The search query to be executed.                              | Yes      |
 | engine   | string  | The search engine to use for the search. Default is `google`. | Yes      |
 | num      | integer | The number of search results to return. Default is 10.         | No      |
-| location | string  | The geographic location to execute the search from.           | No       |
+| location | string  | The geographic location from which to execute the search.           | No       |
 | safe     | string  | The safe search mode to use for the search. Default is off. | No       |
-
 
 ## Outputs
 
-The json representation from serpapi query.
+The JSON representation from a `serpapi` query:
 
-| Engine   | Return Type | Output                                                |
+| Engine   | Return type | Output                                                |
 |----------|-------------|-------------------------------------------------------|
 | Google   | json        | [Sample](https://serpapi.com/search-api#api-examples) |
 | Bing     | json        | [Sample](https://serpapi.com/bing-search-api)         |
 
-
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

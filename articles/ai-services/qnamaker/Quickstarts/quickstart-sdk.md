@@ -15,6 +15,9 @@ zone_pivot_groups: qnamaker-quickstart
 
 # Quickstart: QnA Maker client library
 
+> [!NOTE]
+> [Azure OpenAI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure OpenAI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
+
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
@@ -43,7 +46,7 @@ Get started with the QnA Maker client library. Follow these steps to install the
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

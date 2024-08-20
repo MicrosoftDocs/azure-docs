@@ -1,56 +1,64 @@
 ---
-title: Load a search index
+title: Load an index
 titleSuffix: Azure AI Search
 description: Import and refresh data in a search index using the portal, REST APIs, or an Azure SDK.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
+
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 07/01/2024
 ---
 
 # Load data into a search index in Azure AI Search
 
-This article explains how to import, refresh, and manage content in a predefined search index. In Azure AI Search, a [search index is created first](search-how-to-create-search-index.md), with [data import](search-what-is-data-import.md) following as a second step. The exception is Import Data wizard and indexer pipelines, which create and load an index in one workflow.
+This article explains how to import documents into a predefined search index. In Azure AI Search, a [search index is created first](search-how-to-create-search-index.md) with [data import](search-what-is-data-import.md) following as a second step. The exception is [Import wizards](search-import-data-portal.md) in the portal and indexer pipelines, which create and load an index in one workflow.
 
-A search service imports and indexes text and vectors in JSON, used in full text search, vector search, hybrid search, and knowledge mining scenarios. Text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content). Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization (preview)](vector-search-integrated-vectorization.md).
+## How data import works
 
-Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and can't be changed, see [Drop and rebuild an index](search-howto-reindex.md).
+A search service accepts JSON documents that conform to the index schema. A search service imports and indexes plain text and vectors in JSON, used in full text search, vector search, hybrid search, and knowledge mining scenarios. 
 
-Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
++ Plain text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content). 
 
-## Load documents
++ Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization](vector-search-integrated-vectorization.md) using Azure AI Search features that integrate with applied AI.
 
-A search service accepts JSON documents that conform to the index schema.
+You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), running an [indexer](search-indexer-overview.md) or using an Import wizard can automate document retrieval, JSON serialization, and indexing.
 
-You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), running an [indexer](search-indexer-overview.md) or the Import data wizard can automate document retrieval, JSON serialization, and indexing.
+Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and can't be changed, see [Update and rebuild an index](search-howto-reindex.md).
 
-### [**Azure portal**](#tab/portal)
+Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#adjust-capacity) or identify periods of low query activity for loading an index.
 
-In the Azure portal, use the Import Data wizards to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
+For more information, see [Data import strategies](search-what-is-data-import.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+## Use the Azure portal
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** or **Import and vectorize data** on the command bar to create and populate a search index. You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization (preview)](search-get-started-portal-import-vectors.md).
+In the Azure portal, use the [import wizards](search-import-data-portal.md) to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+
+1. On the Overview page, select **Import data** or **Import and vectorize data** on the command bar to create and populate a search index. 
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
+    You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization](search-get-started-portal-import-vectors.md).
 
-### [**REST**](#tab/import-rest)
+1. After the wizard is finished, use [Search Explorer](search-explorer.md) to check for results.
 
-[Documents - Index (REST)](/rest/api/searchservice/documents) is the means by which you can import data into a search index. The @search.action parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
+> [!TIP]
+> The import wizards create and run indexers. If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
+
+## Use the REST APIs
+
+[Documents - Index](/rest/api/searchservice/documents) is the REST API for importing data into a search index. REST APIs are useful for initial proof-of-concept testing, where you can test indexing workflows without having to write much code. The `@search.action` parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
 
 [**Quickstart: Text search using REST**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
 
-1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the @search.action parameter.
+1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the `@search.action` parameter.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2024-07-01
     Content-Type: application/json   
     api-key: [admin key] 
     {
@@ -75,19 +83,33 @@ If indexers are already defined, you can [reset and run an indexer](search-howto
     }
     ```
 
-1. [Look up the documents](/rest/api/searchservice/lookup-document) you just added as a validation step:
+1. Set the `@search.action` parameter to `upload` to create or overwrite a document. Set it to `merge` or `uploadOrMerge` if you're targeting updates to specific fields within the document. The previous example shows both actions.
+
+   | Action | Effect |
+   |--------|--------|
+   | merge | Updates a document that already exists, and fails a document that can't be found. Merge replaces existing values. For this reason, be sure to check for collection fields that contain multiple values, such as fields of type `Collection(Edm.String)`. For example, if a `tags` field starts with a value of `["budget"]` and you execute a merge with `["economy", "pool"]`, the final value of the `tags` field is `["economy", "pool"]`. It won't be `["budget", "economy", "pool"]`. |
+   | mergeOrUpload | Behaves like merge if the document exists, and upload if the document is new. This is the most common action for incremental updates. |
+   | upload | Similar to an "upsert" where the document is inserted if it's new, and updated or replaced if it exists. If the document is missing values that the index requires, the document field's value is set to null. |
+
+1. Send the request.
+
+1. [Look up the documents](/rest/api/searchservice/documents/get) you just added as a validation step:
 
     ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2023-11-01
+    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2024-07-01
     ```
 
 When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that weren't specified in a "merge" or "mergeUpload" are left intact in the search index.
 
-### [**.NET SDK (C#)**](#tab/importcsharp)
+## Use the Azure SDKs
 
-Azure AI Search supports the following APIs for simple and bulk document uploads into an index:
+Programmability is provided in the following Azure SDKs.
 
-+ [IndexDocumentsAsync (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocumentsasync)
+### [**.NET**](#tab/sdk-dotnet)
+
+The Azure SDK for .NET provides the following APIs for simple and bulk document uploads into an index:
+
++ [IndexDocumentsAsync](/dotnet/api/azure.search.documents.searchclient.indexdocumentsasync)
 + [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1)
 
 There are several samples that illustrate indexing in context of simple and large-scale indexing:
@@ -98,41 +120,48 @@ There are several samples that illustrate indexing in context of simple and larg
 
 + [**Tutorial: Index any data**](tutorial-optimize-indexing-push-api.md) couples batch indexing with testing strategies for determining an optimum size.
 
++ Be sure to check the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repo for code examples showing how to index vector fields.
+
+### [**Python**](#tab/sdk-python)
+
+The Azure SDK for Python provides the following APIs for simple and bulk document uploads into an index:
+
++ [IndexDocumentsBatch](/python/api/azure-search-documents/azure.search.documents.indexdocumentsbatch)
++ [SearchIndexingBufferedSender](/python/api/azure-search-documents/azure.search.documents.searchindexingbufferedsender)
+
+Code samples include:
+
++ [sample_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_crud_operations.py)
+
++ Be sure to check the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repo for code examples showing how to index vector fields.
+
+### [**JavaScript**](#tab/sdk-javascript)
+
+The Azure SDK for JavaScript/TypeScript provides the following APIs for simple and bulk document uploads into an index:
+
++ [IndexDocumentsBath](/javascript/api/%40azure/search-documents/indexdocumentsbatch)
++ [SearchIndexingBufferedSender](/javascript/api/%40azure/search-documents/searchindexingbufferedsender)
+
+Code samples include:
+
++ See this quickstart for basic steps: [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md?tabs=javascript)
+
++ Be sure to check the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repo for code examples showing how to index vector fields.
+
+### [**Java**](#tab/sdk-java)
+
+The Azure SDK for Java provides the following APIs for simple and bulk document uploads into an index:
+
++ [indexactiontype enumerator](/java/api/com.azure.search.documents.models.indexactiontype)
++ [SearchIndexingBufferedSender](/java/api/com.azure.search.documents.searchclientbuilder.searchindexingbufferedsenderbuilder)
+
+Code samples include:
+
++ [IndexContentManagementExample.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/IndexContentManagementExample.java)
+
++ Be sure to check the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repo for code examples showing how to index vector fields.
+
 ---
-
-## Delete orphan documents
-
-Azure AI Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. In a search service, documents are unrelated so deleting one will have no impact on the rest of the index.
-
-1. Identify which field is the document key. In the portal, you can view the fields of each index. Document keys are string fields and are denoted with a key icon to make them easier to spot.
-
-1. Check the values of the document key field: `search=*&$select=HotelId`. A simple string is straightforward, but if the index uses a base-64 encoded field, or if search documents were generated from a `parsingMode` setting, you might be working with values that you aren't familiar with.
-
-1. [Look up the document](/rest/api/searchservice/lookup-document) to verify the value of the document ID and to review its content before deleting it. Specify the key or document ID in the request. The following examples illustrate a simple string for the [Hotels sample index](search-get-started-portal.md) and a base-64 encoded string for the metadata_storage_path key of the [cog-search-demo index](cognitive-search-tutorial-blob.md).
-
-    ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2023-11-01
-    ```
-
-    ```http
-    GET https://[service name].search.windows.net/indexes/cog-search-demo/docs/aHR0cHM6Ly9oZWlkaWJsb2JzdG9yYWdlMi5ibG9iLmNvcmUud2luZG93cy5uZXQvY29nLXNlYXJjaC1kZW1vL2d1dGhyaWUuanBn0?api-version=2023-11-01
-    ```
-
-1. [Delete the document](/rest/api/searchservice/addupdate-or-delete-documents) to remove it from the search index.
-
-    ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2023-11-01
-    Content-Type: application/json   
-    api-key: [admin key] 
-    {  
-      "value": [  
-        {  
-          "@search.action": "delete",  
-          "id": "1111"  
-        }  
-      ]  
-    }
-    ```
 
 ## See also
 

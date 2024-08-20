@@ -1,9 +1,9 @@
 ---
-author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 08/16/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -11,7 +11,7 @@ ms.custom: generated
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
+[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.1.0](/azure/governance/policy/samples/cis-azure-1-1-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -23,7 +23,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md).
+[Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0](/azure/governance/policy/samples/cis-azure-1-3-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -35,7 +35,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for CIS v2.0.0](../../../../articles/governance/policy/samples/cis-azure-2-0-0.md).
+[Azure Policy Regulatory Compliance details for CIS v2.0.0](/azure/governance/policy/samples/cis-azure-2-0-0).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
@@ -47,9 +47,9 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CMMC Level 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+[Azure Policy Regulatory Compliance - CMMC Level 3](/azure/governance/policy/samples/cmmc-l3).
 For more information about this compliance standard, see
-[Cybersecurity Maturity Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/documentation.html).
+[Cybersecurity Maturity Model Certification (CMMC)](https://dodcio.defense.gov/CMMC/).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -77,7 +77,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+[Azure Policy Regulatory Compliance - FedRAMP High](/azure/governance/policy/samples/fedramp-high).
 For more information about this compliance standard, see
 [FedRAMP High](https://www.fedramp.gov/).
 
@@ -104,7 +104,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+[Azure Policy Regulatory Compliance - FedRAMP Moderate](/azure/governance/policy/samples/fedramp-moderate).
 For more information about this compliance standard, see
 [FedRAMP Moderate](https://www.fedramp.gov/).
 
@@ -131,7 +131,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
 For more information about this compliance standard, see
 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
@@ -151,7 +151,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for MCfS Sovereignty Baseline Confidential Policies](../../../../articles/governance/policy/samples/mcfs-baseline-confidential.md).
+[Azure Policy Regulatory Compliance details for MCfS Sovereignty Baseline Confidential Policies](/azure/governance/policy/samples/mcfs-baseline-confidential).
 For more information about this compliance standard, see
 [Microsoft Cloud for Sovereignty Policy portfolio](/industry/sovereignty/policy-portfolio-baseline).
 
@@ -168,7 +168,7 @@ Microsoft cloud security benchmark, see the
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](/azure/governance/policy/samples/azure-security-benchmark).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -178,14 +178,18 @@ standard, see
 |Data Protection |DP-4 |Enable data at rest encryption by default |[A Microsoft Entra administrator should be provisioned for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F146412e9-005c-472b-9e48-c87b72ac229e) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_AuditServerADAdmins_Audit.json) |
 |Data Protection |DP-4 |Enable data at rest encryption by default |[Azure MySQL flexible server should have Microsoft Entra Only Authentication enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40e85574-ef33-47e8-a854-7a65c7500560) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_FlexibleServers_ADOnlyEnabled_Audit.json) |
 |Data Protection |DP-5 |Use customer-managed key option in data at rest encryption when required |[MySQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83cef61d-dbd1-4b20-a4fc-5fbc7da10833) |[1.0.4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableByok_Audit.json) |
+|Logging and Threat Detection |LT-1 |Enable threat detection capabilities |[Azure Defender for SQL should be enabled for unprotected MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3bc8a0d5-38e0-4a3d-a657-2cb64468fc34) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MySQL_FlexibleServers_DefenderForSQL_Audit.json) |
+|Logging and Threat Detection |LT-2 |Enable threat detection for identity and access management |[Azure Defender for SQL should be enabled for unprotected MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3bc8a0d5-38e0-4a3d-a657-2cb64468fc34) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MySQL_FlexibleServers_DefenderForSQL_Audit.json) |
+|Incident Response |IR-3 |Detection and analysis - create incidents based on high-quality alerts |[Azure Defender for SQL should be enabled for unprotected MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3bc8a0d5-38e0-4a3d-a657-2cb64468fc34) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MySQL_FlexibleServers_DefenderForSQL_Audit.json) |
 |Backup and Recovery |BR-1 |Ensure regular automated backups |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 |Backup and Recovery |BR-2 |Protect backup and recovery data |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Incident Response |AIR-5 |Detection and analysis - prioritize incidents |[Azure Defender for SQL should be enabled for unprotected MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3bc8a0d5-38e0-4a3d-a657-2cb64468fc34) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MySQL_FlexibleServers_DefenderForSQL_Audit.json) |
 
 ## NIST SP 800-171 R2
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](../../../../articles/governance/policy/samples/nist-sp-800-171-r2.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](/azure/governance/policy/samples/nist-sp-800-171-r2).
 For more information about this compliance standard, see
 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
@@ -213,7 +217,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](/azure/governance/policy/samples/nist-sp-800-53-r4).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
@@ -240,7 +244,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](/azure/governance/policy/samples/nist-sp-800-53-r5).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
@@ -267,7 +271,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](../../../../articles/governance/policy/samples/nl-bio-cloud-theme.md).
+[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](/azure/governance/policy/samples/nl-bio-cloud-theme).
 For more information about this compliance standard, see
 [Baseline Information Security Government Cybersecurity - Digital Government (digitaleoverheid.nl)](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/).
 
@@ -287,7 +291,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Reserve Bank of India - IT Framework for NBFC](../../../../articles/governance/policy/samples/rbi-itf-nbfc-2017.md).
+[Azure Policy Regulatory Compliance - Reserve Bank of India - IT Framework for NBFC](/azure/governance/policy/samples/rbi-itf-nbfc-2017).
 For more information about this compliance standard, see
 [Reserve Bank of India - IT Framework for NBFC](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10999&Mode=0#C1).
 
@@ -305,7 +309,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](../../../../articles/governance/policy/samples/rbi-itf-banks-2016.md).
+[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](/azure/governance/policy/samples/rbi-itf-banks-2016).
 For more information about this compliance standard, see
 [RBI ITF Banks v2016 (PDF)](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/NT41893F697BC1D57443BB76AFC7AB56272EB.PDF).
 
@@ -322,7 +326,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RMIT Malaysia](../../../../articles/governance/policy/samples/rmit-malaysia.md).
+[Azure Policy Regulatory Compliance - RMIT Malaysia](/azure/governance/policy/samples/rmit-malaysia).
 For more information about this compliance standard, see
 [RMIT Malaysia](https://www.bnm.gov.my/documents/20124/963937/Risk+Management+in+Technology+(RMiT).pdf/810b088e-6f4f-aa35-b603-1208ace33619?t=1592866162078).
 
@@ -338,11 +342,28 @@ For more information about this compliance standard, see
 |Control Measures on Cybersecurity | Appendix 5.6 |Control Measures on Cybersecurity - Appendix 5.6 |[Public network access should be disabled for MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9299215-ae47-4f50-9c54-8a392f68a052) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_FlexibleServers_DisablePublicNetworkAccess_Audit.json) |
 |Control Measures on Cybersecurity | Appendix 5.6 |Control Measures on Cybersecurity - Appendix 5.6 |[Public network access should be disabled for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9844e8a-1437-4aeb-a32c-0c992f056095) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_DisablePublicNetworkAccess_Audit.json) |
 
+## Spain ENS
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for Spain ENS](/azure/governance/policy/samples/spain-ens).
+For more information about this compliance standard, see
+[CCN-STIC 884](https://www.ccn-cert.cni.es/es/comunicacion-eventos/comunicados-ccn-cert/9519-disponible-la-guia-ccn-stic-884-perfil-de-cumplimiento-especifico-para-azure-servicio-de-cloud-corporativo).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protective Measures | mp.com.1 |Protection of communications |[MySQL server should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3375856c-3824-4e0e-ae6a-79e011dd4c47) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_VirtualNetworkServiceEndpoint_Audit.json) |
+|Protective Measures | mp.com.1 |Protection of communications |[Public network access should be disabled for MySQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9299215-ae47-4f50-9c54-8a392f68a052) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_FlexibleServers_DisablePublicNetworkAccess_Audit.json) |
+|Protective Measures | mp.com.1 |Protection of communications |[Public network access should be disabled for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9844e8a-1437-4aeb-a32c-0c992f056095) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_DisablePublicNetworkAccess_Audit.json) |
+|Operational framework | op.cont.3 |Continuity of service |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Operational framework | op.cont.4 |Continuity of service |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Operational framework | op.exp.3 |Operation |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+
 ## SWIFT CSP-CSCF v2021
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](../../../../articles/governance/policy/samples/swift-csp-cscf-2021.md).
+[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](/azure/governance/policy/samples/swift-csp-cscf-2021).
 For more information about this compliance standard, see
 [SWIFT CSP CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
 
@@ -352,4 +373,21 @@ For more information about this compliance standard, see
 |Reduce Attack Surface and Vulnerabilities | 2.6 |Operator Session Confidentiality and Integrity |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 |Detect Anomalous Activity to Systems or Transaction Records | 6.3 |Database Integrity |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 |Detect Anomalous Activity to Systems or Transaction Records | 6.3 |Database Integrity |[Public network access should be disabled for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9844e8a-1437-4aeb-a32c-0c992f056095) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_DisablePublicNetworkAccess_Audit.json) |
+
+## System and Organization Controls (SOC) 2
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](/azure/governance/policy/samples/soc-2).
+For more information about this compliance standard, see
+[System and Organization Controls (SOC) 2](/azure/compliance/offerings/offering-soc-2).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Additional Criteria For Availability | A1.2 |Environmental protections, software, data back-up processes, and recovery infrastructure |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[MySQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83cef61d-dbd1-4b20-a4fc-5fbc7da10833) |[1.0.4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableByok_Audit.json) |
+|Logical and Physical Access Controls | CC6.6 |Security measures against threats outside system boundaries |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Logical and Physical Access Controls | CC6.7 |Restrict the movement of information to authorized users |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Additional Criteria For Processing Integrity | PI1.5 |Store inputs and outputs completely, accurately, and timely |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 

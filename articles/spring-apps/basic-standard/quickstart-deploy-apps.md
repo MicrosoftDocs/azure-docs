@@ -3,9 +3,9 @@ title: "Quickstart - Build and deploy apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -273,7 +273,7 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
 
 Access `api-gateway` and `customers-service` from a browser with the **Public Url** shown previously, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
-:::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic customers service." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
+:::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic sample app that shows the Owners page." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
 
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> --follow`.
@@ -380,7 +380,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 
 A successful deployment command returns a URL in the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
- :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic customers service." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
+ :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic sample app that shows the Owners page." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
 
 You can also navigate the Azure portal to find the URL.
 
@@ -411,7 +411,7 @@ Use the following steps to import the sample project in IntelliJ.
 
 1. Select the *spring-petclinic-microservices* folder.
 
-   :::image type="content" source="media/quickstart-deploy-apps/import-project-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ import wizard showing the PetClinic sample project." lightbox="media/quickstart-deploy-apps/import-project-1-pet-clinic.png":::
+   :::image type="content" source="media/quickstart-deploy-apps/import-project-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ import wizard that shows the PetClinic sample project." lightbox="media/quickstart-deploy-apps/import-project-1-pet-clinic.png":::
 
 ### Deploy the api-gateway app to Azure Spring Apps
 
@@ -419,7 +419,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
 
-   :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ project explorer showing how to deploy the PetClinic sample project." lightbox="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png":::
+   :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ project explorer that shows the Deploy to Azure Spring Apps menu option." lightbox="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png":::
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-3.0.1*.
@@ -428,15 +428,15 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then select **OK**.
 1. Set **Public Endpoint** to *Enable*.
-1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
+1. Set **Memory** to `2.0Gi` and **JVM options** to `-Xms2048m -Xmx2048m`.
 
-   :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
+   :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of the IntelliJ Create Azure Spring App dialog box that shows Memory and JVM options controls." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
 1. In the **Before launch** section of the dialog, double-click **Run Maven Goal**.
 1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/spring-petclinic-api-gateway* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*. Select **OK**.
 
-   :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png" alt-text="Screenshot of the spring-petclinic-microservices/gateway page and command line textbox." lightbox="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png":::
+   :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png" alt-text="Screenshot of the IntelliJ Deploy to Azure dialog box with the Select Maven Goal section highlighted." lightbox="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png":::
 
 1. Start the deployment by selecting the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog. The plug-in runs the command `mvn package` on the `api-gateway` app and deploys the JAR file generated by the `package` command.
 
@@ -454,7 +454,7 @@ Repeat the previous steps to deploy `customers-service` and other Pet Clinic app
 
 Navigate to the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`
 
- :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic customers service." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
+ :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic sample app that shows the Owners page." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
 
 You can also navigate the Azure portal to find the URL.
 

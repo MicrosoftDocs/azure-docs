@@ -4,8 +4,9 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 10/14/2020
+ms.date: 07/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Manage inventory collection from VMs
 
@@ -88,7 +89,7 @@ The following sections provide information about each property that can be confi
 
 Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 

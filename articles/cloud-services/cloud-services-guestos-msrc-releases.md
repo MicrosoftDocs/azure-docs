@@ -1,19 +1,270 @@
 ---
 title: List of updates applied to the Azure Guest OS | Microsoft Docs
-description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to the Guest OS you are using.
+description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
-ms.subservice: auto-os-updates
-author: jejackson
+ms.subservice: guest-os-patching
+author: akyadav
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 03/07/2024
-ms.author: jejackson
+ms.date: 07/31/2024
+ms.author: akyadav
 ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
-The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## July 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 24-07 | 5040430 | Latest Cumulative Update(LCU) | [6.73] | Jul 09, 2024 |
+| Rel 24-07 | 5040437 | Latest Cumulative Update(LCU) | [7.43] | Jul 09, 2024 |
+| Rel 24-07 | 5040434 | Latest Cumulative Update(LCU) | [5.97] | Jul 09, 2024 |
+| Rel 24-07 | 5039909 | .NET Framework 3.5 Security and Quality Rollup | [2.153] | Jul 09, 2024 |
+| Rel 24-07 | 5039882 | .NET Framework 4.7.2 Cumulative Update LKG | [2.153] | Jul 09, 2024 |
+| Rel 24-07 | 5039910 | .NET Framework 3.5 Security and Quality Rollup LKG |[4.133] | Jul 09, 2024 |
+| Rel 24-07 | 5039881 | .NET Framework 4.7.2 Cumulative Update LKG |[4.133] | Jul 09, 2024 |
+| Rel 24-07 | 5039908 | .NET Framework 3.5 Security and Quality Rollup LKG | [3.141] | Jul 09, 2024 |
+| Rel 24-07 | 5039880 | .NET Framework 4.7.2 Cumulative Update LKG | [3.141] | Jul 09, 2024 |
+| Rel 24-07 | 5039879 | . NET Framework Dot Net | [6.73] | Jul 09, 2024 |
+| Rel 24-07 | 5039889 | .NET Framework 4.8 Security and Quality Rollup LKG | [7.43] | Jul 09, 2024 |
+| Rel 24-07 | 5040497 | Monthly Rollup | [2.153] | Jul 09, 2024 |
+| Rel 24-07 | 5040485 | Monthly Rollup | [3.141] | Jul 09, 2024 |
+| Rel 24-07 | 5040456 | Monthly Rollup | [4.133] | Jul 09, 2024 |
+| Rel 24-07 | 5040570 | Servicing Stack Update | [3.141] | Jul 09, 2024 |
+| Rel 24-07 | 5040569 | Servicing Stack Update | [4.133] | Jul 09, 2024 |
+| Rel 24-07 | 5040562 | Servicing Stack Update | [5.97] | Jul 09, 2024 |
+| Rel 24-07 | 5039339 | Servicing Stack Update LKG | [2.153] | Jul 09, 2024 |
+| Rel 24-07 | 5040571 | Servicing Stack Update | [7.43] | Jul 09, 2024 |
+| Rel 24-07 | 5040563 | Servicing Stack Update | [6.73] | Jul 09, 2024 |
+| Rel 24-07 | 4494175 | January '20 Microcode | [5.97] | Sep 1, 2020 |
+| Rel 24-07 | 4494175 | January '20 Microcode | [6.73] | Sep 1, 2020 |
+
+[5040430]: https://support.microsoft.com/kb/5040430
+[5040437]: https://support.microsoft.com/kb/5040437
+[5040434]: https://support.microsoft.com/kb/5040434
+[5039909]: https://support.microsoft.com/kb/5039909
+[5039882]: https://support.microsoft.com/kb/5039882
+[5039910]: https://support.microsoft.com/kb/5039910
+[5039881]: https://support.microsoft.com/kb/5039881
+[5039908]: https://support.microsoft.com/kb/5039908
+[5039880]: https://support.microsoft.com/kb/5039880
+[5039879]: https://support.microsoft.com/kb/5039879
+[5039889]: https://support.microsoft.com/kb/5039889
+[5040497]: https://support.microsoft.com/kb/5040497
+[5040485]: https://support.microsoft.com/kb/5040485
+[5040456]: https://support.microsoft.com/kb/5040456
+[5040570]: https://support.microsoft.com/kb/5040570
+[5040569]: https://support.microsoft.com/kb/5040569
+[5040562]: https://support.microsoft.com/kb/5040562
+[5039339]: https://support.microsoft.com/kb/5039339
+[5040571]: https://support.microsoft.com/kb/5040571
+[5040563]: https://support.microsoft.com/kb/5040563
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.153]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.141]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.133]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.97]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.73]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.43]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## June 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 24-06 | 5039217 | Latest Cumulative Update(LCU) | [6.72] | Jun 11, 2024 |
+| Rel 24-06 | 5039227 | Latest Cumulative Update(LCU) | [7.42] | Jun 11, 2024 |
+| Rel 24-06 | 5039214 | Latest Cumulative Update(LCU) | [5.96] | Jun 11, 2024 |
+| Rel 24-06 | 5036626 | .NET Framework 3.5 Security and Quality Rollup | [2.152] | May 14, 2024 |
+| Rel 24-06 | 5036607 | .NET Framework 4.7.2 Cumulative Update LKG | [2.152] | Apr 9, 2024 |
+| Rel 24-06 | 5036627 | .NET Framework 3.5 Security and Quality Rollup LKG |[4.132] | May 14, 2024 |
+| Rel 24-06 | 5036606 | .NET Framework 4.7.2 Cumulative Update LKG |[4.132] | Apr 9, 2024 |
+| Rel 24-06 | 5036624 | .NET Framework 3.5 Security and Quality Rollup LKG | [3.140] | May 14, 2024 |
+| Rel 24-06 | 5036605 | .NET Framework 4.7.2 Cumulative Update LKG | [3.140] | Apr 9, 2024 |
+| Rel 24-06 | 5036604 | . NET Framework Dot Net | [6.72] | Apr 9, 2024 |
+| Rel 24-06 | 5036613 | .NET Framework 4.8 Security and Quality Rollup LKG | [7.42] | Apr 9, 2024 |
+| Rel 24-06 | 5039289 | Monthly Rollup | [2.152] | Jun 11, 2024 |
+| Rel 24-06 | 5039260 | Monthly Rollup | [3.140] | Jun 11, 2024 |
+| Rel 24-06 | 5039294 | Monthly Rollup | [4.132] | Jun 11, 2024 |
+| Rel 24-06 | 5039342 | Servicing Stack Update | [3.140] | Jun 11, 2024 |
+| Rel 24-06 | 5039340 | Servicing Stack Update | [4.132] | Jun 11, 2024 |
+| Rel 24-06 | 5039334 | Servicing Stack Update | [5.96] | Jun 11, 2024 |
+| Rel 24-06 | 5039339 | Servicing Stack Update LKG | [2.152] | Jun 11, 2024 |
+| Rel 24-06 | 5039335 | Servicing Stack Update | [7.42] | Jun 11, 2024 |
+| Rel 24-06 | 5039343 | Servicing Stack Update | [6.72] | Jun 11, 2024 |
+| Rel 24-06 | 4494175 | January '20 Microcode | [5.96] | Sep 1, 2020 |
+| Rel 24-06 | 4494175 | January '20 Microcode | [6.72] | Sep 1, 2020 |
+
+[5039217]: https://support.microsoft.com/kb/5039217
+[5039227]: https://support.microsoft.com/kb/5039227
+[5039214]: https://support.microsoft.com/kb/5039214
+[5036626]: https://support.microsoft.com/kb/5036626
+[5036607]: https://support.microsoft.com/kb/5036607
+[5036627]: https://support.microsoft.com/kb/5036627
+[5036606]: https://support.microsoft.com/kb/5036606
+[5036624]: https://support.microsoft.com/kb/5036624
+[5036605]: https://support.microsoft.com/kb/5036605
+[5036604]: https://support.microsoft.com/kb/5036604
+[5036613]: https://support.microsoft.com/kb/5036613
+[5039289]: https://support.microsoft.com/kb/5039289
+[5039260]: https://support.microsoft.com/kb/5039260
+[5039294]: https://support.microsoft.com/kb/5039294
+[5039342]: https://support.microsoft.com/kb/5039342
+[5039340]: https://support.microsoft.com/kb/5039340
+[5039334]: https://support.microsoft.com/kb/5039334
+[5039339]: https://support.microsoft.com/kb/5039339
+[5037960]: https://support.microsoft.com/kb/5037960
+[5039335]: https://support.microsoft.com/kb/5039335
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.152]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.140]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.132]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.96]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.72]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.42]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## May 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 24-05  |  [5036626]  |  .NET Framework 3.5 Security and Quality Rollup  |  [2.151]  |  May 14, 2024  |
+|  Rel 24-05  |  [5036607]  |  .NET Framework 4.7.2 Cumulative Update LKG   |  [2.151]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5036627]  |  .NET Framework 3.5 Security and Quality Rollup LKG  |  [4.131]  |  May 14, 2024  |
+|  Rel 24-05  |  [5036606]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [4.131]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5036624]  |  .NET Framework 3.5 Security    and Quality Rollup LKG  |  [3.139]  |  May 14, 2024  |
+|  Rel 24-05  |  [5036605]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [3.139]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5036604]  |  . NET Framework DotNet  |  [6.71]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5036613]  |  .NET Framework 4.8 Security and Quality Rollup LKG  |  [7.41]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5037780]  |  Monthly Rollup  |  [2.151]  |  May 14, 2024  |
+|  Rel 24-05  |  [5037778]  |  Monthly Rollup  |  [3.139]  |  May 14, 2024  |
+|  Rel 24-05  |  [5037823]  |  Monthly Rollup  |  [4.131]  |  May 14, 2024  |
+|  Rel 24-05  |  [5037022]  |  Servicing Stack Update  |  [3.139]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5037021]  |  Servicing Stack Update   |  [4.131]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5037016]  |  Servicing Stack Update   |  [5.95]  |  Apr 9, 2024  |
+|  Rel 24-05  |  [5034865]  |  Servicing Stack Update LKG  |  [2.151]  |  Feb 13, 2024  |
+|  Rel 24-05  |  [4494175]  |  January '20 Microcode  |  [5.95]  |  Sep 1, 2020  |
+|  Rel 24-05  |  [4494175]  |  January '20 Microcode  |  [6.71]  |  Sep 1, 2020  |
+
+[5036626]: https://support.microsoft.com/kb/5036626
+[5036607]: https://support.microsoft.com/kb/5036607
+[5036627]: https://support.microsoft.com/kb/5036627
+[5036606]: https://support.microsoft.com/kb/5036606
+[5036624]: https://support.microsoft.com/kb/5036624
+[5036605]: https://support.microsoft.com/kb/5036605
+[5036604]: https://support.microsoft.com/kb/5036604
+[5036613]: https://support.microsoft.com/kb/5036613
+[5037780]: https://support.microsoft.com/kb/5037780
+[5037778]: https://support.microsoft.com/kb/5037778
+[5037823]: https://support.microsoft.com/kb/5037823
+[5037022]: https://support.microsoft.com/kb/5037022
+[5037021]: https://support.microsoft.com/kb/5037021
+[5037016]: https://support.microsoft.com/kb/5037016
+[5034865]: https://support.microsoft.com/kb/5034865
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.151]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.139]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.131]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.95]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.71]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.41]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+
+## April 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 24-04  |  [5036626]  |  .NET Framework 3.5 Security and Quality Rollup  |  [2.150]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036607]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [2.150]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036627]  |  .NET Framework 3.5 Security and Quality Rollup LKG  |  [4.130]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036606]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [4.130]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036624]  |  .NET Framework 3.5 Security and Quality Rollup LKG  |  [3.138]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036605]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [3.138]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036604]  |  . NET Framework DotNet  |  [6.70]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036613]  |  .NET Framework 4.8 Security and Quality Rollup LKG  |  [7.40]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036967]  |  Monthly Rollup  |  [2.150]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036969]  |  Monthly Rollup  |  [3.138]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5036960]  |  Monthly Rollup  |  [4.130]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5037022]  |  Servicing Stack Update  |  [3.138]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5037021]  |  Servicing Stack Update  |  [4.130]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5037016]  |  Servicing Stack Update  |  [5.94]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [5034865]  |  Servicing Stack Update LKG  |  [2.150]  |  Apr 9, 2024  |
+|  Rel 24-04  |  [4494175]  |  January '20 Microcode  |  [5.94]  |  Sep 1, 2020  |
+|  Rel 24-04  |  [4494175]  |  January '20 Microcode  |  [6.70]  |  Sep 1, 2020  |
+
+[5036626]: https://support.microsoft.com/kb/5036626
+[5036607]: https://support.microsoft.com/kb/5036607
+[5036627]: https://support.microsoft.com/kb/5036627
+[5036606]: https://support.microsoft.com/kb/5036606
+[5036624]: https://support.microsoft.com/kb/5036624
+[5036605]: https://support.microsoft.com/kb/5036605
+[5036604]: https://support.microsoft.com/kb/5036604
+[5036613]: https://support.microsoft.com/kb/5036613
+[5036967]: https://support.microsoft.com/kb/5036967
+[5036969]: https://support.microsoft.com/kb/5036969
+[5036960]: https://support.microsoft.com/kb/5036960
+[5037022]: https://support.microsoft.com/kb/5037022
+[5037021]: https://support.microsoft.com/kb/5037021
+[5037016]: https://support.microsoft.com/kb/5037016
+[5034865]: https://support.microsoft.com/kb/5034865
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.150]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.138]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.130]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.94]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.70]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.40]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+
+## March 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 24-03  |  [5033899]  |  .NET Framework 3.5 Security and Quality Rollup  |  [2.149]  |  Feb 13, 2024  |
+|  Rel 24-03  |  [5033907]  |  .NET Framework 4.7.2 Cumulative Update LKG   |  [2.149]  |  Jan 9, 2024  |
+|  Rel 24-03  |  [5033900]  |  .NET Framework 3.5 Security and Quality Rollup LKG  |  [4.129]  |  Feb 13, 2024  |
+|  Rel 24-03  |  [5033906]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [4.129]  |  Jan 9, 2024  |
+|  Rel 24-03  |  [5033897]  |  .NET Framework 3.5 Security    and Quality Rollup LKG  |  [3.137]  |  Feb 13, 2024  |
+|  Rel 24-03  |  [5033905]  |  .NET Framework 4.7.2 Cumulative Update LKG  |  [3.137]  |  Jan 9, 2024  |
+|  Rel 24-03  |  [5033904]  |  . NET Framework DotNet  |  [6.69]  |  Jan 9, 2024  |
+|  Rel 24-03  |  [5033914]  |  .NET Framework 4.8 Security and Quality Rollup LKG  |  [7.39]  |  Jan 9, 2024  |
+|  Rel 24-03  |  [5035888]  |  Monthly Rollup  |  [2.149]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5035930]  |  Monthly Rollup  |  [3.137]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5035885]  |  Monthly Rollup  |  [4.129]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5035969]  |  Servicing Stack Update  |  [3.137]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5035968]  |  Servicing Stack Update   |  [4.129]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5035962]  |  Servicing Stack Update   |  [5.93]  |  Mar 12, 2024  |
+|  Rel 24-03  |  [5034865]  |  Servicing Stack Update LKG  |  [2.149]  |  Feb 13, 2024  |
+|  Rel 24-03  |  [4494175]  |  January '20 Microcode  |  [5.93]  |  Sep 1, 2020  |
+|  Rel 24-03  |  [4494175]  |  January '20 Microcode  |  [6.69]  |  Sep 1, 2020  |
+
+[5033899]: https://support.microsoft.com/kb/5033899
+[5033907]: https://support.microsoft.com/kb/5033907
+[5033900]: https://support.microsoft.com/kb/5033900
+[5033906]: https://support.microsoft.com/kb/5033906
+[5033897]: https://support.microsoft.com/kb/5033897
+[5033905]: https://support.microsoft.com/kb/5033905
+[5033904]: https://support.microsoft.com/kb/5033904
+[5033914]: https://support.microsoft.com/kb/5033914
+[5035888]: https://support.microsoft.com/kb/5035888
+[5035930]: https://support.microsoft.com/kb/5035930
+[5035885]: https://support.microsoft.com/kb/5035885
+[5035969]: https://support.microsoft.com/kb/5035969
+[5035968]: https://support.microsoft.com/kb/5035968
+[5035962]: https://support.microsoft.com/kb/5035962
+[5034865]: https://support.microsoft.com/kb/5034865
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.149]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.137]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.129]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.93]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.69]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.39]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
 
 ## February 2024 Guest OS
 
@@ -1568,7 +1819,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5004335]: https://support.microsoft.com/kb/5004335
 [5008244]: https://support.microsoft.com/kb/5008244
 [5008277]: https://support.microsoft.com/kb/5008277
-[5008263]: https://support.microsoft.com/kb/5008263
+[5008263]: https://support.microsoft.com/topic/december-14-2021-kb5008263-monthly-rollup-513a39f5-b624-4214-b2be-b93f5a775e12
 [5001401]: https://support.microsoft.com/kb/5001401
 [5001403]: https://support.microsoft.com/kb/5001403
 [4578013]: https://support.microsoft.com/kb/4578013
@@ -3491,9 +3742,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|July 10, 2018 |
 | Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |July 10, 2018 |
 | Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |July 10, 2018 |
-| N/A | [4284826] |June non-security rollup |2.76 |June 12, 2018 |
-| N/A | [4284855] |June non-security rollup |3.63 |June 12, 2018 |
-| N/A | [4284815] |June non-security rollup |4.56 |June 12, 2018 |
+| N/A | [4284826] |June nonsecurity rollup |2.76 |June 12, 2018 |
+| N/A | [4284855] |June nonsecurity rollup |3.63 |June 12, 2018 |
+| N/A | [4284815] |June nonsecurity rollup |4.56 |June 12, 2018 |
 
 ## June 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3504,20 +3755,20 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-06 | [4284878] |Windows Security only |4.55 |June 12, 2018 |
 | Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |June 12, 2018 |
 | Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |June 12, 2018 |
-| N/A | [4103718] |May non-security rollup |2.75 |May 8, 2018 |
-| N/A | [4103730] |May non-security rollup |3.62 |May 8, 2018 |
-| N/A | [4103725] |May non-security rollup |4.55 |May 8, 2018 |
-| N/A | [4040980], [4040977] |Sept ’17 .NET non-security rollup |2.75 |November 14, 2017 |
-| N/A | [4095874] |May .NET 3.5 non-security release |2.75 |May 8, 2018 |
-| N/A | [4096495] |May .NET 4.x non-security release |2.75 |May 8, 2018 |
-| N/A | [4040975] |Sept ’17 .NET non-security rollup |3.62 |November 14, 2017 |
-| N/A | [4095872] |May .NET 3.5 non-security release |3.62 |May 8, 2018 |
-| N/A | [4096494] |May .NET 4.x non-security release |3.62 |May 8, 2018 |
-| N/A | [4096416] |May .NET 4.5x non-security release |3.62 |May 8, 2018 |
-| N/A | [4040974], [4040972] |Sept ’17 .NET non-security rollup |4.55 |November 14, 2017 |
-| N/A | [4043763] |Oct ’17 .NET non-security rollup |4.55 |September 12, 2017 |
-| N/A | [4095876] |May .NET 4.x non-security release |4.55 |May 8, 2018 |
-| N/A | [4096417] |May .NET 4.5x non-security release |4.55 |May 8, 2018 |
+| N/A | [4103718] |May nonsecurity rollup |2.75 |May 8, 2018 |
+| N/A | [4103730] |May nonsecurity rollup |3.62 |May 8, 2018 |
+| N/A | [4103725] |May nonsecurity rollup |4.55 |May 8, 2018 |
+| N/A | [4040980], [4040977] |Sept ’17 .NET nonsecurity rollup |2.75 |November 14, 2017 |
+| N/A | [4095874] |May .NET 3.5 nonsecurity release |2.75 |May 8, 2018 |
+| N/A | [4096495] |May .NET 4.x nonsecurity release |2.75 |May 8, 2018 |
+| N/A | [4040975] |Sept ’17 .NET nonsecurity rollup |3.62 |November 14, 2017 |
+| N/A | [4095872] |May .NET 3.5 nonsecurity release |3.62 |May 8, 2018 |
+| N/A | [4096494] |May .NET 4.x nonsecurity release |3.62 |May 8, 2018 |
+| N/A | [4096416] |May .NET 4.5x nonsecurity release |3.62 |May 8, 2018 |
+| N/A | [4040974], [4040972] |Sept ’17 .NET nonsecurity rollup |4.55 |November 14, 2017 |
+| N/A | [4043763] |Oct ’17 .NET nonsecurity rollup |4.55 |September 12, 2017 |
+| N/A | [4095876] |May .NET 4.x nonsecurity release |4.55 |May 8, 2018 |
+| N/A | [4096417] |May .NET 4.5x nonsecurity release |4.55 |May 8, 2018 |
 | N/A | [4132216] |May SSU |5.20 |May 8, 2018 |
 
 ## May 2018 Guest OS
@@ -3533,9 +3784,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-05 | [4054856] |.NET 4.7x Security |5.19 |May 8, 2018 |
 | Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |May 8, 2018 |
 | Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |May 8, 2018 |
-| N/A | [4093118] |April non-security rollup |2.73 |April 10, 2018 |
-| N/A | [4093123] |April non-security rollup |3.61 |April 10, 2018 |
-| N/A | [4093114] |April non-security rollup |4.74 |April 10, 2018 |
+| N/A | [4093118] |April nonsecurity rollup |2.73 |April 10, 2018 |
+| N/A | [4093123] |April nonsecurity rollup |3.61 |April 10, 2018 |
+| N/A | [4093114] |April nonsecurity rollup |4.74 |April 10, 2018 |
 | N/A | [4093137] |April SSU |5.19 |April 10, 2018 |
 | N/A | [4093753] |Timezone update |2.74, 3.61, 4.74 |April 10, 2018 |
 
@@ -3549,10 +3800,10 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-04 | [4093115] |Windows Security only |4.53 |April 10, 2018 |
 | Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |April 10, 2018 |
 | Rel 18-04 | [4093110] |Flash |3.60, 4.53, 5.18 |April 10, 2018 |
-| N/A | [4088875] |March non-security rollup |2.73 |March 13, 2018 |
-| N/A | [4099950] |March non-security rollup pre-requisite|2.73 |March 13, 2018 |
-| N/A | [4088877] |March non-security rollup |3.60 |March 13, 2018 |
-| N/A | [4088876] |March non-security rollup |4.53 |March 13, 2018 |
+| N/A | [4088875] |March nonsecurity rollup |2.73 |March 13, 2018 |
+| N/A | [4099950] |March nonsecurity rollup prerequisite|2.73 |March 13, 2018 |
+| N/A | [4088877] |March nonsecurity rollup |3.60 |March 13, 2018 |
+| N/A | [4088876] |March nonsecurity rollup |4.53 |March 13, 2018 |
 
 ## March 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3561,9 +3812,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-03 | [4088878], [4088880], [4088879] |Windows Security only |2.72, 3.59, 4.52 |March 13, 2018 |
 | Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |March 13, 2018 |
 | Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |March 13, 2018 |
-| N/A | [4074598] |February non-security rollup |2.72 |February 13, 2018 |
-| N/A | [4074593] |February non-security rollup |3.59 |February 13, 2018 |
-| N/A | [4074594] |February non-security rollup |4.52 |February 13, 2018 |
+| N/A | [4074598] |February nonsecurity rollup |2.72 |February 13, 2018 |
+| N/A | [4074593] |February nonsecurity rollup |3.59 |February 13, 2018 |
+| N/A | [4074594] |February nonsecurity rollup |4.52 |February 13, 2018 |
 | N/A | [4074837] |Timezone update |2.72, 3.59, 4.52 |February 13, 2018 |
 
 
@@ -3574,9 +3825,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 18-02 | [4074587], [4074589], [4074597] |Windows Security only |2.71, 3.58, 4.51 |February 13, 2018 |
 | Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |February 13, 2018 |
 | Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |February 13, 2018 |
-| N/A | [4056894] |January non-security rollup |2.71 |January 4, 2018 |
-| N/A | [4056896] |January non-security rollup |3.58 |January 4, 2018 |
-| N/A | [4056895] |January non-security rollup |4.51 |January 4, 2018 |
+| N/A | [4056894] |January nonsecurity rollup |2.71 |January 4, 2018 |
+| N/A | [4056896] |January nonsecurity rollup |3.58 |January 4, 2018 |
+| N/A | [4056895] |January nonsecurity rollup |4.51 |January 4, 2018 |
 | N/A | [4054176], [4054172] |January .NET rollup |2.71 |January 4, 2018 |
 | N/A | [4054175], [4054171] |January .NET rollup |3.58 |January 4, 2018 |
 | N/A | [4054177], [4054170] |January .NET rollup |4.51 |January 4, 2018 |
@@ -3586,9 +3837,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Windows Security only |2.70, 3.57, 4.50 |January 3, 2018 |
 | Rel 18-01 | [4056890], [4056892] |Windows Security only |5.15 |January 3, 2018 |
-| N/A | [4054518] |December non-security rollup |2.70 |December 12, 2017 |
-| N/A | [4054520] |December non-security rollup |3.57 |December 12, 2017 |
-| N/A | [4054519] |December non-security rollup |4.50 |December 12, 2017 |
+| N/A | [4054518] |December nonsecurity rollup |2.70 |December 12, 2017 |
+| N/A | [4054520] |December nonsecurity rollup |3.57 |December 12, 2017 |
+| N/A | [4054519] |December nonsecurity rollup |4.50 |December 12, 2017 |
 | N/A | [4051956] |January timezone update |2.70, 3.57, 4.50 |December 12, 2017 |
 
 
@@ -3600,9 +3851,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-12 | [4054521], [4054522], [4054523] |Windows Security only |2.69, 3.56, 4.49 |December 12, 2017 |
 | Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |December 12, 2017 |
 | Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |December 12, 2017 |
-| N/A | [4048957] |November non-security rollup |2.69 |November 14, 2017 |
-| N/A | [4048959] |November non-security rollup |3.56 |November 14, 2017 |
-| N/A | [4048958] |November non-security rollup |4.49 |November 14, 2017 |
+| N/A | [4048957] |November nonsecurity rollup |2.69 |November 14, 2017 |
+| N/A | [4048959] |November nonsecurity rollup |3.56 |November 14, 2017 |
+| N/A | [4048958] |November nonsecurity rollup |4.49 |November 14, 2017 |
 | N/A | [4049068] |December Timezone update |2.69, 3.56, 4.49 |December 12, 2017 |
 
 ## November 2017 Guest OS
@@ -3612,9 +3863,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-11 | [4048960], [4048962], [4048961] |Windows Security only |2.68, 3.55, 4.48 |November 14, 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |November 14, 2017 |
 | Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |November 14, 2017 |
-| N/A | [4041681] |October non-security rollup |2.68 |October 10, 2017 |
-| N/A | [4041690] |October non-security rollup |3.55 |October 10, 2017 |
-| N/A | [4041693] |October non-security rollup |4.48 |October 10, 2017 |
+| N/A | [4041681] |October nonsecurity rollup |2.68 |October 10, 2017 |
+| N/A | [4041690] |October nonsecurity rollup |3.55 |October 10, 2017 |
+| N/A | [4041693] |October nonsecurity rollup |4.48 |October 10, 2017 |
 | N/A | [3191566] |Update for Windows Management Framework 5.1  |2.68 |November 14, 2017 |
 | N/A | [3191565] |Update for Windows Management Framework 5.1  |3.55 |November 14, 2017 |
 | N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |November 14, 2017 |
@@ -3626,12 +3877,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-10 | [4041678], [4041679], [4041687] |Windows Security only |2.67, 3.54, 4.47 |October 10, 2017 |
 | Rel 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |October 10, 2017 |
 | Rel 17-10 | [4041681], [4041690], [4041693] |Windows Monthly Rollups |2.67, 3.54, 4.47 |October 10, 2017 |
-| N/A | [4038777] |September non-security rollup |2.67 |September 12, 2017 |
-| N/A | [4038799] |September non-security rollup |3.54 |September 12, 2017 |
-| N/A | [4038792] |September non-security rollup |4.47 |September 12, 2017 |
-| N/A | [4040980] |September .NET non-security rollup |2.67 |September 12, 2017 |
-| N/A | [4040979] |September .NET non-security rollup |3.54 |September 12, 2017 |
-| N/A | [4040981] |September .NET non-security rollup |4.47 |September 12, 2017 |
+| N/A | [4038777] |September nonsecurity rollup |2.67 |September 12, 2017 |
+| N/A | [4038799] |September nonsecurity rollup |3.54 |September 12, 2017 |
+| N/A | [4038792] |September nonsecurity rollup |4.47 |September 12, 2017 |
+| N/A | [4040980] |September .NET nonsecurity rollup |2.67 |September 12, 2017 |
+| N/A | [4040979] |September .NET nonsecurity rollup |3.54 |September 12, 2017 |
+| N/A | [4040981] |September .NET nonsecurity rollup |4.47 |September 12, 2017 |
 
 ## September 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3641,9 +3892,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|September .NET update |2.66, 3.53, 4.46 |September 12, 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |September 12, 2017 |
 | CVE-2017-8704 | [4038782] |Denial of Service |5.11 |September 12, 2017 |
-| N/A | [4034664] |August non-security rollup  |2.66 |August 8, 2017 |
-| N/A | [4034665] |August non-security rollup |5.11 |August 8, 2017 |
-| N/A | [4034681] |August non-security rollup |4.46 |August 8, 2017 |
+| N/A | [4034664] |August nonsecurity rollup  |2.66 |August 8, 2017 |
+| N/A | [4034665] |August nonsecurity rollup |5.11 |August 8, 2017 |
+| N/A | [4034681] |August nonsecurity rollup |4.46 |August 8, 2017 |
 
 ## August 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3655,9 +3906,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |August 8, 2017 |
 | Rel 17-07 | [4034664], [4034665], [4034681] |Windows Monthly Rollups |2.65, 3.52, 4.45 |August 8, 2017 |
 | Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |Re-release of CVE-2017-0071, Re-release of  CVE-2017-0228 |5.10 |August 8, 2017 |
-| Rel 17-07 | [4025341] |July non-security rollup |2.65 |July 11, 2017 |
-| Rel 17-07 | [4025331] |July non-security rollup |3.52 |July 11, 2017 |
-| Rel 17-07 | [4025336] |July non-security rollup |4.45 |July 11, 2017 |
+| Rel 17-07 | [4025341] |July nonsecurity rollup |2.65 |July 11, 2017 |
+| Rel 17-07 | [4025331] |July nonsecurity rollup |3.52 |July 11, 2017 |
+| Rel 17-07 | [4025336] |July nonsecurity rollup |4.45 |July 11, 2017 |
 
 ## July 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3669,9 +3920,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |July 11, 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |July 11, 2017 |
 | N/A | [4020322] |Timezone Update |2.64, 3.51, 4.44 |July 11, 2017 |
-| N/A | [4022719] |June non-security rollup |2.64 |June 13, 2017 |
-| N/A | [4022724] |June non-security rollup |3.51 |June 13, 2017 |
-| N/A | [4022726] |June non-security rollup |4.44 |June 13, 2017 |
+| N/A | [4022719] |June nonsecurity rollup |2.64 |June 13, 2017 |
+| N/A | [4022724] |June nonsecurity rollup |3.51 |June 13, 2017 |
+| N/A | [4022726] |June nonsecurity rollup |4.44 |June 13, 2017 |
 
 ## June 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3685,21 +3936,21 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-06 | [4022730] |Security update for Adobe Flash Player |3.50, 4.43, 5.8 |June 13, 2017 |
 | Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Re-release of CVE-2017-0167 |4.43, 5.8 |April 11, 2017 |
 | N/A | [4023136] |Timezone update  |2.63, 3.50, 4.43 |June 13, 2017 |
-| N/A | [4019264] |May non-security rollup |2.63 |June 13, 2017 |
-| N/A | [4014545] |May .NET non-security rollup |2.63 |April 11, 2017 |
-| N/A | [4014508] |May .NET non-security rollup |2.63 |May 9, 2017 |
-| N/A | [4014511] |May .NET non-security rollup |2.63 |May 9, 2017 |
-| N/A | [4014514] |May .NET non-security rollup |2.63 |May 9, 2017 |
-| N/A | [4019216] |May non-security rollup |3.50 |May 9, 2017 |
-| N/A | 4014503 |May .NET non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4014506] |May .NET non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4014509] |May .NET non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4014513] |May .NET non-security rollup |3.50 |May 9, 2017 |
-| N/A | [4019215] |May non-security rollup |4.43 |May 9, 2017 |
-| N/A | [4014505] |May .NET non-security rollup |4.43 |May 9, 2017 |
-| N/A | [4014507] |May .NET non-security rollup |4.43 |May 9, 2017 |
-| N/A | [4014510] |May .NET non-security rollup |4.43 |May 9, 2017 |
-| N/A | [4014512] |May .NET non-security rollup |4.43 |May 9, 2017 |
+| N/A | [4019264] |May nonsecurity rollup |2.63 |June 13, 2017 |
+| N/A | [4014545] |May .NET nonsecurity rollup |2.63 |April 11, 2017 |
+| N/A | [4014508] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
+| N/A | [4014511] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
+| N/A | [4014514] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
+| N/A | [4019216] |May nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | 4014503 |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | [4014506] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | [4014509] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | [4014513] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | [4019215] |May nonsecurity rollup |4.43 |May 9, 2017 |
+| N/A | [4014505] |May .NET nonsecurity rollup |4.43 |May 9, 2017 |
+| N/A | [4014507] |May .NET nonsecurity rollup |4.43 |May 9, 2017 |
+| N/A | [4014510] |May .NET nonsecurity rollup |4.43 |May 9, 2017 |
+| N/A | [4014512] |May .NET nonsecurity rollup |4.43 |May 9, 2017 |
 
 ## May 2017 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -3714,19 +3965,19 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
 | Rel 17-05 | [4021279] |.NET /ASP.NET Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
 | N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
-| N/A | [4014565] |April .NET non-security rollup |2.62 | April 11, 2017 |
-| N/A | [4014559] |April .NET non-security rollup |2.62 | April 11, 2017 |
+| N/A | [4014565] |April .NET nonsecurity rollup |2.62 | April 11, 2017 |
+| N/A | [4014559] |April .NET nonsecurity rollup |2.62 | April 11, 2017 |
 | N/A | [4015549] |April non-Security Rollup |2.62 | April 11, 2017 |
 | N/A | [4019990] |D3DCompiler update - requirement for .NET 4.7 |3.49 | May 9, 2017 |
-| N/A | [4014563] |April .NET non-security rollup |3.49 | April 11, 2017 |
-| N/A | [4014557] |April .NET non-security rollup |3.49 | April 11, 2017 |
-| N/A | [4014545] |April .NET non-security rollup |3.49 | April 11, 2017 |
-| N/A | [4014548] |April .NET non-security rollup |3.49 | April 11, 2017 |
-| N/A | [4015551] |April non-security rollup |3.49 | April 11, 2017 |
+| N/A | [4014563] |April .NET nonsecurity rollup |3.49 | April 11, 2017 |
+| N/A | [4014557] |April .NET nonsecurity rollup |3.49 | April 11, 2017 |
+| N/A | [4014545] |April .NET nonsecurity rollup |3.49 | April 11, 2017 |
+| N/A | [4014548] |April .NET nonsecurity rollup |3.49 | April 11, 2017 |
+| N/A | [4015551] |April nonsecurity rollup |3.49 | April 11, 2017 |
 | N/A | [3173424] |Servicing Stack Update  |4.42 | July 12, 2016 |
-| N/A | [4014555] |April .NET non-security rollup  |4.42 | April 11, 2017 |
-| N/A | [4014567] |April .NET non-security rollup |4.42 | April 11, 2017 |
-| N/A | [4015550] |April non-security rollup |4.42 | April 11, 2017 |
+| N/A | [4014555] |April .NET nonsecurity rollup  |4.42 | April 11, 2017 |
+| N/A | [4014567] |April .NET nonsecurity rollup |4.42 | April 11, 2017 |
+| N/A | [4015550] |April nonsecurity rollup |4.42 | April 11, 2017 |
 | N/A | [4013418] |Servicing Stack Update |5.7 | March 14, 2017 |
 
 ## April 2017 Guest OS
@@ -3888,7 +4139,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-077 |[3165191] |Security Update for WPAD |4.33, 3.40, 2.52 |June 14, 2016 |
 | MS16-080 |[3164302] |Security Update for Microsoft Windows PDF |4.33, 3.40 |June 14, 2016 |
 | MS16-081 |[3160352] |Security Update for Active Directory |4.33, 3.40, 2.52 |June 14, 2016 |
-| N/A |[2922223] |You cannot change system time if RealTimeIsUniversal registry entry is enabled in Windows |2.52 |June 14, 2016 |
+| N/A |[2922223] |You can't change system time if RealTimeIsUniversal registry entry is enabled in Windows |2.52 |June 14, 2016 |
 | N/A |[3121255] |"0x00000024" Stop error in FsRtlNotifyFilterReportChange and copy file may fail in Windows |2.52 |June 14, 2016 |
 | N/A |[3125424] |LSASS deadlocks cause Windows Server 2012 R2 or Windows Server 2012 not to respond |4.33, 3.40 |June 14, 2016 |
 | N/A |[3125574] |Convenience rollup update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.52 |June 14, 2016 |
@@ -4143,7 +4394,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3012325] |Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2896881] |Long sign in time when you use the AddPrinterConnection VBScript command to map printers for users during sign in process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 [4457131]: https://support.microsoft.com/kb/4457131
 [4457145]: https://support.microsoft.com/kb/4457145

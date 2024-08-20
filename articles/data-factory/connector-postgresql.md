@@ -3,11 +3,10 @@ title: Copy data From PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 05/22/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -16,7 +15,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support and better performance. If you are using the legacy PostgreSQL connector in your solution, supported as-is for backward compatibility only, refer to [PostgreSQL connector (legacy)](connector-postgresql-legacy.md) article.
+>The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -253,7 +252,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type | Interim service data type (for the legacy driver version) |
+|PostgreSql data type | Interim service data type | Interim service data type for PostgreSQL (legacy) |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|
@@ -316,6 +315,18 @@ Here are steps that help you upgrade your PostgreSQL linked service:
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
+
+## Differences between PostgreSQL and PostgreSQL (legacy)
+
+The table below shows the data type mapping differences between PostgreSQL and PostgreSQL (legacy).
+
+|PostgreSQL data type|Interim service data type for PostgreSQL|Interim service data type for PostgreSQL (legacy)|
+|:---|:---|:---|
+|Money|Decimal|String|
+|Timestamp with time zone |DateTime|String|
+|Time with time zone |DateTimeOffset|String|
+|Interval | TimeSpan|String|
+|BigDecimal|Not supported. As an alternative, utilize `to_char()` function to convert BigDecimal to String.|String|
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

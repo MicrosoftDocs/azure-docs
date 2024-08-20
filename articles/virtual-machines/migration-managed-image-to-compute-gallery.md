@@ -2,7 +2,7 @@
 title: Migrate Managed image to Compute gallery
 description: Learn how to legacy Managed image to image version in Azure compute gallery.
 author: AjKundnani
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 03/09/2024
@@ -15,7 +15,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux Virtual Machine :heavy_check_mark: Windows Virtual Machine :heavy_check_mark: Virtual Machine Flex Scale Sets
 
-[Managed images](capture-image-resource.md) is legacy method to generalize and capture Virtual Machine image. For the most current technology, customers are encouraged to use [Azure compute gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted launch, and Confidential Virtual Machine are only supported through Azure compute gallery. If you have an existing managed image, you can use it as a source and create an Azure compute gallery image.
+[Managed images](capture-image-resource.yml) is legacy method to generalize and capture Virtual Machine image. For the most current technology, customers are encouraged to use [Azure compute gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted launch, and Confidential Virtual Machine are only supported through Azure compute gallery. If you have an existing managed image, you can use it as a source and create an Azure compute gallery image.
 
 ## Before you begin
 

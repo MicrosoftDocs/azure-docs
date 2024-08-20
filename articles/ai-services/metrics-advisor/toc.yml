@@ -49,7 +49,7 @@
       href:  glossary.md
     - name: Cost management
       href: cost-management.md
-      displayname: cost, pricing, price, billing, bill
+      displayName: cost, pricing, price, billing, bill
 - name: Responsible use of AI
   items:
   - name: Transparency notes

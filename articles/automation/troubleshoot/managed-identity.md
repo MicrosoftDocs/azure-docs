@@ -3,13 +3,28 @@ title: Troubleshoot Azure Automation managed identity issues
 description: This article tells how to troubleshoot and resolve issues when using a managed identity with an Automation account.
 services: automation
 ms.subservice:
-ms.date: 10/26/2021
+ms.date: 04/22/2024
 ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Automation managed identity issues
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
+
+
+## Scenario: Runbook with system assigned managed identity fails with 400 error message
+
+### Issue
+
+Runbook with system assigned managed identity fails with the error as `unable to acquire for tenant organizations with error ManagedIdentityCredential authentication failed. Managed System Identity not found! Status 400 (Bad Request)`
+
+
+### Cause
+You haven't assigned permissions after creating the system-assigned managed identity. 
+
+### Resolution
+Ensure to assign the appropriate permissions for system-assigned managed identity. [Using a system-assigned managed identity for an Azure Automation account](../enable-managed-identity-for-automation.md)
+
 
 ## Scenario: Managed Identity in a Runbook cannot authenticate against Azure
 
@@ -142,5 +157,5 @@ You must enable an identity for your Automation account before you can use the m
 If this article doesn't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport). This is the official Microsoft Azure account for connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport). This is the official Microsoft Azure account for connecting the Azure community to the right resources: answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

@@ -1,14 +1,14 @@
 ---
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 04/18/2023
+ms.date: 06/28/2024
 ---
 
 # Create private registry for Bicep modules
 
-To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files. To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
+To share [modules](modules.md) within your organization, you can create a private module registry. You can then publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files. To use public modules, see [Bicep Modules](./modules.md#file-in-registry).
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008 or later**. To use with Azure CLI, you must also have version **2.31.0 or later**; to use with Azure PowerShell, you must also have version **7.0.0** or later.
 
@@ -55,7 +55,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 ## Publish files to registry
 
-After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry. The publish command will create an ARM template which will be stored in the registry. This means if publishing a Bicep file that references other local modules, these modules will be fully expanded as one JSON file and published to the registry.
+After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry. The publish command creates an ARM template, which is stored in the registry. This means if publishing a Bicep file that references other local modules, these modules are fully expanded as one JSON file and published to the registry.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -73,6 +73,30 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 ---
 
+With Bicep CLI version 0.27.1 or newer, you can publish a module with the Bicep source code in addition to the compiled JSON template. If a module is published with the Bicep source code to a registry, you can press `F12` ([Go to Definition](./visual-studio-code.md#go-to-definition)) from Visual Studio Code to see the Bicep Code. The Bicep extension version 0.27 or new is required to see the Bicep file.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html -WithSource
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
+```azurecli
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html --with-source
+```
+
+---
+
+With the with source switch, you see another layer in the manifest:
+
+:::image type="content" source="./media/private-module-registry/bicep-module-with-source-manifest.png" lightbox="./media/private-module-registry/bicep-module-with-source-manifest.png" alt-text="Screenshot of bicep module registry with source.":::
+
+If the Bicep module references a module in a Private Registry, the ACR endpoint is visible. To hide the full endpoint, you can configure an alias for the private registry.
+
 ## View files in registry
 
 To see the published module in the portal:
@@ -80,10 +104,10 @@ To see the published module in the portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **container registries**.
 1. Select your registry.
-1. Select **Repositories** from the left menu.
-1. Select the module path (repository).  In the preceding example, the module path name is **bicep/modules/storage**.
+1. Select **Services** -> **Repositories** from the left menu.
+1. Select the module path (repository). In the preceding example, the module path name is **bicep/modules/storage**.
 1. Select the tag. In the preceding example, the tag is **v1**.
-1. The **Artifact reference** matches the reference you'll use in the Bicep file.
+1. The **Artifact reference** matches the reference you use in the Bicep file.
 
    ![Bicep module registry artifact reference](./media/private-module-registry/bicep-module-registry-artifact-reference.png)
 
@@ -92,7 +116,7 @@ You're now ready to reference the file in the registry from a Bicep file. For ex
 ---
 ## Working with Bicep registry files
 
-When leveraging bicep files that are hosted in a remote registry, it's important to understand how your local machine will interact with the registry. When you first declare the reference to the registry, your local editor will try to communicate with the Azure Container Registry and download a copy of the registry to your local cache.
+When using bicep files that are hosted in a remote registry, it's important to understand how your local machine interacts with the registry. When you first declare the reference to the registry, your local editor tries to communicate with the Azure Container Registry and download a copy of the registry to your local cache.
 
 The local cache is found in:
 
@@ -114,17 +138,16 @@ The local cache is found in:
     ~/.bicep
     ```
 
-Any changes made to the remote registry will not be recognized by your local machine until a `restore` has been ran with the specified file that includes the registry reference.
+Your local machine can recognize any changes made to the remote registry until you run a `restore` with the specified file that includes the registry reference.
 
 ```azurecli
 az bicep restore --file <bicep-file> [--force]
 ```
 
-For more information refer to the [`restore` command.](bicep-cli.md#restore)
-
+For more information, see the [`restore` command.](bicep-cli.md#restore)
 
 ## Next steps
 
-* To learn about modules, see [Bicep modules](modules.md).
-* To configure aliases for a module registry, see [Add module settings in the Bicep config file](bicep-config-modules.md).
-* For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).
+- To learn about modules, see [Bicep modules](modules.md).
+- To configure aliases for a module registry, see [Add module settings in the Bicep config file](bicep-config-modules.md).
+- For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).

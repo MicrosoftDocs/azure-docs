@@ -133,7 +133,7 @@ Log search alerts can measure two different things, which can be used for differ
 - **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.
 
-You can configure if log search alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
+You can configure if log search alerts are [stateful or stateless](alerts-overview.md#alerts-and-state).  
 Note that stateful log search alerts have these limitations:
 - they can trigger up to 300 alerts per evaluation.
 - you can have a maximum of 5000 alerts with the `fired` alert condition.

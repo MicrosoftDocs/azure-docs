@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
 ms.date: 11/23/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
@@ -13,7 +13,7 @@ ms.custom: azure-synapse
 
 # Tutorial: Load the New York Taxicab dataset
 
-This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load New York Taxicab dataset from an Azure Blob Storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) to:
+This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load New York Taxicab dataset from an Azure Blob Storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to:
 
 > [!div class="checklist"]
 >
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free Azure account](https://a
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 

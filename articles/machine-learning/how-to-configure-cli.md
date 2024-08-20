@@ -3,13 +3,13 @@ title: 'Install and set up the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to install and set up the Azure CLI extension for Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 01/08/2024
-ms.reviewer: larryfr
+ms.reviewer: balapv
 ms.custom: devx-track-azurecli, devplatv2
 ---
 

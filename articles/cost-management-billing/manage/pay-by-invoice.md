@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 08/06/2024
 ms.author: banders
 ---
 
@@ -14,154 +14,145 @@ ms.author: banders
 
 This article helps you set up your Azure subscription to pay by wire transfer.
 
-This article applies to you if you are:
+This article applies to you if you meet one of these conditions:
 
-- A customer with a Microsoft Customer Agreement (MCA)
-- A customer who signed up for Azure through the Azure website (for a Microsoft Online Services Program account, also called pay-as-you-go account).
+- You have a Microsoft Customer Agreement.
+- You signed up for Azure through the Azure website to create a Microsoft Online Subscription Program account. This type of account is also called a *pay-as-you-go* account.
 
-If you signed up for Azure through a Microsoft representative, then your default payment method is already set to *wire transfer*, so these steps aren't needed.
+If you signed up for Azure through a Microsoft representative, your default payment method is already set to wire transfer. You don't need to follow the steps in this article.
 
-When you switch to pay by wire transfer, you must pay your bill within 30 days of the invoice date by wire transfer.
+When you switch to payment by wire transfer:
 
-Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
+- Specify the invoice ID that you want to pay on your wire transfer.
+- Send the wire payment to the designated bank, as stated on your monthly invoice.
+- Send the exact amount on the invoice.
+- Pay the bill by the due date.
 
-Customers who have a Microsoft Online Services Program (pay-as-you-go) account can use the Azure portal to [request to pay by wire transfer](#request-to-pay-by-wire-transfer).
+## Prerequisites
+
+Users who have a Microsoft Customer Agreement must [submit an Azure support request](#submit-a-request-to-set-up-payment-by-wire-transfer) to set up payment by wire transfer. Any user who has access to the Microsoft Online Subscription Program (pay-as-you-go) billing profile can submit the request to pay by wire transfer.
+
+Currently, customers who have a Microsoft Online Subscription Program (pay-as-you-go) account must [submit an Azure support request](#submit-a-request-to-set-up-payment-by-wire-transfer) to set up payment by wire transfer. Any user who has access to the Microsoft Customer Agreement billing profile can submit the request to pay by wire transfer.
+
+To qualify for wire transfer payments, you must:
+
+- Be an established customer for at least six months and have no outstanding balances.
+- Have a subscription cost that exceeds a certain amount. This amount varies by service location.
 
 > [!IMPORTANT]
-> * Pay by wire transfer is only available for customers using Azure on behalf of a company.
-> * Pay all outstanding charges before switching to pay by wire transfer.
-> * An outstanding invoice is paid by your default payment method. In order to have it paid by wire transfer, you must change your default payment method to wire transfer after you've been approved.
-> * Currently, payment by wire transfer isn't supported for Global Azure in China.
-> * For Microsoft Online Services Program accounts, if you switch to pay by wire transfer, you can't switch back to paying by credit or debit card.
-> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. 
+> - Payment by wire transfer is available only for customers who use Azure on behalf of a company.
+> - You must pay all outstanding charges before switching to payment by wire transfer.
+> - Your default payment method pays any outstanding invoice. To have a wire transfer pay an outstanding invoice, you must change your default payment method to wire transfer after you're approved.
+> - Currently, payment by wire transfer isn't supported for Azure global in China.
+> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card, except for one-time payments.
+> - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
-## Request to pay by wire transfer
+## Submit a request to set up payment by wire transfer
 
-> [!NOTE]
-> - Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
-> - After you're approved to pay by wire transfer, you can't switch back to credit card except for one-time payments.
+Users in all regions can manually submit an Azure support request to pay by wire transfer. If your request is approved, you can switch to payment by wire transfer in the Azure portal by using the following steps:
 
-1. Sign in to the Azure portal.
-    - If you have a pay-as-you-go subscription, navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
-    - If you have a Microsoft Customer Agreement, navigate to **Cost Management + Billing** and then select **Billing profiles**. Select the billing profile that you want to set up wire transfer for.
-1. In the left menu, select **Payment methods**.
-1. On the Payment methods page, select **Pay by wire transfer**.
-1. On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.
-1. Depending on your approval status:
-    - If you're automatically approved, the page shows a message stating that you're approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
-    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next section [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer).
-1. If you're approved, on the Payment methods page under **Other payment methods**, to the right of **Wire transfer**, select the ellipsis (**...**) symbol and then select **Make default**.  
-    You're all set to pay by wire transfer.
+1. Sign in to the Azure portal, and then search for and select **Help + support**.  
 
-## Submit a request to set up pay by wire transfer
-
-Users in all regions can submit a request to pay by wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer.
-
-If you're not automatically approved, you can submit a request to Azure support to approve payment by wire transfer. If your request is approved, you can switch to pay by wire transfer in the Azure portal.
-
-1. Sign in to the Azure portal to submit a support request. Search for and select **Help + support**.  
-    :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Screenshot of searching for Help and support." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
+    :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Screenshot of searching for Help and support in the Azure portal." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
 1. Select **New support request**.  
-    :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Screenshot of the New support request link." lightbox="./media/pay-by-invoice/help-and-support.png" :::
-1. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by wire transfer, select a support plan, and then select **Next**.
-1. Select **Manage Payment Methods** as the **Problem Type**. The *problem type* is the support request subcategory.
-1. Select **Switch to pay by invoice as my default payment method** as the **Problem subtype**.
-1. Enter the following information in the **Details** box, and then select **Next**.
-    - New or existing customer:
-    - If existing, current payment method:
-    - Order ID (requesting for invoice option):
-    - Account Admins Live ID (or Org ID) (should be company domain):
-    - Commerce Account ID¹:
-    - Company Name (as registered under VAT or Government Website):
-    - Company Address (as registered under VAT or Government Website):
-    - Company Website:
-    - Country/region:
-    - TAX ID/ VAT ID:
-    - Company Established on (Year):
-    - Any prior business with Microsoft:
-    - Contact Name:
-    - Contact Phone:
-    - Contact Email:
-    - Justification about why you want the wire transfer payment option instead of a credit card:
-    - File upload: Attach legal documentation showing the legal company name and company address. Your information in the Azure portal should match the legal information registered in the legal document. You can provide one of the following examples:
-        - A certificate of incorporation signed by the company’s legal representatives.
-        - Any government-issued documents having the company name and address. For example, a tax certification.
-        - Company registration form signed and issued by the government.
-    - For cores increase, provide the following additional information:
-        - (Old quota) Existing Cores:
-        - (New quota) Requested cores:
-        - Specific region & series of Subscription:
-    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.md).
-    - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
+
+    :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Screenshot of the link for starting a new support request." lightbox="./media/pay-by-invoice/help-and-support.png" :::
+1. For **Issue type**, select **Billing**. The *issue type* is the support request category. Select the subscription for which you want to pay by wire transfer, select a support plan, and then select **Next**.
+1. For **Problem type**, select **Manage Payment Methods**. The *problem type* is the support request subcategory.
+1. For **Problem subtype**, select **Switch to pay by invoice as my default payment method**.
+1. In the **Details** box, enter the following information, and then select **Next**.
+
+    - Whether you're a new or existing customer.
+    - Current payment method, if you're an existing customer.
+    - Order ID (requesting for invoice option).
+    - Microsoft account ID for account admins. This ID should be a company domain.
+    - Commerce account ID. To find this ID in the Azure portal:
+      1. Search for **Cost Management** and select it (not **Cost Management + Billing**). It's a green hexagon-shaped symbol.
+      1. On the left menu, select **Properties**. If **Properties** doesn't appear on the left menu, go to the top of the pane under **Scope**, and then select **Go to billing account**.
+
+         On the **Properties** pane that opens, your billing account ID appears as a GUID value. That's your commerce account ID.
+    - Company name and address, as registered under VAT or government website.
+    - Company website.
+    - Country/region.
+    - Tax ID or VAT ID.
+    - Year when the company was established.
+    - Any prior business with Microsoft.
+    - Contact name, phone, and email. You must add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
+    - Justification for why you want to use wire transfer instead of a credit card for payment.
+    - File upload. Attach legal documentation that shows the company name and company address. Your information in the Azure portal (that is, the information for the Azure account) should match the legal information registered in the legal document. You can provide one of the following examples:
+      - A certificate of incorporation signed by the company's legal representatives.
+      - Any government-issued document that has the company name and address, such as a tax certification.
+      - A company registration form signed and issued by the government.
+
+      To view or update your company name or company address, see [Change your Azure account profile information](change-azure-account-profile.yml).
+    - For an increase in cores, provide the following information:
+        - Existing cores (old quota).
+        - Requested cores (new quota).
+        - Specific region and series of your subscription.
 1. Verify your contact information and preferred contact method, and then select **Create**.
 
-¹ If you don't know your Commerce Account ID, it's the GUID ID shown on the Properties page for your billing account. To view it in the Azure portal:
+If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application. We might ask you to provide your company's audited financial statements. We might also ask for a security deposit or a standby letter of credit to approve your credit check request. We ask for them when:
 
-  1. Go to the Azure home page. Search for **Cost Management** and select it (not Cost Management + Billing). It's a green hexagon-shaped symbol. 
-  1. You should see the overview page. If you don't see Properties in the left menu, at the top of the page under Scope, select **Go to billing account**. 
-  1. In the left menu, select **Properties**. On the properties page, you should see your billing account ID shown as a GUID ID value. It's your Commerce Account ID.
+- We didn't receive financial information.
+- The information isn't strong enough to support the requested amount of credit.
 
-If we need to run a credit check because of the amount of credit that you need, you're sent a credit check application. We might ask you to provide your company’s audited financial statements. We might ask for a security deposit or a standby letter of credit to approve your credit check request. We ask for them when:
+## Switch to payment by wire transfer after approval
 
-  - No financial information is provided.
-  - The information isn't strong enough to support the amount of credit limit required.
-
-## Switch to pay by wire transfer after approval
-
-If you have a Microsoft Online Services Program (pay-as-you-go) account and you're approved to pay by wire transfer, you can switch your payment method in the Azure portal.
+If you have a Microsoft Online Subscription Program (pay-as-you-go) account and you're approved to pay by wire transfer, you can switch your payment method in the Azure portal.
 
 With a Microsoft Customer Agreement, you can switch your billing profile to wire transfer.
 
-### Switch Azure subscription to wire transfer
+### Switch your Azure subscription to wire transfer
 
-Use the following steps to switch your Azure subscription to pay by wire transfer. *Once you switch to payment by wire transfer, you can't switch back to a credit card*.
+Use the following steps to switch your Azure subscription to payment by wire transfer.
 
-1. Go to the Azure portal to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.  
-    :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot showing search for Cost Management + Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
-1. Select the subscription you'd like to switch to pay by wire transfer.
-1. Select **Payment methods**.
-On the Payment methods page, select **Pay by wire transfer**.  
-<!--    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Pay by wire transfer option." lightbox="./media/pay-by-invoice/payment-methods.png" :::-->
+> [!NOTE]
+> After you switch to payment by wire transfer, you can't switch back to a credit card.
 
-### Switch billing profile to wire transfer
+1. Go to the Azure portal and sign in as the account administrator. Then search for and select **Cost Management + Billing**.  
+
+    :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
+1. Select the subscription or billing profile that you want to switch to payment by wire transfer.
+1. On the left menu, under **Billing**, select **Payment methods**.
+1. On the **Payment methods** pane, select the ellipsis (**...**), and then select **Make default** to change the default payment method to wire transfer.
+
+### Switch your billing profile to wire transfer
 
 Use the following steps to switch a billing profile to wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
 
-1. Go to the Azure portal view your billing information. Search for and select **Cost Management + Billing**.
-1. In the menu, choose **Billing profiles**.  
-    :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="Screenshot showing Billing profiles menu item." lightbox="./media/pay-by-invoice/billing-profile.png" :::
+1. Go to the Azure portal, and then search for and select **Cost Management + Billing**.
+1. On the left menu, select **Billing profiles**.  
+
+    :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="Screenshot that shows the menu item for billing profiles." lightbox="./media/pay-by-invoice/billing-profile.png" :::
 1. Select a billing profile.
-1. In the **Billing profile** menu, select **Payment methods**.  
-   :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot showing Payment methods menu item." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
-1. Under the *Other payment methods* heading, select the ellipsis (...) symbol, and then select **Make default**.  
-<!--    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::-->
+1. On the **Billing profile** menu, select **Payment methods**.  
 
-## Wire transfer payment processing time
+   :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot that shows the menu item for payment methods." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
+1. Under **Other payment methods**, select the ellipsis (**...**), and then select **Make default**.
 
-Payments made by wire transfer have processing times that vary, depending on the type of transfer:
+## Check the type of your account
 
-- ACH domestic transfers - Five business days. Two to three days to arrive, plus two days to post.
-- Wire transfers (domestic) - Four business days. Two days to arrive, plus two days to post.
-- Wire transfers (international) - Seven business days. Five days to arrive, plus two days to post.
-
-When your account is approved for wire transfer payment, the instructions for payment can be found on the invoice.
-
-## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Frequently asked questions
 
-*Why did I receive a request for a legal document?*
+### Why did I receive a request for a legal document?
 
-Occasionally Microsoft needs legal documentation if the information you provided is incomplete or not verifiable. Examples might include:
+Occasionally, Microsoft needs legal documentation if the information that you provided is incomplete or not verifiable. Examples might include:
 
-* Name difference between Account name and Company name
-* Change in name
+- A difference between the account name and company name.
+- A name change.
+
+### What's the processing time for wire transfer payments?
+
+Payments that you make by wire transfer have processing times that vary, depending on the type of transfer:
+
+- ACH domestic transfers take about five business days: two to three days to arrive, plus two days to post.
+- Wire transfers (domestic) take four business days: two days to arrive, plus two days to post.
+- Wire transfers (international) take seven business days: five days to arrive, plus two days to post.
+
+When your account is approved for wire transfer payment, you can find the instructions for payment on the invoice.
 
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-## Next steps
-
-* If needed, update your billing contact information at the [Azure portal](https://portal.azure.com).

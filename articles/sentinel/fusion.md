@@ -11,6 +11,8 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 > Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -26,6 +28,8 @@ Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detec
 
 > [!NOTE]
 > Microsoft Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Microsoft Sentinel workspace. To opt out of Fusion, navigate to **Microsoft Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+
+In Microsoft Sentinel workspaces that are onboarded to the [unified security operations platform in the Microsoft Defender portal](https://aka.ms/unified-soc-announcement), Fusion is disabled, as its functionality is replaced by the Microsoft Defender XDR correlation engine.
 
 ## Fusion for emerging threats
 
@@ -51,9 +55,9 @@ The Fusion engine's ML algorithms constantly learn from existing attacks and app
   - Microsoft Defender for Endpoint
   - Microsoft Defender for Identity
   - Microsoft Defender for Office 365
-- [**Alerts from scheduled analytics rules**](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections), both [built-in](detect-threats-built-in.md#scheduled) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
+- [**Alerts from scheduled analytics rules**](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections). [Analytics rules](scheduled-rules-overview.md) must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
 
-You don’t need to have connected *all* the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
+You don't need to have connected *all* the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
 
 When the Fusion engine's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the *incidents* table in your Microsoft Sentinel workspace.
 
@@ -65,7 +69,7 @@ Microsoft Sentinel's Fusion engine generates an incident when it detects multipl
 - [Microsoft Defender for Endpoint](./data-connectors/microsoft-defender-for-endpoint.md)
 - [Microsoft Defender for Identity connector](./data-connectors/microsoft-defender-for-identity.md)
 - [Microsoft Defender for Cloud Apps](./data-connectors/microsoft-defender-for-cloud-apps.md)
-- [Microsoft Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
+- [Microsoft Sentinel scheduled analytics rules](scheduled-rules-overview.md). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
 
@@ -105,7 +109,6 @@ In order to enable these Fusion-powered attack detection scenarios, their associ
 | **Ransomware**                  | <ul><li>[Ransomware execution *following* suspicious Microsoft Entra sign-in](fusion-scenario-reference.md#ransomware-execution-following-suspicious-azure-ad-sign-in)          |
 | **Remote exploitation**         | <ul><li>(PREVIEW) [Suspected use of attack framework *followed by* <br>anomalous traffic flagged by Palo Alto Networks firewall](fusion-scenario-reference.md#suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall)          |
 | **Resource hijacking**          | <ul><li>(PREVIEW) [Suspicious resource / resource group deployment by a previously unseen caller <br>*following* suspicious Microsoft Entra sign-in](fusion-scenario-reference.md#suspicious-resource--resource-group-deployment-by-a-previously-unseen-caller-following-suspicious-azure-ad-sign-in)          |
-|
 
 ## Next steps
 

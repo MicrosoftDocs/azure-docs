@@ -1,7 +1,7 @@
 ---
 title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 12/04/2023
 author: ankitaduttaMSFT
@@ -53,6 +53,7 @@ Guest operating system | Any guest OS [supported for Azure](../cloud-services/cl
 --- | ---
 Resize disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then re-enable replication for the VM.
 Add disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then re-enable replication for the VM.
+Change disk ID on replication Hyper-V VM | Not supported. If you change the disk ID, it impacts the replication and will show the disk as "Not Protected".
 
 ## Hyper-V network configuration
 

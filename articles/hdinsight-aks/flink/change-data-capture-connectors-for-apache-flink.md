@@ -1,7 +1,7 @@
 ---
 title: How to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 04/02/2024
 ---
@@ -335,7 +335,7 @@ public class mssqlSinkToKafka {
    
 ### Reference
 
-* [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+* [SQLServer CDC Connector](https://github.com/apache/flink-cdc/blob/master/docs/content.zh/docs/connectors/flink-sources/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 * [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 * [Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)
 * Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Communications Gat
 author: rcdun
 ms.author: rdunstan
 ms.custom: subject-cost-optimization
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2024
 ---
@@ -33,8 +33,8 @@ The meters for production deployments include:
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
-    - Operator Connect, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering are fixed networks.
-    - Teams Phone Mobile is a mobile network.
+    - Operator Connect, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering are charged as fixed networks.
+    - Teams Phone Mobile and Azure Operator Call Protection Preview are charged as mobile networks.
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 
@@ -69,8 +69,8 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 You must pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
 
-- If you're connecting to the public internet with Microsoft Azure Peering Service for Voice (MAPS Voice), you might need to pay a third party for the cross-connect at the exchange location.
-- If you're connecting to the public internet with ExpressRoute Microsoft Peering, you must purchase ExpressRoute circuits with a specified bandwidth and data billing model.
+- If you're connecting to the public internet with Microsoft Azure Peering Service for Voice (MAPS Voice), bandwidth costs are included in Azure Communications Gateway but you might need to pay a third party for the cross-connects at the exchange location.
+- If you're connecting to Azure with ExpressRoute, you must purchase ExpressRoute circuits with a specified bandwidth and data billing model.
 - If you're connecting into Azure as a next hop, you might need to pay virtual network peering costs.
 
 You must also pay for any costs charged by the communications services to which you're connecting. These costs don't appear on your Azure bill, and you need to pay them to the communications service yourself.

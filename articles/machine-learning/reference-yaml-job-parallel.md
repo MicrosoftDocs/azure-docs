@@ -3,13 +3,13 @@ title: 'CLI (v2) parallel job YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) parallel job YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
-author: alainli
-ms.author: alainli
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: alainli
 ms.date: 09/27/2022
 ---
 
@@ -36,6 +36,7 @@ ms.date: 09/27/2022
 | `task` | object | **Required.** The template for defining the distributed tasks for parallel job. See [Attributes of the `task` key](#attributes-of-the-task-key).|||
 |`input_data`| object | **Required.**  Define which input data will be split into mini-batches to run the parallel job. Only applicable for referencing one of the parallel job `inputs` by using the `${{ inputs.<input_name> }}` expression|||
 | `mini_batch_size` | string | Define the size of each mini-batch to split the input.<br><br> If the input_data is a folder or set of files, this number defines the **file count** for each mini-batch. For example, 10, 100.<br>If the input_data is a tabular data from `mltable`, this number defines the proximate physical size for each mini-batch. For example, 100 kb, 100 mb. ||1|
+| `partition_keys` | list | The keys used to partition dataset into mini-batches.<br><br>If specified, the data with the same key will be partitioned into the same mini-batch. If both `partition_keys` and `mini_batch_size` are specified, the partition keys will take effect. |||
 | `mini_batch_error_threshold` | integer | Define the number of failed mini batches that could be ignored in this parallel job. If the count of failed mini-batch is higher than this threshold, the parallel job will be marked as failed.<br><br>Mini-batch is marked as failed if:<br> - the count of return from run() is less than mini-batch input count. <br> - catch exceptions in custom run() code.<br><br> "-1" is the default number, which means to ignore all failed mini-batch during parallel job.|[-1, int.max]|-1|
 | `logging_level` | string | Define which level of logs will be dumped to user log files. |INFO, WARNING, DEBUG|INFO|
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | 1 |

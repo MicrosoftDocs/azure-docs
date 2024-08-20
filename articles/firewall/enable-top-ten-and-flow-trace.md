@@ -3,10 +3,10 @@ title: Enable Top flows and Flow trace logs in Azure Firewall
 description: Learn how to enable the Top flows and Flow trace logs in Azure Firewall.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 06/14/2024
 ms.author: victorh 
 ---
 
@@ -141,7 +141,7 @@ To check the status of the AzResourceProvider registration, you can run the Azur
 
 To disable the log, you can unregister it using the following command or select unregister in the previous portal example.
  
-`Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"`
+`Unregister-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network`
 
 
 ### Create a diagnostic setting and enable Resource Specific Table

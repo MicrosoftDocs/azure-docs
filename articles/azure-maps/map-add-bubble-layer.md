@@ -4,9 +4,9 @@ description: Learn how to render points on maps as circles with fixed sizes. See
 author: sinnypan
 ms.author: sipa
 ms.date: 05/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Add a bubble layer to a map

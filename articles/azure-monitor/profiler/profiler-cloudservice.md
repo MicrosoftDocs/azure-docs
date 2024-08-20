@@ -1,9 +1,9 @@
 ---
-title: Enable Profiler for Azure Cloud Services | Microsoft Docs
+title: Enable Profiler for Azure Cloud Services
 description: Profile Azure Cloud Services in real time with Application Insights Profiler.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: engagement
-ms.date: 09/22/2023
+ms.date: 08/16/2024
 ---
 
 # Enable Profiler for Azure Cloud Services
@@ -64,4 +64,4 @@ Deploy your service with the new Diagnostics configuration. Application Insights
 > [!div class="nextstepaction"]
 > [Generate load and view Profiler traces](./profiler-data.md)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]

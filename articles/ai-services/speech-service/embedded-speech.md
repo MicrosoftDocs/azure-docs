@@ -35,8 +35,6 @@ Embedded TTS with neural voices is only supported on Arm64.
 
 Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
-Embedded speech isn't supported on RHEL/CentOS 7.
-
 Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
@@ -131,7 +129,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.36.0</version>
+            <version>1.40.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -152,7 +150,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.36.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.40.0@aar'
 }
 ```
 ::: zone-end
@@ -184,12 +182,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 // For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8",
-    Environment.GetEnvironmentVariable("MODEL_KEY"));
+    Environment.GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    Environment.GetEnvironmentVariable("VOICE_KEY"));
+    Environment.GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 ::: zone-end
@@ -209,12 +207,12 @@ auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 // For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8",
-    GetEnvironmentVariable("MODEL_KEY"));
+    GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    GetEnvironmentVariable("VOICE_KEY"));
+    GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
@@ -232,12 +230,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 // For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8",
-    System.getenv("MODEL_KEY"));
+    System.getenv("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    System.getenv("VOICE_KEY"));
+    System.getenv("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
@@ -288,8 +286,8 @@ For embedded voices, it's essential to note that certain SSML tags might not be 
 |-----------------|-----------|-------------------------------------------------------|--------------------------|
 | audio           | src       |                                                       | No                       |
 | bookmark        |           |                                                       | Yes                      |
-| break           | strength  |                                                       | No                       |
-|                 | time      |                                                       | No                       |
+| break           | strength  |                                                       | Yes                       |
+|                 | time      |                                                       | Yes                       |
 | silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
 |                 | value     |                                                       | No                       |
 | emphasis        | level     |                                                       | No                       |

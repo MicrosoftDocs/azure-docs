@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 04/11/2024
 ms.custom: engagement-fy23
 ---
 
@@ -32,9 +32,8 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>**Note**: Service Bus built-in connector triggers follow the [*polling trigger*](introduction.md#triggers) pattern, which means that the trigger continually checks for messages in the queue or topic subscription. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted), which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In App** and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>**Note**: Service Bus built-in connector triggers follow the [*polling trigger*](introduction.md#triggers) pattern, which means that the trigger continually checks for messages in the queue or topic subscription. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Prerequisites
 
@@ -52,9 +51,13 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * If your logic app resource uses a managed identity for authenticating access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
 
-  Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
+  * Each logic app resource should use only one managed identity, even if the logic app's workflow accesses different messaging entities.
 
-  For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+  * Each managed identity that accesses a queue or topic subscription should use its own Service Bus API connection.
+
+  * Service Bus operations that exchange messages with different messaging entities and require different permissions should use their own Service Bus API connections.
+
+  For more information about managed identities, see [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 * By default, the Service Bus built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -222,7 +225,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 | Authentication type | Required information |
 |---------------------|----------------------|
 | **Connection String** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
-| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, review [Microsoft Entra ID Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication). |
+| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, see [OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#oauth-microsoft-entra). |
 | **Managed identity** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
 
 <a name="get-connection-string"></a>

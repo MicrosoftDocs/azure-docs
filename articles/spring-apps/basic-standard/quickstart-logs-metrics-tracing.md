@@ -3,9 +3,9 @@ title: "Quickstart - Monitoring Azure Spring Apps apps with logs, metrics, and t
 description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -67,47 +67,47 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. In the Azure portal, go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Apps.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Logs opening page." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Azure portal that shows the Logs pane with Queries page open and Run highlighted." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
 1. Select **Run**. You're shown logs. For more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of a Logs Analytics query." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Logs Analytics query result." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
 1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
 ## Metrics
 
-1. In the Azure portal, go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting one of the .NET metrics under **Performance (.NET)** or **Request (.NET)** in the **Metric** drop-down, and `Avg` for **Aggregation** to see the timeline for that metric.
+1. In the Azure portal, go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting one of the .NET metrics under **Performance (.NET)** or **Request (.NET)** in the **Metric** drop-down, and **Avg** for **Aggregation** to see the timeline for that metric.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png" alt-text="Screenshot of the Metrics page." lightbox="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Metrics page with available filters." lightbox="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png":::
 
 1. Select **Add filter** in the toolbar, select `App=solar-system-weather` to see CPU usage only for the **solar-system-weather** app.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png" alt-text="Screenshot of adding a filter." lightbox="media/quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Metrics page with the filter Property, Operator, and Values options highlighted." lightbox="media/quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png":::
 
-1. Dismiss the filter created in the preceding step, select **Apply Splitting**, and select `App` for **Values** to see CPU usage by different apps.
+1. Dismiss the filter created in the preceding step, select **Apply Splitting**, and select **App** for **Values** to see the CPU usage by different apps.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-split-steeltoe.png" alt-text="Screenshot of applying splitting." lightbox="media/quickstart-logs-metrics-tracing/metrics-split-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-split-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Metrics page with the splitting Values, Limit, and Sort options highlighted." lightbox="media/quickstart-logs-metrics-tracing/metrics-split-steeltoe.png":::
 
 ## Distributed tracing
 
 1. In the Azure portal, go to the **service | Overview** page and select **Distributed tracing** in the **Monitoring** section. Then select the **View application map** tab on the right.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-entry.png" alt-text="Screenshot of the Distributed tracing page." lightbox="media/quickstart-logs-metrics-tracing/tracing-entry.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-entry.png" alt-text="Screenshot of the Azure portal that shows the Distributed tracing page." lightbox="media/quickstart-logs-metrics-tracing/tracing-entry.png":::
 
 1. You can now see the status of calls between apps.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png" alt-text="Screenshot of the Application map page." lightbox="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Application map page." lightbox="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png":::
 
 1. Select the link between **solar-system-weather** and **planet-weather-provider** to see more details such as the slowest calls by HTTP methods.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png" alt-text="Screenshot of Application map details." lightbox="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Application map details." lightbox="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png":::
 
 1. Finally, select **Investigate Performance** to explore more powerful built-in performance analysis.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png" alt-text="Screenshot of Performance page." lightbox="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Performance page." lightbox="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png":::
 
 ::: zone-end
 
@@ -144,7 +144,7 @@ az spring app logs \
 
 You're shown logs like this:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of CLI log output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of the Azure CLI log streaming output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
 
 > [!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionalities.
@@ -179,19 +179,19 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Apps.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Logs opening page." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Azure portal that shows the Queries page with Run highlighted." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
 1. Then you're shown filtered logs. For more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of the Azure portal that shows the query result of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
 
 ## Metrics
 
-Navigate to the `Application insights` blade, and then navigate to the `Metrics` blade. You can see metrics contributed by Spring Boot apps, Spring modules, and dependencies.
+Navigate to the **Application insights** page, and then navigate to the **Metrics** page. You can see metrics contributed by Spring Boot apps, Spring modules, and dependencies.
 
-The following chart shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections` (JDBC Connections), and `http_client_requests`.
+The following chart shows `gateway_requests` (Spring Cloud Gateway), `hikaricp_connections` (JDBC Connections), and `http_client_requests`.
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg" alt-text="Screenshot of gateway requests." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with a graph of the selected values." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg":::
 
 Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. The Spring Boot autoconfiguration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) are instrumented by the `@Timed` Micrometer annotation at the class level.
 
@@ -204,45 +204,45 @@ The `visits-service` application has the following custom metrics enabled:
 
 - @Timed: `petclinic.visit`
 
-You can see these custom metrics in the `Metrics` blade:
+You can see these custom metrics in the **Metrics** page:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg" alt-text="Screenshot of the Metrics blade with custom metrics." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with custom metrics." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg":::
 
 You can use the Availability Test feature in Application Insights and monitor the availability of applications:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg" alt-text="Screenshot of the Availability Test feature." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Availability page with the Availability Test section highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg":::
 
-Navigate to the `Live Metrics` blade to can see live metrics with low latencies (less than one second):
+Navigate to the **Live Metrics** page to see live metrics with low latencies (less than one second):
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg" alt-text="Screenshot of live metrics." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Live Metrics page low latencies graphs." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-live-metrics.jpg":::
 
 ## Tracing
 
 Open the Application Insights created by Azure Spring Apps and start monitoring Spring applications.
 
-Navigate to the `Application Map` blade:
+Navigate to the **Application Map** page:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg" alt-text="Screenshot of the Application Map blade." lightbox="media/quickstart-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Application Map page with map components." lightbox="media/quickstart-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg":::
 
-Navigate to the `Performance` blade:
+Navigate to the **Performance** page:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-performance.jpg" alt-text="Screenshot of the Performance blade." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-performance.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-performance.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with Operation details." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-performance.jpg":::
 
-Navigate to the `Performance/Dependenices` blade - you can see the performance number for dependencies, particularly SQL calls:
+Navigate to the **Dependencies** tab, where you can see the performance number for dependencies, particularly SQL calls:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Performance/Dependencies blade." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Depencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
 
 Select a SQL call to see the end-to-end transaction in context:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg" alt-text="Screenshot of the end-to-end transaction details." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg":::
 
-Navigate to the `Failures/Exceptions` blade - you can see a collection of exceptions:
+Navigate to the **Failures** page and the **Exceptions** tab, where you can see a collection of exceptions:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png" alt-text="Screenshot of the Failures/Exceptions blade." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Failures page." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png":::
 
 Select an exception to see the end-to-end transaction and stacktrace in context:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg" alt-text="Screenshot of exception details." lightbox="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the exception details and call stack." lightbox="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg":::
 
 ::: zone-end
 

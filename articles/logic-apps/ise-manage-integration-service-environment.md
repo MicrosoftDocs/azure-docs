@@ -91,7 +91,7 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 ### Network ports used by your ISE
 
-This table describes the ports that your ISE requires to be accessible and the purpose for those ports. To help reduce complexity when you set up security rules, the table uses [service tags](../virtual-network/service-tags-overview.md) that represent groups of IP address prefixes for a specific Azure service. Where noted, *internal ISE* and *external ISE* refer to the [access endpoint that's selected during ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). For more information, review [Endpoint access](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
+This table describes the ports that your ISE requires to be accessible and the purpose for those ports. To help reduce complexity when you set up security rules, the table uses [service tags](../virtual-network/service-tags-overview.md) that represent groups of IP address prefixes for a specific Azure service. Where noted, *internal ISE* and *external ISE* refer to the access endpoint that's selected during ISE creation. For more information, see [Endpoint access](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 > [!IMPORTANT]
 >
@@ -149,7 +149,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
   * [Azure Logic Apps inbound and outbound addresses for the ISE region](logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)  
   * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
   * [App Service Environment management addresses](../app-service/environment/management-addresses.md)  
-  * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Azure Traffic Manager management addresses](/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
   * [Azure API Management Control Plane IP addresses](../api-management/virtual-network-reference.md#control-plane-ip-addresses)
 
 * Service endpoints

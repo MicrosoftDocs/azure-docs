@@ -3,7 +3,7 @@ title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
 
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions
 ---

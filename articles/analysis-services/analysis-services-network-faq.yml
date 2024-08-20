@@ -42,6 +42,13 @@ sections:
           I have a source database behind a firewall. How can I configure the firewall to allow my Analysis Services server to access it?   
         answer: |
           Azure Analysis Services does not use fixed IP addresses or Service Tags. The range of IP addresses your Analysis Services servers use can be anything in the range of IP addresses for the *Azure region*. You  have to provide the *full range* of IP addresses for the Azure region of your server in the source database firewall rules. Another, and possibly more secure, alternative is to configure an On-premises Data Gateway. You can then configure your Analysis Services servers with the [AlwaysUseGateway server property](analysis-services-vnet-gateway.md#configure-alwaysusegateway-property), and then ensure the On-premises Data Gateway has an IP address allowed by the firewall rules of the data source.
+
+  - name: Consumer email accounts
+    questions:
+      - question: |
+          Can I invite consumer email accounts (such as outlook.com and gmail.com) to the tenant and give permissions to access Azure Analysis Services?
+        answer: |
+          Yes, Azure Analysis Services supports B2C accounts (consumer email accounts who are invited into the Server tenant). However there are limitations with such accounts, for example Single Sign-On from Power BI service live connect reports might not be supported for some providers of consumer email accounts.
           
   - name: Azure apps with IP address
     questions:

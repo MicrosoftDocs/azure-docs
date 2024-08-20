@@ -2,7 +2,7 @@
 title: Create an image definition and image version
 description: Learn how to create an image in an Azure Compute Gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 09/20/2023
@@ -13,7 +13,7 @@ ms.reviewer: cynthn
 # Create an image definition and an image version 
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 An [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
@@ -41,7 +41,7 @@ Allowed characters for the image version are numbers and periods. Numbers must b
 
 When working through this article, replace the resource names where needed.
 
-For [generalized](generalize.md) images, see the OS specific guidance before capturing the image:
+For [generalized](generalize.yml) images, see the OS specific guidance before capturing the image:
    
    - **Linux**
      - [Generic steps](./linux/create-upload-generic.md)
@@ -121,7 +121,7 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have [generalized](generalize.md) the VM (using `waagent -deprovision` for Linux, or Sysprep for Windows) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have [generalized](generalize.yml) the VM (using `waagent -deprovision` for Linux, or Sysprep for Windows) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -186,7 +186,7 @@ az sig image-version create \
 
 ### [PowerShell](#tab/powershell)
 
-Image definitions create a logical grouping for images. When making your image definition, make sure it has all of the correct information. If you [generalized](generalize.md) the source VM, then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
+Image definitions create a logical grouping for images. When making your image definition, make sure it has all of the correct information. If you [generalized](generalize.yml) the source VM, then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
@@ -322,7 +322,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 In the subscription where the source image exists, grant reader permissions to the user. Once the user has reader permission to the source image, login to both accounts (source and target).
 
-You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image.
+You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image. Additionally, you need to ensure that the source image's region or replica and target region are the same.
 
 ### [CLI](#tab/cli2)
 
@@ -349,6 +349,7 @@ az sig image-version create `
    --gallery-name myGallery `
    --resource-group myResourceGroup `
    --image-version $sourceImageID
+   --location myLocation
 ```
 
 

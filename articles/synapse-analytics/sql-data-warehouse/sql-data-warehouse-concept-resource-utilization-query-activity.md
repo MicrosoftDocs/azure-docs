@@ -3,9 +3,9 @@ title: Manageability and monitoring - query activity, resource utilization
 description: Learn what capabilities are available to manage and monitor Azure Synapse Analytics. Use the Azure portal and Dynamic Management Views (DMVs) to understand query activity and resource utilization of your data warehouse.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
-ms.date: 03/14/2024
-ms.service: synapse-analytics
+ms.reviewer: whhender
+ms.date: 04/08/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
@@ -32,8 +32,10 @@ For a programmatic experience when monitoring Synapse SQL via T-SQL, the service
 To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool DMVs](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs).
 
 > [!NOTE]
-> You need to resume your dedicated SQL Pool to monitor the queries using the Query activity tab.
-> The **Query activity** tab can't be used to view historical executions. To check the query history, it's recommended to enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data is flushed, and new records are inserted. Additionally, after any pause, resume, or scale operation, the DMV data is cleared.
+> - You need to resume your dedicated SQL Pool to monitor the queries using the **Query activity** tab.
+> - The **Query activity** tab cannot be used to view historical executions.
+> - The **Query activity** tab will NOT display queries which are related to declare variables (for example, `DECLARE @ChvnString VARCHAR(10)`), set variables (for example, `SET @ChvnString = 'Query A'`), or the batch details. You might find differences between the total number of queries executed on the Azure portal and the total number of queries logged in the DMVs.  
+> - To check the query history for the exact queries which submitted, enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics). By design, DMVs contain only the last 10,000 executed queries. After any pause, resume, or scale operation, the DMV data will be cleared.
 
 ## Metrics and diagnostics logging
 

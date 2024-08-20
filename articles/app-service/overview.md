@@ -12,6 +12,8 @@ author: msangapu-msft
 
 # App Service overview
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 *Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and [Linux](#app-service-on-linux)-based environments.
 
 App Service adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and TLS/SSL certificates.
@@ -29,7 +31,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **Global scale with high availability** - Scale [up](manage-scale-up.md) or [out](../azure-monitor/autoscale/autoscale-get-started.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from [many hundreds of  connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](app-service-hybrid-connections.md) and [Azure Virtual Networks](./overview-vnet-integration.md).
 * **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trust-center). Create [IP address restrictions](app-service-ip-restrictions.md) and [managed service identities](overview-managed-identity.md). [Prevent subdomain takeovers](reference-dangling-subdomain-prevention.md).
-* **Authentication** - [Authenticate users](overview-authentication-authorization.md) using the built-in authentication component. Authenticate users with [Microsoft Entra ID](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md).
+* **Authentication** - [Authenticate users](overview-authentication-authorization.md) using the built-in authentication component. Authenticate users with [Microsoft Entra ID](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [X](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md).
 * **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
 * **Visual Studio and Visual Studio Code integration** - Dedicated tools in Visual Studio and Visual Studio Code streamline the work of creating, deploying, and debugging.
 * **Java tools integration** - Develop and deploy to Azure without leaving your favorite development tools, such as Maven, Gradle, Visual Studio Code, IntelliJ, and Eclipse.
@@ -58,12 +60,16 @@ If you need to create another web app with an outdated runtime version that is n
 * The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 * When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
 
+## App Service Environments
+
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting infrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](./environment/ase-multi-tenant-comparison.md).
+
 ## Next steps
 
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [Getting started)](getting-started.md)
+> [Getting started](getting-started.md)
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)

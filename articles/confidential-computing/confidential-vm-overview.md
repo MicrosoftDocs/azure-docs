@@ -3,8 +3,8 @@ title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
 author: ju-shim
 ms.author: mmcrey
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.reviewer: mattmcinnes
+ms.service: azure-virtual-machines
 ms.custom:
   - ignite-2023
 ms.topic: overview
@@ -13,14 +13,16 @@ ms.date: 11/14/2023
 
 # About Azure confidential VMs 
 
-Azure confidential computing offers confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
+Azure confidential VMs offer strong security and confidentiality for tenants. They create a hardware-enforced boundary between your application and the virtualization stack. You can use them for cloud migrations without modifying your code, and the platform ensures your VM’s state remains protected.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
 
-## Benefits
+## Microsoft Mechanics
 
-Some of the benefits of confidential VMs include:
+> [!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
+
+## Confidential VMs Benefits
 
 - Robust hardware-based isolation between virtual machines, hypervisor, and host management code.
 - Customizable attestation policies to ensure the host's compliance before deployment.
@@ -34,7 +36,7 @@ Some of the benefits of confidential VMs include:
 
 Azure confidential VMs offer a new and enhanced disk encryption scheme. This scheme protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](../attestation/index.yml) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
+If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](/azure/attestation/) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
 
 Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
 
@@ -84,6 +86,7 @@ Confidential VMs support the following VM sizes:
 - General Purpose with local disk: DCadsv5-series, DCedsv5-series
 - Memory Optimized without local disk: ECasv5-series, ECesv5-series
 - Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
+- NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support
 Confidential VMs support the following OS options:

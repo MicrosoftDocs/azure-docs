@@ -10,24 +10,24 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ---
 
-# Import data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
+# Index data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for NoSQL](../cosmos-db/nosql/index.yml) and makes it searchable in Azure AI Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) and makes it searchable in Azure AI Search.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure AI Search indexing](search-what-is-an-index.md) are different operations. Indexing in Azure AI Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](/azure/cosmos-db/index-overview) and [Azure AI Search indexing](search-what-is-an-index.md) are different operations. Indexing in Azure AI Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
-+ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, container and items](/azure/cosmos-db/sql/create-cosmosdb-resources-portal). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
-+ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and can result in missing data.
++ An [automatic indexing policy](/azure/cosmos-db/index-policy) on the Azure Cosmos DB collection, set to [Consistent](/azure/cosmos-db/index-policy#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and can result in missing data.
 
-+ Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure RBAC (Microsoft Entra ID), make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) is assigned both **Cosmos DB Account Reader Role** and [**Cosmos DB Built-in Data Reader Role**](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions).
++ Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure RBAC (Microsoft Entra ID), make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) is assigned both **Cosmos DB Account Reader Role** and [**Cosmos DB Built-in Data Reader Role**](/azure/cosmos-db/how-to-setup-rbac#built-in-role-definitions).
 
 + A [REST client](search-get-started-rest.md) to create the data source, index, and indexer. 
 
@@ -38,7 +38,7 @@ The data source definition specifies the data to index, credentials, and policie
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
     ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+    POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -87,7 +87,7 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)/(IdentityAuthType=[identity-auth-type])" }`|
-|This connection string doesn't require an account key, but you must have a search service that can [connect using a managed identity](search-howto-managed-identities-data-sources.md). For connections targeting the [SQL API](../cosmos-db/sql-query-getting-started.md), you can omit `ApiKind` from the connection string. For more information about `ApiKind`, `IdentityAuthType` see [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).|
+|This connection string doesn't require an account key, but you must have a search service that can [connect using a managed identity](search-howto-managed-identities-data-sources.md). For connections targeting the [SQL API](/azure/cosmos-db/sql-query-getting-started), you can omit `ApiKind` from the connection string. For more information about `ApiKind`, `IdentityAuthType` see [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).|
 
 <a name="flatten-structures"></a>
 
@@ -137,7 +137,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 
 #### Unsupported queries (DISTINCT and GROUP BY)
 
-Queries using the [DISTINCT keyword](../cosmos-db/sql-query-keywords.md#distinct) or [GROUP BY clause](../cosmos-db/sql-query-group-by.md) aren't supported. Azure AI Search relies on [SQL query pagination](../cosmos-db/sql-query-pagination.md) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clauses are compatible with the [continuation tokens](../cosmos-db/sql-query-pagination.md#continuation-tokens) used to paginate results.
+Queries using the [DISTINCT keyword](/azure/cosmos-db/sql-query-keywords#distinct) or [GROUP BY clause](/azure/cosmos-db/sql-query-group-by) aren't supported. Azure AI Search relies on [SQL query pagination](/azure/cosmos-db/sql-query-pagination) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clauses are compatible with the [continuation tokens](/azure/cosmos-db/sql-query-pagination#continuation-tokens) used to paginate results.
 
 Examples of unsupported queries:
 
@@ -149,7 +149,7 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup FROM Food f GROUP BY f.foodGroup
 ```
 
-Although Azure Cosmos DB has a workaround to support [SQL query pagination with the DISTINCT keyword by using the ORDER BY clause](../cosmos-db/sql-query-pagination.md#continuation-tokens), it isn't compatible with Azure AI Search. The query returns a single JSON value, whereas Azure AI Search expects a JSON object.
+Although Azure Cosmos DB has a workaround to support [SQL query pagination with the DISTINCT keyword by using the ORDER BY clause](/azure/cosmos-db/sql-query-pagination#continuation-tokens), it isn't compatible with Azure AI Search. The query returns a single JSON value, whereas Azure AI Search expects a JSON object.
 
 ```sql
 -- The following query returns a single JSON value and isn't supported by Azure AI Search
@@ -158,12 +158,12 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/resource-model.md#azure-cosmos-db-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](/azure/cosmos-db/resource-model#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that store data:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -204,14 +204,14 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Azure Cosmos DB indexer
+## Configure and run the Azure Cosmos DB for NoSQL indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     Content-Type: application/json
     api-key: [search service admin key]
     {
@@ -243,7 +243,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -303,6 +303,9 @@ The following example shows a [data source definition](#define-the-data-source) 
 },
 ```
 
+> [!NOTE]
+> When you assign a `null` value to a field in your Azure Cosmos DB, the AI Search indexer is unable to distinguish between `null` and a missing field value. Therefore, if a field in the index is empty, it will not be substituted with a `null` value, even if that modification was specifically made in your database.
+
 <a name="IncrementalProgress"></a>
 
 ### Incremental indexing and custom queries
@@ -311,7 +314,7 @@ If you're using a [custom query to retrieve documents](#flatten-structures), mak
 
 In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure AI Search might not infer that the query is ordered by the `_ts`. You can tell Azure AI Search that results are ordered by setting the `assumeOrderByHighWaterMarkColumn` configuration property. 
 
-To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-indexer) as follows: 
+To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-for-nosql-indexer) as follows: 
 
 ```http
 {
@@ -342,7 +345,7 @@ The `softDeleteColumnName` must be a top-level field in the index. Using nested 
 The following example creates a data source with a soft-deletion policy:
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: [Search service admin key]
 

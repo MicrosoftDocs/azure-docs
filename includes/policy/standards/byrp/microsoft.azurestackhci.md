@@ -1,9 +1,9 @@
 ---
-author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 08/16/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -16,7 +16,7 @@ Microsoft cloud security benchmark, see the
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](/azure/governance/policy/samples/azure-security-benchmark).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

@@ -5,7 +5,7 @@ ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 04/12/2024
 
 #Customer intent: I want to move my App Configuration resource from one Azure region to another. 
 

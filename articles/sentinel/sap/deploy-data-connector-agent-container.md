@@ -35,9 +35,9 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Configure auditing](configure-audit.md)
 
-1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
-
 1. **Deploy the data connector agent (*You are here*)**
+
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
@@ -80,7 +80,7 @@ Also, if you plan to ingest NetWeaver/ABAP logs over a secure connection using S
 
 ## Create a virtual machine and configure access to your credentials
 
-Ideally, your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
+Ideally, your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](/azure/key-vault/general/authentication). How you access your key vault depends on where your VM is deployed:
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault.
 
@@ -319,7 +319,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
     |---------|---------|
     |**Agent name**     |  Enter an agent name, including any of the following characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
     |**Subscription** / **Key vault**     |   Select the **Subscription** and **Key vault** from their respective drop-downs.      |
-    |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.       |
+    |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). <br><br>Make sure that this path includes the SDK version number in the following syntax: `<path>/NWRFC<version number>.zip`. For example: `/src/test/nwrfc750P_12-70002726.zip`.       |
     |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.         |
     |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default **Managed Identity** option selected.  <br><br>You must have the managed identity set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
 
@@ -334,24 +334,24 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. <a name="role"></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. <a name="role"></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment commands** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
     To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM name. Copy the value of the **Object ID** field to use with your copied command.
 
-    This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
+    These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
     > [!IMPORTANT]
-    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
+    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
     >
-    > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
+    > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
-1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
+1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent deployment command** in step 2. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
@@ -367,13 +367,13 @@ This procedure describes how to create a new agent through the Azure portal, aut
     > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the [command line](#command-line-options) aren't displayed here.
     >
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent command** that you'd copied in the previous step.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
     Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
 ### Connect to a new SAP system
 
@@ -446,24 +446,24 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment commands** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
     To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your application name. Copy the value of the **Object ID** field to use with your copied command.
 
-    This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's application identity, including only the scope of the specified agent's data in the workspace.
+    These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's application identity, including only the scope of the specified agent's data in the workspace.
 
     > [!IMPORTANT]
-    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
+    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
     >
-    > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
+    > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
-1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
+1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent deployment command** in step 2. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
@@ -477,13 +477,13 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the [command line](#command-line-options) aren't displayed here.
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent command** that you'd copied in the previous step.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
     Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
 ### Connect to a new SAP system
 
@@ -552,11 +552,11 @@ Create a new agent using the command line, authenticating with a managed identit
 
     You'll use the name of the docker container in the next step.
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
     To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed later on.
 
-    Assign the **Microsoft Sentinel Business Applications Agent Operator** role to the VM's identity:
+    Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
     1. <a name=agent-id-managed></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
 
@@ -567,10 +567,12 @@ Create a new agent using the command line, authenticating with a managed identit
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
 
-    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
+    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
     ```bash
-    az role assignment create --assignee <OBJ_ID> --role "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
     ```
 
     Replace placeholder values as follows:
@@ -622,11 +624,11 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     You'll use the name of the docker container in the next step.
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
 
-    Assign the **Microsoft Sentinel Business Applications Agent Operator** role to the VM's identity:
+    Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
     1. <a name=agent-id-application></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
 
@@ -636,10 +638,12 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
+    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
     ```bash
-    az role assignment create --assignee <OBJ_ID> --role "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
     ```
 
     Replace placeholder values as follows:
@@ -693,11 +697,11 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     You'll use the name of the docker container in the next step.
 
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
 
-    Assign the **Microsoft Sentinel Business Applications Agent Operator** role to the VM's identity:
+    Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
     1. <a name=agent-id-file></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
 
@@ -708,10 +712,12 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
 
-    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
+    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
     ```bash
-    az role assignment create --assignee <OBJ_ID> --role "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+
+    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
     ```
 
     Replace placeholder values as follows:

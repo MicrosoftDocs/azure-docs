@@ -20,13 +20,17 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
+## GPT-4 Turbo model upgrade
+
+[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
+
 ## Call the Chat Completion APIs
 
 The following command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -42,6 +46,9 @@ The following is a sample request body. The format is the same as the chat compl
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+> [!IMPORTANT]
+> When uploading images, there is a limit of 10 images per chat request.
 
 ```json
 {
@@ -81,12 +88,12 @@ The following is a sample request body. The format is the same as the chat compl
     api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_key="<your_azure_openai_key>"
     deployment_name = '<your_deployment_name>'
-    api_version = '2023-12-01-preview' # this might change in the future
+    api_version = '2024-02-15-preview' # this might change in the future
     
     client = AzureOpenAI(
         api_key=api_key,  
         api_version=api_version,
-        base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
+        base_url=f"{api_base}openai/deployments/{deployment_name}",
     )
     ```
 
@@ -240,7 +247,7 @@ The _detail_ parameter in the model offers three choices: `low`, `high`, or `aut
 - `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
 - `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.''
 
-For details on how the image parameters impact tokens used and pricing please see - [What is OpenAI? Image Tokens with GPT-4 Turbo with Vision](../overview.md#image-tokens-gpt-4-turbo-with-vision)
+For details on how the image parameters impact tokens used and pricing please see - [What is OpenAI? Image Tokens with GPT-4 Turbo with Vision](../overview.md#image-tokens-gpt-4-turbo-with-vision-and-gpt-4o)
 
 ## Use Vision enhancement with images
 
@@ -253,12 +260,15 @@ The **object grounding** integration brings a new layer to data analysis and use
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -271,7 +281,7 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 
 The format is similar to that of the chat completions API for GPT-4, but the message content can be an array containing strings and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image).
 
-You must also include the `enhancements` and `data_sources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. 
+You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. 
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
@@ -287,7 +297,7 @@ You must also include the `enhancements` and `data_sources` objects. `enhancemen
               "enabled": true
             }
     },
-    "data_sources": [
+    "dataSources": [
     {
         "type": "AzureComputerVision",
         "parameters": {
@@ -323,11 +333,11 @@ You must also include the `enhancements` and `data_sources` objects. `enhancemen
 
 #### [Python](#tab/python)
 
-You call the same method as in the previous step, but include the new *extra_body* parameter. It contains the `enhancements` and `data_sources` fields. 
+You call the same method as in the previous step, but include the new *extra_body* parameter. It contains the `enhancements` and `dataSources` fields. 
 
 `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` field, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. 
 
-`data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVision"` and a `parameters` field. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. R
+`dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVision"` and a `parameters` field. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. R
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
@@ -352,7 +362,7 @@ response = client.chat.completions.create(
         ] } 
     ],
     extra_body={
-        "data_sources": [
+        "dataSources": [
             {
                 "type": "AzureComputerVision",
                 "parameters": {
@@ -447,6 +457,9 @@ Follow these steps to set up a video retrieval system and integrate it with your
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
@@ -498,6 +511,9 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
     > [!TIP]
     > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+
+    > [!IMPORTANT]
+    > A video index name can be up to 24 characters long, unless it's a GUID, which can be 36 characters.
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -567,7 +583,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
 #### [REST](#tab/rest)
 
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
@@ -583,7 +599,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
                   "enabled": true
                 }
         },
-        "data_sources": [
+        "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
@@ -616,7 +632,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
     } 
     ```
 
-    The request includes the `enhancements` and `data_sources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
+    The request includes the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 

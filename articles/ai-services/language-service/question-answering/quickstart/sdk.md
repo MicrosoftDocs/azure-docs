@@ -16,6 +16,9 @@ zone_pivot_groups: custom-qna-quickstart
 # Quickstart: custom question answering
 
 > [!NOTE]
+> [Azure OpenAI On Your Data](../../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to Custom Question Answering. If you wish to connect an existing Custom Question Answering project to Azure OpenAI On Your Data, please check out our [guide](../how-to/azure-openai-integration.md).
+
+> [!NOTE]
 > Are you looking to migrate your workloads from QnA Maker? See our [migration guide](../how-to/migrate-qnamaker-to-question-answering.md) for information on feature comparisons and migration steps.
 
 Get started with the custom question answering client library. Follow these steps to install the package and try out the example code for basic tasks.
@@ -40,7 +43,7 @@ Get started with the custom question answering client library. Follow these step
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 
@@ -49,9 +52,9 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 To learn about automating your custom question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
 
-* [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [Authoring API reference](/rest/api/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)
-* [Runtime API reference](/rest/api/cognitiveservices/questionanswering/question-answering)
+* [Runtime API reference](/rest/api/questionanswering/question-answering)
 
 ## Next steps
 

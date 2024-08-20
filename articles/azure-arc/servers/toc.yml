@@ -30,17 +30,6 @@
       href: agent-overview.md
     - name: Deploy Azure Monitor agent
       href: concept-log-analytics-extension-deployment.md
-    - name: Security
-      items:
-       - name: Security controls by Azure Policy
-         displayName: regulatory, compliance, standards, domains
-         href: security-controls-policy.md
-       - name: Security overview
-         href: security-overview.md
-       - name: Private Link networking
-         href: private-link-security.md
-       - name: Security baseline
-         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
 - name: How-to guides
   items:
   - name: Deploy
@@ -51,6 +40,10 @@
       href: prerequisites.md
     - name: Network requirements
       href: network-requirements.md
+    - name: Simplify network configuration requirements
+      href: arc-gateway.md
+    - name: Private Link networking
+      href: private-link-security.md
     - name: Deployment options
       href: deployment-options.md
     - name: Connect machines interactively
@@ -117,6 +110,8 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Migrate from legacy Log Analytics agents
+      href: migrate-legacy-agents.md
     - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
     - name: Remotely configure servers using Run command
@@ -124,13 +119,15 @@
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+      href: /azure/defender-for-cloud/quickstart-onboard-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center
       href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Connect via SSH
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
+    - name: PowerShell remoting to Azure Arc-enabled servers
+      href: ssh-arc-powershell-remoting.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Extended Security Updates
@@ -153,6 +150,26 @@
       href: troubleshoot-agent-onboard.md
     - name: VM Extension issues
       href: troubleshoot-vm-extensions.md
+- name: Security
+  items:
+  - name: Security overview
+    href: security-overview.md
+  - name: Onboarding and updates
+    href: security-onboarding.md
+  - name: Networking security
+    href: security-networking.md
+  - name: Extensions security
+    href: security-extensions.md
+  - name: Configuration and remote access
+    href: security-machine-configuration.md
+  - name: Identity and authorization
+    href: security-identity-authorization.md
+  - name: Data and privacy
+    href: security-data-privacy.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
+  - name: Security controls by Azure Policy
+    href: security-controls-policy.md
 - name: Reference
   items:
   - name: azcmagent CLI

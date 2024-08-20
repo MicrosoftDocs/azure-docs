@@ -64,7 +64,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 1. Enter the following credentials and select **Login**:
 
     - **Username**: `admin`
-    - **Password**: `admin` <!--is this correct?-->
+    - **Password**: `admin`
 
     You're asked to define a new password for the *admin* user.
 
@@ -97,8 +97,7 @@ When you're done, select **Next: Interface configurations** to continue.
 The **Interface configurations** tab shows all interfaces detected by the sensor by default. Use this tab to turn monitoring on or off per interface, or define specific settings for each interface.
 
 > [!TIP]
-> We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
-> 
+> We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use.
 
 In the **Interface configurations** tab, do the following to configure settings for your monitored interfaces:
 
@@ -122,20 +121,19 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 ### Activate your OT sensor
 
-This procedure describes how to activate your new OT sensor. 
+This procedure describes how to activate your new OT sensor.
 
 If you've configured the initial settings [via the CLI](#configure-setup-via-the-cli) until now, you'll start the browser-based configuration at this step. After the sensor reboots, you're redirected to the same **Defender for IoT | Overview** page, to the **Activation** tab.
 
 **To activate your sensor**:
 
-1. In the **Activation** tab, select **Upload** to upload the sensor's activation file that you'd downloaded from the Azure portal.
-
-1. Select the terms and conditions option and then select **Next: Certificates**.
+1. In the **Activation** tab, select **Upload** to upload the sensor's activation file that you downloaded from the Azure portal.
+1. Select the terms and conditions option and then select **Activate**.
+1. Select **Next: Certificates**.
 
 ### Define SSL/TLS certificate settings
 
 Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. We recommend that you use a [CA-signed certificate](create-ssl-certificates.md) for all production environments.
-
 
 **To define SSL/TLS certificate settings**:
 
@@ -173,7 +171,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 1. At the `D4Iot login` prompt, sign in with the following default credentials:
 
     - **Username**: `admin`
-    - **Password**: `admin` <!--is this correct?-->
+    - **Password**: `admin`
 
     When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
@@ -181,7 +179,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
     When prompted to confirm your password, enter your new password again. For more information, see [Default privileged users](../manage-users-sensor.md#default-privileged-users).
 
-    <does this happen immediately? unclear-->The `Package configuration` Linux configuration wizard opens. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
+    The `Package configuration` Linux configuration wizard opens. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
 
 1. In the wizard's `Select monitor interfaces` screen, select any of the interfaces you want to monitor with this sensor.
 

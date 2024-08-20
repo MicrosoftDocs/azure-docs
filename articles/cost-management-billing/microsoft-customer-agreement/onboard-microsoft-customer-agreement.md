@@ -182,7 +182,7 @@ Use the following sections to manage your MCA.
 
 ### Step 11 – Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 – Manage payment methods
 
@@ -336,7 +336,7 @@ Use the following steps to manage your MCA.
 
 ### Step 11 - Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 - Manage payment methods
 
@@ -405,7 +405,7 @@ The following videos provide more information about how to manage your MCA:
 - [How to manage your subscriptions and organize your account in the Microsoft 365 admin center](https://www.youtube.com/watch?v=NO25_5QXoy8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=9)
 - [How to find a copy of your Microsoft Customer Agreement in the Microsoft 365 admin center (MAC)](https://www.youtube.com/watch?v=pIe5yHljdcM&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=10)
 
-## Next steps
+## Related content
 
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [Why you might not see an invoice](../understand/download-azure-invoice.md#why-you-might-not-see-an-invoice)

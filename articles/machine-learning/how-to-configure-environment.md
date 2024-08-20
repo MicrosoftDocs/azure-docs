@@ -3,12 +3,12 @@ title: Set up Python development environment
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning Python development environments in Jupyter Notebooks, Visual Studio Code, Azure Databricks, and Data Science Virtual Machines.
 services: machine-learning
-author: rastala
-ms.author: roastala
-ms.service: machine-learning
+author: Blackmist
+ms.author: larryfr
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.reviewer: larryfr, mattmcinnes
-ms.date: 04/25/2023
+ms.reviewer: roastala
+ms.date: 04/08/2024
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
@@ -69,17 +69,17 @@ Create a workspace configuration file in one of the following methods:
     [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
-        #import required libraries
-        from azure.ai.ml import MLClient
-        from azure.identity import DefaultAzureCredential
+    #import required libraries
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
 
-        #Enter details of your Azure Machine Learning workspace
-        subscription_id = '<SUBSCRIPTION_ID>'
-        resource_group = '<RESOURCE_GROUP>'
-        workspace = '<AZUREML_WORKSPACE_NAME>'
-      
-        #connect to the workspace
-        ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    #Enter details of your Azure Machine Learning workspace
+    subscription_id = '<SUBSCRIPTION_ID>'
+    resource_group = '<RESOURCE_GROUP>'
+    workspace = '<AZUREML_WORKSPACE_NAME>'
+    
+    #connect to the workspace
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
 
 ## Local computer or remote VM environment

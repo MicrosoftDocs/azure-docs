@@ -3,7 +3,7 @@ title: Manage lab users
 titleSuffix: Azure Lab Services
 description: Learn how to manage lab users in Azure Lab Services. Configure the number of lab users, manage user registrations, and specify the number of hours they can use their lab VM.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 06/30/2023
 ---
 
 # Manage lab users in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article describes how to manage lab users in Azure Lab Services. Learn how to add users to a lab, manage their registration status, and how to specify the number of hours they can use the virtual machine (VM).
 
@@ -36,6 +38,8 @@ Azure Lab Services supports up to 400 users per lab.
 ## Manage lab users
 
 # [Add users manually](#tab/manual)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 ### Add users
 
@@ -170,6 +174,8 @@ To view the list of lab users that have already registered for the lab by using 
 
 # [Microsoft Entra group](#tab/aad)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 You can manage the lab user list by synchronizing the lab with a Microsoft Entra group. When you use a Microsoft Entra group, you don't have to manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
 
 You can create a Microsoft Entra group within your organization's Microsoft Entra ID to manage access to organizational resources and cloud-based apps. To learn more, see [Microsoft Entra groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Microsoft Entra ID.
@@ -219,6 +225,8 @@ You can't manually add or remove lab users, or update the lab capacity when sync
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 When you create a lab in Teams, Azure Lab Services automatically grants users access to the lab based on their team membership in Teams. When you use Teams, you can't manually add or delete users in the lab settings. Add or remove users to a team to assign or remove access for a user to a lab VM.
 
 Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from within Teams](./how-to-access-lab-virtual-machine.md).
@@ -240,6 +248,8 @@ When a user is added in Teams, Azure Lab Services automatically adds a lab VM fo
 You can't manually add or remove lab users, or update the lab capacity when creating labs in Teams.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you create a lab in Canvas, Azure Lab Services automatically grants users access to the lab based on their course membership in Canvas. When you use Canvas, you can't manually add or delete users in the lab settings. Add or remove users for a course in Canvas to assign or remove access for a user to a lab VM.
 

@@ -3,7 +3,7 @@ title: Load test configuration YAML
 titleSuffix: Azure Load Testing
 description: 'Learn how to configure a load test by using a YAML file. The YAML configuration is used for setting up automated load testing in a CI/CD pipeline.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
 ms.author: ninallam
 author: ninallam
@@ -41,6 +41,7 @@ A load test configuration uses the following keys:
 | `keyVaultReferenceIdentity` | string | N |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. Learn more about [managed identities in Azure Load Testing](./how-to-use-a-managed-identity.md). |
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `publicIPDisabled` | boolean | N |  | Disable the deployment of a public IP address, load balancer, and network security group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
+| `regionalLoadTestConfig` | object | N |  | Distribute load across regions to simulate user traffic from multiple regions. For more information, See [regional load test configuration](#regional-load-test-configuration) for more details. |
 
 ### Load test configuration sample
 
@@ -88,7 +89,7 @@ Azure Load Testing supports the following client metrics:
 
 |Metric  |Aggregate function  |Threshold  |Condition  | Description |
 |---------|---------|---------|---------|-------------|
-|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
+|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 75, 90, 95, 96, 97, 98, 99, 999 and 9999    | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`latency`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than)      | Percentage of failed requests. |
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
@@ -328,6 +329,40 @@ The requests JSON file uses the following properties for defining the load confi
 | `rampUpSteps` | integer | Step | The number of steps to reach the target number of virtual users. |
 | `spikeMultiplier` | integer | Spike | The factor to multiply the number of target users with during the spike duration. |
 | `spikeHoldTimeInSeconds` | integer | Spike | Total duration in seconds to maintain the spike load. |
+
+### Regional load test configuration
+
+You can distribute load across regions to better simulate real life traffic patterns. You can specify the regions that you want to generate the load from and the amount of load that you want to simulate from each region. You can do that by specifying the region name and the number of engine instances that you want in that region. Learn more about [generating load from multiple regions](./how-to-generate-load-from-multiple-regions.md).
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `region` | string |  | Name of the Azure region. |
+| `engineInstances` | integer |  | Number of engine instances for that Azure region. |
+
+#### Regional load test configuration sample
+
+The following code snippet shows a load test configuration, which specifies two Azure regions `eastus` and `eastasia` and the number of engine instances for each region.
+
+```yaml
+displayName: Sample Test
+testPlan: sampleScript.jmx
+description: 'Load test website home page'
+engineInstances: 4
+testId: SampleTest
+testType: Locust
+splitAllCSVs: False
+regionalLoadTestConfig:
+- region: eastus
+  engineInstances: 2
+- region: eastasia
+  engineInstances: 2
+failureCriteria:
+- p90(response_time_ms) > 10000
+autoStop:
+  errorPercentage: 90
+  timeWindow: 60
+```
+
 
 ## Related content
 

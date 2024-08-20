@@ -2,12 +2,12 @@
 title: Best practices for hosting a Kubernetes client application
 titleSuffix: Azure Cache for Redis
 description: Learn how to host a Kubernetes client application that uses Azure Cache for Redis.
-author: flang-msft
-ms.service: cache
+
+
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 11/10/2023
-ms.author: franlanglois
+
 ---
 
 # Kubernetes-hosted client application
@@ -32,7 +32,7 @@ If your Azure Cache for Redis client application runs on a Linux-based container
 
 ## Potential connection collision with _Istio/Envoy_
 
-Currently, Azure Cache for Redis uses ports 15xxx for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/requirements/#ports-used-by-istio), the same ports are also used by _Istio.io_ sidecar proxy called _Envoy_ and could interfere with creating connections, especially on port 15001 and 15006.
+Currently, Azure Cache for Redis uses ports 15xxx for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/application-requirements/#ports-used-by-istio), the same ports are also used by _Istio.io_ sidecar proxy called _Envoy_ and could interfere with creating connections, especially on port 15001 and 15006.
 
 When using _Istio_ with an Azure Cache for Redis cluster, consider excluding the potential collision ports with an [istio annotation](https://istio.io/latest/docs/reference/config/annotations/).
 

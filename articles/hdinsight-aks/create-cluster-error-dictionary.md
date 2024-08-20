@@ -1,12 +1,14 @@
 ---
 title: Create a cluster - error dictionary in Azure HDInsight on AKS
 description: Learn how to troubleshoot errors that occur when creating Azure HDInsight on AKS clusters
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: troubleshooting
 ms.date: 08/31/2023
 ---
 
 # Cluster creation errors on Azure HDInsight on AKS
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article describes how to troubleshoot and resolve errors that could occur when you create Azure HDInsight on AKS clusters.
 

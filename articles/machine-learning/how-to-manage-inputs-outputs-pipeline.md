@@ -3,14 +3,14 @@ title: Manage inputs and outputs of a pipeline
 titleSuffix: Azure Machine Learning
 description: How to manage inputs and outputs of components and pipeline in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: zhanxia
-author: xiaoharper
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: zhanxia
 ms.date:  08/27/2023
 ms.topic: how-to
-ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code1
+ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code6
 ---
 # Manage inputs and outputs of component and pipeline
 
@@ -297,7 +297,7 @@ az ml job download --output-name <OUTPUT_PORT_NAME> -n <JOB_NAME> -g <RESOURCE_G
 ```
 # [Python SDK](#tab/python)
 
-Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [Create handle to workspace](./tutorial-explore-data.md#create-handle-to-workspace) to initialize `ml_client`.
+Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [Create handle to workspace](./tutorial-explore-data.md#create-a-handle-to-the-workspace) to initialize `ml_client`.
  
 ```python
 # Download all the outputs of the job
@@ -325,7 +325,7 @@ az ml job download --all -n <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NA
 
 # [Python SDK](#tab/python)
 
-Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [Create handle to workspace](./tutorial-explore-data.md#create-handle-to-workspace) to initialize `ml_client`.
+Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [Create handle to workspace](./tutorial-explore-data.md#create-a-handle-to-the-workspace) to initialize `ml_client`.
 
 ```python
 # List all child jobs in the job

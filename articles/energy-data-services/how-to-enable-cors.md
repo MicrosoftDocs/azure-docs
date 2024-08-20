@@ -40,9 +40,9 @@ You can set CORS rules for each Azure Data Manager for Energy instance. When you
        [![Screenshot of adding new origin.](media/how-to-enable-cors/enable-cors-5.png)](media/how-to-enable-cors/enable-cors-5.png#lightbox)
    1. For deleting an existing allowed origin use the icon.
       [![Screenshot of deleting the existing origin.](media/how-to-enable-cors/enable-cors-6.png)](media/how-to-enable-cors/enable-cors-6.png#lightbox)
-   1. If * ( wildcard all) is added in any of the allowed origins then please ensure to delete all the other individual allowed origins.
+   1. If * (wildcard all) is added in any of the allowed origins then please ensure to delete all the other individual allowed origins.
 1. Once the Allowed origin is added, the state of resource provisioning is in “Accepted” and during this time further modifications of CORS policy will not be possible. It takes 15 mins for CORS policies to be updated before update CORS window is available again for modifications.
-     [![Screenshot of CORS update window set out.](media/how-to-enable-cors/enable-cors-7.png)](media/how-to-enable-cors/enable-cors-7.png#lightbox)
+     [![Screenshot of CORS update window set out.](media/how-to-enable-cors/cors-update-window.png)](media/how-to-enable-cors/cors-update-window.png#lightbox)
 
 ## How are CORS rules evaluated?
 CORS rules are evaluated as follows:

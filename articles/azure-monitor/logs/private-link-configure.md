@@ -84,6 +84,9 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
     > [!NOTE]
     > If you select **No** and prefer to manage DNS records manually, first finish setting up your private link. Include this private endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure private endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your private link setup. The DNS records you create can override existing settings and affect your connectivity with Azure Monitor.
+    >
+    >  Additionally, if you select **Yes** or **No** and you're using your own custom DNS servers, you need to set up conditional forwarders for the Public DNS zone forwarders mentioned in [Azure private endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
+    > The conditional forwarders need to forward the DNS queries to [Azure DNS](/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
 1. Select **Next: Tags**, then select **Review + create**.
 
@@ -125,7 +128,7 @@ To create and manage Private Link Scopes, use the [REST API](/rest/api/monitor/p
 The following CLI command creates a new AMPLS resource named `"my-scope"`, with both query and ingestion access modes set to `Open`.
 
 ```
-az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
+az resource create -g "my-resource-group" --name "my-scope" -l global --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
 ```
 
 #### Create an AMPLS with mixed access modes: PowerShell example
@@ -259,7 +262,7 @@ The private endpoint you created should now have five DNS zones configured:
 * `privatelink.monitor.azure.com`
 * `privatelink.oms.opinsights.azure.com`
 * `privatelink.ods.opinsights.azure.com`
-* `privatelink.agentsvc.azure.automation.net`
+* `privatelink.agentsvc.azure-automation.net`
 * `privatelink.blob.core.windows.net`
 
 Each of these zones maps specific Azure Monitor endpoints to private IPs from the virtual network's pool of IPs. The IP addresses shown in the following images are only examples. Your configuration should instead show private IPs from your own network.

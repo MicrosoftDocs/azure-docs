@@ -7,7 +7,7 @@ ms.date: 08/24/2021
 
 # Microsoft Entra authentication for Azure Monitor Logs
 
-Azure Monitor can [collect data in Azure Monitor Logs from multiple sources](data-platform-logs.md#data-collection). These sources include agents on virtual machines, Application Insights, diagnostic settings for Azure resources, and the Data Collector API.
+Azure Monitor can [collect data in Azure Monitor Logs from multiple sources](data-platform-logs.md#data-collection-routing-and-transformation). These sources include agents on virtual machines, Application Insights, diagnostic settings for Azure resources, and the Data Collector API.
 
 Log Analytics agents use a workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor. To learn more, see [Send data from agents](data-security.md#2-send-data-from-agents). The Data Collector API uses the same workspace key to [authorize access](data-collector-api.md#authorization).
 
@@ -17,10 +17,11 @@ To enable Microsoft Entra integration for Azure Monitor Logs and remove reliance
 
 1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics-workspaces).
 1. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Microsoft Entra authentication for Application Insights (preview)](../app/azure-ad-authentication.md).
+2. Follow [best practices for using Entra authentication](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 ## Prerequisites
 
-- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
+- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-requirements.md#permissions).
 - [Migrate to the Log Ingestion API](./custom-logs-migrate.md) from the HTTP Data Collector API to send data to Azure Monitor Logs.
 
 ## Permissions required

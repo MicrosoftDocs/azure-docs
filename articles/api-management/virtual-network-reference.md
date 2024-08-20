@@ -4,7 +4,7 @@ description: Reference for network configuration settings when deploying Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 11/29/2023
 ms.author: danlep
@@ -52,6 +52,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 | * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager**  routing for multi-region deployment                        | External |
+| * / 6391                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | Monitoring of individual machine health (Optional)                          | External & Internal  |
 
 ### [stv1](#tab/stv1)
 

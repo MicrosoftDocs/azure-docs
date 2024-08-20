@@ -39,7 +39,6 @@ Customers with ME5/E5 Security plans have support for enterprise IoT monitoring 
 
 Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Device License - add-on wizard](https://signup.microsoft.com/get-started/signup?products=b2f91841-252f-4765-94c3-75802d7c0ddb&ali=1&bac=1) or via the Microsoft 365 admin center.
 
-
 **To start an Enterprise IoT trial**:
 
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Marketplace**.
@@ -73,21 +72,21 @@ Use the following procedure to calculate how many devices you need to monitor if
 
 1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Assets** \> **Devices** to open the **Device inventory** page.
 
-1. Add the total number of devices listed on both the **Network devices** and **IoT devices** tabs.
+1. Note down the total number of **IoT devices** listed.
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/eiot-calculate-devices.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/device-inventory-iot.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/device-inventory-iot.png":::
 
-1. Round up your total to a multiple of 100 and compare it against the number of licenses you have.
+1. Round your total to a multiple of 100 and compare it against the number of licenses you have.
 
 For example:
 
-- In the Microsoft Defender XDR **Device inventory**, you have *473* network devices and *1206* IoT devices.
-- Added together, the total is *1679* devices.
-- You have 320 ME5 licenses, which cover **1600** devices
+- If in Microsoft Defender XDR **Device inventory**, you have *1204* IoT devices.
+- Round down to *1200* devices.
+- You have 240 ME5 licenses, which cover **1200** devices
 
-You need **79** standalone devices to cover the gap.
+You need another **4** standalone devices to cover the gap.
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
@@ -130,7 +129,7 @@ You stop getting security value in Microsoft Defender XDR, including purpose-bui
 
 ### Cancel a legacy Enterprise IoT plan
 
-If you have a legacy Enterprise IoT plan, are *not* an ME5/E5 Security customer, and no longer to use the service, cancel your plan as follows:
+If you have a legacy Enterprise IoT plan, are *not* an ME5/E5 Security customer, and no longer use the service, cancel your plan as follows:
 
 1. In [Microsoft Defender XDR](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 

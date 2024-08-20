@@ -1,8 +1,9 @@
 ---
-title: Process data from Event Hubs Azure using Stream Analytics | Microsoft Docs
+title: Process data using Stream Analytics
 description: This article shows you how to process data from your Azure event hub using an Azure Stream Analytics job. 
-ms.date: 05/22/2023
+ms.date: 06/26/2024
 ms.topic: how-to
+#customer intent: As a developer, I want to know how process event data in an event hub using an Azure Stream Analytics job. 
 ---
 
 
@@ -19,43 +20,33 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 ## End-to-end flow
 
 > [!IMPORTANT]
-> If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
+> - If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
+> - If your event hub allows only the private access via private endpoints, you must have the Stream Analytics job joined to the same network so that the job can access events in the event hub. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your **Event Hubs namespace** and then navigate to the **event hub**, which has the incoming data. 
-1. Select **Process Data** on the event hub page or select **Process data** on the left menu. 
-
-    :::image type="content" source="./media/process-data-azure-stream-analytics/process-data-tile.png" alt-text="Screenshot showing the Process data page for the event hub." lightbox="./media/process-data-azure-stream-analytics/process-data-tile.png":::
-1. Select **Start** on the **Enable real-time insights from events** tile. 
+1. On the left navigation menu, expand **Features**, and select **Process data**, and then select **Start** on the **Enable real time insights from events** tile. 
 
     :::image type="content" source="./media/process-data-azure-stream-analytics/process-data-page-explore-stream-analytics.png" alt-text="Screenshot showing the Process data page with Enable real time insights from events tile selected." lightbox="./media/process-data-azure-stream-analytics/process-data-page-explore-stream-analytics.png":::
-1. You see a query page with values already set for the following fields:
+1. You see a query page with values already set for the following fields. If you see a popup window about a consumer group and a policy being created for you, select **OK**. You immediately see a snapshot of the latest incoming data in this tab.
     1. Your **event hub** as an input for the query.
     1. Sample **SQL query** with SELECT statement. 
     1. An **output** alias to refer to your query test results. 
 
-        :::image type="content" source="./media/process-data-azure-stream-analytics/query-editor.png" alt-text="Screenshot showing the Query editor for your Stream Analytics query." lightbox="./media/process-data-azure-stream-analytics/query-editor.png":::
-        
-        > [!NOTE]
-        >  When you use this feature for the first time, this page asks for your permission to create a consumer group and a policy for your event hub to preview incoming data.
-1. Select **Create** in the **Input preview** pane as shown in the preceding image. 
-1. You immediately see a snapshot of the latest incoming data in this tab.
+        :::image type="content" source="./media/process-data-azure-stream-analytics/query-editor.png" alt-text="Screenshot showing the Query editor for your Stream Analytics query." lightbox="./media/process-data-azure-stream-analytics/query-editor.png":::        
+
     - The serialization type in your data is automatically detected (JSON/CSV). You can manually change it as well to JSON/CSV/AVRO.
     - You can preview incoming data in the table format or raw format. 
     - If your data shown isn't current, select **Refresh** to see the latest events. 
-
-        Here's an example of data in the **table format**: 
-
-        :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in a table format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results.png":::
-
-        Here's an example of data in the **raw format**: 
+    - In the preceding image, the results are shown in the table format. To see the raw data, select **Raw** 
     
         :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in the raw format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png":::
 1. Select **Test query** to see the snapshot of test results of your query in the **Test results** tab. You can also download the results.
 
     :::image type="content" source="./media/process-data-azure-stream-analytics/test-results.png" alt-text="Screenshot of the Input preview window in the result pane with test results." lightbox="./media/process-data-azure-stream-analytics/test-results.png":::
-1. Write your own query to transform the data. See [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference).
-1. Once you've tested the query and you want to move it in to production, select **Create Stream Analytics job**. 
+
+    Write your own query to transform the data. See [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference).
+1. Once you tested the query and you want to move it in to production, select **Create Stream Analytics job**. 
 
     :::image type="content" source="./media/process-data-azure-stream-analytics/create-job-link.png" alt-text="Screenshot of the Query page with the Create Stream Analytics job link selected.":::
 1. On the **New Stream Analytics job** page, follow these steps: 
@@ -103,5 +94,7 @@ Your Azure Stream Analytics job defaults to three streaming units (SUs). To adju
 
 :::image type="content" source="./media/process-data-azure-stream-analytics/scale.png" alt-text="Screenshots showing the Scale page for a Stream Analytics job." lightbox="./media/process-data-azure-stream-analytics/scale.png":::
 
-## Next steps
+[!INCLUDE [geo-replication-stream-analytics-job](../stream-analytics/includes/geo-replication-stream-analytics-job.md)]
+
+## Related content
 To learn more about Stream Analytics queries, see [Stream Analytics Query Language](/stream-analytics-query/built-in-functions-azure-stream-analytics)

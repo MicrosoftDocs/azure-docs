@@ -1,9 +1,9 @@
 ---
 title: What's new in Azure Private 5G Core?
-description: Discover what's new in Azure Private 5G Core
+description: Discover what's new in Azure Private 5G Core.
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 12/21/2023
 ---
@@ -22,15 +22,86 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## May 2024
+### Packet core 2404
+
+**Type:** New release
+
+**Date available:** May 13, 2024
+
+The 2404 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2404 release notes](azure-private-5g-core-release-notes-2404.md).
+
+### High Availability
+
+We're excited to announce that AP5GC is now resilient to system failures when run on a two-node ASE cluster. Userplane traffic, sessions, and registrations are unaffected on failure of any single pod, physical interface, or ASE device.
+
+### In Service Software Upgrade 
+
+In our commitment to continuous improvement and minimizing service impact we’re excited to announce that when upgrading from this version to a future release, updates include the capability for In-Service Software Upgrades (ISSU).
+
+ISSU is supported for deployments on a 2-node cluster. Software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software automatically rolls back to the previous version, also with minimal service disruption.
+
+### Azure Resource Health 
+
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+
+For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+
+### NAS Encryption
+
+NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments are configured to preferentially use NEA2/EEA2 encryption.
+
+You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
+
+### RADIUS Authentication
+
+The RADIUS authentication feature enables AP5GC to perform secondary authentication via an AAA server for 4G attach and establishing a PDN/PDU session for 4G and 5G.
+This feature can be enabled per DN to perform secondary authentication. PAP based secondary authentication is supported in current release.
+
+For more information on configuration RADIUS Authentication for your deployment, see [RADIUS Authentication](security.md).
+
+### VLAN Trunking
+
+VLAN trunking provides a new method for configuring data networks. A single virtual network interface is used to carry all data plane traffic. The traffic is all VLAN tagged, with each DN using a separate VLAN to provide separation. Configuration to use VLAN trunking is done on both the ASE and Private Mobile Network. When AP5GC is deployed on a 2-node cluster, VLAN trunking is mandatory.
+
+For more information on configuration of VLAN Trunking, see [Commission an AKS Cluster](commission-cluster.md?pivots=ase-pro-2#set-up-advanced-networking).
+
+### Dual-router link redundancy
+
+Link connectivity monitoring for High Availability now accommodates paired peer routers in a dual-redundancy topology.  You can configure this by designating two BFD peer router IP addresses per interface – if this is set then:
+- Each Packet Core node establishes BFD sessions with each of these routers, rather than with the default gateway IP.
+- The interface is not considered to have lost connectivity unless both IPs in the redundant pair are unreachable.
+
+For more information on configuration of dual-routers, see [Create a site](create-a-site.md) or [Modify a site](modify-packet-core.md).
+
+### RAN insights preview
+
+We’re excited to announce that radio access network (RAN) insights is now in preview for AP5GC. This feature integrates third-party data from RAN vendors, collecting and displaying a subset of metrics from your Element Management Systems (EMS) as standard metrics in Azure. By leveraging Azure's capabilities, this integration offers a unified and simplified experience for monitoring and troubleshooting RAN across multiple vendors and locations. With RAN insights you will now be able to:
+
+- View the metrics of your RAN to monitor their deployment’s performance, reliability, and connection status.
+- Access geo maps for a visual overview of all connected access points along with health status and performance metrics of each radio.
+- Use correlated metrics of your RAN and packet core to help diagnose and troubleshoot issues.
+
+To learn more and get started, see [RAN Insights Concepts](ran-insights-concepts.md) and [Create a Radio Access Network Insights Resource](ran-insights-create-resource.md).
+
 ## April 2024
+### Packet core 2403
+
+**Type:** New release
+
+**Date available:** April 4, 2024
+
+The 2403 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2403 release notes](azure-private-5g-core-release-notes-2403.md).
 
 ### TCP Maximum Segment Size (MSS) Clamping
 
-**Type:** New feature
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This setting reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
 
-**Date available:** April 04, 2024
+### Improved Packet Core Scaling 
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
+
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## March 2024
 
@@ -53,18 +124,18 @@ See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-ref
 
 **Date available:** March 22, 2024
 
-The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure portal and provision SIMs with public keys.
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). UEs perform this concealment on registration, and the packet core performs the deconcealment. You can now securely manage the required private keys through the Azure portal and provision SIMs with public keys.
 
 For more information, see [Enable SUPI concealment](supi-concealment.md).
 
 ## February 2024
-### New Entra ID user role needed for distributed tracing tool
+### New Microsoft Entra ID user role needed for distributed tracing tool
 
 **Type:** New feature
 
 **Date available:** February 21, 2024
 
-Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you're using Microsoft Entra ID authentication, you should create this user before upgrading to version 2402 to avoid losing access to the tracing tool. Microsoft Entra ID access to the packet core dashboards is unchanged.
 
 See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
 
@@ -83,7 +154,7 @@ Previously, packet capture could only be performed from edge sites, requiring lo
 
 **Date available:** December 22, 2023
 
-The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. This is enabled by default. To disable this feature, [modify the packet core configuration](modify-packet-core.md).
+The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. This feature is enabled by default. To disable this feature, [modify the packet core configuration](modify-packet-core.md).
 
 ## October 2023
 ### Packet core 2310
@@ -176,7 +247,7 @@ The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file 
 
 **Date available:** July 31, 2023
 
-This feature changes the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
+This feature changes the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) to “no-suitable-cells-in-ta-15” by default. This feature provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 ### 2023-06-01 API
 
 **Type:** New release
@@ -200,7 +271,7 @@ Note: ARM API users who did a PUT using the 2023-06-01 API and enabled configura
 
 You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
 
-See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
+For more information, see [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md).
 
 ## June 2023
 
@@ -218,10 +289,10 @@ The 2306 release for the Azure Private 5G Core packet core is now available. For
 **Date available:** July 10, 2023
 
 It's now possible to:
-- attach a new or existing data network
-- modify an attached data network's configuration
+- attach a new or existing data network.
+- modify an attached data network's configuration.
   
-followed by a few minutes of downtime, but not a packet core reinstall.
+This change is followed by a few minutes of downtime, but not a packet core reinstall.
 
 For details, see [Modify a packet core instance](modify-packet-core.md).
 
@@ -403,7 +474,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs are authenticated. Set this to **Password**.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs are authenticated. Set this field to **Password**.
    4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
@@ -537,9 +608,9 @@ This feature has the following limitations:
 
 - Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you make all your changes, you must follow the process for installing and modifying as described in the documentation.
 
-- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
+- VLAN separation of Data Networks isn't supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
 
-- Metrics are not yet reported on a per-Data Network basis.
+- Metrics aren't yet reported on a per-Data Network basis.
 
 To add data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
 

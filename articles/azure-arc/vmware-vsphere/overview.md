@@ -2,12 +2,12 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 03/21/2024
+ms.date: 08/08/2024
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ---
 
@@ -23,9 +23,12 @@ Arc-enabled VMware vSphere allows you to:
 
 - Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control](../../role-based-access-control/overview.md) (RBAC).
 
-- Install the Arc-connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
+- Install the Azure connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
 
 - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you with a single pane view for your infrastructure across both environments.
+
+> [!NOTE]
+> For more information regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
 
 ## Onboard resources to Azure management at scale
 
@@ -72,7 +75,7 @@ Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
->If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, see [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
+If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, see [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
 
 ## Supported regions
 
@@ -82,6 +85,7 @@ You can use Azure Arc-enabled VMware vSphere in these supported regions:
 - East US 2
 - West US 2
 - West US 3
+- Central US
 - North Central US
 - South Central US
 - Canada Central
@@ -104,12 +108,12 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 ## Azure Kubernetes Service (AKS) Arc on VMware (preview)
 
-Starting in March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
+Starting March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
 
 The following capabilities are available in the AKS Arc on VMware preview:
 
 - **Simplified infrastructure deployment on Arc-enabled VMware vSphere**: Onboard VMware vSphere to Azure using a single-step process with the AKS Arc extension installed.
-- **Azure CLI**: A consistent command-line experience, with [AKS Arc on Azure Stack HCI 23H2](/azure/aks/hybrid/aks-create-clusters-cli), for creating and managing Kubernetes clusters. Note that the preview only supports a limited set commands.
+- **Azure CLI**: A consistent command-line experience, with [AKS Arc on Azure Stack HCI 23H2](/azure/aks/hybrid/aks-create-clusters-cli), for creating and managing Kubernetes clusters. Note that the preview only supports a limited set of commands.
 - **Cloud-based management**: Use familiar tools such as Azure CLI to create and manage Kubernetes clusters on VMware.
 - **Support for managing and scaling node pools and clusters**.
 

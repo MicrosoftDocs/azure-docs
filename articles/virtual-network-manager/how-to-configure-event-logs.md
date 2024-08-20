@@ -4,15 +4,15 @@ description: This article describes how to configure and view event logs for Azu
 author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
-ms.service: virtual-network-manager
-ms.date: 04/13/2023
+ms.service: azure-virtual-network-manager
+ms.date: 05/07/2024
 ---
 
 # Configure event logs for Azure Virtual Network Manager
 
 When configurations are changed in Azure Virtual Network Manager, this can affect virtual networks that are associated with network groups in your instance. With Azure Monitor, you can monitor Azure Virtual Network Manager for virtual network changes. 
 
-In this article, you learn how to monitor Azure Virtual Network Manager for virtual network changes with Log Analytics or a storage account. 
+In this article, you learn how to monitor Azure Virtual Network Manager for virtual network changes with Log Analytics or a storage account.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

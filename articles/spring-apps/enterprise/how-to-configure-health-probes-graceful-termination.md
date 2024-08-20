@@ -2,9 +2,9 @@
 title: How to configure health probes and graceful termination period for apps hosted in Azure Spring Apps
 description: Learn how to customize apps running in Azure Spring Apps with health probes and graceful termination period.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 07/02/2022
+ms.date: 04/23/2024
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -122,7 +122,7 @@ Use the following steps to customize your application using Azure CLI.
        --service <service-instance-name> \
        --name <application-name> \
        --enable-liveness-probe true \
-       --liveness-probe-config <path-to-liveness-probe-json-file> \ 
+       --liveness-probe-config <path-to-liveness-probe-json-file> \
        --enable-readiness-probe true \
        --readiness-probe-config <path-to-readiness-probe-json-file>
    ```

@@ -2,11 +2,12 @@
 title: Back up Azure Kubernetes Service (AKS) using Azure PowerShell
 description: This article explains how to back up Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: how-to
-ms.service: backup
-ms.date: 05/05/2023
+ms.service: azure-backup
+ms.date: 04/07/2024
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
+  - engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -39,13 +40,13 @@ A Backup vault is a management entity in Azure that stores backup data for vario
 
 Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the resource group *testBkpVaultRG*. Use the `New-AzDataProtectionBackupVault` cmdlet to create a Backup vault. Learn more about [creating a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
->[!Note]
->Though the selected vault may have the *global-redundancy* setting, backup for AKS currently supports **Operational Tier** only. All backups are stored in your subscription in the same region as that of the AKS cluster, and they aren't copied to Backup vault storage.
+> [!NOTE]
+> Though the selected vault may have the *global-redundancy* setting, backup for AKS currently supports **Operational Tier** only. All backups are stored in your subscription in the same region as that of the AKS cluster, and they aren't copied to Backup vault storage.
 
 1. To define the storage settings of the Backup vault, run the following cmdlet:
 
-   >[!Note]
-   >The vault is created with only *Local Redundancy* and *Operational Data store* support.
+   > [!NOTE]
+   > The vault is created with only *Local Redundancy* and *Operational Data store* support.
 
     ```azurepowershell
     $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant -DataStoreType OperationalStore
@@ -91,8 +92,8 @@ Backup for AKS provides multiple backups per day. The backups are equally distri
 
 If *once a day backup* is sufficient, then choose the *Daily backup frequency*. In the daily backup frequency, you can specify the *time of the day* when your backups should be taken.
 
->[!Important]
->The time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors, including number and size of the persistent volumes and churn rate between consecutive backups.
+> [!IMPORTANT]
+> The time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors, including number and size of the persistent volumes and churn rate between consecutive backups.
 
 If you want to edit the hourly frequency or the retention period, use the `Edit-AzDataProtectionPolicyTriggerClientObject` and/or `Edit-AzDataProtectionPolicyRetentionRuleClientObject` cmdlets. Once the policy object has all the required values, start creating a new policy from the policy object using the `New-AzDataProtectionBackupPolicy` cmdlet.
 
@@ -112,10 +113,10 @@ Once the vault and policy creation are complete, you need to perform the followi
 
    To create a new storage account and a blob container, see [these steps](../storage/blobs/blob-containers-powershell.md#create-a-container).
 
-   >[!Note]
-   >1. The storage account and the AKS cluster should be in the same region and subscription.
-   >2. The blob container shouldn't contain any previously created file systems (except created by backup for AKS). 
-   >3. If your source or target AKS cluster is in a private virtual network, then you need to create Private Endpoint to connect storage account with the AKS cluster. 
+   > [!NOTE]
+   > 1. The storage account and the AKS cluster should be in the same region and subscription.
+   > 2. The blob container shouldn't contain any previously created file systems (except created by backup for AKS). 
+   > 3. If your source or target AKS cluster is in a private virtual network, then you need to create Private Endpoint to connect storage account with the AKS cluster. 
 
 2. **Install Backup Extension**
 
@@ -125,10 +126,10 @@ Once the vault and policy creation are complete, you need to perform the followi
 
 3.    **Enable Trusted Access**
 
-   For the Backup vault to connect with the AKS cluster, you must enable Trusted Access as it allows the Backup vault to have a direct line of sight to the AKS cluster. Learn [how to enable Trusted Access]](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations).
+   For the Backup vault to connect with the AKS cluster, you must enable Trusted Access as it allows the Backup vault to have a direct line of sight to the AKS cluster. Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations).
 
->[!Note]
->For Backup Extension installation and Trusted Access enablement, the commands are available in Azure CLI only.
+> [!NOTE]
+> For Backup Extension installation and Trusted Access enablement, the commands are available in Azure CLI only.
 
 ## Configure backups
 

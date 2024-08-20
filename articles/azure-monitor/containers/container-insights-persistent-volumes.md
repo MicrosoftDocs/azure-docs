@@ -2,17 +2,13 @@
 title: Configure PV monitoring with Container insights | Microsoft Docs
 description: This article describes how you can configure monitoring Kubernetes clusters with persistent volumes with Container insights.
 ms.topic: conceptual
-ms.date: 2/28/2024
+ms.date: 5/15/2024
 ms.reviewer: aul
 ---
 
 # Configure PV monitoring with Container insights
 
-Starting with agent version *ciprod10052020*, the Container insights integrated agent now supports monitoring persistent volume (PV) usage. With agent version *ciprod01112021*, the agent supports monitoring PV inventory, including information about the status, storage class, type, access modes, and other details.
-
-## PV metrics
-
-Container insights automatically starts monitoring PV usage by collecting the following metrics at 60-second intervals and storing them in the **InsightMetrics** table.
+Container insights automatically starts monitoring PV usage by collecting the following metrics at 60-second intervals and storing them in the **InsightsMetrics** table.
 
 | Metric name | Metric dimension (tags) | Metric description |
 |-----|-----------|----------|

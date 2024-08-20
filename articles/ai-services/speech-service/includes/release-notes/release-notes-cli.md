@@ -2,9 +2,30 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 01/08/2022
+ms.date: 08/01/2024
 ms.author: eur
 ---
+
+### Speech CLI 1.40.0: August 2024 release
+Updated to use Speech SDK 1.40.0
+#### New features
+* none
+#### Bug fixes
+* none
+
+### Speech CLI 1.38.0: June 2024 release
+Updated to use Speech SDK 1.38.0
+#### New features
+* none
+#### Bug fixes
+* none
+
+### Speech CLI 1.37.0: April 2024 release
+Updated to use Speech SDK 1.37.0
+#### New features
+* none
+#### Bug fixes
+* none
 
 ### Speech CLI 1.36.0: March 2024 release
 Updated to use Speech SDK 1.36.0
@@ -24,7 +45,7 @@ Updated to use Speech SDK 1.35.0
 Updated to use Speech SDK 1.34.0
 
 ### Speech CLI 1.33.0: October 2023 release
-Updated to use Speech SDK 1.34.0
+Updated to use Speech SDK 1.33.0
 
 ### Speech CLI 1.31.0: August 2023 release
 

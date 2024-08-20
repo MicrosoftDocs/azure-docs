@@ -13,7 +13,7 @@ metadata:
   ms.author: eur
   manager: nitinme
   ms.custom: ignite-2023
-  ms.date: 3/19/2024
+  ms.date: 8/20/2024
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -23,9 +23,9 @@ highlightedContent:
     - title: What is Azure AI Studio?
       itemType: overview
       url: ../ai-studio/what-is-ai-studio.md
-    - title: Azure AI Studio copilot tutorial
+    - title: Build your own copilot with Azure AI SDKs
       itemType: tutorial
-      url: ../ai-studio/tutorials/deploy-copilot-ai-studio.md
+      url: ../ai-studio/tutorials/copilot-sdk-build-rag.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md
@@ -38,67 +38,67 @@ productDirectory:
   items:
     # Card
     - title: Azure OpenAI
-      imageSrc: ./media/service-icons/azure-openai.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/azure-openai.svg
       summary: Perform a wide variety of natural language tasks.
       url: ./openai/index.yml
     # Card
     - title: Speech
-      imageSrc: ./media/service-icons/speech.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg
       summary: Speech to text, text to speech, translation, and speaker recognition
       url: ./speech-service/index.yml
     # Card
     - title: Language
-      imageSrc: ./media/service-icons/language.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/language.svg
       summary: Build apps with industry-leading natural language understanding capabilities.
       url: ./language-service/index.yml
     # Card
     - title: Translator
-      imageSrc: ./media/service-icons/translator.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg
       summary: Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects.
       url: ./translator/index.yml
     # Card
     - title: Vision
-      imageSrc: ./media/service-icons/vision.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg
       summary: Analyze content in images and videos.
       url: ./computer-vision/index.yml
     # Card
     - title: Custom Vision
-      imageSrc: ./media/service-icons/custom-vision.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/custom-vision.svg
       summary: Customize image recognition for your business.
       url: ./custom-vision-service/index.yml
     # Card
     - title: Face
-      imageSrc: ./media/service-icons/face.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/face.svg
       summary: Detect and identify people and emotions in images.
       url: ./computer-vision/overview-identity.md
     # Card
     - title: Content Safety
-      imageSrc: ./media/service-icons/content-safety.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/content-safety.svg
       summary: An AI service that detects unwanted contents
       url: ./content-safety/index.yml
     # Card
     - title: Bot Service
-      imageSrc: ./media/service-icons/bot-services.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/bot-services.svg
       summary: Create bots and connect them across channels.
       url: /composer/
     # Card
     - title: Document Intelligence
-      imageSrc: ./media/service-icons/document-intelligence.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg
       summary: Turn documents into intelligent data-driven solutions.
       url: ./document-intelligence/index.yml
     # Card
     - title: Azure AI Search
-      imageSrc: ./media/service-icons/search.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/search.svg
       summary: Bring AI-powered cloud search to your mobile and web applications.
       url: ../search/index.yml
     # Card
     - title: Video Indexer
-      imageSrc: ./media/service-icons/video-indexer.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/video-indexer.svg
       summary: Extract actionable insights from your videos.
       url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
-      imageSrc: ./media/service-icons/immersive-reader.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/immersive-reader.svg
       summary: Help users read and comprehend text.
       url: ./immersive-reader/index.yml
       

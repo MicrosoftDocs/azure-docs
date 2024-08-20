@@ -3,9 +3,9 @@ title: Service limits and resource usage
 description: Learn about the limits and resource usage of your Azure Private 5G Core deployment when running on an Azure Stack Edge device.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 04/24/2024
 ---
 
 # Service limits and resource usage
@@ -16,16 +16,19 @@ This article describes the maximum supported limits of the Azure Private 5G Core
 
 The following table lists the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment. These limits have been confirmed through testing, but other factors may affect what is achievable in a given scenario. For example, usage patterns, UE types and third-party network elements may impact one or more of these parameters. It is important to test the limits of your deployment before launching a live service.
 
-| Element                | Maximum supported |
-|------------------------|-------------------|
-| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
-| Bandwidth              | Over 25 Gbps per ASE |
-| RAN nodes (eNB/gNB)    | 200 per packet core |
-| UEs                    | 10,000 per deployment (all sites) |
-| SIMs                   | 1000 per ASE |
-| SIM provisioning       | 1000 per API call |
+| Element                | Maximum supported | Additional limits in a Highly Available (HA) deployment |
+|------------------------|-------------------|-------------------|
+| PDU sessions           | 10,000 per Packet Core |       |
+| Bandwidth              | Over 25 Gbps combined uplink and downlink per Packet Core |       |
+| RAN nodes (eNB/gNB)    | 200 per Packet Core | 50 per Packet Core |
+| Active UEs             | 10,000 per Packet Core |  |
+| SIMs                   | 20,000 per Mobile Network |       |
+| SIM provisioning       | 10,000 per JSON file via Azure portal, 4MB per REST API call |       |
 
 Your chosen service package may define lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
+
+> [!NOTE]
+> Management plane operations are handled by Azure Resource Manager (ARM) and are subject to rate limits. [Understand how Azure Resource Manager throttles requests](/azure/azure-resource-manager/management/request-limits-and-throttling).
 
 ## Azure Stack Edge virtual machine sizing
 

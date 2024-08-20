@@ -2,7 +2,7 @@
 title: 'Machine Learning with Apache Spark'
 description: This article provides a conceptual overview of the machine learning and data science capabilities available through Apache Spark on Azure Synapse Analytics.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 03/06/2023
@@ -36,7 +36,7 @@ Learn more about the machine learning capabilities by viewing the article on how
 ### SparkML and MLlib
 Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
-### Azure Machine Learning automated ML
+### Azure Machine Learning automated ML (deprecated)
 [Azure Machine Learning automated ML](../../machine-learning/concept-automated-ml.md) (automated machine learning) helps automate the process of developing machine learning models. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. The components to run the Azure Machine Learning automated ML SDK is built directly into the Synapse Runtime.
 
 > [!WARNING]

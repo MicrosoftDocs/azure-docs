@@ -4,7 +4,7 @@ description: How to model a liveness and readiness probe in Azure Service Fabric
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -104,6 +104,10 @@ The HTTP probe has additional properties that you can set:
 * `httpHeader`: The headers to set in the request. You can specify multiple headers.
 
 * `host`: The host IP address to connect to.
+
+> [!NOTE]
+> Port and scheme is not supported for non-containerized applications. For this scenario please use **EndpointRef="EndpointName"** attribute. Replace 'EndpointName' with the name from the Endpoint defined in ServiceManifest.xml.
+>
 
 ### TCP probe
 

@@ -8,7 +8,6 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
-ms.reviewer: tamram
 ---
 
 # How to use the BlobFuse2 mount all command to mount all blob containers in a storage account as a Linux file system

@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 04/16/2024
 ms.topic: how-to
 ---
 
@@ -72,20 +72,20 @@ az ad sp credential reset --name <ServicePrincipalName>
 For example, to create a service principal named `azure-arc-metrics`, run the following command
 
 ```azurecli
-az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/<SubscriptionId>/resourceGroups/myresourcegroup
 ```
 
 Example output:
 
 ```output
-"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
+"appId": "<appId>",
 "displayName": "azure-arc-metrics",
 "name": "http://azure-arc-metrics",
-"password": "5039d676-23f9-416c-9534-3bd6afc78123",
-"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
+"password": "<password>",
+"tenant": "<tenant>"
 ```
 
-Save the `appId`, `password`, and `tenant` values in an environment variable for use later. 
+Save the `appId`, `password`, and `tenant` values in an environment variable for use later. These values are in the form of globally unique identifier (GUID).
 
 # [Windows](#tab/windows)
 
@@ -148,11 +148,11 @@ Example output:
 ```output
 {
   "canDelegate": null,
-  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
-  "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
-  "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/<globally unique identifier>",
+  "name": "<globally unique identifier>",
+  "principalId": "<principal id>",
   "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/<globally unique identifier>",
   "scope": "/subscriptions/<Subscription ID>",
   "type": "Microsoft.Authorization/roleAssignments"
 }

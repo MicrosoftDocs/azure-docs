@@ -2,11 +2,11 @@
 title: Best practices for performance testing
 titleSuffix: Azure Cache for Redis
 description: Learn how to test the performance of Azure Cache for Redis.
-author: flang-msft
-ms.service: cache
+
+
 ms.topic: conceptual
-ms.date: 06/19/2023
-ms.author: franlanglois
+ms.date: 07/01/2024
+
 ---
 
 # Performance testing
@@ -17,7 +17,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 ## How to use the redis-benchmark utility
 
-1. Install open source Redis server to a client VM you can use for testing. The redis-benchmark utility is built into the open source Redis distribution. Follow the [Redis documentation](https://redis.io/docs/getting-started/#install-redis) for instructions on how to install the open source image.
+1. Install open source Redis server to a client virtual machines (VMs) you can use for testing. The redis-benchmark utility is built into the open source Redis distribution. Follow the [Redis documentation](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) for instructions on how to install the open source image.
 
 1. The client VM used for testing should be _in the same region_ as your Azure Cache for Redis instance.
 
@@ -48,6 +48,10 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 - Even though a Redis server is single-threaded, scaling up tends to improve throughput performance. System processes can use the extra vCPUs instead of sharing the vCPU being used by the Redis process. Scaling up is especially helpful on the Enterprise and Enterprise Flash tiers because Redis Enterprise isn't limited to a single thread. For more information, see [Enterprise tier best practices](cache-best-practices-enterprise-tiers.md#scaling).
 
 - On the Premium tier, scaling out, clustering, is typically recommended before scaling up. Clustering allows Redis server to use more vCPUs by sharding data. Throughput should increase roughly linearly when adding shards in this case.
+
+- On _C0_ and _C1_ Standard caches, while internal Defender scanning is running on the VMs, you might see short spikes in server load not caused by an increase in cache requests. You see higher latency for requests while internal Defender scans are run on these tiers a couple of times a day. Caches on the _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal Defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering with multiple CPU cores, such as _C2_.
+
+  The increased cache size on the higher tiers helps address any latency concerns. Also, at the _C2_ level, you have support for as many as 2,000 client connections.
 
 ## Redis-benchmark examples
 
@@ -88,7 +92,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 ## Example performance benchmark data
 
-The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions may be lower.
+The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions might be lower.
 
 The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
 
@@ -144,7 +148,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 #### Enterprise Cluster Policy
 
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without SSL (1-kB value size) | `GET` requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
 | E10 |  12 GB |  4 | 4,000 | 300,000 | 207,000 |
 | E20 |  25 GB |  4 | 4,000 | 680,000 | 480,000 |
@@ -156,7 +160,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 #### OSS Cluster Policy
 
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without SSL (1-kB value size) | `GET` requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
 | E10 |  12 GB |  4 | 4,000 | 1,400,000 | 1,000,000 |
 | E20 |  25 GB |  4 | 4,000 | 1,200,000 | 900,000 |
@@ -170,7 +174,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 In addition to scaling up by moving to larger cache size, you can boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, scaling out is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance was scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are used by the core Redis process at each cache size and capacity can be found at the [Enterprise tiers best practices page](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization). Scaling out is most effective when using the OSS cluster policy.
 
-The following tables show the GET requests per second at different capacities, using SSL and a 1-kB value size.
+The following tables show the `GET` requests per second at different capacities, using SSL and a 1-kB value size.
 
 #### Scaling out - Enterprise cluster policy
 

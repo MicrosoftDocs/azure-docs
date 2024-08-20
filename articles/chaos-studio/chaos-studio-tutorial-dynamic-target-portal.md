@@ -4,7 +4,7 @@ description: Use the Azure portal to create an experiment that uses dynamic targ
 author: rsgel
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 4/19/2023
 ms.custom: template-how-to
@@ -18,7 +18,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Virtual Machine Scale Sets instance.
 
 ## Enable Chaos Studio on your virtual machine scale sets

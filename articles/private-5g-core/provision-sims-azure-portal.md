@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: template-how-to
@@ -25,7 +25,7 @@ zone_pivot_groups: ap5gc-portal-powershell
 
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
 
-  - Importing one or more JSON files containing values for up to 1000 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
+  - Importing one or more JSON files containing values for up to 10,000 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
   
   - Importing an encrypted JSON file containing values for one or more SIM resources provided by select partner vendors. This option is required for any vendor-provided SIMs. You'll need a good JSON editor if you want to edit any fields within the encrypted JSON file when using this option.
 
@@ -79,8 +79,8 @@ Only carry out this step if you decided in [Prerequisites](#prerequisites) to us
 
 Prepare the files using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The examples below show the required format.
 
-> [!IMPORTANT]
-> Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple JSON files with no more than 1000 SIMs in any one file and repeat the provisioning process for each JSON file.
+> [!NOTE]
+> Bulk SIM provisioning is limited to 10,000 SIMs per file.
 
 ### Plaintext SIMs
 
@@ -244,7 +244,7 @@ Complete this step if you want to enter provisioning values for your SIMs using 
 
     :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
 
-1. If you are provisioning more than 1000 SIMs, repeat this process for each JSON file.
+1. If you are provisioning more than 10,000 SIMs, repeat this process for each JSON file.
 
 ## Next steps
 

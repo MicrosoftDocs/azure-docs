@@ -201,10 +201,8 @@
     - name: Integration catalog
       href: integrate-overview.md
     - name: Stream cloud alerts to a partner SIEM
-      href: integrations/send-cloud-data-to-partners.md
+      href: integrations/send-cloud-data-to-partners.yml
       displayName: Splunk
-    - name: Aruba ClearPass
-      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -249,6 +247,9 @@
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
+      - name: SSO for sensor console login
+        href: set-up-sso.md
+        displayName: users, user
     - name: Maintain OT on-premises resources
       items:
       - name: Enhance device data and detection
@@ -362,27 +363,31 @@
         items:
         - name: HPE ProLiant DL360
           href: appliance-catalog/hpe-proliant-dl360.md
+        - name: Dell PowerEdge R660
+          href: appliance-catalog/dell-poweredge-r660.md  
       - name: Large enterprises
         items:
-        - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
-          href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: HPE ProLiant DL20 Gen11 (4SFF)
+          href: appliance-catalog/hpe-proliant-dl20-gen-11.md
         - name: Dell Edge 5200 (Rugged MIL-STD-810G)
           href: appliance-catalog/dell-edge-5200.md
-        - name: Dell PowerEdge R350
-          href: appliance-catalog/dell-poweredge-r350-e1800.md
+        - name: Dell PowerEdge R360
+          href: appliance-catalog/dell-poweredge-r360-e1800.md
       - name: Production line
         items:
-        - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
-          href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-        - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
-          href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
+          href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
         - name: DELL XE4 SFF
           href: appliance-catalog/dell-xe4-sff.md
+        - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+          href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: Dell Edge Gateway 3200
+          href: appliance-catalog/dell-edge-3200.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi) 
           href: appliance-catalog/virtual-sensor-vmware.md
-        - name: OT sensor (Hyper-V)
+        - name: OT sensor (Hyper-V) Gen 2
           href: appliance-catalog/virtual-sensor-hyper-v.md
         - name: On-premises management console (VMware ESXi)
           href: appliance-catalog/virtual-management-vmware.md
@@ -392,6 +397,12 @@
         items:
         - name: HPE ProLiant DL20 Gen10 (E1800)
           href: appliance-catalog/hpe-proliant-dl20-legacy.md
+        - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
+          href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
+        - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
+          href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: Dell PowerEdge R350
+          href: appliance-catalog/dell-poweredge-r350-e1800.md
         - name: Dell PowerEdge R340 XL (E1800)
           href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
         - name: HPE Edgeline EL300 (L500 Rugged)
