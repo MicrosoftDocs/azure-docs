@@ -16,6 +16,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Jamba-Instruct chat models
 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 In this article, you learn about Jamba-Instruct chat models and how to use them.
 The Jamba-Instruct model is AI21's production-grade Mamba-based large language model (LLM) which uses AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba-Instruct model is built for reliable commercial use with respect to quality and performance.
 

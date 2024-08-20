@@ -164,9 +164,9 @@ Use the following procedure to create a policy definition.
    with the ID of your [management group](../../management-groups/overview.md).
 
    For more information about the structure of the query, see
-   [Azure Policy Definitions - Create or Update](/rest/api/policy/policydefinitions/createorupdate)
+   [Azure Policy Definitions - Create or Update](/rest/api/policyauthorization/policy-definitions/create-or-update)
    and
-   [Policy Definitions - Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup).
+   [Policy Definitions - Create or Update At Management Group](/rest/api/policyauthorization/policy-definitions/create-or-update-at-management-group).
 
 Use the following procedure to create a policy assignment and assign the policy definition at the
 resource group level.
