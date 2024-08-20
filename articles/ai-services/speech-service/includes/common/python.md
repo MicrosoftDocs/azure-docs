@@ -6,4 +6,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Reference documentation](/python/api/azure-cognitiveservices-speech/) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-speech/) | [Additional Samples on GitHub](https://aka.ms/speech/github-python)
+[Reference documentation](/python/api/azure-cognitiveservices-speech/) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-speech/) | [Additional samples on GitHub](https://aka.ms/speech/github-python)

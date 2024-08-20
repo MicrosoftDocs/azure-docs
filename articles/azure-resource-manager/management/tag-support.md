@@ -846,7 +846,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -1469,6 +1469,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cassandraClusters | Yes | Yes |
+> | mongoClusters | Yes | No |
 > | databaseAccountNames | No | No |
 > | databaseAccounts | Yes | Yes |
 > | databaseAccounts / encryptionScopes | No | No |

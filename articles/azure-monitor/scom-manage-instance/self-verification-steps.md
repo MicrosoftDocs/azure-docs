@@ -40,7 +40,7 @@ By empowering each persona to verify their respective parameters, we can expedit
 
 Running Operations Manager admin self-verification is essential to understand the accuracy of the parameters.
 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=de6cac42-06ca-4517-bb99-9438ce2b8fa5]
+> [!VIDEO de6cac42-06ca-4517-bb99-9438ce2b8fa5]
 
 > [!IMPORTANT]
 > Initially, create a new test Windows Server (2022/2019) VM in the same subnet selected for the SCOM managed instance creation. Subsequently, both your Active Directory admin and network admin can individually use this VM to verify the effectiveness of their respective changes. This approach saves time spent on back-and-forth communication between the Active Directory admin and the network admin.

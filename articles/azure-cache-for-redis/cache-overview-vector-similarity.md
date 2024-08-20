@@ -1,9 +1,9 @@
 ---
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: overview
 ms.date: 04/24/2024
 ---
@@ -110,8 +110,8 @@ Additionally, Redis is often an economical choice because it's already so common
 There are multiple other solutions on Azure for vector storage and search. Other solutions include:
 
 - [Azure AI Search](../search/vector-search-overview.md)
-- [Azure Cosmos DB](../cosmos-db/mongodb/vcore/vector-search.md) using the MongoDB vCore API
-- [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/how-to-use-pgvector.md) using `pgvector`
+- [Azure Cosmos DB](/azure/cosmos-db/mongodb/vcore/vector-search) using the MongoDB vCore API
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector) using `pgvector`
 
 ## Related content
 
