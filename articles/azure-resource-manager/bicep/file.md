@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/19/2024
+ms.date: 08/20/2024
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -106,7 +106,7 @@ In a module, you can specify a scope that is different than the scope for the re
 
 ## Decorator
 
-You can add one or more decorators for each of the following element. 
+You can add one or more decorators for each of the following element:
 
 * Parameters
 * Variables
@@ -114,14 +114,13 @@ You can add one or more decorators for each of the following element.
 * Modules
 * Ouputs
 * Types
-* Functions
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| allowed | parameter | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
-| batch |resource, module||||
-| description | parameter, variable  | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
-| discriminator | parameters | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| allowed | [parameter](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
+| batchSize |[resource](./resource-declaration.md#batchsize), [module](./modules.md#batchsize)| N/A | integer | Set up instances to deploy sequentially. |
+| description | [parameter](./parameters.md#description), [variable](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [user-defined data type](./user-defined-data-types.md#description) | all | string | Text that explains how to use the element. |
+| discriminator | parameter | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | export | variable, type, function ||||
 | maxLength | parameter | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | maxValue | parameter | int | int | The maximum value for the integer parameter. This value is inclusive. |

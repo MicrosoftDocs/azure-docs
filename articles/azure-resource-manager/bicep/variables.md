@@ -3,7 +3,7 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 08/20/2024
 ---
 
 # Variables in Bicep
@@ -134,6 +134,8 @@ To add explaination, add a description to variable declaration. For example:
 var storageAccountName = uniqueString(resourceGroup().id)
 ```
 
+Markdown-formatted text can be used for the description text.
+
 ### Export
 
 Use `@export()` to share the variable with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
@@ -173,7 +175,7 @@ The following example enables you to import the variable from other templates:
 var myConstant = 'This is a constant value'
 ```
 
-For more information, see [Import variables, types, and functions](./bicep-import.md#import-types-variables-and-functions).
+For more information, see [Import variables, types, and functions](./bicep-import.md#import-variables-types-and-functions).
 
 ## Configuration variables
 

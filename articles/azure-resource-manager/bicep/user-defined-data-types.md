@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/16/2024
+ms.date: 08/20/2024
 ---
 
 # User-defined data types in Bicep
@@ -258,6 +258,9 @@ type obj = {
   *: string
 }
 ```
+
+Markdown-formatted text can be used for the description text.
+
 
 ### Export
 

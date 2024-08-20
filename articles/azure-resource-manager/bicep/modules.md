@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/28/2024
+ms.date: 08/20/2024
 ---
 
 # Bicep modules
@@ -275,7 +275,7 @@ Decorators are written in the format `@expression` and are placed above module d
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Text that explains how to use the variable.|
-| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
 
@@ -292,6 +292,8 @@ module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
   }
 }
 ```
+
+Markdown-formatted text can be used for the description text.
 
 ### BatchSize
 

@@ -3,7 +3,7 @@ title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/06/2023
+ms.date: 08/20/2024
 ---
 
 # Outputs in Bicep
@@ -57,6 +57,100 @@ output out 'a' | 'b' = foo
 For more information, see [User-defined data types](./user-defined-data-types.md).
 
 ## Use decorators
+
+Decorators are written in the format `@expression` and are placed above ouput declarations. The following table shows the available decorators for outputs.
+
+| Decorator | Apply to | Argument | Description |
+| --------- | ---- | ----------- | ------- |
+| [description](#description) | all | string | Text that explains how to use the output. |
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| [maxLength](#length-constraints) | array, string | int | The maximum length for string and array outputs. The value is inclusive. |
+| [maxValue](#integer-constraints) | int | int | The maximum value for the integer output. This value is inclusive. |
+| [metadata](#metadata) | all | object | Custom properties to apply to the output. Can include a description property that is equivalent to the description decorator. |
+| [minLength](#length-constraints) | array, string | int | The minimum length for string and array outputs. The value is inclusive. |
+| [minValue](#integer-constraints) | int | int | The minimum value for the integer output. This value is inclusive. |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+### Description
+
+To add explaination, add a description to output declarations. For example:
+
+```bicep
+@description('Conditionally output the endpoint.')
+output endpoint string = deployStorage ? myStorageAccount.properties.primaryEndpoints.blob : ''
+```
+
+Markdown-formatted text can be used for the description text.
+
+### Discriminator
+
+See [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).
+
+### Integer constraints
+
+You can set minimum and maximum values for integer outputs. You can set one or both constraints.
+
+```bicep
+var thisMonth = 3
+
+@minValue(1)
+@maxValue(12)
+output month int = thisMonth
+```
+
+### Length constraints
+
+You can specify minimum and maximum lengths for string and array outputs. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two outputs. One output is for a storage account name that must have 3-24 characters. The other output is an array that must have from 1-5 items.
+
+```bicep
+var accountName = uniqueString(resourceGroup().id)
+var appNames = [
+  'SyncSphere'
+  'DataWhiz'
+  'FlowMatrix'
+]
+
+@minLength(3)
+@maxLength(24)
+output storageAccountName string = accountName
+
+@minLength(1)
+@maxLength(5)
+output applicationNames array = appNames
+```
+
+### Metadata
+
+If you have custom properties that you want to apply to an output, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the output that doesn't make sense to add to the [description](#description).
+
+```bicep
+var obj = {}
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+output settings object = obj
+```
+
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+
+### Sealed
+
+See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ## Conditional output
 

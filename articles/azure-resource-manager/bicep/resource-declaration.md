@@ -3,7 +3,7 @@ title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/16/2024
+ms.date: 08/20/2024
 ---
 
 # Resource declaration in Bicep
@@ -67,7 +67,7 @@ Decorators are written in the format `@expression` and are placed above resource
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Text that explains how to use the variable.|
-| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
 
@@ -81,6 +81,8 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' 
   ...
 }]
 ```
+
+Markdown-formatted text can be used for the description text.
 
 ### BatchSize
 
