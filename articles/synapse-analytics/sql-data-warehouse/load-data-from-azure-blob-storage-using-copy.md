@@ -4,13 +4,12 @@ description: Tutorial uses Azure portal and SQL Server Management Studio to load
 author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.date: 11/23/2020
+ms.date: 08/20/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
 ---
-
 # Tutorial: Load the New York Taxicab dataset
 
 This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load New York Taxicab dataset from an Azure Blob Storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to:
@@ -28,7 +27,7 @@ If you don't have an Azure subscription, [create a free Azure account](https://a
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
+This tutorial assumes you have already [created a SQL dedicated pool](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## Create a user for loading data
 
@@ -36,16 +35,14 @@ The server admin account is meant to perform management operations, and is not s
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Connect as the server admin so  you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class.
+Connect as the server admin so  you can create logins and users. Use these steps to create a login and user called `LoaderRC20`. Then assign the user to the `staticrc20` resource class.
 
 1. In SSMS, right-select **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
-    ![New query in master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
-
-2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC20, substituting your own password for 'a123STRONGpassword!'.
+2. In the query window, enter these T-SQL commands to create a login and user named `LoaderRC20`, substituting your own strong password.
 
     ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+    CREATE LOGIN LoaderRC20 WITH PASSWORD = '<strong password here>';
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
@@ -53,9 +50,7 @@ Connect as the server admin so  you can create logins and users. Use these steps
 
 4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.
 
-    ![New query on sample data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
-
-5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named `LoaderRC20` for the `LoaderRC20` login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the `staticrc20` [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -67,19 +62,15 @@ Connect as the server admin so  you can create logins and users. Use these steps
 
 ## Connect to the server as the loading user
 
-The first step toward loading data is to login as LoaderRC20.
+The first step toward loading data is to login as `LoaderRC20`.
 
 1. In Object Explorer, select the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
-    ![Connect with new login](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
-
-2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter `LoaderRC20` as the Login.  Enter your password for LoaderRC20.
 
 3. Select **Connect**.
 
 4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC20.
-
-    ![Connection is successful](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
 ## Create tables for the sample data
 
@@ -87,11 +78,9 @@ You are ready to begin the process of loading data into your new data warehouse.
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data.
 
-1. In the previous section, you logged into your data warehouse as LoaderRC20. In SSMS, right-click your LoaderRC20 connection and select **New Query**.  A new query window appears.
+1. In the previous section, you logged into your data warehouse as `LoaderRC20`. In SSMS, right-click your LoaderRC20 connection and select **New Query**.  A new query window appears.
 
-    ![New loading query window](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
-
-2. Compare your query window to the previous image.  Verify your new query window is running as LoaderRC20 and performing queries on your MySampleDataWarehouse database. Use this query window to perform all of the loading steps.
+2. Compare your query window to the previous image.  Verify your new query window is running as `LoaderRC20` and performing queries on your `MySampleDataWarehouse` database. Use this query window to perform all of the loading steps.
 
 7. Run the following T-SQL statements to create the tables:
 
@@ -359,9 +348,8 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your data warehouse.
+4. Enjoy your data nicely loaded into your data warehouse.
 
-    ![View loaded tables](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
 ## Clean up resources
 
@@ -373,8 +361,6 @@ You are being charged for compute resources and data that you loaded into your d
 Follow these steps to clean up resources as you desire.
 
 1. Log in to the [Azure portal](https://portal.azure.com), select your data warehouse.
-
-    ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. To pause compute, select the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, select **Start**.
 
