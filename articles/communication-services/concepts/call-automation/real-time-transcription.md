@@ -38,7 +38,7 @@ Using the transcript generated throughout the call, you can leverage other AI to
 ![Diagram of real-time transcription flow.](./media/transcription.png)
 
 ## Billing
-See the [Azure Communication Services pricing page](https://azure.microsoft.com/en-us/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how real-time transcription is billed.  Prices can be found in the calling category under audio streaming -> unmixed audio insights streaming.
+See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how real-time transcription is billed.  Prices can be found in the calling category under audio streaming -> unmixed audio insights streaming.
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to use our Real-time Transcription](../../how-tos/call-automation/real-time-transcription-tutorial.md) to users.
