@@ -85,6 +85,8 @@ function GetArcServersWithLogAnalyticsAgentExtensionInstalled {
         $serverParallelThrottleLimit = $serversCount
     }
 
+    $serverGroups = @()
+
     if($serversCount -eq 1)
     {
         $serverGroups += ,($serverList[0])
@@ -385,7 +387,7 @@ The script reports the total VM, VMSSs, or Arc enables servers seen in the subsc
 ## Step 4 Uninstall inventory
 This script iterates through the list of VM, Virtual Machine Scale Sets, and Arc enabled servers and uninstalls the legacy agent. If the VM, Virtual Machine Scale Sets, or Arc enabled server is not running you won't be able to remove the agent. 
    ``` PowerShell
-   .\MMAUnistallUtilityScript.ps1 UninstallMMAExtension
+   .\MMAUnistallUtilityScript.ps1 UninstallExtension
    ```
 Once the script is complete you'll be able to see the removal status for your VM, Virtual Machine Scale Sets, and Arc enabled servers in the MMAInventory.csv file.
 
