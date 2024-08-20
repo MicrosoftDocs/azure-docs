@@ -157,17 +157,17 @@ def translate_speech_to_text():
             translation_config=translation_config)
     
     print('Say something...')
-    result = translation_recognizer.recognize_once()
-    print(get_result_text(reason=result.reason, result=result))
+    translation_recognition_result = translation_recognizer.recognize_once()
+    print(get_result_text(reason=translation_recognition_result.reason, result=translation_recognition_result))
 
-def get_result_text(reason, result):
+def get_result_text(reason, translation_recognition_result):
     reason_format = {
         speechsdk.ResultReason.TranslatedSpeech:
-            f'RECOGNIZED "{from_language}": {result.text}\n' +
-            f'TRANSLATED into "{to_language}"": {result.translations[to_language]}',
-        speechsdk.ResultReason.RecognizedSpeech: f'Recognized: "{result.text}"',
-        speechsdk.ResultReason.NoMatch: f'No speech could be recognized: {result.no_match_details}',
-        speechsdk.ResultReason.Canceled: f'Speech Recognition canceled: {result.cancellation_details}'
+            f'RECOGNIZED "{from_language}": {translation_recognition_result.text}\n' +
+            f'TRANSLATED into "{to_language}"": {translation_recognition_result.translations[to_language]}',
+        speechsdk.ResultReason.RecognizedSpeech: f'Recognized: "{translation_recognition_result.text}"',
+        speechsdk.ResultReason.NoMatch: f'No speech could be recognized: {translation_recognition_result.no_match_details}',
+        speechsdk.ResultReason.Canceled: f'Speech Recognition canceled: {translation_recognition_result.cancellation_details}'
     }
     return reason_format.get(reason, 'Unable to recognize speech')
 
@@ -222,17 +222,17 @@ def translate_speech_to_text():
 
     print(f'Say something in "{from_language}" and we\'ll translate into "{to_language}".')
 
-    result = translation_recognizer.recognize_once()
-    print(get_result_text(reason=result.reason, result=result))
+    translation_recognition_result = translation_recognizer.recognize_once()
+    print(get_result_text(reason=translation_recognition_result.reason, result=translation_recognition_result))
 
-def get_result_text(reason, result):
+def get_result_text(reason, translation_recognition_result):
     reason_format = {
         speechsdk.ResultReason.TranslatedSpeech:
-            f'Recognized "{from_language}": {result.text}\n' +
-            f'Translated into "{to_language}"": {result.translations[to_language]}',
-        speechsdk.ResultReason.RecognizedSpeech: f'Recognized: "{result.text}"',
-        speechsdk.ResultReason.NoMatch: f'No speech could be recognized: {result.no_match_details}',
-        speechsdk.ResultReason.Canceled: f'Speech Recognition canceled: {result.cancellation_details}'
+            f'Recognized "{from_language}": {translation_recognition_result.text}\n' +
+            f'Translated into "{to_language}"": {translation_recognition_result.translations[to_language]}',
+        speechsdk.ResultReason.RecognizedSpeech: f'Recognized: "{translation_recognition_result.text}"',
+        speechsdk.ResultReason.NoMatch: f'No speech could be recognized: {translation_recognition_result.no_match_details}',
+        speechsdk.ResultReason.Canceled: f'Speech Recognition canceled: {translation_recognition_result.cancellation_details}'
     }
     return reason_format.get(reason, 'Unable to recognize speech')
 
@@ -264,10 +264,10 @@ def translate_speech_to_text():
             translation_config=translation_config)
     
     print('Say something...')
-    result = translation_recognizer.recognize_once()
-    synthesize_translations(result=result)
+    translation_recognition_result = translation_recognizer.recognize_once()
+    synthesize_translations(result=translation_recognition_result)
 
-def synthesize_translations(result):
+def synthesize_translations(translation_recognition_result):
     language_to_voice_map = {
         "de": "de-DE-KatjaNeural",
         "en": "en-US-AriaNeural",
@@ -275,10 +275,10 @@ def synthesize_translations(result):
         "pt": "pt-BR-FranciscaNeural",
         "zh-Hans": "zh-CN-XiaoxiaoNeural"
     }
-    print(f'Recognized: "{result.text}"')
+    print(f'Recognized: "{translation_recognition_result.text}"')
 
-    for language in result.translations:
-        translation = result.translations[language]
+    for language in translation_recognition_result.translations:
+        translation = translation_recognition_result.translations[language]
         print(f'Translated into "{language}": {translation}')
 
         speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
