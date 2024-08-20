@@ -3,7 +3,7 @@ title: Upgrade Mobility Service and appliance components - Modernized
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 08/20/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -73,7 +73,7 @@ To update mobility agent of a protected item, follow these steps:
 
 
 
-### Update mobility agent using command prompts
+### Update mobility agent using command line
 
 #### Update mobility agent when private endpoint is enabled 
 
@@ -233,7 +233,10 @@ To delete the registry key:
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Delete the registry key **AutoUpdate** that was previously created to turn off autoupdate.
 
-### Update appliance components when private endpoint is enabled
+### Update appliance components manually or when private endpoint is enabled
+
+> [!IMPORTANT]
+> If you're using Windows Server 2016 for your replication appliance, ensure that you have [Microsoft .NET framework 4.7.2](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2) installed on the appliance machine.
 
 When you enable private endpoints, automatic updates won't be available. To update all the components of Azure Site Recovery replication appliance, follow these steps: 
 

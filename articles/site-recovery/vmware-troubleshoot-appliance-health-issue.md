@@ -46,9 +46,8 @@ To troubleshoot these issues, follow these steps:
 3. Navigate to the **Certificate renewal** section and select **Renew certificate**. This triggers the certificate renewal operation. Wait for it to complete.
 
 :::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of appliance health error.":::
-   
 
-#### Error
+#### Current error
 
 **If you see the following for your web app in replication appliance:**
 
