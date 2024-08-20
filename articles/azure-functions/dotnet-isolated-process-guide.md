@@ -77,6 +77,16 @@ The following code shows an example of a [HostBuilder] pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
+> [!NOTE]
+> The above example from [HostBuilder] pipeline has a line demonstrating dependency injection:
+> 
+> ```csharp
+> s.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+> ```
+> 
+> **You can safely ignore this line.** This is sample code only. `IHttpResponderService` and `DefaultHttpResponderService`
+> are not built-in Azure Function SDK types and are not relevant to a production application.
+
 This code requires `using Microsoft.Extensions.DependencyInjection;`.
 
 Before calling `Build()` on the `HostBuilder`, you should:
