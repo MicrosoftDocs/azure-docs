@@ -5,7 +5,7 @@ services: storage
 author: pauljewellmsft
 ms.service: azure-blob-storage
 ms.topic: include
-ms.date: 08/19/2024
+ms.date: 08/20/2024
 ms.author: pauljewell
 ms.custom: include file
 ---
@@ -23,5 +23,5 @@ credential = DefaultAzureCredential()
 blob_service_client = BlobServiceClient(account_url, credential=credential)
 ```
 
-You can also create client objects for specific [containers](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobcontainerclient-object) or [blobs](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobclient-object). To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
+You can also create client objects for specific [containers](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobcontainerclient-object) or [blobs](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobclient-object), either directly or from the `BlobServiceClient` object. To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
 

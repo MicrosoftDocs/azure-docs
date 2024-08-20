@@ -5,7 +5,7 @@ services: storage
 author: pauljewellmsft
 ms.service: azure-blob-storage
 ms.topic: include
-ms.date: 08/19/2024
+ms.date: 08/20/2024
 ms.author: pauljewell
 ms.custom: include file
 ---
