@@ -43,7 +43,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 - Automatic reconnection to OPC UA servers.
 - Integrated [OpenTelemetry](https://opentelemetry.io/) compatible observability.
 - OPC UA transport encryption.
-- Anonymous authentication and authentication based on username and password.
+- Anonymous authentication and authorization based on username and password.
 - `AssetEndpointProfile` and `Asset` CRs configurable by using Azure REST API and the operations experience web UI.
 - Akri-supported asset detection of OPC UA assets. The assets must be [OPC UA Companion Specifications](https://opcfoundation.org/about/opc-technologies/opc-ua/ua-companion-specifications/) compliant.
 
@@ -67,4 +67,4 @@ The OPC UA discovery handler:
 > [!NOTE]
 > Asset detection by Akri only works for OPC UA servers that don't require user or transport authentication.
 
-To learn more about Akri, see [What are the Akri services?](overview-akri.md).
+To learn more about Akri, see [What are the Akri services?](overview-akri.md)
