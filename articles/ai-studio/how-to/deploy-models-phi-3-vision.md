@@ -1,11 +1,11 @@
 ---
-title: How to use Phi-3 chat models with vision with Azure AI Studio
+title: How to use Phi-3 chat model with vision with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to use Phi-3 chat models with vision with Azure AI Studio.
+description: Learn how to use Phi-3 chat model with vision with Azure AI Studio.
 ms.service: azure-ai-studio
 manager: scottpolly
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 08/19/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -14,18 +14,20 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat models with vision
+# How to use Phi-3 chat model with vision
 
-In this article, you learn about Phi-3 chat models with vision and how to use them.
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
+In this article, you learn about Phi-3 chat model with vision and how to use them.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
 
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat models with vision
+## Phi-3 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
@@ -35,13 +37,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -69,7 +71,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -141,7 +143,7 @@ response = client.complete(
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -231,7 +233,7 @@ response = client.complete(
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 family models don't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -254,7 +256,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to Phi-3 chat models with vision:
+The following extra parameters can be passed to Phi-3 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -343,9 +345,9 @@ Usage:
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 chat models with vision
+## Phi-3 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
@@ -355,13 +357,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -387,7 +389,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -461,7 +463,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -563,7 +565,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 family models don't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -591,7 +593,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to Phi-3 chat models with vision:
+The following extra parameters can be passed to Phi-3 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -686,9 +688,9 @@ Usage:
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat models with vision
+## Phi-3 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
@@ -698,13 +700,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -713,7 +715,7 @@ For deployment to a self-hosted managed compute, you must have enough quota in y
 
 ### The inference package installed
 
-You can consume predictions from this model by using the `Azure.AI.Inference` package from [Nuget](https://www.nuget.org/). To install this package, you need the following prerequisites:
+You can consume predictions from this model by using the `Azure.AI.Inference` package from [NuGet](https://www.nuget.org/). To install this package, you need the following prerequisites:
 
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
@@ -753,7 +755,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -818,7 +820,7 @@ Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -921,7 +923,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 family models don't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -946,7 +948,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to Phi-3 chat models with vision:
+The following extra parameters can be passed to Phi-3 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1026,9 +1028,9 @@ Usage:
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 chat models with vision
+## Phi-3 chat model with vision
 
-Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The model was built upon datasets that include synthetic data and filtered, publicly-available websites - with a focus on high-quality, reasoning-dense data, both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) that it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization, to ensure precise instruction adherence and robust safety measures.
 
 
 You can learn more about the models in their respective model card:
@@ -1038,13 +1040,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat model with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1063,7 +1065,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -1113,7 +1115,7 @@ The following example shows how you can create a basic chat completions request 
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -1276,7 +1278,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 family models don't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -1311,7 +1313,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to Phi-3 chat models with vision:
+The following extra parameters can be passed to Phi-3 chat model with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1398,7 +1400,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 ## More inference examples
 
-For more examples of how to use Phi-3, see the following examples and tutorials:
+For more examples of how to use Phi-3 family models, see the following examples and tutorials:
 
 | Description                               | Language          | Sample                                                          |
 |-------------------------------------------|-------------------|-----------------------------------------------------------------|
@@ -1411,9 +1413,9 @@ For more examples of how to use Phi-3, see the following examples and tutorials:
 | LiteLLM                                   | Python            | [Link](https://aka.ms/phi-3/litellm-sample)             | 
 
 
-## Cost and quota considerations for Phi-3 family of models deployed to managed compute
+## Cost and quota considerations for Phi-3 family models deployed to managed compute
 
-Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
+Phi-3 family models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 
 It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
 

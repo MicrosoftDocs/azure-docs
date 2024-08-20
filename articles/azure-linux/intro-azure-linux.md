@@ -34,7 +34,7 @@ The Azure Linux Container Host offers the following key benefits:
   - Azure Linux passes all the [CIS Level 1 benchmarks][cis-benchmarks], making it the only Linux distribution on AKS that does so.
   - For more information on Azure Linux Container Host security principles, see the [AKS security concepts](/azure/aks/concepts-security).
 - **Maintains compatibility with existing workloads**
-  - All existing and future AKS extensions, add-ons, and open-source projects on AKS support both Ubuntu and Azure Linux. This includes support for runtime components like Dapr, IaC tools like Terraform, and monitoring solutions like Dynatrace.
+  - All existing and future AKS extensions, add-ons, and open-source projects on AKS support Azure Linux. This includes support for runtime components like Dapr, IaC tools like Terraform, and monitoring solutions like Dynatrace.
   - Azure Linux ships with containerd as its container runtime and the upstream Linux kernel, which enables existing containers based on Linux images (like Alpine) to work seamlessly on Azure Linux.
 
 ## Azure Linux Container Host supported GPU SKUs
