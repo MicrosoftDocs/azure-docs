@@ -23,7 +23,7 @@ Get started with the Azure Health De-identification client library for .NET to d
 
 ## Setting up
 
-### Create a Deidentification service (preview)
+### Create a deidentification service (preview)
 
 A de-identification service (preview) provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
 
@@ -37,7 +37,7 @@ A de-identification service (preview) provides you with an endpoint URL. This en
     az resource create -g $RESOURCE_GROUP_NAME -n $DEID_SERVICE_NAME --resource-type microsoft.healthdataaiservices/deidservices --is-full-object -p "{\"identity\":{\"type\":\"SystemAssigned\"},\"properties\":{},\"location\":\"$REGION\"}"
     ```
     
-### Create an Azure Storage Account
+### Create an Azure Storage account
 
 1. Install [Azure CLI](/cli/azure/install-azure-cli)
 1. Create an Azure Storage Account
@@ -47,7 +47,7 @@ A de-identification service (preview) provides you with an endpoint URL. This en
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize deidentification service (preview) on Storage Account
+### Authorize deidentification service (preview) on the Azure Storage account
 
 -  Give the de-identification service (preview) access to your storage account
    
@@ -200,7 +200,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure the permissions are given, and the Managed Identity for the de-identification service (preview) is set up properly.
 
-See [Authorize deidentification service on Storage Account](#authorize-deidentification-service-preview-on-storage-account)
+See [Authorize deidentification service on Storage Account](#authorize-deidentification-service-preview-on-the-azure-storage-account)
 
 ### Job failed with status PartialFailed
 
