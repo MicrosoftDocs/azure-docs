@@ -227,6 +227,40 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
+## Use decorators
+
+The following table describes the available decorators and how to use them.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [discriminator]() | | |
+| [description](#description) | string | Text that explains how to use the variable. |
+| [export](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+| [sealed]() | | |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
+
+### Descriminator
+
+For more information, see [Tagged union data type](#tagged-union-data-type).
+
+### Description
+
+To help users understand the value to provide, add a description to the variable. Only add a description when the text provides more information than can be inferred from the variable name.
+
+```bicep
+@description('Create a unique storage account name.')
+var storageAccountName = uniqueString(resourceGroup().id)
+```
+
+### Export
+
+For more information, see [Export variable](./bicep-import.md#export-variables-types-and-functions).
+
+### Sealed
+
+For more information, see [Elevate error level](#elevate-error-level).
+
 ## Elevate error level
 
 By default, declaring an object type in Bicep allows it to accept additional properties of any type. For example, the following Bicep is valid but raises a warning of [BCP089] - `The property "otionalProperty" is not allowed on objects of type "{ property: string, optionalProperty: null | string }". Did you mean "optionalProperty"?`:

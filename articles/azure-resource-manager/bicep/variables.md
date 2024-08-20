@@ -125,6 +125,19 @@ The following table describes the available decorators and how to use them.
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
+### Description
+
+To help users understand the value to provide, add a description to the variable. Only add a description when the text provides more information than can be inferred from the variable name.
+
+```bicep
+@description('Create a unique storage account name.')
+var storageAccountName = uniqueString(resourceGroup().id)
+```
+
+### Export
+
+For more information, see [Export variable](./bicep-import.md#export-variables-types-and-functions).
+
 ## Use variables
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.

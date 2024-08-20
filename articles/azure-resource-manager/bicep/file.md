@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 08/19/2024
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -104,6 +104,33 @@ The allowed values are:
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
+## Decorator
+
+You can add one or more decorators for each of the following element. 
+
+* Parameters
+* Variables
+* Resources
+* Modules
+* Ouputs
+* Types
+* Functions
+
+| Decorator | Apply to element | Apply to data type | Argument | Description |
+| --------- | ---- | ----------- | ------- |
+| [allowed](#allowed-values) | parameter | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
+| [batch]() |resource, module||||
+| [description](#description) | parameter, variable  | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| [discriminator](#property-name) | parameters | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| [export]() | variable, type, function ||||
+| [maxLength](#length-constraints) | parameter | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
+| [maxValue](#integer-constraints) | parameter | int | int | The maximum value for the integer parameter. This value is inclusive. |
+| [metadata](#metadata) | parameter | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
+| [minLength](#length-constraints) | parameter | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
+| [minValue](#integer-constraints) | parameter | int | int | The minimum value for the integer parameter. This value is inclusive. |
+| [sealed](#sealed) | parameter, type, output | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [](./user-defined-data-types.md#elevate-error-level). |
+| [secure](#secure-parameters) | parameter | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+
 ## Parameters
 
 Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
@@ -122,17 +149,7 @@ sku: {
 }
 ```
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
-
-```bicep
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-])
-param storageSKU string = 'Standard_LRS'
-```
+You can add one or more decorators for each parameter. For more information, see [Decorators](./parameters.md#use-decorators).
 
 For more information, see [Parameters in Bicep](./parameters.md).
 
@@ -151,7 +168,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
 ```
 
-You can add a `@export()` decorator to make a variable available for import in other templates.
+You can add one or more decorators for each variable. For more information, see [Decorators](./variables.md#use-decorators).
 
 For more information, see [Variables in Bicep](./variables.md).
 
@@ -184,7 +201,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
-You can add a `@export()` decorator to make a user-defined data type available for import in other templates. 
+You can add one or more decorators for each user-defined data type. For more information, see [Decorators](./user-defined-data-types.md#use-decorators).
 
 For more information, see [User-defined data types](./user-defined-data-types.md).
 
@@ -198,7 +215,7 @@ func buildUrl(https bool, hostname string, path string) string => '${https ? 'ht
 output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
 ```
 
-You can add a `@export()` decorator to make a user-defined function available for import in other templates.
+You can add one or more decorators for each user-defined function. For more information, see [Decorators](./user-defined-functions.md#use-decorators).
 
 For more information, see [User-defined functions](./user-defined-functions.md).
 
@@ -221,6 +238,8 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 ```
+
+You can add one or more decorators for each resource. For more information, see [Decorators](./resource-declaration.md#use-decorators).
 
 For more information, see [Resource declaration in Bicep](resource-declaration.md).
 
@@ -288,22 +307,9 @@ module webModule './webApp.bicep' = {
 
 The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
 
+You can add one or more decorators for each module. For more information, see [Decorators](./modules.md#use-decorators).
+
 For more information, see [Use Bicep modules](./modules.md).
-
-## Resource and module decorators
-
-You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int)` and `description`. You can only apply it to a resource or module definition that uses a `for` expression.
-
-By default, resources are deployed in parallel. When you add the `batchSize(int)` decorator, you deploy instances serially.
-
-```bicep
-@batchSize(3)
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
-  ...
-}]
-```
-
-For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Outputs
 
@@ -312,6 +318,8 @@ Use outputs to return values from the deployment. Typically, you return a value 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
+
+You can add one or more decorators for each output. For more information, see [Decorators](./outputs.md#use-decorators).
 
 For more information, see [Outputs in Bicep](./outputs.md).
 

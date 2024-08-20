@@ -62,6 +62,32 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = {
 
 ## Decorators
 
+
+
+## Resource and module decorators
+
+You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int)` and `description`. You can only apply it to a resource or module definition that uses a `for` expression.
+
+By default, resources are deployed in parallel. When you add the `batchSize(int)` decorator, you deploy instances serially.
+
+```bicep
+@batchSize(3)
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
+
+
+
+
+
+
+
+
+
+
 The following table describes the available decorators and how to use them.
 
 | Decorator | Argument | Description |
