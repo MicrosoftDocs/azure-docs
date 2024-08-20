@@ -8,19 +8,23 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: View protectable resources
+# Quickstart: Identify the protection status of resources in Azure Business Continuity Center
 
-This quickstart describes how to view protectable resources in Azure Business Continuity Center.
+This quickstart describes how to identify the protection status of resources in Azure Business Continuity Center.
 
-As a business continuity and disaster recovery admin, first identify your critical resources that don't have backups or replications configured. If the protection isn't configured, you can't recover these resources in primary or secondary region in case of any outage, malicious attack, or operational failures, which lead to data loss.
+As a Business Continuity and Disaster Recovery (BCDR) administrator, safeguarding your critical resources is a crucial step in your business continuity journey. In the event of an outage, malicious attack, or operational failure, it's essential that these resources can be recovered in either the primary or secondary region to prevent data loss.
 
-## View unprotected resources
+Azure Business Continuity Center provides two key views to help you manage your protection details:
 
-To check the resources that require protection, follow these steps:
+- **Protectable resources**: This lists the resources that are currently not protected, allowing you to configure protection for them.
+- **Protected items**: This shows the data sources that are already protected, enabling you to perform actions such as recovery and failover.
 
-1. Go to the **Azure Business Continuity Center** from the [Azure portal](https://portal.azure.com/).
 
-2. Under the **Protection inventory** section, select **Protectable resources**.
+## Identify unprotected resources
+
+To identify the resources that are currently not protected, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center** > **Protection inventory** > **Protectable resources**.
 
    :::image type="content" source="./media/quick-view-protectable-resources/select-protectable-resources.png" alt-text="Screenshot shows the selection of Protectable resources." lightbox="./media/quick-view-protectable-resources/select-protectable-resources.png":::
 
@@ -31,9 +35,24 @@ To check the resources that require protection, follow these steps:
    >- Currently, you can view the *unprotected Azure resources* under **Protectable resources** only.
    >- You can also query information on your protectable Azure resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions.
 
-   Alternatively, you can check for the protectable Azure resources using ARG. To do so, use the *sample query* provided by selecting *Open query*.
+   Alternatively, you can check for the protectable Azure resources using Azure Resource Group (ARG). To do so, use the *sample query* provided in the Azure portal by selecting *Open query*.
  
    :::image type="content" source="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png" alt-text="Screenshot shows how to open sample query to find protectable resources." lightbox="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png":::
+
+## Identify protected items
+
+To view the protected items, go to **Business Continuity Center** > **Protection inventory** > **Protected items**.
+
+:::image type="content" source="./media/quick-view-protectable-resources/view-protected-items.png" alt-text="Screenshot shows how to view protected items." lightbox="./media/quick-view-protectable-resources/view-protected-items.png":::
+
+The list of all the protected items across the supported solution, subscription, resource groups, location, type, and so on, appears along with their protection status.
+
+
+
+
+
+
+
 
 ## Next step
 
