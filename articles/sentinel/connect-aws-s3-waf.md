@@ -14,17 +14,17 @@ Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connec
 This connector features the debut of a new *AWS CloudFormation*-based onboarding script, to streamline the creation of the AWS resources used by the connector.
 
 > [!IMPORTANT]
-> The **AWS S3 WAF Connector** is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
+> The **Amazon Web Services S3 WAF** data connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
 
 ## Overview
 
-The AWS S3 WAF connector serves the following use cases:
+The **Amazon Web Services S3 WAF** data connector serves the following use cases:
 
 - **Security monitoring and threat detection:** Analyze AWS WAF logs to help identify and respond to security threats such as SQL injection and cross-site scripting (XSS) attacks. By ingesting these logs into Microsoft Sentinel, you can use its advanced analytics and threat intelligence to detect and investigate malicious activities.
 
 - **Compliance and auditing:** AWS WAF logs provide detailed records of web ACL traffic, which can be crucial for compliance reporting and auditing purposes. The connector ensures that these logs are available within Sentinel for easy access and analysis.
 
-This article explains how to configure the AWS S3 WAF connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
+This article explains how to configure the Amazon Web Services S3 WAF connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
 
 ## Prerequisites
 
@@ -32,9 +32,13 @@ This article explains how to configure the AWS S3 WAF connector. The process of 
 
 - Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. If you have version 3.0.2 of the solution (or earlier) already installed, update the solution in the content hub to ensure you have the latest version that includes this connector. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-## Connect the AWS S3 WAF connector
+## Enable and configure the Amazon Web Services S3 WAF connector
+
+The process of enabling and configuring the connector consists of the following tasks: 
 
 - **In your AWS environment:**
+
+    the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable AWS CloudFormation stack templates that automate the following AWS tasks:
 
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
@@ -46,17 +50,83 @@ This article explains how to configure the AWS S3 WAF connector. The process of 
 
     - Attach the appropriate **IAM permissions policies** to grant the assumed role access to the appropriate resources (S3 bucket, SQS).
 
-    We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
-
 - **In Microsoft Sentinel:**
 
-    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. [See the instructions below](#add-the-aws-role-and-queue-information-to-the-s3-data-connector).
+    - Enable and configure the **Amazon Web Services S3 WAF Connector** in the Microsoft Sentinel portal. [See the instructions below](#add-the-aws-role-and-queue-information-to-the-s3-data-connector).
 
-## Automatic setup
+## Set up the AWS environment
 
-To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
+To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service to create resource stacks in AWS. that automate the setup of AWS resources, credentials, and permissions.
 
-The script takes the following actions:
+### Prepare the template files
+
+To run the script to set up the AWS environment, use the following steps:
+
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
+
+1. Select **Amazon Web Services S3 WAF** from the data connectors gallery.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel, or update the solution to the latest version.
+
+1. In the details pane for the connector, select **Open connector page**.
+
+1. In the **Configuration** section, under **1. AWS CloudFormation Deployment**, select the [AWS CloudFormation Stacks](https://aka.ms/awsCloudFormationLink#/stacks/create) link. This opens the AWS console in a new browser tab. Return to the Microsoft Sentinel tab.
+
+1. Select **Download** under Template 1 to download the template that creates the OIDC web identity provider. The template is downloaded to your designated downloads folder.
+
+    > [!NOTE]
+    > If you have the older AWS S3 connector, and therefore you already have an OIDC web identity provider, you can skip this step.
+
+1. Select **Download** under Template 2 to download the template that creates the other AWS resources. The template is downloaded to your designated downloads folder.
+
+    :::image type="content" source="media/connect-aws-s3-waf/configure-connector.png" alt-text="Screenshot of AWS S3 WAF connector configuration page.":::
+
+### Create AWS CloudFormation stacks
+
+Return to the AWS Console browser tab, which, after you log in, is open to the AWS CloudFormation page for creating a stack.
+
+#### Create the OIDC web identity provider
+
+Follow the instructions on the AWS Console page for creating a new stack.
+
+1. Specify a template and upload a template file.
+
+1. Select **Choose file** and locate the "*Template 1_ OpenID connect authentication deployment.json*" file you downloaded.
+
+1. Choose a name for the stack.
+
+1. Advance through the rest of the process and create the stack.
+
+#### Create the remaining AWS resources
+
+1. Return to the AWS CloudFormation stacks page and create a new stack.
+
+1. Select **Choose file** and locate the "*Template 2_ AWS WAF resources deployment.json*" file you downloaded.
+
+1. Choose a name for the stack.
+
+1. Where prompted, enter your Microsoft Sentinel Workspace ID. You can find it in **Microsoft Sentinel** > **Configuration** > **Settings** > **Workspace settings**.
+
+1. Advance through the rest of the process and create the stack.
+
+## Add log collectors
+
+
+1. When the script finishes running, copy the **Role ARN** and the **SQS URL** from the script's output (see example in first screenshot below) and paste them in their respective fields in the connector page under **2. Add connection** (see second screenshot below).
+
+   :::image type="content" source="media/connect-aws/aws-script-output.png" alt-text="Screenshot of output of A W S connector setup script." lightbox="media/connect-aws/aws-script-output.png":::
+
+   :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
+
+1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
+
+> [!NOTE]
+> The script may take up to 30 minutes to finish running.
+
+===============================================
+
+
+The OpenID connect authentication deployment template takes the following actions:
 
 - Creates an OIDC web identity provider, to authenticate Microsoft Entra ID users to AWS.
 
@@ -70,49 +140,7 @@ The script takes the following actions:
 
 For Azure Government clouds, a specialized script creates a different OIDC web identity provider, to which it assigns the IAM assumed role.
 
-### Prerequisites for automatic setup
 
-- You must have PowerShell and the AWS CLI on your machine.
-  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
-  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) (from AWS documentation)
-
-### Instructions
-
-To run the script to set up the connector, use the following steps:
-
-1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
-
-1. Select **Amazon Web Services S3** from the data connectors gallery.
-
-   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
-
-1. In the details pane for the connector, select **Open connector page**.
-
-1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script (recommended)**.
-
-1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
-
-   > [!NOTE]
-   > For ingesting AWS logs into an **Azure Government cloud**, download and extract [this specialized AWS S3 Gov Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip?raw=true) instead.
-
-1. Before running the script, run the `aws configure` command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) (from AWS documentation) for details.
-
-1. Now run the script. Copy the command from the connector page (under "Run script to set up the environment") and paste it in your command line.
-
-1. The script will prompt you to enter your Workspace ID. This ID appears on the connector page. Copy it and paste it at the prompt of the script.
-
-   :::image type="content" source="media/connect-aws/aws-run-script.png" alt-text="Screenshot of command to run setup script and workspace ID." lightbox="media/connect-aws/aws-run-script.png":::
-
-1. When the script finishes running, copy the **Role ARN** and the **SQS URL** from the script's output (see example in first screenshot below) and paste them in their respective fields in the connector page under **2. Add connection** (see second screenshot below).
-
-   :::image type="content" source="media/connect-aws/aws-script-output.png" alt-text="Screenshot of output of A W S connector setup script." lightbox="media/connect-aws/aws-script-output.png":::
-
-   :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
-
-1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
-
-> [!NOTE]
-> The script may take up to 30 minutes to finish running.
 
 ## Manual setup
 
@@ -259,69 +287,6 @@ See Amazon Web Services documentation (linked below) for the instructions for se
 
 Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troubleshoot.md).
 
-# [CloudTrail connector (legacy)](#tab/ct)
-
-This tab explains how to configure the AWS CloudTrail connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
-
-> [!NOTE]
-> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
->
-> Currently, you can only connect your AWS Commercial CloudTrail to Microsoft Sentinel and not AWS GovCloud CloudTrail.
-
-## Prerequisites
-
-- You must have write permission on the Microsoft Sentinel workspace.
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-> [!NOTE]
-> Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
-
-## Connect AWS CloudTrail
-
-Setting up this connector has two steps:
-- [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account)
-- [Add the AWS role information to the AWS CloudTrail data connector](#add-the-aws-role-information-to-the-aws-cloudtrail-data-connector)
-
-#### Create an AWS assumed role and grant access to the AWS Sentinel account
-
-1. In Microsoft Sentinel, select **Data connectors** from the navigation menu.
-
-1. Select **Amazon Web Services** from the data connectors gallery.
-
-   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-1. In the details pane for the connector, select **Open connector page**.
-
-1. Under **Configuration**, copy the **Microsoft account ID** and the **External ID (Workspace ID)** to your clipboard.
- 
-1. In a different browser window or tab, open the AWS console. Follow the [instructions in the AWS documentation for creating a role for an AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
-
-    - For the account type, instead of **This account**, choose **Another AWS account**.
-
-    - In the **Account ID** field, enter the number **197857026523** (or paste it&mdash;the Microsoft account ID you copied in the previous step&mdash;from your clipboard). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
-
-    - In the options, select **Require external ID** (*do not* select *Require MFA*). In the **External ID** field, paste your Microsoft Sentinel **Workspace ID** that you copied in the previous step. This identifies *your specific Microsoft Sentinel account* to AWS.
-
-    - Assign the `AWSCloudTrailReadOnlyAccess` permissions policy. Add a tag if you want.
-
-    - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
-
-#### Add the AWS role information to the AWS CloudTrail data connector
-
-1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
-
-1. Copy the **ARN** to your clipboard.
-
-1. Return to your Microsoft Sentinel browser tab, which should be open to the **Amazon Web Services** data connector page. In the **Configuration** section, paste the **Role ARN** into the **Role to add** field and select **Add**.
-
-    :::image type="content" source="media/connect-aws/aws-add-connection-ct.png" alt-text="Screenshot of adding an A W S role connection to the AWS connector." lightbox="media/connect-aws/aws-add-connection-ct.png":::
-
-1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
-
-   > [!IMPORTANT]
-   > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
-
----
 
 ## Next steps
 
