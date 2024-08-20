@@ -24,7 +24,7 @@ In addition to the default domain that is included in an instance of Azure Web P
 
 Before you can add a custom domain, add a matching custom certificate. A custom certificate is a resource of your instance of Web PubSub. It references a certificate in your key vault. For security and compliance, Web PubSub doesn't permanently store your certificate. Instead, it fetches the certificate from your key vault and keeps it in memory.
 
-## Give access to a managed identity
+## Access the key vault by using a managed identity
 
 Azure Web PubSub uses a managed identity to access your key vault. To authorize access, it must be granted permissions.
 
@@ -58,7 +58,7 @@ Azure Web PubSub uses a managed identity to access your key vault. To authorize 
 
 1. Select **Save**.
 
-### Grant permissions to the key vault
+### Give key vault access to the managed identity
 
 Depending on how you configure your Azure Key Vault permissions model, you might need to grant permissions at different locations in the Azure portal.
 
@@ -68,7 +68,7 @@ If you use a key vault built-in access policy as a key vault permissions model:
 
 :::image type="content" alt-text="Screenshot of a built-in access policy selected as the key vault permissions model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
 
-1. Go to your key vault resource.
+1. In the Azure portal, go to your key vault.
 1. On the left menu, select **Access configuration**.
 1. Select **Vault access policy**.
 1. Select **Go to access policies**.
@@ -94,20 +94,20 @@ If you use Azure role-based access control (Azure RBAC) as a key vault permissio
 
 :::image type="content" alt-text="Screenshot of Azure RBAC selected as the key vault permissions model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
-1. Go to your key vault resource.
+1. In the Azure portal, go to your key vault.
 1. On the left menu, select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" alt-text="Screenshot of the key vault Access control pane." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
+   :::image type="content" alt-text="Screenshot that shows the key vault Access control pane." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
 
 1. Select the **Role** tab, and then select **Key Vault Secrets User**. Select **Next**.
 
-   :::image type="content" alt-text="Screenshot of the Role tab when adding a role assignment to a key vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
+   :::image type="content" alt-text="Screenshot that shows the Role tab when adding a role assignment to a key vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
 
 1. Select the **Members** tab, and then select **Managed identity**.
 1. Search for and then select the Web PubSub resource name or the name of the user-assigned identity.
 
-   :::image type="content" alt-text="Screenshot of the Members tab when adding a role assignment to a key vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
+   :::image type="content" alt-text="Screenshot that shows the Members tab when adding a role assignment to a key vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
 
 1. Select **Next**.
 1. Select **Review + assign**.
@@ -120,14 +120,14 @@ If you use Azure role-based access control (Azure RBAC) as a key vault permissio
 1. On the left menu, select **Custom domain**.
 1. On the **Custom certificate** pane, select **Add**.
 
-   :::image type="content" alt-text="Screenshot of custom certificate management." source="media\howto-custom-domain\portal-custom-certificate-management.png" :::
+   :::image type="content" alt-text="Screenshot that shows managing a custom certificate." source="media\howto-custom-domain\portal-custom-certificate-management.png" :::
 
 1. Enter a name for the custom certificate.
 1. Choose **Select from your Key Vault** to choose a key vault certificate. After you select a key vault, values for **Key Vault Base URI** and **Key Vault Secret Name** are automatically added. You also have to option to edit these fields manually.
 1. (Optional) To pin the certificate to a specific version, enter a value for **Key Vault Secret Version**.
 1. Select **Add**.
 
-   :::image type="content" alt-text="Screenshot of adding a custom certificate." source="media\howto-custom-domain\portal-custom-certificate-add.png" :::
+   :::image type="content" alt-text="Screenshot that shows adding a custom certificate." source="media\howto-custom-domain\portal-custom-certificate-add.png" :::
 
 Web PubSub fetches the certificate and validates its contents. When certificate validation succeeds, **Provisioning State** for the certificate is **Succeeded**.
 
@@ -164,7 +164,7 @@ A custom domain is another sub resource of your Web PubSub instance. It contains
 
    :::image type="content" alt-text="Screenshot that shows adding a custom domain." source="media\howto-custom-domain\portal-custom-domain-add.png" :::
 
-## Verify a custom domain
+## Verify your custom domain
 
 You can now access your Web PubSub endpoint by using the custom domain.
 
@@ -217,6 +217,6 @@ Alternatively, you can pin a custom certificate to a specific secret version in 
 
 ## Related content
 
-* [Enable managed identity for Azure Web PubSub](howto-use-managed-identity.md)
+* [Turn on managed identity for Azure Web PubSub](howto-use-managed-identity.md)
 * [Get started with Azure Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
 * [What is Azure DNS?](../dns/dns-overview.md)
