@@ -247,7 +247,7 @@ To create a connection when you add a Service Bus trigger or action, you need to
    > [!NOTE]
    >
    > To check that the string is for the namespace, not a specific messaging entity, search the 
-   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
+   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
    > string is for a specific entity, and isn't the correct string to use with your workflow.
 
 1. Save the connection string for later use.

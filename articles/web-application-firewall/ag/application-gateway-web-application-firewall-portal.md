@@ -228,7 +228,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 Although NGINX isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use the web service to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.
-    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
 
    Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 1. Copy the public IP address, and then paste it into the address bar of your browser.

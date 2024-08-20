@@ -13,6 +13,10 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
+|[Msv3/Mdsv3](../../virtual-machines/msv3-mdsv3-medium-series.md)| Medium Memory | GA|
+|[Mbsv3/Mbdsv3](../../virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series.md)| Medium Memory| Preview|
+|Msv3/Mdsv3| High Memory | Preview|
+|Msv3/Mdsv3| Very High Memory | Preview|
 | [Dlsv6/Dldsv6](../../virtual-machines/dlsv6-dldsv6-series.md)  | General Purpose              | Preview    |
 | [Dsv6/Ddsv6](../../virtual-machines/dsv6-ddsv6-series.md)      | General Purpose              | Preview    |
 | [Esv6/Edsv6](../../virtual-machines/esv6-edsv6-series.md)      | Memory Optimized             | Preview    |
