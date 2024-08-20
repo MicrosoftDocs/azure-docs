@@ -120,7 +120,7 @@ Avoid using tools that centrally store your HTTP request history (including sens
 
 Consider using one of these tools for securely sending HTTP requests to your function endpoints:
 
-- [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+- [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode), such as [REST client]https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
 - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
 - [Bruno](https://www.usebruno.com/)
