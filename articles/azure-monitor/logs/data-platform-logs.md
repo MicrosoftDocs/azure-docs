@@ -21,6 +21,11 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 
 ## How Azure Monitor Logs works
 
+1. Collect log data by using Azure Monitor data collection methods. Transform data based on your needs to optimize costs, filter personally identifiable information, and so on, and route data to tables in your Log Analytics workspace.
+1. Manage all of your data in your Log Analytics workspace, including table schemas, table plans, data retention, data aggregation, who has access to which data, and all log-related costs.
+1. Retrieve data by using Kusto Query language (KQL), or KQL-based tools and features that don't require KQL knowledge, such as Simple mode in the Log Analytics user interface, prebuilt curated monitoring experiences called Insights, and predefined queries.
+1. Use the data in Azure Monitor Logs in dashboards and reports, alerting, custom applications, and other Azure or non-Azure services. 
+
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-overview.png" lightbox="media/data-platform-logs/azure-monitor-logs-overview.png" alt-text="A diagram that shows how Azure Monitor and Azure Monitor Logs provide an end-to-end solution for collecting, managing, retrieving, and working with log data.":::
 
 ## Data collection, routing, and transformation
