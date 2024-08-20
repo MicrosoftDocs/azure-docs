@@ -237,7 +237,7 @@ To resolve the error, one or more network misconfigurations might need to be add
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
    
-## Move Arc resource bridge location
+### Move Arc resource bridge location
 
 Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
