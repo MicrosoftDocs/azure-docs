@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ### [CLI](#tab/cli)
 
@@ -145,7 +145,7 @@ An [application security group (ASGs)](application-security-groups.md) enables y
 
 1. Select **+ Create**.
 
-1. On the **Basics** tab of **Create an application security group**, enter or select this information:
+1. On the **Basics** tab of **Create an application security group**, enter, or select this information:
 
    | Setting              | Value                     |
    | -------------------- | ------------------------- |
@@ -226,7 +226,7 @@ A [network security group (NSG)](network-security-groups-overview.md) secures ne
 
 1. Select **+ Create**.
 
-1. On the **Basics** tab of **Create network security group**, enter or select this information:
+1. On the **Basics** tab of **Create network security group**, enter, or select this information:
 
    | Setting              | Value                     |
    | -------------------- | ------------------------- |
@@ -529,7 +529,7 @@ Create two virtual machines (VMs) in the virtual network.
 
 1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
-1. Select **Create**. The VM may take a few minutes to deploy.
+1. Select **Create**. The VM might take a few minutes to deploy.
 
 1. Repeat the previous steps to create a second virtual machine named **vm-mgmt**.
 
@@ -593,7 +593,7 @@ $mgmtNic = New-AzNetworkInterface @mgmtNicParams
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step.
 
-Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that will serve as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step:
+Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that serves as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step:
 
 ```azurepowershell-interactive
 # Create user object
@@ -830,7 +830,7 @@ az network nic update \
 
 1. Select **OK**.
 
-1. You may receive a certificate warning during the connection process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
+1. You might receive a certificate warning during the connection process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
 
    The connection succeeds, because inbound traffic from the internet to the **asg-mgmt** application security group is allowed through port 3389.
 
@@ -858,7 +858,7 @@ az network nic update \
 
 1. Search for **vm-web** in the portal search box.
 
-1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178, your address is different:
+1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178. Your address is different:
 
    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true" lightbox="./media/tutorial-filter-network-traffic/public-ip-address.png":::
 
@@ -886,9 +886,9 @@ Use the following command to create a remote desktop session with the _vm-mgmt_ 
 mstsc /v:$publicIP
 ```
 
-Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
+Enter the user name and password you specified when creating the VM (you might need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You might receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
 
-The connection succeeds, because port 3389 is allowed inbound from the internet to the _asg-mgmt_ application security group that the network interface attached to the _vm-mgmt_ VM is in.
+The connection succeeds. Port 3389 is allowed inbound from the internet to the _asg-mgmt_ application security group. The network interface attached to the _vm-mgmt_ VM is in this group.
 
 Use the following command to create a remote desktop connection to the _vm-web_ VM, from the _vm-mgmt_ VM, with the following command, from PowerShell:
 
@@ -918,7 +918,7 @@ $params = @{
 Get-AzPublicIpAddress @params | Select IpAddress
 ```
 
-To confirm that you can access the _vm-web_ web server from outside of Azure, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. The connection succeeds, because port 80 is allowed inbound from the internet to the _asg-web_ application security group that the network interface attached to the _vm-web_ VM is in.
+To confirm that you can access the _vm-web_ web server from outside of Azure, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. The connection succeeds. Port 80 is allowed inbound from the internet to the _asg-web_ application security group. The network interface attached to the _vm-web_ VM is in this group.
 
 ### [CLI](#tab/cli)
 
@@ -1008,7 +1008,7 @@ In this tutorial, you:
 
 To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
 
-Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example.
+Azure routes traffic between subnets by default. You might instead, choose to route traffic between subnets through a VM, serving as a firewall, for example.
 
 To learn how to create a route table, advance to the next tutorial.
 
