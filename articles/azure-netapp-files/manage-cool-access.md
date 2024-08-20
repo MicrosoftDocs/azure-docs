@@ -65,7 +65,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 # [Premium](#tab/premium)
 
-You must submit a [waitlist request](https://aka.ms/ANFoolaccesssignup) before enabling Premium storage with cool access. 
+You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Premium storage with cool access. 
 
 1. Register the feature: 
 
@@ -84,7 +84,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 # [Ultra](#tab/ultra)
 
-You must submit a [waitlist request](https://aka.ms/ANFoolaccesssignup) before enabling Ultra storage with cool access. 
+You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Ultra storage with cool access. 
 
 1. Register the feature: 
 
