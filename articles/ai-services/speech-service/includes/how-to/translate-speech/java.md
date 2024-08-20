@@ -192,10 +192,10 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
     try (TranslationRecognizer translationRecognizer = new TranslationRecognizer(speechTranslationConfig)) {
         System.out.printf("Say something in '%s' and we'll translate...", fromLanguage);
 
-        TranslationRecognitionResult result = translationRecognizer.recognizeOnceAsync().get();
-        if (result.getReason() == ResultReason.TranslatedSpeech) {
-            System.out.printf("Recognized: \"%s\"\n", result.getText());
-            for (Map.Entry<String, String> pair : result.getTranslations().entrySet()) {
+        TranslationRecognitionResult translationRecognitionResult = translationRecognizer.recognizeOnceAsync().get();
+        if (translationRecognitionResult.getReason() == ResultReason.TranslatedSpeech) {
+            System.out.printf("Recognized: \"%s\"\n", translationRecognitionResult.getText());
+            for (Map.Entry<String, String> pair : translationRecognitionResult.getTranslations().entrySet()) {
                 System.out.printf("Translated into '%s': %s\n", pair.getKey(), pair.getValue());
             }
         }
@@ -248,10 +248,10 @@ static void translateSpeech() throws ExecutionException, FileNotFoundException, 
 
         System.out.printf("Say something in '%s' and we'll translate...", fromLanguage);
 
-        TranslationRecognitionResult result = translationRecognizer.recognizeOnceAsync().get();
-        if (result.getReason() == ResultReason.TranslatedSpeech) {
-            System.out.printf("Recognized: \"%s\"\n", result.getText());
-            for (Map.Entry<String, String> pair : result.getTranslations().entrySet()) {
+        TranslationRecognitionResult translationRecognitionResult = translationRecognizer.recognizeOnceAsync().get();
+        if (translationRecognitionResult.getReason() == ResultReason.TranslatedSpeech) {
+            System.out.printf("Recognized: \"%s\"\n", translationRecognitionResult.getText());
+            for (Map.Entry<String, String> pair : translationRecognitionResult.getTranslations().entrySet()) {
                 String language = pair.getKey();
                 String translation = pair.getValue();
                 System.out.printf("Translated into '%s': %s\n", language, translation);
@@ -282,8 +282,8 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
     try (TranslationRecognizer translationRecognizer = new TranslationRecognizer(speechTranslationConfig)) {
         System.out.printf("Say something in '%s' and we'll translate...", fromLanguage);
 
-        TranslationRecognitionResult result = translationRecognizer.recognizeOnceAsync().get();
-        if (result.getReason() == ResultReason.TranslatedSpeech) {
+        TranslationRecognitionResult translationRecognitionResult = translationRecognizer.recognizeOnceAsync().get();
+        if (translationRecognitionResult.getReason() == ResultReason.TranslatedSpeech) {
             // See: https://aka.ms/speech/sdkregion#standard-and-neural-voices
             Map<String, String> languageToVoiceMap = new HashMap<String, String>();
             languageToVoiceMap.put("de", "de-DE-KatjaNeural");
@@ -292,8 +292,8 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
             languageToVoiceMap.put("pt", "pt-BR-FranciscaNeural");
             languageToVoiceMap.put("zh-Hans", "zh-CN-XiaoxiaoNeural");
 
-            System.out.printf("Recognized: \"%s\"\n", result.getText());
-            for (Map.Entry<String, String> pair : result.getTranslations().entrySet()) {
+            System.out.printf("Recognized: \"%s\"\n", translationRecognitionResult.getText());
+            for (Map.Entry<String, String> pair : translationRecognitionResult.getTranslations().entrySet()) {
                 String language = pair.getKey();
                 String translation = pair.getValue();
                 System.out.printf("Translated into '%s': %s\n", language, translation);
