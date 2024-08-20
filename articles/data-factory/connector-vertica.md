@@ -29,9 +29,11 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
+For version 2.0 (Preview), you need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20-preview) manually. For version 1.0, the service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
+
 ## Prerequisites
 
-If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. If you use the version 2.0 (Preview), your self-hosted integration runtime version should be 5.44.8969.2 or above.
+If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. If you use the version 2.0 (Preview), your self-hosted integration runtime version should be 5.44.8984.1 or above.
 
 For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](data-access-strategies.md).
 
@@ -106,7 +108,7 @@ If you use version 2.0 (Preview), the following properties are supported for Ver
 | uid | The user ID that is used to connect to the database.  | Yes |
 | pwd | The password that the application uses to connect to the database. | Yes |
 | version | The version when you select version 2.0 (Preview). The value is `2.0`. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime and its version should be 5.44.8969.2 or above. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above. |No |
 
 **Example:**
 
@@ -117,7 +119,7 @@ If you use version 2.0 (Preview), the following properties are supported for Ver
         "type": "Vertica",
         "version": "2.0",
         "typeProperties": {
-            "Server": "<server>",
+            "server": "<server>",
             "port": 5433,
             "uid": "<username>",
             "database": "<database>",
@@ -143,7 +145,7 @@ If you use version 2.0 (Preview), the following properties are supported for Ver
         "type": "Vertica",
         "version": "2.0",
         "typeProperties": {
-            "Server": "<server>",
+            "server": "<server>",
             "port": 5433,
             "uid": "<username>",
             "database": "<database>",
@@ -274,7 +276,7 @@ Here are steps that help you upgrade your Vertica version:
 
 1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20-preview). 
 1. In **Edit linked service page**, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
-1. Apply a self-hosted integration runtime with version 5.44.8969.2 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
+1. Apply a self-hosted integration runtime with version 5.44.8984.1 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
