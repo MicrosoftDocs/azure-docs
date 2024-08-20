@@ -90,14 +90,18 @@ items:
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
-    - name: Phi-3 models
+    - name: Phi-3 family models
       items:
-      - name: Phi-3 chat models
-        href: how-to/deploy-models-phi-3.md
-      - name: Phi-3 chat models with vision
-        href: how-to/deploy-models-phi-3-vision.md
-      - name: Fine-tune Phi-3 chat models
-        href: how-to/fine-tune-phi-3.md
+        - name: Phi-3 family chat models
+          href: how-to/deploy-models-phi-3.md
+        - name: Phi-3.5 MoE chat model
+          href: how-to/deploy-models-phi-3-5-moe.md
+        - name: Phi-3 chat model with vision
+          href: how-to/deploy-models-phi-3-vision.md
+        - name: Phi-3.5 chat model with vision
+          href: how-to/deploy-models-phi-3-5-vision.md
+        - name: Fine-tune Phi-3 chat models
+          href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
       - name: Cohere Command models
@@ -295,8 +299,6 @@ items:
       href: how-to/quota.md
     - name: Increase rate limit
       href: how-to/autoscale.md
-    - name: Use commitment tier pricing
-      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management
