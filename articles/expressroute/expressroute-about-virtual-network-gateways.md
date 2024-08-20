@@ -28,7 +28,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a higher capacity gateway SKU, you can use the Seamless Gateway Migration tool in either Azure Portal or PowerShell. The following upgrades are supported:
+If you want to upgrade your gateway to a higher capacity gateway SKU, you can use the Seamless Gateway Migration tool in either Azure portal or PowerShell. The following upgrades are supported:
 
 - Non-Az enabled SKU on Basic IP to Non Az enabled SKU on Standard IP.
 - Non-Az enabled SKU on Basic IP to Az-enabled SKU on Standard IP.
@@ -153,17 +153,17 @@ ErGwScale is free of charge during public preview. For information about Express
 | 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
 | 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
 
-<sup>1</sup> Maximum VM connections scales differently beyond 10 scale units. The first 10 scale units will provide capacity for 2,000 VMs per scale unit. Scale units 11 and above will provide 1,000 additional VM capacity per scale unit.
+<sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provides 1,000 additional VM capacity per scale unit.
 
 ## VNet to VNet and VNet to Virtual WAN connectivity
 
-By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## <a name="fastpath"></a>FastPath
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
-For more information about FastPath, including limitations and requirements, see [About FastPath](about-fastpath.md).
+For more information about FastPath, including limitations, and requirements, see [About FastPath](about-fastpath.md).
 
 ## Connectivity to private endpoints
 
@@ -176,7 +176,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 
 ### Private endpoint connectivity and planned maintenance events
 
-Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity issues.
+Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound, and outbound connections get routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity issues.
 
 To avoid or minimize connectivity issues with private endpoints during maintenance activities, we recommend setting the TCP time-out value to fall between 15-30 seconds on your on-premises applications. Test and configure the optimal value based on your application requirements.
 
