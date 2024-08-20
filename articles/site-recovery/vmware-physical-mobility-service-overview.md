@@ -217,8 +217,14 @@ When providing both the machine credentials and the vCenter server or vSphere ES
   Use the following steps to generate mobility service configuration file:
 
   1. Navigate to the appliance with which you want to register your source machine. Open the Microsoft Azure Appliance Configuration Manager and navigate to the section **Mobility service configuration details**.
-  2. Paste the machine details string that you've copied from the Mobility Service and paste it in the input field here. In case you're re-registering the Mobility service, use the following commands to get the machine details string and paste it in the input field here.
-  3. Select **Download configuration file**.
+  2. Paste the machine details string that you've copied from the Mobility Service and paste it in the input field here. In case you're re-registering the Mobility service, use the following commands to get the machine details string:
+      1. **Linux** : 
+          `cd /usr/local/ASR/Vx/bin/ ./AzureRcmCli --getagentconfiginput`
+      1. **Windows** :
+          `cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"`
+./AzureRcmCli.exe --getagentconfiginput
+                        
+  1. Select **Download configuration file**.
 
   ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/download-configuration-file.png)
 
@@ -451,5 +457,4 @@ As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 versi
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
+- [Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
