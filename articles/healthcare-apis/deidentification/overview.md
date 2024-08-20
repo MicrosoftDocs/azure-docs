@@ -9,13 +9,13 @@ ms.date: 7/17/2024
 ms.author: kimiamavon
 ---
 
-# What is the De-identification service (preview)?
+# What is the de-identification service (preview)?
 
-The De-identification service (preview) in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
+The de-identification service (preview) in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
 ## Use de-identified data in research, analytics, and machine learning
 
-The De-identification service (preview) unlocks data that was previously difficult to de-identify so organizations can conduct research and derive insights from analytics. The De-identification service supports three operations: **tag**, **redact**, or **surrogate PHI**. The de-identification service offers many benefits, including:
+The de-identification service (preview) unlocks data that was previously difficult to de-identify so organizations can conduct research and derive insights from analytics. The de-identification service supports three operations: **tag**, **redact**, or **surrogate PHI**. The de-identification service offers many benefits, including:
 
 - **Surrogation**: Surrogation, or replacement, is a best practice for PHI protection. The service can replace PHI elements with plausible replacement values, resulting in data that is most representative of the source data. Surrogation strengthens privacy protections as any false-negative PHI values are hidden within a document.
 
@@ -25,7 +25,7 @@ The De-identification service (preview) unlocks data that was previously difficu
 
 ## De-identify clinical data securely and efficiently
 
-The De-identification service (preview) offers many benefits, including:
+The de-identification service (preview) offers many benefits, including:
 
 - **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service also meets all regional compliance requirements including HIPAA, GDPR, and the California Consumer Privacy Act (CCPA).
 
@@ -35,14 +35,14 @@ The De-identification service (preview) offers many benefits, including:
 
 ## Synchronous or asynchronous endpoints
 
-The De-identification service (preview) offers two ways to interact with the REST API or Client library (Azure SDK).
+The de-identification service (preview) offers two ways to interact with the REST API or Client library (Azure SDK).
 
 - Directly submit raw unstructured text for analysis. The API output is returned in your application.
 - Submit a job to asynchronously endpoint process files in bulk from Azure Blob Storage using tag, redact, or surrogation with consistency within a job.
 
 ## Input requirements and service limits
 
-The De-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](/azure/healthcare-apis/fhir/deidentified-export).
+The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](/azure/healthcare-apis/fhir/deidentified-export).
 
 The following service limits are applicable during preview:
 - Requests can't exceed 50 KB.
@@ -60,7 +60,7 @@ When you choose to store documents in Azure Blob Storage, you are charged based 
 
 ## Responsible use of AI
 
-An AI system includes the technology, the people who use it, the people affected by it, and the environment where you deploy it. Read the transparency note for the De-identification service (preview) to learn about responsible AI use and deployment in your systems.
+An AI system includes the technology, the people who use it, the people affected by it, and the environment where you deploy it. Read the transparency note for the de-identification service (preview) to learn about responsible AI use and deployment in your systems.
 
 ## Related content
 

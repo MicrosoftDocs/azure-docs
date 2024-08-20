@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 07/16/2024
 ---
 
-# Use Azure role-based access control with the De-identification service (preview)
+# Use Azure role-based access control with the de-identification service (preview)
 
-Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (RBAC). The De-identification service (preview) defines a set of built-in roles that encompass common sets of permissions used to access de-identification functionality.
+Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (RBAC). The de-identification service (preview) defines a set of built-in roles that encompass common sets of permissions used to access de-identification functionality.
 
 Microsoft Entra ID uses the concept of a security principal, which can be a user, a group, an application service principal, or a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
@@ -19,11 +19,11 @@ When an Azure role is assigned to a Microsoft Entra ID security principal over a
 
 ## Prerequisites
 
-- A De-identification service (preview) in your Azure subscription. If you don't have a de-identification service, follow the steps in [Quickstart: Deploy the de-identification service](quickstart.md).
+- A de-identification service (preview) in your Azure subscription. If you don't have a de-identification service, follow the steps in [Quickstart: Deploy the de-identification service](quickstart.md).
 
 ## Available built-in roles
 
-The De-identification service (preview) has the following built-in roles available:
+The de-identification service (preview) has the following built-in roles available:
 
 |Role |Description |
 |-----|------------|
@@ -34,7 +34,7 @@ The De-identification service (preview) has the following built-in roles availab
 
 ## Assign a built-in role
 
-Keep in mind the following points about Azure role assignments with the De-identification service (preview):
+Keep in mind the following points about Azure role assignments with the de-identification service (preview):
 
 - When you create a de-identification service, you aren't automatically assigned permissions to access data via Microsoft Entra ID. You need to explicitly assign yourself an applicable Azure role. You can assign it at the level of your subscription, resource group, or de-identification service.
 - When roles are assigned, it can take up to 10 minutes for changes to take effect.
@@ -45,7 +45,7 @@ You can use different tools to assign built-in roles. Select the tab that applie
 
 # [Azure portal](#tab/azure-portal)
 
-To use the De-identification service (preview), with Microsoft Entra ID credentials, a security principal must be assigned one of the built-in roles. To learn how to assign these roles to a security principal, follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+To use the de-identification service (preview), with Microsoft Entra ID credentials, a security principal must be assigned one of the built-in roles. To learn how to assign these roles to a security principal, follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -53,7 +53,7 @@ To assign an Azure role to a security principal with PowerShell, call the [New-A
 
 The format of the command can differ based on the scope of the assignment, but `ObjectId` and `RoleDefinitionName` are required parameters. While the `Scope` parameter is optional, you should set it to retain the principle of least privilege. By limiting roles and scopes, you limit the resources that are at risk if the security principal is ever compromised.
 
-The scope for a De-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
+The scope for a de-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
 
 The example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific de-identification service. Make sure to replace the placeholder values 
 in angle brackets `<>` with your own values:
@@ -88,7 +88,7 @@ To assign an Azure role to a security principal with Azure CLI, use the [az role
 
 The format of the command can differ based on the type of security principal, but `role` and `scope` are required parameters.
 
-The scope for a De-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
+The scope for a de-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
 
 The following example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific de-identification service. Make sure to replace the placeholder values in angle brackets `<>` with your own values:
 
