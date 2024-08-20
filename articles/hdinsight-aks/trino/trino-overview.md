@@ -1,7 +1,7 @@
 ---
 title: What is Trino? (Preview)
 description: An introduction to Trino.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: overview
 ms.date: 08/29/2023
 ---

@@ -9,7 +9,7 @@ ms.date: 1/24/2022
 ms.custom: template-how-to
 ---
 
-# Delete a lab in the Azure Education Hub
+# Delete a lab in the Azure Education Hub with REST APIs
 
 This article walks you through how to delete a lab in the Azure Education Hub by using REST APIs. Before you delete a lab, you must delete all students from it.
 

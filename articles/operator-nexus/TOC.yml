@@ -216,6 +216,8 @@
           href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
+        - name: Install Microsoft Defender for Containers on a Nexus Kubernetes Cluster
+          href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
     - name: Nexus Virtual Machine
