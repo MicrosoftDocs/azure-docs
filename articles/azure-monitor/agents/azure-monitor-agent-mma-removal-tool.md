@@ -44,7 +44,7 @@ Az account set --subscription {subscription_id or “subscription_name”}
    ```
 ## Step 2 Copy the script
 
-You'll use the following script for agent removal. Open a file in your local directory named LogAnalyticsAgentUninstallUtilityScript.ps1 and copy the script into the file.
+You use the following script for agent removal. Open a file in your local directory named LogAnalyticsAgentUninstallUtilityScript.ps1 and copy the script into the file.
    ``` PowerShell
 # This is per subscription, the customer has to set the az subscription before running this.
 # az login
@@ -372,20 +372,20 @@ switch ($args.Count)
 
    ```
 
-## Step 3 Get inventory
-You'll  collect a list of all legacy agents on all VM, VMSSs and Arc enabled server in the subscription. You'll run the script you downloaded an inventory of legacy agents in your subscription.
+## Step 3 Gets the inventory
+You collect a list of all legacy agents on all VM, VMSSs and Arc enabled server in the subscription. You run the script you downloaded an inventory of legacy agents in your subscription.
    ``` PowerShell
    .\LogAnalyticsAgentUninstallUtilityScript.ps1 GetInventory
    ```
-The script reports the total VM, VMSSs, or Arc enables servers seen in the subscription. It takes several minutes to run. You see a progress bar in the console window. Once complete, you are able to see a CSV file called "LogAnalyticsAgentExtensionInventory.csv in the local directory with the following format.
+The script reports the total VM, VMSSs, or Arc enables servers seen in the subscription. It takes several minutes to run. You see a progress bar in the console window. Once complete, you're able to see a CSV file called "LogAnalyticsAgentExtensionInventory.csv in the local directory with the following format.
 
 | Resource_ID | Name | Resource_Group | Resource_Type | Install_Type | Extension_Name | AMA_Extension_Installed |  
 |---|---|---|---|---|---|---|
 | 012cb5cf-e1a8-49ee-a484-d40673167c9c | Linux-ama-e2e-debian9  | Linux-AMA-E2E           | VM  | Extension | OmsAgentForLinux      | True  |
 | 8acae35a-454f-4869-bf4f-658189d98516 | test2012-r2-da         | test2012-r2-daAMA-ADMIN | VM  | Extension | MicrosoftMonitorAgent | False |
 
-## Step 4 Uninstall inventory
-This script iterates through the list of VM, Virtual Machine Scale Sets, and Arc enabled servers and uninstalls the legacy agent. If the VM, Virtual Machine Scale Sets, or Arc enabled server is not running you won't be able to remove the agent. 
+## Step 4 Uninstalls the inventory
+This script iterates through the list of VM, Virtual Machine Scale Sets, and Arc enabled servers and uninstalls the legacy agent. You can't remove the agent if it isn't running. 
    ``` PowerShell
    .\LogAnalyticsAgentUninstallUtilityScript.ps1 UninstallExtension
    ```
