@@ -29,7 +29,7 @@ The SMS SDK uses the following error codes to help you troubleshoot SMS issues. 
 | 4007 | The Destination/To number opted out of receiving messages from you. | Mark the Destination/To number as opted out so that no further message attempts are made to the number. |
 | 4008 | You exceeded the maximum number of messages allowed for your profile. | Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages. |
 | 4009 | Message rejected by Microsoft Entitlement System. | Most often this happens if fraudulent activity is detected. Contact support for more details. |
-| 4010 | Message was blocked due to the toll-free number not being verified. | [Review unverified sending limits](../../sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible. |
+| 4010 | Message was blocked due to the toll-free number not being verified. | [Review unverified sending limits](../../../../../concepts/sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible. |
 | 5000 | Message failed to deliver. Reach out Microsoft support team for more details. | File a support request through the Azure portal. |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system. |  |
 | 5002 | Carrier does not support delivery report | Most often this happens if a carrier does not support delivery reports. No action required as message may have been delivered already. |
