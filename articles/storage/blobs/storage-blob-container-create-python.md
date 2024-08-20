@@ -31,11 +31,7 @@ To learn about creating blob containers using asynchronous APIs, see [Create a c
 
 Add the following `import` statements:
 
-```python
-from azure.core.exceptions import ResourceExistsError
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py" id="Snippet_imports":::
 
 #### Authorization
 

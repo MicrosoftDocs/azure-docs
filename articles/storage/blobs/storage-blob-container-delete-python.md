@@ -27,12 +27,17 @@ To learn about deleting a blob container using asynchronous APIs, see [Delete a 
 
 [!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
 
-| | |
-|---|---|
-| Install packages | `pip install azure-storage-blob azure-identity` |
-| Add import statements | :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_container.py" id="Snippet_imports"::: |
-| Authorization | The authorization mechanism must have the necessary permissions to delete a blob container, or to restore a soft-deleted blob container. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Container (REST API)](/rest/api/storageservices/delete-container#authorization) or [Restore Container (REST API)](/rest/api/storageservices/restore-container#authorization). |
-| Create a client | [!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)] |
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_container.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to delete or restore a container. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Container (REST API)](/rest/api/storageservices/delete-container#authorization) and [Restore Container (REST API)](/rest/api/storageservices/restore-container#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 ## Delete a container
 

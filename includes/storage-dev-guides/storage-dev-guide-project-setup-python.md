@@ -14,3 +14,11 @@ If you don't have an existing project, this section shows you how to set up a pr
 
 To work with the code examples in this article, follow these steps to set up your project.
 
+#### Install packages
+
+Install the following packages using `pip install`:
+
+```console
+pip install azure-storage-blob azure-identity
+```
+
