@@ -184,6 +184,27 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
    sudo sysctl -p
    ```
 
+### Configure multi-node clusters for Edge Storage Accelerator
+
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+
+1. Install the specific kernel using:
+
+   ```bash
+   sudo apt install linux-modules-extra-`uname -r`
+   ```
+
+   > [!NOTE]
+   > The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
+
+1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
+
+   ```bash
+   HUGEPAGES_NR=512
+   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
+   ```
+
 ### [Codespaces](#tab/codespaces)
 
 > [!IMPORTANT]
