@@ -37,13 +37,19 @@ You should be familiar with the concept of AI face detection. If you aren't, see
 
 The different face detection models are optimized for different tasks. See the following table for an overview of the differences.
 
+| Model | Description | Performance notes | Landmarks |
+|-------|-------------|-------------------|-----------|
+|**detection_01** | Default choice for all face detection operations. | Not optimized for small, side-view, or blurry faces. | Returns face landmarks if they're specified in the detect call. |
+|**detection_02** | Released in May 2019 and available optionally in all face detection operations. | Improved accuracy on small, side-view, and blurry faces. | Doesn't return face landmarks. |
+|**detection_03** | Released in February 2021 and available optionally in all face detection operations. | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations. | Returns face landmarks if they're specified in the detect call. |
 
-| Model | Description | Performance notes   | Attributes  | Landmarks |
-|---------|------------|-------------------|-------------|--|
-|**detection_01** | Default choice for all face detection operations. | Not optimized for small, side-view, or blurry faces.                                                     | Returns main face attributes (head pose, glasses, and so on) if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
-|**detection_02** | Released in May 2019 and available optionally in all face detection operations.   | Improved accuracy on small, side-view, and blurry faces.  | Doesn't return face attributes. | Doesn't return face landmarks.     |
-|**detection_03** | Released in February 2021 and available optionally in all face detection operations.                   | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.       | Returns mask, blur, and head pose attributes if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
+Attributes are a set of features that can optionally be detected if they're specified in the detect call:
 
+| Model | accessories | blur | exposure | glasses | headPose | mask | noise | occlusion | qualityForRecognition |
+|-------|:-----------:|:----:|:--------:|:-------:|:--------:|:----:|:-----:|:---------:|:---------------------:|
+|**detection_01** | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | | ✔️ | ✔️ | ✔️ (for recognition_03 or 04) |
+|**detection_02** | | | | | | | | | |
+|**detection_03** | | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | | ✔️ | ✔️ (for recognition_03 or 04) |
 
 The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
 
@@ -73,7 +79,7 @@ var faces = response.Value;
 
 The Face service can extract face data from an image and associate it with a **Person** object through the [Add Person Group Person Face] API. In this API call, you can specify the detection model in the same way as in [Detect].
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_03" model
@@ -110,7 +116,7 @@ This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Perso
 
 ## Add face to FaceList with specified model
 
-You can also specify a detection model when you add a face to an existing **FaceList** object. See the following code example for the .NET client library.
+You can also specify a detection model when you add a face to an existing **FaceList** object. See the following .NET code example.
 
 ```csharp
 using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My face collection", ["recognitionModel"] = "recognition_04" }))))
@@ -139,6 +145,7 @@ In this article, you learned how to specify the detection model to use with diff
 
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Java SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-java%253fpivots%253dprogramming-language-java)
 * [Face JavaScript SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-javascript%253fpivots%253dprogramming-language-javascript)
 
 [Detect]: /rest/api/face/face-detection-operations/detect

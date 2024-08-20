@@ -1,7 +1,7 @@
 ---
 title: How to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 04/02/2024
 ---

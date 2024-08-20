@@ -4,7 +4,7 @@ description: Learn about the different ways that you can automatically scale an 
 author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/14/2024
 ms.reviewer: jushiman

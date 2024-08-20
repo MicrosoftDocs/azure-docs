@@ -16,13 +16,13 @@ It's a new open-source standard for observability. Learn more at [OpenTelemetry]
 
 ### Why is Microsoft Azure Monitor investing in OpenTelemetry?
 
-Microsoft is among the largest contributors to OpenTelemetry.
+Microsoft is investing in OpenTelemetry for the following reasons:
 
-The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
-
-Over time, we believe OpenTelemetry will enable Azure Monitor customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). It also expands the types of data you can collect through a rich set of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries). Furthermore, OpenTelemetry Software Development Kits (SDKs) tend to be more performant at scale than their predecessors, the Application Insights SDKs.
-
-Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
+- It's vendor-neutral and provides consistent APIs/SDKs across languages.
+- Over time, we believe OpenTelemetry will enable Azure Monitor customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages).
+- It expands the types of data you can collect through a rich set of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries).
+- OpenTelemetry Software Development Kits (SDKs) tend to be more performant at scale than their predecessors, the Application Insights SDKs.
+- OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
 
 ### What's the status of OpenTelemetry?
 
@@ -101,8 +101,8 @@ The following chart breaks out OpenTelemetry feature support for each language.
 | Filter requests, dependencies, logs, and exceptions by anonymous user ID and synthetic source                         | :x:                | :x:                | :x:                | :white_check_mark: |
 | Filter dependencies, logs, and exceptions by operation name                                                           | :x:                | :x:                | :x:                | :white_check_mark: |
 | [Adaptive sampling](../app/sampling.md#adaptive-sampling)                                                             | :x:                | :x:                | :x:                | :white_check_mark: |
-| [Profiler](../profiler/profiler-overview.md)                                                                          | :white_check_mark: | :x:                | :x:                | :warning:          |
-| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :white_check_mark: | :x:                | :x:                | :x:                |
+| [Profiler](../profiler/profiler-overview.md)                                                                          | :x:                | :x:                | :x:                | :warning:          |
+| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :x:                | :x:                | :x:                | :x:                |
 
 **Key**
 - :white_check_mark: This feature is available to all customers with formal support.

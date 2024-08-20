@@ -19,6 +19,8 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
 [Certain models in the model catalog](deploy-models-serverless-availability.md) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
+This article uses a Meta Llama model deployment for illustration. However, you can use the same steps to deploy any of the [models in the model catalog that are available for serverless API deployment](deploy-models-serverless-availability.md).
+
 ## Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
@@ -79,6 +81,17 @@ In this article, you learn how to deploy a model from the model catalog as a ser
     )
     ```
 
+    # [Bicep](#tab/bicep)
+
+    Install the Azure CLI as described at [Azure CLI](/cli/azure/).
+
+    Configure the following environment variables according to your settings:
+
+    ```azurecli
+    RESOURCE_GROUP="serverless-models-dev"
+    LOCATION="eastus2" 
+    ```  
+
     # [ARM](#tab/arm)
 
     You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or use any of the deployment tools. This tutorial uses the [Azure CLI](/cli/azure/).
@@ -106,7 +119,10 @@ The next section covers the steps for subscribing your project to a model offeri
 
 ## Subscribe your project to the model offering
 
-Serverless API endpoints can deploy both Microsoft and non-Microsoft offered models. For Microsoft models (such as Phi-3 models), you don't need to create an Azure Marketplace subscription and you can [deploy them to serverless API endpoints directly](#deploy-the-model-to-a-serverless-api-endpoint) to consume their predictions. For non-Microsoft models, you need to create the subscription first. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+Serverless API endpoints can deploy both Microsoft and non-Microsoft offered models. For Microsoft models (such as Phi-3 models), you don't need to create an Azure Marketplace subscription and you can [deploy them to serverless API endpoints directly](#deploy-the-model-to-a-serverless-api-endpoint) to consume their predictions. For non-Microsoft models, you need to create the subscription first. If it's your first time deploying the model in the project, you have to subscribe your project for the particular model offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+
+> [!TIP]
+> Skip this step if you are deploying models from the Phi-3 family of models. Directly [deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint).
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Model and region availability for Serverless API deployments](deploy-models-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](deploy-models-serverless-connect.md).
@@ -115,8 +131,12 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy**. A **Deployment options** window opens up, giving you the choice between serverless API deployment and deployment using a managed compute.
 
+        > [!NOTE]
+        > For models that can be deployed only via serverless API deployment, the serverless API deployment wizard opens up right after you select **Deploy** from the model's details page.
+
+    1. Select **Serverless API with Azure AI Content Safety (preview)** to open the serverless API deployment wizard.
     1. Select the project in which you want to deploy your models. To use the serverless API model deployment offering, your project must belong to one of the [regions that are supported for serverless deployment](deploy-models-serverless-availability.md) for the particular model.
 
         :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png"::: 
@@ -158,11 +178,41 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
     ).result()
     ```
 
+    # [Bicep](#tab/bicep)
+
+    Use the following bicep configuration to create a model subscription:
+
+    __model-subscription.bicep__
+    
+    ```bicep
+    param projectName string = 'my-project'
+    param modelId string = 'azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct'
+    
+    var modelName = substring(modelId, (lastIndexOf(modelId, '/') + 1))
+    var subscriptionName = '${modelName}-subscription'
+    
+    resource projectName_subscription 'Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions@2024-04-01-preview' = if (!startsWith(
+      modelId,
+      'azureml://registries/azureml/'
+    )) {
+      name: '${projectName}/${subscriptionName}'
+      properties: {
+        modelId: modelId
+      }
+    }
+    ```
+
+    Then create the resource as follows:
+
+    ```azurecli
+    az deployment group create --resource-group $RESOURCE_GROUP --template-file model-subscription.bicep
+    ```
+
     # [ARM](#tab/arm)
 
     Use the following template to create a model subscription:
 
-    __template.json__
+    __model-subscription.json__
 
     ```json
     {
@@ -196,6 +246,12 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
     }
     ```
 
+    Use the Azure portal or the Azure CLI to create the deployment.
+
+    ```azurecli
+    az deployment group create --resource-group $RESOURCE_GROUP --template-file model-subscription.json
+    ```
+
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the same offering in the same project don't require subscribing again.
 
 1. At any point, you can see the model offers to which your project is currently subscribed:
@@ -225,6 +281,15 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
 
     for sub in marketplace_sub_list:
         print(sub.as_dict())
+    ```
+
+    # [Bicep](#tab/bicep)
+
+    You can use the resource management tools to query the resources. The following code uses Azure CLI:
+
+    ```azurecli
+    az resource list \
+        --query "[?type=='Microsoft.SaaS']"
     ```
 
     # [ARM](#tab/arm)
@@ -292,6 +357,46 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
     ).result()
     ```
 
+    # [Bicep](#tab/bicep)
+
+    Use the following template to create an endpoint:
+
+    __serverless-endpoint.bicep__
+
+    ```bicep
+    param projectName string = 'my-project'
+    param endpointName string = 'myserverless-text-1234ss'
+    param location string = resourceGroup().location
+    param modelId string = 'azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct'
+    
+    var modelName = substring(modelId, (lastIndexOf(modelId, '/') + 1))
+    var subscriptionName = '${modelName}-subscription'
+    
+    resource projectName_endpoint 'Microsoft.MachineLearningServices/workspaces/serverlessEndpoints@2024-04-01-preview' = {
+      name: '${projectName}/${endpointName}'
+      location: location
+      sku: {
+        name: 'Consumption'
+      }
+      properties: {
+        modelSettings: {
+          modelId: modelId
+        }
+      }
+      dependsOn: [
+        projectName_subscription
+      ]
+    }
+    
+    output endpointUri string = projectName_endpoint.properties.inferenceEndpoint.uri
+    ```
+
+    Create the deployment as follows:
+
+    ```azurecli
+    az deployment group create --resource-group $RESOURCE_GROUP --template-file model-subscription.bicep
+    ```
+
     # [ARM](#tab/arm)
 
     Use the following template to create an endpoint:
@@ -344,8 +449,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
     ```azurecli
     az deployment group create \
-        --name model-subscription-deployment \
-        --resource-group <resource-group> \
+        --resource-group $RESOURCE_GROUP \
         --template-file template.json
     ```
 
@@ -386,6 +490,15 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
     ).result()
     ```
 
+    # [Bicep](#tab/bicep)
+
+    You can use the resource management tools to query the resources. The following code uses Azure CLI:
+
+    ```azurecli
+    az resource list \
+        --query "[?type=='Microsoft.MachineLearningServices/workspaces/serverlessEndpoints']"
+    ```
+
     # [ARM](#tab/arm)
 
     You can use the resource management tools to query the resources. The following code uses Azure CLI:
@@ -418,6 +531,10 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
     print(endpoint_keys.secondary_key)
     ```
 
+    # [Bicep](#tab/bicep)
+
+    Use REST APIs to query this information.
+
     # [ARM](#tab/arm)
 
     Use REST APIs to query this information.
@@ -431,9 +548,21 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
 ## Use the serverless API endpoint
 
-Models deployed in Azure Machine Learning and Azure AI studio in Serverless API endpoints support the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
+Models deployed in Azure Machine Learning and Azure AI Studio in Serverless API endpoints support the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
 
 Read more about the [capabilities of this API](../reference/reference-model-inference-api.md#capabilities) and how [you can use it when building applications](../reference/reference-model-inference-api.md#getting-started). 
+
+## Network isolation
+
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the AI Studio Hub that has the project in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your AI Studio Hub. You can secure inbound communication from a client to your endpoint by using a private endpoint for the hub.
+
+To set the PNA flag for the Azure AI Studio hub:
+
+1. Go to the [Azure portal](https://portal.azure.com).
+2. Search for the Resource group to which the hub belongs, and select the **Azure AI hub** from the resources listed for this resource group.
+3. From the hub **Overview** page on the left menu, select **Settings** > **Networking**.
+4. Under the **Public access** tab, you can configure settings for the public network access flag.
+5. Save your changes. Your changes might take up to five minutes to propagate.
 
 ## Delete endpoints and subscriptions
 
@@ -493,6 +622,15 @@ To delete the associated model subscription:
 ```python
 client.marketplace_subscriptions.begin_delete(subscription_name).wait()
 ```
+
+# [Bicep](#tab/bicep)
+
+You can use the resource management tools to manage the resources. The following code uses Azure CLI:
+
+```azurecli
+az resource delete --name <resource-name>
+```
+
 
 # [ARM](#tab/arm)
 

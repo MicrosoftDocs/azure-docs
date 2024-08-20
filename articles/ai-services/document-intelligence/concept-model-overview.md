@@ -53,22 +53,29 @@ The following table shows the available models for each current preview and stab
 |Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
 |Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
 |Document analysis models|[General document](concept-general-document.md)          |moved to layout**| ✔️| ✔️| n/a|
+|Prebuilt models|[Bank Check](concept-bank-check.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Bank Statement](concept-bank-statement.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Paystub](concept-pay-stub.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[US Unified Tax*](concept-tax-document.md)                   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US 1040 Tax*](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[US 1098 Tax*](concept-tax-document.md)                   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US 1099 Tax*](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[US Mortgage 1003 URLA](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1004 URAR](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1005](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US Mortgage 1008 Summary](concept-mortgage-documents.md)       | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US Mortgage closing disclosure](concept-mortgage-documents.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Marriage certificate](concept-marriage-certificate.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Credit card](concept-credit-card.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
 |Custom classification model|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|Custom Generative Model|[Custom Generative Model](concept-custom-generative.md)   | ✔️| n/a| n/a| n/a|
 |Custom extraction model|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
 |Customextraction model|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
 |Custom extraction model|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
@@ -89,6 +96,7 @@ Latency is the amount of time it takes for an API server to handle and process a
 |Language detection|Free| ✔️| ✔️| n/a| n/a|
 |Key value pairs|Free| ✔️|n/a|n/a| n/a|
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
+|Searchable pdf|Add-On*| ✔️|n/a|n/a| n/a|
 
 ### Model analysis features
 
@@ -97,26 +105,6 @@ Latency is the amount of time it takes for an API server to handle and process a
 Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
 ::: moniker range=">=doc-intel-3.0.0"
-
-| **Model**   | **Description**   |
-| --- | --- |
-|**Document analysis models**||
-| [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
-| [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
-|**Prebuilt models**||
-| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number, and other key information from US health insurance cards.|
-| [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
-| [US Mortgage document models](#us-mortgage-documents) | Process US mortgage forms to extract borrower loan and property information.  |
-| [Contract](#contract) | Extract agreement and party details.|
-| [Invoice](#invoice)  | Automate invoices. |
-| [Receipt](#receipt)  | Extract receipt data from receipts.|
-| [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
-| [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
-|**Custom models**||
-| [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
-| [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured, and unstructured documents.|
-| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the documents within and can also identify multiple documents or multiple instances of a single document within an input file.
-| [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Bounding box and polygon coordinates
 
@@ -135,6 +123,7 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`languages`](concept-add-on-capabilities.md#language-detection)
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2024-02-29-preview, 2023-10-31-preview)
 * [`queryFields`](concept-add-on-capabilities.md#query-fields) (2024-02-29-preview, 2023-10-31-preview) `Not available with the US.Tax models`
+* [`searchablePDF`](concept-read.md#searchable-pdf) (2024-07-31-preview) `Only available for Read Model`
 
 ## Language support
 

@@ -115,7 +115,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
      | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
      | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
      | `--no-progress` |  | Disables the deployment progress display in the terminal. |
-     | `--simulate-pc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
+     | `--simulate-plc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
      | `--sp-app-id`,<br>`--sp-object-id`,<br>`--sp-secret` | Service principal app ID, service principal object ID, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
 
 ### [Azure portal](#tab/portal)
@@ -269,7 +269,7 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
 
    :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 

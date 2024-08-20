@@ -1,9 +1,9 @@
 ---
 title: Enable zone redundancy for Azure Cache for Redis
 description: Learn how to set up zone redundancy for your Premium and Enterprise tier Azure Cache for Redis instances
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: conceptual
 ms.date: 08/05/2024
 
@@ -74,7 +74,7 @@ To create a cache, follow these steps:
 
 - [Why can't I enable zone redundancy when creating a Premium cache?](#why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache)
 - [Why can't I select all three zones during cache create?](#why-cant-i-select-all-three-zones-during-cache-create)
-- Can I update my existing Standard or Premium cache to use zone redundancy?
+- Can I update my existing Standard or Premium cache to use zone redundancy?]
 - [How much does it cost to replicate my data across Azure Availability Zones?](#how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones)
 
 ### Why can't I enable zone redundancy when creating a Premium cache?

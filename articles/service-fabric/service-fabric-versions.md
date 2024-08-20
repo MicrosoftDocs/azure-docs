@@ -28,6 +28,7 @@ For currently supported versions, all releases are listed. For currently unsuppo
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to <sup>1</sup> | Compatible SDK or NuGet package version <sup>2</sup> | Supported .NET runtimes <sup>3</sup> | OS Version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
+| 10.1 CU4<br>10.1.2338.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Version 7.1 or earlier | .NET 8 **(.NET 8 runtime support is available starting with Cumulative Update 3.0 (CU3) of version 10.1)**, .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU3<br>10.1.2175.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Version 7.1 or earlier | .NET 8 **(.NET 8 runtime support is available starting with Cumulative Update 3.0 (CU3) of version 10.1)**, .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU2<br>10.1.1951.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Version 7.1 or earlier | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
 | 10.1 RTO<br>10.1.1541.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Version 7.1 or earlier | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
@@ -92,6 +93,7 @@ For currently supported versions, all releases are listed. For currently unsuppo
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to <sup>1</sup> | Compatible SDK or NuGet package version <sup>2</sup> | Supported .NET runtimes <sup>3</sup> | OS version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
+| 10.1 CU4<br>10.1.2306.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | Version 7.1 or earlier | .NET 8 **(.NET 8 runtime support is available starting with Cumulative Update 3.0 (CU3) of version 10.1)**, .NET 7, .NET 6 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU3<br>10.1.2108.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | Version 7.1 or earlier | .NET 8 **(.NET 8 runtime support is available starting with Cumulative Update 3.0 (CU3) of version 10.1)**, .NET 7, .NET 6 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU2<br>10.1.1885.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | Version 7.1 or earlier | .NET 7, .NET 6  | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
 | 10.1 RTO<br>10.1.1507.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | Version 7.1 or earlier | .NET 7, .NET 6  | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
@@ -138,13 +140,16 @@ The following table lists the version names of Service Fabric and their correspo
 
 | Version name | Windows version number | Linux version number |
 | - | - | - |
+| 10.1 CU4 | 10.1.2338.9590 | 10.1.2306.1 |
 | 10.1 CU3 | 10.1.2175.9590 | 10.1.2108.1 |
 | 10.1 CU2 | 10.1.1951.9590 | 10.1.1885.1 |
 | 10.1 RTO | 10.1.1541.9590 | 10.1.1507.1 |
+| 10.0 CU5 | 10.0.2604.9590 | 10.0.2497.1 |
 | 10.0 CU4 | 10.0.2382.9590 | 10.0.2261.1 |
 | 10.0 CU3 | 10.0.2226.9590 | 10.0.2105.1 |
 | 10.0 CU1 | 10.0.1949.9590 | 10.0.1829.1 |
 | 10.0 RTO | 10.0.1816.9590 | 10.0.1728.1 |
+| 9.1 CU11 | 9.1.2718.9590 | 9.1.2498.1 |
 | 9.1 CU10 | 9.1.2488.9590 | 9.1.2248.1 |
 | 9.1 CU9 | 9.1.2277.9590 | 9.1.2038.1 |
 | 9.1 CU7 | 9.1.1993.9590 | 9.1.1740.1 |

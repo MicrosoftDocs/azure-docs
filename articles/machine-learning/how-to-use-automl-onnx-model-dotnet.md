@@ -8,7 +8,7 @@ ms.reviewer: manashg
 ms.date: 09/21/2023
 ms.topic: how-to
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.custom: automl, devx-track-dotnet
 ---

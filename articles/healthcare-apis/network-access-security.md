@@ -30,13 +30,13 @@ Here's a list of features that can make outbound connections from Azure Health D
 - **Import**: [Allow FHIR service import as a Microsoft Trusted Service](fhir/configure-import-data.md)
 - **Convert**: [Allow trusted services access to Azure Container Registry](../container-registry/allow-access-trusted-services.md)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
-- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)
+- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
 
 ### DICOM service
 
 - **Import, export, and analytical support**: [Allow trusted services access to Azure Storage accounts](../storage/common/storage-network-security.md)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
-- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)
+- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
 
 ### MedTech service
 

@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 03/16/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Geocoding in Azure Maps Power BI Visual

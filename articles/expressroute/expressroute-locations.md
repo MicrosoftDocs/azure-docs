@@ -369,6 +369,8 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **Zirro**| Cologix<br/>Equinix | Montreal<br/>Toronto |
 
+---
+
 ## Connectivity through datacenter providers
 
 | Provider | Exchange |

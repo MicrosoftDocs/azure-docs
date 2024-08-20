@@ -6,7 +6,7 @@ ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 03/29/2023
+ms.date: 08/09/2024
 ms.author: lianwei
 ---
 # Azure SignalR Service internals
@@ -39,9 +39,9 @@ Once the application server is started:
 - For ASP.NET SignalR: Azure SignalR Service SDK opens five WebSocket connections per hub to SignalR Service and one per application WebSocket connection.
 
 
-The initial number of connections defaults to 5 and is configurable using the `InitialHubServerConnectionCount` option in the SignalR Service SDK.  For more information, see  [configuration](signalr-howto-use.md#configure-options). 
+The initial number of connections defaults to 5 and is configurable using the `InitialHubServerConnectionCount` option in the SignalR Service SDK. For more information, see [configuration](signalr-howto-use.md#configure-options). 
 
-While the application server is connected to the SignalR service, the Azure SignalR service may send load-balancing messages to the server.  Then, the SDK starts new server connections to the service for better performance. Messages to and from clients are multiplexed into these connections.
+While the application server is connected to the SignalR service, the Azure SignalR service sends load-balancing messages to the server. Then, the SDK starts new server connections to the service for better performance. Messages to and from clients are multiplexed into these connections.
 
 Server connections are persistently connected to the SignalR Service. If a server connection is disconnected due to a network issue:
 
@@ -53,7 +53,7 @@ Server connections are persistently connected to the SignalR Service. If a serve
 When you use the SignalR Service, clients connect to the service instead of the application server.
 There are three steps to establish persistent connections between the client and the SignalR Service.
 
-1. A client sends a negotiate request to the application server. 
+1. Client sends a negotiate request to the application server. 
 1. The application server uses Azure SignalR Service SDK to return a redirect response containing the SignalR Service URL and access token.
 
     - For ASP.NET Core SignalR, a typical redirect response looks like:
@@ -89,7 +89,7 @@ SignalR Service transmits data from the client to the pairing application server
 
 SignalR Service doesn't save or store customer data, all customer data received is transmitted to the target server or clients in real-time.
 
-The Azure SignalR Service acts as a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.  As a result, the application server only needs to handle the business logic in the hub class, without worrying about client connections.
+The Azure SignalR Service acts as a logical transport layer between application server and clients. All persistent connections are offloaded to SignalR Service. As a result, the application server only needs to handle the business logic in the hub class, without worrying about client connections.
 
 ## Next steps
 
