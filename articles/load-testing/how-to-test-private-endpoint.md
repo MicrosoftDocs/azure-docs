@@ -43,7 +43,7 @@ If you restrict access to your virtual network, you need to [configure your virt
 - Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
-- The subnet shouldn't have IPv6 enabled. Azure Load Testing doesn't support IPv6 enabled subnets. Learn more about [IPv6 for Azure Virtual Network].(/azure/virtual-network/ip-services/ipv6-overview)
+- The subnet shouldn't have IPv6 enabled. Azure Load Testing doesn't support IPv6 enabled subnets. Learn more about [IPv6 for Azure Virtual Network](./azure/virtual-network/ip-services/ipv6-overview)
 - Azure CLI version 2.2.0 or later (if you're using CI/CD). Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Configure virtual network
