@@ -70,7 +70,7 @@ For a general idea of what's required, such as supported operating systems, virt
 
 ## Generate a registration key
 
-When you add session hosts to a host pool, first you need to generate a registration key for that host pool. A registration key authorizes session hosts to join the host pool. It's valid only for the duration that you specify. You also need to generate a new registration key after an existing registration key expires.
+When you add session hosts to a host pool, first you need to generate a registration key for that host pool. A registration key authorizes session hosts to join the host pool. It's valid only for the duration that you specify.
 
 To generate a registration key, select the relevant tab for your scenario and follow the steps.
 
