@@ -2,26 +2,18 @@
 title: Recommended alert rules for Kubernetes clusters
 description: Describes how to enable recommended metric alerts rules for a Kubernetes cluster in Azure Monitor.
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 08/19/2024
 ms.reviewer: vdiec
 ---
 
 # Recommended alert rules for Kubernetes clusters
 [Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively identify issues related to the health and performance of your Azure resources. This article describes how to enable and edit a set of recommended metric alert rules that are predefined for your Kubernetes clusters. 
 
-## Types of alert rules
-There are two types of metric alert rules used with Kubernetes clusters.
-
-| Alert rule type | Description |
-|:---|:---|
-| [Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
-| [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) | Use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md). |
-
 ## Enable recommended alert rules
 Use one of the following methods to enable the recommended alert rules for your cluster. You can enable both Prometheus and platform metric alert rules for the same cluster.
 
 >[!NOTE]
->To enable recommended alerts on Arc-enabled Kubernetes clusters, ARM templates are the only supported method.
+> ARM templates are the only supported method to enable recommended alerts on Arc-enabled Kubernetes clusters.
 >
 
 ### [Azure portal](#tab/portal)
@@ -189,7 +181,7 @@ The following tables list the details of each recommended alert rule. Source cod
 
 ## Legacy Container insights metric alerts (preview)
 
-Metric rules in Container insights will be retired on May 31, 2024 (this was previously announced as March 14, 2026). These rules haven't been available for creation using the portal since August 15, 2023. These rules were in public preview but will be retired without reaching general availability since the new recommended metric alerts described in this article are now available.
+Metric rules in Container insights were retired on May 31, 2024. These rules were in public preview but were retired without reaching general availability since the new recommended metric alerts described in this article are now available.
 
 If you already enabled these legacy alert rules, you should disable them and enable the new experience. 
 

@@ -195,7 +195,7 @@ The following table describes the parameters you need to provide values for in e
 | `dataCollectionInterval` | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
 | `namespaceFilteringModeForDataCollection` | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
 | `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = ["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
-| `streams` | An array of container insights table streams. See [Stream values in DCR](#stream-values-in-dcr) for a list of the valid streams and their corresponding tables. |
+| `streams` | An array of container insights table streams. See [Stream values in DCR](#stream-values-in-dcr) for a list of the valid streams and their corresponding tables.<br><br>To enable [high scale mode](./container-insights-high-scale.md) for container logs, use `Microsoft-ContainerLogV2-HighScale`.  |
 | `useAzureMonitorPrivateLinkScope` | Specifies whether to use private link for the cluster connection to Azure Monitor. |
 | `azureMonitorPrivateLinkScopeResourceId` | If private link is used, resource ID of the private link scope.  |
 
@@ -237,6 +237,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-ContainerInventory | ContainerInventory |
 | Microsoft-ContainerLog | ContainerLog |
 | Microsoft-ContainerLogV2 | ContainerLogV2 |
+| Microsoft-ContainerLogV2-HighScale | ContainerLogV2 (High scale mode)<sup>1</sup> |
 | Microsoft-ContainerNodeInventory | ContainerNodeInventory |
 | Microsoft-InsightsMetrics | InsightsMetrics |
 | Microsoft-KubeEvents | KubeEvents |
@@ -246,6 +247,9 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-KubePVInventory | KubePVInventory |
 | Microsoft-KubeServices | KubeServices |
 | Microsoft-Perf | Perf |
+
+<sup>1</sup> You shouldn't use both Microsoft-ContainerLogV2 and Microsoft-ContainerLogV2-HighScale in the same DCR. This will result in duplicate data.
+
 
 ## Share DCR with multiple clusters
 When you enable Container insights on a Kubernetes cluster, a new DCR is created for that cluster, and the DCR for each cluster can be modified independently. If you have multiple clusters with custom monitoring configurations, you may want to share a single DCR with multiple clusters. You can then make changes to a single DCR that are automatically implemented for any clusters associated with it.

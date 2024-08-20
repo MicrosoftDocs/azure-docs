@@ -16,6 +16,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-embeddings
 
 # How to use Cohere Embed V3 models with Azure AI Studio
 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 In this article, you learn about Cohere Embed V3 models and how to use them with Azure AI Studio.
 The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 

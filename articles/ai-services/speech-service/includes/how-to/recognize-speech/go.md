@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 08/13/2024
 ms.author: eur
 ---
 
@@ -12,7 +12,8 @@ ms.author: eur
 
 ## Recognize speech to text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).  Running the script starts a recognition session on your default microphone and output text:
+1. Create a Speech resource in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). Get the Speech resource key and region.
+1. Use the following code sample to run speech recognition from your default device microphone. Replace `YourSpeechKey` and `YourSpeechRegion` with your Speech resource key and region. Running the script starts a recognition session on your default microphone and output text:
 
 ```go
 package main
@@ -99,11 +100,11 @@ go build
 go run quickstart
 ```
 
-For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
+For detailed information, see the reference content for the [`SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [`SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
 
 ## Recognize speech to text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).  Additionally, replace the variable `file` with a path to a *.wav* file. When you run the script, it recognizes speech from the file and output the text result:
+Use the following sample to run speech recognition from an audio file. Replace `YourSpeechKey` and `YourSpeechRegion` with your Speech resource key and region. Additionally, replace the variable `file` with a path to a *.wav* file. When you run the script, it recognizes speech from the file and output the text result:
 
 ```go
 package main
@@ -179,11 +180,10 @@ go build
 go run quickstart
 ```
 
-For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
+For detailed information, see the reference content for the [`SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [`SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
 
 ## Run and use a container
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
-
+For more information about containers, see Host URLs in [Install and run Speech containers with Docker](../../../speech-container-howto.md#host-urls).

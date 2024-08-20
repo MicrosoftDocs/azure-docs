@@ -5,6 +5,7 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/03/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent

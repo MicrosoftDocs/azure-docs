@@ -56,8 +56,6 @@ The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_IN
 
 Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
 Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
@@ -821,6 +819,8 @@ On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.m
 ## functionsRuntimeAdminIsolationEnabled
 
 Determines whether the built-in administrator (`/admin`) endpoints in your function app can be accessed. When set to `false` (the default), the app allows requests to endpoints under `/admin` when those requests present a [master key](function-keys-how-to.md#understand-keys) in the request. When `true`, `/admin` endpoints can't be accessed, even with a master key.
+
+This property cannot be set for apps running on the Linux Consumption SKU, and it cannot be set for apps running on version 1.x of Azure Functions. If you are using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md). 
 
 ## linuxFxVersion 
 

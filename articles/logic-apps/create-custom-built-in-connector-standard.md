@@ -35,7 +35,7 @@ For more information, review the following documentation:
 
 * Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
 
-  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+  * [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
   * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
@@ -45,7 +45,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 ## High-level steps
 
