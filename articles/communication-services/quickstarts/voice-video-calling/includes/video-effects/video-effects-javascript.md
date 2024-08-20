@@ -20,12 +20,13 @@ You can use the Video effects feature to add effects to your video in video call
 ## Using video effects
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Effects SDK for JavaScript.
+
 > [!IMPORTANT]
 > This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equil to `1.0.1`.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 > [!IMPORTANT]
-> Background blur support using Android Chrome mobile browser is in public preview.
+> Background blur support for Android Chrome mobile browser has been added in build 1.29.1 beta.
 
 ```console
 npm install @azure/communication-calling-effects --save
