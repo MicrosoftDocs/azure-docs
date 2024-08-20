@@ -89,7 +89,7 @@ This scan is an asynchronous process.
 Use the
 [Azure Policy Compliance Scan action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
 to trigger an on-demand evaluation scan from your
-[GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
+[GitHub workflow](https://docs.github.com/actions/writing-workflows/about-workflows)
 on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
 compliance state of resources. You can also configure the workflow to run at a scheduled time so
 that you get the latest compliance status at a convenient time. Optionally, GitHub Actions can
