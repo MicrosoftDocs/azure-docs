@@ -42,8 +42,13 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-sdk.md",
-            "redirect_url": "/azure/ai-studio/quickstarts/get-started-code",
-            "redirect_document_id": true
+            "redirect_url": "/azure/ai-studio/quickstarts/copilot-sdk-build-rag",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-ai-studio.md",
+            "redirect_url": "/azure/ai-studio/quickstarts/copilot-sdk-build-rag",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/sdk-install.md",

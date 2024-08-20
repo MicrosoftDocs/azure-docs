@@ -44,4 +44,4 @@ To discover more custom tools developed by the open-source community such as [Az
 ## Next steps
 
 - [Create a flow](../flow-develop.md)
-- [Build your own copilot using prompt flow](../../tutorials/deploy-copilot-ai-studio.md)
+- [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)

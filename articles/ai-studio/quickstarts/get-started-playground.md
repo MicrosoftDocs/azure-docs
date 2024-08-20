@@ -50,10 +50,9 @@ In the [Azure AI Studio](https://ai.azure.com) playground you can observe how yo
 
 [!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
 
-Next, you can add your data to the model to help it answer questions about your products. Try the [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md) and [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio](../tutorials/deploy-copilot-ai-studio.md) tutorials to learn more.
+Next, you can add your data to the model to help it answer questions about your products. Try the [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md) tutorial to learn more.
 
 ## Related content
 
 - [Build a custom chat app in Python using the prompt flow SDK](./get-started-code.md).
 - [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md).
-- [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio](../tutorials/deploy-copilot-ai-studio.md).
