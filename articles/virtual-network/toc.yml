@@ -190,14 +190,6 @@
     items:
     - name: Create virtual network with encryption
       href: how-to-create-encryption.md
-    - name: Filter network traffic
-      items:
-      - name: Azure portal
-        href: tutorial-filter-network-traffic.md
-      - name: Azure PowerShell
-        href: tutorial-filter-network-traffic-powershell.md
-      - name: Azure CLI
-        href: tutorial-filter-network-traffic-cli.md
     - name: Network isolation
       items:
       - name: Using private endpoints
