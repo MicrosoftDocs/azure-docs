@@ -18,16 +18,18 @@
         href: relocation-event-hub-cluster.md
       - name: Azure Site Recovery (Recovery Services vaults)
         href: relocation-site-recovery.md
-      - name: Azure Virtual Network
-        href: relocation-virtual-network.md 
-      - name: Azure Virtual Network
+      - name: Azure Virtual Machines
         items:
         - name: Move Azure VMs to another region
           href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json
         - name: Move encrypted Azure VMs to another region
           href: ../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/operational-excellence/toc.json
-      - name: Network Security Groups (NSG)
-        href: relocation-virtual-network-nsg.md
+      - name: Azure Virtual Network
+        items:
+        - name: Virtual Network
+          href: relocation-virtual-network.md 
+        - name: Network Security Groups (NSG)
+          href: relocation-virtual-network-nsg.md
     - name: Mainstream services
       items:
       - name: Azure AI Search
