@@ -8,7 +8,7 @@ ms.author: larryfr
 ms.reviewer: roastala
 ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 01/19/2024
+ms.date: 08/20/2024
 ms.topic: how-to
 ms.custom: sdkv2
 ---
@@ -42,7 +42,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * (Optional) An Azure Machine Learning compute cluster configured to use a [managed identity](how-to-create-attach-compute-cluster.md?tabs=azure-studio#set-up-managed-identity). The cluster can be configured for either a system-assigned or user-assigned managed identity.
 
-* If your job will run on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job will run on serverless compute, grant the managed identity specified for the job access to the secrets. The method used to grant access depends on how your key vault is configured:
+* If your job runs on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job will run on serverless compute, grant the managed identity specified for the job access to the secrets. The method used to grant access depends on how your key vault is configured:
 
     * [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide): When configured for Azure RBAC, add the managed identity to the __Key Vault Secrets User__ role on your key vault.
     * [Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy): When configured to use access policies, add a new policy that grants the __get__ operation for secrets and assign it to the managed identity.
@@ -60,6 +60,10 @@ Before following the steps in this article, make sure you have the following pre
 
 1. From your training code, use the [Azure Identity SDK](/python/api/overview/azure/identity-readme) and [Key Vault client library](/python/api/overview/azure/keyvault-secrets-readme) to get the managed identity credentials and authenticate to key vault:
 
+    # [Managed identity](#tab/managed)
+
+    To use the managed identity of the compute to access the key vault, use `DefaultAzureCredential` to get the compute's identity.
+
     ```python
     from azure.identity import DefaultAzureCredential
     from azure.keyvault.secrets import SecretClient
@@ -69,12 +73,46 @@ Before following the steps in this article, make sure you have the following pre
     secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
     ```
 
+    # [Your identity](#tab/user)
+
+    To use your identity (the identity of the person that submits the job), use `AzureMLOnBehalfOfCredential` in the training script to get the identity.
+
+    ```python
+    from azure.ai.ml.identity import AzureMLOnBehalfOfCredential
+    from azure.keyvault.secrets import SecretClient
+
+    credential = AzureMLOnBehalfOfCredential()
+    secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
+    ```
+
+    When you submit the training job, you must specify that it runs in the context of your identity by using `identity=UserIdentityConfiguration()`. The following example submits a job using this parameter:
+    
+    ```python
+    from azure.ai.ml import Input, command
+    from azure.ai.ml.constants import AssetTypes
+    from azure.ai.ml.entities import UserIdentityConfiguration
+    
+    job = command(
+        code="./sdk/ml/azure-ai-ml/samples/src",
+        command="python read_data.py --input_data ${{inputs.input_data}}",
+        inputs={"input_data": Input(type=AssetTypes.MLTABLE, path="./sample_data")},
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1",
+        compute="cpu-cluster",
+        identity=UserIdentityConfiguration(),
+    )
+    ```    
+
+    For an example of using the Azure CLI to submit a job that uses your identity, visit [Https://github.com/Azure/azureml-examples/blob/d4c90eead3c1fd97393d0657f7a78831490adf1c/cli/jobs/single-step/on-behalf-of/README.md](https://github.com/Azure/azureml-examples/blob/d4c90eead3c1fd97393d0657f7a78831490adf1c/cli/jobs/single-step/on-behalf-of/README.md).
+    
+    ---
+
 1. After authenticating, use the Key Vault client library to retrieve a secret by providing the associated key:
 
     ```python
     secret = secret_client.get_secret("secret-name")
     print(secret.value)
     ```
+
 
 ## Next steps
 
