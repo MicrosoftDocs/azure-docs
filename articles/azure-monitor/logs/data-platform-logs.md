@@ -19,6 +19,10 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 > [!NOTE]
 > Azure Monitor Logs is one half of the data platform that supports Azure Monitor. The other is [Azure Monitor Metrics](../essentials/data-platform-metrics.md), which stores numeric data in a time-series database. 
 
+## How Azure Monitor Logs works
+
+:::image type="content" source="media/data-platform-logs/azure-monitor-logs-overview.png" lightbox="media/data-platform-logs/azure-monitor-logs-overview.png" alt-text="A diagram that shows how Azure Monitor and Azure Monitor Logs provide an end-to-end solution for collecting, managing, retrieving, and working with log data.":::
+
 ## Log Analytics workspace    
 
 A [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) is a data store that holds tables into which you collect data. 
