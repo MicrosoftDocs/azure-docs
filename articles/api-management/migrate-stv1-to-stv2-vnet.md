@@ -87,7 +87,7 @@ You can choose whether the API Management instance's original VIP address is pre
 
 * **New virtual IP address** - If you choose this option, API Management generates a new VIP address for your instance. API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
-    With this option, the `stv1` compute is retained for 1 hour by default after migration is complete so that you can validate the migrated instance and confirm the network and DNS configuration.  
+    With this option, the `stv1` compute is retained for a period by default after migration is complete so that you can validate the migrated instance and confirm the network and DNS configuration.  
 
 
 <!--
@@ -102,16 +102,16 @@ You can configure the pre-created IP address to serve runtime traffic during mig
 -->
 
 
-### Expected downtime
+### Expected downtime and compute retention
 
 When migrating a VNet-injected instance and keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. The following table summarizes the expected downtime and `stv1` compute retention for each migration scenario when keeping the same subnet:
 
 |VNet mode  |Public IP option  |Expected downtime  | `stv1` compute retention  |
 |---------|---------|---------|-----------|
 |External     |   Preserve VIP      |   No downtime; traffic is served on a temporary IP address for up to 20 minutes during migration to the new `stv2` deployment     | No retention |
-|External     |  New VIP       |  No downtime | Retained by default for 1 hour to allow you to update network dependencies      |
+|External     |  New VIP       |  No downtime | Retained by default for 15 minutes to allow you to update network dependencies      |
 |Internal     |    Preserve VIP     |  Downtime for approximately 20 minutes during migration while the existing IP address is assigned to the new `stv2` deployment.       | No retention |
-|Internal     |  New VIP       |   No downtime | Retained by default for 1 hour to allow you to update network dependencies   |
+|Internal     |  New VIP       |   No downtime | Retained by default for 4 hours to allow you to update network dependencies   |
 
 
 ### Migration script
