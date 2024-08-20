@@ -298,7 +298,7 @@ import IPython.display as Disp
 Disp.Image(requests.get(image_url).content)
 ```
 
-:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/small-language-models-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/small-language-models-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -632,7 +632,7 @@ img.src = data_url;
 document.body.appendChild(img);
 ```
 
-:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/small-language-models-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/small-language-models-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -741,7 +741,7 @@ using Azure.Identity;
 using Azure.AI.Inference;
 ```
 
-This example also use the following namespaces but you may not always need them:
+This example also uses the following namespaces but you may not always need them:
 
 
 ```csharp
@@ -980,7 +980,7 @@ string dataUrl = $"data:image/{imageFormat};base64,{imageBase64}";
 
 Visualize the image:
 
-:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/small-language-models-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/small-language-models-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -1333,11 +1333,11 @@ Phi-3-vision-128k-Instruct can reason across text and images and generate text c
 To see this capability, download an image and encode the information as `base64` string. The resulting data should be inside of a [data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs):
 
 > [!TIP]
-> You will need to construct the data URL using an scripting or programming language. This tutorial use [this sample image](../media/how-to/sdks/slms-chart-example.jpg) in JPEG format. A data URL has a format as follows: `data:image/jpg;base64,0xABCDFGHIJKLMNOPQRSTUVWXYZ...`.
+> You will need to construct the data URL using an scripting or programming language. This tutorial use [this sample image](../media/how-to/sdks/small-language-models-chart-example.jpg) in JPEG format. A data URL has a format as follows: `data:image/jpg;base64,0xABCDFGHIJKLMNOPQRSTUVWXYZ...`.
 
 Visualize the image:
 
-:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+:::image type="content" source="../media/how-to/sdks/small-language-models-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/small-language-models-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
