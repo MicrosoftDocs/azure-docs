@@ -20,6 +20,16 @@ This article shows you how to sign your DNS zone with DNSSEC using the Azure por
 
 ## Register to the preview
 
+### Register using the Azure CLI
+
+Register for the preview using the Azure CLI:
+
+```azurepowershell-interactive
+Set-AzContext -Subscription <subscription-id>
+Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
+```
+
 ### Register using the Azure portal
 
 Use the following steps to enroll into the public preview for DNSSEC zone signing via the Azure portal:
@@ -45,16 +55,6 @@ Use the following steps to enroll into the public preview for DNSSEC zone signin
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
-### Register using the Azure CLI
-
-Register for the preview using the Azure CLI:
-
-```azurepowershell-interactive
-Set-AzContext -Subscription <subscription-id>
-Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
-Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
-```
-
 ## Sign a zone with DNSSEC
 
 To protect your DNS zone with DNSSEC, you must first sign the zone. The zone signing process creates a delegation signer (DS) record that must then be added to the parent zone.
@@ -64,15 +64,15 @@ To protect your DNS zone with DNSSEC, you must first sign the zone. The zone sig
 To sign your zone with DNSSEC using the Azure portal:
 
 1. On the Azure portal Home page, search for and select **DNS zones**.
-2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select DNSSEC from the menu at the top, or under **DNS Management**.
+2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select **DNSSEC** from the menu at the top, or under **DNS Management**.
 
     ![Screenshot of how to select DNSSEC.](media/dnssec-how-to/select-dnssec.png)
 
-3. Select the **Enable DNSSEC** checkbox and then select **OK**.
+3. Select the **Enable DNSSEC** checkbox and when you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
 
     ![Screenshot of confirmation to sign the zone.](media/dnssec-how-to/confirm-dnssec.png)
 
-4. The zone is signed and DNSSEC delegation information is displayed. 
+4. After the zone is signed, review the **DNSSEC delegation information** that is displayed. Notice that the status is: **Signed but not delegated**.
 
     ![Screenshot of a signed zone with DS record missing.](media/dnssec-how-to/ds-missing.png)
 
@@ -80,12 +80,12 @@ To sign your zone with DNSSEC using the Azure portal:
 
     1. If the parent zone is a top level domain or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
 
-        Key Tag: 4535<br>
-        Algorithm: 13<br>
-        Digest Type: 2<br>
-        Digest: 7A1C9811A965C46319D94D1D4BC6321762B632133F196F876C65802EC5089001
+        **Key Tag**: 4535<br>
+        **Algorithm**: 13<br>
+        **Digest Type**: 2<br>
+        **Digest**: 7A1C9811A965C46319D94D1D4BC6321762B632133F196F876C65802EC5089001
 
-    2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows adding a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
+    2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
 
         ![Screenshot of adding a DS record to the parent zone.](media/dnssec-how-to/ds-add.png)
         ![Screenshot of a DS record in the parent zone.](media/dnssec-how-to/ds-added.png)
