@@ -2,7 +2,7 @@
 title: Why move from BizTalk Server to Azure Integration Services?
 description: Get an overview about moving from BizTalk Server to Azure Integration Services.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear
@@ -34,7 +34,7 @@ Azure Integration Services includes the following cloud-based, serverless, scala
 
 | Service | Description |
 |---------|-------------|
-| Azure Logic Apps | Create and run automated logic app workflows that integrate your apps, data, services, and systems. You can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. Use the visual workflow designer to enable microservices, API orchestrations, and line-of-business integrations. To increase scale and portability while automating business-critical workflows, deploy and run anywhere that Kubernetes can run. <br><br>You can create either Consumption or Standard logic app resources. A Consumption logic app includes only one stateful workflow that runs in multi-tenant Azure Logic Apps. A Standard logic app can include multiple stateful or stateless workflows that run in single-tenant Azure Logic Apps, an App Service Environment v3, or Azure Arc enabled Logic Apps. <br><br>For positioning Azure Logic Apps within Azure Integration Services, this guide focuses on Standard logic apps, which provide the best balance between enterprise features, cost, and agility. For more information, see [Azure Logic Apps](./logic-apps-overview.md). |
+| Azure Logic Apps | Create and run automated logic app workflows that integrate your apps, data, services, and systems. You can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. Use the visual workflow designer to enable microservices, API orchestrations, and line-of-business integrations. To increase scale and portability while automating business-critical workflows, deploy and run anywhere that Kubernetes can run. <br><br>You can create either Consumption or Standard logic app resources. A Consumption logic app includes only one stateful workflow that runs in multitenant Azure Logic Apps. A Standard logic app can include multiple stateful or stateless workflows that run in single-tenant Azure Logic Apps, an App Service Environment v3, or Azure Arc enabled Logic Apps. <br><br>For positioning Azure Logic Apps within Azure Integration Services, this guide focuses on Standard logic apps, which provide the best balance between enterprise features, cost, and agility. For more information, see [Azure Logic Apps](./logic-apps-overview.md). |
 | Azure Functions | Write less code, maintain less infrastructure, and save on costs to run applications. Without you having to deploy and maintain servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. For more information, see [Azure Functions](../azure-functions/functions-overview.md). |
 | Azure Data Factory | Visually integrate all your data sources by using more than 90 built-in, maintenance-free connectors at no added cost. Easily construct Extract, Transform, and Load (ETL) and Extract, Load, and Transform (ELT) processes code-free in an intuitive environment, or you can write your own code. To unlock business insights, deliver your integrated data to Azure Synapse Analytics. For more information, see [Azure Data Factory](../data-factory/introduction.md). |
 | Azure Service Bus | Transfer data between applications and services, even when offline, as messages using this highly reliable enterprise message broker. Get more flexibility when brokering messages between client and server with structured first-in, first-out (FIFO) messaging, publish-subscribe capabilities, and asynchronous operations. For more information, see [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). |
@@ -51,7 +51,7 @@ Beyond the previously described services, Microsoft also offers the following co
 |---------|-------------|
 | Azure Storage | Provides highly available, massively scalable, durable, secure, and modern storage for various data objects in the cloud. You can access these data objects from anywhere in the world over HTTP or HTTPS using a REST API. <br><br>Azure Integration Services uses these capabilities to securely store configuration and telemetry data for you while transactions flow through the platform. For more information, see [Azure Storage](../storage/common/storage-introduction.md). |
 | Azure role-based access control (Azure RBAC) | Manage access to cloud resources, which is a critical function for any organization that uses the cloud. Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management to Azure resources. You can manage who can access Azure resources, what they can do with those resources, and which areas they can access. For more information, see [Azure RBAC](../role-based-access-control/overview.md). |
-| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](../key-vault/general/overview.md). |
+| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](/azure/key-vault/general/overview). |
 | Azure Policy | Provides capabilities that help you enforce organizational standards and assess compliance in a scalable way. Through the compliance dashboard, you get an aggregated view so you can evaluate the overall state of the environment with the ability to drill down to per-resource, per-policy granularity. <br><br>Azure Integration Services integrates with Azure Policy so you can efficiently implement widespread governance. For more information, see [Azure Policy](../governance/policy/overview.md). |
 | Azure Networking | Provides a wide variety of networking capabilities, including connectivity, application protection services, application delivery services, and networking monitoring. <br><br>Azure Integration Services uses these capabilities to provide connectivity across services using virtual networks and private endpoints. For more information, see [Azure Networking](../networking/fundamentals/networking-overview.md). |
 | Azure Event Hubs | Build dynamic data pipelines and immediately respond to business challenges by streaming millions of events per second from any source with this fully managed, real-time data ingestion service that's simple, trusted, and scalable. <br><br>API Management performs custom logging using Event Hubs, which is one of the best solutions when implementing a decoupled tracking solution in Azure. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md). |
@@ -299,11 +299,11 @@ In [Azure Logic Apps](./logic-apps-overview.md), [REST](/azure/architecture/best
 
 Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md) vary by connector. Generally, these schemes include the following types:
 
-- [Basic](./logic-apps-securing-a-logic-app.md#basic-authentication)
-- [Client Certificate](./logic-apps-securing-a-logic-app.md#client-certificate-authentication)
-- [Active Directory OAuth](./logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication)
-- [Raw](./logic-apps-securing-a-logic-app.md#raw-authentication)
-- [Managed Identity](./logic-apps-securing-a-logic-app.md#managed-identity-authentication)
+- [Basic](logic-apps-securing-a-logic-app.md#basic-authentication)
+- [Client certificate](logic-apps-securing-a-logic-app.md#client-certificate-authentication)
+- [Active Directory OAuth](logic-apps-securing-a-logic-app.md#oauth-microsoft-entra)
+- [Raw](logic-apps-securing-a-logic-app.md#raw-authentication)
+- [Managed Identity](logic-apps-securing-a-logic-app.md#managed-identity-authentication)
 
 Microsoft provides strong layers of protection by [encrypting data during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
 
@@ -395,7 +395,7 @@ The following section describes data transformation capabilities in BizTalk Serv
 
 #### BizTalk Server
 
-Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-box functoids that provide reusable functionality that helps you build rich maps.
+Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-the-box functoids that provide reusable functionality that helps you build rich maps.
 
 Beyond the core XML transformations, BizTalk Server also provides encoding and decoding for CSV and JSON formats so you can convert between these formats and XML, giving you support for different formats.
 
@@ -497,7 +497,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 | Inline code | You can write inline C# code within an Orchestration shape. You can also write inline code within a BizTalk Map. In both scenarios, the code snippets are generally simple in nature and can't be debugged. |
 | Compiled assemblies | You can call these assemblies from the following places: <br><br>- Expression shapes in an orchestration <br>- BizTalk maps using the Scripting Functoid <br>- Business Rules Engine policies <br>- Pipelines as custom pipeline components <br><br>You can debug compiled assemblies by attaching the Visual Studio debugger to the appropriate host instance Windows process. |
 | Custom adapters | BizTalk Server includes many out-of-the-box adapters, but you can always create your own adapter if needed. |
-| Custom WCF behaviors | BizTalk Server includes many out-of-the box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
+| Custom WCF behaviors | BizTalk Server includes many out-of-the-box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
 | Extensibility in BizTalk Server maps | - You can create inline code using C#, JScript, Visual Basic, XSLT or XSLT Call Templates to suppress some limitations or difficulties using the out-of-the-box functoids. <br><br>- You can call an external assembly using the Scripting Functoid. <br><br>- You can create custom functoids to use across all your maps. |
 
 #### Azure Integration Services
@@ -552,7 +552,7 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 - Azure Key Vault
 
-  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](../key-vault/general/basic-concepts.md). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](./logic-apps-securing-a-logic-app.md#obfuscate).
+  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](/azure/key-vault/general/basic-concepts). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](./logic-apps-securing-a-logic-app.md#obfuscate).
 
   Later in the [Tracking](#tracking) section, this guide describes the run history functionality, which provides a step-by-step replay of a workflow's execution. Although Azure Logic Apps offers the value proposition of capturing every input and output in a workflow run, sometimes you need to manage access to sensitive data more granularly. You can set up obfuscation for this data by using the secure inputs and outputs capability on triggers and actions to hide such content from run history and prevent sending this data to Azure Monitor, specifically Log Analytics and Application Insights. The following image shows an example result from enabling secure inputs and secure outputs in run history.
 
@@ -642,7 +642,7 @@ The separation between configuration and code becomes important when you want to
 
 - Azure Key Vault
 
-  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](../key-vault/general/overview.md) to encrypt and store keys and secrets, such as passwords.
+  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](/azure/key-vault/general/overview) to encrypt and store keys and secrets, such as passwords.
 
 - Azure App Configuration
 
@@ -650,7 +650,7 @@ The separation between configuration and code becomes important when you want to
 
 - Azure Cosmos DB
 
-  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](../cosmos-db/introduction.md) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
+  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](/azure/cosmos-db/introduction) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
 
 - Azure Table Storage
 
@@ -863,7 +863,7 @@ Support for a BTDF package in a continuous integration-continuous deployment (CI
 
 When you deploy an Azure Integration Services component or solution to Azure, you must manage the following items:
 
-- Azure resources that act as containers or the infrastructure for the solutions that you want to deploy, for example, the API Management instance, Standard logic app resource, Service Bus namespace, or Event grid topic
+- Azure resources that act as containers or the infrastructure for the solutions that you want to deploy, for example, the API Management instance, Standard logic app resource, Service Bus namespace, or Event Grid topic
 
 - The actual logic implemented by each component such as APIs, workflows, queues, and subscriptions
 
@@ -921,10 +921,10 @@ The following table and diagram roughly show how resources, artifacts, features,
 | Secrets | Enterprise Single Sign-On (SSO) | - Azure Key Vault <br>- SQL Server <br>- Application configuration |
 | Security and governance | - Enterprise Single Sign-On (SSO) <br>- SSO affiliate applications <br>- Active Directory <br>- Signing certificates <br>- IIS Security Authentication <br>- Network security | - Microsoft Entra ID <br>- Azure Network Security <br>- Azure role-based access control (Azure RBAC) <br>- Claims, tokens <br>- Shared Access Policies |
 | Data configuration | - Config files <br>- Enterprise SSO application configuration <br>- Custom cache components <br>- Custom database <br>- Business Rules Engine <br>- Windows registry | - Azure Key Vault <br>- Azure App Configuration <br>- Azure Cosmos DB <br>- Azure Table Storage <br>- Azure Logic Apps (Standard) configuration <br>- Azure Functions configuration <br>- Azure API Management named values and backends <br>- SQL Server <br>- Custom caching <br>- Custom database |
-| Deployment | - BizTalk Server binding file | - Azure DevOps pipelines <br>- Bicep scripts <br>- Terraform |
+| Deployment | - BizTalk Server binding file | - Azure Pipelines <br>- Bicep scripts <br>- Terraform |
 | Tracking | - BizTalk Server tracking capabilities (Receive ports, Send ports, pipelines, orchestrations) <br>- IIS tracking <br>- Azure API Management built-in analytics (hybrid capabilities) | - Azure Logic Apps run  history and tracked properties <br>- Azure Storage Account <br>- Azure Monitor (Application Insights) <br>- Azure API Management built-in analytics <br>- Custom solution, for example, Azure Event Hubs plus Azure Functions plus SQL Server plus Azure Data Explorer |
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | Azure Monitor (Application Insights, Log Analytics) |
-| Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
+| Operations | - BizTalk Server Administration Console <br>- Azure Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure Pipelines <br>- PowerShell, CLI, Bicep |
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/enterprise-integration-platform.png" alt-text="Screenshot showing matchup between components from BizTalker Server and Azure Integration Services for the Enterprise Integration Platform.":::
 

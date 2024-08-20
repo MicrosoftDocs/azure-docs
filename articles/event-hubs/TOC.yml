@@ -315,7 +315,7 @@
 
     - name: Monitor
       items:
-        - name: Monitor Azure Event Hubs
+        - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
@@ -361,7 +361,7 @@
         href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
-    - name: Monitor data Reference
+    - name: Monitor data reference
       href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md

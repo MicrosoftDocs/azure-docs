@@ -1,10 +1,11 @@
 ---
 title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: An overview of multimedia redirection on Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 06/27/2024
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
 
@@ -66,13 +67,13 @@ The following sites work with video playback redirection:
       - Skillshare
       - The Guardian
       - Twitch
-      - Twitter
       - Udemy\*
       - UMU
       - U.S. News
       - Vidazoo
       - Vimeo
       - The Wall Street Journal
+      - X
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).

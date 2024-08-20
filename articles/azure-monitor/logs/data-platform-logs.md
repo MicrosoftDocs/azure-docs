@@ -64,11 +64,16 @@ You can use one Log Analytics workspace to store any type of log required for an
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for.
 
+This video provides an overview of how table plans enable multi-tier logging in Azure Monitor Logs:
+
+> [!VIDEO https://www.youtube.com/embed/sn5-c8wYJcw?cc_load_policy=1&cc_lang_pref=auto]
+
+
 The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-configure.md). For information about how to select or modify a table plan, see [Select a table plan](logs-table-plans.md). 
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-data-plans.png" lightbox="media/data-platform-logs/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 
-|                                                        | Analytics                                                    | Basic                                                        | Auxiliary (Preview)                                          |
+| Features                                               | Analytics                                                    | Basic                                                        | Auxiliary (Preview)                                          |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Best for                                               | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response. | Low-touch data, such as verbose logs, and data required for auditing and compliance. |
 | Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](basic-logs-azure-tables.md) and DCR-based custom tables | DCR-based custom tables                                      |
@@ -130,7 +135,7 @@ This table describes some of the ways that you can use the data you collect in A
 
 ## Working with Microsoft Sentinel and Microsoft Defender for Cloud
 
-[Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) perform [Security monitoring](../best-practices-plan.md#security-monitoring-solutions) in Azure.
+[Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) perform [Security monitoring](../best-practices-plan.md#security-monitoring-solutions) in Azure.
 
 These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
@@ -138,8 +143,8 @@ These services store their data in Azure Monitor Logs so that it can be analyzed
 
 | Service | More information |
 |:--------------|:-----------------|
-| Microsoft Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Design a Log Analytics workspace architecture](./workspace-design.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/skill-up-resources.md#module-5-log-management)</li><li>[Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)</li><li>[Charges for workspaces with Microsoft Sentinel](./cost-logs.md#workspaces-with-microsoft-sentinel)</li></ul> |
-| Microsoft Defender for Cloud | <ul><li>[Continuously export Microsoft Defender for Cloud data](../../defender-for-cloud/continuous-export.md)</li><li>[Data consumption](../../defender-for-cloud/data-security.md#data-consumption)</li><li>[Frequently asked questions about Log Analytics workspaces used with Microsoft Defender for Cloud](../../defender-for-cloud/faq-data-collection-agents.yml)</li><li>[Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</li><li>[Charges for workspaces with Microsoft Defender for Cloud](./cost-logs.md#workspaces-with-microsoft-defender-for-cloud)</li></ul> |
+| Microsoft Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Design a Log Analytics workspace architecture](./workspace-design.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/log-plans.md)</li><li>[Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)</li><li>[Charges for workspaces with Microsoft Sentinel](./cost-logs.md#workspaces-with-microsoft-sentinel)</li></ul> |
+| Microsoft Defender for Cloud | <ul><li>[Continuously export Microsoft Defender for Cloud data](/azure/defender-for-cloud/continuous-export)</li><li>[Data consumption](/azure/defender-for-cloud/data-security#data-consumption)</li><li>[Frequently asked questions about Log Analytics workspaces used with Microsoft Defender for Cloud](/azure/defender-for-cloud/faq-data-collection-agents)</li><li>[Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</li><li>[Charges for workspaces with Microsoft Defender for Cloud](./cost-logs.md#workspaces-with-microsoft-defender-for-cloud)</li></ul> |
 
 ## Next steps
 

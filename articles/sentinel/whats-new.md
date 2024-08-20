@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 07/30/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -18,9 +18,90 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## August 2024
+
+- [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
+- [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
+- [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
+- [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
+- [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Premium Microsoft Defender Threat Intelligence data connector (Preview)
+
+Your premium license for Microsoft Defender Threat Intelligence (MDTI) now unlocks the ability to ingest all premium indicators directly into your workspace. The premium MDTI data connector adds more to your hunting and research capabilities within Microsoft Sentinel. 
+
+For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-microsoft-defender-threat-intelligence-data-connector). 
+
+### Unified AMA-based connectors for syslog ingestion
+
+With the impending retirement of the Log Analytics Agent, Microsoft Sentinel has consolidated the collection and ingestion of syslog, CEF, and custom-format log messages into three multi-purpose data connectors based on the Azure Monitor Agent (AMA):
+- **Syslog via AMA**, for any device whose logs are ingested into the *Syslog* table in Log Analytics.
+- **Common Event Format (CEF) via AMA**, for any device whose logs are ingested into the *CommonSecurityLog* table in Log Analytics.
+- **New! Custom Logs via AMA (Preview)**, for any of 15 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
+
+These connectors replace nearly all the existing connectors for individual device and appliance types that have existed until now, that were based on either the legacy Log Analytics agent (also known as MMA or OMS) or the current Azure Monitor Agent. The solutions provided in the content hub for all of these devices and appliances now include whichever of these three connectors are appropriate to the solution.* The replaced connectors are now marked as "Deprecated" in the data connector gallery.
+
+The data ingestion graphs that were previously found in each device's connector page can now be found in device-specific workbooks packaged with each device's solution.
+
+\* When installing the solution for any of these applications, devices, or appliances, to ensure that the accompanying data connector is installed, you must select **Install with dependencies** on the solution page, and then mark the data connector on the following page.
+
+For the updated procedures for installing these solutions, see the following articles:
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+- [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md)
+
+### Better visibility for Windows security events
+
+We've enhanced the schema of the *SecurityEvent* table that hosts Windows Security events, and have added new columns to ensure compatibility with the Azure Monitor Agent (AMA) for Windows (version 1.28.2). These enhancements are designed to increase the visibility and transparency of collected Windows events. If you're not interested in receiving data in these fields, you can apply an ingestion-time transformation ("project-away" for example) to drop them.
+
+### New Auxiliary logs retention plan (Preview)
+
+The new **Auxiliary logs** retention plan for Log Analytics tables allows you to ingest large quantities of high-volume logs with supplemental value for security at a much lower cost. Auxiliary logs are available with interactive retention for 30 days, in which you can run simple, single-table queries on them, such as to summarize and aggregate the data. Following that 30-day period, auxiliary log data goes to long-term retention, which you can define for up to 12 years, at ultra-low cost. This plan also allows you to run search jobs on the data in long-term retention, extracting only the records you want to a new table that you can treat like a regular Log Analytics table, with full query capabilities.
+
+To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+
+For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+
+### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
+
+Microsoft Sentinel now provides the ability to create dynamic summaries using [Azure Monitor summary rules](/azure/azure-monitor/logs/summary-rules), which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
+
+- Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
+- Run high performance Kusto Query Language (KQL) queries on summarized data.
+- Use summary rule results for longer in investigations, hunting, and compliance activities.
+
+For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
+
 ## July 2024
 
+- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
+- [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+
+### SOC optimizations now generally available
+
+The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
+
+- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
+
+- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
+
+The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
+### SAP Business Technology Platform (BTP) connector now generally available (GA)
+
+The Microsoft Sentinel Solution for SAP BTP is now generally available (GA). This solution provides visibility into your SAP BTP environment, and helps you detect and respond to threats and suspicious activities.
+
+For more information, see:
+
+- [Microsoft Sentinel Solution for SAP Business Technology Platform (BTP)](sap/sap-btp-solution-overview.md)
+- [Deploy the Microsoft Sentinel solution for SAP BTP](sap/deploy-sap-btp-solution.md)
+- [Microsoft Sentinel Solution for SAP BTP: security content reference](sap/sap-btp-security-content.md)
 
 ### Microsoft unified security platform now generally available
 
@@ -50,8 +131,8 @@ For more information, see the updated screenshot in [View and manage your threat
 
 ## May 2024
 
-- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
 
 ### Incident and entity triggers in playbooks are now Generally Available (GA)
 
@@ -222,13 +303,13 @@ Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Mon
 
 ### Reduce false positives for SAP systems with analytics rules
 
-Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+Use analytics rules together with the [Microsoft Sentinel solution for SAP applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP systems. The Microsoft Sentinel solution for SAP applications now includes the following enhancements:
 
 - The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
 
 - The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
 
-For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+For more information, see [Microsoft Sentinel solution for SAP applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 ## Next steps
 

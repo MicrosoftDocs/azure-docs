@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a slow or failing job on Azure HDInsight cluster
 description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 07/12/2024

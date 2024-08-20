@@ -49,14 +49,17 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
+
+> [!NOTE]
+> Multiline support that uses an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
+
 The incoming stream of data includes the columns in the following table. 
 
- | Column | Type | Description |
+| Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace. You can override this value using a transformation to set `TimeGenerated` to another value. |
 | `RawData` | string | The entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns before sending to the table. |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
@@ -86,10 +89,6 @@ $tableParams = @'
                     },
                     {
                         "name": "FilePath",
-                        "type": "String"
-                    },
-                    {
-                        "name": "Computer",
                         "type": "String"
                     }
               ]
@@ -137,35 +136,35 @@ Use the following ARM template to create or modify a DCR for collecting text log
             "type": "string",
             "metadata": {
               "description": "Unique name for the DCR. "
-            },
+            }
         },
         "location": {
             "type": "string",
             "metadata": {
               "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
-            },
+            }
         },
         "filePatterns": {
             "type": "string",
             "metadata": {
               "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
-            },
+            }
         },
         "tableName": {
             "type": "string",
             "metadata": {
               "description": "Name of destination table in your Log Analytics workspace. "
-            },
+            }
         },
         "workspaceResourceId": {
             "type": "string",
             "metadata": {
               "description": "Resource ID of the Log Analytics workspace with the target table."
-            },
+            }
         }
     },
     "variables": {
-      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+      "tableOutputStream": "[concat('Custom-', parameters('tableName'))]"
     },
     "resources": [
         {
@@ -187,10 +186,6 @@ Use the following ARM template to create or modify a DCR for collecting text log
                             },
                             {
                                 "name": "FilePath",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Computer",
                                 "type": "string"
                             }
                         ]

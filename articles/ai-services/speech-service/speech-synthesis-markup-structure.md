@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 
@@ -136,7 +136,7 @@ Usage of the `break` element's attributes are described in the following table.
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul>| Optional |
-| `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service uses `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
+| `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 20000 milliseconds. If you set a value greater than the supported maximum, the service uses `20000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
@@ -175,7 +175,7 @@ Usage of the `mstts:silence` element's attributes are described in the following
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Extra silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Extra silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Extra silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li><li>`Comma-exact` – Silence at the comma in half-width or full-width format. The value is an absolute silence length.</li><li>`Semicolon-exact` – Silence at the semicolon in half-width or full-width format. The value is an absolute silence length.</li><li>`Enumerationcomma-exact` – Silence at the enumeration comma in full-width format. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type takes effect. The [WordBoundary event](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) takes precedence over punctuation-related silence settings including `Comma-exact`, `Semicolon-exact`, or `Enumerationcomma-exact`. When you use both the `WordBoundary` event and punctuation-related silence settings, the punctuation-related silence settings don't take effect.| Required |
-| `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service uses `5000ms`.| Required |
+| `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 20000 milliseconds. If you set a value greater than the supported maximum, the service uses `20000ms`.| Required |
 
 ###  mstts silence examples
 

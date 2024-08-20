@@ -213,7 +213,7 @@
           href: authentication-github.md
         - name: Google
           href: authentication-google.yml
-        - name: Twitter
+        - name: X
           href: authentication-twitter.md
         - name: Custom OpenID Connect
           href: authentication-openid.md
@@ -325,8 +325,6 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Network proxying
-      href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
@@ -335,6 +333,7 @@
       items:
       - name: Overview
         href: dotnet-overview.md
+        displayName: .NET overview
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
       - name: Deploy and scale an ASP.NET Core app

@@ -680,6 +680,33 @@ In the following tables, the term alphanumeric refers to:
 > | vpnGateways / vpnConnections | VPN gateway | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | vpnSites | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 
+## Microsoft.NetworkCloud
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | bareMetalMachineKeySets | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | bareMetalMachines | resource group | 2-64 | Alphanumerics. |
+> | bmcKeySets | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | cloudServicesNetworks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | clusterManagers | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | clusters | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | clusters / metricsConfigurations | cluster | see value | Must be `default`. |
+> | edgeClusters | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | edgeClusters / nodes | edge cluster | 2-64 | Alphanumerics. |
+> | kubernetesClusters | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | kubernetesClusters / agentPools | kubernetes cluster | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | kubernetesClusters / features | kubernetes cluster | 2-63 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric.<br><br> Only predefined values. |
+> | l2Networks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | l3Networks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | racks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | registrationHubs | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | registrationHubs / machines | registration hub | 2-40 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | storageAppliances | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | trunkedNetworks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | volumes | resource group | 2-64 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | virtualMachines | resource group | 2-64 | Alphanumerics. |
+> | virtualMachines / consoles | virtual machine | see value | Must be `default`. |
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]

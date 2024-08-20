@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/22/2022
 ms.author: cephalin 

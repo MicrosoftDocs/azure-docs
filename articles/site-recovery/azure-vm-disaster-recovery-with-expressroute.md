@@ -4,7 +4,7 @@ description: Describes how to set up disaster recovery for Azure VMs using Azure
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 12/14/2023
 ms.author: ankitadutta

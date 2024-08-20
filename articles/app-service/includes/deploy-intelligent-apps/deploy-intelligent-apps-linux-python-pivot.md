@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: python
 ms.custom: linux-related-content
 ms.topic: article
@@ -98,7 +98,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 
 - `apiKey`
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](../../../key-vault/secrets/quick-create-cli.md#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
@@ -282,7 +282,7 @@ client = AzureOpenAI(
 )
 ```
 
-Once the credentials are added to the application, you’ll then need to enable managed identity in your application and grant access to the resource.
+Once the credentials are added to the application, youï¿½ll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
 2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  

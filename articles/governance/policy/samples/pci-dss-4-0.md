@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for PCI DSS v4.0
 description: Details of the PCI DSS v4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/15/2024
+ms.date: 08/16/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in PCI DSS v4.0.
 For more information about this compliance standard, see
 [PCI DSS v4.0](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **PCI DSS v4.0** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete

@@ -3,7 +3,7 @@ title: Machine Learning registry network isolation
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
 author: Blackmist
@@ -203,6 +203,9 @@ For a system registry, we recommend creating a Service Endpoint Policy for the S
 
 
 ## How to find the registry's fully qualified domain name
+
+> [!NOTE]
+> Make sure your DNS is able to resolve the registry private FQDN which is in this format: `<registry-guid>.registry.<region>.privatelink.api.azureml.ms` as there is no public resource specific FQDN  which is recursively resolved by Azure DNS.
 
 The following examples show how to use the discovery URL to get the fully qualified domain name (FQDN) of your registry. When calling the discovery URL, you must provide an Azure access token in the request header. The following examples show how to get an access token and call the discovery URL:
 

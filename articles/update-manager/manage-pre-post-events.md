@@ -12,7 +12,7 @@ author: SnehaSudhirG
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
-This article describes on how to register your subscription and manage pre and post events in Azure Update Manager.
+This article describes on how to manage pre and post events in Azure Update Manager.
 
 ## Manage pre and post events
 

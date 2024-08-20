@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: automation
 author: mgoedtel
-ms.service: automation
+ms.service: azure-automation
 ms.topic: "include"
 ms.date: 02/23/2024
 ms.author: magoedte

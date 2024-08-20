@@ -6,7 +6,7 @@ services: machine-learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: parinitarahi
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to

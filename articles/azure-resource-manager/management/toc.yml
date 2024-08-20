@@ -82,13 +82,13 @@
         - name: Azure Container Registry
           href: ../../container-registry/manual-regional-move.md
         - name: Azure Cosmos DB
-          href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/cosmos-db/how-to-move-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
-          href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MySQL Server
-          href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for PostgreSQL Server
-          href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/postgresql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Event Hubs
           href: ../../operational-excellence/relocation-event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Functions
@@ -202,8 +202,8 @@
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations
     href: async-operations.md
-  - name: Control plane metrics in Azure Monitor 
-    href: control-plane-metrics.md
+  - name: Monitor Resource Manager
+    href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
 - name: Reference
@@ -225,6 +225,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Monitoring data reference
+    href: monitor-resource-manager-reference.md
 - name: Resources
   items:
   - name: Frequently asked questions

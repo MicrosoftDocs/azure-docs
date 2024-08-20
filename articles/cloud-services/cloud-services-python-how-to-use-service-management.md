@@ -1,9 +1,9 @@
 ---
-title: Use the Service Management API (Python) - feature guide
+title: Use the classic deployment model (Python) - feature guide
 description: Learn how to programmatically perform common service management tasks from Python.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -20,12 +20,12 @@ ms.custom: compute-evergreen, devx-track-python
 This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure portal]. You can use this functionality to create, update, and delete cloud services, deployments, data management services, and virtual machines. This functionality can be useful in building applications that need programmatic access to service management.
 
 ## <a name="WhatIs"> </a>What is service management?
-The Azure Service Management API provides programmatic access to much of the service management functionality available through the [Azure portal]. You can use the Azure SDK for Python to manage your cloud services and storage accounts.
+The Azure classic deployment model provides programmatic access to much of the service management functionality available through the [Azure portal]. You can use the Azure SDK for Python to manage your cloud services and storage accounts.
 
-To use the Service Management API, you need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
+To use the classic deployment model, you need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
-The Azure SDK for Python wraps the [Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
+The Azure SDK for Python wraps the [classic deployment model][svc-mgmt-rest-api], which is a REST API. All API operations are performed over Transport Layer Security (TLS) and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## <a name="Installation"> </a>Installation
 All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install by using pip. For more information about installation (for example, if you're new to Python), see [Install Python and the Azure SDK](/azure/developer/python/sdk/azure-sdk-install).
@@ -188,7 +188,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="CreateStorageService"> </a>Create a storage service
-A [storage service](../storage/common/storage-account-create.md) gives you access to Azure [blobs](../storage/blobs/storage-quickstart-blobs-python.md), [tables](../cosmos-db/table-storage-how-to-use-python.md), and [queues](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
+A [storage service](../storage/common/storage-account-create.md) gives you access to Azure [blobs](../storage/blobs/storage-quickstart-blobs-python.md), [tables](/azure/cosmos-db/table-storage-how-to-use-python), and [queues](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
 
 ```python
 from azure import *
@@ -342,7 +342,7 @@ image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 # will be created
 media_link = 'url_to_target_storage_blob_for_vm_hd'
 
-# Linux VM configuration, you can use WindowsConfigurationSet
+# Linux virtual machine (VM) configuration, you can use WindowsConfigurationSet
 # for a Windows VM instead
 linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
 
@@ -378,7 +378,7 @@ sms.delete_hosted_service(service_name='myvm')
 ```
 
 ## Create a virtual machine from a captured virtual machine image
-To capture a VM image, you first call the **capture\_vm\_image** method.
+To capture a virtual machine (VM) image, you first call the **capture\_vm\_image** method.
 
 ```python
 from azure import *
@@ -445,7 +445,7 @@ To learn more about how to capture a Linux virtual machine in the classic deploy
 To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
 ## <a name="What's Next"> </a>Next steps
-Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
+Now that you learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
 
 For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 

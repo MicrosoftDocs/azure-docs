@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 07/25/2023
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: linux-related-content
 ---

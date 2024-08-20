@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 07/17/2024 
+ms.date: 08/14/2024 
 ---
 
 ## Supported client versions
@@ -11,8 +11,34 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5559 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5559 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5560 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5620 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+## Updates for version 1.2.5620
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
+
+## Updates for version 1.2.5617 
+
+*Date published: July 23, 2024* 
+
+In this release, we made the following changes:
+
+- Stability and security improvements for printer redirections. 
+- Improved experience for SSO Lock Screen dialogs.   
+- Fixed an issue with SSO login failure. 
+- Fixed an issue causing the client to crash on disconnect. 
 
 ## Updates for version 1.2.5559
 

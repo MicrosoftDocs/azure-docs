@@ -164,7 +164,7 @@ Get a vector representation of a given input that can be easily consumed by mach
 
 | Name | Type | Description | Required | Default |
 |------|------|-------------|----------|---------|
-| input | string or array | Input text to get embeddings for, encoded as a string. To get embeddings for multiple inputs in a single request, pass an array of strings. Each input must not exceed 2048 tokens in length.<br>Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present. | Yes |  |
+| input | string or array | Input text to get embeddings for, encoded as a string. To get embeddings for multiple inputs in a single request, pass an array of strings. Each array must not exceed 2048 inputs in length.<br>Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present. | Yes |  |
 | user | string | A unique identifier representing your end-user, which can help monitoring and detecting abuse. | No |  |
 | input_type | string | input type of embedding search to use | No |  |
 | encoding_format | string | The format to return the embeddings in. Can be either `float` or `base64`. Defaults to `float`. | No |  |

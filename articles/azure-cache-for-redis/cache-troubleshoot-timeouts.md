@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Cache for Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Cache for Redis, such as Redis server patching and timeout exceptions.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/02/2023
@@ -139,7 +139,7 @@ For more information on failovers, see [Failover and patching for Azure Cache fo
 
 High server load means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](cache-how-to-monitor.md#monitor-azure-cache-for-redis) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](cache-how-to-monitor.md#create-alerts) on metrics on server load to be notified early about potential impacts.
+[Monitor metrics](monitor-cache.md#monitor-azure-cache-for-redis) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](monitor-cache.md#create-alerts) on metrics on server load to be notified early about potential impacts.
 
 There are several changes you can make to mitigate high server load:
 
@@ -190,7 +190,7 @@ event_no_wait_count:1
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-cache-metrics) in the portal. [Create alerts](cache-how-to-monitor.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](monitor-cache.md#view-cache-metrics) in the portal. [Create alerts](monitor-cache.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
@@ -206,4 +206,4 @@ For more specific information to address timeouts when using StackExchange.Redis
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
-- [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
+- [Monitor Azure Cache for Redis](monitor-cache.md)

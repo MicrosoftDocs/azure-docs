@@ -3,7 +3,7 @@ title: Customer-managed keys
 titleSuffix: Azure Machine Learning
 description: 'Learn about using customer-managed keys to improve data security with Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: larryfr
@@ -57,7 +57,7 @@ When you use a customer-managed key, the resources are in your Azure subscriptio
 These Microsoft-managed resources are located in a new Azure resource group created in your subscription. This resource group is separate from the resource group for your workspace. It contains the Microsoft-managed resources that your key is used with. The formula for naming the resource group is: `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
-> The [Request Units](../cosmos-db/request-units.md) for Azure Cosmos DB automatically scale as needed.
+> The [Request Units](/azure/cosmos-db/request-units) for Azure Cosmos DB automatically scale as needed.
 
 If your Azure Machine Learning workspace uses a private endpoint, this resource group also contains a Microsoft-managed Azure virtual network. This virtual network helps secure communication between the managed services and the workspace. You *can't provide your own virtual network* for use with the Microsoft-managed resources. You also *can't modify the virtual network*. For example, you can't change the IP address range that it uses.
 
@@ -74,14 +74,14 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 | Compute | Encryption |
 | ----- | ----- |
 | Azure Container Instances | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). |
-| Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). |
+| Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). |
 | Azure Machine Learning compute instance | The local scratch disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 | Azure Machine Learning compute cluster | The OS disk is encrypted in Azure Storage with Microsoft-managed keys. The temporary disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 :::moniker-end
 :::moniker range="azureml-api-2"
 | Compute | Encryption |
 | ----- | ----- |
-| Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). |
+| Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). |
 | Azure Machine Learning compute instance | The local scratch disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 | Azure Machine Learning compute cluster | The OS disk is encrypted in Azure Storage with Microsoft-managed keys. The temporary disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 :::moniker-end
@@ -135,7 +135,7 @@ To opt in for this preview, set the `enableServiceSideCMKEncryption` on a REST A
 :::image type="content" source="./media/concept-customer-managed-keys/cmk-service-side-encryption.png" alt-text="Screenshot of the encryption tab with the option for server side encryption selected." lightbox="./media/concept-customer-managed-keys/cmk-service-side-encryption.png":::
 
 > [!NOTE]
-> During this preview key rotation and data labeling capabilities are not supported.
+> During this preview key rotation and data labeling capabilities are not supported. Server-side encryption is currently not supported in reference to an Azure Key Vault for storing your encryption key that has public network access disabled.
 
 For a template that creates a workspace with service-side encryption of metadata, see [https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption).
   

@@ -8,7 +8,7 @@ author: SnehaSudhir
 ms.author: sudhirsneha
 ---
 
-# About pre and post events
+# About pre and post events 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
