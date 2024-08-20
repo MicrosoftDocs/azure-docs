@@ -39,6 +39,8 @@ pip install azure-ai-ml
 > [!NOTE]
 > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK. Use `pip install -U azure-ai-ml` to get the last version of it.
 
+---
+
 ### Connect to your workspace
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to the workspace in which you do deployment tasks.
