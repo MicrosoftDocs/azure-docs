@@ -289,7 +289,7 @@ Use ARMClient or a similar tool to handle authentication to Azure for the REST A
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here's
 an example of summarization at the subscription level using Azure Policy Insight's [Summarize For
-Subscription](/rest/api/policy/policystates/summarizeforsubscription):
+Subscription](/rest/api/policyinsights/policy-states/summarize-for-subscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -417,7 +417,7 @@ Your results resemble the following example:
 ```
 
 For more information about querying policy events, see the
-[Azure Policy Events](/rest/api/policy/policyevents) reference article.
+[Azure Policy Events](/rest/api/policyinsights/policy-events) reference article.
 
 ### Azure CLI
 
