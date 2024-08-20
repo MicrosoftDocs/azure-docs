@@ -846,7 +846,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
