@@ -91,9 +91,9 @@ landingContent:
         - text: Code Samples
           url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
         - text: REST API (1.0)
-          url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+          url: https://personalizer-api-docs.developer.azure-api.net/api-details#api=personalizer-client-v1-0&operation=Rank
         - text: REST APIs (v1.1 Preview)
-          url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-3/operations/Rank
+          url: https://personalizer-api-docs.developer.azure-api.net/api-details#api=personalizer-client-v1-1-preview-3&operation=Rank
   - title: About Reinforcement learning
     linkLists:
       - linkListType: overview

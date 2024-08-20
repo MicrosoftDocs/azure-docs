@@ -294,8 +294,6 @@ items:
             href: snapshot-debugger/snapshot-debugger-function-app.md
           - name: Enable Snapshot Debugger for other environments
             href: snapshot-debugger/snapshot-debugger-vm.md
-        - name: Upgrade Snapshot Debugger
-          href: snapshot-debugger/snapshot-debugger-upgrade.md
         - name: Configure BYOS (Bring Your Own Storage)
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
@@ -538,7 +536,7 @@ items:
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
         href: containers/container-insights-persistent-volumes.md
-      - name: Monitor Security with Syslog 
+      - name: Monitor Syslog 
         href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
