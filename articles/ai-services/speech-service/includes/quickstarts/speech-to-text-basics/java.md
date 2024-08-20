@@ -62,6 +62,9 @@ To set up your environment, [install the Speech SDK](~/articles/ai-services/spee
 
 ## Recognize speech from a microphone
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java)
+
 Follow these steps to create a console application for speech recognition.
 
 1. Create a new file named *SpeechRecognition.java* in the same project root directory.

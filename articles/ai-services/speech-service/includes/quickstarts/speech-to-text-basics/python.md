@@ -29,6 +29,9 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 ## Recognize speech from a microphone
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python)
+
 Follow these steps to create a console application.
 
 1. Open a command prompt window in the folder where you want the new project. Create a new file named *speech_recognition.py*.

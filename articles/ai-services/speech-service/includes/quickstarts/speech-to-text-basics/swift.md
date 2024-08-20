@@ -28,6 +28,9 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 
 ## Recognize speech from a microphone
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift)
+
 Follow these steps to recognize speech in a macOS application.
 
 1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Recognize speech from a microphone in Swift on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone) sample project. The repository also has iOS samples.

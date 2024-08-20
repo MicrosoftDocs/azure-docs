@@ -24,6 +24,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Recognize speech from a microphone
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)
+
 Follow these steps to create a console application and install the Speech SDK.
 
 1. Create a new C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechRecognition`.

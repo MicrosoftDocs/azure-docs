@@ -26,6 +26,9 @@ To set up your environment, install the Speech SDK for JavaScript. Run this comm
 
 ## Recognize speech from a file
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)
+
 Follow these steps to create a Node.js console application for speech recognition.
 
 1. Open a command prompt window where you want the new project, and create a new file named *SpeechRecognition.js*.

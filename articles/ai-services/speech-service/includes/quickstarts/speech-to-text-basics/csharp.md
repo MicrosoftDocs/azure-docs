@@ -24,6 +24,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Recognize speech from a microphone
 
+> [!div class="nextstepaction"]
+> [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp)
+
 Follow these steps to create a console application and install the Speech SDK.
 
 1. Open a command prompt window in the folder where you want the new project. Run this command to create a console application with the .NET CLI.
