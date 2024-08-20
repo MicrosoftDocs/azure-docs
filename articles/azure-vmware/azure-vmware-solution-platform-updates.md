@@ -13,7 +13,11 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## August 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial, but not Azure Government. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Azure VMware Solution in Microsoft Azure Government**
+
+Azure VMware Solution has achieved DoD IL4 authorization.
 
 ## May 2024
 
