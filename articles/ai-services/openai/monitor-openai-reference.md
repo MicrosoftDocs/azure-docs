@@ -19,7 +19,7 @@ See [Monitor Azure OpenAI](./how-to/monitor-openai.md) for details on the data y
 
 ### Supported metrics for Microsoft.CognitiveServices/accounts
 
-Here are the most important metrics we think you should monitor for Azure OpenAI. Later in this article is a longer list of all available Open AI metrics, which contains more details on metrics in this shorter list.
+Here are the most important metrics we think you should monitor for Azure OpenAI. Later in this article is a longer list of all available OpenAI metrics, which contains more details on metrics in this shorter list.
 
 - Azure OpenAI Requests
 - Active Tokens
