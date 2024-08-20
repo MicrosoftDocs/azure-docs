@@ -17,7 +17,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware vSph
 
 **Azure VMware Solution in Microsoft Azure Government**
 
-Azure VMware Solution has achieved DoD IL4 authorization.
+Azure VMware Solution has achieved Department of Defense (DoD) Impact Level 4 (IL4) authorization in Microsoft Azure Government.
 
 ## May 2024
 
