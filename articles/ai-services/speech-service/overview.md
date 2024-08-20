@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 7/18/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 
@@ -16,7 +16,7 @@ The Speech service provides speech to text and text to speech capabilities with 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
-Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](./rest-speech-to-text.md).
+Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), and [REST APIs](./rest-speech-to-text.md).
 
 Speech is available for many [languages](language-support.md), [regions](regions.md), and [price points](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
