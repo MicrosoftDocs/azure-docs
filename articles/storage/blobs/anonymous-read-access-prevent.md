@@ -310,8 +310,8 @@ Set this parameter so that no sign-in occurs -- you must sign in first. Use this
 This command produces only STDOUT output (not standard PowerShell) with information about affect accounts.
 #>
 param(
-    [boolean]$BypassConfirmation=$false,
-    [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName='SubscriptionId')]
+    [boolean]$BypassConfirmation = $false,
+    [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = 'SubscriptionId')]
     [String] $SubscriptionId,
     [switch] $ReadOnly, # Use this if you don't want to make changes, but want to get information about affected accounts
     [switch] $NoSignin # Use this if you are already signed in and don't want to be prompted again
@@ -319,48 +319,41 @@ param(
 
 begin {
     if ( ! $NoSignin.IsPresent ) {
-        login-azaccount | out-null
+        Login-AzAccount | Out-Null
     }
 }
 
 process {
     try {
-        select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
-    } catch {
-        write-error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+        Select-AzSubscription -SubscriptionId $SubscriptionId -ErrorAction Stop | Out-Null
+    }
+    catch {
+        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
     }
 
-    foreach ($account in Get-AzStorageAccount) 
-    {
-        if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
-        {
+    foreach ($account in Get-AzStorageAccount) {
+        if ($null -eq $account.AllowBlobPublicAccess -or $account.AllowBlobPublicAccess -eq $true) {
             Write-host "Account:" $account.StorageAccountName " isn't disallowing public access."
 
             if ( ! $ReadOnly.IsPresent ) {
-                if(!$BypassConfirmation)
-                {
+                if (!$BypassConfirmation) {
                     $confirmation = Read-Host "Do you wish to disallow public access? [y/n]"
                 }
-                if($BypassConfirmation -or $confirmation -eq 'y')
-                {
-                    try
-                    {
-                        set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
+                if ($BypassConfirmation -or $confirmation -eq 'y') {
+                    try {
+                        Set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
                         Write-Host "Success!"
                     }
-                    catch
-                    {
-                        Write-output $_
+                    catch {
+                        Write-Output $_
                     }
                 }
             }
         }
-        elseif($account.AllowBlobPublicAccess -eq $false)
-        {
+        elseif ($account.AllowBlobPublicAccess -eq $false) {
             Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
         }
-        else
-        {
+        else {
             Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
         }
     }
