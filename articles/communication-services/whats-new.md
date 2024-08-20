@@ -44,7 +44,7 @@ For more information, see [Introducing PowerPoint Live in Microsoft Teams](https
 
 During live calls, participants can react with emojis: like, love, applause, laugh, and surprise.
 
-![Live call reactions: thumbs up, like, heart, clapping, laughing, surprise.](media/live-reactions.png)
+![Live call reactions: thumbs up, like, heart, clapping, laughing, surprise.](media/whats-new-images/live-reactions.png)
 
 Now generally available, the updated UI library composites and components now include call reactions. The UI Library supports the following list of live call reactions: :thumbs_up: like reaction, :heart: heart reaction, :clapping_hands: applause reaction, :face_with_tears_of_joy: laughter reaction, :open_mouth: surprise reaction.
 
