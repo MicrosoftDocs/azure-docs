@@ -63,7 +63,7 @@ items:
     - name: Other Container Services
       items:
       - name: Azure Container Instances
-        href: ../container-instances/container-instances-tutorial-prepare-app.md
+        href: /azure/container-instances/container-instances-tutorial-prepare-app
       - name: Azure Container Registry
         href: ../container-registry/container-registry-get-started-azure-cli.md
       - name: Azure Kubernetes Service (AKS)

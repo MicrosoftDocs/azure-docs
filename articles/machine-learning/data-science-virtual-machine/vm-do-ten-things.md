@@ -90,7 +90,7 @@ You have two available options to administer your Azure subscription and cloud r
 
 ## Extend storage by using shared file systems
 
-Data scientists can share large datasets, code, or other resources within the team. The DSVM has about 45 GB of available space. To expand your storage, you can use Azure Files and either mount it on one or more DSVM instances, or access it with a REST API. You can also use the [Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.yml), or use [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks.
+Data scientists can share large datasets, code, or other resources within the team. The DSVM has about 45 GB of available space. To expand your storage, you can use Azure Files and either mount it on one or more DSVM instances, or access it with a REST API. You can also use the [Azure portal](/azure/virtual-machines/windows/attach-managed-disk-portal), or use [Azure PowerShell](/azure/virtual-machines/windows/attach-disk-ps) to add extra dedicated data disks.
 
 > [!NOTE]
 > The maximum space on an Azure File share is 5 TB. Each file has a 1 TB size limit.

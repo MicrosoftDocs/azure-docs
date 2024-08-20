@@ -107,7 +107,7 @@ The following tables compare features available in the following API Management 
 | [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ |  ✔️ | ✔️ | ✔️ |
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
+| [Service Fabric](/azure/service-fabric/service-fabric-api-management-overview) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |

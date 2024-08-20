@@ -30,11 +30,11 @@ Deploying a flexible scale set in a region without zones is essentially the same
 
 ### Which data disks can be used with VMs deployed with flexible scale set?
 
-For new SAP deployment in flexible scale set with FD=1, VMs deployed within the scale set can utilize any data disks that are listed as supported in this [reference list](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#are-data-disks-supported-within-scale-sets-). For more information on migrating a deployment that involves pinned storage volumes (such as ANF), see the [Migration of SAP Workload](#migration-of-sap-workload) FAQ section.
+For new SAP deployment in flexible scale set with FD=1, VMs deployed within the scale set can utilize any data disks that are listed as supported in this [reference list](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#are-data-disks-supported-within-scale-sets-). For more information on migrating a deployment that involves pinned storage volumes (such as ANF), see the [Migration of SAP Workload](#migration-of-sap-workload) FAQ section.
 
 ### What are the limitations of assigning capacity reservation to VMs deployed in flexible scale set?
 
-If you're deploying VMs in flexible scale set without a scaling profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
+If you're deploying VMs in flexible scale set without a scaling profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](/azure/virtual-machines/capacity-reservation-overview#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
 
 ## High Availability and Disaster Recovery of SAP workload
 

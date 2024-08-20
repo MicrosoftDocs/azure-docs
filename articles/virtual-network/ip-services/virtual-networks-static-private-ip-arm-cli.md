@@ -82,4 +82,4 @@ When no longer needed, you can use [az group delete](/cli/azure/group#az-group-d
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
-- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md) virtual machines.
+- Learn more about creating [Linux](/azure/virtual-machines/windows/tutorial-manage-vm) and [Windows](/azure/virtual-machines/windows/tutorial-manage-vm) virtual machines.

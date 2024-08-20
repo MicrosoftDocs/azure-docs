@@ -30,7 +30,7 @@ There is no additional cost for Azure Storage encryption.
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md).
+For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption).
 
 ## About encryption key management
 

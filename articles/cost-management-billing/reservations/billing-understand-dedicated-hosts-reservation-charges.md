@@ -46,7 +46,7 @@ request](https://go.microsoft.com/fwlink/?linkid=2083458).
 To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](./save-compute-costs-reservations.md)
-- [Using Azure Dedicated Hosts](../../virtual-machines/dedicated-hosts.md)
+- [Using Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts)
 - [Dedicated Hosts Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 - [Manage reservations for Azure](./manage-reserved-vm-instance.md)
 - [Understand reservation usage for your pay-as-you-go subscription](./understand-reserved-instance-usage.md)

@@ -67,7 +67,7 @@ To follow this chapter, read and understand the information presented in:
 - [What SAP software is supported for Azure deployments](./supported-product-on-azure.md)
 - [SAP workload on Azure virtual machine supported scenarios](./planning-supported-configurations.md) 
 
-For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../virtual-machines/managed-disks-overview.md).
+For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](/azure/virtual-machines/managed-disks-overview).
 
 
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend having separate Azure disks for:
@@ -147,8 +147,8 @@ As of 2017, Azure introduced the concepts of [Azure Managed Disks](https://azure
 
 If you happen to have SAP workload that isn't yet using managed disks, to convert from unmanaged to managed disks, see:
 
-- [Convert a Windows virtual machine from unmanaged disks to managed disks](../../virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
-- [Convert a Linux virtual machine from unmanaged disks to managed disks](../../virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
+- [Convert a Windows virtual machine from unmanaged disks to managed disks](/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks).
+- [Convert a Linux virtual machine from unmanaged disks to managed disks](/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks).
 
 
 ### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Caching for VMs and data disks
@@ -172,7 +172,7 @@ For Azure premium storage v1, the following caching options exist:
 
 For premium storage v1, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
 
-For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 For premium storage v2, Ultra disk and Azure NetApp Files, no caching options are offered.
 
@@ -209,7 +209,7 @@ There are other redundancy methods. For more information, see [Azure Storage rep
 
 ## VM node resiliency
 
-Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines). Because the DBMS layer is critical to availability in an SAP system, you need to understand [different deployment types](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) and maintenance events. For more information on these concepts, see [Manage the availability of virtual machines in Azure](../../virtual-machines/availability.md).
+Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines). Because the DBMS layer is critical to availability in an SAP system, you need to understand [different deployment types](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) and maintenance events. For more information on these concepts, see [Manage the availability of virtual machines in Azure](/azure/virtual-machines/availability).
 
 The minimum recommendation for production DBMS scenarios with an SAP workload is to:
 

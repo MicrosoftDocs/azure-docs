@@ -28,7 +28,7 @@ highlightedContent:
     # Card
     - title: Getting started with HPC VMs
       itemType: get-started
-      url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
+      url: /azure/virtual-machines/set-up-hpc-vms?context=/azure/virtual-machines/context/context
     # Card
     - title: Azure HPC Architecture
       itemType: architecture
@@ -65,13 +65,13 @@ conceptualContent:
         # Card
         - title: Azure HPC Compute
           links:
-            - url: ../virtual-machines/sizes-hpc.md
+            - url: /azure/virtual-machines/sizes-hpc
               itemType: concept
               text: High Performance VMs 
-            - url: ../virtual-machines/sizes-gpu.md
+            - url: /azure/virtual-machines/sizes-gpu
               itemType: concept
               text: GPU Accelarated VMs
-            - url: ../virtual-machines/hx-series.md
+            - url: /azure/virtual-machines/hx-series
               itemType: concept
               text: Memory Optimized VMs
         # Card

@@ -38,7 +38,7 @@ For a complete guide on how to enable Azure Key Vault VM Extension with Pool Use
 
 - Are both Linux and Windows Batch pools supported with the Key Vault VM extension?
 
-  Yes. See the documentation for [Windows](../virtual-machines/extensions/key-vault-windows.md) and [Linux](../virtual-machines/extensions/key-vault-linux.md).
+  Yes. See the documentation for [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux).
 
 - Can you update existing pools with a Key Vault VM extension?
 

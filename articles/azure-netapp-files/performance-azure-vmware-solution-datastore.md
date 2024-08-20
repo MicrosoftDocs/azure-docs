@@ -163,7 +163,7 @@ You can monitor your datastore metrics through vCenter Server or through the Azu
 
 ## Next steps  
 
-* [Striping Disks in Azure](../virtual-machines/premium-storage-performance.md#disk-striping)
+* [Striping Disks in Azure](/azure/virtual-machines/premium-storage-performance#disk-striping)
 * [Creating striped volumes in Windows Server](/windows-server/administration/windows-commands/create-volume-stripe)
 * [Azure VMware Solution storage architecture](../azure-vmware/architecture-storage.md)
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)

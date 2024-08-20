@@ -12,7 +12,7 @@ author: guywi-ms
 # Install the Log Analytics agent on Linux computers
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 This article provides details on installing the Log Analytics agent on Linux computers hosted in other clouds or on-premises.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
@@ -40,7 +40,7 @@ OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit). OpenSSL earlier t
 Starting with versions released after August 2018, we're making the following changes to our support model:
 
 * Only the server versions are supported, not the client versions.
-* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). There might be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
+* Focus support on any of the [Azure Linux Endorsed distros](/azure/virtual-machines/linux/endorsed-distros). There might be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date aren't supported.
 * Only support VM images. Containers aren't supported, even those derived from official distro publishers' images.
@@ -202,7 +202,7 @@ If authentication is required in either case, specify the username and password.
 The Log Analytics agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 and one for x86 architectures.
 
 > [!NOTE]
-> For Azure VMs, we recommend that you install the agent on them by using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux.
+> For Azure VMs, we recommend that you install the agent on them by using the [Azure Log Analytics VM extension](/azure/virtual-machines/extensions/oms-linux) for Linux.
 
 1. [Download](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) and transfer the appropriate bundle (x64 or x86) to your Linux VM or physical computer by using scp/sftp.
 

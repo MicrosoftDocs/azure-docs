@@ -43,7 +43,7 @@ This article lists the operating systems supported by [Azure Monitor Agent](./az
 ## Linux operating systems
 
 > [!CAUTION]
-> CentOS is a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> CentOS is a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent <sup>1</sup> |
 |:---|:---:|:---:|

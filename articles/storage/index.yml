@@ -69,9 +69,9 @@ additionalContent:
         # Card
         - title: Storage for infrastructure
           links:
-          - url: ../virtual-machines/managed-disks-overview.md
+          - url: /azure/virtual-machines/managed-disks-overview
             text: Learn about Azure managed disks for Azure VMs
-          - url: ../virtual-machines/disks-types.md
+          - url: /azure/virtual-machines/disks-types
             text: Understand the available virtual machine disk types
           - url: elastic-san/elastic-san-introduction.md
             text: Learn about Azure Elastic SAN

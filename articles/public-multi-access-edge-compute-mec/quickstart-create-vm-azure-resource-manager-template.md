@@ -391,7 +391,7 @@ In this quickstart, you learn how to use an Azure Resource Manager (ARM) templat
 
 To use SSH to connect to the virtual machine in the Azure public MEC, the best method is to deploy a jump box in an Azure parent region.
 
-1. Follow the instructions in [Create a virtual machine in a region](../virtual-machines/linux/quick-create-template.md).
+1. Follow the instructions in [Create a virtual machine in a region](/azure/virtual-machines/linux/quick-create-template).
 
 1. Use SSH to connect to the jump box virtual machine deployed in the region.
 

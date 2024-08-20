@@ -22,7 +22,7 @@ Before you set up disaster recovery, make sure that migration has completed as e
 
 ## Verify the Azure VM agent
 
-Each Azure VM must have the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) installed. To replicate Azure VMs, Site Recovery installs an extension on the agent.
+Each Azure VM must have the [Azure VM agent](/azure/virtual-machines/extensions/agent-windows) installed. To replicate Azure VMs, Site Recovery installs an extension on the agent.
 
 - If the machine is running version 9.7.0.0 or later of the Site Recovery Mobility service, the Azure VM agent is automatically installed by the Mobility service on Windows VMs. On earlier versions of the Mobility service, you'll install the agent manually.
 - For Linux VMs, you must install the Azure VM agent manually. You only need to install the Azure VM agent if the Mobility service installed on the migrated machine is v9.6 or earlier.
@@ -43,14 +43,14 @@ To check that the agent is installed:
 2. Right-click the file, and in **Properties**, select the **Details** tab.
 3. Verify that the **Product Version** field shows 2.6.1198.718 or higher.
 
-[Learn more](../virtual-machines/extensions/agent-windows.md) about agent installation for Windows.
+[Learn more](/azure/virtual-machines/extensions/agent-windows) about agent installation for Windows.
 
 ### Install the agent on Linux VMs
 
-Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agent manually as follows:
+Install the [Azure Linux VM](/azure/virtual-machines/extensions/agent-linux) agent manually as follows:
 
 1. Make sure you have admin permissions on the machine.
-2. We strongly recommend that you install the Linux VM agent using an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
+2. We strongly recommend that you install the Linux VM agent using an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories.
     - We strongly recommend that you update the agent only through a distribution repository.
     - We don't recommend installing the Linux VM agent directly from GitHub and updating it.
     -  If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it.

@@ -70,7 +70,7 @@ sections:
           Does memory written to the Windows swap file (pagefile.sys) get protected by the TEE?
         answer: |
           Yes, but only if the pagefile.sys is located on the encrypted OS disk.
-          On confidential VMs with a temp disk, the pagefile.sys file can be moved to the encrypted OS [Tips for moving pagefile.sys to the c:\ drive](../virtual-machines/windows/change-drive-letter.md).
+          On confidential VMs with a temp disk, the pagefile.sys file can be moved to the encrypted OS [Tips for moving pagefile.sys to the c:\ drive](/azure/virtual-machines/windows/change-drive-letter).
 
       - question: | 
           Can I generate a memory dump from within my confidential VM?
@@ -110,14 +110,14 @@ sections:
       - question: |
           Can I customize one of the available confidential VM images?
         answer: |          
-          Yes. You can use [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) to modify a confidential VM image, such as by installing applications. 
+          Yes. You can use [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries) to modify a confidential VM image, such as by installing applications. 
           Then, you can deploy confidential VMs based on your modified image.
 
       - question: |
           Do I have to use the full-disk encryption scheme? Can I use a standard scheme instead?
         answer: |
           The optional full-disk encryption scheme is Azure's most secure and meets the [Confidential Computing principles](https://azure.microsoft.com/blog/azure-confidential-computing/). 
-          However, you can also use other [disk encryption schemes](../virtual-machines/disk-encryption-overview.md) along with or instead of full-disk encryption.
+          However, you can also use other [disk encryption schemes](/azure/virtual-machines/disk-encryption-overview) along with or instead of full-disk encryption.
           If you use multiple disk encryption schemes, double encryption might negatively affect performance.
 
       - question: |

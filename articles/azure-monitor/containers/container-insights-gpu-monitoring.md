@@ -50,5 +50,5 @@ Container insights includes preconfigured charts for the metrics listed earlier 
 ## Next steps
 
 - See [Use GPUs for compute-intensive workloads on Azure Kubernetes Service](/azure/aks/gpu-cluster) to learn how to deploy an AKS cluster that includes GPU-enabled nodes.
-- Learn more about [GPU optimized VM SKUs in Azure](../../virtual-machines/sizes-gpu.md).
+- Learn more about [GPU optimized VM SKUs in Azure](/azure/virtual-machines/sizes-gpu).
 - Review [GPU support in Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) to learn more about Kubernetes experimental support for managing GPUs across one or more nodes in a cluster.

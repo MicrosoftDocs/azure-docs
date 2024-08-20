@@ -235,9 +235,9 @@
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
-        href: ../virtual-machines/windows/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/windows/multiple-nics?toc=/azure/virtual-network/toc.json
       - name: Azure CLI
-        href: ../virtual-machines/linux/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/linux/multiple-nics?toc=/azure/virtual-network/toc.json
     - name: Accelerated Networking (AccelNet)
       items:
       - name: Accelerated Networking overview

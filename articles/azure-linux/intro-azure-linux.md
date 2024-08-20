@@ -56,8 +56,8 @@ The Azure Linux Container Host supports the following GPU SKUs:
 - Get started by [Creating an Azure Linux Container Host for AKS cluster using Azure CLI](./quickstart-azure-cli.md).
 
 <!-- LINKS - internal -->
-[nvidia-v100]: ../virtual-machines/ncv3-series.md
-[nvidia-t4]: ../virtual-machines/nct4-v3-series.md
+[nvidia-v100]: /azure/virtual-machines/ncv3-series
+[nvidia-t4]: /azure/virtual-machines/nct4-v3-series
 [cis-benchmarks]: /azure/aks/cis-azure-linux
 
 <!-- LINKS - external -->

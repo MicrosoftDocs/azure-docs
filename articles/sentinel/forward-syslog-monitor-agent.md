@@ -42,7 +42,7 @@ To complete the steps in this tutorial, you must have the following resources an
 - A Log Analytics workspace.
 - A Linux server that's running an operating system that supports Azure Monitor Agent.
    - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
-   - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+   - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - A Linux-based device that generates event log data like a firewall network device.
 
 ## Configure Azure Monitor Agent to collect Syslog data

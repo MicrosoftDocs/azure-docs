@@ -243,7 +243,7 @@ Because the Azure Storage resource provider does not fail over, the [Location](/
 
 ### Azure virtual machines
 
-Azure virtual machines (VMs) don't fail over as part of a storage account failover. Any VMs that failed over to a secondary region in response to an outage need to be recreated after the failover completes. Account failover can potentially result in the loss of data stored in a temporary disk when the virtual machine (VM) is shut down. Microsoft recommends following the [high availability](../../virtual-machines/availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
+Azure virtual machines (VMs) don't fail over as part of a storage account failover. Any VMs that failed over to a secondary region in response to an outage need to be recreated after the failover completes. Account failover can potentially result in the loss of data stored in a temporary disk when the virtual machine (VM) is shut down. Microsoft recommends following the [high availability](/azure/virtual-machines/availability) and [disaster recovery](/azure/virtual-machines/backup-recovery) guidance specific to virtual machines in Azure.
 
 ### Azure unmanaged disks
 

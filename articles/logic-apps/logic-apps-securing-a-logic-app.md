@@ -1560,8 +1560,8 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/dedicated-hosts.md)
-  * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
+  * [Azure Dedicated Hosts for virtual machines](/azure/virtual-machines/dedicated-hosts)
+  * [Virtual machine isolation in Azure](/azure/virtual-machines/isolation)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
 * Based on whether you have Consumption or Standard logic app workflows, you have these options:

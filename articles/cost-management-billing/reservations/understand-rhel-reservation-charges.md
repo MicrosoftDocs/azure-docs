@@ -20,7 +20,7 @@ To buy the right Red Hat Linux plan, you need to understand what Red Hat VMs you
 
 Like Reserved VM Instances, Red Hat plan purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 
-The discount amount depends on the VM vCPU ratio listed at [Instance size flexibility ratio for VMs](../../virtual-machines/reserved-vm-instance-size-flexibility.md#instance-size-flexibility-ratio-for-vms). Use the ratio value to calculate how many VM instances get the Red Hat Linux plan discount.
+The discount amount depends on the VM vCPU ratio listed at [Instance size flexibility ratio for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility#instance-size-flexibility-ratio-for-vms). Use the ratio value to calculate how many VM instances get the Red Hat Linux plan discount.
 
 For example, if you buy a plan for Red Hat Linux Enterprise Server for a VM with 1 to 4 vCPUs, the ratio for that reservation is 1. The discount covers the Red Hat software cost for:
 
@@ -34,8 +34,8 @@ For more information to [Review RedHat VM usage before you buy](understand-suse-
 To learn more about reservations, see the following articles:
 
 - [What are reservations for Azure](save-compute-costs-reservations.md)
-- [Prepay for Red Hat software plans with Azure reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Red Hat software plans with Azure reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

@@ -29,7 +29,7 @@ The following table highlights comparison between these two options.
 | Customers need to delete the old cloud services in Azure Resource Manager. | Platform deletes the Cloud Services (classic) resources after migration. | 
 | This migration is a lift and shift scenario, which offers more flexibility but requires more time to migrate. | This scenario is an automated migration that offers quick migration but less flexibility. | 
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](../service-fabric/overview-managed-cluster.md). These services continue to feature other capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic).
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/overview-managed-cluster). These services continue to feature other capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic).
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application isn't evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements.
 
@@ -60,7 +60,7 @@ The platform supported migration provides following key benefits:
 - Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works](in-place-migration-overview.md#migration-steps).
 - Offers testing for migrated deployments after successful preparation. Commit and finalize the migration while abort rolls back the migration.
 
-The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
+The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](/azure/virtual-machines/migration-classic-resource-manager-overview). 
 
 ## Set up access for migration
 
@@ -101,7 +101,7 @@ Customers can migrate their Cloud Services (classic) deployments using the same 
 
 :::image type="content" source="media/in-place-migration-1.png" alt-text="Image shows diagram of steps associated with migration.":::
 
-For more information, see [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+For more information, see [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 
 ## Supported resources and features available for migration associated with Cloud Services (classic)
 - 	Storage Accounts
@@ -136,6 +136,6 @@ The following list contains top scenarios involving combinations of resources, f
 | Virtual Network | Migration of deployment with roles in different subnet. | A cloud service with different roles in different subnets is supported for migration. |
 
 ## Next steps
-- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)

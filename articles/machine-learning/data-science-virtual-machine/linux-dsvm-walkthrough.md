@@ -35,7 +35,7 @@ The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a fa
 > [!NOTE]
 > This walkthrough was created using a D2 v2-size Linux DSVM. You can use a DSVM this size to complete the procedures that are shown in this walkthrough.
 
-For more storage space, you can create more disks, and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned because of resizing or a shut-down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps to add a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. As another option to increase storage, you can use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
+For more storage space, you can create more disks, and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned because of resizing or a shut-down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](/azure/virtual-machines/linux/add-disk?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps to add a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. As another option to increase storage, you can use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
 To download the data, open a terminal window, and then run this command:
 

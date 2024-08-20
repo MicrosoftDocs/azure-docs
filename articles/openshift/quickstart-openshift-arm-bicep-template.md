@@ -617,7 +617,7 @@ The template parameters below have default values. They can be specified, but th
 | `clusterVnetCidr` | The address space of the ARO virtual network, in [Classless Inter-Domain Routing](https://wikipedia.org/wiki/Classless_Inter-Domain_Routing) (CIDR) notation. | | 10.100.0.0/15
 | `workerSubnetCidr` | The address space of the worker node subnet, in CIDR notation. | | 10.100.70.0/23
 | `masterSubnetCidr` | The address space of the control plane node subnet, in CIDR notation. | | 10.100.76.0/24
-| `masterVmSize` | The [virtual machine type/size](../virtual-machines/sizes.md) of the control plane node. | | Standard_D8s_v3
+| `masterVmSize` | The [virtual machine type/size](/azure/virtual-machines/sizes) of the control plane node. | | Standard_D8s_v3
 | `workerVmSize` | The virtual machine type/size of the worker node. | | Standard_D4s_v3
 | `workerVmDiskSize` | The disk size of the worker node, in gigabytes. | |  128
 | `workerCount` | The number of worker nodes. | | 3

@@ -16,7 +16,7 @@ highlightedContent:
       url: https://azure.microsoft.com/updates/?category=containers
     - itemType: concept
       title: A microservices approach to applications
-      url: ../service-fabric/service-fabric-overview-microservices.md
+      url: /azure/service-fabric/service-fabric-overview-microservices
     - itemType: concept
       title: Understanding Kubernetes
       url: /azure/aks/concepts-clusters-workloads
@@ -81,13 +81,13 @@ conceptualContent:
     # Card
     - title: Run containers on Azure
       links:
-        - url: ../container-instances/container-instances-overview.md
+        - url: /azure/container-instances/container-instances-overview
           itemType: overview
           text: Container Instances overview
         - url: /training/modules/run-docker-with-azure-container-instances/
           itemType: learn
           text: Run containerized apps using Docker with Azure Container Instances
-        - url: ../container-instances/container-instances-using-azure-container-registry.md
+        - url: /azure/container-instances/container-instances-using-azure-container-registry
           itemType: how-to-guide
           text: Deploy an image from Azure Container Registry
         - url: ../container-registry/container-registry-quickstart-task-cli.md
@@ -95,7 +95,7 @@ conceptualContent:
           text: Build, push, and run image using Azure CLI
       # footerLink (optional)
       footerLink:
-        url: ../container-instances/index.yml
+        url: /azure/container-instances/
         text: See more
     # Card
     - title: Job scheduling and compute management
@@ -116,18 +116,18 @@ conceptualContent:
     # Card
     - title: Microservice development and container orchestration
       links:
-        - url: ../service-fabric/service-fabric-overview.md
+        - url: /azure/service-fabric/service-fabric-overview
           itemType: overview
           text: What is Azure Service Fabric?
-        - url: ../service-fabric/service-fabric-quickstart-dotnet.md
+        - url: /azure/service-fabric/service-fabric-quickstart-dotnet
           itemType: quickstart
           text: Deploy a .NET reliable services application to Service Fabric
-        - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
+        - url: /azure/service-fabric/service-fabric-cluster-creation-for-windows-server
           itemType: how-to-guide
           text: Create a standalone cluster running on Windows Server
       # footerLink (optional)
       footerLink:
-        url: ../service-fabric/index.yml
+        url: /azure/service-fabric/
         text: See more
     # Card
     - title: Store and manage container images

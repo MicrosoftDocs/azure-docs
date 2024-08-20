@@ -20,7 +20,7 @@ To deploy on the Azure Kubernetes Service, you need the following configurations
 
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
 - The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
-- [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](../virtual-machines/dv5-dsv5-series.md) 
+- [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](/azure/virtual-machines/dv5-dsv5-series) 
     - Recommended node series: system node - D8s_v5,  user node - D16s_v5
     - Recommended node count: system node-3, user node-8   
 - Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.yml) in your tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.

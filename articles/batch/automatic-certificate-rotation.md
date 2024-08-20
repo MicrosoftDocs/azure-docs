@@ -188,8 +188,8 @@ root@74773db5fe1b42ab9a4b6cf679d929da000000:/var/lib/waagent/Microsoft.Azure.Key
 
 If Key Vault extension is configured incorrectly, the compute node might be in usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
 
-- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
-- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
+- [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 
 ## Next steps
 

@@ -60,7 +60,7 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 
    Yes. In the Azure portal, you can see historical pricing and eviction rates per size in a region.
 
-   For more information about using spot VMs, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+   For more information about using spot VMs, see [Spot Virtual Machines](/azure/virtual-machines/spot-vms).
 
 - Can I transfer my quotas between Batch accounts?
 

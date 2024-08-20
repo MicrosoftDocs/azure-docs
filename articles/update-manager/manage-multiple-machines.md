@@ -63,9 +63,9 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
    
     
  
-   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes). 
+   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). 
 
-   For more information about each orchestration method, see [Automatic VM guest patching for Azure VMs](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes).
+   For more information about each orchestration method, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
    - **Update installation status**: By default, the tile shows the status for the last 30 days. By using the **Time** picker, you can choose a different range. The values are:
       - **Failed**: One or more updates in the deployment have failed.
@@ -91,7 +91,7 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
    The table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment:
 
    * **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = AutomaticByPlatform** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
-   * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**.
+   * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).(i.e), the patch mode is **AutomaticByPlatform**.
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Image Default**—for Linux machines, its default patching configuration is used.
    * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode automatic updates are disabled for Windows OS.
@@ -100,12 +100,12 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
 The **Patch orchestration** column in the machine's patch mode has the following values:
 
    * **Customer Managed Schedules (preview)**: Enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties: `Patch mode = AutomaticByPlatform` and `BypassPlatformSafetyChecksOnUserSchedule = TRUE` on your behalf after receiving your consent.
-   * **Azure Managed - Safe Deployment**: For a group of virtual machines undergoing an update, the Azure platform orchestrates updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). For example, the patch mode is `AutomaticByPlatform`.
+   * **Azure Managed - Safe Deployment**: For a group of virtual machines undergoing an update, the Azure platform orchestrates updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). For example, the patch mode is `AutomaticByPlatform`.
    * **Automatic by OS**: The machine is automatically updated by the OS.
    * **Image default**: For Linux machines, its default patching configuration is used.
    * **Manual**: You control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS.
 
-**The machine's status**: For an Azure VM, it shows its [power state](../virtual-machines/states-billing.md#power-states-and-billing). For an Azure Arc-enabled server, it shows if it's connected or not.
+**The machine's status**: For an Azure VM, it shows its [power state](/azure/virtual-machines/states-billing#power-states-and-billing). For an Azure Arc-enabled server, it shows if it's connected or not.
 
 Use filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types (that is, Azure VMs and Azure Arc-enabled servers), and regions. They're based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
 

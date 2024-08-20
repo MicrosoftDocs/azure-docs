@@ -112,7 +112,7 @@ For more information on creating and using a deployment configuration, see the f
 * [AciWebservice class reference](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Deploy machine learning models to Azure](./v1/how-to-deploy-and-where.md)
 
-For more information on using a customer-managed key with Container Instances, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
+For more information on using a customer-managed key with Container Instances, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data).
 :::moniker-end
 
 ### Azure Kubernetes Service

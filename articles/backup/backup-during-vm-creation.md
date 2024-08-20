@@ -31,7 +31,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
    >[!Note]
    >To create a VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, remove the plan information from the VM. This helps in seamless VM restore.
 
-3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
+3. Set up the VM in accordance with the [Windows](/azure/virtual-machines/windows/quick-create-portal) or [Linux](/azure/virtual-machines/linux/quick-create-portal) instructions.
 
 4. On the **Management** tab, in **Enable backup**, select **On**.
 5. Azure Backup backups to a Recovery Services vault. Select **Create New** if you don't have an existing vault.

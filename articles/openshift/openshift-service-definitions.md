@@ -197,7 +197,7 @@ Customers have permissions for creating more machine sets to better suit their r
 
 Persistent volumes (PVs), which can only be attached to a single node at a time, are specific to the availability zone in which they were provisioned. They can be attached to any node in the availability zone.
 
-Azure limits how many PVs of type block store can be attached to a single node. Azure limits depend on the type and size of the virtual machine the customer selects for worker nodes. For example, to see the max data disks for the Dasv4-series, see [Dasv4](../virtual-machines/dav4-dasv4-series.md#dasv4-series).
+Azure limits how many PVs of type block store can be attached to a single node. Azure limits depend on the type and size of the virtual machine the customer selects for worker nodes. For example, to see the max data disks for the Dasv4-series, see [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series).
 
 ### Shared storage (RWX)
 

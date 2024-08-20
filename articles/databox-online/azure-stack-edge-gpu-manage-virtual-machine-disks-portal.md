@@ -74,7 +74,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
     Select **OK** and proceed.
 
-1. In the **Disks** display, you'll see an entry corresponding to the new disk. Accept the default or assign a valid Logical Unit Number (LUN) to the disk, and select **Save**. A LUN is a unique identifier for a SCSI disk. For more information, see [What is a LUN?](../virtual-machines/linux/azure-to-guest-disk-mapping.md#what-is-a-lun).
+1. In the **Disks** display, you'll see an entry corresponding to the new disk. Accept the default or assign a valid Logical Unit Number (LUN) to the disk, and select **Save**. A LUN is a unique identifier for a SCSI disk. For more information, see [What is a LUN?](/azure/virtual-machines/linux/azure-to-guest-disk-mapping#what-is-a-lun).
 
     ![Screenshot of the Disks display for Virtual machines after adding a new disk. The disk number for the new disk and the Save button are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-4.png)
 

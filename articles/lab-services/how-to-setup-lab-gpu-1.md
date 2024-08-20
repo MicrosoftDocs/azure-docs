@@ -30,14 +30,14 @@ As described in the following table, the *compute* GPU size is intended for comp
 
 | Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Compute) | 6  vCPUs | 56 GB RAM  | [Standard_NC6](../virtual-machines/nc-series.md). This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
+| Small GPU (Compute) | 6  vCPUs | 56 GB RAM  | [Standard_NC6](/azure/virtual-machines/nc-series). This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
 
 The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
 | Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](../virtual-machines/nv-series.md).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
-| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](/azure/virtual-machines/nv-series).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12](/azure/virtual-machines/nv-series?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location. For availability of VMs, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -82,7 +82,7 @@ To manually install drivers for the *compute* GPU size, by doing the following s
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
 > [!NOTE]
-> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
+> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](/azure/virtual-machines/linux/n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### Install the visualization GPU drivers
 
@@ -91,8 +91,8 @@ To manually install drivers for the *visualization* GPU sizes, follow these step
 1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
-   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-gridvgpu-drivers)
-   - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-gridvgpu-drivers)
+   - [Linux NVIDIA GRID drivers](/azure/virtual-machines/linux/n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
 1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section.
@@ -104,7 +104,7 @@ This section describes how to validate that your GPU drivers are properly instal
 
 #### Windows images
 
-1. Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+1. Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
 1. If you're using a *visualization* GPU, you can also:
     - View and adjust your GPU settings in the NVIDIA Control Panel. To do so, in **Windows Control Panel**, select **Hardware**, and then select **NVIDIA Control Panel**.
 
@@ -121,7 +121,7 @@ This section describes how to validate that your GPU drivers are properly instal
 
 #### Linux images
 
-Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
+Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
 ## Next steps
 
