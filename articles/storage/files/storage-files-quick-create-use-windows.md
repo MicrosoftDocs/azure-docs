@@ -45,9 +45,9 @@ Before you can work with an Azure file share, you must create an Azure storage a
 Next, create an SMB Azure file share.
 
 1. When the Azure storage account deployment is complete, select **Go to resource**.
-1. Select **File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
-   :::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
+   :::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Screenshot showing how to select file shares from the service menu.":::
 
 1. Select **+ File Share**.
 
