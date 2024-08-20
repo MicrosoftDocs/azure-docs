@@ -2,13 +2,13 @@
 title: Azure Automation FAQ
 description: This article gives answers to frequently asked questions about Azure Automation.
 services: automation
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: devx-track-python, linux-related-content
-ms.date: 10/03/2023
+ms.date: 08/20/2024
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
-# Azure Automation frequently asked questions
+# Azure Automation frequently asked questionsv
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any other questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it's found quickly and easily.
 
