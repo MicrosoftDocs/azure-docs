@@ -1,7 +1,7 @@
 ---
 title: Debug a skillset
 titleSuffix: Azure AI Search
-description: Investigate skillset errors and issues by starting a debug session in Azure portal.
+description: Learn how to troubleshoot Azure AI Search skillset errors and issues by using a debug session in Azure portal.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/22/2024
+ms.date: 08/20/2024
 ---
 
 # Debug an Azure AI Search skillset in Azure portal
@@ -23,13 +23,15 @@ For background on how a debug session works, see [Debug sessions in Azure AI Sea
 
 ## Prerequisites
 
-+ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
-
-+ A **Contributor** role assignment in the search service.
++ A search service with roles enabled and a system-assigned managed identity that you can use in role assignments.
 
 + An Azure Storage account, used to save session state.
 
-+ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using a system managed identity. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
++ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
+
++ The search service identity must have **Cognitive Services User** permissions on the Azure AI multiservice account used by the skillset.
+
++ The search service identity must have a **Storage Blob Data Contributor** role assignment in Azure Storage. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
 
 + If the Azure Storage account is behind a firewall, configure it to [allow search service access](search-indexer-howto-access-ip-restricted.md).
 
@@ -37,7 +39,9 @@ For background on how a debug session works, see [Debug sessions in Azure AI Sea
 
 Debug sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources, with the following exceptions:
 
-+ Azure Cosmos DB for MongoDB is currently not supported.
++ SharePoint Online indexer.
+
++ Azure Cosmos DB for MongoDB indexer.
 
 + For the Azure Cosmos DB for NoSQL, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
 
@@ -45,37 +49,45 @@ Debug sessions work with all generally available [indexer data sources](search-d
 
 + For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
-The portal doesn't support customer-managed key encryption (CMK), which means that portal experiences like debug sessions can't have CMK-encrypted connection strings or other encrypted metadata. If your search service is configured for [CMK enforcement](search-security-manage-encryption-keys.md#6---set-up-policy), debug sessions won't work.
-
 ## Create a debug session
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
-1. In the left menu, select **Search management** > **Debug sessions**.
+1. On the left menu, select **Search management** > **Debug sessions**.
 
-1. In the action bar at the top, select **Add debug session**.
+1. On the action bar at the top, select **Add debug session**.
 
-   :::image type="content" source="media/cognitive-search-debug/new-debug-session.png" alt-text="Screenshot of the debug sessions commands in the portal page." border="true":::
+   :::image type="content" source="media/cognitive-search-debug/new-debug-session.png" lightbox="media/cognitive-search-debug/new-debug-session.png" alt-text="Screenshot of the debug sessions commands in the portal page." border="true":::
 
 1. In **Debug session name**, provide a name that will help you remember which skillset, indexer, and data source the debug session is about.
 
-1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You're prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. An obvious container name might be "debug-sessions".
-
-1. In **Managed identity authentication**, choose **None** if the connection to Azure Storage doesn't use a managed identity. Otherwise, choose the managed identity to which you've granted **Storage Blob Data Contributor** permissions.
-
 1. In **Indexer template**, select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to initialize the session.
+
+1. In **Storage account**, find a general-purpose storage account for caching the debug session.
+
+1. Select **Authenticate using managed identity** if you previously assigned **Storage Blob Data Contributor** permissions to the search service system-managed identity.
+
+1. Select **Save**.
+
+   + Azure AI Search creates a blob container on Azure Storage named *ms-az-cognitive-search-debugsession*.
+   + It creates a folder using the name you provided for the session name.
+   + It starts your debug session.
+
+1. The debug session opens to the definition page.
+
+1. In **Storage connection string**, you can specify or change the storage account. If you already have role assignments, you can skip this step.
 
 1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you're asked for a URI or a row ID.
 
    If your specific document is a blob, provide the blob URI. You can find the URI in the blob property page in the portal.
 
-   :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
+   :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" lightbox="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
-1. Optionally, in **Indexer settings**, specify any indexer execution settings used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
+1. Optionally, in **Indexer settings**, specify any [indexer execution settings](search-howto-indexing-azure-blob-storage.md) used to create the session. The settings should mirror the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
-1. Your configuration should look similar to this screenshot. Select **Save session** to get started.
+1. Your configuration should look similar to this screenshot. If you made changes, select **Save session**.
 
-   :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
+   :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" lightbox="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata are visible and available in the session.
 
@@ -85,9 +97,13 @@ It's expected for a debug session to take longer to execute than the indexer sin
 
 ## Start with errors and warnings
 
-Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. You'll work through this list, make your changes, and then return to the list to verify whether issues are resolved. 
+Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings are limited to one document. You can work through this list, make your changes, and then return to the list to verify whether issues are resolved. 
 
-To view the messages, select a skill in **AI Enrichment > Skill Graph** and then select **Errors/Warnings** in the details pane.
+Remember that a debug session is based on one document from the entire index. If an input or output looks wrong, the problem could be specific to that document. You can choose a different document to confirm whether errors and warnings are pervasive or specific to a single document.
+
+Select **Errors** or **Warnings** for a list of issues. 
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" lightbox="media/cognitive-search-debug/debug-session-errors-warnings.png"alt-text="media/cognitive-search-debug/debug-session-errors-warnings.png":::
 
 As a best practice, resolve problems with inputs before moving on to outputs.
 
@@ -97,25 +113,39 @@ To prove whether a modification resolves an error, follow these steps:
 
 1. Select **Run** in the session window to invoke skillset execution using the modified definition.
 
-1. Return to **Errors/Warnings** to see if the count is reduced. The list won't be refreshed until you open the tab.
+1. Return to **Errors** or **Warnings**to see if the count is reduced.
 
-## View content of enrichment nodes
+## View enriched or generated content
 
 AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. More nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
 Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
 
-1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
+1. In a debug session, expand the blue arrow to view context-sensitive details. By default, the detail is the enriched document data structure. However, if you select a skill or a mapping, the detail is about that object.
+
+   :::image type="content" source="media/cognitive-search-debug/debug-session-expand-details.png" lightbox="media/cognitive-search-debug/debug-session-expand-details.png" alt-text="Screenshot indicating the blue arrow used for displaying context-sensitive details.":::
 
 1. Select a skill.
 
-1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and its result.
+   :::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-sessions-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
 
-   :::image type="content" source="media/cognitive-search-debug/enriched-doc-output-expression.png" alt-text="Screenshot of a skill execution showing output values." border="true":::
+1. Follow the links to drill further into skills processing. For example, the following screenshot shows the output of the first iteration of the Text Split skill. 
 
-1. Alternatively, open **AI Enrichments > Enriched Data Structure** to scroll down the list of nodes. The list includes potential and actual nodes, with a column for output, and another column that indicates the upstream object used to produce the output.
+   :::image type="content" source="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" lightbox="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" alt-text="Screenshot showing a skill details pane with Expression Evaluator for a given output.":::
 
-   :::image type="content" source="media/cognitive-search-debug/enriched-doc-output.png" alt-text="Screenshot of enriched document showing output values." border="true":::
+## Check mappings
+
+If skills produce output but the search index is empty, check the field mappings. Field mappings specify how content moves out of the pipeline and into a search index.
+
+Select one of the mapping options and expand the details view to review source and target definitions.
+
++ [**Projection Mappings**](index-projections-concept-intro.md) are found in skillsets that provide integrated vectorization, such as the skills created by the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md). These mappings determine parent-child (chunk) field mappings and whether a secondary index is created for just the chunked content
+
++ [**Output Field Mappings**](cognitive-search-output-field-mapping.md) are found in indexers and are used when skillsets invoke built-in or custom skills. These mappings are used to set the data path from a node in the enrichment tree to a field in the search index. For more information about paths, see [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
+
+   :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
+
++ [**Field Mappings**](search-indexer-field-mappings.md) are found in indexer definitions and they establish the data path from raw content in the data source and a field in the index. You can use field mappings to add encoding and decoding steps as well.
 
 ## Edit skill definitions
 
@@ -127,32 +157,13 @@ The following steps show you how to get information about a skill.
 
 1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
 
-1. Edit a skill definition using either approach:
-
-   + **Skill Settings** if you prefer a visual editor
-   + **Skill JSON Editor** to edit the JSON document directly
+1. Edit a skill definition using **Skill Settings**.
 
 1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Following are some of the most common input paths:
 
    + `/document/content` for chunks of text. This node is populated from the blob's content property.
    + `/document/merged_content` for chunks of text in skillets that include Text Merge skill.
    + `/document/normalized_images/*` for text that is recognized or inferred from images.
-
-## Check field mappings
-
-If skills produce output but the search index is empty, check the field mappings. Field mappings specify how content moves out of the pipeline and into a search index.
-
-1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
-
-1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with its source document in the data source. 
-
-   If you're importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
-
-1. Select **Output Field Mappings** at the bottom of the graph. Here you'll find mappings from skill outputs to target fields in the search index. Unless you used the Import Data wizard, output field mappings are defined manually and could be incomplete or mistyped. 
-
-   Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
-
-   :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
 
 ## Debug a custom skill locally
 
