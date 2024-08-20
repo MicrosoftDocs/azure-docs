@@ -210,7 +210,7 @@ __Single-turn example Jamba 1.5 large and Jamba 1.5 mini__
 
 ```JSON
 {
-   "model":"jamba-1.5-mini",  <jamba-1.5-large|jamba-1.5-mini>
+   "model":"jamba-1.5-large",  <jamba-1.5-large|jamba-1.5-mini>
    "messages":[
       {
          "role":"user",
@@ -228,7 +228,7 @@ __Single-turn example Jamba 1.5 large and Jamba 1.5 mini with documents__
 
 ```JSON
 {
-   "model":"jamba-1.5-mini",  <jamba-1.5-large|jamba-1.5-mini>
+   "model":"jamba-1.5-large",  <jamba-1.5-large|jamba-1.5-mini>
    "messages":[
       {
          "role":"system",
