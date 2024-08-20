@@ -313,7 +313,7 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Backup and restore for workflow run history**: **Standard** logic apps currently don't support backup and restore for workflow run history.
 
-* **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
+* **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 
