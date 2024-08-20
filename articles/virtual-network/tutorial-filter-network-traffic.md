@@ -202,12 +202,12 @@ Create an application security group with [az network asg create](/cli/azure/net
 ```azurecli-interactive
 az network asg create \
   --resource-group test-rg \
-  --name asg-web-servers \
+  --name asg-web \
   --location westus2
 
 az network asg create \
   --resource-group test-rg \
-  --name asg-mgmt-servers \
+  --name asg-mgmt \
   --location westus2
 ```
 
@@ -439,7 +439,7 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 
 ### [CLI](#tab/cli)
 
-Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *asg-web-servers* application security group over ports 80 and 443:
+Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *asg-web* application security group over ports 80 and 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -452,11 +452,11 @@ az network nsg rule create \
   --priority 100 \
   --source-address-prefix Internet \
   --source-port-range "*" \
-  --destination-asgs "asg-web-servers" \
+  --destination-asgs "asg-web" \
   --destination-port-range 80 443
 ```
 
-The following example creates a rule that allows traffic inbound from the Internet to the *asg-mgmt-servers* application security group over port 22:
+The following example creates a rule that allows traffic inbound from the Internet to the *asg-mgmt* application security group over port 22:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -469,7 +469,7 @@ az network nsg rule create \
   --priority 110 \
   --source-address-prefix Internet \
   --source-port-range "*" \
-  --destination-asgs "asg-mgmt-servers" \
+  --destination-asgs "asg-mgmt" \
   --destination-port-range 22
 ```
 
@@ -667,7 +667,7 @@ The virtual machine takes a few minutes to create. Don't continue with the next 
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-web-servers* application security group. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web` option causes Azure to make the network interface it creates for the VM a member of the *asg-web* application security group. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
 
 ```azurecli-interactive
 az vm create \
@@ -697,7 +697,7 @@ The VM takes a few minutes to create. After the VM is created, output similar to
 }
 ```
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server. The `--asgs asg-mgmt-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-mgmt-servers* application security group.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server. The `--asgs asg-mgmt` option causes Azure to make the network interface it creates for the VM a member of the *asg-mgmt* application security group.
 
 The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
@@ -786,7 +786,7 @@ Set-AzNetworkInterface @params3
 
 ### [CLI](#tab/cli)
 
-Use [az network nic update](/cli/azure/network/nic) to associate the network interface with the application security group. The following example associates the *asg-web-servers* application security group with the *vm-web-nic* network interface:
+Use [az network nic update](/cli/azure/network/nic) to associate the network interface with the application security group. The following example associates the *asg-web* application security group with the *vm-web-nic* network interface:
 
 ```azurecli-interactive
 # Retrieve the network interface name associated with the virtual machine
@@ -796,10 +796,10 @@ nic_name=$(az vm show --resource-group test-rg --name vm-web --query 'networkPro
 az network nic update \
   --resource-group test-rg \
   --name $nic_name \
-  --application-security-groups asg-web-servers
+  --application-security-groups asg-web
 ```
 
-Repeat the command to associate the *asg-mgmt-servers* application security group with the *vm-mgmt-nic* network interface.
+Repeat the command to associate the *asg-mgmt* application security group with the *vm-mgmt-nic* network interface.
 
 ```azurecli-interactive
 # Retrieve the network interface name associated with the virtual machine
@@ -809,7 +809,7 @@ nic_name=$(az vm show --resource-group test-rg --name vm-mgmt --query 'networkPr
 az network nic update \
   --resource-group test-rg \
   --name $nic_name \
-  --application-security-groups asg-mgmt-servers
+  --application-security-groups asg-mgmt
 ```
 
 ---
@@ -938,7 +938,7 @@ export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm
 ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
 ```
 
-The connection succeeds because the network interface attached to the *vm-mgmt* VM is in the *asg-mgmt-servers* application security group, which allows port 22 inbound from the Internet.
+The connection succeeds because the network interface attached to the *vm-mgmt* VM is in the *asg-mgmt* application security group, which allows port 22 inbound from the Internet.
 
 Use the following command to SSH to the *vm-web* VM from the *vm-mgmt* VM:
 
@@ -946,7 +946,7 @@ Use the following command to SSH to the *vm-web* VM from the *vm-mgmt* VM:
 ssh -o StrictHostKeyChecking=no azureuser@vm-web
 ```
 
-The connection succeeds because a default security rule within each network security group allows traffic over all ports between all IP addresses within a virtual network. You can't SSH to the *vm-web* VM from the Internet because the security rule for the *asg-web-servers* doesn't allow port 22 inbound from the Internet.
+The connection succeeds because a default security rule within each network security group allows traffic over all ports between all IP addresses within a virtual network. You can't SSH to the *vm-web* VM from the Internet because the security rule for the *asg-web* doesn't allow port 22 inbound from the Internet.
 
 Use the following commands to install the nginx web server on the *vm-web* VM:
 
@@ -964,7 +964,7 @@ The *vm-web* VM is allowed outbound to the Internet to retrieve nginx because a 
 curl vm-web
 ```
 
-Sign out of the *vm-mgmt* VM. To confirm that you can access the *vm-web* web server from outside of Azure, enter `curl <publicIpAddress>` from your own computer. The connection succeeds because the *asg-web-servers* application security group, which the network interface attached to the *vm-web* VM is in, allows port 80 inbound from the Internet.
+Sign out of the *vm-mgmt* VM. To confirm that you can access the *vm-web* web server from outside of Azure, enter `curl <publicIpAddress>` from your own computer. The connection succeeds because the *asg-web* application security group, which the network interface attached to the *vm-web* VM is in, allows port 80 inbound from the Internet.
 
 ---
 
