@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 08/17/2023
+ms.date: 08/09/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-job-types
 ---
@@ -103,21 +103,21 @@ Job executions output logs to the logging provider that you configured for the C
 1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
 
     ```azurecli
-    LOG_ANALYTICS_WORKSPACE_ID=`az containerapp env show \
+    LOG_ANALYTICS_WORKSPACE_ID=$(az containerapp env show \
         --name "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --query "properties.appLogsConfiguration.logAnalyticsConfiguration.customerId" \
-        --output tsv`
+        --output tsv)
     ```
 
 1. Save the name of the most recent job execution to a variable.
 
     ```azurecli
-    JOB_EXECUTION_NAME=`az containerapp job execution list \
+    JOB_EXECUTION_NAME=$(az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --query "[0].name" \
-        --output tsv`
+        --output tsv)
     ```
 
 1. Run a query against Log Analytics for the job execution using the following command.

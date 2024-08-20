@@ -16,7 +16,7 @@ ms.date: 04/18/2024
 
 This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](#connector-technical-reference).
 
 ## SAP compatibility
 

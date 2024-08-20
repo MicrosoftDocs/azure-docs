@@ -28,7 +28,7 @@ param cloudServicesNetworkId string
 @description('Number of CPU cores for the virtual machine. Choose a value between 2 and 46.')
 param cpuCores int = 2
 
-@description('The memory size of the virtual machine in GB (max 224 GB)')
+@description('The memory size of the virtual machine in GiB (max 224 GiB)')
 param memorySizeGB int = 4
 
 @description('The list of network attachments to the virtual machine.')
