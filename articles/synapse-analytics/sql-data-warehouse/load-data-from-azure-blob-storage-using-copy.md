@@ -8,7 +8,8 @@ ms.date: 08/20/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: azure-synapse
+ms.custom:
+  - azure-synapse
 ---
 # Tutorial: Load the New York Taxicab dataset
 
@@ -37,20 +38,20 @@ It's best to create a login and user that is dedicated for loading data. Then ad
 
 Connect as the server admin so  you can create logins and users. Use these steps to create a login and user called `LoaderRC20`. Then assign the user to the `staticrc20` resource class.
 
-1. In SSMS, right-select **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
+1. In SSMS, right-select `master` to show a dropdown menu, and choose **New Query**. A new query window opens.
 
-2. In the query window, enter these T-SQL commands to create a login and user named `LoaderRC20`, substituting your own strong password.
+1. In the query window, enter these T-SQL commands to create a login and user named `LoaderRC20`, substituting your own strong password.
 
     ```sql
     CREATE LOGIN LoaderRC20 WITH PASSWORD = '<strong password here>';
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Select **Execute**.
+1. Select **Execute**.
 
-4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.
+1. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.
 
-5. Enter the following T-SQL commands to create a database user named `LoaderRC20` for the `LoaderRC20` login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the `staticrc20` [resource class](resource-classes-for-workload-management.md).
+1. Enter the following T-SQL commands to create a database user named `LoaderRC20` for the `LoaderRC20` login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the `staticrc20` [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -58,31 +59,31 @@ Connect as the server admin so  you can create logins and users. Use these steps
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Select **Execute**.
+1. Select **Execute**.
 
 ## Connect to the server as the loading user
 
 The first step toward loading data is to login as `LoaderRC20`.
 
-1. In Object Explorer, select the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
+1. In Object Explorer, select the **Connect** dropdown menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
-2. Enter the fully qualified server name, and enter `LoaderRC20` as the Login.  Enter your password for LoaderRC20.
+1. Enter the fully qualified server name, and enter `LoaderRC20` as the Login.  Enter your password for LoaderRC20.
 
-3. Select **Connect**.
+1. Select **Connect**.
 
-4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC20.
+1. When your connection is ready, you'll see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC20.
 
 ## Create tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This part of the tutorial shows you how to use the COPY statement to load the New York City taxi cab dataset from an Azure Storage blob. For future reference, to learn how to get your data to Azure Blob Storage or to load it directly from your source, see the [loading overview](design-elt-data-loading.md).
+You're ready to begin the process of loading data into your new data warehouse. This part of the tutorial shows you how to use the COPY statement to load the New York City taxi cab dataset from an Azure Storage blob. For future reference, to learn how to get your data to Azure Blob Storage or to load it directly from your source, see the [loading overview](design-elt-data-loading.md).
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data.
 
 1. In the previous section, you logged into your data warehouse as `LoaderRC20`. In SSMS, right-click your LoaderRC20 connection and select **New Query**.  A new query window appears.
 
-2. Compare your query window to the previous image.  Verify your new query window is running as `LoaderRC20` and performing queries on your `MySampleDataWarehouse` database. Use this query window to perform all of the loading steps.
+1. Compare your query window to the previous image.  Verify your new query window is running as `LoaderRC20` and performing queries on your `MySampleDataWarehouse` database. Use this query window to perform all of the loading steps.
 
-7. Run the following T-SQL statements to create the tables:
+1. Run the following T-SQL statements to create the tables:
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -316,7 +317,7 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
-2. View your data as it loads. You're loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load.
+1. View your data as it loads. You're loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load.
 
     ```sql
     SELECT  r.[request_id]
@@ -342,56 +343,38 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
     ,       r.command;
     ```
 
-3. View all system queries.
+1. View all system queries.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy your data nicely loaded into your data warehouse.
+1. Enjoy your data nicely loaded into your data warehouse.
 
 
 ## Clean up resources
 
 You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately.
 
-* If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data.
-* If you want to remove future charges, you can delete the data warehouse.
+- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you will only be charge for data storage and you can resume the compute whenever you're ready to work with the data.
+- If you want to remove future charges, you can delete the data warehouse.
 
 Follow these steps to clean up resources as you desire.
 
-1. Log in to the [Azure portal](https://portal.azure.com), select your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), select your data warehouse.
 
-2. To pause compute, select the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, select **Start**.
+1. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
 
-3. To remove the data warehouse so you won't be charged for compute or storage, select **Delete**.
+1. To remove the data warehouse so you won't be charged for compute or storage, select **Delete**.
 
-4. To remove the server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+1. To remove the server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this as deleting the server deletes all databases assigned to the server.
 
-5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
+1. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
-## Next steps
+## Related content
 
-In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) to load data into your data warehouse.
-
-You did these things:
-> [!div class="checklist"]
->
-> * Created a data warehouse in the Azure portal
-> * Set up a server-level firewall rule in the Azure portal
-> * Connected to the data warehouse with SSMS
-> * Created a user designated for loading data
-> * Created the tables for the sample data
-> * Used the COPY T-SQL statement to load data into your data warehouse
-> * Viewed the progress of data as it is loading
-
-Advance to the development overview to learn how to migrate an existing database to Azure Synapse Analytics:
-
-> [!div class="nextstepaction"]
-> [Design decisions to migrate an existing database to Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
-
-For more loading examples and references, view the following documentation:
-
+- [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples)
+- [Design decisions to migrate an existing database to Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
 - [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
 - [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)

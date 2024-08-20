@@ -10,7 +10,7 @@ ms.topic: conceptual
 ---
 # Striim Azure Synapse Analytics Marketplace Offering Install Guide
 
-This quickstart assumes that you already have a pre-existing instance of Azure Synapse Analytics.
+This quickstart assumes that you already have a preexisting instance of Azure Synapse Analytics.
 
 1. Search for Striim in the Azure Marketplace, and select the "Striim for Data Integration to Azure Synapse Analytics (Staged)" option.
 
@@ -40,7 +40,7 @@ This quickstart assumes that you already have a pre-existing instance of Azure S
 
 1. Now, open your favorite browser and navigate to `<DNS Name>:9080`.
 
-    :::image type="content" source="media/striim-quickstart/navigate.png" alt-text="Screenshot from the Azure portal of the login screen.":::
+    :::image type="content" source="media/striim-quickstart/navigate.png" alt-text="Screenshot from the Azure portal of the sign in screen.":::
 
 1. Sign in with the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI.
 
