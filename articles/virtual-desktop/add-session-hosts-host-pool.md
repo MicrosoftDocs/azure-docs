@@ -43,7 +43,7 @@ For a general idea of what's required, such as supported operating systems, virt
 
    Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
 
-- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
 - To add session hosts on Azure Stack HCI, you also need:
 
