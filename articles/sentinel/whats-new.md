@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## August 2024
 
-- [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
+- [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
 - [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
