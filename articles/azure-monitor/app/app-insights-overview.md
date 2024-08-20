@@ -142,9 +142,9 @@ From server web apps:
 * [Dependencies](./asp-net-dependencies.md). Calls to SQL databases, HTTP calls to external services, Azure Cosmos DB, Azure Table Storage, Azure Blob Storage, and Azure Queue Storage.
 * [Exceptions](./asp-net-exceptions.md) and stack traces.
 * [Performance counters](./performance-counters.md): Performance counters are available when using:
-- [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md)
-- [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md)
-- [Application Insights `collectd` writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
+  * [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md)
+  * [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md)
+  * [Application Insights `collectd` writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
 * [Custom events and metrics](./api-custom-events-metrics.md) that you code.
 * [Trace logs](./asp-net-trace-logs.md) if you configure the appropriate collector.
           
