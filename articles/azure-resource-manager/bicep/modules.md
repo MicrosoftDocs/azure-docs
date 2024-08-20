@@ -268,6 +268,49 @@ module stgModule 'ts/ContosoSpecs:storageSpec:2.0' = {
 }
 ```
 
+## Use decorators
+
+Decorators are written in the format `@expression` and are placed above module declarations. The following table shows the available decorators for modules.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [description](#description) | string | Text that explains how to use the variable.|
+| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+### Description
+
+To add explaination, add a description to module declarations. For example:
+
+```bicep
+@description('Create storage accounts referencing an AVM.')
+module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+  name: 'myStorage'
+  params: {
+    name: 'store${resourceGroup().name}'
+  }
+}
+```
+
+### BatchSize
+
+You can only apply `@batchSize()` to a resource or module definition that uses a [`for` expression](./loops.md).
+
+By default, modules are deployed in parallel. When you add the `@batchSize(int)` decorator, you deploy instances serially.
+
+```bicep
+@batchSize(3)
+module storage 'br/public:avm/res/storage/storage-account:0.11.1' = [for storageName in storageAccounts: {
+  name: 'myStorage'
+  params: {
+    name: 'store${resourceGroup().name}'
+  }
+}]
+```
+
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
+
 ## Parameters
 
 The parameters you provide in your module definition match the parameters in the Bicep file.

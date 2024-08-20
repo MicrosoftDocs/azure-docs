@@ -116,18 +116,18 @@ For more information about the types of loops you can use with variables, see [I
 
 ## Use decorators
 
-The following table describes the available decorators and how to use them.
+Decorators are written in the format `@expression` and are placed above variable declarations. The following table shows the available decorators for variables.
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Text that explains how to use the variable. |
-| [export](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+| [export](#export) | none | Indicates that the variable can be imported by another file. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
 ### Description
 
-To help users understand the value to provide, add a description to the variable. Only add a description when the text provides more information than can be inferred from the variable name.
+To add explaination, add a description to variable declaration. For example:
 
 ```bicep
 @description('Create a unique storage account name.')
@@ -136,7 +136,7 @@ var storageAccountName = uniqueString(resourceGroup().id)
 
 ### Export
 
-For more information, see [Export variable](./bicep-import.md#export-variables-types-and-functions).
+Use `@export()` to share the variable with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
 ## Use variables
 

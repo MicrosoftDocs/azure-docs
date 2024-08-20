@@ -20,7 +20,7 @@ You can use the `type` statement to create user-defined data types. In addition,
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-The [`@allowed`](./parameters.md#decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
+The [`@allowed`](./parameters.md#use-decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
 
 The valid type expressions include:
 
@@ -141,7 +141,7 @@ The valid type expressions include:
     type negatedBoolReference = !negatedBoolLiteral
     ```
 
-- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#decorators) in Bicep, so only literals are permitted as members.
+- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
     type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
@@ -229,37 +229,43 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 ## Use decorators
 
-The following table describes the available decorators and how to use them.
+Decorators are written in the format `@expression` and are placed above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [discriminator]() | | |
-| [description](#description) | string | Text that explains how to use the variable. |
-| [export](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
-| [sealed]() | | |
+| [discriminator](#discriminator) | string | Use this decorator to ensure the correct subclass is identified and managed. |
+| [description](#description) | string | Text that explains how to use the user-defined data type. |
+| [export](#export) | none | Indicates that the user-defined data type can be imported by another file. |
+| [sealed](#sealed) | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
-### Descriminator
+### Discriminator
 
-For more information, see [Tagged union data type](#tagged-union-data-type).
+See [Tagged union data type](#tagged-union-data-type).
 
 ### Description
 
-To help users understand the value to provide, add a description to the variable. Only add a description when the text provides more information than can be inferred from the variable name.
+To add explaination, add a description to the user-defined data type. For example:
 
 ```bicep
-@description('Create a unique storage account name.')
-var storageAccountName = uniqueString(resourceGroup().id)
+type obj = {
+  @description('The object ID')
+  id: int
+
+  @description('Additional properties')
+  @minLength(10)
+  *: string
+}
 ```
 
 ### Export
 
-For more information, see [Export variable](./bicep-import.md#export-variables-types-and-functions).
+Use `@export()` to share the user-define data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
 ### Sealed
 
-For more information, see [Elevate error level](#elevate-error-level).
+See [Elevate error level](#elevate-error-level).
 
 ## Elevate error level
 

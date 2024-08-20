@@ -385,7 +385,7 @@ The union type syntax can be used in [user-defined data types](./user-defined-da
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#decorators) to a string or object.
+Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
 When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 

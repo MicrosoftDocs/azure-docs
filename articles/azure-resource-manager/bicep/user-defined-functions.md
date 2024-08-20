@@ -14,7 +14,7 @@ Within your Bicep file, you can create your own functions. These functions are a
 
 ## Limitations
 
-When defining a user function, there are some restrictions:
+There are some restrictions when defining a user function:
 
 * The function can't access variables.
 * The function can only use parameters that are defined in the function.

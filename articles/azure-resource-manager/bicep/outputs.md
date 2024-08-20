@@ -56,6 +56,8 @@ output out 'a' | 'b' = foo
 
 For more information, see [User-defined data types](./user-defined-data-types.md).
 
+## Use decorators
+
 ## Conditional output
 
 When the value to return depends on a condition in the deployment, use the `?` operator.

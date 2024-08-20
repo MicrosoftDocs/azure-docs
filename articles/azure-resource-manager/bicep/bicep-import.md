@@ -43,7 +43,7 @@ import * as <alias_name> from '<bicep_file_name>'
 
 You can mix and match the preceding syntaxes. To access imported symbols using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
 
-Only statements that have been [exported](#exporting-types-variables-and-functions) in the file being referenced are available to be imported.
+Only statements that have been [exported](#export-variables-types-and-functions) in the file being referenced are available to be imported.
 
 Functionality that has been imported from another file can be used without restrictions. For example, imported variables can be used anywhere a variable declared in-file would normally be valid.
 
