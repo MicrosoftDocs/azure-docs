@@ -45,7 +45,7 @@ The Azure Linux Container Host supports the following GPU SKUs:
 - [NVIDIA T4][nvidia-t4]
 
 > [!NOTE]
-> Azure Linux doesn't support the NC A100 v4 series yet. All other VM SKUs that are available on AKS are available with Azure Linux.
+> Azure Linux doesn't support the NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
 >
 > If there are any areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
 
