@@ -18,6 +18,8 @@
         href: relocation-event-hub-cluster.md
       - name: Azure Site Recovery (Recovery Services vaults)
         href: relocation-site-recovery.md
+      - name: Azure Virtual Machine Scale Sets
+        href: relocation-vmss.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
       - name: Azure Virtual Network
