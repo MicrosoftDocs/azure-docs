@@ -9,7 +9,7 @@ ms.date: 07/30/2024
 ms.custom:
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from the Log Analytics Agent to the Azure Monitor Agent and track the status of the migration in my account.
 ---
-# MMA/OMS Discovery and Removal Utility
+# MMA/OMS Discovery and Removal Utility 
 
 After you migrate your machines to the Azure Monitor Agent (AMA), remove the legacy Log Analytics Agent depending on your operating systems, to avoid duplication of logs. The legacy Discovery and Removal Utility can remove the extensions from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets (VMSSs), and Azure Arc servers from a single subscription.
 
