@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Azure Operator Service Manager?
             url: azure-operator-service-manager-overview.md
+          - text: Azure Operator Service Manager Release Notes
+            url: release-notes.md
       - linkListType: concept
         links:
           - text: Helm requirements
