@@ -8,7 +8,7 @@ ms.author: mopeakande
 ms.reviewer: fasantia
 ms.service: azure-machine-learning
 ms.subservice: core
-ms.date: 08/08/2024
+ms.date: 08/20/2024
 ms.topic: concept-article
 ms.custom: how-to
 
@@ -59,6 +59,9 @@ If you have an MLflow model logged inside a run, and you want to register it in 
 mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 ```
 
+> [!NOTE]
+> Models can only be registered to the registry in the same workspace where the run was tracked. Cross-workspace operations aren't currently supported in Azure Machine Learning.
+
 > [!TIP]
 > Register models from runs or by using the `mlflow.<flavor>.log_model` method from inside the run. This approach preserves lineage from the job that generated the asset.
 
@@ -66,7 +69,7 @@ mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 
 If you have a folder with an **MLModel** MLflow model, you can register it directly. There's no need for the model to be always in the context of a run. For this approach, you can use the URI schema `file://path/to/model` to register MLflow models stored in the local file system.
 
-The following code creates a simple model by using the `Scikit-Learn` package and saves the model in MLflow format in local storage:
+The following code creates a simple model by using the `scikit-learn` package and saves the model in MLflow format in local storage:
 
 ```python
 from sklearn import linear_model
@@ -160,12 +163,12 @@ You can see the model versions for each model stage by retrieving the model from
 client.get_latest_versions(model_name, stages=["Staging"])
 ```
 
-Multiple model versions can be in the same stage at the same time in MLflow. In the previous example, the method returns the latest version (most recently published) among all versions for the stage.
+Multiple model versions can be in the same stage at the same time in MLflow. In the previous example, the method returns the latest (most recent) version among all versions for the stage.
 
 > [!IMPORTANT]
 > In the MLflow SDK, stage names are case sensitive.
 
-### Transition models
+### Transition model version
 
 Transitioning a model version to a particular stage can be done by using the MLflow client:
 
@@ -173,7 +176,7 @@ Transitioning a model version to a particular stage can be done by using the MLf
 client.transition_model_version_stage(model_name, version=3, stage="Staging")
 ```
 
-When you transition a model version to a particular stage, if the stage has other model versions, the existing versions remain unchanged. This behavior is by default.
+When you transition a model version to a particular stage, if the stage already has other model versions, the existing versions remain unchanged. This behavior applies by default.
 
 Another approach is to set the `archive_existing_versions=True` parameter during the transition. This approach instructs MLflow to move any existing model versions to the stage `Archived`:
 
@@ -202,7 +205,7 @@ Editing registered models is supported in both MLflow and Azure Machine Learning
 
 ### Edit model description and tags
 
-You can edit information about a model by using the MLflow SDK, including the description and tags:
+You can edit a model's description and tags by using the MLflow SDK:
 
 ```python
 client.update_model_version(model_name, version=1, description="My classifier description")
@@ -231,7 +234,7 @@ client.delete_model_version(model_name, version="2")
 > [!NOTE]
 > Machine Learning doesn't support deleting the entire model container. To achieve this task, delete all model versions for a given model.
 
-## Review support for managing models with MLflow
+## Review supported capabilities for managing models
 
 The MLflow client exposes several methods to retrieve and manage models. The following table lists the methods currently supported in MLflow when connected to Azure Machine Learning. The table also compares MLflow with other models management capabilities in Azure Machine Learning.
 
@@ -256,11 +259,11 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 
 Table footnotes:
 
-- 1: Use Uniform Resource Identifiers (URIs) with the format `runs:/<ruin-id>/<path>`.
-- 2: Use URIs with the format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
-- 3: Registered models are immutable objects in Azure Machine Learning.
-- 4: Use the search box in Azure Machine Learning studio. Partial matching is supported.
-- 5: Use [registries](how-to-manage-registries.md) to move models across different workspaces and preserve lineage.
+- <sup>1</sup> Use Uniform Resource Identifiers (URIs) with the format `runs:/<ruin-id>/<path>`.
+- <sup>2</sup> Use URIs with the format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
+- <sup>3</sup> Registered models are immutable objects in Azure Machine Learning.
+- <sup>4</sup> Use the search box in Azure Machine Learning studio. Partial matching is supported.
+- <sup>5</sup> Use [registries](how-to-manage-registries.md) to move models across different workspaces and preserve lineage.
 
 ## Related content
 
