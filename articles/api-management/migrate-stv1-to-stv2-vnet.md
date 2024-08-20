@@ -90,17 +90,14 @@ You can choose whether the API Management instance's original VIP address is pre
     With this option, the `stv1` compute is retained for a period by default after migration is complete so that you can validate the migrated instance and confirm the network and DNS configuration.  
 
 
-<!--
-### Pre-created IP addresses for migration
+### Precreated IP address for migration
 
-API Management pre-creates public IP addresses for the migration process. Find the pre-created IP address in [TBD]. The pre-created IP address is used in the following scenarios:
+API Management precreates a public IP address for the migration process. Find the precreated IP address in the JSON output of your API Management instance's properties. Under `customProperties`, the precreated IP address is the value of the `Microsoft.WindowsAzure.ApiManagement.Stv2MigrationPreCreatedIps` property. For a multi-region deployment, the value is a comma-separated list of precreated IP addresses.
 
-* When you migrate and preserve the VIP address, the pre-created IP address is assigned temporarily to the new `stv2` deployment during migration. The pre-created IP address is released after the migration is complete and the original IP address is assigned to the `stv2` deployment.
-* When you migrate and generate a new VIP address, the pre-created IP address is assigned to the new `stv2` deployment during migration and persists after migration is complete. 
+Use the precreated IP address (or addresses) to help you manage the migration process:
 
-You can configure the pre-created IP address to serve runtime traffic during migration and, in the case of migration to a new IP address, afterward. For example, allow-list the pre-created IP address in your firewall rules to allow traffic to the new `stv2` deployment during migration.
--->
-
+* When you migrate and preserve the VIP address, the precreated IP address is assigned temporarily to the new `stv2` deployment, before the original IP address is assigned to the `stv2` deployment. If you have firewall rules limiting access to the API Management instance, for example, you can add the precreated IP address to the allowlist to preserve continuity of client access during migration. After migration is complete, you can remove the precreated IP address from your allowlist.
+* When you migrate and generate a new VIP address, the precreated IP address is assigned to the new `stv2` deployment during migration and persists after migration is complete. Use the precreated IP address to update your network dependencies, such as DNS and firewall rules, to point to the new IP address.
 
 ### Expected downtime and compute retention
 
