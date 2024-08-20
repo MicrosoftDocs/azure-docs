@@ -69,19 +69,22 @@ Publishing locations for individual SDK packages:
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
 
+##### Android platform support
+
 The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the key Android platforms currently available:
 
-| Type                                     | Devices              | Description                                               | Support  |
-| ---------------------------------------  | ----------           | ----------------------------------------------------------| -------  |
-|[Android Commercial](https://developer.android.com/get-started)  | Commercial smartphones and tablets.| Standard Android OS designed for smartphones and tablets.|✔️      |
-|[Android Open Source Project (AOSP)](https://source.android.com/) | Custom smartphones or tablets, kiosks, and custom devices  |AOSP is the base code that device manufacturers can modify and customize for their hardware.| ❌     |
-|[Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive)  | In-vehicle infotainment systems | AAOS is a full-stack, open-source platform tailored specifically for vehicles. Runs directly on the vehicle's hardware.| ❌    |
-|[Android Auto](https://www.android.com/auto/)                     | In-vehicle infotainment systems (mirroring) | Android platform equivalent to Apple CarPlay. Allows driver to mirror their phone to a car’s built-in screens.  |❌     |
-|[Android TV](https://developer.android.com/tv)                    | Smart TVs and streaming devices.  | Optimized for the TV experience, focused on streaming services and gaming.| ❌      |
-|[Wear OS](https://wearos.google.com/)                             | Smartwatches and wearables devices.        | Simplified user interface and lower power consumption, designed to operate on small screens with limited hardware.| ❌   |
-|[Android Things](https://developer.android.com/reference/com/google/android/things/AndroidThings) | IoT devices (for example, smart home hubs, connected devices)| Simplified version of Android with a focus on low power consumption and connectivity.   | ❌     |
+| Devices & scenarios                | Description                                                                              | Support           |
+| -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
+| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Full support      |
+| Mirror auto applications           | Apps that allow driver to mirror their phone to a car’s built-in screens, running [Android Auto](https://www.android.com/auto/).          |  Partially support <sup>1</sup>        |
+| TV apps or gaming    |  Apps running running [Android TV](https://developer.android.com/tv), optimized for the TV experience, focused on streaming services and gaming.               | Partially support <sup>1</sup>        |
+| Smartwatches or wearables devices | Simple user interface and lower power consumption, designed to operate on small screens with limited hardware, using [Wear OS](https://wearos.google.com/). | Partially support <sup>1</sup>        |
+| Automobile scenarios               | Car head units running [Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive).                     | Partially support <sup>1</sup>        |
+| Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     | Partially support <sup>1</sup>        |
 
-You're welcome to validate the scenario that aligns with your application, even if the current versions don't support it. We strongly encourage you to reach out to us before starting your development to identify the best approach.
+**<sup>1</sup> Fully support audio calls and currently guarantee a video quality of 360p.**
+
+Even if your use case is listed as partially supported, you can still use the Android SDK for development. We encourage you to reach out to us before you begin your project. This approach allows us to help identify the best approach tailored to your specific scenario and ensure that any limitations or requirements are addressed early in the process, optimizing the integration, and performance for your application.
 
 #### iOS Calling SDK support
 
