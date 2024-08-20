@@ -4504,6 +4504,16 @@
       "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-cli.md",
       "redirect_url": "/azure/virtual-network/how-to-create-encryption",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
     }
   ]
 }

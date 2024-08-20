@@ -1,11 +1,11 @@
 ---
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
-author: flang-msft
+
 
 ms.custom: references_regions
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
 ms.topic: conceptual
 ms.date: 08/05/2024
 

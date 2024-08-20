@@ -94,7 +94,7 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 >[!IMPORTANT]
 > Ensure the address space size of the Azure NetApp Files VNet is larger than its delegated subnet.
 >
-> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS volumes if they attempt to reach DNS through hub-and-spoke network topology. 
+> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS (Common Internet File System) volumes if they attempt to reach DNS through hub-and-spoke network topology. 
 >
 > It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
