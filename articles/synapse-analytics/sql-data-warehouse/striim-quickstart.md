@@ -40,11 +40,11 @@ This quickstart assumes that you already have a preexisting instance of Azure Sy
 
 1. Now, open your favorite browser and navigate to `<DNS Name>:9080`.
 
-    :::image type="content" source="media/striim-quickstart/navigate.png" alt-text="Screenshot from the Azure portal of the sign in screen.":::
+    :::image type="content" source="media/striim-quickstart/navigate.png" alt-text="Screenshot from the Azure portal of the sign in screen." lightbox="media/striim-quickstart/navigate.png":::
 
 1. Sign in with the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI.
 
-    :::image type="content" source="media/striim-quickstart/login.png" alt-text="Screenshot from the Azure portal of a sign in with server credentials.":::
+    :::image type="content" source="media/striim-quickstart/login.png" alt-text="Screenshot from the Azure portal of a sign in with server credentials." lightbox="media/striim-quickstart/login.png":::
 
 ## Related content
 
