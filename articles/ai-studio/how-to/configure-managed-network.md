@@ -629,6 +629,52 @@ To configure a managed virtual network that allows only approved outbound commun
 
 ---
 
+## Manually provision a managed VNet
+
+The managed VNet is automatically provisioned when you create a compute instance. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute instance as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute instance creation to time out.
+
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute instance.
+
+> [!NOTE]
+> To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
+
+# [Azure CLI](#tab/azure-cli)
+
+The following example shows how to provision a managed VNet.
+
+```azurecli
+az ml workspace provision-network -g my_resource_group -n my_ai_hub_name
+```
+
+To verify that the provisioning has completed, use the following command:
+
+```azurecli
+az ml workspace show -n my_ai_hub_name -g my_resource_group --query managed_network
+```
+
+# [Python SDK](#tab/python)
+
+The following example shows how to provision a managed VNet:
+
+```python
+# Connect to a workspace named "myworkspace"
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myAIHubName")
+
+provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ai_hub_name).result()
+```
+
+To verify that the AI Hub has been provisioned, use `ml_client.workspaces.get()` to get the AI Hub information. The `managed_network` property contains the status of the managed network.
+
+```python
+ws = ml_client.workspaces.get()
+print(ws.managed_network.status)
+```
+
+# [Azure portal](#tab/portal)
+
+Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet.
+
+--- 
 
 ## Manage outbound rules
 
