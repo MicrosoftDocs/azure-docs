@@ -1,3 +1,10 @@
+Hello
+
+This script is running but then remains in a hung state. Anything I can check?
+It creates the log and csv files but they don't populate and the progress bar remains at 70% roughly and doesn't get further
+Example:
+![image](https://github.com/user-attachments/assets/e466cdf3-6d35-4099-9789-cda308efdd97)
+
 ---
 title: MMA Discovery and Removal Utility
 description: This article describes a PowerShell script to remove the legacy agent from systems that migrated to the Azure Monitor Agent.
