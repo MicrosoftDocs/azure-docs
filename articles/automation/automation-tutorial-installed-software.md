@@ -7,6 +7,7 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
+ms.service: azure-automation
 ---
 # Discover what software is installed on your VMs
 

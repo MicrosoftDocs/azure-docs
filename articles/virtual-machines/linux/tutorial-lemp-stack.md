@@ -523,7 +523,7 @@ Results:
 
 ## Create an Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](../../mysql/flexible-server/quickstart-create-server-cli.md#create-an-azure-database-for-mysql-flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
+Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](/azure/mysql/flexible-server/quickstart-create-server-cli#create-an-azure-database-for-mysql-flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
 
 ```bash
 az mysql flexible-server create \
@@ -575,8 +575,8 @@ The server created has the below attributes:
 * The default connectivity method is Private access (VNet Integration) with a linked virtual network and an auto-generated subnet.
 
 > [!NOTE]
-> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during create then you cannot change to `Public access (allowed IP addresses)` after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](../../mysql/flexible-server/concepts-networking-vnet.md).
-If you'd like to change any defaults, refer to the Azure CLI [reference documentation](../../mysql/flexible-server/quickstart-create-server-cli.md) for the complete list of configurable CLI parameters.
+> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during create then you cannot change to `Public access (allowed IP addresses)` after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](/azure/mysql/flexible-server/concepts-networking-vnet).
+If you'd like to change any defaults, refer to the Azure CLI [reference documentation](/azure/mysql/flexible-server/quickstart-create-server-cli) for the complete list of configurable CLI parameters.
 
 ## Check the Azure Database for MySQL - Flexible Server status
 
@@ -602,13 +602,13 @@ You can manage Azure Database for MySQL - Flexible Server configuration using se
 
 Show server parameter details:
 
-Run the [az mysql flexible-server parameter show](../../mysql/flexible-server/how-to-configure-server-parameters-cli.md) command to show details about any particular parameter for the server.
+Run the [az mysql flexible-server parameter show](/azure/mysql/flexible-server/how-to-configure-server-parameters-cli) command to show details about any particular parameter for the server.
 
 ## Disable Azure Database for MySQL - Flexible Server SSL connection parameter for Wordpress integration
 
 Modify a server parameter value:
 
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](../../mysql/flexible-server/how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value) command.
+You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/azure/mysql/flexible-server/how-to-configure-server-parameters-cli#modify-a-server-parameter-value) command.
 
 ```bash
 az mysql flexible-server parameter set \
@@ -643,7 +643,7 @@ Results:
 
 The following example creates a VM named `$MY_VM_NAME` and creates SSH keys if they don't already exist in a default key location. The command also sets `$MY_VM_USERNAME` as an administrator user name.
 
-To improve the security of Linux virtual machines in Azure, you can integrate with Azure Active Directory authentication. Now you can use Azure AD as a core authentication platform. You can also SSH into the Linux VM by using Azure AD and OpenSSH certificate-based authentication. This functionality allows organizations to manage access to VMs with Azure role-based access control and Conditional Access policies.
+To improve the security of Linux virtual machines in Azure, you can integrate with Microsoft Entra ID authentication. Now you can use Microsoft Entra ID as a core authentication platform. You can also SSH into the Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows organizations to manage access to VMs with Azure role-based access control and Conditional Access policies.
 
 Create a VM with the [az vm create](/cli/azure/vm#az-vm-create) command.
 
@@ -708,7 +708,7 @@ done
 ```
 
 <!--
-## Assign Azure AD RBAC for Azure AD login for Linux Virtual Machine
+## Assign Microsoft Entra ID RBAC for Microsoft Entra ID login for Linux Virtual Machine
 The below command uses [az role assignment create](https://learn.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) to assign the `Virtual Machine Administrator Login` role to the VM for your current Azure user.
 ```bash
 export MY_RESOURCE_GROUP_ID=$(az group show --resource-group $MY_RESOURCE_GROUP_NAME --query id -o tsv)
@@ -743,15 +743,15 @@ Results:
 
 <!--
 ## Export the SSH configuration for use with SSH clients that support OpenSSH
-Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. The following example exports the configuration for all IP addresses assigned to the VM:
+Login to Azure Linux VMs with Microsoft Entra ID supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Microsoft Entra ID. The following example exports the configuration for all IP addresses assigned to the VM:
 ```bash
 az ssh config --file ~/.ssh/azure-config --name $MY_VM_NAME --resource-group $MY_RESOURCE_GROUP_NAME
 ```
 -->
 
-## Enable Azure AD login for a Linux Virtual Machine in Azure
+## Enable Microsoft Entra ID login for a Linux Virtual Machine in Azure
 
-The following installs the extension to enable Azure AD login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
+The following installs the extension to enable Microsoft Entra ID login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
 ```bash
 az vm extension set \
@@ -789,7 +789,7 @@ Results:
 
 ## Check and browse your WordPress website
 
-[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](../../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md), Virtual Machines, and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=wordpress).
+[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks), Virtual Machines, and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=wordpress).
 
 This WordPress setup is only for proof of concept. To install the latest WordPress in production with recommended security settings, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
 

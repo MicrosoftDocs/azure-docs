@@ -3,17 +3,20 @@ title: How to use Jais chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to use Jais chat models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.reviewer: fasantia
-reviewer: santiagxf
-ms.author: mopeakande
-author: msakande
+ms.reviewer: haelhamm
+reviewer: hazemelh 
+ms.author: ssalgado
+author: ssalgadodev
 ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
 # How to use Jais chat models
+
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn about Jais chat models and how to use them.
 JAIS 30b Chat is an autoregressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset and translated some open-source English instructions into Arabic.
@@ -25,6 +28,8 @@ JAIS 30b Chat is an autoregressive bi-lingual LLM for **Arabic** & **English**. 
 
 
 ::: zone pivot="programming-language-python"
+
+## Jais chat models
 
 
 
@@ -102,7 +107,7 @@ The response is as follows:
 ```python
 print("Model name:", model_info.model_name)
 print("Model type:", model_info.model_type)
-print("Model provider name:", model_info.model_provider)
+print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
@@ -176,14 +181,12 @@ To visualize the output, define a helper function to print the stream.
 ```python
 def print_stream(result):
     """
-    Prints the chat completion with streaming. Some delay is added to simulate 
-    a real-time conversation.
+    Prints the chat completion with streaming.
     """
     import time
     for update in result:
         if update.choices:
             print(update.choices[0].delta.content, end="")
-            time.sleep(0.05)
 ```
 
 You can visualize how streaming generates content:
@@ -276,6 +279,8 @@ except HttpResponseError as ex:
 
 
 ::: zone pivot="programming-language-javascript"
+
+## Jais chat models
 
 
 
@@ -549,6 +554,8 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
+## Jais chat models
+
 
 
 You can learn more about the models in their respective model card:
@@ -820,7 +827,7 @@ catch (RequestFailedException ex)
 {
     if (ex.ErrorCode == "content_filter")
     {
-        Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+        Console.WriteLine($"Your query has trigger Azure Content Safety: {ex.Message}");
     }
     else
     {
@@ -836,6 +843,8 @@ catch (RequestFailedException ex)
 
 
 ::: zone pivot="programming-language-rest"
+
+## Jais chat models
 
 
 

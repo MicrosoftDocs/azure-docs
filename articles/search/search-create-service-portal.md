@@ -190,8 +190,8 @@ A second service isn't required for high availability. High availability for que
 Azure AI Search restricts the [number of search services](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, you can request more quota.
 
 You must have Owner or Contributor permissions on the subscription to request quota.
+Depending on region and datacenter capacity, you can automatically request more quota to add services to your subscription. If the request fails, you should either decrease the number or file a support ticket. For an large increase in quota, such as more than 30 extra services, you should expect a one-month turnaround.
 
-Maximum quota for a given tier and region combination is an extra 100 search services over the baseline quota (which means 106, 108, or 116 [depending on the tier](search-limits-quotas-capacity.md#subscription-limits)). For more than 100, file a support ticket. You can't increase quota for the Free tier.
 
 1. Sign in to the Azure portal, search for "quotas" in your dashboard, and then select the **Quotas** service.
 

@@ -29,7 +29,7 @@ This overview provides a high-level introduction to connectors and how they gene
 
 ## Built-in connectors versus managed connectors
 
-In Azure Logic Apps, connectors are either *built in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multi-tenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+In Azure Logic Apps, connectors are either *built in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multitenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 * [Built-in connectors](built-in.md) are designed to run directly and natively inside Azure Logic Apps.
 
@@ -120,7 +120,7 @@ If your workflows also use managed connectors, such as the Office 365 Outlook co
 
 ## Custom connectors and APIs
 
-In Consumption workflows for multi-tenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as out-of-the-box connectors. You can also run custom code by creating custom API Apps. For more information, see the following documentation:
+In Consumption workflows for multitenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as out-of-the-box connectors. You can also run custom code by creating custom API Apps. For more information, see the following documentation:
 
 * [Swagger-based or SOAP-based custom connectors for Consumption workflows](../logic-apps/custom-connector-overview.md#custom-connector-consumption)
 
@@ -138,7 +138,17 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 
 ## ISE and connectors
 
-For workflows that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources. For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource retires, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps to avoid service disruption. Standard logic app workflows run in single-tenant Azure Logic Apps 
+> and provide the same capabilities plus more. For example, Standard workflows support using private endpoints 
+> for inbound traffic so that your workflows can communicate privately and securely with virtual networks. 
+> Standard workflows also support virtual network integration for outbound traffic. For more information, 
+> review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).
+
+If you use a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where workflows can directly access to resources in an Azure virtual network, you can build, deploy, and run your workflows on dedicated resources.
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic app workflows in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, workflows in an ISE can use those connectors.
 
@@ -147,36 +157,20 @@ In the workflow designer, when you browse the built-in connectors or managed con
 :::row:::
     :::column:::
         ![Example CORE connector](./media/apis-list/example-core-connector.png)
-        \
-        \
-        **CORE**
-        \
-        \
-        Built-in connectors with this label run in the same ISE as your workflows.
+        <br><br>**CORE**
+        <br><br>Built-in connectors with this label run in the same ISE as your workflows.
     :::column-end:::
     :::column:::
         ![Example ISE connector](./media/apis-list/example-ise-connector.png)
-        \
-        \
-        **ISE**
-        \
-        \
-        Managed connectors with this label run in the same ISE as your workflows.
-        \
-        \
-        If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your workflows directly access that system without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom-connectors-and-apis).
-        \
-        \
-        For on-premises systems that don't have **ISE** connectors, use the on-premises data gateway. To find available ISE connectors, review [ISE connectors](#ise-and-connectors).
+        <br><br>**ISE**
+        <br><br>Managed connectors with this label run in the same ISE as your workflows.
+        <br><br>If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your workflows directly access that system without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom-connectors-and-apis).
+        <br><br>For on-premises systems that don't have **ISE** connectors, use the on-premises data gateway. To find available ISE connectors, review [ISE connectors](#ise-and-connectors).
     :::column-end:::
     :::column:::
-        ![Example non-ISE connector](./media/apis-list/example-multi-tenant-connector.png)
-        \
-        \
-        No label
-        \
-        \
-        All other connectors without a label, which you can continue to use, run in the global, multi-tenant Logic Apps service.
+        ![Example non-ISE connector](./media/apis-list/example-multitenant-connector.png)
+        <br><br>No label
+        <br><br>All other connectors without a label, which you can continue to use, run in the global, multitenant Logic Apps service.
     :::column-end:::
     :::column:::
     :::column-end:::

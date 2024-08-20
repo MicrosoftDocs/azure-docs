@@ -1,12 +1,12 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Enable telemetry and monitoring for the Azure Linux Container Host
 description: In this Azure Linux Container Host for AKS tutorial, you'll learn how to enable telemetry and monitoring for the Azure Linux Container Host.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 04/18/2023
+ms.date: 08/18/2024
 ---
 
 # Tutorial: Enable telemetry and monitoring for your Azure Linux Container Host cluster
@@ -28,7 +28,7 @@ In the next and last tutorial, you'll learn how to upgrade your Azure Linux node
 
 ## 1 - Enable monitoring
 
-### Use a default Log Analytics workspace
+### Option 1: Use a default Log Analytics workspace
 
 The following step enables monitoring for your Azure Linux Container Host cluster using Azure CLI. In this example, you aren't required to precreate or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription. If one doesn't already exist in the region, the default workspace created will resemble the format *DefaultWorkspace-< GUID >-< Region >*. 
 
@@ -36,13 +36,25 @@ The following step enables monitoring for your Azure Linux Container Host cluste
 az aks enable-addons -a monitoring -n testAzureLinuxCluster -g testAzureLinuxResourceGroup
 ```
 
-The output will resemble the following example:
+The first few lines of the output should contain the following in the `addonProfiles` configuration :
 
 ```output
-provisioningState       : Succeeded
+{
+  "aadProfile": null,
+  "addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/DefaultResourceGroup-EUS2/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-<WorkspaceSubscription>-EUS2",
+        "useAADAuth": "true"
+      },
+      "enabled": true,
+      "identity": null
+    }
+  },
+}
 ```
 
-### Specify a Log Analytics workspace
+### Option 2: Specify a Log Analytics workspace
 
 In this example, you can specify a Log Analytics workspace to enable monitoring of your Azure Linux Container Host cluster. The resource ID of the workspace will be in the form `"/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"`.
 
@@ -68,8 +80,8 @@ The output should resemble the following example, which indicates that it was de
 
 ```output
 User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+NAME       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-logs   3         3         3       3            3           <none>          3m22s
 ```
 
 To verify deployment of the solution, run the following command:

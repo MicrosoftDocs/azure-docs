@@ -90,20 +90,26 @@ items:
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
-    - name: Phi-3 models
+    - name: Phi-3 family models
       items:
-      - name: Phi-3 chat models
-        href: how-to/deploy-models-phi-3.md
-      - name: Phi-3 chat models with vision
-        href: how-to/deploy-models-phi-3-vision.md
-      - name: Fine-tune Phi-3 chat models
-        href: how-to/fine-tune-phi-3.md
+        - name: Phi-3 family chat models
+          href: how-to/deploy-models-phi-3.md
+        - name: Phi-3.5 MoE chat model
+          href: how-to/deploy-models-phi-3-5-moe.md
+        - name: Phi-3 chat model with vision
+          href: how-to/deploy-models-phi-3-vision.md
+        - name: Phi-3.5 chat model with vision
+          href: how-to/deploy-models-phi-3-5-vision.md
+        - name: Fine-tune Phi-3 chat models
+          href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
       - name: Cohere Command models
         href: how-to/deploy-models-cohere-command.md
       - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Meta Llama family models
@@ -140,6 +146,9 @@ items:
             displayName: maas, paygo, models-as-a-service
           - name: Model and region availability for Serverless API deployments
             href: how-to/deploy-models-serverless-availability.md
+        - name: Deploy and inference a managed compute deployment with code
+          href: how-to/deploy-models-managed.md
+          displayName: endpoint, online, SDK, CLI
   - name: Data for your generative AI app
     items:
     - name: Overview of retrieval augmented generation (RAG)
@@ -290,8 +299,6 @@ items:
       href: how-to/quota.md
     - name: Increase rate limit
       href: how-to/autoscale.md
-    - name: Use commitment tier pricing
-      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management

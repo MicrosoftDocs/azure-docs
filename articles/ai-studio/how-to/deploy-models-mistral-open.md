@@ -3,10 +3,11 @@ title: How to use Mistral-7B and Mixtral chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to use Mistral-7B and Mixtral chat models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.reviewer: fasantia
-reviewer: santiagxf
+ms.reviewer: kritifaujdar
+reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
@@ -14,6 +15,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
 # How to use Mistral-7B and Mixtral chat models
+
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn about Mistral-7B and Mixtral chat models and how to use them.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-open.md); available to also download and run on self-hosted managed endpoints.
@@ -157,7 +160,7 @@ The response is as follows:
 ```python
 print("Model name:", model_info.model_name)
 print("Model type:", model_info.model_type)
-print("Model provider name:", model_info.model_provider)
+print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
@@ -234,14 +237,12 @@ To visualize the output, define a helper function to print the stream.
 ```python
 def print_stream(result):
     """
-    Prints the chat completion with streaming. Some delay is added to simulate 
-    a real-time conversation.
+    Prints the chat completion with streaming.
     """
     import time
     for update in result:
         if update.choices:
             print(update.choices[0].delta.content, end="")
-            time.sleep(0.05)
 ```
 
 You can visualize how streaming generates content:

@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 09/21/2023
+ms.date: 08/20/2024
 ---
 # Access SMB volumes from Microsoft Entra joined Windows virtual machines
 
@@ -34,7 +34,7 @@ You can use Microsoft Entra ID with the Hybrid Authentication Management module 
 ## Steps
 
 The configuration process takes you through five process:
-* Add the CIFS SPN to the computer account
+* Add the CIFS (Common Internet File System) SPN to the computer account
 * Register a new Microsoft Entra application
 * Sync CIFS password from AD DS to the Microsoft Entra application registration 
 * Configure the Microsoft Entra joined VM to use Kerberos authentication

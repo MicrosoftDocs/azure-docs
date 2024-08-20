@@ -2,7 +2,7 @@
 title: Troubleshoot cloud service (classic) deployment problems | Microsoft Docs
 description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
 ms.topic: troubleshooting
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah

@@ -3,12 +3,11 @@ title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: pbrasil
-ms.author: peterbr 
+ms.author: peterbr
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-custom.ms: subject-rbac-steps
+ms.subservice: authentication
 ---
 
 # Secure a daemon application
@@ -202,32 +201,34 @@ To acquire the access token:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
 
-This article uses the [Postman](https://www.postman.com/) application to create the token request, but you can use a different API development environment.
+This article uses the [bruno](https://www.usebruno.com/) application to create the token request, but you can use a different API development environment.
 
-1. In the Postman app, select **New**.
+1. Open the bruno app, select **NEW REQUEST** to create the request.
 
-2. In the **Create New** window, select **HTTP Request**.
+1. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request, such as *POST Token Request*.
 
-3. Enter a **Request name** for the request, such as *POST Token Request*.
-
-4. Select the **POST** HTTP method.
-
-5. Enter the following URL to address bar (replace `{Tenant-ID}` with the Directory (Tenant) ID, the `{Client-ID}` with the Application (Client) ID, and `{Client-Secret}` with your client secret:
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}&scope=https://atlas.microsoft.com/.default
     ```
 
-6. Select **Send**
+   > [!NOTE]
+   > Replace:
+   > - `{Tenant-ID}` with the Directory (Tenant) ID
+   > - `{Client-ID}` with the Application (Client) ID
+   > - `{Client-Secret}` with your client secret.
 
-7. You should see the following JSON response:
+1. Select the run button
+
+You should see the following JSON response:
 
 ```json
 {
-    "token_type": "Bearer",
-    "expires_in": 86399,
-    "ext_expires_in": 86399,
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
+"token_type": "Bearer",
+"expires_in": 86399,
+"ext_expires_in": 86399,
+"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
 }
 ```
 
