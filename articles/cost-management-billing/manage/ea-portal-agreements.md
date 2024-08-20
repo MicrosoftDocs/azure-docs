@@ -120,8 +120,8 @@ You can add price markup on Azure portal with the following steps:
 1. Search for **Cost Management + Billing** and select it.
 1. In the left navigation menu, select **Billing scopes** and then select the billing account that you want to work with.
 1. In the left navigation menu, select **Billing Profile** and then select the billing profile that you want to work with.
-1. In the left navigation menu, select **Markup**.
-1. To add markup, select **Set markup**.
+1. In the left navigation menu, expand **Settings** and then select **Markup**.
+1. To add markup, select **+ Add** under **Markup** **Percentage**.
 1. Enter the markup percentage and select **Preview**.
 1. Review the credit and usage charges before and after markup update.
 1. Accept the disclaimer and select **Publish** to publish the markup.
