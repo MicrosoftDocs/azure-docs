@@ -32,10 +32,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
-
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
@@ -57,7 +54,7 @@ The format of your first line of the command with an example endpoint would appe
 If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ## Output
 

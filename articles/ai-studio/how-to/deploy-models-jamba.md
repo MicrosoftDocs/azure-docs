@@ -82,7 +82,6 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
----
 
 ### Create a new deployment
 
@@ -109,7 +108,6 @@ These steps demonstrate the deployment of AI21-Jamba family models. To create a 
 
 To learn about billing for the AI21-Jamba family models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-family-models-deployed-as-a-serverless-api).
 
----
 
 ### Consume Jamba family models as a serverless API
 
@@ -125,7 +123,6 @@ You can consume Jamba family models as follows:
 
 For more information on using the APIs, see the [reference](#reference-for-jamba-family-models-deployed-as-a-serverless-api) section.
 
----
 
 ## Reference for Jamba family models deployed as a serverless API
 
@@ -357,6 +354,7 @@ The `usage` response object contains the following fields.
   }
 }
 ```
+
 #### Streaming response example
 
 ```JSON

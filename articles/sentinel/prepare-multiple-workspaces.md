@@ -1,10 +1,10 @@
 ---
 title: Prepare for multiple workspaces and tenants in Microsoft Sentinel
 description: To prepare for your deployment, learn how Microsoft Sentinel can extend across multiple workspaces and tenants.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
-ms.date: 06/28/2023
-ms.author: lwainstein
+ms.date: 08/13/2024
+ms.author: cwatson
 ms.service: microsoft-sentinel
 #Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
 ---
@@ -13,7 +13,7 @@ ms.service: microsoft-sentinel
 
 To prepare for your deployment, you need to determine whether a multiple workspace architecture is relevant for your environment. In this article, you learn how Microsoft Sentinel can extend across multiple workspaces and tenants so you can determine whether this capability suits your organization's needs. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-If you've decided to set up your environment to extend across workspaces, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md) and [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md). 
+If you've decided to set up your environment to extend across workspaces, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md) and [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md). If your organization plans to onboard to the Microsoft unified security operations platform in the Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## The need to use multiple Microsoft Sentinel workspaces
 

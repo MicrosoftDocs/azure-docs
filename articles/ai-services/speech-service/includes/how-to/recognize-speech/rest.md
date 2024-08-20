@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/14/2022
+ms.date: 08/13/2024
 ms.author: eur
 ---
 
@@ -13,9 +13,9 @@ ms.author: eur
 ## Convert speech to text
 
 At a command prompt, run the following command. Insert the following values into the command:
-- Your subscription key for the Speech service.
-- Your Speech service region.
-- The path for input audio files. You can generate audio files by using [text to speech](../../../get-started-text-to-speech.md).
+- Your subscription key for the Speech resource
+- Your Speech service region
+- The path for input audio file
 
 ```curl
 curl --location --request POST 'https://INSERT_REGION_HERE.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US' \
@@ -24,7 +24,7 @@ curl --location --request POST 'https://INSERT_REGION_HERE.stt.speech.microsoft.
 --data-binary @'INSERT_AUDIO_FILE_PATH_HERE'
 ```
 
-You should receive a response with a JSON body like the following example:
+You should receive a response like the following example:
 
 ```json
 {

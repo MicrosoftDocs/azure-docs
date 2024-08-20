@@ -17,6 +17,8 @@ zone_pivot_groups: programming-languages-content-safety
 
 Get started with the Content Studio, REST API, or client SDKs to do basic image moderation. The Azure AI Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
 
+For more information on image moderation, see the [Harm categories concept page](./concepts/harm-categories.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
 > [!NOTE]
 > 
 > The sample data and code may contain offensive content. User discretion is advised.
@@ -60,9 +62,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
+## Related content
 
-Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+* [Harm categories](./concepts/harm-categories.md)
+* Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
 
-> [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md)

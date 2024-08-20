@@ -6,7 +6,7 @@ author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/18/2024
+ms.date: 8/20/2024
 ms.author: hasshah
 ---
 
@@ -46,5 +46,6 @@ Microsoft Audio Stack can be used by any product or application that can meet th
 * **Loopback or reference audio** - An audio channel that represents the audio being played out of the device is required to perform acoustic echo cancellation. 
 * **Input format** - Microsoft Audio Stack supports down sampling for sample rates that are integral multiples of 16 kHz. A minimum sampling rate of 16 kHz is required. Additionally, the following formats are supported: 32-bit IEEE little endian float, 32-bit little endian signed int, 24-bit little endian signed int, 16-bit little endian signed int, and 8-bit signed int.
 
-## Next steps
-[Use the Speech SDK for audio processing](audio-processing-speech-sdk.md)
+## Related content
+
+- [Use the Speech SDK for audio processing](audio-processing-speech-sdk.md)

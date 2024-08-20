@@ -1,308 +1,656 @@
 ---
-title: How to deploy Cohere Embed models with Azure AI Studio
+title: How to use Cohere Embed V3 models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Cohere Embed models with Azure AI Studio.
-manager: scottpolly
+description: Learn how to use Cohere Embed V3 models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 08/08/2024
 ms.reviewer: shubhiraj
+reviewer: shubhirajMsft
 ms.author: mopeakande
 author: msakande
-ms.custom: references_regions, build-2024
+ms.custom: references_regions, generated
+zone_pivot_groups: azure-ai-model-catalog-samples-embeddings
 ---
 
-# How to deploy Cohere Embed models with Azure AI Studio
+# How to use Cohere Embed V3 models with Azure AI Studio
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as serverless APIs with pay-as-you-go token-based billing.
+In this article, you learn about Cohere Embed V3 models and how to use them with Azure AI Studio.
+The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 
-Cohere offers two Embed models in [Azure AI Studio](https://ai.azure.com). These models are available as serverless APIs with pay-as-you-go token-based billing. You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
 
-## Cohere Embed models 
 
-In this section, you learn about the two Cohere Embed models that are available in the model catalog:
+::: zone pivot="programming-language-python"
 
-* Cohere Embed v3 - English
-* Cohere Embed v3 - Multilingual
+## Cohere embedding models
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
+The Cohere family of models for embeddings includes the following models:
 
-### Cohere Embed v3 - English
-Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
+
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
-### Cohere Embed v3 - Multilingual
-Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
+
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
 * Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
-## Deploy as a serverless API
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+---
 
-The previously mentioned Cohere models can be deployed as a service with pay-as-you-go billing and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of these models.
+## Prerequisites
 
-### Prerequisites
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
 
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Embed is only available with hubs created in these regions:
+### A model deployment
 
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-     * Sweden Central
-    
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
+**Deployment to serverless APIs**
 
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
-### Create a new deployment
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
-The following steps demonstrate the deployment of Cohere Embed v3 - English, but you can use the same steps to deploy Cohere Embed v3 - Multilingual by replacing the model name.
+### The inference package installed
 
-To create a deployment:
+You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the left sidebar.
-1. Search for *Cohere*.
-1. Select **Cohere-embed-v3-english** to open the Model Details page.
+* Python 3.8 or later installed, including pip.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+  
+Once you have these prerequisites, install the Azure AI inference package with the following command:
 
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png":::
-
-1. Select **Deploy** to open a serverless API deployment window for the model.
-1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
-
-    1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
-
-        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png"::: 
-
-    1. Select **Confirm** to open a serverless API deployment window for the model.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png":::
-
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the *EastUS2* or *Sweden Central* region.
-1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png":::
-
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deployment-name.png":::
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
-
-To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
-
-### Consume the Cohere Embed models as a service
-
-These models can be consumed using the embed API.
-
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
-
-1. Find and select the deployment you created.
-
-1. Copy the **Target** URL and the **Key** value.
-
-1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
-
-    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
-
-## Embed API reference for Cohere Embed models deployed as a service
-
-Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/embeddings` and the native [Cohere Embed v3 API](#cohere-embed-v3) on `/embed`. 
-
-### Azure AI Model Inference API
-
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Embeddings](../reference/reference-model-inference-embeddings.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
-
-### Cohere Embed v3
-
-The following contains details about Cohere Embed v3 API.
-
-#### Request
-
-```
-    POST /v1/embed HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
+```bash
+pip install azure-ai-inference
 ```
 
-#### v1/embed request schema
+Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
-Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embed` API call:
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
 
-|Key       |Type   |Default   |Description   |
-|---|---|---|---|
-|`texts` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
-|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You shouldn't mix different types together, except when mixing types for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector database to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
-|`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
-|`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
+## Work with embeddings
 
-#### v1/embed response schema
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
 
-Cohere Embed v3 - English and Embed v3 - Multilingual include the following fields in the response:
+### Create a client to consume the model
 
-|Key       |Type   |Description   |
-|---|---|---|
-|`response_type` |`enum` |The response type. Returns `embeddings_floats` when `embedding_types` isn't specified, or returns `embeddings_by_type` when `embeddings_types` is specified. |
-|`id` |`integer` |An identifier for the response. |
-|`embeddings` |`array` or `array of objects` |An array of embeddings, where each embedding is an array of floats with 1,024 elements. The length of the embeddings array is the same as the length of the original texts array.|
-|`texts` |`array of strings` |The text entries for which embeddings were returned. |
-|`meta`   |`string`   |API usage data, including current version and billable tokens.   |
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
-For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed).
 
-### v1/embed examples
+```python
+import os
+from azure.ai.inference import EmbeddingsClient
+from azure.core.credentials import AzureKeyCredential
 
-#### embeddings_floats Response
+model = EmbeddingsClient(
+    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
+)
+```
 
-Request:
+### Get the model's capabilities
 
-```json
-    {
-        "input_type": "clustering",
-        "truncate": "START",
-        "texts":["hi", "hello"]
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+
+```python
+model_info = model.get_model_info()
+```
+
+The response is as follows:
+
+
+```python
+print("Model name:", model_info.model_name)
+print("Model type:", model_info.model_type)
+print("Model provider name:", model_info.model_provider)
+```
+
+```console
+Model name: Cohere-embed-v3-english
+Model type": embeddings
+Model provider name": Cohere
+```
+
+### Create embeddings
+
+Create an embedding request to see the output of the model.
+
+```python
+response = model.embed(
+    input=["The ultimate answer to the question of life"],
+)
+```
+
+> [!TIP]
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```python
+import numpy as np
+
+for embed in response.data:
+    print("Embeding of size:", np.asarray(embed.embedding).shape)
+
+print("Model:", response.model)
+print("Usage:", response.usage)
+```
+
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
+
+
+```python
+response = model.embed(
+    input=[
+        "The ultimate answer to the question of life", 
+        "The largest planet in our solar system is Jupiter",
+    ],
+)
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```python
+import numpy as np
+
+for embed in response.data:
+    print("Embeding of size:", np.asarray(embed.embedding).shape)
+
+print("Model:", response.model)
+print("Usage:", response.usage)
+```
+
+> [!TIP]
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
+
+#### Create different types of embeddings
+
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
+
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
+
+
+```python
+from azure.ai.inference.models import EmbeddingInputType
+
+response = model.embed(
+    input=["The answer to the ultimate question of life, the universe, and everything is 42"],
+    input_type=EmbeddingInputType.DOCUMENT,
+)
+```
+
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+
+
+```python
+from azure.ai.inference.models import EmbeddingInputType
+
+response = model.embed(
+    input=["What's the ultimate meaning of life?"],
+    input_type=EmbeddingInputType.QUERY,
+)
+```
+
+Cohere Embed V3 models can optimize the embeddings based on its use case.
+
+::: zone-end
+
+
+::: zone pivot="programming-language-javascript"
+
+## Cohere embedding models
+
+The Cohere family of models for embeddings includes the following models:
+
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
+
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+
+* Embed English has 1,024 dimensions.
+* Context window of the model is 512 tokens
+
+
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
+
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+
+* Embed Multilingual has 1,024 dimensions.
+* Context window of the model is 512 tokens
+
+
+---
+
+## Prerequisites
+
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+### The inference package installed
+
+You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
+
+* LTS versions of `Node.js` with `npm`.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+Once you have these prerequisites, install the Azure Inference library for JavaScript with the following command:
+
+```bash
+npm install @azure-rest/ai-inference
+```
+
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
+
+## Work with embeddings
+
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
+
+const client = new ModelClient(
+    process.env.AZURE_INFERENCE_ENDPOINT, 
+    new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
+);
+```
+
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+
+```javascript
+await client.path("/info").get()
+```
+
+The response is as follows:
+
+
+```javascript
+console.log("Model name: ", model_info.body.model_name);
+console.log("Model type: ", model_info.body.model_type);
+console.log("Model provider name: ", model_info.body.model_provider_name);
+```
+
+```console
+Model name: Cohere-embed-v3-english
+Model type": embeddings
+Model provider name": Cohere
+```
+
+### Create embeddings
+
+Create an embedding request to see the output of the model.
+
+```javascript
+var response = await client.path("/embeddings").post({
+    body: {
+        input: ["The ultimate answer to the question of life"],
     }
+});
 ```
 
-Response:
+> [!TIP]
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log(response.embedding);
+console.log(response.body.model);
+console.log(response.body.usage);
+```
+
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
+
+
+```javascript
+var response = await client.path("/embeddings").post({
+    body: {
+        input: [
+            "The ultimate answer to the question of life", 
+            "The largest planet in our solar system is Jupiter",
+        ],
+    }
+});
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log(response.embedding);
+console.log(response.body.model);
+console.log(response.body.usage);
+```
+
+> [!TIP]
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
+
+#### Create different types of embeddings
+
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
+
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
+
+
+```javascript
+var response = await client.path("/embeddings").post({
+    body: {
+        input: ["The answer to the ultimate question of life, the universe, and everything is 42"],
+        input_type: "document",
+    }
+});
+```
+
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+
+
+```javascript
+var response = await client.path("/embeddings").post({
+    body: {
+        input: ["What's the ultimate meaning of life?"],
+        input_type: "query",
+    }
+});
+```
+
+Cohere Embed V3 models can optimize the embeddings based on its use case.
+
+::: zone-end
+
+
+::: zone pivot="programming-language-rest"
+
+## Cohere embedding models
+
+The Cohere family of models for embeddings includes the following models:
+
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
+
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+
+* Embed English has 1,024 dimensions.
+* Context window of the model is 512 tokens
+
+
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
+
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+
+* Embed Multilingual has 1,024 dimensions.
+* Context window of the model is 512 tokens
+
+
+---
+
+## Prerequisites
+
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+### A REST client
+
+Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
+
+## Work with embeddings
+
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
+
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+```http
+GET /info HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+
+The response is as follows:
+
 
 ```json
-    {
-        "id": "da7a104c-e504-4349-bcd4-4d69dfa02077",
-        "texts": [
-            "hi",
-            "hello"
-        ],
-        "embeddings": [
-            [
-                ...
-            ],
-            [
-                ...
+{
+    "model_name": "Cohere-embed-v3-english",
+    "model_type": "embeddings",
+    "model_provider_name": "Cohere"
+}
+```
+
+### Create embeddings
+
+Create an embedding request to see the output of the model.
+
+```json
+{
+    "input": [
+        "The ultimate answer to the question of life"
+    ]
+}
+```
+
+> [!TIP]
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```json
+{
+    "id": "0ab1234c-d5e6-7fgh-i890-j1234k123456",
+    "object": "list",
+    "data": [
+        {
+            "index": 0,
+            "object": "embedding",
+            "embedding": [
+                0.017196655,
+                // ...
+                -0.000687122,
+                -0.025054932,
+                -0.015777588
             ]
-        ],
-        "meta": {
-            "api_version": {
-                "version": "1"
-            },
-            "billed_units": {
-                "input_tokens": 2
-            }
-        },
-        "response_type": "embeddings_floats"
+        }
+    ],
+    "model": "Cohere-embed-v3-english",
+    "usage": {
+        "prompt_tokens": 9,
+        "completion_tokens": 0,
+        "total_tokens": 9
     }
+}
 ```
 
-#### Embeddings_by_types response
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
 
-Request:
 
 ```json
-    {
-        "input_type": "clustering",
-        "embedding_types": ["int8", "binary"],
-        "truncate": "START",
-        "texts":["hi", "hello"]
-    }
+{
+    "input": [
+        "The ultimate answer to the question of life", 
+        "The largest planet in our solar system is Jupiter"
+    ]
+}
 ```
 
-Response:
+The response is as follows, where you can see the model's usage statistics:
+
 
 ```json
-    {
-        "id": "b604881a-a5e1-4283-8c0d-acbd715bf144",
-        "texts": [
-            "hi",
-            "hello"
-        ],
-        "embeddings": {
-            "binary": [
-                [
-                    ...
-                ],
-                [
-                    ...
-                ]
-            ],
-            "int8": [
-                [
-                    ...
-                ],
-                [
-                    ...
-                ]
+{
+    "id": "0ab1234c-d5e6-7fgh-i890-j1234k123456",
+    "object": "list",
+    "data": [
+        {
+            "index": 0,
+            "object": "embedding",
+            "embedding": [
+                0.017196655,
+                // ...
+                -0.000687122,
+                -0.025054932,
+                -0.015777588
             ]
         },
-        "meta": {
-            "api_version": {
-                "version": "1"
-            },
-            "billed_units": {
-                "input_tokens": 2
-            }
-        },
-        "response_type": "embeddings_by_type"
+        {
+            "index": 1,
+            "object": "embedding",
+            "embedding": [
+                0.017196655,
+                // ...
+                -0.000687122,
+                -0.025054932,
+                -0.015777588
+            ]
+        }
+    ],
+    "model": "Cohere-embed-v3-english",
+    "usage": {
+        "prompt_tokens": 19,
+        "completion_tokens": 0,
+        "total_tokens": 19
     }
+}
 ```
 
-#### More inference examples
+> [!TIP]
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
 
-| **Package**       | **Sample Notebook**                             |
-|----------------|----------------------------------------|
-| CLI using CURL and Python web requests  | [cohere-embed.ipynb](https://aka.ms/samples/embed-v3/webrequests)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-embed/openaisdk)                                    |
-| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere-embed/langchain)                                |
-| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-embed/cohere-python-sdk)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+#### Create different types of embeddings
 
-##### Retrieval Augmented Generation (RAG) and tool-use samples
-**Description** | **Package** | **Sample Notebook**
---|--|--
-Create a local Facebook AI Similarity Search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
-Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
-Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
-Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
-Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-## Cost and quotas
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
 
-### Cost and quota considerations for models deployed as a service
 
-Cohere models deployed as a serverless API with pay-as-you-go billing are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+```json
+{
+    "input": [
+        "The answer to the ultimate question of life, the universe, and everything is 42"
+    ],
+    "input_type": "document"
+}
+```
+
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+
+
+```json
+{
+    "input": [
+        "What's the ultimate meaning of life?"
+    ],
+    "input_type": "query"
+}
+```
+
+Cohere Embed V3 models can optimize the embeddings based on its use case.
+
+::: zone-end
+
+## More inference examples
+
+| Description                               | Language          | Sample                                                          |
+|-------------------------------------------|-------------------|-----------------------------------------------------------------|
+| Web requests                              | Bash              | [Command-R](https://aka.ms/samples/cohere-command-r/webrequests) - [Command-R+](https://aka.ms/samples/cohere-command-r-plus/webrequests) |
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
+| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)      |
+| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/samples/cohere-command/openaisdk)             |
+| LangChain                                 | Python            | [Link](https://aka.ms/samples/cohere/langchain)                     |
+| Cohere SDK                                | Python            | [Link](https://aka.ms/samples/cohere-python-sdk)                    |
+| LiteLLM SDK                               | Python            | [Link](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+#### Retrieval Augmented Generation (RAG) and tool use samples
+
+| Description | Packages   | Sample          |
+|-------------|------------|-----------------|
+| Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain | `langchain`, `langchain_cohere` | [cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain |`langchain`, `langchain_cohere` | [command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain | `langchain`, `langchain_cohere` | [cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK | `cohere`, `azure_search_documents` | [cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb) |
+| Command R+ tool/function calling, using LangChain | `cohere`, `langchain`, `langchain_cohere` | [command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb) |
+
+
+## Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
+
+Cohere models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
-## Content filtering
-
-Models deployed as a serverless API are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
-
 ## Related content
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)

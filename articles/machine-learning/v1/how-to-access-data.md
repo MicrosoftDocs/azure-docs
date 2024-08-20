@@ -152,7 +152,7 @@ That section offers examples that describe how to create and register a datastor
 To learn how to connect to a data storage resource with a UI, visit [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 
 >[!IMPORTANT]
-> If you unregister and re-register a datastore with the same name, and the re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created before October 2020. For information that describes how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
+> If you unregister and re-register a datastore with the same name, and the re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created before October 2020. For information that describes how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 > [!NOTE]
 > A datastore name should only contain lowercase letters, digits and underscores.

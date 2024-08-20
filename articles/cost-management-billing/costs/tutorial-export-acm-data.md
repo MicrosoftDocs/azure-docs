@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2024
+ms.date: 08/14/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -95,7 +95,7 @@ Start by preparing your environment for the Azure CLI:
 1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/costmanagement/export#az-costmanagement-export-list) command:
 
    ```azurecli
-   az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   az costmanagement export list --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
    ```
 
    >[!NOTE]
@@ -119,8 +119,8 @@ Start by preparing your environment for the Azure CLI:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --storage-account-id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TreyNetwork/providers/Microsoft.Storage/storageAccounts/cmdemo \
+   --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" \
+   --storage-account-id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/TreyNetwork/providers/Microsoft.Storage/storageAccounts/cmdemo \
    --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
    --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
    --schedule-status Active --storage-directory demodirectory
@@ -134,14 +134,14 @@ Start by preparing your environment for the Azure CLI:
 
    ```azurecli
    az costmanagement export show --name DemoExport \
-      --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+      --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
    ```
 
 1. Update an export by using the [az costmanagement export update](/cli/azure/costmanagement/export#az-costmanagement-export-update) command:
 
    ```azurecli
    az costmanagement export update --name DemoExport
-      --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
+      --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --storage-directory demodirectory02
    ```
 
    This example changes the output directory.
@@ -152,7 +152,7 @@ Start by preparing your environment for the Azure CLI:
 You can delete an export by using the [az costmanagement export delete](/cli/azure/costmanagement/export#az-costmanagement-export-delete) command:
 
 ```azurecli
-az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+az costmanagement export delete --name DemoExport --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -176,7 +176,7 @@ Start by preparing your environment for Azure PowerShell:
 1. After you sign in, to see your current exports, use the [Get-AzCostManagementExport](/powershell/module/Az.CostManagement/get-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
-   Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+   Get-AzCostManagementExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
    ```
 
    >[!NOTE]
@@ -202,8 +202,8 @@ Start by preparing your environment for Azure PowerShell:
    $Params = @{
      Name = 'DemoExport'
      DefinitionType = 'ActualCost'
-     Scope = 'subscriptions/00000000-0000-0000-0000-000000000000'
-     DestinationResourceId = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/treynetwork/providers/Microsoft.Storage/storageAccounts/cmdemo'
+     Scope = 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
+     DestinationResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/treynetwork/providers/Microsoft.Storage/storageAccounts/cmdemo'
      DestinationContainer = 'democontainer'
      DefinitionTimeframe = 'MonthToDate'
      ScheduleRecurrence = 'Daily'
@@ -223,13 +223,13 @@ Start by preparing your environment for Azure PowerShell:
 1. To see the details of your export operation, use the `Get-AzCostManagementExport` cmdlet:
 
    ```azurepowershell-interactive
-   Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+   Get-AzCostManagementExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
    ```
 
 1. Update an export by using the [Update-AzCostManagementExport](/powershell/module/Az.CostManagement/update-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
-   Update-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000' -DestinationRootFolderPath demodirectory02
+   Update-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' -DestinationRootFolderPath demodirectory02
    ```
 
    This example changes the output directory.
@@ -240,7 +240,7 @@ Start by preparing your environment for Azure PowerShell:
 You can delete an export by using the [Remove-AzCostManagementExport](/powershell/module/Az.CostManagement/remove-azcostmanagementexport) cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 ```
 
 ---

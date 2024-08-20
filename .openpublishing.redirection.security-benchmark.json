@@ -141,11 +141,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/key-vault/general/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/key-vault-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/api-management/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/api-management-security-baseline",
       "redirect_document_id": false
@@ -201,11 +196,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/cosmos-db-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/databox/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
       "redirect_document_id": false
@@ -218,31 +208,6 @@
     {
       "source_path_from_root": "/articles/data-share/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/data-share-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/mysql-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mariadb/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/mariadb-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/dms/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/database-migration-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/postgresql-hyperscale-security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/postgresql-security-baseline",
       "redirect_document_id": false
     },
     {

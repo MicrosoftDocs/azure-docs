@@ -21,6 +21,9 @@ After you [connect your AWS public cloud to Azure](connect-to-aws.md), the multi
 
 `aws_yourAwsAccountId`
 
+> [!NOTE]
+> Tags are not created when the Resource Group is created with the connector. Be sure to disable any policies for Tags being required when creating a Resource Group, otherwise the Resource Group creation process will fail due to the Tags being missing.
+
 For every AWS resource discovered through the **[Inventory](view-multicloud-inventory.md)** solution, an Azure representation is created in the `aws_yourAwsAccountId` resource group. Each resource has the [`AwsConnector` namespace value associated with its AWS service](view-multicloud-inventory.md#supported-aws-services).
 
 EC2 instances connected to Azure Arc through the **[Arc onboarding](onboard-multicloud-vms-arc.md)** solution are also represented as Arc-enabled server resources under `Microsoft.HybridCompute/machines` in the `aws_yourAwsAccountId` resource group. If you previously onboarded an EC2 machine to Azure Arc, you won't see that machine in this resource group, because it already has a representation in Azure.

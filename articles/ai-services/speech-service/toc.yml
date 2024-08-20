@@ -26,7 +26,7 @@ items:
 - name: Speech CLI
   items:
     - name: Speech CLI overview
-      displayName: What is SPX?, spx, spx overview
+      displayName: spx
       href: spx-overview.md
     - name: Speech CLI quickstart
       displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
@@ -69,7 +69,7 @@ items:
       href: fast-transcription-create.md
     - name: Batch transcription API
       items:
-      - name: What is batch transcription?
+      - name: Batch transcription overview
         href: batch-transcription.md
       - name: Locate audio files in storage
         href: batch-transcription-audio-data.md
@@ -79,7 +79,7 @@ items:
         href: batch-transcription-get.md
     - name: Custom speech
       items:
-        - name: What is custom speech?
+        - name: Custom speech overview
           href: custom-speech-overview.md
         - name: Create a custom speech model 
           items:
@@ -160,7 +160,7 @@ items:
       displayName: viseme, phoneme, phonetic
     - name: Custom neural voice
       items:
-        - name: What is custom neural voice?
+        - name: Custom neural voice overview
           href: custom-neural-voice.md
           displayName: cnv
         - name: Create a professional voice
@@ -199,7 +199,7 @@ items:
             displayName: cnv
     - name: Text to speech avatar
       items:
-      - name: What is text to speech avatar?
+      - name: Text to speech avatar overview
         href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
         displayName: avatar
       - name: Content credentials
@@ -220,7 +220,7 @@ items:
           href: text-to-speech-avatar/avatar-gestures-with-ssml.md
       - name: Custom text to speech avatar
         items:
-        - name: What is custom text to speech avatar?
+        - name: Custom text to speech avatar overview
           href: text-to-speech-avatar/what-is-custom-text-to-speech-avatar.md
           displayName: custom-tts-avatar
         - name: Create a custom text to speech avatar
@@ -431,9 +431,6 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Configure RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest, swagger
@@ -549,6 +546,8 @@ items:
           href: /rest/api/aiservices/speechapi/operation-groups
         - name: Batch synthesis REST API
           href: /rest/api/batchtexttospeech/operation-groups
+        - name: Batch avatar REST API
+          href: /rest/api/batchavatar/operation-groups
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
