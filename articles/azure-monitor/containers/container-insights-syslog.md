@@ -2,7 +2,7 @@
 title: Syslog collection with Container Insights
 description: This article describes how to collect Syslog from AKS nodes using Container insights.
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 08/19/2024
 ms.reviewer: damendo
 ---
 
@@ -20,6 +20,9 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 To get a quick snapshot of your syslog data, use the built-in Syslog workbook using one of the following methods:
 
+> [!NOTE]
+> The **Reports** tab won't be available if you enable the [Container insights Prometheus experience](./container-insights-experience-v2.md) for your cluster.
+
 - **Reports** tab in Container Insights. 
 Navigate to your cluster in the Azure portal and open the **Insights**. Open the **Reports** tab and locate the **Syslog** workbook. 
 
@@ -32,10 +35,10 @@ Navigate to your cluster in the Azure portal. Open the **Workbooks** tab and loc
 
 ### Access Syslog data using a Grafana dashboard
 
-Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who create a new Azure-managed Grafana instance will have this dashboard available by default. Customers with existing instances or those running their own instance can [import the Syslog dashboard from the Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/). 
+If you use Grafana, you can use the Syslog dashboard for Grafana to get an overview of your Syslog data. This dashboard is available by default if you create a new Azure-managed Grafana instance. Otherwise, you can [import the Syslog dashboard from the Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/). 
 
 > [!NOTE]
-> You will need to have the **Monitoring Reader** role on the Subscription containing the Azure Managed Grafana instance to access syslog from Container Insights. 
+> You need the **Monitoring Reader** role on the Subscription containing the Azure Managed Grafana instance to access syslog from Container Insights. 
 
 :::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
 
@@ -45,7 +48,7 @@ Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/sysl
 
 :::image type="content" source="media/container-insights-syslog/azmon-3.png" lightbox="media/container-insights-syslog/azmon-3.png" alt-text="Screenshot of Syslog query loaded in the query editor in the Azure Monitor Portal UI." border="false":::    
 
-You can open Log Analytics from the **Logs** menu in the **Monitor** menu to access Syslog data for all clusters or from the AKs cluster's menu to access Syslog data for only that cluster.
+You can open Log Analytics from the **Logs** menu in the **Monitor** menu to access Syslog data for all clusters or from the AKS cluster's menu to access Syslog data for a single cluster.
  
 :::image type="content" source="media/container-insights-syslog/aks-4.png" lightbox="media/container-insights-syslog/aks-4.png" alt-text="Screenshot of Query editor with Syslog query." border="false":::
   
@@ -61,24 +64,6 @@ The following table provides different examples of log queries that retrieve Sys
 | `Syslog | summarize AggregatedValue = count() by Facility` | Count of Syslog records by facility |  
 | `Syslog | where ProcessName == "kubelet"` | All Syslog records from the kubelet process |
 | `Syslog | where ProcessName == "kubelet" and  SeverityLevel == "error"` | Syslog records from kubelet process with errors |
-
-## Editing your Syslog collection settings
-
-To modify the configuration for your Syslog collection, you modify the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that was created when you enabled it. 
-
-Select **Data Collection Rules** from the **Monitor** menu in the Azure portal. 
-
-:::image type="content" source="media/container-insights-syslog/dcr-1.png" lightbox="media/container-insights-syslog/dcr-1.png" alt-text="Screenshot of Data Collection Rules tab in the Azure Monitor portal UI." border="false":::
-
-Select your DCR and then **View data sources**. Select the **Linux Syslog** data source to view the Syslog collection details.
->[!NOTE]
-> A DCR is created automatically when you enable syslog. The DCR follows the naming convention `MSCI-<WorkspaceRegion>-<ClusterName>`.
-
-:::image type="content" source="media/container-insights-syslog/dcr-3.png" lightbox="media/container-insights-syslog/dcr-3.png" alt-text="Screenshot of Data Sources tab for Syslog data collection rule." border="false":::
-
-Select the minimum log level for each facility that you want to collect.
-
-:::image type="content" source="media/container-insights-syslog/dcr-4.png" lightbox="media/container-insights-syslog/dcr-4.png" alt-text="Screenshot of Configuration panel for Syslog data collection rule." border="false":::
 
 
 
