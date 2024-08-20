@@ -19,7 +19,7 @@ ms.date: 08/08/2024
 
 After you create a host pool, a workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You might also need to add more session hosts for extra capacity.
 
-You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as with an automated pipeline, and then add them as session hosts to a host pool. When you're using the Azure CLI or Azure PowerShell, you need to create the VMs outside Azure Virtual Desktop, and then add them as session hosts to a host pool separately.
+You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as using an automated pipeline, the Azure CLI, or Azure PowerShell, and then add them as session hosts to a host pool separately.
 
 For Azure Stack HCI, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
 
