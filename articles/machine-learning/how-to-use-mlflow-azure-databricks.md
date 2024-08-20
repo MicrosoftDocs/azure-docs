@@ -322,7 +322,7 @@ pyfunc_udf = mlflow.pyfunc.spark_udf(spark, model_uri)
 ```
 
 > [!TIP]
-> Check [Loading models from registry](how-to-manage-models-mlflow.md#loading-models-from-registry) for more ways to reference models from the registry. 
+> Check [Loading models from registry](how-to-manage-models-mlflow.md#load-models-from-registry) for more ways to reference models from the registry. 
 
 Once the model is loaded, you can use to score new data:
 

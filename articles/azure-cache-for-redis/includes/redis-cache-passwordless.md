@@ -1,10 +1,10 @@
 ---
-author: flang-msft
+
 
 ms.service: cache
 ms.topic: include
 ms.date: 08/16/2024
-ms.author: franlanglois
+
 ms.topic: include
 ---
 
