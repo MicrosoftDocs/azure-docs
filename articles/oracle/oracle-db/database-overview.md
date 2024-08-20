@@ -51,8 +51,7 @@ Oracle Database@Azure is available in the following locations. Oracle Database@A
 |France Central |&check; | |
 |UK South |&check; |&check; |
 |Canada Central |&check; |&check; |
-
-
+|Australia East |&check; | |
 
 ## Azure Support scope and contact information
 
