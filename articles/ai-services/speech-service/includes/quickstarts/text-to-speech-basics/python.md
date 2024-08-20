@@ -27,7 +27,7 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Synthesize to speaker output
+## Create the application
 
 Follow these steps to create a console application.
 
@@ -72,7 +72,7 @@ Follow these steps to create a console application.
 
 1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is *I'm excited to try text to speech* and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. Run your new console application to start speech synthesis to the default speaker.
 

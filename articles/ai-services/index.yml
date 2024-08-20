@@ -13,7 +13,7 @@ metadata:
   ms.author: eur
   manager: nitinme
   ms.custom: ignite-2023
-  ms.date: 3/19/2024
+  ms.date: 8/20/2024
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -23,9 +23,9 @@ highlightedContent:
     - title: What is Azure AI Studio?
       itemType: overview
       url: ../ai-studio/what-is-ai-studio.md
-    - title: Azure AI Studio copilot tutorial
+    - title: Build your own copilot with Azure AI SDKs
       itemType: tutorial
-      url: ../ai-studio/tutorials/deploy-copilot-ai-studio.md
+      url: ../ai-studio/tutorials/copilot-sdk-build-rag.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md

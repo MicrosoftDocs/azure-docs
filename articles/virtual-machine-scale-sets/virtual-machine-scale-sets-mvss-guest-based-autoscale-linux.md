@@ -21,7 +21,7 @@ Host metrics do not require additional setup because they are collected by the h
 
 In a [previous article](virtual-machine-scale-sets-mvss-start.md) we had created a basic scale set template. We will now use that earlier template and modify it to create a template that deploys a Linux scale set with guest metric based autoscale.
 
-First, add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent stores metric data in a [table](../cosmos-db/tutorial-develop-table-dotnet.md) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. Instead, use a [SAS Token](../storage/common/storage-sas-overview.md).
+First, add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent stores metric data in a [table](/azure/cosmos-db/tutorial-develop-table-dotnet) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. Instead, use a [SAS Token](../storage/common/storage-sas-overview.md).
 
 ```diff
      },

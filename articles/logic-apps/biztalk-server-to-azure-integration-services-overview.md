@@ -299,11 +299,11 @@ In [Azure Logic Apps](./logic-apps-overview.md), [REST](/azure/architecture/best
 
 Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md) vary by connector. Generally, these schemes include the following types:
 
-- [Basic](./logic-apps-securing-a-logic-app.md#basic-authentication)
-- [Client Certificate](./logic-apps-securing-a-logic-app.md#client-certificate-authentication)
-- [Active Directory OAuth](./logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication)
-- [Raw](./logic-apps-securing-a-logic-app.md#raw-authentication)
-- [Managed Identity](./logic-apps-securing-a-logic-app.md#managed-identity-authentication)
+- [Basic](logic-apps-securing-a-logic-app.md#basic-authentication)
+- [Client certificate](logic-apps-securing-a-logic-app.md#client-certificate-authentication)
+- [Active Directory OAuth](logic-apps-securing-a-logic-app.md#oauth-microsoft-entra)
+- [Raw](logic-apps-securing-a-logic-app.md#raw-authentication)
+- [Managed Identity](logic-apps-securing-a-logic-app.md#managed-identity-authentication)
 
 Microsoft provides strong layers of protection by [encrypting data during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
 
@@ -395,7 +395,7 @@ The following section describes data transformation capabilities in BizTalk Serv
 
 #### BizTalk Server
 
-Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-box functoids that provide reusable functionality that helps you build rich maps.
+Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-the-box functoids that provide reusable functionality that helps you build rich maps.
 
 Beyond the core XML transformations, BizTalk Server also provides encoding and decoding for CSV and JSON formats so you can convert between these formats and XML, giving you support for different formats.
 
@@ -497,7 +497,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 | Inline code | You can write inline C# code within an Orchestration shape. You can also write inline code within a BizTalk Map. In both scenarios, the code snippets are generally simple in nature and can't be debugged. |
 | Compiled assemblies | You can call these assemblies from the following places: <br><br>- Expression shapes in an orchestration <br>- BizTalk maps using the Scripting Functoid <br>- Business Rules Engine policies <br>- Pipelines as custom pipeline components <br><br>You can debug compiled assemblies by attaching the Visual Studio debugger to the appropriate host instance Windows process. |
 | Custom adapters | BizTalk Server includes many out-of-the-box adapters, but you can always create your own adapter if needed. |
-| Custom WCF behaviors | BizTalk Server includes many out-of-the box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
+| Custom WCF behaviors | BizTalk Server includes many out-of-the-box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
 | Extensibility in BizTalk Server maps | - You can create inline code using C#, JScript, Visual Basic, XSLT or XSLT Call Templates to suppress some limitations or difficulties using the out-of-the-box functoids. <br><br>- You can call an external assembly using the Scripting Functoid. <br><br>- You can create custom functoids to use across all your maps. |
 
 #### Azure Integration Services

@@ -214,7 +214,7 @@ api-key: [admin key]
 
 ## Missing content from Azure Cosmos DB
 
-Azure AI Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure AI Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+Azure AI Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure AI Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## Document count discrepancy between the data source and index
 
@@ -232,7 +232,7 @@ An indexer might show a different document count than either the data source, th
 Indexers use a conservative buffering strategy to ensure that every new and changed document in the data source is picked up during indexing. In certain situations, these buffers can overlap, causing an indexer to index a document two or more times resulting in the processed documents count to be more than actual number of documents in the data source. This behavior does **not** affect the data stored in the index, such as duplicating documents, only that it can take longer to reach eventual consistency. This condition is especially prevalent if any of the following criteria are true:
 
 - On-demand indexer requests are issued in quick succession
-- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](../cosmos-db/consistency-levels.md))
+- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](/azure/cosmos-db/consistency-levels))
 - The data source is an Azure SQL database and the column chosen as "high water mark" is of type `datetime2`
 
 Indexers aren't intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.

@@ -231,13 +231,13 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 ## Connect to a database
 
-Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction.md) for many [use cases](../cosmos-db/use-cases.md), including IoT, ecommerce, gaming, etc.
+Azure Functions integrates well with [Azure Cosmos DB](/azure/cosmos-db/introduction) for many [use cases](/azure/cosmos-db/use-cases), including IoT, ecommerce, gaming, etc.
 
-For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](/azure/cosmos-db/change-feed) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
-To connect to Azure Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
+To connect to Azure Cosmos DB, first [create an account, database, and container](/azure/cosmos-db/nosql/quickstart-portal). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
 
 To implement more complex app logic, you can also use the Python library for Cosmos DB. An asynchronous I/O implementation looks like this:
 
