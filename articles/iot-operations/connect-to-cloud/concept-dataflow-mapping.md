@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 08/19/2024
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
