@@ -147,7 +147,7 @@ The following table describes the role membership requirements that are needed f
 <sup>1</sup> The custom role must have the **Microsoft.Insights/createNotifications/*** permission.
 
  > [!NOTE]
-> - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"
+ > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"
   > - You can run a limited number of tests per time period. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
   > - When you configure an action group in the portal, you can opt in or out of the common alert schema.
   >     - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
