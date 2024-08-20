@@ -1,3 +1,9 @@
+Hello
+
+This script name should be named 'MMAUninstallUtilityScript.ps1' instead of 'MMAUnistallUtilityScript.ps1'
+
+Also my script runs for a few hours ona subscription with a single VM. Is this normal?
+
 ---
 title: MMA Discovery and Removal Utility
 description: This article describes a PowerShell script to remove the legacy agent from systems that migrated to the Azure Monitor Agent.
