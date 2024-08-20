@@ -67,7 +67,7 @@ ms.topic: conceptual
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant?**  
    Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account. Follow these steps:
    
-   1. Sign in to the Azure portal and select **Access control (IAM)** from the left-hand navigation.
+   1. Sign in to the Azure portal and select **Access control (IAM)** from the service menu.
    1. Select the **Role assignments** tab to list the users and applications (*service principals*) that have access to your storage account.
    1. Verify **Microsoft.StorageSync** or **Hybrid File Sync Service** (old application name) appears in the list with the **Reader and Data Access** role.
 
