@@ -35,7 +35,7 @@
 | Web application firewall HTTP header name length | 256 |
 | Web application firewall cookie name length | 256 |
 | Web application firewall exclusion limit | 100 |
-| Web application firewall HTTP request body and fule upload inspection limit | 128 KB |
+| Web application firewall HTTP request body inspection limit | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
 <sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
@@ -82,7 +82,7 @@
 | WAF HTTP header name length | 256 | 256 |
 | WAF cookie name length | 256 | 256|
 | WAF exclusion per policy | 100 | 100 |
-| WAF HTTP request body size inspected | 128 KB | 128 KB |
+| WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
 
 <sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
