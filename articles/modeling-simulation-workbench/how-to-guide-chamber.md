@@ -9,30 +9,8 @@ ms.date: 08/16/2024
 
 #CustomerIntent: As a Workbench Owner, I want to create and manage a Chamber to isolate users, workloads and data.
 ---
+# Create a Chamber in the Azure Modeling and Simulation Workbench
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
 The Azure Modeling and Simulation Workbench provides a secure, cloud-based environment to collaborate with other organizations.  Chambers are isolated areas with no access to the internet or other Chambers, making them ideal work environments for enterprises.  In a complex project where isolation is needed, a Chamber should be created for each independent work group or enterprise that requires confidentiality and control of their data.
 
 This article shows how to create, manage, and delete a Chamber.
@@ -50,30 +28,11 @@ Required: Make Prerequisites the first H2 after the H1.
 ## Prerequisites
 
 * A Modeling and Simulation Workbench top-level Workbench has been created.
-* A user account with Workbench Owner role assignments, or for certain operations the Chamber Admin role
-
-<!-- 4. Task H2s ------------------------------------------------------------------------------
-
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
-
-For portal-based procedures, minimize bullets and numbering.
-
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
-
--->
+* A user account with Workbench Owner privileges (Subscription Owner or Subscription Contributor) role.
 
 ## Create a Chamber
 
-A Workbench Owner can create a Chamber in an existing Workbench. Chambers can't be renamed or moved once created, nor can the location be specified. Chambers are deployed to the same location as its parent Workbench.
+A Workbench Owner can create a Chamber in an existing Workbench. Chambers can't be renamed or moved once created, nor can the location be specified. Chambers are deployed to the same location as the parent Workbench.
 
 1. From the Workbench overview page, select **Chamber** from the **Settings** menu in the left pane.
 1. In the Chamber page, select **Create** from the action bar. :::image type="content" source="media/howtoguide-create-chamber/chamber-create-button.png" alt-text="Detail of Chamber action bar with Create button annotated in red box.":::
@@ -104,15 +63,7 @@ Nested resources of a Chamber must first be deleted before the top-level Chamber
 
 * [Manage Connectors](./how-to-guide-connector.md)
 * [Manage Chamber Storage](./how-to-guide-manage-storage.md)
-* [Manage Chamber VMs](./how-to-VM)
-
-<!-- 5. Next step/Related content------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
+* [Manage Chamber VMs](./how-to-guide-chamber-vm.md)
 
 ## Related content
 

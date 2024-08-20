@@ -7,8 +7,10 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
+
 #Customer intent: As a Modeling and Simulation Workbench user, I want to understand the Connector component.
 ---
+# Connectors in Azure Modeling and Simulation Workbench
 
 Connectors define the network access method between users and the Azure Modeling and Simulation Workbench Chamber. Connectors support connectivity through allowlisted public IPs, VPN, or Azure ExpressRoute.  A Chamber can have only one Connector configured at a time.  Connectors also configure copy-paste functionality into Chamber VMs. Connector types are immutable and once created cannot be changed to another access model. Connectors are part of the Idle mode setting to reduce cost.
 
@@ -26,9 +28,8 @@ A VPN Connector can be created which deploys infrastructure specifically for VPN
 
 ### Azure ExpressRoute
 
-[Azure ExpressRoute](../expressroute/) provides secure, dedicated, encrypted connectivity from on-premise to an Azure landing zone. A Workbench Owner must create a Connector expressly for ExpressRoute, providing the necessary virtual network, supporting network infrastructure and peer the appropriate vnets. 
+[Azure ExpressRoute](/azure/expressroute/expressroute-introduction) provides secure, dedicated, encrypted connectivity from on-premise to an Azure landing zone. A Workbench Owner must create a Connector expressly for ExpressRoute, providing the necessary virtual network, supporting network infrastructure and peer the appropriate vnets.
 
 ## Next steps
 
-- [Create a Connector](./how-to-guide-connector.md)
-- [Data pipeline](./concept-data-pipeline.md)
+- [Create a Connector](./how-to-guide-set-up-networking.md)

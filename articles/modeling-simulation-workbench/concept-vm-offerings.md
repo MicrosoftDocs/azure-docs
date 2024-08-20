@@ -1,5 +1,5 @@
 ---
-title: VM Offerings: Azure Modeling and Simulation Workbench
+title: "VM Offerings: Azure Modeling and Simulation Workbench"
 description: VM offerings available in the Azure Modeling and Simulation Workbench
 author: yousefi-msft
 ms.author: yousefi
@@ -9,6 +9,7 @@ ms.date: 08/12/2024
 
 #CustomerIntent: As a Workbench User, I want to understand what VMs are offered on the Azure Modeling and Simulation Workbench so that I can pick the right VM for my needs.
 ---
+# VM Offerings: Azure Modeling and Simulation Workbench
 
 Azure Modeling and Simulation Workbench offers a select set of virtual machines (VM) that are optimized for  large-scale, complex modeling, simulation, digital twin, semiconductor design, and other scientific or industrial workloads.  
 
@@ -52,7 +53,7 @@ The Fsv2-series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lak
 
 Fsv2-series have fixed-sized local storage.
 
-| Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Expected network bandwidth (Mbps) |
+| Size | vCPUs | Memory: GiB | Temp storage (SSD) GiB | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|
 | Standard_F16s_v2 | 16 | 32  | 128 | 12500 |
 | Standard_F32s_v2 | 32 | 64  | 256 | 16000 |
@@ -93,32 +94,7 @@ M-series VMs have fixed-size temporary storage.
 | Standard_M64m  | 64  | 1792   | 7168  | 16000 |
 | Standard_M128m | 128 | 3892   | 14336 | 32000 |
 
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
-
--->
 ## Next step
-TODO: Add your next step link(s)
+
 > [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
-## Related content
-TODO: Add your next step link(s)
-- [Write concepts](article-concept.md)
+> [Create a Chamber VM](./how-to-guide-chamber-vm.md)

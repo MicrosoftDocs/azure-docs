@@ -1,6 +1,6 @@
 ---
-title: Manage Chamber Idle Mode: Azure Modeling and Simulation Workbench
-description: Place a Chamber into Idle mode to optimize cost
+title: "Manage Chamber Idle Mode: Azure Modeling and Simulation Workbench"
+description: Place a Chamber into Idle mode to optimize costs
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -9,6 +9,7 @@ ms.date: 08/17/2024
 
 #CustomerIntent: As a Chamber Admin, I want to reduce cost and place a Chamber into Idle mode.
 ---
+# Manage Chamber Idle mode
 
 To optimize cost management, Chambers can be put into an idle state to reduce the running cost, while still maintaining the core infrastructure. Before enabling Chamber idle, ensure that there are no running workloads and no active remote desktop user connections.
 
@@ -17,7 +18,8 @@ To optimize cost management, Chambers can be put into an idle state to reduce th
 
 ## Prerequisites
 
-None
+* An instance of Azure Modeling and Simulation Design Workbench with at least one Chamber and Connector.
+* A user role with at Chamber Admin assignment for the target Chambers.
 
 ## Place a Chamber into idle state
 

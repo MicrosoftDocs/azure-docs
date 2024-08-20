@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand  workbench components.
 ---
+# Workbench: Azure Modeling and Simulation Workbench
 
 An Azure Modeling and Simulation Workbench is a collection of cloud resources combined and presented to be a easy to manage Platform-as-a-Service for secure, cloud-based collaboration. At the top level, a Workbench object is a grouping that encapsulates supporting services deployed in a Microsoft-managed environment.  Workbenches provide user, data, and workload isolation with full auditability and can be deployed and scaled on-demand.  The Modeling and Simulation Workbench provides conventional cloud resources, such as computing, storage, and networking, in an isolated, managed environment.
 
@@ -46,6 +47,7 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 - Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Microsoft Entra ID](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users. -->
 
-## Next steps
+## Next step
+
 
 - [User personas](./concept-user-personas.md)

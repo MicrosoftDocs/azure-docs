@@ -30,7 +30,7 @@ items:
     - name: License service
       href: ./concept-license-service.md
     - name: VM offerings
-      href: ./concept-compute-vm-offerings.md
+      href: ./concept-vm-offerings.md
 - name: How-to guides
   items:
     - name: Create and manage Chambers
@@ -48,7 +48,7 @@ items:
     - name: Set up networking
       href: ./how-to-guide-set-up-networking.md
     - name: Manage Red Hat firewalls
-      href: ./how-guide-configure-firewall-rh.md
+      href: ./how-to-guide-configure-firewall-rh.md
     - name: Start, stop, and restart Chambers, Connectors, and VMs
       href: ./how-to-guide-start-stop-restart.md
     - name: Place a Chamber into Idle mode

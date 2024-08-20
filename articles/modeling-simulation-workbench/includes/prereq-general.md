@@ -1,0 +1,1 @@
+* An instance of Azure Modeling and Simulation Design Workbench installed with at least one Chamber.

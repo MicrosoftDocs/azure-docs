@@ -1,5 +1,5 @@
 ---
-title: Configure firewalls in Red Hat VMs: Azure Modeling and Simulation Workbench
+title: "Configure firewalls in Red Hat VMs: Azure Modeling and Simulation Workbench"
 description: Configure firewalls in Red Hat VMs
 author: yousefi-msft
 ms.author: yousefi
@@ -9,6 +9,7 @@ ms.date: 08/18/2024
 
 #CustomerIntent: As a Chamber Admin, I want to configure firewalls on individual VMs to allow applications to communicate within a Chamber.
 ---
+"Configure firewalls in Red Hat VMs"
 
 Chamber VMs run Red Hat Linux as the operating system. By default, these images have a firewall configured to that deny any connections being made to the host, regardless if a service has been started. To allow communication on the necessary ports, the firewall must be configured to allow traffic to pass through. Similarly, if a rule is no longer required, it should be removed.
 
@@ -21,7 +22,7 @@ All the operations referenced here require `sudo` privileges and thus need the C
 
 ## Prerequisites
 
-* A user account with the Chamber Admin role assigned for `sudo` privileges.
+* A user account with the Chamber Admin role.
 
 ## List all open ports
 
@@ -29,6 +30,20 @@ List all currently open ports. This command will list ports and associated proto
 
 ```bash
 $ sudo firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0
+  sources: 
+  services: cockpit dhcpv6-client ssh
+  ports: 6817-6819/tcp 60001-63000/tcp
+  protocols: 
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
 ```
 
 ## Open ports for traffic
@@ -41,12 +56,14 @@ Open a single port with `firewalld` for a given protocol using the `--add-port=p
 
 ```bash
 $ sudo firewall-cmd --add-port=33500/tcp
+success
 ```
 
 Commit the rule to the permanent set by executing the following:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent
+success
 ```
 
 ### Open a range of ports
@@ -54,13 +71,15 @@ $ sudo firewall-cmd --runtime-to-permanent
 Open a range of ports with `firewalld` for a specified protocol with the `--add-port=startport-endport/porttype` otpion. This command is often useful in distributed computing scenarios where workers are dispatched to a large number of nodes and multiple workers may be dispatched to the same physical node.  The following example opens 100 consecutive ports starting at port 5000 with the UDP protocol.
 
 ```bash
-sudo firewall-cmd --add-port=5000-5099/udp
+$ sudo firewall-cmd --add-port=5000-5099/udp
+success
 ```
 
 Commit the rule to the permanent set by executing the following:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent
+success
 ```
 
 ## Remove port rules
@@ -69,23 +88,17 @@ If rules are no longer needed, they can be removed with the same notation as add
 
 ```bash
 $ sudo firewall-cmd --remove-port=33500/tcp
+success
 ```
 
 Commit the rule to the permanent set by executing the following:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent
+success
 ```
-
-## Next step
-
-TODO: Add your next step link(s)
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
 
 ## Related content
 
-TODO: Add your next step link(s)
+* [Upload data to a Chamber](./how-to-guide-upload-data.md)
+* [Download data from a Chamber](./how-to-guide-download-data.md)

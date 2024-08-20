@@ -1,5 +1,5 @@
 ---
-title: How to start, stop, and restart Chambers, Connectors, and VMs: Azure Modeling and Simulation Workbench
+title: "How to start, stop, and restart Chambers, Connectors, and VMs: Azure Modeling and Simulation Workbench"
 description: How to start, stop, and restart Chambers, Connectors, and VMs in the Azure Modeling and Simulation Workbench
 author: yousefi-msft
 ms.author: yousefi
@@ -9,6 +9,7 @@ ms.date: 08/18/2024
 
 #CustomerIntent: As a workbench user, I want to control Chambers, VMs, and Connectors.
 ---
+# Start, stop, and restart Chambers, Connectors, and VMs
 
 **Applies to:** :heavy_check_mark: Chambers :heavy_check_mark: Connectors :heavy_check_mark: Chamber VMs
 
@@ -18,11 +19,12 @@ License servers are controlled by the Chamber in which they reside and do not ha
 
 ## Prerequisites
 
-None.
+* An instance of the Azure Modeling and Simulation Workbench with a Chamber, Connector, or VM.
+* A user role with either Chamber Admin or Workbench Owner privileges.
 
 ## Start a Chamber, Connector, or VM
 
-If stopped, use the following procedure to start. This procedure applies to Chambers, Connectors, and VMs. The action bar is located on the main page of the resource selected and is identical for each of these resources.  
+If stopped, use the following procedure to start. This procedure applies to Chambers, Connectors, and VMs. The action bar is located on the main page of the resource selected and is identical for each of these resources.
 
 1. Navigate to the resource to be started. For Chambers, select **Chamber** from the **Settings** menu in the Workbench overview. Connectors and VMs are listed in the **Settings** menu of their respective Chamber.
 1. Select **Start** from the action bar at the top of overview page.  The start operation can take up to 8 minutes.
