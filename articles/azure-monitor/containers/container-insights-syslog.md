@@ -1,22 +1,22 @@
 ---
-title: Syslog collection with Container Insights
-description: This article describes how to collect Syslog from AKS nodes using Container insights.
+title: Access Syslog data in Container Insights 
+description: Describes how to access Syslog data collected from AKS nodes using Container insights.
 ms.topic: conceptual
 ms.date: 08/19/2024
 ms.reviewer: damendo
 ---
 
-# Syslog collection with Container Insights 
+# Access Syslog data in Container Insights 
 
 Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 ## Prerequisites 
 
-- Syslog collection needs to be enabled for your cluster using the guidance in [Configure and filter log collection in Container insights](./container-insights-data-collection-configure.md).
+- Syslog collection needs to be enabled for your cluster using the guidance in [Configure and filter log collection in Container insights](./container-insights-data-collection-configure.md#configure-data-collection-using-dcr).
 - Port 28330 should be available on the host node.
 
 
-## Access Syslog data using built-in workbooks
+## Built-in workbooks
 
 To get a quick snapshot of your syslog data, use the built-in Syslog workbook using one of the following methods:
 
@@ -33,7 +33,7 @@ Navigate to your cluster in the Azure portal. Open the **Workbooks** tab and loc
 
     :::image type="content" source="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" lightbox="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab." border="true":::
 
-### Access Syslog data using a Grafana dashboard
+## Grafana dashboard
 
 If you use Grafana, you can use the Syslog dashboard for Grafana to get an overview of your Syslog data. This dashboard is available by default if you create a new Azure-managed Grafana instance. Otherwise, you can [import the Syslog dashboard from the Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/). 
 
@@ -42,7 +42,7 @@ If you use Grafana, you can use the Syslog dashboard for Grafana to get an overv
 
 :::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
 
-### Access Syslog data  using log queries
+## Log queries
 
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
@@ -52,7 +52,7 @@ You can open Log Analytics from the **Logs** menu in the **Monitor** menu to acc
  
 :::image type="content" source="media/container-insights-syslog/aks-4.png" lightbox="media/container-insights-syslog/aks-4.png" alt-text="Screenshot of Query editor with Syslog query." border="false":::
   
-#### Sample queries
+### Sample queries
   
 The following table provides different examples of log queries that retrieve Syslog records.
 
