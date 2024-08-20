@@ -328,7 +328,7 @@ process {
         Select-AzSubscription -SubscriptionId $SubscriptionId -ErrorAction Stop | Out-Null
     }
     catch {
-        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -ErrorAction Stop
     }
 
     foreach ($account in Get-AzStorageAccount) {
@@ -351,7 +351,7 @@ process {
             }
         }
         elseif ($account.AllowBlobPublicAccess -eq $false) {
-            Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
+            Write-Host "Account:" $account.StorageAccountName "has public access disabled, no action required."
         }
         else {
             Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
