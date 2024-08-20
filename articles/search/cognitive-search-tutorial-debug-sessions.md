@@ -91,8 +91,9 @@ The sample code intentionally creates a buggy index as a consequence of problems
 1. Enter this JSON query string in Search explorer's JSON view. It returns fields for specific documents (identified by the unique `metadata_storage_path` field).
 
    ```json
+   "search": "*",
    "select": "metadata_storage_path, organizations, locations",
-   "count"=true`
+   "count": true
     ```
 
 1. Run the query. You should see empty values for `organizations` and `locations`.
@@ -117,31 +118,27 @@ Another way to investigate errors and warnings is through the Azure portal.
 
 1. Give the session a name. 
 
-1. Connect the session to your storage account. Create a container named "debug sessions". You can use this container repeatedly to store all of your debug session data.
-
-1. If you configured a trusted connection between search and storage, select the user-managed identity or system identity for the connection. Otherwise, use the default (None).
+1. Connect the session to your storage account.
 
 1. In Indexer template, provide the indexer name. The indexer has references to the data source, the skillset, and index.
 
+1. If you configured role assignments or a trusted connection between search and storage, select the system identity for the connection. 
+
+1. **Save** the session. Saving the session kicks off the enrichment pipeline as defined by the skillset for the selected document.
+
 1. Accept the default document choice for the first document in the collection. A debug session only works with a single document. You can choose which document to debug, or just use the first one.
 
-1. **Save** the session. Saving the session will kick off the enrichment pipeline as defined by the skillset for the selected document.
+1. When the debug session has finished initializing, you should see a skills workflow with mappings and a search index. The enriched document data structure appears in a details pane on the side.
 
-   :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Screenshot of configuring a new debug session." border="true":::
-
-1. When the debug session has finished initializing, the session defaults to the **AI Enrichments** tab, highlighting the **Skill Graph**. The Skill Graph provides a visual hierarchy of the skillset and its order of execution sequentially and in parallel.
-
-   :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Screenshot of Debug Session visual editor." border="true":::
+   :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" lightbox="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Screenshot of Debug Session visual editor." border="true":::
 
 ## Find issues with the skillset
 
-Any issues reported by the indexer can be found in the adjacent **Errors/Warnings** tab.
+Any issues reported by the indexer can be found in the adjacent **Errors/Warnings** pane.
 
-:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Screenshot of the errors and warnings tab." border="true":::
+Notice that the number of errors and warning is a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can select on a warning message and see the details of this warning.
 
-Notice that the **Errors/Warnings** tab will provide a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can select on a warning message and see the details of this warning.
-
-Select **Errors/Warnings** to review the notifications. You should see four:
+Select **Warnings** to review the notifications. You should see four:
 
 + "Could not execute skill because one or more skill inputs were invalid. Required skill input is missing. Name: 'text', Source: '/document/content'."
 
@@ -162,11 +159,9 @@ Because all four notifications are about this skill, your next step is to debug 
 
 In the **Errors/Warnings** tab, there are two missing inputs for an operation labeled `EntityRecognitionSkill.#1`. The detail of the first error explains that a required input for 'text' is missing. The second indicates a problem with an input value "/document/languageCode".
 
-1. In **AI Enrichments** >  **Skill Graph**, select the skill labeled **#1** to display its details in the right pane.
+1. On the work surface, select the first skill.
 
-1. Select the **Executions** tab and locate the input for "text".
-
-1. Select the **</>** symbol to pop open the Expression Evaluator. The displayed result for this input doesn’t look like a text input. It looks like a series of new line characters `\n \n\n\n\n` instead of text. The lack of text means that no entities can be identified, so either this document fails to meet the prerequisites of the skill, or there's another input that should be used instead.
+1. On the details pane, select the input to pop open the Expression Evaluator. The displayed result for this input doesn’t look like a text input. It looks like a series of new line characters `\n \n\n\n\n` instead of text. The lack of text means that no entities can be identified, so either this document fails to meet the prerequisites of the skill, or there's another input that should be used instead.
 
    :::image type="content" source="media/cognitive-search-debug/expression-evaluator-text.png" alt-text="Screenshot of Expression Evaluator for the text input." border="true":::
 

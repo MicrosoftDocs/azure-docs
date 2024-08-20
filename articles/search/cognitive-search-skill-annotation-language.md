@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-ms.date: 01/27/2022
+ms.date: 08/20/2024
 ---
 # Skill context and input annotation language
 
@@ -24,8 +24,8 @@ The nodes in the tree can be simple values such as strings and numbers, arrays, 
 Even simple values can be enriched with additional structured information.
 For example, a string can be annotated with additional information that is stored beneath it in the enrichment tree.
 The expressions used to query that internal structure use a rich syntax that is detailed in this article.
-The enriched data structure can be [inspected from debug sessions](cognitive-search-debug-session.md#ai-enrichments-tab--enriched-data-structure).
-Expressions querying the structure can also be [tested from debug sessions](cognitive-search-debug-session.md#expression-evaluator).
+The enriched data structure can be [inspected from debug sessions](cognitive-search-debug-session.md).
+Expressions querying the structure can also be tested from debug sessions.
 
 Throughout the article, we'll use the following enriched data as an example.
 This data is typical of the kind of structure you would get when enriching a document using a skillset with [OCR](cognitive-search-skill-ocr.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [text translation](cognitive-search-skill-text-translation.md), [language detection](cognitive-search-skill-language-detection.md), and [entity recognition](cognitive-search-skill-entity-recognition-v3.md) skills, as well as a custom tokenizer skill.

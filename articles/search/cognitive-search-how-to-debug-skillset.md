@@ -127,7 +127,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 1. Select a skill.
 
-   :::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-sessions-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
+   :::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-session-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
 
 1. Follow the links to drill further into skills processing. For example, the following screenshot shows the output of the first iteration of the Text Split skill. 
 

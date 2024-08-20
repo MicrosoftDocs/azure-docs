@@ -63,7 +63,7 @@ The visual editor is organized into a surface area showing a progression of oper
 
 Select any skill or mapping, and a pane opens to side showing relevant information.
 
-:::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-sessions-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
+:::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-session-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
 
 Follow the links to drill further into skills processing. For example, the following screenshot shows the output of the first iteration of the Text Split skill. 
 
