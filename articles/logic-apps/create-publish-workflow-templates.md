@@ -85,7 +85,7 @@ After you're done, [copy the underlying workflow definition](#copy-workflow-defi
 
 1. From the code view window, copy the entire workflow definition, for example:
 
-   :::image type="content" source="media/create-publish-workflow-templates/standard-workflow-code=view.png" alt-text="Screenshot shows Azure portal, code view window, and Request-Response workflow definition." lightbox="media/create-publish-workflow-templates/standard-workflow-code=view.png":::
+   :::image type="content" source="media/create-publish-workflow-templates/standard-workflow-code-view.png" alt-text="Screenshot shows Azure portal, code view window, and Request-Response workflow definition." lightbox="media/create-publish-workflow-templates/standard-workflow-code-view.png":::
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
