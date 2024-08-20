@@ -222,7 +222,7 @@ When providing both the machine credentials and the vCenter server or vSphere ES
           `cd /usr/local/ASR/Vx/bin/ ./AzureRcmCli --getagentconfiginput`
       1. **Windows** :
           `cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"`
-./AzureRcmCli.exe --getagentconfiginput
+          `./AzureRcmCli.exe --getagentconfiginput`
                         
   1. Select **Download configuration file**.
 

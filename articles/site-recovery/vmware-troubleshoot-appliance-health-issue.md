@@ -47,7 +47,7 @@ To troubleshoot these issues, follow these steps:
 
 :::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of appliance health error.":::
 
-#### Current error
+### Troubleshoot other error
 
 **If you see the following for your web app in replication appliance:**
 

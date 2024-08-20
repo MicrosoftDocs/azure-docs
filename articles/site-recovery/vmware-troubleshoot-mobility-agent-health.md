@@ -25,7 +25,7 @@ Before you start troubleshooting, ensure that:
 
 ## Troubleshoot process
 
-If you see the following error in the appliance health status:
+If you see the following error in the mobility agent status:
 
 ### Troubleshoot certificate renewal
 
