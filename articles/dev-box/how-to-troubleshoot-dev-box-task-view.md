@@ -33,9 +33,9 @@ If you added a dev box to Task view but no longer have access to it, you might w
 
 To remove a dev box from Task view, you can:
 
-- Remove dev box from Task view in Windows App
-- Reinstall Windows App
-- Remove the dev box registry entry
+- [Remove dev box from Task view in Windows App](#remove-dev-box-from-task-view-in-windows-app)
+- [Reinstall Windows App](#reinstall-windows-app)
+- [Remove the dev box registry entry](#remove-the-dev-box-registry-entry)
 
 ### Remove dev box from Task view in Windows App
 
