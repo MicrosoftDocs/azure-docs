@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 08/19/2024
 ---
 
 # Hybrid search using vectors and full text in Azure AI Search
@@ -35,7 +35,7 @@ Hybrid search is predicated on having a search index that contains fields of var
 A representative hybrid query might be as follows (notice the vector is trimmed for brevity):
 
 ```http
-POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-11-01
+POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2024-07-01
   content-type: application/JSON
 {
     "count": true,

@@ -9,7 +9,6 @@ ms.date: 02/29/2024
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 
 # Tutorial: Use namespace topics to route MQTT messages to Azure Event Hubs (Azure portal)

@@ -5,7 +5,6 @@ description: Learn how you can use the Execute Pipeline Activity to invoke one p
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

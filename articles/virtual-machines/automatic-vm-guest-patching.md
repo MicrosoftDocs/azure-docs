@@ -2,7 +2,7 @@
 title: Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 description: Learn how to automatically patch virtual machines in Azure.
 author: maulikshah23
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.date: 07/31/2024
@@ -56,7 +56,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 **Within an availability set:**
 - All VMs in a common availability set aren't updated concurrently.
 - VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
--	In an Update Domain, no more than 20% of the VMs within a resource group will be updated at a time. For resource groups with less than 10 VMs, VMs update one at a time within an Update Domain.
+-	In an Update Domain, no more than 20% of the VMs within an availability set will be updated at a time. For availability sets with less than 10 VMs, VMs update one at a time within an Update Domain.
 
 Restricting the number of concurrently patched VMs across regions, within a region, or within an availability set limits the impact of a faulty patch on a given set of VMs. With health monitoring, any potential issues are flagged before they impact the entire workload.
 

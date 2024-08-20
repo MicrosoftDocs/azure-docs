@@ -4,7 +4,7 @@ description: Learn how to automatically upgrade the OS image on VM instances in 
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 07/08/2024
@@ -133,6 +133,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0 |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0_gen2 |
 
 
 ## Requirements for configuring automatic OS image upgrade
@@ -464,14 +466,14 @@ Action groups can be created and managed using:
 * [ARM Resource Manager](/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
 * [Portal](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
 * PowerShell:
-  *  [New-AzActionGroup](/powershell/module/az.monitor/new-azactiongroup?view=azps-12.0.0)  
-  *  [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup?view=azps-12.0.0)
-  *  [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-12.0.0)
-* [CLI](/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create)
+  *  [New-AzActionGroup](/powershell/module/az.monitor/new-azactiongroup)  
+  *  [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup)
+  *  [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup)
+* [CLI](/cli/azure/monitor/action-group#az-monitor-action-group-create)
 
 Customers can set up the following using action groups:
 * [SMS and/or Email notifications](/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
-* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks)
+* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](/azure/automation/automation-webhooks)
 * [ITSM Connections](/azure/azure-monitor/alerts/itsmc-overview)
 
 ## Investigate and Resolve Auto Upgrade Errors

@@ -4,7 +4,6 @@ description: Advanced monitoring with annotations and user properties
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: olmoloce
-ms.service: azure-data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 10/20/2023

@@ -3,7 +3,6 @@ title: Troubleshoot security and access control issues
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory and Synapse Analytics. 
 author: lrtoyou1223
-ms.service: azure-data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
@@ -224,7 +223,7 @@ You can reassign access to the following permissions: **Get, Unwrap Key, and Wra
  
 * Customer deleted Key Vault / CMK before deleting the service. 
 CMK in the service should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Review [Recover deleted Key](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before the service.
 You can recover from this by using REST API calls. You can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this 'd be by using Fiddler. Follow following steps.

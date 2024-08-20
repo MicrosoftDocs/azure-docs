@@ -1,7 +1,6 @@
 ---
 title: Monitor an integration runtime within a managed virtual network 
 description: Learn how to monitor an integration runtime within an Azure Data Factory managed virtual network.  
-ms.service: azure-data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 05/15/2024

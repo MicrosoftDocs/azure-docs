@@ -1,17 +1,23 @@
 ---
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
-author: flang-msft
+
 
 ms.custom: references_regions
-ms.author: franlanglois
-ms.service: cache
+
+
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 08/05/2024
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## August 2024
+
+### Availability zones
+
+For the Standard and Premium tiers, you can now use availability zones (Preview) with the ability to select zones automatically. With the Standard and Premium, you can choose to have the zones chosen automatically by Azure. With Premium, you can continue to choose your availability zones explicitly.
 
 ## June 2024
 
@@ -23,7 +29,7 @@ You can upgrade your caches automatically or manually. For more information, see
 
 You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
 
-1. You can control when the upgrade occurs. 
+1. You can control when the upgrade occurs.
 1. You can upgrade to preview releases of Redis software.
 
 | **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |

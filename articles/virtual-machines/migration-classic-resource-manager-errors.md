@@ -3,7 +3,7 @@ title: Common errors during Classic to Azure Resource Manager migration
 description: This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure Service Management to Azure Resource Manager.
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: troubleshooting
 ms.date: 03/08/2023

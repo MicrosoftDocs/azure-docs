@@ -1,10 +1,10 @@
 ---
 title: Using Redis modules with Azure Cache for Redis
 description: You can use Redis modules with your Azure Cache for Redis instances to extend your caches on the Enterprise tiers.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.custom: template-concept
@@ -100,7 +100,7 @@ RedisBloom adds four probabilistic data structures to a Redis server: **bloom fi
 **Bloom and Cuckoo** filters are similar to each other, but each has a unique set of advantages and disadvantages that are beyond the scope of
 this documentation.
 
-For more information, see [RedisBloom](https://redis.io/bloom/).
+For more information, see [RedisBloom](https://redis.io/probabilistic/).
 
 ### RedisTimeSeries
 

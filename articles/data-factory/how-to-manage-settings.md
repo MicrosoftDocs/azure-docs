@@ -3,7 +3,6 @@ title: Managing Azure Data Factory settings and preferences
 description: Learn how to manage Azure Data Factory settings and preferences.
 author: n0elleli
 ms.author: noelleli
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 01/05/2024
 ---

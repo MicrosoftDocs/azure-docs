@@ -3,7 +3,7 @@ title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
 description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.date: 03/08/2024
 ms.author: cshoe
 ms.topic: how-to

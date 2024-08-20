@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart

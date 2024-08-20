@@ -3,7 +3,7 @@ title: Azure Stream Analytics autoscale streaming units
 description: This article explains how you can use different scaling methods for your Stream Analytics job to make sure you have the right number of streaming units.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/28/2024
 ---

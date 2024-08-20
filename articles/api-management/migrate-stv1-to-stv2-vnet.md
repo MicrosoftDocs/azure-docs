@@ -3,7 +3,7 @@ title: Migrate to stv2 platform - Azure API Management - VNet injected
 description: Migrate your Azure API Management instance in-place from stv1 to stv2 compute platform. Follow these migration steps if your instance is deployed (injected) in an external or internal VNet.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
 ms.date: 06/18/2024

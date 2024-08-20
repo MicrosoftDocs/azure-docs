@@ -1,10 +1,10 @@
 ---
 title: Azure Monitor insights for Azure Cache for Redis | Microsoft Docs
 description: This article describes Azure Monitor insights for Azure Cache for Redis, which provides cache owners with a quick understanding of performance and utilization.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.topic: conceptual
-ms.service: cache
+
 ms.date: 03/25/2024
 ms.custom: subject-monitoring
 ---

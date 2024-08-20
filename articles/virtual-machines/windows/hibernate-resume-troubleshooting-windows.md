@@ -2,7 +2,7 @@
 title: Troubleshoot hibernation on Windows virtual machines
 description: Learn how to troubleshoot hibernation on Windows VMs.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 05/16/2024
 ms.author: jainan

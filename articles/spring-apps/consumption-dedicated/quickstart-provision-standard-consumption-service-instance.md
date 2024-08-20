@@ -3,7 +3,7 @@ title: Quickstart - Provision an Azure Spring Apps Standard consumption and dedi
 description: Learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

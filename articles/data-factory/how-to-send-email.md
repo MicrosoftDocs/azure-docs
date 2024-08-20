@@ -5,7 +5,6 @@ description: Learn how to send an email with an Azure Data Factory or Azure Syna
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 05/15/2024
 ---

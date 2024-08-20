@@ -5,7 +5,6 @@ description: The Validation activity in Azure Data Factory and Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

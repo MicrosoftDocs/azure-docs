@@ -3,7 +3,7 @@ title: "Customize outputs in batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how create deployments that generate custom outputs and files.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

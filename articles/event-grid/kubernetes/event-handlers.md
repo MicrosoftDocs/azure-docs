@@ -8,7 +8,6 @@ ms.custom:
   - build-2024
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.service: azure-event-grid
 ---
 
 # Event handlers destinations in Event Grid on Kubernetes

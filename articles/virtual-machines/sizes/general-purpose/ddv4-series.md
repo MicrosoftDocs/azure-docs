@@ -2,7 +2,7 @@
 title: Ddv4 size series
 description: Information on and specifications of the Ddv4-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/29/2024
@@ -19,8 +19,8 @@ ms.reviewer: mattmcinnes
 
 ## Feature support
 
-Premium Storage: Supported<br>
-Premium Storage caching: Supported<br>
+Premium Storage: Not Supported<br>
+Premium Storage caching: Not Supported<br>
 Live Migration: Supported<br>
 Memory Preserving Updates: Supported<br>
 VM Generation Support: Generation 1 and 2<br>

@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 08/01/2024
+ms.date: 08/08/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -39,7 +39,7 @@ For more information, see [Use the Azure Key Vault Secrets Provider extension to
 
 Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. It gathers information related to security like audit log data from the Kubernetes cluster, and provides recommendations and threat alerts based on gathered data.
 
-For more information, see [Enable Microsoft Defender for Containers](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
+For more information, see [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
 
 > [!IMPORTANT]
 > Defender for Containers support for Arc-enabled Kubernetes clusters is currently in public preview.
@@ -116,7 +116,7 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 > [!IMPORTANT]
-> The [Flux v2.3.0 release](https://fluxcd.io/blog/2024/05/flux-v2.3.0/) includes API changes to the HelmRelease and HelmChart APIs, with deprecated fields removed. An upcoming minor version update of Microsoft's Flux extension will include these changes, consistent with the upstream OSS Flux project.
+> The [Flux v2.3.0 release](https://fluxcd.io/blog/2024/05/flux-v2.3.0/) includes API changes to the HelmRelease and HelmChart APIs, with deprecated fields removed, and an updated version of the kustomize package. An upcoming minor version update of Microsoft's Flux extension will include these changes, consistent with the upstream OSS Flux project.
 >
 > The [HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) kind will be promoted from `v2beta1` to `v2` (GA). The `v2` API is backwards compatible with `v2beta1`, with the exception of these deprecated fields, which will be removed:
 >
@@ -127,7 +127,16 @@ The most recent version of the Flux v2 extension and the two previous versions (
 >
 > The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
 >
-> To avoid issues due to breaking changes, we recommend updating your deployments by July 29, 2024, so that they stop using the fields that will be removed and use the replacement fields instead. These new fields are already available in the current version of the APIs.
+> Use the new fields which are already available in the current version of the APIs, instead of the fields that will be removed.
+>
+> The kustomize package will be updated to v5.4.0, which contains the following breaking changes:
+>
+> - [Kustomization build fails when resources key is missing](https://github.com/kubernetes-sigs/kustomize/issues/5337)
+> - [Components are now applied after generators and before transformers](https://github.com/kubernetes-sigs/kustomize/pull/5170) in [v5.1.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.1.0)
+> - [Null yaml values are replaced by "null"](https://github.com/kubernetes-sigs/kustomize/pull/5519) in [v5.4.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.4.0)
+>
+> To avoid issues due to breaking changes, we recommend updating your manifests as soon as possible to ensure that your Flux configurations remain compliant with this release.
+
 
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
@@ -140,8 +149,8 @@ Flux version: [Release v2.3.0](https://github.com/fluxcd/flux2/releases/tag/v2.3
 - kustomize-controller: v1.3.0
 - helm-controller: v1.0.1
 - notification-controller: v1.3.0
-- image-automation-controller: v0.32.1
-- image-reflector-controller: v0.38.0
+- image-automation-controller: v0.38.0
+- image-reflector-controller: v0.32.0
 
 Changes made for this version:
 
@@ -186,7 +195,7 @@ Changes made for this version:
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
-For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](/azure/aks/dapr).
 
 ## Azure AI Video Indexer
 

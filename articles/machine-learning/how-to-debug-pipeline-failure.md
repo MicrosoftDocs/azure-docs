@@ -6,7 +6,7 @@ ms.reviewer: None
 author: lgayhardt
 ms.author: lagayhar
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/23/2024

@@ -61,8 +61,6 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|
 |microsoftwindowsserver | windowsserverupgrade | * |
-|microsoftwindowsserver | windowsserverhotpatch-previews |  |
-| | microsoftserveroperatingsystems-previews |  |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 |microsoftsqlserver | sql2016sp1-ws2016 | standard |
 | | sql2016sp2-ws2016 | standard|
@@ -145,7 +143,7 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-ci | 7-ci |
 | |centos-lvm | 7-lvm-gen2 |
 |almalinux | almalinux </br> | 8-gen1, 8-gen2, 9-gen1, 9-gen2|
-||almalinux-x86_64 | 8-gen1, :8-gen2, 9-gen1, 9-gen2
+||almalinux-x86_64 | 8-gen1, 8-gen2, 9-gen1, 9-gen2
 ||almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
 | aviatrix-systems | aviatrix-bundle-payg  | aviatrix-enterprise-bundle-byol|
 || aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
@@ -284,7 +282,7 @@ Update Manager doesn't support driver updates.
 
 #### Extended Security Updates (ESU) for Windows Server
 
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available are default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available by default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
 
 
 #### Microsoft application updates on Windows

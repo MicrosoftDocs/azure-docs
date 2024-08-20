@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/26/2023
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.

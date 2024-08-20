@@ -6,7 +6,6 @@ ms.date: 8/14/2023
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 
 # Enabling managed identity for Event Grid namespace
