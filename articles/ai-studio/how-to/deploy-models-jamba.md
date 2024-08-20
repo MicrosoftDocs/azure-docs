@@ -21,30 +21,24 @@ In this article, you learn how to use Azure AI Studio to deploy AI21's Jamba fam
 The Jamba family models are AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba family models are built for reliable commercial use with respect to quality and performance.
 
 > [!TIP]
-> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
+> See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-1.5-large-announcement) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-1.5-large-microsoft-annnouncement).
 
 ## Deploy the Jamba family models as a serverless API
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription. 
 
-# [AI21 Jamba 1.5 Mini](#tab/ai21-jamba-1-5)
-
-The [AI21 Jamba 1.5 mini model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5). AI21 can change or update the terms of use and pricing of this model.
-
-To get started with Jamba 1.5 mini deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-azure-api-sample).
-
 # [AI21 Jamba 1.5 Large](#tab/ai21-jamba-1-5-large)
 
-The [AI21-Jamba 1.5 large model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-large) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-large). AI21 can change or update the terms of use and pricing of this model.
+The [AI21-Jamba 1.5 Large model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-large) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-large). AI21 can change or update the terms of use and pricing of this model.
 
 To get started with Jamba 1.5 large deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-large-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-large-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-large-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-large-azure-api-sample).
 
 
-# [AI21 Jamba Instruct](#tab/ai21-jamba-instruct)
+# [AI21 Jamba 1.5 Mini](#tab/ai21-jamba-1-5)
 
-The [AI21 Jamba Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
+The [AI21 Jamba 1.5 Mini model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-mini) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-mini). AI21 can change or update the terms of use and pricing of this model.
 
-To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
+To get started with Jamba 1.5 mini deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-mini-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-mini-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-mini-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-mini-azure-api-sample).
 
 ---
 
@@ -85,16 +79,16 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 
 ### Create a new deployment
 
-These steps demonstrate the deployment of AI21-Jamba family models. To create a deployment:
+These steps demonstrate the deployment of `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` models. To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
-1. Search for and select a AI21 model like `AI21 Jamba 1.5 Mini` or `AI21 Jamba 1.5 Large` or `AI21 Jamba Instruct` to open its Details page.
+1. Search for and select a AI21 model like `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` or `AI21 Jamba Instruct` to open its Details page.
 1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select a AI21 model like `AI21 Jamba 1.5 Mini` or `AI21 Jamba 1.5 Large` or `AI21 Jamba Instruct` to open the Model's Details page.
+    1. Search for and select a AI21 model like `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` or `AI21 Jamba Instruct` to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the AI21-Jamba family models, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
@@ -177,7 +171,7 @@ Payload is a JSON formatted string containing the following parameters:
 
 | Key           | Type           | Required/Default | Allowed values    | Description |
 | ------------- | -------------- | :-----------------:| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model`       | `string`       | Y    | Must be `jamba-1.5` or `jamba-1.5-large` or  `jamba-instruct`|
+| `model`       | `string`       | Y    | Must be `jamba-1.5-large` or `jamba-1.5-mini` or  `jamba-instruct`|
 | `messages`    | `list[object]` | Y     | A list of objects, one per message, from oldest to newest. The oldest message can be role `system`. All later messages must alternate between user and assistant roles. See the message object definition below.|
 | `max_tokens`  | `integer`      | N <br>`4096` |  0 – 4096     | The maximum number of tokens to allow for each generated response message. Typically the best way to limit output length is by providing a length limit in the system prompt (for example, "limit your answers to three sentences")|
 | `temperature` | `float`        | N <br>`1`  |  0.0 – 2.0      | How much variation to provide in each answer. Setting this value to 0 guarantees the same response to the same question every time. Setting a higher value encourages more variation. Modifies the distribution from which tokens are sampled. We recommend altering this or `top_p`, but not both. |
@@ -212,11 +206,11 @@ The `document` object has the following fields:
 
 #### Request example
 
-__Single-turn example Jamba 1.5 mini and Jamba 1.5 large__
+__Single-turn example Jamba 1.5 large and Jamba 1.5 mini__
 
 ```JSON
 {
-   "model_name":"model-name", <jamba-1.5|jamba-1.5-large>
+   "model":"jamba-1.5-mini",  <jamba-1.5-large|jamba-1.5-mini>
    "messages":[
       {
          "role":"user",
@@ -230,19 +224,36 @@ __Single-turn example Jamba 1.5 mini and Jamba 1.5 large__
    "stream":false
 }
 ```
-
-__Single-turn example Jamba Instruct__
+__Single-turn example Jamba 1.5 large and Jamba 1.5 mini with documents__
 
 ```JSON
 {
-    "model": "jamba-instruct",
-    "messages": [
-    {
-      "role":"user",
-      "content":"Who was the first emperor of rome?"}
-  ],
-    "temperature": 0.8,
-    "max_tokens": 512
+   "model":"jamba-1.5-mini",  <jamba-1.5-large|jamba-1.5-mini>
+   "messages":[
+      {
+         "role":"system",
+         "content":'''<documents>
+          # Documents
+
+          You can use the following documents for reference:
+
+          ## Document ID: 0
+          Text: Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.
+
+          ## Document ID: 1
+          Text: The Great Gatsby is a novel by American writer F. Scott Fitzgerald.
+          </documents>'''},
+
+       {
+           "role":"user",
+           "content":"Who wrote Harry Potter?"
+       }
+   ],
+   "temperature":0.4,
+   "top_p":1,
+   "n":1,
+   "stop":"\n",
+   "stream":false
 }
 ```
 
@@ -250,7 +261,7 @@ __Chat example (fourth request containing third user response)__
 
 ```JSON
 {
-  "model": "model-name", <jamba-1.5|jamba-1.5-large|jamba-instruct>
+  "model": "jamba-instruct",
   "messages": [
      {"role": "system",
       "content": "You are a helpful genie just released from a bottle. You start the conversation with 'Thank you for freeing me! I grant you one wish.'"},
