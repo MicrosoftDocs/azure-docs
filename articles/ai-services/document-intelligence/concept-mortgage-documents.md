@@ -26,6 +26,8 @@ The Document Intelligence Mortgage models use powerful Optical Character Recogni
 **Supported document types:**
 
 * Uniform Residential Loan Application (Form 1003)
+* Uniform Residential Appraisal Report (Form 1004)
+* Verification of employment form (Form 1005)
 * Uniform Underwriting and Transmittal Summary (Form 1008)
 * Closing Disclosure form
 
@@ -38,7 +40,7 @@ Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, ap
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Mortgage model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**&bullet; prebuilt-mortgage.us.1003</br>&bullet; prebuilt-mortgage.us.1008</br>&bullet; prebuilt-mortgage.us.closingDisclosure**|
+|**Mortgage model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**&bullet; prebuilt-mortgage.us.1003</br>&bullet; prebuilt-mortgage.us.1004</br>&bullet; prebuilt-mortgage.us.1005</br>&bullet; prebuilt-mortgage.us.1008</br>&bullet; prebuilt-mortgage.us.closingDisclosure**|
 ::: moniker-end
 
 ## Input requirements
@@ -125,75 +127,6 @@ The following are the fields extracted from a 1003 URLA form in the JSON output 
 |`Property.IsFhaSecondaryResidence`|`boolean`|Checkbox state of '`FHA` Secondary Residence'|:unselected:|
 |`Property.MixedUseProperty`|`selectionGroup`|Is the property a mixed-use property?|:selected: NO:unselected: YES|
 |`Property.ManufacturedHome`|`selectionGroup`|Is the property a manufactured home?|:selected: NO:unselected: YES|
-
-## [2024-02-29-preview](#tab/2024-02-29-preview)
-
-
-### Supported languages and locales
-
-
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-
-
-### Supported document fields
-
-#### mortgage.us.1003
-
-| Field | Type | Description | Example |
-|:------|:-----|:------------|:--------|
-|`LenderLoanNumber`|`string`|Lender loan number or universal loan identifier|10Bx939c5543TqA1144M999143X38|
-|`AgencyCaseNumber`|`string`|Agency case number|115894|
-|`Borrower`|`object`|||
-|`Borrower.Name`|`string`|Borrower's full name as written on the form|Gwen Stacy|
-|`Borrower.SocialSecurityNumber`|`string`|Borrower's social security number|557-99-7283|
-|`Borrower.BirthDate`|`date`|Borrower's date of birth|11/07/1989|
-|`Borrower.CitizenshipType`|`selectionGroup`|Borrower's citizenship|:selected: U.S. Citizen<br>:unselected: Permanent Resident Alien<br>:unselected: Non-Permanent Resident Alien|
-|`Borrower.CreditApplicationType`|`selectionGroup`|Borrower's credit type|:selected: I'm applying for individual credit.<br>:unselected: I'm applying for joint credit.|
-|`Borrower.NumberOfBorrowers`|`integer`|Total number of borrowers|1|
-|`Borrower.MaritalStatus`|`selectionGroup`|Borrower's marital status|:selected: Married<br>:unselected: Separated<br>:unselected: Unmarried|
-|`Borrower.NumberOfDependents`|`integer`|Total number of borrower's dependents|2|
-|`Borrower.DependentsAges`|`string`|Age of borrower's dependents|10, 11|
-|`Borrower.HomePhoneNumber`|`phoneNumber`|Borrower's home phone number|(818) 246-8900|
-|`Borrower.CellPhoneNumber`|`phoneNumber`|Borrower's cell phone number|(831) 728-4766|
-|`Borrower.WorkPhoneNumber`|`phoneNumber`|Borrower's work phone number|(987) 213-5674|
-|`Borrower.CurrentAddress`|`address`|Borrower's current address|1634 W Glenoaks Blvd<br>Glendale CA 91201 United States|
-|`Borrower.YearsInCurrentAddress`|`integer`|Years in current address|1|
-|`Borrower.MonthsInCurrentAddress`|`integer`|Months in current address|1|
-|`Borrower.CurrentHousingExpenseType`|`selectionGroup`|Borrower's housing expense type|:unselected: No primary housing expense:selected: Own:unselected: Rent|
-|`Borrower.CurrentMonthlyRent`|`number`|Borrower's monthly rent|1,600.00|
-|`Borrower.SignedDate`|`date`|Borrower's signature date|03/16/2021|
-|`CoBorrower`|`object`|||
-|`CoBorrower.Names`|`string`|Coborrowers' names|Peter Parker<br>Mary Jane Watson|
-|`CoBorrower.SignedDate`|`date`|Coborrower's signature date|03/16/2021|
-|`CurrentEmployment`|`object`|||
-|`CurrentEmployment.DoesNotApply`|`boolean`|Checkbox state of 'Doesn't apply'|:selected:|
-|`CurrentEmployment.EmployerName`|`string`|Borrower's employer or business name|Spider Wb Corp.|
-|`CurrentEmployment.EmployerPhoneNumber`|`phoneNumber`|Borrower's employer phone number|(390) 353-2474|
-|`CurrentEmployment.EmployerAddress`|`address`|Borrower's employer address|3533 Band Ave<br>Glendale CA 92506 United States|
-|`CurrentEmployment.PositionOrTitle`|`string`|Borrower's position or title|Language Teacher|
-|`CurrentEmployment.StartDate`|`date`|Borrower's employment start date|01/08/2020|
-|`CurrentEmployment.GrossMonthlyIncomeTotal`|`number`|Borrower's gross monthly income total|4,254.00|
-|`Loan`|`object`|||
-|`Loan.Amount`|`number`|Loan amount|156,000.00|
-|`Loan.PurposeType`|`selectionGroup`|Loan purpose type|:unselected: Purchase:selected: Refinance:unselected: Other|
-|`Loan.OtherPurpose`|`string`|Other loan purpose type|Construction|
-|`Loan.RefinanceType`|`selectionGroup`|Loan refinance type|:selected: No Cash Out<br>:unselected: Limited Cash Out<br>:unselected: Cash Out|
-|`Loan.RefinanceProgramType`|`selectionGroup`|Loan refinance program type|:unselected: Full Documentation:selected: Interest Rate Reduction<br>:unselected: Streamlined without Appraisal<br>:unselected: Other|
-|`Loan.OtherRefinanceProgram`|`string`|Other loan refinance program type|Cash-out refinance|
-|`Property`|`object`|||
-|`Property.Address`|`address`|Property address|1634 W Glenoaks Blvd<br>Glendale CA 91201 Los Angeles|
-|`Property.NumberOfUnits`|`integer`|Number of units|1|
-|`Property.Value`|`number`|Property value|200,000.00|
-|`Property.OccupancyStatus`|`selectionGroup`|Property occupancy status|:selected: Primary Residence<br>:unselected: Second Home<br>:unselected: Investment Property|
-|`Property.IsFhaSecondaryResidence`|`boolean`|Checkbox state of '`FHA` Secondary Residence'|:unselected:|
-|`Property.MixedUseProperty`|`selectionGroup`|Is the property a mixed-use property?|:selected: NO:unselected: YES|
-|`Property.ManufacturedHome`|`selectionGroup`|Is the property a manufactured home?|:selected: NO:unselected: YES|
-
-
-The 1003 URLA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
 ## Field extraction 1004 Uniform Residential Appraisal Report (URAR)
 The following are the fields extracted from a 1004 URAR form in the JSON output response.
