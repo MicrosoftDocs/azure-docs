@@ -1,18 +1,18 @@
 ---
 title: Installing certificates on the Azure Linux Container Host for AKS
 description: How to install certificates on the Azure Linux Container Host for AKS.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.editor: schaffererin
 ms.service: microsoft-linux
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 08/18/2023
 ms.custom: template-how-to-pattern, linux-related-content
 ---
 
 # Installing certificates on the Azure Linux Container host for AKS
 
-By default, the Azure Linux Container Host for AKS image has a minimal set of root certs to trust certain Microsoft resources, such as packages.microsoft.com. All Microsoft certificates aren't automatically included in our image, which is consistent with the least-privilege principle and gives you the flexibility to opt in to just the root certificates you need and to customize your image.
+By default, the Azure Linux Container Host for AKS image has a minimal set of root certs to trust certain Microsoft resources, such as `packages.microsoft.com`. All Microsoft certificates aren't automatically included in our image, which is consistent with the least-privilege principle and gives you the flexibility to opt in to just the root certificates you need and to customize your image.
 
 The `ca-certificates-base` is preinstalled in the container host image and contains certificates from a small set of Microsoft-owned CAs. It consists of certificates from Microsoft's root and intermediate CAs. This package allows your container host to trust a minimal set of servers, all of which were verified and had their certificates issued by Microsoft.
 
