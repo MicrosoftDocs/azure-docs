@@ -20,6 +20,8 @@ When you want the function to write to multiple blobs, the blob output binding c
 | --- | --- |
 | `T[]` where `T` is one of the single blob output binding types | An array containing content for multiple blobs. Each entry represents the content of one blob. | 
 
-For other output scenarios, create and use types from [Azure.Storage.Blobs] directly.
+For other output scenarios, create and use a [BlobClient] or [BlobContainerClient] with other types from [Azure.Storage.Blobs] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
 [Azure.Storage.Blobs]: /dotnet/api/azure.storage.blobs
+[BlobClient]: /dotnet/api/azure.storage.blobs.blobclient
+[BlobContainerClient]: /dotnet/api/azure.storage.blobs.blobcontainerclient

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 07/24/2024
+  ms.date: 08/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -26,20 +26,20 @@ landingContent:
             url: logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Single-tenant versus multitenant
-            url: single-tenant-overview-compare.md
           - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: About connectors
             url: ../connectors/introduction.md
+          - text: Single-tenant versus multitenant
+            url: single-tenant-overview-compare.md
+          - text: Resource health for logic apps
+            url: healthy-unhealthy-resource.md
           - text: Business rules engine Integration
             url: rules-engine/rules-engine-overview.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
           - text: Mainframe modernization
             url: mainframe-modernization-overview.md
-          - text: Resource health for logic apps
-            url: healthy-unhealthy-resource.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
@@ -58,10 +58,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create Consumption logic app workflow - Azure portal
+          - text: Create Consumption workflow - Portal
             url: quickstart-create-example-consumption-workflow.md
-          - text: Create Standard logic app workflow - Azure portal
+          - text: Create Standard workflow - Portal
             url: create-single-tenant-workflows-azure-portal.md
+          - text: Create Standard workflow from template - Portal
+            url: create-single-tenant-workflows-templates.md
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -110,13 +112,13 @@ landingContent:
             url: logic-apps-azure-resource-manager-templates-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Create logic app templates
+          - text: Create ARM templates for logic apps
             url: logic-apps-create-azure-resource-manager-templates.md
-          - text: Deploy logic app templates
+          - text: Deploy ARM templates for logic apps
             url: logic-apps-deploy-azure-resource-manager-templates.md
       - linkListType: learn
         links:
-          - text: Create and deploy with Resource Manager templates
+          - text: Create and deploy with ARM templates
             url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
