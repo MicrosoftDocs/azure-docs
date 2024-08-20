@@ -81,7 +81,7 @@ You can migrate your API Management instance to the `stv2` platform keeping the 
 
 You can choose whether the API Management instance's original VIP address is preserved (recommended) or whether a new VIP address will be generated. 
 
-* **Preserve virtual IP address** - If you preserve the VIP address in a VNet in external mode, API requests can remain responsive during migration (see [Expected downtime](#expected-downtime)); for a VNet in internal mode, temporary downtime is expected. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration. 
+* **Preserve virtual IP address** - If you preserve the VIP address in a VNet in external mode, API requests can remain responsive during migration (see [Expected downtime](#expected-downtime-and-compute-retention)); for a VNet in internal mode, temporary downtime is expected. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration. 
 
     With this option, the `stv1` compute is deleted permanently after the migration is complete. There is no option to retain it temporarily.
 
@@ -218,7 +218,7 @@ After you update the VNet configuration, the status of your API Management insta
   
 - **Will the migration cause a downtime?**
 
-   When migrating a VNet-injected instance and keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. See the summary table in [Expected downtime](#expected-downtime).
+   When migrating a VNet-injected instance and keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. See the summary table in [Expected downtime](#expected-downtime-and-compute-retention).
 
    When migrating and changing to a new VIP address, there shouldn't be any downtime if default hostnames are in use. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional. However, if custom domains are in use, they'll be pointing to the purged compute until they're updated which may cause a downtime. Alternatively, for certain migration options, enable a migration setting to retain the old gateway for 48 hours. Having the old and the new compute coexist will facilitate validation, and then you can update the custom DNS entries at will.
    
