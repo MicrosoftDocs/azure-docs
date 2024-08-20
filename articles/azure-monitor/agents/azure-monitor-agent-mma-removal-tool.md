@@ -1,3 +1,9 @@
+Hello
+
+There is a bit of confusion in the script on line 304
+Write-Host "To uninstall MMA/OMS from Inventory: Run the script as: PS> .\LogAnalyticsAgentUninstallUtilityScript.ps1 UninstallExtension"
+
+The script name does not match the description higher up in this guide and even when I do match the name of my script with the command it states it does not recognise the parameter UninstallExtension
 ---
 title: MMA Discovery and Removal Utility
 description: This article describes a PowerShell script to remove the legacy agent from systems that migrated to the Azure Monitor Agent.
