@@ -37,7 +37,7 @@ Azure Linux is available at no additional cost. You only pay for the underlying 
 
 ### What GPUs does Azure Linux support?
 
-Azure Linux supports the V100 and T4 GPUs. Support for A100 and H100 GPUs are in progress.
+Azure Linux supports the V100 and T4 GPUs.
 
 ### What certifications does Azure Linux have?
 
