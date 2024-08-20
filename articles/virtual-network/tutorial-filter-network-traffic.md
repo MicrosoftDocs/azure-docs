@@ -129,8 +129,7 @@ az network vnet subnet create \
   --vnet-name vnet-1 \
   --resource-group test-rg \
   --name subnet-1 \
-  --address-prefix 10.0.0.0/24 \
-  --network-security-group nsg-1
+  --address-prefix 10.0.0.0/24
 ```
 
 ---
@@ -667,7 +666,7 @@ The virtual machine takes a few minutes to create. Don't continue with the next 
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web` option causes Azure to make the network interface it creates for the VM a member of the *asg-web* application security group. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
 
 ```azurecli-interactive
 az vm create \
@@ -697,7 +696,7 @@ The VM takes a few minutes to create. After the VM is created, output similar to
 }
 ```
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server. The `--asgs asg-mgmt` option causes Azure to make the network interface it creates for the VM a member of the *asg-mgmt* application security group.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server. 
 
 The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
@@ -793,10 +792,11 @@ Use [az network nic update](/cli/azure/network/nic) to associate the network int
 nic_name=$(az vm show --resource-group test-rg --name vm-web --query 'networkProfile.networkInterfaces[0].id' -o tsv | xargs basename)
 
 # Associate the application security group with the network interface
-az network nic update \
-  --resource-group test-rg \
-  --name $nic_name \
-  --application-security-groups asg-web
+az network nic ip-config update \
+    --name ipconfigvm-web \
+    --nic-name $nic_name \
+    --resource-group test-rg \
+    --application-security-groups asg-web
 ```
 
 Repeat the command to associate the *asg-mgmt* application security group with the *vm-mgmt-nic* network interface.
@@ -806,10 +806,11 @@ Repeat the command to associate the *asg-mgmt* application security group with t
 nic_name=$(az vm show --resource-group test-rg --name vm-mgmt --query 'networkProfile.networkInterfaces[0].id' -o tsv | xargs basename)
 
 # Associate the application security group with the network interface
-az network nic update \
-  --resource-group test-rg \
-  --name $nic_name \
-  --application-security-groups asg-mgmt
+az network nic ip-config update \
+    --name ipconfigvm-mgmt \
+    --nic-name $nic_name \
+    --resource-group test-rg \
+    --application-security-groups asg-mgmt
 ```
 
 ---
@@ -922,7 +923,7 @@ To confirm that you can access the _vm-web_ web server from outside of Azure, op
 
 ### [CLI](#tab/cli)
 
-Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-mgmt* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign in to management VM and then sign in to the web VM from the management VM with a password.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-mgmt* VM. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign in to management VM and then sign in to the web VM from the management VM with a password.
 
 For more information about how to SSH to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
 
