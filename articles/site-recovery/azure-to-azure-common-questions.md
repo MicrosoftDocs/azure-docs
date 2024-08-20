@@ -50,7 +50,7 @@ Yes. Site Recovery supports disaster recovery of virtual machines that have Azur
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Microsoft Entra ID.
     - ADE version 1.1, which doesn't require Microsoft Entra ID. For version 1.1, Microsoft Azure virtual machines must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
+    - [Learn more](/azure/virtual-machines/extensions/azure-disk-enc-windows#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted virtual machines.
 
@@ -332,7 +332,7 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 
 ### Does Site Recovery work with Capacity Reservation?
 
-Yes, you can create a Capacity Reservation for your virtual machine SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target virtual machine. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](../virtual-machines/capacity-reservation-overview.md).
+Yes, you can create a Capacity Reservation for your virtual machine SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target virtual machine. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](/azure/virtual-machines/capacity-reservation-overview).
 
 ### Why should I reserve capacity using Capacity Reservation at the destination location?
 
@@ -385,7 +385,7 @@ Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-re
     1. Go to the **Networking** tab under the **Settings** options of the disk. By default, the disk is created with *Enable public access from all networks* setting enabled. 
     1. Change the network access to either **Disable public access and enable private access** or **Disable public and private access** per your requirement, after cancel export is successful.
     
-        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml).
+        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal).
         
         :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking."lightbox="media/azure-to-azure-common-questions/disk-networking.png":::
 

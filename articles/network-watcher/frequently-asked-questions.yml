@@ -146,7 +146,7 @@ sections:
       - question: |
           Does connection monitor support classic VMs?
         answer: |
-          No, connection monitor doesn't support classic VMs. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
+          No, connection monitor doesn't support classic VMs. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
       - question: |
           What if my topology isn't decorated or my hops have missing information?

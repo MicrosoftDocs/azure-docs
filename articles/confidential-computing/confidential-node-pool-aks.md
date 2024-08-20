@@ -38,4 +38,4 @@ If you have questions about container offerings, please reach out to <acconaks@m
 ## Next steps
 
 - [Deploy a confidential node pool in your AKS cluster](/azure/aks/use-cvm)
-- Learn more about sizes and specs for [general purpose](../virtual-machines/dcasv5-dcadsv5-series.md) and [memory-optimized](../virtual-machines/ecasv5-ecadsv5-series.md) confidential VMs.
+- Learn more about sizes and specs for [general purpose](/azure/virtual-machines/dcasv5-dcadsv5-series) and [memory-optimized](/azure/virtual-machines/ecasv5-ecadsv5-series) confidential VMs.

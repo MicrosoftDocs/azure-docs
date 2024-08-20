@@ -27,7 +27,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 > * Simulate the devices and verify that they're provisioned to the IoT hub in the closest region.
 
 >[!IMPORTANT]
-> Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](../virtual-machines/regions.md)
+> Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
 
 ## Prerequisites
 

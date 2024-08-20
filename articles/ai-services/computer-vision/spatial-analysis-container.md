@@ -56,7 +56,7 @@ In this article, you'll download and install the following software packages. Th
 * [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we utilize an [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
+In our example, we utilize an [NCv3 series VM](/azure/virtual-machines/ncv3-series) that has one v100 GPU.
 
 ---
 
@@ -321,7 +321,7 @@ Use the below steps to deploy the container using the Azure CLI.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use a [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
+An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use a [NCv3 series VM](/azure/virtual-machines/ncv3-series) that has one v100 GPU.
 
 #### Create the VM
 
@@ -340,7 +340,7 @@ To locate the VM size, select "See all sizes" and then view the list for "N-Seri
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Select on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, select create, and complete the wizard.
 
-Once the extension is successfully applied, navigate to the VM main page in the Azure portal and select `Connect`. The VM can be accessed either through SSH or RDP. RDP is helpful as it enables viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure portal and select `Connect`. The VM can be accessed either through SSH or RDP. RDP is helpful as it enables viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 

@@ -14,7 +14,7 @@ ms.reviewer: luki, mattmcinnes
 This article provides help in troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 ## Log Analytics Troubleshooting Tool
 

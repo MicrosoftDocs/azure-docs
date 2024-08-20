@@ -26,7 +26,7 @@ This document is about HANA storage configurations for Azure premium storage or 
 Azure Write Accelerator is a functionality that is available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure premium storage. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> When using Azure premium storage, the usage of Azure [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
+> When using Azure premium storage, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -45,7 +45,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../virtual-machines/disk-bursting.md). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -67,10 +67,10 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 > SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
 
 > [!NOTE]
-> In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](../../virtual-machines/disk-bursting.md) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
+> In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](/azure/virtual-machines/disk-bursting) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
 
 > [!NOTE]
-> With M32ts and M32ls VMs it can happen that disk throughput could be lower than expected using HCMT/HWCCT disk tests. Even with disk bursting or with sufficiently provisioned I/O throughput of the underlying disks. Root cause of the observed behavior was that the HCMT/HWCCT storage test files were completely cached in the read cache of the Premium storage data disks. This cache is located on the compute host that hosts the virtual machine and can cache the test files of HCMT/HWCCT completely. In such a case the quotas listed in the column **Max cached and temp storage throughput: IOPS/MBps (cache size in GiB)** in  the article [M-series](../../virtual-machines/m-series.md) are relevant. Specifically for M32ts and M32ls, the throughput quota against the read cache is only 400MB/sec. As a result of the tests files being completely cached, it is possible that despite disk bursting or higher provisioned I/O throughput, the tests can fall slightly short of 400MB/sec maximum throughput. As an alternative, you can test without read cache enabled on the Azure Premium storage data disks.
+> With M32ts and M32ls VMs it can happen that disk throughput could be lower than expected using HCMT/HWCCT disk tests. Even with disk bursting or with sufficiently provisioned I/O throughput of the underlying disks. Root cause of the observed behavior was that the HCMT/HWCCT storage test files were completely cached in the read cache of the Premium storage data disks. This cache is located on the compute host that hosts the virtual machine and can cache the test files of HCMT/HWCCT completely. In such a case the quotas listed in the column **Max cached and temp storage throughput: IOPS/MBps (cache size in GiB)** in  the article [M-series](/azure/virtual-machines/m-series) are relevant. Specifically for M32ts and M32ls, the throughput quota against the read cache is only 400MB/sec. As a result of the tests files being completely cached, it is possible that despite disk bursting or higher provisioned I/O throughput, the tests can fall slightly short of 400MB/sec maximum throughput. As an alternative, you can test without read cache enabled on the Azure Premium storage data disks.
 
 
 > [!NOTE]
@@ -168,7 +168,7 @@ For the other volumes, the configuration would look like:
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
 
-Azure Write Accelerator only works with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+Azure Write Accelerator only works with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 You may want to use Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume to be compliant with the SAP HANA certification KPIs when using E-series VMs. Though, many customers are using premium storage SSD disks for the **/hana/log** volume for non-production purposes or even for smaller production workloads since the write latency experienced with premium storage for the critical redo log writes are meeting the workload requirements. The configurations for the **/hana/data** volume on Azure premium storage could look like:
 
@@ -240,9 +240,9 @@ A less costly alternative for such configurations could look like:
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 
 
-<sup>1</sup> [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency won't be less than 1ms
+<sup>1</sup> [Azure Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency won't be less than 1ms
 
-<sup>2</sup> The VM family supports [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md), but there's a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
+<sup>2</sup> The VM family supports [Azure Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator), but there's a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
 <sup>3</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)  
 

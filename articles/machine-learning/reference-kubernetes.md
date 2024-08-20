@@ -73,7 +73,7 @@ Excluding your own deployments/pods, the **total minimum system resources requir
 >
 > Here are some other considerations for reference:
 > * For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
->     * Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
+>     * Take [DV2/DSv2](/azure/virtual-machines/dv2-dsv2-series#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
 >     * More information about AKS reservation can be found in [AKS reservation](/azure/aks/concepts-clusters-workloads#resource-reservations).
 > * If you're using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](/azure/aks/faq#whats-the-size-limit-on-a-container-image-in-aks).
 

@@ -21,7 +21,7 @@ As a preview feature, you can configure Azure Container Storage to use Azure Ela
 
 - Ensure you have either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on your subscription. Either of these roles grant permissions that allow Azure Container Storage to communicate with the Elastic SAN resource. To make this change, go to your subscription page on the Azure portal. Select **Access control (IAM) > Add role assignment** and search for either "Azure Container Storage Owner" or "Azure Container Storage Contributor" in the **Job function roles** tab. Select **View > Assignments > Add assignment** and add your account.
 
-- To use Azure Container Storage with Azure Elastic SAN (preview), your AKS cluster must have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+- To use Azure Container Storage with Azure Elastic SAN (preview), your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Limitations
 

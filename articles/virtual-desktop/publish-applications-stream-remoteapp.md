@@ -331,7 +331,7 @@ Here's how to publish a Microsoft Store application using the Windows user inter
 
 [Windows Sandbox](/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview) provides a lightweight desktop environment to safely run applications in isolation. You can use Windows Sandbox with Azure Virtual Desktop in a desktop or RemoteApp session.
 
-Your session hosts need to use a virtual machine (VM) size that supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To check if a VM series supports nested virtualization, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md), go to the relevant article for the series of the VM, and check the list of supported features.
+Your session hosts need to use a virtual machine (VM) size that supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To check if a VM series supports nested virtualization, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes), go to the relevant article for the series of the VM, and check the list of supported features.
 
 1. To install Windows Sandbox on your session hosts, follow the steps in [Windows Sandbox overview](/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview). We recommend you install Windows Sandbox in a custom image you can use when creating your session hosts.
 

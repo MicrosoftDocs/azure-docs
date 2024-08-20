@@ -12,7 +12,7 @@ ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 # Support for moving Azure VMs between Azure regions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article summarizes support and prerequisites when you move virtual machines and related network resources across Azure regions using Resource Mover.
 
@@ -94,7 +94,7 @@ SUSE Linux Enterprise Server 15 and 15 SP1 |  All stock SUSE 15 and 15 kernels a
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes-general.md).
+Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](/azure/virtual-machines/sizes-general).
 Availability sets | Supported | Supported.
 Availability zones | Supported | Supported, depending on target region support.
 Azure gallery images (published by Microsoft) | Supported | Supported if the VM runs on a supported operating system.
@@ -107,7 +107,7 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 
 ## Supported VM storage settings
 
-This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
+This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](/azure/virtual-machines/disks-scalability-targets) to avoid any performance issues.
 
 > [!NOTE]
 > The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it sn't a error is issued.
@@ -115,11 +115,11 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/managed-disks-overview.md) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from the prepare process.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/managed-disks-overview.md#temporary-disk).
+OS disk maximum size | 2048 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from the prepare process.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview#temporary-disk).
 Data disk maximum size | 8192 GB for managed disks
 Data disk minimum size |  2 GB for managed disks |
-Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/sizes.md) about VM sizes.
+Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, the preparation won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, preparation can catch up, but you might see slightly delayed recovery points.
 Data disk (Standard storage account) | Not supported. | Change the storage type to managed disk, and then try moving the VM.
 Data disk (Premium storage account) | Not supported | Change the storage type to managed disk, and then try moving the VM.

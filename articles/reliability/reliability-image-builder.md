@@ -86,7 +86,7 @@ Microsoft sends a notification if there's an outage in the Azure Image Builder (
 
 You're responsible for setting up disaster recovery for your Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. You need to configure both the control plane (service side) and data plane.
 
-It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](../virtual-machines/image-builder-overview.md#regions) and what resources are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
+It's recommended that you create an AIB resource in another nearby region, into which you can replicate your resources. For more information, see the [supported regions](/azure/virtual-machines/image-builder-overview#regions) and what resources are included in an [AIB creation](/azure/virtual-machines/image-builder-overview#how-it-works).
 
 ### Single-region geography disaster recovery
 
@@ -110,7 +110,7 @@ Microsoft and its customers operate under the [shared responsibility model](./bu
 When planning where to replicate a template, consider:
 
 - AIB region availability:
-    - Choose [AIB supported regions](../virtual-machines//image-builder-overview.md#regions) close to your users.
+    - Choose [AIB supported regions](/azure/virtual-machines/image-builder-overview#regions) close to your users.
     - AIB continually expands into new regions.
 - Azure paired regions:
     - For your geographic area, choose two regions paired together.
@@ -118,11 +118,11 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to your data processing information, refer to the Azure Image Builder [data residency](../virtual-machines//linux/image-builder-json.md#data-residency) details.
+In regards to your data processing information, refer to the Azure Image Builder [data residency](/azure/virtual-machines/linux/image-builder-json#data-residency) details.
 
 
 ## Next steps
 
 - [Reliability in Azure](overview.md)
 - [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
-- [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
+- [Azure Image Builder overview](/azure/virtual-machines/image-builder-overview)

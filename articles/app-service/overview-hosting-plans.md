@@ -36,7 +36,7 @@ Each tier also provides a specific subset of App Service features. These feature
 
 ## Premium V3 pricing tier
 
-The **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](../virtual-machines/acu.md) per virtual CPU), SSD storage, memory-optimized options and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
+The **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](/azure/virtual-machines/acu) per virtual CPU), SSD storage, memory-optimized options and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
 
 Multiple VM sizes are available for this tier including 4-to-1 and 8-to-1 memory-to-core ratios:
  

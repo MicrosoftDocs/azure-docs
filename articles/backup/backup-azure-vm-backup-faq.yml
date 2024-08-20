@@ -77,7 +77,7 @@ sections:
 
       - question: Does Azure Backup support standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssds).
+          Yes, Azure Backup supports [standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
         answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.

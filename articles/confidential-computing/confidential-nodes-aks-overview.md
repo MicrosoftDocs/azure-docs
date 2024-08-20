@@ -59,9 +59,9 @@ Find answers to some of the common questions about Azure Kubernetes Service (AKS
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Intel SGX Confidential VMs - DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+[Intel SGX Confidential VMs - DCsv2 SKU List](/azure/virtual-machines/dcv2-series)
 
-[Intel SGX Confidential VMs - DCsv3 SKU List](../virtual-machines/dcv3-series.md)
+[Intel SGX Confidential VMs - DCsv3 SKU List](/azure/virtual-machines/dcv3-series)
 
 [Defense-in-depth with confidential containers webinar session](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 

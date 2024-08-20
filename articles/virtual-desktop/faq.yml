@@ -129,7 +129,7 @@ sections:
           
           - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
           
-          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
+          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](/azure/virtual-machines/quotas).
           
           - The VM prefix name can't exceed 11 characters, so that when a sequential number is added the total name is a maximum of 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
@@ -183,7 +183,7 @@ sections:
       - question: |
          Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
         answer: |
-          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) aren't supported with Azure Virtual Desktop.
+          No. [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks) aren't supported with Azure Virtual Desktop.
 
       - question: |
          If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
@@ -193,8 +193,8 @@ sections:
       - question: |
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
         answer: |
-         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
+         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
       - question: Can I do an in-place upgrade of a session host's operating system?
         answer: |
-          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).
+          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](/azure/virtual-machines/windows-in-place-upgrade).

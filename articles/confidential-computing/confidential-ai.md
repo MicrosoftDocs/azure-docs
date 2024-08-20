@@ -56,7 +56,7 @@ Azure already provides state-of-the-art offerings to secure data and AI workload
 
 -   [Confidential VMs on SNP](./confidential-vm-overview.md) and [TDX](./tdx-confidential-vm-overview.md) (in limited preview). CPU based AI workloads, for example data pre-processing, and training and inferencing for smaller models can use Confidential VMs based on SNP and TDX to protect sensitive code and data in use.
 
--   [Confidential Containers on ACI](../container-instances/container-instances-confidential-overview.md).
+-   [Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview).
     Confidential Containers on ACI are another way of deploying containerized workloads on Azure. In addition to protection from the cloud administrators, confidential containers offer protection from tenant admins and strong integrity properties using container policies. This makes them a great match for low-trust, multi-party collaboration scenarios. See [here](https://github.com/microsoft/confidential-ai) for a sample demonstrating confidential inferencing based on unmodified NVIDIA Triton inferencing server.
 
 For AI workloads that rely on GPUs, Microsoft and NVIDIA are collaborating to bring confidential computing to NVIDIA GPUs. [Azure Confidential GPU VMs](https://azure.microsoft.com/blog/azure-confidential-computing-with-nvidia-gpus-for-trustworthy-ai/) based on AMD SEV-SNP and A100 GPUs are currently in [limited preview](https://aka.ms/accgpusignup).

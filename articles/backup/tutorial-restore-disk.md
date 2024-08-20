@@ -121,7 +121,7 @@ az backup restore restore-disks \
 
 ### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command.
 

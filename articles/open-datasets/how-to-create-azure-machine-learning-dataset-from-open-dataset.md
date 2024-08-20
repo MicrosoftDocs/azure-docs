@@ -12,7 +12,7 @@ ms.custom: how-to, tracking-python
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please plan accordingly. For more information, visit [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please plan accordingly. For more information, visit [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments, with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml).
 

@@ -70,7 +70,7 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 Use the [MABS Capacity Planner](https://www.microsoft.com/en-us/download/details.aspx?id=54301) to determine the correct VM size. Based on your inputs, the capacity planner gives you the required memory size and CPU core count. Use this information to choose the appropriate Azure VM size. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a standard SSD disk for the VM. By pooling more than one SSD, you can achieve the required IOPS.
 
-Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You created the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
+Follow the instructions in the [Create your first Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal) tutorial.  You created the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on a computer that:
@@ -89,7 +89,7 @@ Azure Backup Server requires disks for installation.
 | Azure Backup Server installation                | Installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL Server installation<br /><br />You need space for Azure Backup Server to copy the file catalog to a temporary installation location when you archive.      |
 | Disk for storage pool<br />(Uses basic volumes, can't be on a dynamic disk) | Two to three times the protected data size.<br />For detailed storage calculation, see [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
-To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.yml).
+To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](/azure/virtual-machines/windows/attach-managed-disk-portal).
 
 > [!NOTE]
 > A single Azure Backup Server has a soft limit of 120 TB for the storage pool.

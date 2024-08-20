@@ -221,7 +221,7 @@ The following information explains the meaning of various reservation fields.
   HLI SKU name. It looks like `SAP_HANA_On_Azure_<SKUname>`.
 
   **Location**
-   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for available regions. To get location string format, use the [get locations API call](/rest/api/resources/subscriptions/listlocations#locationlistresult).
+   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](/azure/virtual-machines/workloads/sap/hana-available-skus) for available regions. To get location string format, use the [get locations API call](/rest/api/resources/subscriptions/listlocations#locationlistresult).
 
   **Reserved Resource type**
    `SapHana`
@@ -254,4 +254,4 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## Next steps
 
-- See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for the available SKU list and regions.
+- See [SKUs for SAP HANA on Azure (Large Instances)](/azure/virtual-machines/workloads/sap/hana-available-skus) for the available SKU list and regions.

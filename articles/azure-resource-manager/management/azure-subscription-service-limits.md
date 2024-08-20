@@ -509,18 +509,18 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 
 [!INCLUDE [azure-storage-limits-vm-disks](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks.md)]
 
-For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Virtual machine sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
 
-For more information, see [VM Applications](../../virtual-machines/vm-applications.md).
+For more information, see [VM Applications](/azure/virtual-machines/vm-applications).
 
 #### Disk encryption sets
 
 There's a limitation of 1000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
-[Linux](../../virtual-machines/disk-encryption.md#restrictions) or
-[Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
+[Linux](/azure/virtual-machines/disk-encryption#restrictions) or
+[Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines. If you
 need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
@@ -580,6 +580,6 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
-* [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual machine and cloud service sizes for Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

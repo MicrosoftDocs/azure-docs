@@ -351,11 +351,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/container-instances/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/container-instances-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/container-registry/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/container-registry-security-baseline",
       "redirect_document_id": false
@@ -426,11 +421,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-fabric/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/service-fabric-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/site-recovery/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/site-recovery-security-baseline",
       "redirect_document_id": false
@@ -448,21 +438,6 @@
     {
       "source_path_from_root": "/articles/traffic-manager/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/traffic-manager-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machine-scale-sets/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-windows-security-baseline",
       "redirect_document_id": false
     },
     {

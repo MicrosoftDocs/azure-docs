@@ -16,7 +16,7 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 ## Introduction
 
-There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](../virtual-machines/managed-disks-overview.md). 
+There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
 
 HDInsight supports multiple types of encryption in two different layers:
 
@@ -28,8 +28,8 @@ These types are summarized in the following table.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
-|Kafka, HBase with Accelerated writes|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default, Layer 2: Optional encryption at rest using CMK|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
-|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|N/A|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
+|Kafka, HBase with Accelerated writes|Layer 1: [SSE Encryption](/azure/virtual-machines/managed-disks-overview#encryption) by default|Layer 1: [SSE Encryption](/azure/virtual-machines/managed-disks-overview#encryption) by default, Layer 2: Optional encryption at rest using CMK|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer 1: [SSE Encryption](/azure/virtual-machines/managed-disks-overview#encryption) by default|N/A|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
 
 ## Encryption at rest using Customer-managed keys
 
@@ -452,7 +452,7 @@ Encryption at host can be enabled during cluster creation in the Azure portal.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
-This option enables [encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](../virtual-machines/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md).
+This option enables [encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](/azure/virtual-machines/disks-enable-host-based-encryption-portal) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md).
 
 To understand the right VM size for your HDInsight cluster see [Selecting the right VM size for your Azure HDInsight cluster](hdinsight-selecting-vm-size.md). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
 

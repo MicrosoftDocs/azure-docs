@@ -482,7 +482,7 @@ The virtual network TAP resource and the destination load balancer or destinatio
 
 Virtual network TAP is in preview. During preview, there is no service-level agreement. You shouldn't use the capability for production workloads.
 
-When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for Linux or Windows supported with virtual network TAP?
 
@@ -698,7 +698,7 @@ Scenarios that aren't supported include:
 
 ### Where can I find more information about migration from classic to Resource Manager?
 
-See [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
+See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
 
 ### How can I report a problem?
 

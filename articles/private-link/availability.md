@@ -45,7 +45,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml)   |
+|Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 | Azure Batch (batchAccount) | All public regions<br/> All Government regions<br/>All China regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Functions | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Functions.](../azure-functions/functions-create-vnet.md) |

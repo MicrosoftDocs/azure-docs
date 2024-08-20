@@ -12,7 +12,7 @@ ms.service: azure-automation
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 > [!IMPORTANT]
 >  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
@@ -157,7 +157,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
 2. Deploy the Log Analytics agent to the target machine.
 
-    - For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, the Azure CLI, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
+    - For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, the Azure CLI, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
 
     - For non-Azure machines, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Azure Arc-enabled servers support deploying the Log Analytics agent using the following methods:
 
@@ -217,7 +217,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 5. Verify the deployment after the script is completed. From the **Hybrid Runbook Worker Groups** page in your Automation account, under the **User hybrid runbook workers group** tab, it shows the new or existing group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the page, from the left-hand menu choose **Hybrid Workers**. On the **Hybrid Workers** page, you can see each member of the group listed.
 
     > [!NOTE]
-    > If you are using the Log Analytics virtual machine extension for Linux for an Azure VM, we recommend setting `autoUpgradeMinorVersion` to `false` as auto-upgrading versions can cause issues with the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+    > If you are using the Log Analytics virtual machine extension for Linux for an Azure VM, we recommend setting `autoUpgradeMinorVersion` to `false` as auto-upgrading versions can cause issues with the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](/azure/virtual-machines/extensions/oms-linux#azure-cli-deployment).
 
 ## Turn off signature validation
 

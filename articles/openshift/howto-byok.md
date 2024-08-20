@@ -30,7 +30,7 @@ It's the responsibility of customers to maintain the Key Vault and Disk Encrypti
 
 The Azure Red Hat OpenShift Engineering team can't access the keys. Therefore, they can't back up, replicate, or retrieve the keys. 
 
-For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
+For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption) in the Microsoft Azure documentation.
 
 ## Prerequisites
 * [Verify your permissions](create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.

@@ -62,7 +62,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
 
 If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](/azure/virtual-machines/sizes) and [here (Windows)](/azure/virtual-machines/sizes).
 
 As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
@@ -72,14 +72,14 @@ Alternatively, you can use Windows Storage Pools, which are only available in Wi
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set DB2_4K_DEVICE_SUPPORT=ON as documented in:
 
 - [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 - [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 Bytes. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 

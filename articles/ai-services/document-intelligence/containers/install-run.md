@@ -63,7 +63,7 @@ You also need the following to use Document Intelligence containers:
 The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
 
 * [Azure Kubernetes Service](/azure/aks/).
-* [Azure Container Instances](../../../container-instances/index.yml).
+* [Azure Container Instances](/azure/container-instances/).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 > [!NOTE]

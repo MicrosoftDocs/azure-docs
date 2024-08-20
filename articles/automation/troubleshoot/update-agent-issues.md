@@ -33,7 +33,7 @@ For Azure machines, you can launch the Troubleshoot Update Agent page by selecti
 > [!NOTE]
 > To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
-On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](/azure/virtual-machines/windows/run-command) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 :::image type="content" source="../media/update-agent-issues/troubleshoot-page.png" alt-text="Screenshot of the Troubleshoot Update Agent page.":::
 
@@ -169,7 +169,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
 
 ### IMDS endpoint connectivity
 
-To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service)
+To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](/azure/virtual-machines/windows/instance-metadata-service#access-azure-instance-metadata-service)
 
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 

@@ -195,7 +195,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
+| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](/azure/virtual-machines/extensions/agent-windows) manually. |
 
 ### AutoProtectionCancelledOrNotValid
 

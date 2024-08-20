@@ -46,7 +46,7 @@ To access AKS nodes, you connect using an SSH key pair (public and private), whi
     ssh-keygen -t rsa -b 4096
     ```
 
-For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure](../../articles/virtual-machines/linux/create-ssh-keys-detailed.md).
+For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).
 
 ## Review the template
 

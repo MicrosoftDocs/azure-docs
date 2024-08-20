@@ -96,21 +96,21 @@
     - name: Functions
       href: ../../azure-functions/functions-create-first-function-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
-      href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machines/linux/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine scale sets
-      href: ../../virtual-machine-scale-sets/quick-create-bicep-windows.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-bicep-windows?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
-      href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machines/windows/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers
     items:
     - name: AKS
       href: /azure/aks/learn/quick-kubernetes-deploy-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Instances
-      href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/container-instances/container-instances-quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
       href: ../../container-registry/container-registry-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Fabric
-      href: ../../service-fabric/quickstart-cluster-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/service-fabric/quickstart-cluster-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
     - name: Cache for Redis

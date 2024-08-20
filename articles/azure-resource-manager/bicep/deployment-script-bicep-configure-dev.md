@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Configure development environment for deployment scripts in Bicep files
 
-Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
+Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
 ## Prerequisites
 

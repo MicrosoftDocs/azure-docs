@@ -226,7 +226,7 @@ The following operating system (OS) software versions are compatible with these 
 
 ## Using a Custom OS Image
 
-You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
+You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal)
 ### Custom image prerequisites
 
 - Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](../../sap/center-sap-solutions/install-software.md#install-sap-software).
@@ -237,7 +237,7 @@ You can use custom images for deployment in Azure Center for SAP Solutions from 
 
 - Check that the user-assigned managed identity has the **Reader role** on the gallery of the custom OS image. Otherwise, the deployment will fail.  
 
-- [Create and upload a VM to a gallery in Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
+- [Create and upload a VM to a gallery in Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal)  
 
 - Before beginning the deployment, make sure the image is available in Azure Compute Gallery. 
 

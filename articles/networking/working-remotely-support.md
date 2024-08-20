@@ -109,4 +109,4 @@ The following articles discuss how you can use Azure networking features to scal
 [ExR]: ../expressroute/expressroute-introduction.md
 [ExR-eco]: ../expressroute/expressroute-locations.md
 [ExR-D]: ../expressroute/expressroute-erdirect-about.md
-[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md
+[Az-OCI]: /azure/virtual-machines/workloads/oracle/configure-azure-oci-networking

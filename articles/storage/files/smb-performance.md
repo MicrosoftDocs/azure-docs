@@ -29,7 +29,7 @@ The following tips might help you optimize performance:
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
 - Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
-- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
 
@@ -136,7 +136,7 @@ For the charts in this article, the following configuration was used: A single S
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
+| [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
 
 :::image type="content" source="media/smb-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot that shows the performance test configuration." lightbox="media/smb-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 

@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
@@ -120,7 +120,7 @@ In the following examples, you can replace the example parameters such as `<myRe
 
 ### Create a VM and attach the NIC
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 # [Windows](#tab/windows)
 
@@ -394,4 +394,4 @@ To confirm whether Accelerated Networking is enabled for an existing VM:
 
 - [Create a VM with Accelerated Networking by using PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
 
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)

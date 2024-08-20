@@ -63,7 +63,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you can't use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
 
-With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you shouldn't use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you shouldn't use the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
 ## Resources
 

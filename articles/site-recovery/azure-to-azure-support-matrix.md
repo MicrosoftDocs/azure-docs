@@ -12,7 +12,7 @@ ms.custom: engagement-fy23, references_regions, linux-related-content
 # Support matrix for Azure VM disaster recovery between Azure regions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -309,7 +309,7 @@ Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-a
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes.md).
+Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](/azure/virtual-machines/sizes).
 RAM | Azure Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
@@ -330,7 +330,7 @@ Tags  | Supported | User-generated tags applied on source virtual machines are c
 
 **Action** | **Details**
 -- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](../virtual-machines/premium-storage-performance.md). 
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](/azure/virtual-machines/premium-storage-performance). 
 Add a disk to a replicated VM | Supported
 Offline changes to protected disks | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TB will support caching. Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
@@ -342,18 +342,18 @@ Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multip
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
-- It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
+- It's important to observe the VM disk limits and targets for [managed disks](/azure/virtual-machines/disks-scalability-targets) to avoid any performance issues.
 - If you deploy with the default settings, Site Recovery automatically creates disks and storage accounts based on the source settings.
 - If you customize, ensure you follow the guidelines.
 
 **Component** | **Support** | **Details**
 --- | --- | ---
 Disk renaming | Supported | 
-OS disk maximum size | 4096 GB | [Learn more](../virtual-machines/managed-disks-overview.md) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/managed-disks-overview.md).
+OS disk maximum size | 4096 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview).
 Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
 Data disk minimum size | No restriction for unmanaged disks. 1 GB for managed disks |
-Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/sizes.md) about VM sizes.
+Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
 Data disk maximum size per storage account (for unmanaged disks) | 35 TB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
 Data disk change rate | Maximum of 20 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
@@ -366,10 +366,10 @@ Redundancy | LRS, ZRS, and GRS are supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
-Encryption at host | Not Supported | The VM will get protected, but the failed over VM won't have Encryption at host enabled. [See detailed information](../virtual-machines/disks-enable-host-based-encryption-portal.md) to create a VM with end-to-end encryption using Encryption at host.
+Encryption at host | Not Supported | The VM will get protected, but the failed over VM won't have Encryption at host enabled. [See detailed information](/azure/virtual-machines/disks-enable-host-based-encryption-portal) to create a VM with end-to-end encryption using Encryption at host.
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
-Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md)
+Double Encryption at rest | Supported | Learn more on supported regions for [Windows](/azure/virtual-machines/disk-encryption) and [Linux](/azure/virtual-machines/disk-encryption)
 FIPS encryption | Not supported
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
@@ -399,7 +399,7 @@ Soft delete | Not supported | Soft delete isn't supported because once it's enab
 iSCSI disks | Not supported | Azure Site Recovery may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
 
 >[!IMPORTANT]
-> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
+> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](/azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
 
 ## Limits and data change rates
 

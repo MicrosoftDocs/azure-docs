@@ -134,7 +134,7 @@ This section applies to the `Microsoft.ServiceBus/namespaces` resource type. [Le
 
 ## Virtual Machines (service-direct)
 
-This section applies to the `Microsoft.Compute/virtualMachines` resource type. [Learn more about Virtual Machines](../virtual-machines/overview.md).
+This section applies to the `Microsoft.Compute/virtualMachines` resource type. [Learn more about Virtual Machines](/azure/virtual-machines/overview).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -143,7 +143,7 @@ This section applies to the `Microsoft.Compute/virtualMachines` resource type. [
 
 ## Virtual Machine Scale Set
 
-This section applies to the `Microsoft.Compute/virtualMachineScaleSets` resource type. [Learn more about Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+This section applies to the `Microsoft.Compute/virtualMachineScaleSets` resource type. [Learn more about Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -177,7 +177,7 @@ These actions are building blocks for constructing effective experiments. Use th
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
 | inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
 
@@ -242,7 +242,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -291,7 +291,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
 | inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
 
@@ -357,7 +357,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 | destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
@@ -414,7 +414,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Urn | urn:csci:microsoft:agent:networkIsolation/1.0 |
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode, optional otherwise. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode, optional otherwise. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -454,7 +454,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported.</li><li>subdomain.\*.microsoft isn't supported.</li><li>\*.microsoft.com doesn't work for multiple subdomains in an address, such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more information on DNS return codes, see the [IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6). |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -505,7 +505,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Fault type | Continuous. |
 | Parameters (key, value)  | |
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM in terms of **% CPU Usage** |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 ```json
@@ -550,7 +550,7 @@ Known issues on Linux:
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -594,7 +594,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -636,7 +636,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, `D:/Temp`. If the parameter is not included, pressure is added to the primary disk. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Pressure modes
 
@@ -694,7 +694,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, `4m` for 4 megabytes and `256g` for 256 gigabytes). |
 | blockSize | Block size to be used for disk I/O operations, greater than 1 byte and less than 4 megabytes (maximum value is `4095k`). Integer plus a unit in bytes, kilobytes, or megabytes (for example, `512k` for 512 kilobytes). |
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, `/tmp/`. If the parameter is not included, pressure is added to the primary disk. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -746,7 +746,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | serviceName | Name of the Windows service or Linux systemd service you want to stop. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -793,7 +793,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Parameters (key, value) |  |
 | processName | Name of a process to continuously kill (without the .exe). The process does not need to be running when the fault begins executing. |
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -839,7 +839,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Parameters (key, value) |  |
 | processNames | Delimited JSON array of process names defining which processes are to be paused. Maximum of 4. The process name can optionally include the ".exe" extension. |
 | pauseIntervalInMilliseconds | Amount of time the fault waits between successive pausing attempts, in milliseconds. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 
@@ -884,7 +884,7 @@ Currently, a maximum of 4 process names can be listed in the processNames parame
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If `YYYY-MM-DD` values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (`YY`), it's converted to a 4-digit year (`YYYY`) based on the current century. If the timezone `<Z>` is missing, the default offset is the local timezone. `<Z>` must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
 

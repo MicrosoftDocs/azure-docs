@@ -36,7 +36,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     For more information, see Step 2 of [Create a Resource Group](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-3. [Create an Availability Set](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) to contain your VMs. For this scenario, use the following command:
+3. [Create an Availability Set](/azure/virtual-machines/windows/tutorial-availability-sets?toc=%2fazure%2fload-balancer%2ftoc.json) to contain your VMs. For this scenario, use the following command:
 
     ```powershell
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"

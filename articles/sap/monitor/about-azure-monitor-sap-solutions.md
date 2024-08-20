@@ -15,7 +15,7 @@ ms.author: jushiman
 
 When you have critical SAP applications and business processes that rely on Azure resources, you might want to monitor those resources for availability, performance, and operation. Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure. It uses specific parts of the [Azure Monitor](../../azure-monitor/overview.md) infrastructure. 
 
-You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual machines (VMs)](../../virtual-machines/workloads/sap/hana-get-started.md) and [SAP on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md).
+You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual machines (VMs)](/azure/virtual-machines/workloads/sap/hana-get-started) and [SAP on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 ## What can you monitor?
 

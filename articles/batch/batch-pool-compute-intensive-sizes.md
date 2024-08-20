@@ -16,9 +16,9 @@ To run certain Batch jobs, you can take advantage of Azure VM sizes designed for
 
 This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
-* High performance compute VM sizes ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md))
+* High performance compute VM sizes ([Linux](/azure/virtual-machines/sizes-hpc), [Windows](/azure/virtual-machines/sizes-hpc))
 
-* GPU-enabled VM sizes ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md))
+* GPU-enabled VM sizes ([Linux](/azure/virtual-machines/sizes-gpu), [Windows](/azure/virtual-machines/sizes-gpu))
 
 > [!NOTE]
 > Certain VM sizes might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/) and [Choose a VM size for a Batch pool](batch-pool-vm-sizes.md).
@@ -31,9 +31,9 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NCv3, NDv2, NDv4, NDv5 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NVv3, NVv4, NVv5 series](../virtual-machines/linux/n-series-driver-setup.md) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers (if required) | N/A |
+| [H16r, H16mr](/azure/virtual-machines/sizes-hpc)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
+| [NCv3, NDv2, NDv4, NDv5 series](/azure/virtual-machines/linux/n-series-driver-setup) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
+| [NVv3, NVv4, NVv5 series](/azure/virtual-machines/linux/n-series-driver-setup) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers (if required) | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
@@ -45,9 +45,9 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A |
-| [NV, NVv2, NVv4 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr](/azure/virtual-machines/sizes-hpc)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](/azure/virtual-machines/windows/n-series-driver-setup#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, ND, NDv2 series](/azure/virtual-machines/windows/n-series-driver-setup) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A |
+| [NV, NVv2, NVv4 series](/azure/virtual-machines/windows/n-series-driver-setup) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
@@ -58,7 +58,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, or<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication,<br/> disable concurrent task execution |
+| [H16r, H16mr](/azure/virtual-machines/sizes-hpc) | RDMA | Windows Server 2016, 2012 R2, 2012, or<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication,<br/> disable concurrent task execution |
 
 > [!NOTE]
 > N-series sizes are not supported in  Cloud Services Configuration pools.
@@ -107,7 +107,7 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 To run CUDA applications on a pool of Linux NC nodes, you need to install necessary NVIDIA Tesla GPU drivers from the CUDA Toolkit. The following sample steps create and deploy a custom Ubuntu 22.04 LTS image with the GPU drivers:
 
 1. Deploy an Azure NC-series VM running Ubuntu 22.04 LTS. For example, create the VM in the US South Central region.
-2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md) manually.
+2. Add the [NVIDIA GPU Drivers extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](/azure/virtual-machines/linux/n-series-driver-setup) manually.
 3. Follow the steps to create an [Azure Compute Gallery image](batch-sig-images.md) for Batch.
 4. Create a Batch account in a region that supports NC VMs.
 5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-sig-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
@@ -124,7 +124,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
 
 1. Deploy an Azure H16r VM running Windows Server 2016. For example, create the VM in the US West region.
-2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](../virtual-machines/sizes-hpc.md) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell.
+2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](/azure/virtual-machines/sizes-hpc) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell.
 1. Make a Remote Desktop connection to the VM.
 1. Download the [setup package](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) for the latest version of Microsoft MPI, and install Microsoft MPI.
 1. Follow the steps to create an [Azure Compute Gallery image](batch-sig-images.md) for Batch.

@@ -18,7 +18,7 @@ This article describes the autoscale feature in Azure Monitor and its benefits.
 Autoscale supports many resource types. For more information about supported resources, see [Autoscale supported resources](#supported-services-for-autoscale).
 
 > [!NOTE]
-> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md) for faster and more reliable autoscale support.
+> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) for faster and more reliable autoscale support.
 
 ## What is autoscale
 
@@ -111,8 +111,8 @@ The full list of configurable fields and descriptions is available in the [Autos
 
 For code examples, see:
 
-* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
 
 ## Supported services for autoscale
 
@@ -120,7 +120,7 @@ Autoscale supports the following services.
 
 | Service                                           | Schema and documentation                                                                                                                         |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Virtual Machines Scale Sets                 | [Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
+| Azure Virtual Machines Scale Sets                 | [Overview of autoscale with Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) |
 | Web Apps feature of Azure App Service             | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
@@ -138,8 +138,8 @@ To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
-* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
-* [Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
 * [Autoscale CLI reference](/cli/azure/monitor/autoscale)
 * [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
 * [PowerShell Az.Monitor reference](/powershell/module/az.monitor/#monitor)

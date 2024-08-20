@@ -128,23 +128,23 @@
     - name: Functions
       href: ../../azure-functions/functions-create-first-function-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Linux virtual machine
-      href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machines/linux/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
       href: /azure/virtual-machine-scale-sets/quick-create-template-linux?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
       href: /azure/virtual-machine-scale-sets/quick-create-template-windows?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Windows virtual machines
-      href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machines/windows/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Containers
     items:
     - name: AKS
       href: /azure/aks/learn/quick-kubernetes-deploy-rm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
-      href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/container-instances/container-instances-quickstart-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
       href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Fabric
-      href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/service-fabric/quickstart-cluster-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Databases
     items:
     - name: Cache for Redis

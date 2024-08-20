@@ -27,7 +27,7 @@ Session hosts are based on virtual machines (VMs), so the same Azure Compute cha
 - Storage for managed disks for the operating system and any extra data disks.
 - Network bandwidth.
 
-Of the charges for these components, virtual machine instances usually cost the most. To mitigate compute costs and optimize resource demand with availability, you can use [autoscale](autoscale-scenarios.md) to automatically scale session hosts based on demand and time. You can also use [Azure savings plans](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) or [Azure reserved VM instances](../virtual-machines/prepay-reserved-vm-instances.md) to reduce compute costs.
+Of the charges for these components, virtual machine instances usually cost the most. To mitigate compute costs and optimize resource demand with availability, you can use [autoscale](autoscale-scenarios.md) to automatically scale session hosts based on demand and time. You can also use [Azure savings plans](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) or [Azure reserved VM instances](/azure/virtual-machines/prepay-reserved-vm-instances) to reduce compute costs.
 
 ### Identity provider costs
 

@@ -11,7 +11,7 @@ ms.date: 12/27/2023
 # Archive for What's new in Site Recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article contains information on older features and updates in the Azure Site Recovery service. The primary [What's new in Azure Site Recovery](./site-recovery-whats-new.md) article contains the latest updates. 
 
@@ -496,7 +496,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Network mapping** | For Azure VM disaster recovery, you can now use any available target network when you enable replication.
-**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSD disks](../virtual-machines/disks-types.md#standard-ssds).
+**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds).
 **Storage Spaces Direct** | You can set up disaster recovery for apps running on Azure VM apps by using [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) for high availability.  Using Storage Spaces Direct (S2D) together with Site Recovery provides comprehensive protection of Azure VM workloads. S2D lets you host a guest cluster in Azure. This is especially useful when a VM hosts a critical application, such as SAP ASCS layer, SQL Server, or scale-out file server.
 
 
@@ -656,7 +656,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](../virtual-machines/faq-for-disks.yml) for more information.
+**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](/azure/virtual-machines/faq-for-disks) for more information.
 **Disaster recovery for VMs after migration** | Support for enabling disaster recovery to a secondary region for an on-premises VMware VM migrated to Azure, without needing to uninstall the Mobility service on the VM before enabling replication.
 **Windows Server 2008** | Support for migrating machines running Windows Server 2008 R2/2008 64-bit and 32-bit.<br/><br/> Migration only (replication and failover). Failback isn't supported.
 

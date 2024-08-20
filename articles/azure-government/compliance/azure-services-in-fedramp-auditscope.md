@@ -133,7 +133,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI services: Speech](../../ai-services/speech-service/index.yml) | &#x2705; | &#x2705; |
 | [Azure AI services: Text Analytics](../../ai-services/language-service/concepts/migrate.md#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) <br> (part of [Azure AI Language](../../ai-services/language-service/index.yml)) | &#x2705; | &#x2705; |
 | [Azure AI services: Translator](../../ai-services/translator/index.yml) | &#x2705; | &#x2705; |
-| [Container Instances](../../container-instances/index.yml) | &#x2705; | &#x2705; |
+| [Container Instances](/azure/container-instances/) | &#x2705; | &#x2705; |
 | [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; |
 | [Cost Management and Billing](../../cost-management-billing/index.yml) | &#x2705; | &#x2705; |
@@ -205,7 +205,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; |
 | [Open Datasets](../../open-datasets/index.yml) | &#x2705; | &#x2705; |
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; |
-| [Planned Maintenance for VMs](../../virtual-machines/maintenance-and-updates.md) | &#x2705; | &#x2705; |
+| [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | &#x2705; | &#x2705; |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; |
 | [Power Pages](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
@@ -221,7 +221,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Route Server](../../route-server/index.yml) | &#x2705; | &#x2705; |
 | [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | &#x2705; | &#x2705; |
 | [Service Bus](../../service-bus-messaging/index.yml) | &#x2705; | &#x2705; |
-| [Service Fabric](../../service-fabric/index.yml) | &#x2705; | &#x2705; |
+| [Service Fabric](/azure/service-fabric/) | &#x2705; | &#x2705; |
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
@@ -231,7 +231,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; |
-| [Storage: Disks (incl. managed disks)](../../virtual-machines/managed-disks-overview.md) | &#x2705; | &#x2705; |
+| [Storage: Disks (incl. managed disks)](/azure/virtual-machines/managed-disks-overview) | &#x2705; | &#x2705; |
 | [Storage: Files](../../storage/files/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Queues](../../storage/queues/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Tables](../../storage/tables/index.yml) | &#x2705; | &#x2705; |
@@ -241,12 +241,12 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Time Series Insights](../../time-series-insights/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
-| [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
-| [Virtual Machines](../../virtual-machines/index.yml) | &#x2705; | &#x2705; |
+| [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) | &#x2705; | &#x2705; |
+| [Virtual Machines](/azure/virtual-machines/) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; |
-| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; |
+| [VM Image Builder](/azure/virtual-machines/image-builder-overview) | &#x2705; | &#x2705; |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; |
 | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | &#x2705; | &#x2705; |
@@ -338,7 +338,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI Speech](../../ai-services/speech-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Text Analytics](../../ai-services/language-service/concepts/migrate.md#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) </br> (part of [Azure AI Language](../../ai-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Translator](../../ai-services/translator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Container Instances](../../container-instances/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Container Instances](/azure/container-instances/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
@@ -404,7 +404,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Planned Maintenance for VMs](../../virtual-machines/maintenance-and-updates.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Pages](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; | &#x2705; | | |
@@ -420,7 +420,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Route Server](../../route-server/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Service Bus](../../service-bus-messaging/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Service Fabric](../../service-fabric/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Service Fabric](/azure/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -430,7 +430,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Storage: Disks (incl. managed disks)](../../virtual-machines/managed-disks-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Disks (incl. managed disks)](/azure/virtual-machines/managed-disks-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Files](../../storage/files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Queues](../../storage/queues/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Tables](../../storage/tables/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -440,12 +440,12 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Virtual Machines](../../virtual-machines/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Machines](/azure/virtual-machines/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; | &#x2705; |  |  |
+| [VM Image Builder](/azure/virtual-machines/image-builder-overview) | &#x2705; | &#x2705; | &#x2705; |  |  |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 

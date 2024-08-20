@@ -13,7 +13,7 @@ ms.custom: engagement-fy23, linux-related-content
 # Accelerated Networking with Azure virtual machine disaster recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 Accelerated Networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
@@ -42,7 +42,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms
 
-For more information on VM instances, see [Windows VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For more information on VM instances, see [Windows VM sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Accelerated Networking with Linux VMs
 
@@ -63,7 +63,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
 
-For more information on VM instances, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For more information on VM instances, see [Linux VM sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Enabling Accelerated Networking for replicated VMs
 

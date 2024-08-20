@@ -33,7 +33,7 @@ There are a few key points to be aware of with this approach:
 
 - Azure Lab Services automatically saves a *specialized* image when you export the image from the template VM. In most cases, specialized images are well suited for creating new labs because the image retains machine-specific information and user profiles. Using a specialized image helps to ensure that the installed software runs the same when you use the image to create new labs. If you need to create a *generalized* image, you must use one of the other recommended approaches in this article to create a custom image.
 
-    You can create labs based on both generalized and specialized images in Azure Lab Services. For more information about the differences, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+    You can create labs based on both generalized and specialized images in Azure Lab Services. For more information about the differences, see [Generalized and specialized images](/azure/virtual-machines/shared-image-galleries#generalized-and-specialized-images).
 
 - For more advanced scenarios with setting up your image, you might instead create an image outside of Azure Lab Services by using either an Azure VM or a VHD from your physical lab environment. For example, if you need to use virtual machine extensions.
 
@@ -72,7 +72,7 @@ Another approach is to import a custom image from a virtual hard drive (VHD) in 
 
 The reasons you might import a custom image from a physical environment are:
 
-- You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images to use in your labs. Otherwise, if you use a [lab's template VM](how-to-use-shared-image-gallery.md) to export an image, the image is always specialized.
+- You can create either [generalized or specialized](/azure/virtual-machines/shared-image-galleries#generalized-and-specialized-images) images to use in your labs. Otherwise, if you use a [lab's template VM](how-to-use-shared-image-gallery.md) to export an image, the image is always specialized.
 
 - You can access resources that exist within your on-premises environment during the VM configuration. For example, you might have large installation files in your on-premises environment that are too time-consuming to copy to a lab template VM.
 
@@ -88,9 +88,9 @@ Follow these steps to import a custom image from a VHD:
 
 1. Connect to the Hyper-V VM and install more software. You can also make other customizations that are needed for your lab.
 
-1. When you've finished setting up the image, upload the VHD to create a [managed disk](../virtual-machines/managed-disks-overview.md) in Azure.
+1. When you've finished setting up the image, upload the VHD to create a [managed disk](/azure/virtual-machines/managed-disks-overview) in Azure.
 
-1. From the managed disk, create the [image's definition](../virtual-machines/shared-image-galleries.md#image-definitions) and version in a compute gallery.
+1. From the managed disk, create the [image's definition](/azure/virtual-machines/shared-image-galleries#image-definitions) and version in a compute gallery.
 
 1. After you saved the custom image in the gallery, you can use the image to create new labs.
 
@@ -101,6 +101,6 @@ The steps vary depending on if you're creating a custom Windows or Linux image. 
 
 ## Next steps
 
-* [Azure Compute gallery overview](../virtual-machines/shared-image-galleries.md)
+* [Azure Compute gallery overview](/azure/virtual-machines/shared-image-galleries)
 * [Attach or detach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md)
 * [Use an Azure Compute Gallery](how-to-use-shared-image-gallery.md)
