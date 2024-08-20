@@ -124,14 +124,18 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 6.	Install the network function extension
 7.	Create custom location
 8.	Redeploy site network services and network functions to the custom location.
-   
+
+### Release Highlights
+#### Cluster Registry & Webhook – High Availability 
+This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO will use custom mehtods of certificate management. High availability, along with changes to rotate certs will be restored in a future releases.
+
 ### Issues Resolved in This Release 
 
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO	- Removing cert-manager from NFO and high availability changes temporarily. NFO will use custom cert creation logic. Changes to rotate certs and high availability will be part of upcoming releases.
-
+* NFO	- Cert-manager service is removed from from NFO installation and operational use.
+   
 #### Security Related Updates
 
 None
