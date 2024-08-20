@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  5/24/2024
+  ms.date:  8/20/2024
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -297,7 +297,7 @@ sections:
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity architecture](architecture-identity.md).
+        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX Manager. You can also use a CloudAdmin group to incorporate Microsoft Active Directory. For more information, see [Access and identity architecture](architecture-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.
