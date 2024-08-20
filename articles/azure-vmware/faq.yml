@@ -97,7 +97,7 @@ sections:
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. Installing these products within an Azure VMware Solution private cloud isn't supported.
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
-        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully-supported method.
+        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully supported method.
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
