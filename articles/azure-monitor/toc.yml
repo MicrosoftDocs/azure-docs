@@ -536,7 +536,7 @@ items:
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
         href: containers/container-insights-persistent-volumes.md
-      - name: Monitor Security with Syslog 
+      - name: Monitor Syslog 
         href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
