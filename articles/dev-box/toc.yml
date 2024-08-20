@@ -82,8 +82,6 @@ items:
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Connect with Task view
-    href: how-to-access-dev-box-task-view.md
 - name: Security
   items:
   - name: Provide access to project admins
@@ -116,6 +114,8 @@ items:
   items: 
   - name: Troubleshoot dev box connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot Task view issues
+    href: how-to-troubleshoot-dev-box-task-view.md    
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension
