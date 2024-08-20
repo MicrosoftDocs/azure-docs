@@ -53,7 +53,10 @@ Review the following prerequisites before you prepare for the relocation.
 
 ## Downtime
 
-Downtime is affected by which deployment pattern you have implemented. If you have implemented a Warm standby pattern, downtime should be minimal. If it is a cold standby pattern, you'll need to expect some downtime during the relocation process.
+The relocation of an Azure Static Web site introduces downtime to your application. The downtime is affected by which high availability pattern you have implemented for your Azure Static Web site. General patterns are
+- Cold Standby - the workload data is backed up regularly based on the requirements of the workload. In case of a disaster, the workload is redeployed in a new Azure region and the data is restored.
+- Warm Standby - the workload is deployed in the BCDR region and the data is replicated asynchronously or synchronously. In the event of a disaster, the deployment in the DR region is scaled up and out.
+- [Multi-region](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/multi-region)  - the workload is deployed in both regions and the data is replicated synchronously. Both regions have a writable copy of the data. The implementation can be Active/Passive or Active/Active.
 
 ## Prepare
 
