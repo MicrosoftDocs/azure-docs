@@ -135,6 +135,14 @@ Arc resource bridge doesn't support private link. All calls coming from the appl
 
 When trying to deploy Arc resource bridge, you might see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
 
+### Management machine unable to reach appliance
+
+When trying to deploy Arc resource bridge, you might receive an error message similar to:
+
+`"{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_Timeout occurred due to management machine being unable to reach the appliance VM IP, 10.2.196.170. Please ensure that the requirements are met: https://aka.ms/arb-machine-reqs: dial tcp 10.2.196.170:22: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\_\n}_, _errorMetadata_: { _errorCategory_: __ } "`
+
+This occurs when the management machine is trying to reach the ARB VM IP by SSH (Port 22) or API Server (Port 6443) and is unable to. This error may also occur if the Arc resource bridge API server is being proxied - the Arc resource bridge API server needs to be added to the noproxy settings. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md#inbound-connectivity-requirements).
+
 ### Not able to connect to URL
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
