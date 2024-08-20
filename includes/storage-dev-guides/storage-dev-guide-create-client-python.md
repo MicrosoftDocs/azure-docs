@@ -9,6 +9,9 @@ ms.date: 08/19/2024
 ms.author: pauljewell
 ms.custom: include file
 ---
+
+#### Create a client object
+
 To connect an app to Blob Storage, create an instance of [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient). The following example shows how to create a client object using `DefaultAzureCredential` for authorization:
 
 ```python
@@ -20,5 +23,5 @@ credential = DefaultAzureCredential()
 blob_service_client = BlobServiceClient(account_url, credential=credential)
 ```
 
-You can also create client objects for specific [containers](../../articles/storage/blobs/storage-blob-client-management.md#create-a-blobcontainerclient-object) or [blobs](../../articles/storage/blobs/storage-blob-client-management.md#create-a-blobclient-object). To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
+You can also create client objects for specific [containers](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobcontainerclient-object) or [blobs](../../articles/storage/blobs/storage-blob-client-management.md?tabs=python#create-a-blobclient-object). To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
 
