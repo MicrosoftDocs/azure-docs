@@ -18,6 +18,7 @@ The following release notes are generally available (GA):
 
 * Release Notes for Version 2.0.2763-119
 * Release Notes for Version 2.0.2777-132
+* Release Notes for Version 2.0.2783-134
 
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
@@ -32,6 +33,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 ### Release Details
 * Release Version: 2.0.2763-119
 * Release Date: July 31st, 2024
+* Is NFO update required: YES, DELETE & REINSTALL
 
 ### Release Installation
 **[BREAKING CHANGE INSTALLATION]** This is a major version release, which includes a breaking change. To safely install this version, follow the below steps:
@@ -85,7 +87,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 ### Release Details
 * Release Version: 2.0.2777-132
 * Release Date: August 7, 2024
-* Is NFO update required: YES
+* Is NFO update required: YES, UPDATE ONLY
 
 ### Release Installation
 This release can be installed with as an update on top of release 2.0.2763-119.  
@@ -100,4 +102,38 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 #### Security Related Updates
 
 * CVE	- A total of five CVEs are addressed in this release.
+
+## Release 2.0.2783-134
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This August 20, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2783-134, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: 2.0.2783-134
+* Release Date: August 20, 2024
+* Is NFO update required: YES, DELETE & REINSTALL
+
+### Release Installation
+**[BREAKING CHANGE INSTALLATION]** This is a mitigation version release, which includes a breaking change. To safely install this version, follow the below steps:
+1.	Delete all site network services and network functions from the custom location.
+3.	Delete custom location
+2.	Uninstall the network function extension.
+4.	Delete cert-manager CRDs using commands: bash kubectl delete crd certificaterequests.cert-manager.io kubectl delete crd certificates.cert-manager.io kubectl delete crd challenges.acme.cert-manager.io kubectl delete crd clusterissuers.cert-manager.io kubectl delete crd issuers.cert-manager.io kubectl delete crd orders.acme.cert-manager.io
+6.	Install the network function extension
+7.	Create custom location
+8.	Redeploy site network services and network functions to the custom location.
+   
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Removing cert-manager from NFO and high availability changes temporarily. NFO will use custom cert creation logic. Changes to rotate certs and high availability will be part of upcoming releases.
+
+#### Security Related Updates
+
+None
+
   
