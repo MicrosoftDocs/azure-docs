@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure OpenAI Service
 description: Start here to learn how to use Azure Monitor tools like Log Analytics to capture and analyze metrics and data logs for your Azure OpenAI Service.
-ms.date: 07/15/2024
+ms.date: 08/20/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: mrbullwinkle

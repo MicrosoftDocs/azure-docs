@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure OpenAI
 description: This article contains important reference material you need when you monitor Azure OpenAI Service by using Azure Monitor.
-ms.date: 07/15/2024
+ms.date: 08/20/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: mrbullwinkle
@@ -19,7 +19,7 @@ See [Monitor Azure OpenAI](./how-to/monitor-openai.md) for details on the data y
 
 ### Supported metrics for Microsoft.CognitiveServices/accounts
 
-This list is the current subset of metrics available in Azure OpenAI. For descriptions and other details, see the following table.
+Here are the most important metrics we think you should monitor for Azure OpenAI. Later in this article is a longer list of all available Open AI metrics, which contains more details on metrics in this shorter list.
 
 - Azure OpenAI Requests
 - Active Tokens
