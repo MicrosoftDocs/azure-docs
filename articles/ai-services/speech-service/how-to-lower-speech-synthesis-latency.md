@@ -324,6 +324,8 @@ Text streaming allows real-time text processing for rapid audio generation. It's
 
 ### How to use text streaming
 
+Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
+
 ::: zone pivot="programming-language-csharp"
 
 To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
@@ -389,8 +391,6 @@ For detailed implementation, see the [sample code on GitHub](https://github.com/
 
 ::: zone pivot="programming-language-cpp"
 
-Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
-
 The C++ sample code isn't available now. For the sample code that shows how to use text streaming, see:
 
 - [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
@@ -400,8 +400,6 @@ The C++ sample code isn't available now. For the sample code that shows how to u
 
 ::: zone pivot="programming-language-java"
 
-Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
-
 For the sample code that shows how to use text streaming, see:
 
 - [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
@@ -410,8 +408,6 @@ For the sample code that shows how to use text streaming, see:
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-
-Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
 
 For the sample code that shows how to use text streaming, see:
 
