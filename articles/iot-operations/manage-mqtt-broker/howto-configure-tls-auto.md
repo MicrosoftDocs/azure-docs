@@ -186,7 +186,8 @@ spec:
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-mq-dmqtt-frontend'
   port: 8884 # Avoid conflicts with default port 8883
   tls:
-    automatic:
+    mode: Automatic
+    certManagerCertificateSpec:
       issuerRef:
         name: my-issuer
         kind: Issuer

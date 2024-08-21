@@ -18,13 +18,13 @@ ms.date: 08/03/2024
 
 To customize the network access and security use the **BrokerListener** resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each *Broker* resource, and thus multiple ports with different access control each.
 
-Each listener can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use *BrokerAuthentication* and *BrokerAuthorization* resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
+Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use *BrokerAuthentication* and *BrokerAuthorization* resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
 
 Listeners have the following characteristics:
 
 - You can have up to three listeners. One listener per service type of `loadBalancer`, `clusterIp`, or `nodePort`. The default *BrokerListener* named *listener* is service type `clusterIp`.
 - Each listener supports multiple ports
-- AuthN and authZ references are per port
+- BrokerAuthentication and BrokerAuthorization references are per port
 - TLS configuration is per port
 - Service names must be unique
 - Ports cannot conflict over different listeners
@@ -89,9 +89,9 @@ spec:
     port: 8883
     protocol: Mqtt
     tls:
-      automatic:
+      certManagerCertificateSpec:
         issuerRef:
-          apiGroup: cert-manager.io
+          group: cert-manager.io
           kind: Issuer
           name: mq-dmqtt-frontend
       mode: Automatic
@@ -133,12 +133,12 @@ spec:
     authenticationRef: authn
     protocol: Mqtt
     tls:
-      automatic:
+      mode: Automatic
+      certManagerCertificateSpec:
         issuerRef:
             name: e2e-cert-issuer
             kind: Issuer
             group: cert-manager.io
-      mode: Automatic
 ```
 
 ## Related content
