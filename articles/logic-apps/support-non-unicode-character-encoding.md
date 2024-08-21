@@ -211,7 +211,7 @@ Example output:
 
 If you need to send a non-Unicode payload from your workflow, do the steps for [converting the payload to UTF-8](#convert-payload-encoding) in reverse. Keep the text in UTF-8 as long as possible within your system. Next, use the same function to convert the base64-encoded UTF-8 characters to the required encoding. Then, apply base64 decoding to the text, and send your payload.
 
-When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](workflow-definition-language-fucntions-reference.md#base64tobinary), not the **base64ToString** function.
+When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](workflow-definition-language-functions-reference.md#base64tobinary), not the **base64ToString** function.
 
 ## Convert payloads for AS2
 
