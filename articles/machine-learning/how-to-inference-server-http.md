@@ -10,18 +10,27 @@ ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
-ms.date: 08/07/2024
+ms.date: 08/21/2024
 
 #customer intent: As a developer, I want to work with the Azure Machine Learning inference HTTP server so I can debug scoring scripts or endpoints before deployment.
 ---
 
 # Debug scoring scripts with Azure Machine Learning inference HTTP server
 
-The Azure Machine Learning inference HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. The serve is included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server returns an error and the location of the error.
+The Azure Machine Learning inference HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. The server is included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server returns an error and the location of the error.
 
 The server can also be used to create validation gates in a continuous integration and deployment pipeline. For example, you can start the server with the candidate script and run the test suite against the local endpoint.
 
 This article supports developers who want to use the inference server to debug locally and describes how to use the inference server with online endpoints on Windows.
+
+## Prerequisites
+
+To use the Azure Machine Learning inference HTTP server for local debugging, your configuration must include the following components:
+
+- Python 3.8 or later
+- Anaconda
+
+The Azure Machine Learning inference HTTP server runs on Windows and Linux based operating systems.
 
 ## Explore local debugging options for online endpoints
 
@@ -42,15 +51,6 @@ The following table provides an overview of scenarios to help you choose the bes
 | Integrate Microsoft Visual Studio Code (VS Code) Debugger               | Yes | Yes |
 
 When you run the inference HTTP server locally, you can focus on debugging your scoring script without concern for deployment container configurations.
-
-## Prerequisites
-
-To use the Azure Machine Learning inference HTTP server for local debugging, your configuration must include the following components:
-
-- Python 3.8 or later
-- Anaconda
-
-The Azure Machine Learning inference HTTP server runs on Windows and Linux based operating systems.
 
 ## Install azureml-inference-server-http package
 
