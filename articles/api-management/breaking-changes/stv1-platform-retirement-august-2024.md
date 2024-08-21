@@ -46,15 +46,26 @@ If you have existing instances hosted on the `stv1` platform, follow our **[migr
 
 ## What happens after 31 August 2024?
 
+<<<<<<< HEAD
 ### End of SLA support for `stv1` instances
 
 As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the API Management `stv1` platform. 
+=======
+### End of SLA coverage for `stv1` instances
+
+As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the
+API Management `stv1` platform. 
+>>>>>>> 8ca110326c91 ([APIM] SLA post stv1 retirement)
 
 Through continued use of an instance hosted on the `stv1` platform beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired instances.
 
 ### Automatic migration
 
+<<<<<<< HEAD
 Starting 1 September 2024, we'll automatically migrate remaining `stv1` service instances to the `stv2` compute platform. All affected customers will be notified of the upcoming automatic migration a week in advance. Automatic migration might cause downtime for your upstream API consumers. Alternatively, migrate your own instances before automatic migration takes place.
+=======
+Starting 1 September 2024, we'll automatically migrate remaining `stv1` service instances to the `stv2` compute platform. All affected customers will be notified of the upcoming automatic migration a week in advance. Automatic migration might cause downtime for your upstream API consumers.
+>>>>>>> 8ca110326c91 ([APIM] SLA post stv1 retirement)
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
