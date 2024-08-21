@@ -104,6 +104,7 @@ EncryptionAtHost (8.4.0+) | Boolean | If true, the virtual machine will have [En
 SecurityType (8.5.0+) | String | Sets the [security type](../how-to/vm-security.md); either undefined, `TrustedLaunch` or `ConfidentialVM`
 | EnableSecureBoot (8.5.0+) | Boolean | Enables [Secure Boot](../how-to/vm-security.md), if using Trusted Launch VMs or Confidential VMs.
 | EnableVTPM (8.5.0+) | Boolean | Enables [Virtual Trusted Platform Module](../how-to/vm-security.md), if using Trusted Launch VMs or Confidential VMs.
+| ScaleSetUpgradePolicyMode (8.6.2+) | String | Specifies the scale set upgrade policy, which controls what happens to existing VMs in a scale set when the scale set template is modified outside CycleCloud. This should generally be enabled if using an automated tool to modify existing scale sets, such as Azure Policy. Note: this does *not* automatically upgrade the OS image. One of `Automatic`, `Rolling`, or `Manual` (the default).
 
 > [!NOTE]
 > A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 
