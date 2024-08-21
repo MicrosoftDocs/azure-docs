@@ -181,7 +181,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
       1. With the cursor still in the **Subject** box, select the dynamic content list (lightning icon).
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows the action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
 
       1. From the dynamic content list that opens, under **When a feed item is published**, select **Feed title**, which is a trigger output that references the title for the RSS item.
 
@@ -193,7 +193,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
          After you finish, the email subject looks like the following example:
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows the action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
          > [!NOTE]
          > 
@@ -213,7 +213,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
       | `Date published:` | **Feed published on** | The item's publishing date and time |
       | `Link:` | **Primary feed link** | The URL for the item |
 
-      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
+      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows the action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
