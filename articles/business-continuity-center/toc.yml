@@ -4,8 +4,8 @@
   href: business-continuity-center-overview.md
 - name: Quickstart
   items:
-  - name: View protectable resources
-    href: quick-view-protectable-resources.md
+  - name: Understand the protection estate
+    href: quick-understand-protection-estate.md
 - name: Tutorials
   items:
   - name: View protectable resources
