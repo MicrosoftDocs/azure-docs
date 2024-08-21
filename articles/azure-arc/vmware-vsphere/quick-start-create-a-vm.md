@@ -4,6 +4,7 @@ description: In this quickstart, you learn how to create a virtual machine on VM
 ms.topic: tutorial
 ms.date: 08/21/2024
 ms.service: azure-arc
+zone_pivot_groups: vmware-azureportal-bicep-terraform
 ms.subservice: azure-arc-vmware-vsphere
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
