@@ -12,9 +12,7 @@ manager: nitinme
 
 # What is prompt transformation?
 
-Prompt transformation is a process in DALL-E 3 image generation that applies a safety and quality system message to your original prompt using a large language model (LLM) call before being sent to the model for image generation. This system message enriches your original prompt with the goal of generating more diverse and higher-quality images, while maintaining intent.
-
-Prompt transformation is applied to all Azure OpenAI DALL-E 3 requests by default. There may be scenarios in which your use case requires a lower level of enrichment. To generate images that use prompts that more closely resemble your original prompt, append this text to your prompt: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`. This ensures there is minimal prompt transformation. Evaluating your system behavior with and without this prompt helps you better understand the impact and value of prompt transformation. 
+Prompt transformation is a process in DALL-E 3 image generation that applies a safety and quality system message to your original prompt using a large language model (LLM) call before being sent to the model for image generation. This system message enriches your original prompt with the goal of generating more diverse and higher-quality images, while maintaining intent. 
 
 After prompt transformation is applied to the original prompt, content filtering is applied as a secondary step before image generation; for more information, see [Content filtering](./content-filter.md).
 
@@ -71,10 +69,6 @@ Output Content:
 }
 ```
 
-> [!NOTE]
-> Azure OpenAI Service does not offer configurability for prompt transformation at this time. To bypass prompt transformation, prepend the following to any request: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
-> 
-> While this addition will encourage the revised prompt to be more representative of your original prompt, the system may alter specific details.
 
 ## Next steps
 

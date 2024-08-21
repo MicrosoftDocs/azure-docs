@@ -143,17 +143,18 @@ For details about monitoring options, see [Observability in Azure API Management
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ | ❌ | 
-| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | 
+| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️<sup>2</sup> | ✔️ | 
 | [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
-| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> | ❌ |
+| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>3</sup> | ❌ |
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  
-| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ | ❌ |
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>4</sup> | ✔️ | ✔️ | ❌ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
-<sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
-<sup>3</sup> Tracing is currently unavailable in the v2 tiers.
+<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](./../azure-monitor/app/telemetry-channels.md#built-in-telemetry-channels) and does not provide delivery guarantees.<br/>
+<sup>3</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
+<sup>4</sup> Tracing is currently unavailable in the v2 tiers.
 
 ### Authentication and authorization
 

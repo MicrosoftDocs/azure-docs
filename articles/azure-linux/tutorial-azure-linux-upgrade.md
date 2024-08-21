@@ -1,12 +1,12 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Upgrade Azure Linux Container Host nodes
 description: In this Azure Linux Container Host for AKS tutorial, you learn how to upgrade Azure Linux Container Host nodes.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 05/10/2023
+ms.date: 08/18/2024
 ---
 
 # Tutorial: Upgrade Azure Linux Container Host nodes
@@ -59,9 +59,9 @@ For more information on upgrade channels, see [Using cluster auto-upgrade](/azur
 
 ## Enable automatic package upgrades
 
-Similar to setting your clusters to auto-upgrade, you can use the same set once and forget mechanism for package upgrades by enabling the node-os upgrade channel. If automatic package upgrades are enabled, the dnf-automatic systemd service runs daily and installs any updated packages that have been published.
+Similar to setting your clusters to auto-upgrade, you can use the same set once and forget mechanism for package upgrades by enabling the node-os upgrade channel. If automatic package upgrades are enabled, the `dnf-automatic` systemd service runs daily and installs any updated packages that have been published.
 
-To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example, which automatically enables package upgrades. Note that for some settings of [Node OS Upgrade Channel](/azure/aks/auto-upgrade-node-image), `dnf-automatic` is disabled by default.
+To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example, which automatically enables package upgrades.
 
 ```azurecli-interactive
 az aks update --resource-group testAzureLinuxResourceGroup --name testAzureLinuxCluster --node-os-upgrade-channel Unmanaged

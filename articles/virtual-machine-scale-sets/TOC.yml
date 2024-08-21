@@ -84,6 +84,8 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Troubleshoot autoscale
       href: virtual-machine-scale-sets-troubleshoot.md 
+  - name: Instance Mix (Preview)
+    href: virtual-machine-scale-sets-instance-mix.md
   - name: Scaling Profile
     href: virtual-machine-scale-sets-scaling-profile.md
   - name: Scale-In Policy

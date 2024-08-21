@@ -162,7 +162,9 @@ sections:
          answer: | 
           Review resource usage costs under your selected Subscription > Cost Management and for further details follow [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
           Review billing information under your selected Subscription > Billing and for further details follow [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
-
+       - question: Is the pricing pro-rated or it is full amount regardless of when you join the service?
+         answer: | 
+          The pricing is not calculated on a pro-rata basis. The invoice is generated with the full amount for the SKU you selected during account creation, regardless of when you start using the service within the month. 
   - name: Unenroll from the Trusted Signing service
     questions:  
        - question: How do I unenroll from Trusted Signing?

@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/18/2024
+ms.date: 08/15/2024
 ms.author: radeltch
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -17,7 +17,6 @@ ms.author: radeltch
 [planning-guide]:planning-guide.md
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
@@ -53,7 +52,7 @@ Before you begin, read the following SAP Notes and papers:
   - The required SAP kernel versions for Windows and Linux on Microsoft Azure.
 - SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
 - SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server 12 (SLES 12) for SAP Applications.
--  SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
+- SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
 - SAP Note [2235581] has SAP HANA supported Operating systems
 - SAP Note [2178632] has detailed information about all the monitoring metrics that are reported for SAP in Azure.
 - SAP Note [2191498] has the required SAP host agent version for Linux in Azure.
@@ -578,9 +577,15 @@ sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:sus
   params SID="<HANA SID>" InstanceNumber="<instance number>" PREFER_SITE_TAKEOVER="true" \
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
+# Run the following command if the cluster nodes are running on SLES 12 SP05.
 sudo crm configure ms msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
+
+# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
+sudo crm configure clone msl_SAPHana_<HANA SID>_HDB<instance number> rsc_SAPHana_<HANA SID>_HDB<instance number> \
+  meta notify="true" clone-max="2" clone-node-max="1" \
+  target-role="Started" interleave="true" promotable="true"
 
 sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 100
 

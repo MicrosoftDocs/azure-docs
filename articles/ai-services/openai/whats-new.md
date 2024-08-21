@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 08/06/2024
+ms.date: 08/14/2024
 recommendations: false
 ---
 
@@ -19,6 +19,25 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## August 2024
+
+### New preview API release
+
+API version `2024-07-01-preview` is the latest dataplane authoring & inference API release. It replaces API version `2024-05-01-preview` and adds support for:
+
+- [Batch API support added](./how-to/batch.md)
+- [Vector store chunking strategy parameters](/azure/ai-services/openai/reference-preview?#request-body-17)
+- `max_num_results` that the file search tool should output.
+
+For more information see our [reference documentation](./reference-preview.md)
+
+### GPT-4o mini regional availability
+
+- GPT-4o mini is available for standard and global standard deployment in the East US and Sweden Central regions.
+- GPT-4o mini is available for global batch deployment in East US, Sweden Central, and West US regions.
+
+### Evaluations guide
+
+- New blog post on [getting started with model evaluations](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/how-to-evaluate-amp-upgrade-model-versions-in-the-azure-openai/ba-p/4218880). We recommend using this guide as part of the [model upgrade and retirement process](./concepts/model-retirements.md).
 
 ### Latest GPT-4o model available in the early access playground (preview)
 
@@ -490,7 +509,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
-- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#enabling-chat-history-using-cosmos-db)
 
 ## July 2023
 
