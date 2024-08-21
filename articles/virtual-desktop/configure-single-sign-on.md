@@ -161,7 +161,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -BodyParameter $tdg
    ```
 
-   The output should be similar:
+   The output should be similar to the following example:
 
    ```output
    Id                                   DisplayName
