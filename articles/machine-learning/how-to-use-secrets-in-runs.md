@@ -10,7 +10,7 @@ ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 08/20/2024
 ms.topic: concept-article
-ms.custom: sdkv2
+ms.custom: sdkv2, FY25Q1-Linter
 # Customer intent: As a data scientist, I want to securely access secrets from Azure Key Vault in my training jobs so that I can use them in my training scripts.
 ---
 
