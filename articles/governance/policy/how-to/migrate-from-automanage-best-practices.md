@@ -29,7 +29,7 @@ Before you begin, it's a good idea to read the conceptual overview information a
 
 ## Understand migration
 
-The best approach to migration is to identify how to map services in a an Automanage configuration profile to respective Azure Policy content first, and then offboard your subscriptions from Automanage. This section outlines the expected steps for migration. Automanage’s capabilities involved creating a deploy-and-forget experience for Azure customers to onboard new and existing virtual machines to a recommended set of Azure
+The best approach to migration is to identify how to map services in an Automanage configuration profile to respective Azure Policy content first, and then offboard your subscriptions from Automanage. This section outlines the expected steps for migration. Automanage’s capabilities involved creating a deploy-and-forget experience for Azure customers to onboard new and existing virtual machines to a recommended set of Azure
 Services to ensure compliance with Azure’s best practices. This was achieved by the
 creation of a configuration profile, a reusable template of management, monitoring,
 security and resiliency services that customers could opt into. The profile is then assigned
@@ -129,7 +129,7 @@ Monitoring Agent (AMA) Policy initiative.
 Change Tracking and Inventory is a feature within Azure Automation that monitors changes
 in virtual machines across Azure, on-premises, and other cloud environments. It tracks
 modifications to installed software, files, registry keys, and services on both Windows and
-Linux systems. By leveraging the Log Analytics agent, it collects data and forwards it to
+Linux systems. By leveraging the Log Analytics agent, the Change Tracking service collects data and forwards it to
 Azure Monitor Logs for analysis. Additionally, it integrates with Microsoft Defender for
 Cloud File Integrity Monitoring (FIM) to enhance security and operational insights. The
 following policies enable change tracking on VMs:
@@ -168,13 +168,13 @@ Azure. It provides a unified solution to help you keep your systems up to date b
 update compliance, deploying critical updates, and offering flexible patching options.
 Azure Update Management is configurable in Azure Policy through the following policies:
 
-- Configure periodic checking for missing system updates on azure Arc-enabled
+- Configure periodic checking for missing system updates on Azure Arc-enabled
 servers
 - Machines should be configured to periodically check for missing system updates
 - Schedule recurring updates using Azure Update Manager
 - [Preview]: Set prerequisite for Scheduling recurring updates on Azure virtual
 machines.
-- Configure periodic checking for missing system updates on azure virtual machines
+- Configure periodic checking for missing system updates on Azure virtual machines
 
 ### Azure Automation Account
 
@@ -205,14 +205,13 @@ booting up by collecting serial log information and screenshots. Enabling Boot D
 feature allows Microsoft Azure cloud platform to inspect the virtual machine operating
 system (OS) for provisioning errors, helping to provide deeper information on the root
 causes of the startup failures. Boot diagnostics is enabled by default when we create a VM
-and is enforced by the “Boot Diagnostics should be enabled on virtual machines” policy.
+and is enforced by the "Boot Diagnostics should be enabled on virtual machines" policy.
 
 ### Windows Admin Center
 
 Azure Boot Diagnostics is a debugging feature for Azure virtual machines (VM) that allows
 diagnosis of VM boot failures by collecting serial log information and screenshots during
-the boot process. It is configurable either through an ARM template or a custom Azure
-Policy. Learn more [here][04]
+the boot process. It's configurable either through an ARM template or a custom Azure Policy. Learn more [here][04]
 
 ### Log Analytics Workspace
 
@@ -223,11 +222,11 @@ and visualize data to identify trends, troubleshoot issues, and monitor your sys
 August 2024, both Automation Update Management and the Log Analytics agent it uses
 will be retired. Migrate to Azure Update Manager before that. Refer to guidance on
 migrating to Azure Update Manager [here][05]. We advise you to migrate [now][06] as this feature will
-nolonger be supported in Automanage.
+no longer be supported in Automanage.
 
 ## Pricing
 
-As you migrate, it is worthwile to note that Automanage Best Practices is a cost-free service. As such, you will not recieve a bill from the Automanage service. 
+As you migrate, it's worthwhile to note that Automanage Best Practices is a cost-free service. As such, you won't receive a bill from the Automanage service. 
 However, if you used Automanage to enable paid services like Azure Insights, there may be usage charges incurred that are billed directly by those services.
 Read more about Automanage and pricing [here][09].
 
