@@ -223,6 +223,12 @@ will be retired. Migrate to Azure Update Manager before that. Refer to guidance 
 migrating to Azure Update Manager [here][05]. We advise you to migrate [now][06] as this feature will
 nolonger be supported in Automanage.
 
+## Pricing
+
+As you migrate, it is worthwile to note that Automanage Best Practices is a cost-free service. As such, you will not be charged for any usage of the Automanage service itself. 
+However, if you used Automanage to enable paid services like Azure Insights, there may be billing implications that vary from service to service. 
+Read more about Automanage and pricing [here][09].
+
 ## Next steps
 
 Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
@@ -240,5 +246,6 @@ next steps:
 [06]: https://ms.portal.azure.com/
 [07]: ../concepts/definition-structure-basics.md
 [08]: ../assign-policy-portal.md
+[09]: https://azure.microsoft.com/en-us/pricing/details/azure-automanage/
 
 
