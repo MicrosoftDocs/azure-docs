@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 The `modify` effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. Existing non-compliant resources can also be remediated with a [remediation task](../how-to/remediate-resources.md). Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. A common example using `modify` effect is updating tags on resources such as 'costCenter'. 
 
-There are some nuances in modification behavior for resource properties, including contingency on properties being included in the update payload. This behavior can be dependent on client used, such as Azure portal, and other factors like resource provider. Learn more about scenarios when modification is [skipped](#skipped-modification).
+There are some nuances in modification behavior for resource properties. Learn more about scenarios when modification is [skipped](#skipped-modification).
 
 A single `modify` rule can have any number of operations. Supported operations are:
 
@@ -51,7 +51,7 @@ There are some cases when modify operations are skipped during evaluation:
 
 #### Example of property not present
 
-Modification of resource properties depends on the API request and the updated resource payload. Let's compare `modify` behavior of tags with modify behavior of properties.
+Modification of resource properties depends on the API request and the updated resource payload. The payload can depend on client used, such as Azure portal, and other factors like resource provider.
 
 Imagine you apply a policy that modifies tags on a virtual machine (VM). Every time the VM is updated, such as during resizing or disk changes, the tags are updated accordingly regardless of the contents of the VM payload. This is because tags are independent of the VM properties.
 
