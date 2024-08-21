@@ -62,8 +62,8 @@ To download the components, you need for deployment:
 
 You receive a *.zip* file that contains:
 
-- A conda environment specification file named *conda_env_<VERSION>.yml*
-- A Python scoring file named *scoring_file_<VERSION>.py*
+- A conda environment specification file named *conda_env_\<VERSION>.yml*
+- A Python scoring file named *scoring_file_\<VERSION>.py*
 - The model itself, in a Python *.pkl* file named *model.pkl*
 
 To deploy using these files, you can use either the studio or the Azure CLI.
