@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 08/16/2024
+ms.date: 08/21/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
