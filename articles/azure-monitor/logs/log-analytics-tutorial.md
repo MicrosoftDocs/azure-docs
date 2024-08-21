@@ -29,6 +29,9 @@ This tutorial walks you through the Log Analytics interface, gets you started wi
 
 This tutorial uses the [Log Analytics demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data that supports the sample queries. You can also use your own Azure subscription, but you might not have data in the same tables.
 
+> [!NOTE]
+> Log Analytics has two modes - Simple and KQL. *This tutorial walks you through KQL mode.* For information on Simple mode, see [Analyze data using Log Analytics Simple mode (Preview)](log-analytics-simple-mode.md).
+
 ## Open Log Analytics
 
 Open the [Log Analytics demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), or select **Logs** from the Azure Monitor menu in your subscription. This step sets the initial scope to a Log Analytics workspace so that your query selects from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to only records from that resource. For details about the scope, see [Log query scope](./scope.md).
