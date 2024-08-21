@@ -5,7 +5,7 @@
  author: duongau
  ms.service: azure-expressroute
  ms.topic: include
- ms.date: 08/06/2024
+ ms.date: 08/21/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -46,15 +46,19 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Australia Government** |Australia Central<br/>Australia Central 2 |Canberra<br/>Canberra2 |
 | **Oceania** | Australia East<br/>Australia Southeast |Auckland<br/>Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 
----
-
-## Azure regions and geopolitical boundaries for national clouds
-The following table provides information on regions and geopolitical boundaries for national clouds.
+#### [US Government](#tab/usgov)
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
 | **US Government cloud** |US Gov Arizona<br/>US Gov Texas<br/>US Gov Virginia<br/>US DoD Central<br/>US DoD East |Atlanta<br/>Chicago<br/>Dallas<br/>New York<br/>Phoenix<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
+
+#### [China](#tab/china)
+
+| Geopolitical region | Azure regions | ExpressRoute locations |
+| --- | --- | --- |
 | **China East** |China East<br/>China East2 |Shanghai<br/>Shanghai2 |
 | **China North** |China North<br/>China North2<br/>China North3 |Beijing<br/>Beijing2 |
+
+---
 
 Connectivity across geopolitical regions isn't supported on the standard ExpressRoute SKU. You'll need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments isn't supported. You can work with your connectivity provider if such a need arises.
