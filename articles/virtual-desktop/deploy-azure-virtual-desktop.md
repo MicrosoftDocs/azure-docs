@@ -690,7 +690,7 @@ Here's how to assign users or user groups to an application group for a workspac
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to assign users or user groups to an application group for a workspace by using the [Az.Resources](/powershell/module/az.resources) Azure PowerShell module:
+Here's how to assign users or user groups to an application group by using the [Az.Resources](/powershell/module/az.resources) Azure PowerShell module:
 
 - In the same PowerShell session, use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group:
 
