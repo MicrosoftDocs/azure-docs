@@ -225,8 +225,8 @@ nolonger be supported in Automanage.
 
 ## Pricing
 
-As you migrate, it is worthwile to note that Automanage Best Practices is a cost-free service. As such, you will not be charged for any usage of the Automanage service itself. 
-However, if you used Automanage to enable paid services like Azure Insights, there may be billing implications that vary from service to service. 
+As you migrate, it is worthwile to note that Automanage Best Practices is a cost-free service. As such, you will not recieve a bill from the Automanage service. 
+However, if you used Automanage to enable paid services like Azure Insights, there may be usage charges incurred that are billed directly by those services.
 Read more about Automanage and pricing [here][09].
 
 ## Next steps
