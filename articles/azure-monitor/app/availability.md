@@ -8,7 +8,7 @@ ms.reviewer: cogoodson
 
 # Application Insights availability tests
 
-After deploying your web app or website, it's crucial to ensure its availability and responsiveness to provide a seamless user experience. [Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness. These tests send web requests to your application at regular intervals from various points around the world, and alert you if your application isn't responding or if the response time is too slow.
+After deploying your web app or website, it's crucial to ensure its availability and responsiveness to provide a seamless user experience. [Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness from various points around the world. These tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
 
 Availability tests are versatile and don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality.
 
@@ -70,8 +70,8 @@ There are four types of availability tests:
     | | **Request body** | Custom data associated with your HTTP request. You can upload your own files, enter your content, or disable this feature. |
     | | **Add custom headers** | Key value pairs that define the operating parameters. |
     | **Success criteria** | | |
-    | | **Test Timeout** | Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period. |
-    | | **HTTP response** | The returned status code that's counted as a success. The number 200 is the code that indicates that a normal webpage has been returned. |
+    | | **Test Timeout** | Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site aren't received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must be received within this period. |
+    | | **HTTP response** | The returned status code counted as a success. The number 200 is the code that indicates that a normal webpage is returned. |
     | | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes, you might have to update it. *Only English characters are supported with content match.* |
 
 ## [TrackAvailability()](#tab/track)
@@ -99,7 +99,7 @@ There are four types of availability tests:
 
 1. [Create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following consideration:
 
-    * **If you don't have an Application Insights resource yet for your timer-triggered function,** it will be created *by default* when you create an Azure Functions app.
+    * **If you don't have an Application Insights resource yet for your timer-triggered function,** it is created *by default* when you create an Azure Functions app.
 
     * **If you already have an Application Insights resource,** go to the **Monitoring** tab while creating the Azure Functions app, and select or enter the name of your existing resource in the Application Insights dropdown:
 
@@ -150,7 +150,7 @@ To create a new file, right-click under your timer trigger function (for example
 
 1. Define the `REGION_NAME` environment variable as a valid Azure availability location.
 
-    Run the following command in the [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions:
+    Run the following command in [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions:
 
     ```azurecli
     az account list-locations -o table
@@ -303,7 +303,7 @@ You can use the following population tags for the geo-location attribute when yo
 
 ### Alert criteria
 
-Automatically enabled availability alerts trigger an email when the endpoint you defined becomes unavailable and when it's available again. Availability alerts that are created through this experience are *state based*. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
+Automatically enabled availability alerts trigger an email when the endpoint becomes unavailable and when it's available again. Availability alerts that are created through this experience are *state based*. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
 
 For example, suppose that your website is down for an hour and you set up an email alert with an evaluation frequency of 15 minutes. You only receive an email when the website goes down and another email when it's back online. You don't receive continuous alerts every 15 minutes to remind you that the website is still unavailable.
 
@@ -356,7 +356,7 @@ Start by reviewing the graph in the **Availability** experience in the Azure por
 
 ---
 
-By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
+By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green dotsor red marks to see the test, test name, and location.
 
 :::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience." lightbox="media/availability/scatter-plot.png":::
 
@@ -386,7 +386,7 @@ Here you can:
 * Review the **Troubleshooting Report** to determine what might have caused your test to fail.
 * Inspect the response received from your server.
 * Diagnose failure with correlated server-side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to the event in the Azure portal.
+* Log an issue or work item in Git or Azure Boards to track the problem. The bug contains a link to the event in the Azure portal.
 * Open the web test result in Visual Studio.
 
 To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics).
@@ -494,7 +494,7 @@ Ensure your internal website has a public Domain Name System (DNS) record. Avail
 
 Set custom headers in [standard availability tests](availability-standard-tests.md) to validate traffic.
 
-1. Create an alphanumeric string without spaces to identify this availability test (for example, "MyAppAvailabilityTest"). We hereafter refer to this string as the *availability test string identifier*.
+1. Create an alphanumeric string without spaces to identify this availability test (for example, "MyAppAvailabilityTest"). From here on we refer to this string as the *availability test string identifier*.
 
 1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the **Standard test info** section when creating or updating your availability tests.
 
@@ -584,7 +584,7 @@ The parameters set in the workbook influence the rest of your report.
 
 * `Subscriptions`, `App Insights Resources`, and `Web Test`: These parameters determine your high-level resource options. They're based on Log Analytics queries and are used in every report query.
 * `Failure Threshold` and `Outage Window`: You can use these parameters to determine your own criteria for a service outage. An example is the criteria for an Application Insights availability alert based on a failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
-* `Maintenance Period`: You can use this parameter to select your typical maintenance frequency. `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
+* `Maintenance Period`: You can use this parameter to select your typical maintenance frequency. `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period is ignored in your results.
 * `Availability Target %`: This parameter specifies your target objective and takes custom values.
 
 ### Overview page
@@ -617,7 +617,7 @@ There are two more tabs next to the **Overview** page:
 
 * **Log Analytics:** The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
 
-* **Access and sharing:** The report can be shared with your teams and leadership or pinned to a dashboard for further use. The user needs to have read permission/access to the Application Insights resource where the actual workbook is stored.
+* **Access and sharing:** The report can be shared with your teams and leadership or pinned to a dashboard for further use. The user needs to have read permissions and access to the Application Insights resource where the actual workbook is stored.
 
 ## Frequently asked questions
 
