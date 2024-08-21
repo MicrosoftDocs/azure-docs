@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 Network architecture planning is a key element of designing any application infrastructure. This article helps you design an effective network architecture for your workloads to benefit from the rich capabilities of Azure NetApp Files.
 
-Azure NetApp Files volumes are designed to be contained in a special purpose subnet called a [delegated subnet](../virtual-network/virtual-network-manage-subnet.md) within your Azure Virtual Network. Therefore, you can access the volumes directly from within Azure over VNet peering or from on-premises over a Virtual Network Gateway (ExpressRoute or VPN Gateway). The subnet is dedicated to Azure NetApp Files and there's no connectivity to the Internet. 
+Azure NetApp Files volumes are designed to be contained in a special purpose subnet called a [delegated subnet](../virtual-network/virtual-network-manage-subnet.md) within your Azure Virtual Network. Therefore, you can access the volumes directly from within Azure over virtual network (VNet) peering or from on-premises over a Virtual Network Gateway (ExpressRoute or VPN Gateway). The subnet is dedicated to Azure NetApp Files and there's no connectivity to the Internet. 
 
 <a name="regions-standard-network-features"></a>The option to set Standard network features on new volumes and to modify network features for existing volumes is supported in all Azure NetApp Files-enabled regions. 
 
@@ -37,7 +37,7 @@ The following table describes what’s supported for each network features confi
 
 |      Features     |      Standard network features     |      Basic network features     |
 |---|---|---|
-|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
+|     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as virtual machines (VMs)](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
@@ -94,11 +94,11 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 >[!IMPORTANT]
 > Ensure the address space size of the Azure NetApp Files VNet is larger than its delegated subnet.
 >
-> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS volumes if they attempt to reach DNS through hub-and-spoke network topology. 
+> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS (Common Internet File System) volumes if they attempt to reach DNS through hub-and-spoke network topology. 
 >
 > It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
-### UDRs and NSGs
+### <a name="udrs-and-nsgs"></a> User-defined routes (UDRs) and network security groups (NSGs)
 
 If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 

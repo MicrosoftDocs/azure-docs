@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis'
 description: In this tutorial, you learn how to use Azure Cache for Redis to store and search for vector embeddings.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: tutorial
 ms.date: 09/15/2023
 
@@ -113,7 +113,7 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
 1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
    > [!Important]
-   > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+   > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](/azure/key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
 
 1. Execute code cell 2.
 

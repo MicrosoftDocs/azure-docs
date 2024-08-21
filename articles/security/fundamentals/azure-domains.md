@@ -30,11 +30,11 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)|*.azurecr.io|
 |Azure Container Service (deprecated)|*.azurecontainer.io|
 |[Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/)|*.vo.msecnd.net|
-|[Azure Cosmos DB](../../cosmos-db/index.yml)|*.cosmos.azure.com|
-|[Azure Cosmos DB](../../cosmos-db/index.yml)|*.documents.azure.com|
+|[Azure Cosmos DB](/azure/cosmos-db/)|*.cosmos.azure.com|
+|[Azure Cosmos DB](/azure/cosmos-db/)|*.documents.azure.com|
 |[Azure Files](../../storage/files/storage-files-introduction.md)|*.file.core.windows.net|
 |[Azure Front Door](https://azure.microsoft.com/services/frontdoor/)|*.azurefd.net|
-|[Azure Key Vault](../../key-vault/general/overview.md)| *.vault.azure.net|
+|[Azure Key Vault](/azure/key-vault/general/overview)| *.vault.azure.net|
 |[Azure Kubernetes Service](/azure/aks/)|*.azmk8s.io|
 |Azure Management Services|*.management.core.windows.net|
 |[Azure Media Services](https://azure.microsoft.com/services/media-services/)|*.origin.mediaservices.windows.net|

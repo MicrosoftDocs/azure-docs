@@ -41,7 +41,7 @@ For OS disks attached to the cluster VMs only one layer of encryption (PMK) is a
 
 If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure key vault service.
 
-You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/general/soft-delete-overview.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
+You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](/azure/key-vault/general/soft-delete-overview) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
 ### Get started with customer-managed keys
 
@@ -64,9 +64,9 @@ See [Create a user-assigned managed identity](../active-directory/managed-identi
 
 ### Create Azure Key Vault
 
-Create a key vault. See [Create Azure Key Vault](../key-vault/general/quick-create-portal.md) for specific steps.
+Create a key vault. See [Create Azure Key Vault](/azure/key-vault/general/quick-create-portal) for specific steps.
 
-HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
 
 ### Create key
 
@@ -501,5 +501,5 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../key-vault/general/overview.md).
+* For more information about Azure Key Vault, see [What is Azure Key Vault](/azure/key-vault/general/overview).
 * [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

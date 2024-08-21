@@ -2,7 +2,7 @@
 metadata:
   title: NVMe - General FAQ
   description: Get answers to common questions about enabling the NVMe interface on virtual machines.
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.topic: faq
   ms.custom: references_regions
 title: General FAQ for NVMe

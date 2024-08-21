@@ -15,6 +15,8 @@ ms.author: pafarley
 
 Follow this guide to use Azure AI Content Safety Prompt Shields to check your large language model (LLM) inputs for both User Prompt and Document attacks.
 
+For more information on Prompt Shields, see the [Prompt Shields concept page](./concepts/jailbreak-detection.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -94,9 +96,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
 - [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
-## Next steps
 
-Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+## Related content
 
-> [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md)
+* [Prompt Shields concepts](./concepts/jailbreak-detection.md)
+* Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.

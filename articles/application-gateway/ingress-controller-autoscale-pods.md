@@ -30,9 +30,9 @@ Use following two components:
 1. First, create a Microsoft Entra service principal and assign it `Monitoring Reader` access over Application Gateway's resource group.
 
     ```azurecli
-        applicationGatewayGroupName="<application-gateway-group-id>"
-        applicationGatewayGroupId=$(az group show -g $applicationGatewayGroupName -o tsv --query "id")
-        az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
+    applicationGatewayGroupName="<application-gateway-group-id>"
+    applicationGatewayGroupId=$(az group show -g $applicationGatewayGroupName -o tsv --query "id")
+    az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
 1. Now, deploy the [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) using the Microsoft Entra service principal created previously.
@@ -98,7 +98,7 @@ In following example, we target a sample deployment `aspnet`. We scale up Pods w
 
 Replace your target deployment name and apply the following auto scale configuration:
 ```yaml
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: deployment-scaler

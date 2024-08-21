@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 03/21/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 zone_pivot_groups: drawing-package-version
 ---
 

@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devdivchpfy22, engagement
-ms.date: 08/06/2024
+ms.date: 08/14/2024
 ---
 
 # Debug exceptions in .NET applications using Snapshot Debugger
@@ -104,6 +104,12 @@ While the Snapshot Debugger process continues to run and serve traffic to users 
 > No more than 50 snapshots per day can be uploaded.
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
+
+## Upgrading Snapshot Debugger
+
+Snapshot Debugger auto-upgrades via the built-in, preinstalled Application Insights site extension. 
+
+Manually adding an Application Insights site extension to keep Snapshot Debugger up-to-date is deprecated.  
 
 ## Overhead
 

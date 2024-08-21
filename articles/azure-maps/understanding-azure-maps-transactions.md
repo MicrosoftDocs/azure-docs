@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 04/05/2024
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Understanding Azure Maps Transactions

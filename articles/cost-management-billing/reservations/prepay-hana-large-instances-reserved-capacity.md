@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -49,12 +49,12 @@ armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2019-04-
     'location': 'eastus',
     'properties': {
         'reservedResourceType': 'SapHana',
-        'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
+        'billingScopeId': '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e',
         'term': 'P1Y',
         'quantity': '1',
         'billingplan': 'Monthly',
         'displayName': 'testreservation_S224om',
-        'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111'],
+        'appliedScopes': ['/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'],
         'appliedScopeType': 'Single',
        'instanceFlexibility': 'NotSupported'
     }
@@ -79,13 +79,13 @@ The following example response resembles what you get returned. Note the value y
       },
       "location": "eastus",
       "properties": {
-        "billingScopeId": "/subscriptions/11111111-1111-1111-111111111111",
+        "billingScopeId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "term": "P1Y",
         "billingPlan": "Upfront",
         "quantity": 1,
         "displayName": "testreservation_S224om",
         "appliedScopes": [
-          "/subscriptions/11111111-1111-1111-111111111111"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
         ],
         "appliedScopeType": "Single",
         "reservedResourceType": "SapHana",
@@ -94,7 +94,7 @@ The following example response resembles what you get returned. Note the value y
     },
     "quoteId": "d0fd3a890795",
     "isBillingPartnerManaged": true,
-    "reservationOrderId": "22222222-2222-2222-2222-222222222222",
+    "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
     "skuTitle": "SAP HANA on Azure Large Instances - S224om - US East",
     "skuDescription": "SAP HANA on Azure Large Instances, S224om",
     "pricingCurrencyTotal": {
@@ -112,20 +112,20 @@ Make your purchase using the returned `reservationOrderId` that you got from the
 Here's an example request:
 
 ```azurepowershell-interactive
-armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2019-04-01  "{
+armclient put /providers/Microsoft.Capacity/reservationOrders/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2019-04-01  "{
     'sku': {
         'name': 'SAP_HANA_On_Azure_S224om'
     },
     'location': 'eastus',
     'properties': {
        'reservedResourceType': 'SapHana',
-        'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
+        'billingScopeId': '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e',
         'term': 'P1Y',
         'quantity': '1',
                'billingplan': 'Monthly',
 
         'displayName': ' testreservation_S224om',
-        'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123'],
+        'appliedScopes': ['/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/123'],
         'appliedScopeType': 'Single',
        'instanceFlexibility': 'NotSupported',
        'renew': true       
@@ -137,9 +137,9 @@ Here's an example response. If the order is placed successfully, the `provisioni
 
 ```
 {
-  "id": "/providers/microsoft.capacity/reservationOrders/22222222-2222-2222-2222-222222222222",
+  "id": "/providers/microsoft.capacity/reservationOrders/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb2",
   "type": "Microsoft.Capacity/reservationOrders",
-  "name": "22222222-2222-2222-2222-222222222222",
+  "name": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "etag": 1,
   "properties": {
     "displayName": "testreservation_S224om",
@@ -151,14 +151,14 @@ Here's an example response. If the order is placed successfully, the `provisioni
         "sku": {
           "name": "SAP_HANA_On_Azure_S224om"
         },
-        "id": "/providers/microsoft.capacity/reservationOrders22222222-2222-2222-2222-222222222222/reservations/33333333-3333-3333-3333-3333333333333",
+        "id": "/providers/microsoft.capacity/reservationOrdersaaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/reservations/bbbbbbbb-1111-2222-3333-cccccccccccc",
         "type": "Microsoft.Capacity/reservationOrders/reservations",
-        "name": "22222222-2222-2222-2222-222222222222/33333333-3333-3333-3333-3333333333333",
+        "name": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/bbbbbbbb-1111-2222-3333-cccccccccccc",
         "etag": 1,
         "location": "eastus”
         "properties": {
           "appliedScopes": [
-            "/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123"
+            "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/123"
           ],
           "appliedScopeType": "Single",
           "quantity": 1,
@@ -184,16 +184,16 @@ Here's an example response. If the order is placed successfully, the `provisioni
 Run the Reservation order GET request to see the status of the purchase order. `provisioningState` should be `Succeeded`.
 
 ```azurepowershell-interactive
-armclient get /providers/microsoft.capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2018-06-01
+armclient get /providers/microsoft.capacity/reservationOrders/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2018-06-01
 ```
 
 The response should resemble the following example.
 
 ```
 {
-  "id": "/providers/microsoft.capacity/reservationOrders/44444444-4444-4444-4444-444444444444",
+  "id": "/providers/microsoft.capacity/reservationOrders/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "type": "Microsoft.Capacity/reservationOrders",
-  "name": "22222222-2222-2222-2222-222222222222 ",
+  "name": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb ",
   "etag": 8,
   "properties": {
     "displayName": "testreservation_S224om",
@@ -204,7 +204,7 @@ The response should resemble the following example.
     "provisioningState": "Succeeded",
     "reservations": [
       {
-        "id": "/providers/microsoft.capacity/reservationOrders/22222222-2222-2222-2222-222222222222/reservations/33333333-3333-3333-3333-3333333333333"
+        "id": "/providers/microsoft.capacity/reservationOrders/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/reservations/bbbbbbbb-1111-2222-3333-cccccccccccc"
       }
     ],
     "originalQuantity": 1,

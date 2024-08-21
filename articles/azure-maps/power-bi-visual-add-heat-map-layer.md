@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 09/15/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Add a heat map layer

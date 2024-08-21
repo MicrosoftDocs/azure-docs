@@ -2,9 +2,9 @@
 metadata:
   title: Azure Cache for Redis management FAQs
   description: Learn the answers to common questions that help you manage Azure Cache for Redis
-  author: flang-msft
-  ms.author: franlanglois
-  ms.service: azure-cache-redis
+  
+  
+  
   ms.topic: faq
   ms.custom: devx-track-csharp
   ms.date: 04/04/2023

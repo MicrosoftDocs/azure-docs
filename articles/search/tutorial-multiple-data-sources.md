@@ -42,7 +42,7 @@ A finished version of the code in this tutorial can be found in the following pr
 
 ## Prerequisites
 
-+ [Azure Cosmos DB for NoSQL](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Azure Cosmos DB for NoSQL](/azure/cosmos-db/create-cosmosdb-resources-portal)
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
 + [Azure AI Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)

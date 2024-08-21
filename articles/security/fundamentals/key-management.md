@@ -20,7 +20,7 @@ In Azure, encryption keys can be either platform managed or customer managed.
 
 Platform-managed keys (PMKs) are encryption keys generated, stored, and managed entirely by Azure. Customers do not interact with PMKs. The keys used for [Azure Data Encryption-at-Rest](encryption-atrest.md), for instance, are PMKs by default.  
 
-Customer-managed keys (CMK), on the other hand, are keys read, created, deleted, updated, and/or administered by one or more customers. Keys stored in a customer-owned key vault or hardware security module (HSM) are CMKs.  Bring Your Own Key (BYOK) is a CMK scenario in which a customer imports (brings) keys from an outside storage location into an Azure key management service (see the [Azure Key Vault: Bring your own key specification](../../key-vault/keys/byok-specification.md)).
+Customer-managed keys (CMK), on the other hand, are keys read, created, deleted, updated, and/or administered by one or more customers. Keys stored in a customer-owned key vault or hardware security module (HSM) are CMKs.  Bring Your Own Key (BYOK) is a CMK scenario in which a customer imports (brings) keys from an outside storage location into an Azure key management service (see the [Azure Key Vault: Bring your own key specification](/azure/key-vault/keys/byok-specification)).
 
 A specific type of customer-managed key is the "key encryption key" (KEK). A KEK is a primary key that controls access to one or more encryption keys that are themselves encrypted.
 
@@ -38,7 +38,7 @@ The Azure Key Vault Standard and Premium tiers are billed on a transactional bas
 
 ### Service Limits
 
-Managed HSM, Dedicated HSM, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multi-tenant offerings and have throttling limits. For service limits, see [Key Vault service limits](../../key-vault/general/service-limits.md). 
+Managed HSM, Dedicated HSM, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multi-tenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits). 
 
 ### Encryption-At-Rest
 
@@ -51,8 +51,8 @@ Dedicated HSM and Payments HSM support the PKCS#11, JCE/JCA, and KSP/CNG APIs, b
 ## What's next
 
 - [How to Choose the Right Key Management Solution](key-management-choose.md)
-- [Azure Key Vault](../../key-vault/general/overview.md)
-- [Azure Managed HSM](../../key-vault/managed-hsm/overview.md)
-- [Azure Dedicated HSM](../../dedicated-hsm/overview.md)
-- [Azure Payment HSM](../../payment-hsm/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Managed HSM](/azure/key-vault/managed-hsm/overview)
+- [Azure Dedicated HSM](/azure/dedicated-hsm/overview)
+- [Azure Payment HSM](/azure/payment-hsm/overview)
 - [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

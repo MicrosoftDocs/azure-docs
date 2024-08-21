@@ -2,7 +2,7 @@
 title: Create zonal VMs with the Azure portal 
 description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 06/06/2024
 ms.author: mimckitt

@@ -4,7 +4,7 @@ description: In this article, learn how to plan for migration of IaaS resources 
 services: virtual-machines
 author: oriwolman
 manager: vashan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
 ms.date: 01/25/2023

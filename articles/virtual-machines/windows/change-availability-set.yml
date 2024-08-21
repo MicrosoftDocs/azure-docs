@@ -8,7 +8,7 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 3/8/2021
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.topic: how-to
   ms.custom:
     - devx-track-azurepowershell

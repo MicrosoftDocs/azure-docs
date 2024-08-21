@@ -39,7 +39,7 @@ sections:
           SEV-SNP stands for Secure Encrypted Virtualization-Secure Nested Paging. It's a Trusted Execution Environment (TEE) technology provided by AMD and offers multiple protections:
           For example, memory encryption, unique CPU keys, encryption for the processor register state, integrity protection, firmware rollback prevention, side channel hardening, and restrictions on interrupt and exceptions behavior. 
           Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. 
-          Confidential VMs leverages AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
+          Confidential VMs leverages AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). 
           You can encrypt data in use, in transit, and at rest with keys that you control. 
           With built-in [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) capabilities, you can independently establish trust in the security, health, and underlying infrastructure of your confidential VMs.
       
@@ -49,7 +49,7 @@ sections:
           Intel TDX stands for Intel Trust Domain Extensions (Intel TDX) It a Trusted Execution Environment (TEE) technology provided by Intel and offers multiple protections:
           Intel TDX uses hardware extensions for managing and encrypting memory and protects both the confidentiality and integrity of the CPU state.
           Additionally, Intel TDX helps to harden the virtualized environment by denying the hypervisor, other host management code, and administrators access to the VM memory and state.
-          Confidential VMs combine Intel TDX with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
+          Confidential VMs combine Intel TDX with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). 
           You can encrypt data in use, in transit, and at rest with keys that you control. 
      
       - question: |
@@ -196,7 +196,7 @@ sections:
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
           Also, if you choose to enable the optional full-disk encryption, encrypted OS disks incur higher costs.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
-          Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
+          Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](/azure/key-vault/managed-hsm/overview). 
           Azure bills such resources separately from the confidential VM costs.
 
       - question: |

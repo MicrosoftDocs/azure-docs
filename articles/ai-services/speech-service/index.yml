@@ -12,7 +12,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-speech
   ms.topic: hub-page
-  ms.date: 2/16/2024
+  ms.date: 8/20/2024
   ms.author: eur
 
 highlightedContent:
@@ -35,9 +35,6 @@ conceptualContent:
   items:
     - title: Speech to text
       links:
-        - itemType: overview
-          text: About speech to text
-          url: speech-to-text.md
         - itemType: quickstart
           text: Get started with speech to text
           url: get-started-speech-to-text.md
@@ -52,9 +49,6 @@ conceptualContent:
         url: index-speech-to-text.yml
     - title: Text to speech
       links:
-        - itemType: overview
-          text: About text to speech
-          url: text-to-speech.md
         - itemType: quickstart
           text: Get started with text to speech
           url: get-started-text-to-speech.md
@@ -76,7 +70,7 @@ conceptualContent:
           text: Captioning with speech to text
           url: captioning-concepts.md
         - itemType: how-to-guide
-          text: Call Center Overview
+          text: Call center overview
           url: call-center-overview.md
         - itemType: overview
           text: Pronunciation assessment
@@ -91,9 +85,6 @@ conceptualContent:
           url: spx-overview.md    
     - title: Speaker Recognition
       links:
-        - itemType: overview
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
         - itemType: quickstart
           text: Get started with Speaker Recognition          
           url: ./get-started-speaker-recognition.md
@@ -115,21 +106,7 @@ conceptualContent:
           url: whisper-overview.md
         - itemType: overview
           text: What are OpenAI text to speech voices?     
-          url: openai-voices.md          
-    - title: Intent recognition
-      links:
-        - itemType: quickstart
-          text: Recognize speech, intents, and entities
-          url: intent-recognition.md
-        - itemType: how-to-guide
-          text: Recognize speech intents with CLU
-          url: get-started-intent-recognition-clu.md
-        - itemType: how-to-guide
-          text: Recognize speech intents with simple pattern matching
-          url: how-to-use-simple-language-pattern-matching.md
-        - itemType: how-to-guide
-          text: Recognize speech intents with custom entity matching
-          url: how-to-use-custom-entity-pattern-matching.md
+          url: openai-voices.md
     - title: Hosting
       links:
         - itemType: how-to-guide

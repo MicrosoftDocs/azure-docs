@@ -68,7 +68,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale MySQL resources](/azure/mysql/concepts-pricing-tiers#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>

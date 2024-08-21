@@ -12,6 +12,9 @@ ms.author: johnmarc
 
 # Create a custom profile in Azure Automanage for VMs
 
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
+
 Azure Automanage for Virtual Machines includes default best practice profiles that can't be edited. However, if you need more flexibility, you can pick and choose the set of services and settings by creating a custom profile.
 
 Automanage supports toggling services ON and OFF. It also currently supports customizing settings on [Azure Backup](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) and [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration). You can also specify an existing log analytics workspace. Also, for Windows machines only, you can modify the audit modes for the [Azure security baselines in Guest Configuration](../governance/machine-configuration/overview.md).

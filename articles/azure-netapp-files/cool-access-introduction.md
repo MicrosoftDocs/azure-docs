@@ -27,7 +27,7 @@ In the initial write, data blocks are assigned a "warm" temperature value (in th
 By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
 >[!IMPORTANT]
->If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
+>If you're using a third-party backup service, configure it to use NDMP instead of the CIFS (Common Internet File System) or NFS protocols. NDMP reads do not affect the temperature of the data.
 
 Metadata is never cooled and always remains in the hot tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 

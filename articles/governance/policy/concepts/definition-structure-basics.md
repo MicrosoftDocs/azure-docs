@@ -105,12 +105,12 @@ We recommend that you set `mode` to `all` in most cases. All policy definitions 
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](/azure/aks/what-is-aks). Definitions using this Resource Provider mode use the effects _audit_, _deny_, and _disabled_.
-- `Microsoft.KeyVault.Data` for managing vaults and certificates in [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy  definitions, see [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.KeyVault.Data` for managing vaults and certificates in [Azure Key Vault](/azure/key-vault/general/overview). For more information on these policy  definitions, see [Integrate Azure Key Vault with Azure Policy](/azure/key-vault/general/azure-policy).
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/):
 
-- `Microsoft.ManagedHSM.Data` for managing [Managed Hardware Security Module (HSM)](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/azure-policy) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allowlist. This Resource Provider mode is enforcement only and doesn't report compliance in public preview.
 - `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. This Resource Provider mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned don't report compliance.
 

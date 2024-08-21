@@ -92,7 +92,7 @@ The `--dns-name-label` value must be unique within the Azure region where you cr
 
 ## Manage files in mounted volume
 
-Once the container starts up, you can use the simple web app deployed via the Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
+Once the container starts up, you can use the simple web app deployed via the Microsoft aci-hellofiles image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP \

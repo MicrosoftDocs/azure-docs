@@ -25,11 +25,11 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-## Data Processor pipeline deployment troubleshooting
+## Data processor pipeline deployment troubleshooting
 
-If your Data Processor pipeline deployment status is showing as **Failed**, use the following commands to find the pipeline error codes.
+If your data processor pipeline deployment status is showing as **Failed**, use the following commands to find the pipeline error codes.
 
-To list the Data Processor pipeline deployments, run the following command:
+To list the data processor pipeline deployments, run the following command:
 
 ```bash
 kubectl get pipelines -A
@@ -65,9 +65,9 @@ Events:            <none>
 
 If you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
 
-_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
+_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the data processor._
 
-You need to deploy Azure IoT Operations with the optional Data Processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
+You need to deploy Azure IoT Operations with the optional data processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the data processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
 
 > [!TIP]
 > If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, use the [az iot ops delete](/cli/azure/iot/ops?az-iot-ops-delete) command.
@@ -80,7 +80,7 @@ The troubleshooting guidance in this section is specific to Azure IoT Operations
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
 
-1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
+1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.

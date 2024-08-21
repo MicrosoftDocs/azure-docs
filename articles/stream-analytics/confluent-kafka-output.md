@@ -20,7 +20,7 @@ This article describes how to connect your Azure Stream Analytics job directly t
 - You have an API Key file for your kafka cluster, which contains the API key to use as a username, API Secret to use as a password, and the Bootstrap server address.
 - You have an Azure Stream Analytics job. You can create an Azure Stream Analytics job by following the documentation: [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 - Your confluent cloud kafka cluster must be publicly accessible and not behind a firewall or secured in a virtual network.
-- You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+- You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal)
 
 
 ## Configure Azure Stream Analytics to use managed identity

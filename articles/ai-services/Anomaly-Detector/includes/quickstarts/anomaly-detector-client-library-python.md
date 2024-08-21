@@ -52,6 +52,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create and assign persistent environment variables for your key and endpoint.
 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
 # [Command Line](#tab/command-line)
 
 ```CMD
@@ -131,7 +133,7 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
     ```
 
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file
 
@@ -218,7 +220,7 @@ To visualize the anomalies and change points in relation to the sample data seri
     ```
 
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). for more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). for more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file
 

@@ -150,5 +150,5 @@ The deployment should succeed and allow your apps to perform remote attestation 
 - [Quick starter samples for confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 - [DCsv2 SKU List](../virtual-machines/dcv2-series.md)
 - [DCSv3 SKU List](../virtual-machines/dcv3-series.md)
-- [Azure Attestation](../attestation/index.yml)
+- [Azure Attestation](/azure/attestation/)
 - [Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)

@@ -63,7 +63,9 @@ Next, test your function to see how it works with the new API surface:
 
 1. Press Enter to confirm that your function is working. You should see the response, "*Hello John*."
 
-1. You can also call the endpoint with another HTTP method to confirm that the function isn't executed. To do so, use a REST client, such as cURL, Postman, or Fiddler.
+1. You can also call the endpoint with another HTTP method to confirm that the function isn't executed. To do so, use one of these HTTP test tools:
+
+[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 ## Proxies overview
 

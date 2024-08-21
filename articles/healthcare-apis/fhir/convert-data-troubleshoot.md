@@ -3,7 +3,7 @@ title: Troubleshoot $convert-data for the FHIR service in Azure Health Data Serv
 description: Learn how to troubleshoot issues with the $convert-data operation.
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: troubleshooting
 ms.date: 08/28/2023
 ms.author: jasteppe

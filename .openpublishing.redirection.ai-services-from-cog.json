@@ -1671,11 +1671,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-configure-rhel-centos-7",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-control-connections.md",
       "redirect_url": "/azure/ai-services/speech-service/how-to-control-connections",
       "redirect_document_id": true

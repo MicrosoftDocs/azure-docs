@@ -3,7 +3,7 @@ title: Availability sets overview
 description: Learn about availability sets for virtual machines in Azure.
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 09/26/2022
 ms.custom: engagement-fy23

@@ -26,7 +26,7 @@ The following prerequisites must be met before you can recover a deleted resourc
 * The resource to be recovered must have been deleted within the past 48 hours.
 * The resource to be recovered must not have been purged already. A purged resource can't be recovered.
 * Before you attempt to recover a deleted resource, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group isn't possible. For more information, see [Manage resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
-* If the deleted resource used customer-managed keys with Azure Key Vault and the key vault have also been deleted, then you must restore the key vault before you restore the Azure AI services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
+* If the deleted resource used customer-managed keys with Azure Key Vault and the key vault have also been deleted, then you must restore the key vault before you restore the Azure AI services resource. For more information, see [Azure Key Vault recovery management](/azure/key-vault/general/key-vault-recovery).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Azure AI services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
 
 To recover a deleted Azure AI services resource, use the following commands. Where applicable, replace:

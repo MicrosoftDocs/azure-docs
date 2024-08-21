@@ -522,62 +522,6 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Azure Cosmos DB
-    tocHref: /azure/cosmos-db/
-    topicHref: /azure/cosmos-db/
-    items:
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/
-      topicHref: /azure/cosmos-db/mongodb/
-      items:
-      - name: vCore
-        tocHref: /azure/cosmos-db/mongodb/vcore/
-        topicHref: /azure/cosmos-db/mongodb/vcore/
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/cli-samples
-      topicHref: /azure/cosmos-db/mongodb/cli-samples
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/powershell-samples
-      topicHref: /azure/cosmos-db/mongodb/powershell-samples
-    - name: Table
-      tocHref: /azure/cosmos-db/table/
-      topicHref: /azure/cosmos-db/table/
-    - name: Table
-      tocHref: /azure/cosmos-db/table/cli-samples
-      topicHref: /azure/cosmos-db/table/cli-samples
-    - name: Table
-      tocHref: /azure/cosmos-db/table/powershell-samples
-      topicHref: /azure/cosmos-db/table/powershell-samples
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/
-      topicHref: /azure/cosmos-db/cassandra/
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/cli-samples
-      topicHref: /azure/cosmos-db/cassandra/cli-samples
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/powershell-samples
-      topicHref: /azure/cosmos-db/cassandra/powershell-samples
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/
-      topicHref: /azure/cosmos-db/gremlin/
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/cli-samples
-      topicHref: /azure/cosmos-db/gremlin/cli-samples
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/powershell-samples
-      topicHref: /azure/cosmos-db/gremlin/powershell-samples
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/
-      topicHref: /azure/cosmos-db/nosql/
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/cli-samples
-      topicHref: /azure/cosmos-db/nosql/cli-samples
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/powershell-samples
-      topicHref: /azure/cosmos-db/nosql/powershell-samples
-  - name: Managed Instance for Apache Cassandra
-    tocHref: /azure/managed-instance-apache-cassandra/
-    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -600,9 +544,6 @@ items:
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
-  - name: Dedicated HSM
-    tocHref: /azure/dedicated-hsm/
-    topicHref: /azure/dedicated-hsm/
   - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
@@ -801,9 +742,6 @@ items:
     - name: User Guide
       tocHref: /azure/multi-factor-authentication/end-user/
       topicHref: /azure/multi-factor-authentication/end-user/
-  - name: MySQL
-    tocHref: /azure/mysql/
-    topicHref: /azure/mysql/
   - name: Networking
     tocHref: /azure/networking/
     topicHref: /azure/networking/
@@ -901,9 +839,6 @@ items:
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: PostgreSQL
-    tocHref: /azure/postgresql/
-    topicHref: /azure/postgresql/
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
@@ -953,40 +888,12 @@ items:
     - name: Benchmarks
       tocHref: /azure/security/benchmarks/
       topicHref: /azure/security/benchmarks/
-    - name: Key Vault
-      tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault
-      items:
-      - name: General
-        tocHref: /azure/key-vault/general/
-        topicHref: /azure/key-vault/general/
-      - name: Certificates
-        tocHref: /azure/key-vault/certificates/
-        topicHref: /azure/key-vault/certificates/
-      - name: Keys
-        tocHref: /azure/key-vault/keys/
-        topicHref: /azure/key-vault/keys/
-      - name: Secrets
-        tocHref: /azure/key-vault/secrets/
-        topicHref: /azure/key-vault/secrets/
-      - name: Managed HSM
-        tocHref: /azure/key-vault/managed-hsm/
-        topicHref: /azure/key-vault/managed-hsm/
-    - name: Microsoft Defender for Cloud
-      tocHref: /azure/defender-for-cloud/
-      topicHref: /azure/defender-for-cloud/
     - name: Microsoft Sentinel
       tocHref: /azure/sentinel/
       topicHref: /azure/sentinel/
     - name: Microsoft Defender for IoT
       tocHref: /azure/defender-for-iot/
       topicHref: /azure/defender-for-iot/
-    - name: Attestation
-      tocHref: /azure/attestation/
-      topicHref: /azure/attestation/
-    - name: Confidential Ledger
-      tocHref: /azure/confidential-ledger/
-      topicHref: /azure/confidential-ledger/
     - name: Microsoft Defender External Attack Surface Management
       tocHref: /azure/external-attack-surface-management/
       topicHref: /azure/external-attack-surface-management/
