@@ -19,7 +19,7 @@ Azure OpenAI provides out-of-box dashboards for each of your Azure OpenAI resour
 
 :::image type="content" source="../media/monitoring/dashboard.png" alt-text="Screenshot that shows out-of-box dashboards for an Azure OpenAI resource in the Azure portal." lightbox="../media/monitoring/dashboard.png" border="false":::
 
-The dashboards are grouped into four categories: **HTTP Requests**, **Tokens-Based Usage**, **PTU Utilization**, and **Fine-tuning**
+The dashboards are grouped into four categories: **HTTP Requests**, **Tokens-Based Usage**, **PTU Utilization**, and **Fine-tuning**.
 
 ## Data collection and routing in Azure Monitor
 
