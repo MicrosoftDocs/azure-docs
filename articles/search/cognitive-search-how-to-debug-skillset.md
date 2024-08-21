@@ -147,9 +147,11 @@ Select one of the mapping options and expand the details view to review source a
 
 + [**Output Field Mappings**](cognitive-search-output-field-mapping.md) are found in indexers and are used when skillsets invoke built-in or custom skills. These mappings are used to set the data path from a node in the enrichment tree to a field in the search index. For more information about paths, see [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 
-   :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
-
 + [**Field Mappings**](search-indexer-field-mappings.md) are found in indexer definitions and they establish the data path from raw content in the data source and a field in the index. You can use field mappings to add encoding and decoding steps as well.
+
+This example shows the details for a projection mapping. You can edit the JSON to fix any mapping issues.
+
+   :::image type="content" source="media/cognitive-search-debug/debug-session-projection-mapping.png" lightbox="media/cognitive-search-debug/debug-session-projection-mapping.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
 
 ## Edit skill definitions
 
@@ -159,9 +161,9 @@ Other issues, such as an invalid context or input expression, can be harder to r
 
 The following steps show you how to get information about a skill.
 
-1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
+1. Select a skill on the work surface. The Skill details pane opens to the right.
 
-1. Edit a skill definition using **Skill Settings**.
+1. Edit a skill definition using **Skill Settings**. You can edit the JSON directly.
 
 1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Following are some of the most common input paths:
 

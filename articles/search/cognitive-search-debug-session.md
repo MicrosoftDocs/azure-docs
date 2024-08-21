@@ -29,7 +29,7 @@ Use Debug Sessions to investigate and resolve problems with:
 
 + Custom skills used to integrate external processing that you provide.
 
-Compare the following images for the first two scenarios. The surface area shows the progression of skills that generate or transform content en route from source to index, with a list of mapping options and arrows indicating the processing trail. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
+Compare the following images for the first two scenarios. The surface area shows the progression of skills that generate or transform content en route from the source document to the search index. The flows includes index mapping options, and you can trace the arrows to follow the processing trails. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
 
 The first image shows a pattern for applied AI enrichment. Skills can run sequentially or in parallel if there are no dependencies. Output field mappings send enriched or generated content from in-memory data structures to fields in an index. 
 
