@@ -41,11 +41,12 @@ See:
 
 Leveraging secure key stores ensures that your secrets are stored in a secure, encrypted location. Services like [Azure Key Vault](/azure/key-vault) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access.
 
-For even greater security, particularly for highly sensitive or critical secrets, consider using Hardware Security Modules (HSMs), which offer enhanced protection compared to software-based secret stores. [Azure Managed HSM](/azure/key-vault/managed-hsm) provides a fully managed, FIPS 140-2 Level 3 validated HSM service that can help protect your most sensitive secrets.
+For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key stores in a Hardward Security Model (HSM), which offer enhanced protection compared to software-based secret stores. For an overview of all the key management offering in Azure and guidance on which to choose, see [How to choose the right key management solution](key-management-choose.md).
 
 See:
 
 - [Key management in Azure](key-management.md)
+- [How to choose the right key management solution](key-management-choose.md)
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [Azure Managed HSM](/azure/key-vault/managed-hsm/overview)
 
