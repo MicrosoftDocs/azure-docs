@@ -31,7 +31,7 @@ To enable a managed identity on the FHIR service:
 
 After you enable the managed identity, a system-assigned GUID value appears.
 
-![Screenshot that shows selections for enabling a managed identity for the FHIR service.](media/configure-import-data/fhir-mi-enabled.png)
+![Screenshot that shows selections for enabling a managed identity for the FHIR service.](media/configure-import-data/fhir-managed-identity-enabled.png)
 
 ## Step 2: Assign permissions to the FHIR service
 
