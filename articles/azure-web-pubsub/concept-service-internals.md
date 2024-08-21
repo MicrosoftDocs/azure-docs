@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/09/2024
+ms.date: 08/21/2024
 ---
 
 # Azure Web PubSub service internals
@@ -14,7 +14,7 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 - Clients can be written in any language that has Websocket support.
 - Both text and binary messages are supported within one connection.
-- A simple protocol allows you to publish massages directly to each other.
+- A simple protocol allows clients to publish massages directly to each other.
 - The service manages the WebSocket connections for you.
 
 ## Terms
@@ -35,7 +35,7 @@ Workflow as shown in the above graph:
 
 ## Client protocol
 
-A client connection connects to the `/client` endpoint of the service using [WebSocket protocol](https://tools.ietf.org/html/rfc6455). The WebSocket protocol provides full-duplex communication channels over a single TCP connection and follows all the standards of the IETF as RFC 6455 in 2011. Most languages have native support to start WebSocket connections.
+A client connection connects to the `/client` endpoint of the service using [WebSocket protocol](https://tools.ietf.org/html/rfc6455). The WebSocket protocol provides full-duplex communication channels over a single TCP connection and was standardized by the IETF as RFC 6455 in 2011. Most languages have native support to start WebSocket connections.
 
 Our service supports two kinds of clients:
 
@@ -64,7 +64,7 @@ A simple WebSocket client follows a client<->server architecture, as the followi
 
 1. When the client starts a WebSocket handshake, the service tries to invoke the `connect` event handler for WebSocket handshake. Developers can use this handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
 2. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client. The service also pushes a `connected` event to all concerning event listeners, if any.
-3. When the client sends messages, the service triggers a `message` event to the event handler to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. If the event handler returns nonsuccessful response code for, the service drops the client connection. The service also pushes a `message` event to all concerning event listeners, if any. If the service can't find any registered servers to receive the messages, the service also drops the connection.
+3. When the client sends messages, the service triggers a `message` event to the event handler. This event contains the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. If the event handler returns a nonsuccessful response code, the service drops the client connection. The service also pushes a `message` event to all concerned event listeners, if any. If the service can't find any registered servers to receive the messages, the service also drops the client connection.
 4. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler once it detects the disconnect. The service also pushes a `disconnected` event to all concerning event listeners, if any.
 
 #### Scenarios
@@ -183,8 +183,9 @@ Client events fall into two categories:
   Synchronous events block the client workflow.
   - `connect`: This event is for event handler only. When the client starts a WebSocket handshake, the event is triggered and developers can use `connect` event handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
   - `message`: This event is triggered when a client sends a message.
+
 - Asynchronous events (non-blocking)
-  Asynchronous events don't block the client workflow. Instead, they act as some notification to the server. When such an event trigger fails, the service logs the error detail.
+  Asynchronous events don't block the client workflow. Instead, they send a notification to the server. When such an event trigger fails, the service logs the error detail.
   - `connected`: This event is triggered when a client connects to the service successfully.
   - `disconnected`: This event is triggered when a client disconnected with the service.
 
@@ -202,7 +203,7 @@ The following graph describes the workflow.
 
 ![Diagram showing the client authentication workflow.](./media/concept-service-internals/client-connect-workflow.png)
 
-As you noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it's _authorized_ to. The `role`s of the client determines the _initial_ permissions the client have:
+A client can publish to other clients only when it's _authorized_ to. The `role`s of the client determines the _initial_ permissions the client has:
 
 | Role                               | Permission                                          |
 | ---------------------------------- | --------------------------------------------------- |
@@ -250,13 +251,14 @@ For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/
 
 #### Authentication/Authorization between service and webhook
 
-To Establish secure authentication and authorization between your service and webhook, consider the following options and steps:
+To establish secure authentication and authorization between your service and webhook, consider the following options and steps:
 
 - Anonymous mode
 - Simple authentication that `code` is provided through the configured Webhook URL.
 - Use Microsoft Entra authorization. For more information, see [how to use managed identity](howto-use-managed-identity.md) for details.
-  - Step 1: Enable Identity for the Web PubSub service
-  - Step 2: Select from existing Microsoft Entra application that stands for your webhook web app
+
+1. Enable Identity for the Web PubSub service.
+1. Select from existing Microsoft Entra application that stands for your webhook web app.
 
 ### Connection manager
 
@@ -294,7 +296,7 @@ Currently we support [**Event Hubs**](https://azure.microsoft.com/products/event
 
 You need to register event listeners beforehand, so that when a client event is triggered, the service can push the event to the corresponding event listeners. See [this doc](./howto-develop-event-listener.md#configure-an-event-listener) for how to configure an event listener with an event hub endpoint.
 
-You can configure multiple event listeners, and their order doesn't affect their functionality. If an event matches multiply listeners, the event is dispatched to all matching listeners. See the following diagram for an example. For example, if you configure four event listeners simultaneously, each listener receiving a match processes the event. A client event that matches with three of those listeners is sent to three listeners, leaving the rest one untouched.
+You can configure multiple event listeners. The order in which you configure them doesn't affect their functionality. If an event matches multiple listeners, the event is dispatched to all matching listeners. See the following diagram for an example. For example, if you configure four event listeners simultaneously, each listener that receives a match processes the event. A client event that matches with three of those listeners is sent to three listeners, with the remaining listener ignored.
 
 :::image type="content" source="media/concept-service-internals/event-listener-data-flow.svg" alt-text="Event listener data flow diagram sample":::
 
@@ -304,7 +306,7 @@ Web PubSub service delivers client events to event listeners using [CloudEvents 
 
 ### Summary
 
-You noticed that the _event handler role_ handles communication from the service to the server while _the manager role_ handles communication from the server to the service. Once you combine the two roles, the data flow between service and server looks similar to the following diagram using HTTP protocol.
+The _event handler role_ handles communication from the service to the server while _the manager role_ handles communication from the server to the service. Once you combine the two roles, the data flow between service and server looks similar to the following diagram using the HTTP protocol.
 
 ![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
 
