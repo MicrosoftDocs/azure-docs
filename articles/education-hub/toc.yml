@@ -48,11 +48,11 @@
       href: educator-service-desk.md
     - name: Use a script to automate lab functionality
       href: full-api-script.md
-    - name: Create a lab
+    - name: Create a lab with REST APIs
       href: create-lab-education-hub.md
-    - name: Add students to a lab
+    - name: Add students to a lab with REST APIs
       href: add-student-api.md
-    - name: Delete a lab
+    - name: Delete a lab with REST APIs
       href: delete-lab-education-hub-apis.md
     - name: Find IDs for calling Azure Education Hub APIs
       href: find-ids.md
