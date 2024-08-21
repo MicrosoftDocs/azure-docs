@@ -59,7 +59,7 @@ Once the prerequisites and necessary conditions and components are in place, fol
 1.	[Create the connected registry.](#create-the-connected-registry-and-synchronize-with-acr)
 2.	[Deploy the connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
 3.	[Verify the connected registry extension deployment.](#verify-the-connected-registry-extension-deployment) 
-4.	[Deploy a pod that uses image from connected registry.](#deploy-a-pod-that-uses-image-from-connected-registry)
+4.	[Deploy a pod that uses image from connected registry.](#deploy-a-pod-that-uses-an-image-from-connected-registry)
 
 
 ### Create the connected registry and synchronize with ACR
