@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 07/05/2024
+ms.date: 08/21/2024
 ms.service: azure-migrate
-ms.custom: engagement-fy24
+ms.custom: engagement-fy25
 
 ---
 
@@ -103,15 +103,13 @@ Set up a new Azure Migrate project if you don't have one.
 
 The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-![Page showing Server Assessment tool added by default](./media/tutorial-discover-import/added-tool.png)
-
 ## Prepare the CSV
 
 Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -175,7 +173,7 @@ For example, to specify all fields for a second disk, add these columns:
 
 After adding information to the CSV template, import the CSV file.
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 1. In **Discover machines**, select **Import using CSV** 
 1. Upload the .csv file and select **Import**.
 3. The import status is shown.

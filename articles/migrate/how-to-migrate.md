@@ -6,8 +6,8 @@ ms.author: sunishvohra
 ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 
@@ -36,11 +36,11 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
 
 1. Add a tool:
 
-    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers**, next to **Migration tools**, select **Add more tools**.
+    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers, databases and web apps**, next to **Migration tools**, select **Add more tools**.
     
          ![Button to add additional migration tools](./media/how-to-migrate/add-migration-tools.png)
 
-    - If you created a project using a different option, and don't yet have any migration tools, in **Servers** > **Migration tools**, select **Click here**.
+    - If you created a project using a different option, and don't yet have any migration tools, in **Servers, databases and web apps** > **Migration tools**, select **Click here**.
 
     ![Button to add first migration tools](./media/how-to-migrate/no-migration-tool.png)
 

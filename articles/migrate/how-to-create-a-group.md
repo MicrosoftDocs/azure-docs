@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/28/2021
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Create a group for assessment
@@ -56,8 +56,8 @@ Dependency mapping helps you to visualize dependencies across servers. You typic
 
 If you've already [set up dependency mapping](how-to-create-group-machine-dependencies.md), and want to refine an existing group, do the following:
 
-1. In the **Servers** tab, in **Azure Migrate: Discovery and assessment** tile, click **Groups**.
-2. Click the group you want to refine.
+1. In the **Servers, databases and web apps** tab, in **Azure Migrate: Discovery and assessment** tile, select **Groups**.
+2. Select the group you want to refine.
     - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 
         ![Add dependency mapping](./media/how-to-create-a-group/add-dependency-mapping.png)

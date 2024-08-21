@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/20/2024
-ms.custom: vmware-scenario-422, MVC, engagement-fy23
+ms.date: 08/20/2024
+ms.custom: vmware-scenario-422, MVC, engagement-fy25
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
@@ -343,7 +343,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
 
      :::image type="content" source="../media/tutorial-migrate-vmware-agent/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
