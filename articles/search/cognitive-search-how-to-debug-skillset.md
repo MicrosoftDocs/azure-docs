@@ -23,15 +23,17 @@ For background on how a debug session works, see [Debug sessions in Azure AI Sea
 
 ## Prerequisites
 
-+ A search service with roles enabled and a system-assigned managed identity that you can use in role assignments.
++ An Azure AI Search service. We recommend using a system-assigned managed identity and role assignments that allow Azure AI Search to write to Azure Storage and call the Azure AI resources used in the skillset.
 
 + An Azure Storage account, used to save session state.
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
 
-+ The search service identity must have **Cognitive Services User** permissions on the Azure AI multiservice account used by the skillset.
++ For role assignments, the search service identity must have:
 
-+ The search service identity must have a **Storage Blob Data Contributor** role assignment in Azure Storage. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
+  + **Cognitive Services User** permissions on the Azure AI multiservice account used by the skillset.
+
+  + **Storage Blob Data Contributor** permissions on Azure Storage. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
 
 + If the Azure Storage account is behind a firewall, configure it to [allow search service access](search-indexer-howto-access-ip-restricted.md).
 
@@ -70,10 +72,12 @@ Debug sessions work with all generally available [indexer data sources](search-d
 1. Select **Save**.
 
    + Azure AI Search creates a blob container on Azure Storage named *ms-az-cognitive-search-debugsession*.
-   + It creates a folder using the name you provided for the session name.
+   + Within that container, it creates a folder using the name you provided for the session name.
    + It starts your debug session.
 
-1. The debug session opens to the definition page.
+1. The debug session opens to the definition page. The page looks similar the following screenshot.
+
+   :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" lightbox="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
 1. In **Storage connection string**, you can specify or change the storage account. If you already have role assignments, you can skip this step.
 
@@ -85,9 +89,7 @@ Debug sessions work with all generally available [indexer data sources](search-d
 
 1. Optionally, in **Indexer settings**, specify any [indexer execution settings](search-howto-indexing-azure-blob-storage.md) used to create the session. The settings should mirror the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
-1. Your configuration should look similar to this screenshot. If you made changes, select **Save session**.
-
-   :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" lightbox="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
+1. If you made changes, select **Save session**, followed by **Run**.
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata are visible and available in the session.
 
@@ -119,7 +121,7 @@ To prove whether a modification resolves an error, follow these steps:
 
 AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. More nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
-Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
+All content created or used by a skillset appears in the Expression Evaluator. You can hover over the links to view each input or output value in the enriched document tree. To view the input or output of each skill, follow these steps:
 
 1. In a debug session, expand the blue arrow to view context-sensitive details. By default, the detail is the enriched document data structure. However, if you select a skill or a mapping, the detail is about that object.
 
@@ -133,9 +135,11 @@ Enriched documents are internal, but a debug session gives you access to the con
 
    :::image type="content" source="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" lightbox="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" alt-text="Screenshot showing a skill details pane with Expression Evaluator for a given output.":::
 
-## Check mappings
+## Check index mappings
 
 If skills produce output but the search index is empty, check the field mappings. Field mappings specify how content moves out of the pipeline and into a search index.
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-index-mapping.png" alt-text="Screenshot of the index mappings area of the workflow.":::
 
 Select one of the mapping options and expand the details view to review source and target definitions.
 

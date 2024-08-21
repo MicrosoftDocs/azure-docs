@@ -21,23 +21,27 @@ This article explains supported scenarios and how the editor is organized. Tabs 
 
 ## Supported scenarios
 
-+ Built-in skills for [AI enrichment](cognitive-search-concept-intro.md) (OCR, image analysis, Entity Recognition, Sentiment Analysis, Keyword Extraction)
+Use Debug Sessions to investigate and resolve problems with:
 
-+ Built-in skills for [integrated vectorization](vector-search-integrated-vectorization.md), with data chunking through Text Split, and vectorization through an embedding skill
++ Built-in skills used for [AI enrichment](cognitive-search-concept-intro.md) (OCR, image analysis, Entity Recognition, Sentiment Analysis, Keyword Extraction).
+
++ Built-in skills used for [integrated vectorization](vector-search-integrated-vectorization.md), with data chunking through Text Split, and vectorization through an embedding skill.
 
 + Custom skills used to integrate external processing that you provide.
 
-Compare the following images for the first two scenarios. Skills for applied AI enrichment can run sequentially or in parallel if there are no dependencies. Output field mappings send enriched or generated content from in-memory data structures to fields in an index.
+Compare the following images for the first two scenarios. The surface area shows the progression of skills that generate or transform content en route from source to index, with a list of mapping options and arrows indicating the processing trail. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
+
+The first image shows a pattern for applied AI enrichment. Skills can run sequentially or in parallel if there are no dependencies. Output field mappings send enriched or generated content from in-memory data structures to fields in an index. 
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-flow-applied-ai.png" alt-text="Screenshot of a debug session for OCR and image analysis." lightbox="media/cognitive-search-debug/debug-session-flow-applied-ai.png":::
 
-Skills for integrated vectorization typically include Text Split and embeddings. A Text Split skills chunks a document into pages. Projection mappings control parent-chunk indexing. This skillset skips the parent index and creates an index with just chunked content, using metadata to identify the source of the chunk.
+Skills for integrated vectorization typically include Text Split and an embedding skill. A Text Split skills chunks a document into pages. Projection mappings control parent-chunk indexing. This skillset skips the parent index and creates an index with just chunked content, using metadata to identify the source of the chunk.
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png" alt-text="Screenshot of a debug session for integrated vectorization." lightbox="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png":::
 
 ## Limitations
 
-Debug sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources, with the following exceptions:
+Debug Sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources, with the following exceptions:
 
 + SharePoint Online indexer.
 
