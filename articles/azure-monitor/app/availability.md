@@ -257,7 +257,7 @@ Alerts are automatically enabled by default, but to fully configure an alert, yo
 
 ### Location population tags
 
-You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm#create-a-new-alert-rule-using-an-arm-template).
+You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm.md#create-a-new-alert-rule-using-an-arm-template).
 
 | Provider                                 | Display name                           | Population name     |
 |------------------------------------------|----------------------------------------|---------------------|
@@ -356,7 +356,7 @@ Start by reviewing the graph in the **Availability** experience in the Azure por
 
 ---
 
-By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green dots or red marks to see the test, test name, and location.
+By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
 
 :::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience." lightbox="media/availability/scatter-plot.png":::
 
@@ -377,7 +377,7 @@ To edit, temporarily disable, or delete a test, open the context menu (ellipsis)
 
 ### If you see failures
 
-Select a red cross on the Scatter Plot to open the End-to-end transaction details.
+Open the **End-to-end transaction details** view by selecting a red cross on the Scatter Plot.
 
 :::image type="content" source="./media/availability/end-to-end-transaction-details.png" alt-text="Screenshot that shows the End-to-end transaction details tab." border="false":::
 
@@ -386,7 +386,7 @@ Here you can:
 * Review the **Troubleshooting Report** to determine what potentially caused your test to fail.
 * Inspect the response received from your server.
 * Diagnose failure with correlated server-side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or Azure Boards to track the problem. The bug contains a link to the event in the Azure portal.
+* Track the problem by logging an issue or work item in Git or Azure Boards. The bug contains a link to the event in the Azure portal.
 * Open the web test result in Visual Studio.
 
 To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics).
@@ -550,7 +550,7 @@ To provide best-in-class encryption, all availability tests use Transport Layer 
 
 #### TLS 1.0 and TLS 1.1
 
-Protocol versions will no longer be supported.
+All versions of TLS 1.0 and TLS 1.1 will be retired.
 
 #### TLS 1.2 and TLS 1.3
 
@@ -595,7 +595,7 @@ The overview page contains high-level information about your:
 * End-to-end outage instances
 * Application downtime
 
-Outage instances are defined by when a test starts to fail until it's successful, based on your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage.
+Outage instances are determined from the moment a test begins to fail until it successfully passes again, according to your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage.
 
 :::image type="content" source="media/sla-report/overview.png" alt-text="Screenshot that shows an overview page showing the Overview Table by Test." lightbox="media/sla-report/overview.png":::
 
