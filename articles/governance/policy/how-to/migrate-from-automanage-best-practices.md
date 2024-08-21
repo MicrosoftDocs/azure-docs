@@ -3,6 +3,8 @@ title: Azure Automanage Best Practices to Azure Policy migration planning
 description: This article provides process and technical guidance for customers interested in moving from Automanage Best Practices to Azure Policy.
 ms.date: 08/21/2024
 ms.topic: how-to
+author: MutemwaRMasheke
+ms.author: mmasheke
 ---
  
 # Overview
