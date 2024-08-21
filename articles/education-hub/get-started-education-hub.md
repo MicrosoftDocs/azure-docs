@@ -17,5 +17,5 @@ Before you access the Azure Education Hub you must complete signup by clicking t
 
 ## Related content
 
-- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Manage your academic sponsorship by using the Overview page](hub-overview-page.md)
 - [Support options](educator-service-desk.md)
