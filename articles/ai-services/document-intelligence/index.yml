@@ -52,7 +52,7 @@ landingContent:
          - text: Custom classification
            url: overview.md#custom-classification-models
          - text: Add-on capabilities
-           url: concept-add-on-capabilities
+           url: concept-add-on-capabilities.md
          - text: Query field extraction
            url:  concept-query-fields.md
 
@@ -71,7 +71,7 @@ landingContent:
          - linkListType: concept
            links:
              - text: 🆕 Custom generative model
-               url:  concept-custom-generative
+               url:  concept-custom-generative.md
              - text: 🆕 Retrieval-Augmented Generation (RAG)
                url:  concept-retrieval-augmented-generation.md
              - text: 🆕 Batch document analysis
