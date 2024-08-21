@@ -49,7 +49,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * By default, you can bring a maximum of five custom IP prefixes per region to Azure. This limit can be increased upon request. 
 
-* By default;
+* By default:
     - A unified custom IPv4 Prefix must be between /21 and /24.
     - A global (parent) custom IPv4 prefix must be between /21 and /24, a regional (child) custom IPv4 prefix must be between /22 and /26 (dependent on the size of their respective parent range, which they must be at least one level smaller than)
     - A global (parent) custom IPv6 prefix must be /48, a regional (child) custom IPv6 prefix must be /64
