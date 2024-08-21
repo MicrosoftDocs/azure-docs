@@ -15,9 +15,6 @@ To ensure that your session hosts have licenses applied correctly, you need to d
 
 - For session hosts on Azure Stack HCI, you must license and activate the virtual machines before you use them with Azure Virtual Desktop. For activating VMs that use Windows 10 Enterprise multi-session, Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 Enterprise, Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
-> [!NOTE]
-> To ensure continued functionality, update your VMs on Azure Stack HCI to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
-
 <a name='azure-ad-joined-session-hosts'></a>
 
 #### Microsoft Entra joined session hosts
