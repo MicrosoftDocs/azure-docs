@@ -1,62 +1,62 @@
 ---
-title: Create your first durable function in Azure Functions using PowerShell
-description: Create and publish an Azure Durable Function in PowerShell using Visual Studio Code.
+title: "Quickstart: Create a PowerShell Durable Functions app"
+description: Create and publish a PowerShell Durable Functions app in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
-# Create your first durable function in PowerShell
+# Quickstart: Create a PowerShell Durable Functions app
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
 
-In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
-![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Running a Durable Functions app in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this quickstart, you need:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/download).
+* [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
-* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension
+* The Visual Studio Code extension [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
 
-* Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+* The latest version of [Azure Functions Core Tools](../functions-run-local.md) installed.
 
-* Durable Functions require an Azure storage account. You need an Azure subscription.
+* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-azure-functions-project"></a>Create your local project 
+## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project. 
+In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-    ![Create function](media/quickstart-js-vscode/functions-create-project.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Create a function command.":::
 
-1. Choose an empty folder location for your project and choose **Select**.
+1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
-    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Select a template for your project's first function | Skip for now | |
-    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+    | **Select a language for your function app project** | Select **PowerShell**. | Creates a local PowerShell Functions project. |
+    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
+    | **Select a template for your project's first function** | Select **Skip for now**. | |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-A package.json file is also created in the root folder.
+A *package.json* file is also created in the root folder.
 
-### Configure function app to use PowerShell 7
+### Configure the function app to use PowerShell 7
 
-Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it is missing or set to another value, update the contents of the file.
+Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it's missing or if it's set to another value, update the contents of the file.
 
 ```json
 {
@@ -71,99 +71,101 @@ Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_
 
 ## Create your functions
 
-The most basic Durable Functions app contains three functions:
+The most basic Durable Functions app has three functions:
 
-* *Orchestrator function* - describes a workflow that orchestrates other functions.
-* *Activity function* - called by the orchestrator function, performs work, and optionally returns a value.
-* *Client function* - a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
+* **Orchestrator function**: A workflow that orchestrates other functions.
+* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
+* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
 ### Orchestrator function
 
-You use a template to create the durable function code in your project.
+Use a template to create the Durable Functions app code in your project.
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
-    | Provide a function name | HelloOrchestrator | Name of your durable function |
+    | **Select a template for your function** | Enter **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
 
-You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the `Invoke-ActivityFunction` cmdlet invokes an activity function named `Hello`.
+You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the Invoke-ActivityFunction cmdlet invokes an activity function named `Hello`.
 
-Next, you'll add the referenced `Hello` activity function.
+Next, you add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions activity | Create an activity function |
-    | Provide a function name | Hello | Name of your activity function |
+    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
+    | **Provide a function name** | Enter **Hello**. | The name of your activity function. |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
-Finally, you'll add an HTTP triggered function that starts the orchestration.
+Finally, you add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
-    | Provide a function name | HttpStart | Name of your activity function |
-    | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
+    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
+    | **Provide a function name** | Enter **HttpStart**. | The name of your activity function. |
+    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication. |
 
-You've added an HTTP triggered function that starts an orchestration. Open *HttpStart/run.ps1* to see that it uses the `Start-NewOrchestration` cmdlet to start a new orchestration. Then it uses the `New-OrchestrationCheckStatusResponse` cmdlet to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
+You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to check that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response that contains URLs that can be used to monitor and manage the new orchestration.
 
-You now have a Durable Functions app that can be run locally and deployed to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 > [!NOTE]
-> The next version of the DF PowerShell is now in preview and may be downloaded from the PowerShell Gallery.
-> Learn about it and how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md).
-> You may follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions compatible with this quickstart on how to enable it.
+> The next version of the Durable Functions PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function app from Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/run.ps1*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/run.ps1*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
-    > [!NOTE]
-    > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
+   > [!NOTE]
+   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
+1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Create storage account](media/quickstart-js-vscode/functions-select-storage.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot that shows the Create storage account command.":::
 
-1. Following the prompts, provide the following information to create a new storage account in Azure.
+1. At the prompts, provide the following information to create a new storage account in Azure.
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select subscription | *name of your subscription* | Select your Azure subscription |
-    | Select a storage account | Create a new storage account |  |
-    | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
-    | Select a resource group | *unique name* | Name of the resource group to create |
-    | Select a location | *region* | Select a region close to you |
+    | **Select subscription** | Select the name of your subscription. | Your Azure subscription. |
+    | **Select a storage account** | Select **Create a new storage account**. |  |
+    | **Enter the name of the new storage account** | Enter a unique name. | The name of the storage account to create. |
+    | **Select a resource group** | Enter a unique name. | The name of the resource group to create. |
+    | **Select a location** | Select an Azure region. | Select a region that is close to you. |
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
+1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](media/quickstart-js-vscode/functions-f5.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
-1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
 
-   The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
-1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
+   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+
+1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
+
+   The request queries the orchestration instance for the status. You must get an eventual response, which shows the instance completed and includes the outputs or results of the durable function. It looks like this example:
 
     ```json
     {
@@ -182,9 +184,9 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, in Visual Studio Code, select Shift+F5.
 
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
@@ -192,13 +194,18 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the output panel. The URL that calls your HTTP-triggered function should be in this format:
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
+   `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
-## Next steps
+1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-You have used Visual Studio Code to create and publish a PowerShell durable function app.
+The PowerShell Durable Functions app that you created and published by using Visual Studio Code is ready to use.
 
-> [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
+## Clean up resources
+
+If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
+
+## Related content
+
+* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).

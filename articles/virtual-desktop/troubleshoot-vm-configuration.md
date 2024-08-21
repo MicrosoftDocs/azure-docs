@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot Azure Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Azure Virtual Desktop session host virtual machines.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 05/11/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Session host virtual machine configuration
 
@@ -67,7 +68,7 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
-- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers).
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.yml#change-dns-servers).
 
 ## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader aren't installed
 

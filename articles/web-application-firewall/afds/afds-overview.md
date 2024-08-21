@@ -2,8 +2,8 @@
 title: What is Azure Web Application Firewall on Azure Front Door?
 description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
 services: web-application-firewall
-author: vhorne
-ms.service: web-application-firewall
+author: sowmyam2019
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 10/04/2023
 ms.author: victorh
@@ -104,19 +104,21 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 ### Bot protection rule set
 
-You can enable a managed bot protection rule set to take custom actions on requests from known bot categories.
+You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
-Three bot categories are supported:
+Three bot categories are supported: *Bad*, *Good*, and *Unknown*. Bot signatures are managed and dynamically updated by the WAF platform.
 
-- **Bad**: Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services, including Microsoft Defender for Cloud.
-- **Good**: Good bots include validated search engines.
-- **Unknown**: Unknown bots include other bot groups that have identified themselves as bots. Examples include market analyzers, feed fetchers, and data collection agents. Unknown bots are classified via published user agents without any other validation.
+- **Bad**: Bad bots are bots with malicious IP addresses and bots that have falsified their identities. Bad bots includes malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
+- **Good**: Good Bots are trusted user agents. Good bot rules are categorized into multiple categories to provide granular control over WAF policy configuration. These categories include verified search engine bots (such as Googlebot and Bingbot), validated link checker bots, verified social media bots (such as Facebookbot and LinkedInBot), verified advertising bots, verified content checker bots, and validated miscellaneous bots.
+- **Unknown**: Unknown bots are user agents without additional validation. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
 
 The WAF platform manages and dynamically updates bot signatures. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
 ![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
 
-If bot protection is enabled, incoming requests that match bot rules are logged. You can access WAF logs from a storage account, an event hub, or Log Analytics. For more information about how the WAF logs requests, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
+If bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Bad bots are blocked, good bots are allowed, and unknown bots are logged by default. You can set custom actions to block, allow, log, or JS challenge for different types of bots. You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
+
+The Bot Manager 1.1 rule set is available on Azure Front Door premium version.
 
 ## Configuration
 

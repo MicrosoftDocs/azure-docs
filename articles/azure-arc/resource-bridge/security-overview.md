@@ -15,7 +15,7 @@ By default, a Microsoft Entra system-assigned [managed identity](../../active-di
 
 ## Identity and access control
 
-Azure Arc resource bridge is represented as a resource in a resource group inside an Azure subscription. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge.
+Azure Arc resource bridge is represented as a resource in a resource group inside an Azure subscription. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.yml) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge.
 
 Users and applications who are granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or Administrator role to the resource group can make changes to the resource bridge, including deploying or deleting cluster extensions.
 
@@ -25,7 +25,7 @@ Azure Arc resource bridge follows data residency regulations specific to each re
 
 ## Data encryption at rest
 
-Azure Arc resource bridge stores resource information in Azure Cosmos DB. As described in  [Encryption at rest in Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), all the data is encrypted at rest.
+Azure Arc resource bridge stores resource information in Azure Cosmos DB. As described in  [Encryption at rest in Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest), all the data is encrypted at rest.
 
 ## Security audit logs
 

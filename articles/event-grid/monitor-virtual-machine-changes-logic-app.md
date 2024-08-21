@@ -1,8 +1,7 @@
 ---
 title: Monitor virtual machines changes with Azure Event Grid
 description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Azure Logic Apps.
-services: logic-apps, event-grid
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -13,7 +12,7 @@ ms.date: 06/10/2022
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 You can monitor and respond to specific events that happen in Azure resources or external resources by using Azure Event Grid and Azure Logic Apps. You can create an automated [Consumption logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to [Azure Event Grid](../event-grid/overview.md). In turn, Azure Event Grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in Azure Event Grid before running the steps to process the events.
 
@@ -86,7 +85,7 @@ In this tutorial, you learn how to:
    > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
    > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
    > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
-   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
 

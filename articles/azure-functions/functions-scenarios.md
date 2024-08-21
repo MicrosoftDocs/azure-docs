@@ -24,7 +24,7 @@ For example, in a retail solution, a partner system can submit product catalog i
 [ ![Diagram of a file upload process using Azure Functions.](./media/functions-scenarios/process-file-uploads.png) ](./media/functions-scenarios/process-file-uploads-expanded.png#lightbox)
 
 
-The following tutorials use an Event Grid trigger to process files in a blob container:
+The following tutorials use a Blob trigger (Event Grid based) to process files in a blob container:
 
 ::: zone pivot="programming-language-csharp" 
 
@@ -50,6 +50,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 }
 ```
 
++ [Event-based Blob storage triggered function that converts PDF documents to text at scale](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/E2E/BLOB-PDF)
 + [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=dotnet)
 + [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-csharp)
@@ -75,7 +76,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ## Real-time stream and event processing
 
-So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](../cosmos-db/introduction.md) for use in an analytics dashboard.
+So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](/azure/cosmos-db/introduction) for use in an analytics dashboard.
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
@@ -105,7 +106,7 @@ public static async Task Run(
     await xformer.Transform(debatchedMessages, partitionContext.PartitionId, outputMessages);
 }
 ```
-
++ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Streaming at scale with Azure Event Hubs, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-azuresql)
 + [Streaming at scale with Azure Event Hubs, Functions and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-cosmosdb)
 + [Streaming at scale with Azure Event Hubs with Kafka producer, Functions with Kafka trigger and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubskafka-functions-cosmosdb)
@@ -115,21 +116,25 @@ public static async Task Run(
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
++ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-python)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
++ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-javascript)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
++ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-powershell)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
-::: zone pivot="programming-language-java" 
+::: zone pivot="programming-language-java"
++ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/) 
 + [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
@@ -137,29 +142,51 @@ public static async Task Run(
 
 ## Machine learning and AI
 
-Besides data processing, Azure Functions can be used to infer on models. 
+Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions.
 
-For example, a function that calls a TensorFlow model or submits it to Azure AI services can process and classify a stream of images.
+Functions can connect to an OpenAI resources to enable text and chat completions, use assistants, and leverage embeddings and semantic search.   
 
-Functions can also connect to other services to help process data and perform other AI-related tasks, like [text summarization](https://github.com/Azure-Samples/function-csharp-ai-textsummarize).
+A function might also call a TensorFlow model or Azure AI services to process and classify a stream of images.
 
 [ ![Diagram of a machine learning and AI process using Azure Functions.](./media/functions-scenarios/machine-learning-and-ai.png) ](./media/functions-scenarios/machine-learning-and-ai-expanded.png#lightbox)
 
-
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
 + Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/csharp-ooproc/Embeddings)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/csharp-ooproc)
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-java)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/java)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/java)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/java)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/java)
 ::: zone-end
-
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
 + Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
 + Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)
 + Tutorial: [Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
 + Tutorial: [Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/python)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/python)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/python)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/python)
 + Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
 + Sample: [LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-powershell)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/powershell)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/powershell)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/powershell)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
 ::: zone-end
 
 ## Run scheduled tasks 
@@ -280,7 +307,7 @@ Functions is often the compute component in a serverless workflow topology, such
 
 ::: zone pivot="programming-language-csharp" 
 + Tutorial: [Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
-+ Quickstart: [Create your first durable function in Azure using C#](./durable/durable-functions-create-first-csharp.md)
++ Quickstart: [Create your first durable function in Azure using C#](./durable/durable-functions-isolated-create-first-csharp.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 

@@ -4,9 +4,9 @@ description: Lists Azure Policy built-in policy definitions for Azure Virtual Ma
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.date: 02/06/2024
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ---
 # Azure Policy built-in definitions for Azure Virtual Machine Scale Sets

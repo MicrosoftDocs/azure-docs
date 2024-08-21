@@ -115,6 +115,8 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 ---
 
+Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that may exist outside of your project code, as part of build steps or a CI/CD pipeline.
+
 ### Package references
 
  When migrating to the isolated worker model, you need to change the packages your application references.
@@ -294,7 +296,7 @@ namespace Company.Function
 }
 ```
 
-An HTTP trigger for the migrated version might like the following example:
+An HTTP trigger for the migrated version might look like the following example:
 
 # [.NET 8](#tab/net8)
 
@@ -368,7 +370,7 @@ namespace Company.Function
 
 Upgrading your function app to the isolated model consists of two steps:
 
-1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to "dotnet-isolated". Make sure that any deployment automation is similarly updated.
+1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `dotnet-isolated`. Make sure that any deployment automation is similarly updated.
 2. Publish your migrated project to the updated function app. 
 
 When you use Visual Studio to publish an isolated worker model project to an existing function app that uses the in-process model, you're prompted to let Visual Studio update the function app during deployment. This accomplishes both steps at once.

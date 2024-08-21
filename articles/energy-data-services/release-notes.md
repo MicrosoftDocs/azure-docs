@@ -23,20 +23,31 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## June 2024
+
+### Azure Data Manager for Energy Developer Tier Price Update
+Effective June 1, 2024, the monthly base instance fee of the Developer tier of Azure Data Manager for Energy will be $2,898 (US East Region). This reflects a 75% cost savings to our customers/partners compared to the previous base instance price of $11,680 per month (US East) and provides ongoing support to our partners and customers as they continue their application modernization and interoperability efforts. The monthly cost above is based on an hourly rate of $3.97 (US East) and an assumption of 730 hours for a given month. These new cost savings will be reflected in all available regions where the product is available based on current regional rate adjustments. Regional differences and additional pricing details will be reflected on the product's [pricing](https://azure.microsoft.com/pricing/details/energy-data-services) page. Note that the pricing page will reflect the current price and will be updated to the new pricing amount on the effective date listed above.
+
+
+## April 2024
+
+### Azure Data Manager for Energy in Qatar Central Region
+Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availability zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) page. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts).
+
 ## March 2024
 
 ### Azure Data Manager for Energy in Australia East Region
 Azure Data Manager for Energy is now available in the Australia East Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy. You can now select Australia East as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy).
 
 ### External Data Sources (Preview)
-External Data Sources (EDS) allows data from an [OSDU&trade;](https://osduforum.org/) compliant external data sources to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+External Data Sources (EDS) allows data from an [OSDU&reg;](https://osduforum.org/) compliant external data sources to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
 
 For details, see [How to enable External Data Services (EDS) Preview?](how-to-enable-external-data-sources.md)
 
 ## November 2023
 
-### Compliant with M18 OSDU&trade; release
-Azure Data Manager for Energy is now compliant with the M18 OSDU&trade; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&trade; M18](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes).
+### Compliant with M18 OSDU&reg; release
+Azure Data Manager for Energy is now compliant with the M18 OSDU&reg; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&reg; M18](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes).
 
 ## September 2023
 
@@ -57,11 +68,11 @@ Starting September 2023, the General Availability pricing changes for Azure Data
 ### Service Level Agreement (SLA) for Azure Data Manager for Energy
 Starting July 2023, Azure Data Manager for Energy offers an uptime SLA for its Standard tier offering. You can find the details of our SLA in the document 'Service Level Agreements for Microsoft Online Services (WW)'  published from July 2023 onwards at [Microsoft Licensing Documents & Resource website](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
-### Developer tier for accelerating innovation with OSDU&trade;
+### Developer tier for accelerating innovation with OSDU&reg;
 Azure Data Manager for Energy is now available in two tiers; Developer and Standard.  All active resources of Azure Data Manager for Energy prior to this release are considered Standard, and now a new Tier option is available called the 'Developer' tier.  Customers can now select their desired tier when creating their Azure Data Manage for Energy resource using the [Azure portal](https://aka.ms/adme-create). [Learn more](./quickstart-create-microsoft-energy-data-services-instance.md)
 
-### Compliant with M16 OSDU&trade; release
-Azure Data Manager for Energy is now compliant with the M16 OSDU&trade; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&trade; M16](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M16-Release-Notes).
+### Compliant with M16 OSDU&reg; release
+Azure Data Manager for Energy is now compliant with the M16 OSDU&reg; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&reg; M16](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M16-Release-Notes).
 
 ### Disaster recovery: cross-region failover
 Azure Data Manager for Energy (Standard tier only) now supports cross-region disaster recovery in a multi-region geography (data residency boundary). The service replicates your critical data (in near real time) and infrastructure across another Azure region within the same geography, ensuring data redundancy and enabling swift failover to a secondary region in the event of an outage. [Learn more](./reliability-energy-data-services.md).
@@ -94,15 +105,15 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 
 ### Monitoring and investigating actions with Audit logs
 
-Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/platform/deployment-and-operations/audit-and-metrics). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
 
 <hr width = 100%>
 
 ## February 2023
 
-### Compliant with M14 OSDU&trade; release
+### Compliant with M14 OSDU&reg; release
 
-Azure Data Manager for Energy is now compliant with the M14 OSDU&trade; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&trade; M14](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M14-Release-Notes).
+Azure Data Manager for Energy is now compliant with the M14 OSDU&reg; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&reg; M14](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M14-Release-Notes).
 
 ### Product Billing enabled
 
@@ -163,7 +174,7 @@ Azure Data Manager for Energy supports customer managed encryption keys (CMK). A
 
 Azure Data Manager for Energy is now available in. Information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Energy will be updated monthly.
 
-Azure Data Manager for Energy is developed in alignment with the emerging requirements of the OSDU&trade; technical standard, version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
+Azure Data Manager for Energy is developed in alignment with the emerging requirements of the OSDU&reg; technical standard, version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
 
 ### Partition & User Management
 

@@ -4,10 +4,10 @@ description: Learn how to create a Service Fabric managed cluster with an Azure 
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 04/23/2024
 ---
 
 # Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template
@@ -30,9 +30,11 @@ The template used in this quickstart is from [Azure Samples - Service Fabric clu
 
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step.
 
-If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](/azure/key-vault/certificates/quick-create-portal).
 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
+
+You can also [use Microsoft Entra ID for access control](how-to-managed-cluster-azure-active-directory-client.md). We recommend this for production scenarios.
 
 ## Deploy the template
 
@@ -50,7 +52,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
     * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
     * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-    * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate.
+    * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
     * **Node Type Name**: Enter a unique name for your node type, such as *nt1*.
     * **I agree to the terms and conditions stated above**: Check this box to agree. 
 

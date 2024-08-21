@@ -17,14 +17,24 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
+  - name: Migrate from AGIC to Application Gateway for Containers
+    href: migrate-from-agic-to-agc.md
   - name: Custom health probe
     href: custom-health-probe.md
-  - name: Session Affinity
+  - name: ECDSA and RSA certificates
+    href: ecdsa-rsa-certificates.md
+  - name: Scaling and zone resiliency
+    href: scaling-zone-resiliency.md
+  - name: Server-sent events
+    href: server-sent-events.md
+  - name: Session affinity
     href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: Health monitoring
     items:
     - name: Backend Health and Metrics
@@ -33,6 +43,10 @@
       href: diagnostics.md
     - name: Metrics
       href: application-gateway-for-containers-metrics.md
+    - name: Prometheus and Grafana Configuration
+      href: prometheus-grafana.md
+    - name: SIEM integration with Sentinel
+      href: siem-integration-with-sentinel.md
 - name: How-to guides
   items:
   - name: Gateway API

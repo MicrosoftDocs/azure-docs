@@ -4,7 +4,7 @@ description: Use Apache Spark in Azure Synapse Analytics to train machine learni
 author: midesa
 ms.author: midesa
 ms.reviewer: euang
-ms.service:  synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
@@ -37,7 +37,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 MMLSpark provides a layer on top of SparkML's low-level APIs when building scalable ML models, such as indexing strings, coercing data into a layout expected by machine learning algorithms, and assembling feature vectors. The MMLSpark library simplifies these and other common tasks for building models in PySpark.
 
-## Automated ML in Azure Machine Learning 
+## Automated ML in Azure Machine Learning (deprecated)
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. Automated ML in Azure Machine Learning accepts training data and configuration settings and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model. 
 
 When using automated ML within Azure Synapse Analytics, you can leverage the deep integration between the different services to simplify authentication & model training. 

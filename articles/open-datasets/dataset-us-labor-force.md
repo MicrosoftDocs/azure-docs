@@ -1,7 +1,7 @@
 ---
 title: US Labor Force Statistics
 description: Learn how to use the US Labor Force Statistics dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -12,7 +12,7 @@ Labor Force Statistics labor force, labor force participation rates, and the civ
 
 This dataset is sourced from [Current Employment Statistics - CES (National) data](https://www.bls.gov/ces/) published by [US Bureau of Labor Statistics (BLS)](https://www.bls.gov/). Review [Linking and Copyright Information](https://www.bls.gov/bls/linksite.htm) and [Important Web Site Notices](https://www.bls.gov/bls/website-policies.htm) for the terms and conditions related to the use this dataset.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Storage location
 

@@ -5,14 +5,14 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 05/27/2024
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
 
 Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you'll enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
-This article shows you how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
+This article explains how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
 ## About policy-based backups    
 
@@ -28,7 +28,9 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 
 A backup policy enables a volume to be protected on a regularly scheduled interval. It does not require snapshot policies to be configured. Backup policies will continue the daily cadence based on the time of day when the backup policy is linked to the volume, using the time zone of the Azure region where the volume exists. Weekly schedules are preset to occur each Monday after the daily cadence.  Monthly schedules are preset to occur on the first day of each calendar month after the daily cadence. If backups are needed at a specific time/day, consider using [manual backups](backup-configure-manual.md). 
 
-You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure storage. A backup policy can't be deleted if it's attached to any volumes.
+You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended by disabling the policy. A backup policy can't be deleted if it's attached to any volumes.
+
+Before creating the policy, review [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md).    
 
 To enable a policy-based (scheduled) backup: 
 
@@ -64,21 +66,21 @@ The following example configuration has a backup policy configured for daily bac
     Weekly: `Weekly Backups to Keep = 6`   
     Monthly: `Monthly Backups to Keep = 4`   
 
-## Enable backup functionality for a volume and assign a backup policy
+## Assign backup vault and backup policy to a volume
 
-Every Azure NetApp Files volume must have the backup functionality enabled before any backups (policy-based or manual) can be taken. 
+Every Azure NetApp Files volume must have a [backup vault](backup-vault-manage.md) assigned before any backups (policy-based or manual) can be taken. 
 
-After you enable the backup functionality, you need to assign a backup policy to a volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
+After you assign a backup vault to the volume, you need to assign a backup policy to the volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
 
 >[!NOTE]
 >The active and most current snapshot is required for transferring the backup. As a result, you may see 1 extra snapshot beyond the number of snapshots to keep per the backup policy configuration. If your number of daily backups to keep is set to 2, you may see 3 snapshots related to the backup in the volumes the policy is applied to.
 
-To enable the backup functionality for a volume:  
+To configure backups for a volume:  
 
-1. Go to **Volumes** and select the volume for which you want to enable backup.
-2. Select **Configure**.
-3. In the Configure Backups page, toggle the **Enabled** setting to **On**.
-4. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Click **OK**.
+1. Navigate to **Volumes** then select the volume for which you want to configure backups.
+2. From the selected volume, select **Backup** then **Configure**.
+3. In the Configure Backups page, select the backup vault from the **Backup vaults** drop-down. For information about creating a backup vault, see [Create a backup vault](backup-vault-manage.md).
+4. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Select **OK**.
 
     The Vault information is prepopulated.  
 
@@ -93,7 +95,6 @@ To enable the backup functionality for a volume:
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

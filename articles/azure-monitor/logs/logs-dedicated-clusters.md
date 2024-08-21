@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 01/25/2024
+ms.date: 04/21/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -49,6 +49,16 @@ To perform cluster-related actions, you need these permissions:
 
 For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
+## Resource Manager template samples
+
+This article includes sample [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/syntax.md) to create and configure Log Analytics clusters in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
+
+### Template references
+
+- [Microsoft.OperationalInsights clusters](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/clusters)
+
 ## Create a dedicated cluster
 
 Provide the following properties when creating new dedicated cluster:
@@ -87,14 +97,17 @@ After you create your cluster resource, you can edit properties such as *sku*, *
 Deleted clusters take two weeks to be completely removed. You can have up to seven clusters per subscription and region, five active, and two deleted in past two weeks.
 
 > [!NOTE]
-> Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
+> Creating a cluster involves multiple resources and operation typically complete in two hours.
 > Dedicated cluster is billed once provisioned regardless data ingestion and it's recommended to prepare the deployment to expedite the provisioning and workspaces link to cluster. Verify the following:
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Click **Create** in the **Log Analytics dedicated clusters** menu in the Azure portal. You will be prompted for details such as the name of the cluster and the commitment tier.
+
+:::image type="content" source="./media/logs-dedicated-cluster/create-cluster.png" alt-text="Screenshot for creating dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/create-cluster.png":::
+
 
 #### [CLI](#tab/cli)
 
@@ -130,7 +143,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 *Call* 
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -153,6 +166,163 @@ Content-type: application/json
 
 Should be 202 (Accepted) and a header.
 
+#### [ARM template (Bicep)](#tab/bicep)
+
+The following sample creates a new empty Log Analytics cluster.
+
+```bicep
+@description('Specify the name of the Log Analytics cluster.')
+param clusterName string
+
+@description('Specify the location of the resources.')
+param location string = resourceGroup().location
+
+@description('Specify the capacity reservation value.')
+@allowed([
+  100
+  200
+  300
+  400
+  500
+  1000
+  2000
+  5000
+])
+param CommitmentTier int
+
+@description('Specify the billing type settings. Can be \'Cluster\' (default) or \'Workspaces\' for proportional billing on workspaces.')
+@allowed([
+  'Cluster'
+  'Workspaces'
+])
+param billingType string
+
+resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
+  name: clusterName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  sku: {
+    name: 'CapacityReservation'
+    capacity: CommitmentTier
+  }
+  properties: {
+    billingType: billingType
+  }
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "MyCluster"
+    },
+    "CommitmentTier": {
+      "value": 500
+    },
+    "billingType": {
+      "value": "Cluster"
+    }
+  }
+}
+```
+
+#### [ARM template (JSON)](#tab/json)
+
+The following sample creates a new empty Log Analytics cluster.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the name of the Log Analytics cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the location of the resources."
+      }
+    },
+    "CommitmentTier": {
+      "type": "int",
+      "allowedValues": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        1000,
+        2000,
+        5000
+      ],
+      "metadata": {
+        "description": "Specify the capacity reservation value."
+      }
+    },
+    "billingType": {
+      "type": "string",
+      "allowedValues": [
+        "Cluster",
+        "Workspaces"
+      ],
+      "metadata": {
+        "description": "Specify the billing type settings. Can be 'Cluster' (default) or 'Workspaces' for proportional billing on workspaces."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/clusters",
+      "apiVersion": "2021-06-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "CapacityReservation",
+        "capacity": "[parameters('CommitmentTier')]"
+      },
+      "properties": {
+        "billingType": "[parameters('billingType')]"
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "MyCluster"
+    },
+    "CommitmentTier": {
+      "value": 500
+    },
+    "billingType": {
+      "value": "Cluster"
+    }
+  }
+}
+```
+
 ---
 
 ### Check cluster provisioning status
@@ -161,7 +331,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+The portal will provide a status as the cluster is being provisioned.
 
 #### [CLI](#tab/cli)
 
@@ -184,7 +354,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
   ```rest
-  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2022-10-01
   Authorization: Bearer <token>
   ```
 
@@ -223,14 +393,22 @@ Send a GET request on the cluster resource and look at the *provisioningState* v
 
 The managed identity service generates the *principalId* GUID when you create the cluster.
 
+#### [ARM template (Bicep)](#tab/bicep)
+
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
 ---
 
 ## Link a workspace to a cluster
 
 > [!NOTE]
 > - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
-> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which typically complete in two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove SKU in workspace template to prevent conflict during workspace deployment.
 > - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
@@ -239,18 +417,20 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
 Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
-A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+Clusters are regional and can be linked to up to 1,000 workspaces located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
-The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+Linked workspaces can be in different subscriptions than the subscription the cluster is located in. The workspace and cluster can be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+
+When a dedicated cluster is configured with a customer-managed key (CMK), the newly ingested data is encrypted with your key, while older data remains encrypted with a Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Click **Link workspaces** to link additional workspaces.
+
+:::image type="content" source="./media/logs-dedicated-cluster/linked-workspaces.png" alt-text="Screenshot for linking workspaces to a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/linked-workspaces.png":::
 
 #### [CLI](#tab/cli)
 
@@ -298,7 +478,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -313,17 +493,27 @@ Content-type: application/json
 
 202 (Accepted) and header.
 
+#### [ARM template (Bicep)](#tab/bicep)
+
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
 ---
 
-
 ### Check workspace link status
-  
-When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
+
+The workspace link operation can take up to 90 minutes to complete. You can check the status on both the linked workspaces and the cluster. When completed, the workspace resources will include `clusterResourceId` property under `features`, and the cluster will include linked workspaces under `associatedWorkspaces` section.
+
+When a cluster is configured with a customer managed key, data ingested to the workspaces after the link operation is complete will be stored encrypted with your key.
 
 #### [Portal](#tab/azure-portal)
 
-1. Open the **Log Analytics workspaces** menu and then select your workspace.
-1. On the **Overview** page, select **JSON View**.
+On the **Overview** page for your dedicated cluster, select **JSON View**. The `associatedWorkspaces` section lists the workspaces linked to the cluster.
+
+:::image type="content" source="./media/logs-dedicated-cluster/associated-workspaces.png" alt-text="Screenshot for viewing associated workspaces for a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/associated-workspaces.png":::
 
 #### [CLI](#tab/cli)
 
@@ -346,7 +536,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2023-09-01
 Authorization: Bearer <token>
 ```
 
@@ -382,8 +572,15 @@ Authorization: Bearer <token>
 }
 ```
 
----
+#### [ARM template (Bicep)](#tab/bicep)
 
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
+---
 
 ## Change cluster properties
 
@@ -392,21 +589,207 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 - **keyVaultProperties** - Contains the key in Azure Key Vault with the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
 - **Identity** - The identity used to authenticate to your Key Vault. This can be System-assigned or User-assigned.
 - **billingType** - Billing attribution for the cluster resource and its data. Includes on the following values:
-  - **Cluster (default)**--The costs for your cluster are attributed to the cluster resource.
-  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
-
+  - **Cluster (default)** - The costs for your cluster are attributed to the cluster resource.
+  - **Workspaces** - The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
 
 >[!IMPORTANT]
 >Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
-> [!NOTE]
-> The *billingType* property isn't supported in CLI.
+#### [Portal](#tab/azure-portal)
+
+N/A
+
+#### [CLI](#tab/cli)
+
+The following sample updates the billing type.
+
+```azurecli
+az account set --subscription "cluster-subscription-id"
+
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --billing-type {Cluster, Workspaces}
+```
+
+#### [PowerShell](#tab/powershell)
+
+The following sample updates the billing type.
+
+```powershell
+Select-AzSubscription "cluster-subscription-id"
+
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
+```
+
+#### [REST API](#tab/restapi)
+
+The following sample updates the billing type.
+
+*Call*
+
+```rest
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
+Authorization: Bearer <token>
+Content-type: application/json
+
+{
+  "properties": {
+    "billingType": "Workspaces"
+    },
+    "location": "region"
+}
+```
+
+#### [ARM template (Bicep)](#tab/bicep)
+
+The following sample updates a Log Analytics cluster to use customer-managed key.
+
+```bicep
+@description('Specify the name of the Log Analytics cluster.')
+param clusterName string
+@description('Specify the location of the resources')
+param location string = resourceGroup().location
+@description('Specify the key vault name.')
+param keyVaultName string
+@description('Specify the key name.')
+param keyName string
+@description('Specify the key version. When empty, latest key version is used.')
+param keyVersion string
+var keyVaultUri = format('{0}{1}', keyVaultName, environment().suffixes.keyvaultDns)
+resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
+  name: clusterName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    keyVaultProperties: {
+      keyVaultUri: keyVaultUri
+      keyName: keyName
+      keyVersion: keyVersion
+    }
+  }
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "MyCluster"
+    },
+    "keyVaultUri": {
+      "value": "https://key-vault-name.vault.azure.net"
+    },
+    "keyName": {
+      "value": "MyKeyName"
+    },
+    "keyVersion": {
+      "value": ""
+    }
+  }
+}
+```
+
+#### [ARM template (JSON)](#tab/json)
+
+The following sample updates a Log Analytics cluster to use customer-managed key.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the name of the Log Analytics cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the location of the resources"
+      }
+    },
+    "keyVaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the key vault name."
+      }
+    },
+    "keyName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the key name."
+      }
+    },
+    "keyVersion": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the key version. When empty, latest key version is used."
+      }
+    }
+  },
+  "variables": {
+    "keyVaultUri": "[format('{0}{1}', parameters('keyVaultName'), environment().suffixes.keyvaultDns)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/clusters",
+      "apiVersion": "2021-06-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "keyVaultProperties": {
+          "keyVaultUri": "[variables('keyVaultUri')]",
+          "keyName": "[parameters('keyName')]",
+          "keyVersion": "[parameters('keyVersion')]"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "MyCluster"
+    },
+    "keyVaultUri": {
+      "value": "https://key-vault-name.vault.azure.net"
+    },
+    "keyName": {
+      "value": "MyKeyName"
+    },
+    "keyVersion": {
+      "value": ""
+    }
+  }
+}
+```
+
+---
 
 ## Get all clusters in resource group
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Resource group** filter.
+
+:::image type="content" source="./media/logs-dedicated-cluster/resource-group-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a resource group in the Azure portal." lightbox="./media/logs-dedicated-cluster/resource-group-clusters.png":::
 
 #### [CLI](#tab/cli)
 
@@ -429,7 +812,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -470,15 +853,23 @@ Authorization: Bearer <token>
 }
 ```
 
+#### [ARM template (Bicep)](#tab/bicep)
+
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
 ---
-
-
 
 ## Get all clusters in subscription
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Subscription** filter.
+
+:::image type="content" source="./media/logs-dedicated-cluster/subscription-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a subscription in the Azure portal." lightbox="./media/logs-dedicated-cluster/subscription-clusters.png":::
 
 #### [CLI](#tab/cli)
 
@@ -500,7 +891,7 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
     
@@ -508,8 +899,15 @@ Authorization: Bearer <token>
     
 The same as for 'clusters in a resource group', but in subscription scope.
 
----
+#### [ARM template (Bicep)](#tab/bicep)
 
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
+---
 
 ## Update commitment tier in cluster
 
@@ -519,7 +917,9 @@ During the commitment period, you can change to a higher commitment tier, which 
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Change** next to **Commitment tier**
+
+:::image type="content" source="./media/logs-dedicated-cluster/commitment-tier.png" alt-text="Screenshot for changing commitment tier for a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/commitment-tier.png":::
 
 #### [CLI](#tab/cli)
 
@@ -542,7 +942,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -554,51 +954,13 @@ Content-type: application/json
 }
 ```
 
----
-
-
-### Update billingType in cluster
-
-The *billingType* property determines the billing attribution for the cluster and its data:
-- *Cluster* (default) -- billing is attributed to the Cluster resource
-- *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
-
-#### [Portal](#tab/azure-portal)
+#### [ARM template (Bicep)](#tab/bicep)
 
 N/A
 
-#### [CLI](#tab/cli)
+#### [ARM template (JSON)](#tab/json)
 
-```azurecli
-az account set --subscription "cluster-subscription-id"
-
-az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --billing-type {Cluster, Workspaces}
-```
-
-#### [PowerShell](#tab/powershell)
-
-```powershell
-Select-AzSubscription "cluster-subscription-id"
-
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
-```
-
-#### [REST API](#tab/restapi)
-
-*Call*
-
-```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "properties": {
-    "billingType": "Workspaces"
-    },
-    "location": "region"
-}
-```
+N/A
 
 ---
 
@@ -619,7 +981,9 @@ Use the following commands to unlink a workspace from cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Select any workspaces you want to unlink and click **Unlink**.
+
+:::image type="content" source="./media/logs-dedicated-cluster/unlink-workspace.png" alt-text="Screenshot for unlinking a workspace from a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/unlink-workspace.png":::
 
 #### [CLI](#tab/cli)
 
@@ -644,8 +1008,15 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}?api-version=2020-08-01
 ```
 
----
+#### [ARM template (Bicep)](#tab/bicep)
 
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
+---
 
 ## Delete cluster
 
@@ -665,7 +1036,9 @@ Use the following commands to delete a cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Delete**.
+
+:::image type="content" source="./media/logs-dedicated-cluster/delete-cluster.png" alt-text="Screenshot for deleting a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/delete-cluster.png":::
 
 #### [CLI](#tab/cli)
 
@@ -688,7 +1061,7 @@ Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 Use the following REST call to delete a cluster:
 
 ```rest
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -696,9 +1069,15 @@ Authorization: Bearer <token>
 
   200 OK
 
+#### [ARM template (Bicep)](#tab/bicep)
+
+N/A
+
+#### [ARM template (JSON)](#tab/json)
+
+N/A
+
 ---
-
-
 
 ## Limits and constraints
 
@@ -756,7 +1135,7 @@ Authorization: Bearer <token>
 -  400--Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
 -  400--KeyVaultProperties isn't empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
 -  400--Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn't exist. Verify that you [set key and access policy](../logs/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
--  400--Key isn't recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
+-  400--Key isn't recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](/azure/key-vault/general/soft-delete-overview)
 -  400--Operation can't be executed now. Wait for the Async operation to complete and try again.
 -  400--Cluster is in deleting state. Wait for the Async operation to complete and try again.
 
@@ -780,5 +1159,6 @@ Authorization: Bearer <token>
 
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](../logs/workspace-design.md)
+- Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters).
+- Learn about [proper design of Log Analytics workspaces](../logs/workspace-design.md).
+- Get other [sample templates for Azure Monitor](../resource-manager-samples.md).

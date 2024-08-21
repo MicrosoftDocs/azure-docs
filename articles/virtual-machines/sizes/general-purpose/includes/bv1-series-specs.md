@@ -1,19 +1,20 @@
 ---
-title: B-series burstable - Azure Virtual Machines
-description: Include file containing specifications of EXAMPLE and EXAMPLE-series VM sizes.
-services: virtual-machines
+title: Bv1 series specs include
+description: Include file containing specifications of Bv1-series VM sizes.
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/11/2024
+ms.date: 07/29/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 1 - 20<sup>vCores    | Intel® Xeon® Platinum 8370C (Ice Lake)<br> Intel® Xeon® Platinum 8272CL (Cascade Lake)<br> Intel® Xeon® 8171M 2.1 GHz (Skylake)<br> Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell)<br> Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.             |
-| Memory           | 0.5 - 80<sup>GiB     |                                                 |
-| Data Disks       | 2 - 32<sup>Disks     | 160 - 16000<sup>IOPS</sup> / 10 - 400<sup>MBps  |
-| Network          | 2 - 8<sup>NICs       |                                                 |
-| Accelerators     | None                 |                                                 |
+| Processor      | 1 - 20 vCPUs       | Intel Xeon Platinum 8370C (Ice Lake) [x86-64] <br>Intel Xeon Platinum 8272CL (Cascade Lake) [x86-64] <br>Intel Xeon 8171M (Skylake) [x86-64] <br>Intel Xeon E5-2673 v4 (Broadwell) [x86-64] <br>Intel Xeon E5-2673 v3 (Haswell) [x86-64]                               |
+| Memory         | 0.5 - 80 GiB          |                                  |
+| Local Storage  | 1 Disk           | 4 - 160 GiB <br> IOPS (RR) <br> MBps (RR)                               |
+| Remote Storage | 2 - 32 Disks    | 160 - 4320 IOPS <br>10 - 50 MBps   |
+| Network        | 2 - 8 NICs          |  Mbps                          |
+| Accelerators   | None              |                                   |

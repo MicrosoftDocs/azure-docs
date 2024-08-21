@@ -1,10 +1,11 @@
 ---
 title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/20/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Add languages to a Windows 11 Enterprise image
 
@@ -174,7 +175,7 @@ To run sysprep:
 
 2. If you run into any issues, check the **SetupErr.log** file in your C drive at **Windows** > **System32** > **Sysprep** > **Panther**. After that, follow the instructions in [Sysprep fails with Microsoft Store apps](/troubleshoot/windows-client/deployment/sysprep-fails-remove-or-update-store-apps) to troubleshoot your setup.
 
-3. If setup is successful, stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+3. If setup is successful, stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
 
 4. You can now use the customized image to deploy an Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 

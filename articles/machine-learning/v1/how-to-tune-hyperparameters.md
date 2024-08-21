@@ -5,9 +5,9 @@ description: Automate hyperparameter tuning for deep learning and machine learni
 ms.author: joburges
 author: ssalgadodev
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.date: 05/02/2022
+ms.date: 05/30/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5
 ---
@@ -202,7 +202,7 @@ Azure Machine Learning supports the following early termination policies:
 
 ### Bandit policy
 
-[Bandit policy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) is based on slack factor/slack amount and evaluation interval. Bandit ends runs when the primary metric isn't within the specified slack factor/slack amount of the most successful run.
+[Bandit policy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) is based on slack factor/slack amount and evaluation interval. Bandit ends the runs when the primary metric isn't within the specified slack factor/slack amount of the most successful run.
 
 > [!NOTE]
 > Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
@@ -261,7 +261,7 @@ In this example, the early termination policy is applied at every interval start
 
 ### No termination policy (default)
 
-If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
+If no policy is specified, the hyperparameter tuning service lets all training runs execute to completion.
 
 ```Python
 policy=None
@@ -305,7 +305,7 @@ To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml
 * Resource allocation settings
 * ScriptRunConfig `script_run_config`
 
-The ScriptRunConfig is the training script that will run with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
+The ScriptRunConfig is the training script that runs with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
 
 > [!NOTE]
 >The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
@@ -432,7 +432,7 @@ You can visualize all of your hyperparameter tuning runs in the [Azure Machine L
 
     :::image type="content" source="../media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Hyperparameter tuning metrics chart":::
 
-- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values). The parallel coordinates chart includes an axis on the right most portion of the chart that plots the best metric value corresponding to the hyperparameters set for that run instance. This axis is provided in order to project the chart gradient legend onto the data in a more readable fashion.
+- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (select and drag by the axis label), and by highlighting values across a single axis (select and drag vertically along a single axis to highlight a range of desired values). The parallel coordinates chart includes an axis on the rightmost portion of the chart that plots the best metric value corresponding to the hyperparameters set for that run instance. This axis is provided in order to project the chart gradient legend onto the data in a more readable fashion.
 
     :::image type="content" source="../media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Hyperparameter tuning parallel coordinates chart":::
 
@@ -440,7 +440,7 @@ You can visualize all of your hyperparameter tuning runs in the [Azure Machine L
 
     :::image type="content" source="../media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Hyparameter tuning 2-dimensional scatter chart":::
 
-- **3-Dimensional Scatter Chart**: This visualization is the same as 2D but allows for three hyperparameter dimensions of correlation with the primary metric value. You can also click and drag to reorient the chart to view different correlations in 3D space.
+- **3-Dimensional Scatter Chart**: This visualization is the same as 2D but allows for three hyperparameter dimensions of correlation with the primary metric value. You can also select and drag to reorient the chart to view different correlations in 3D space.
 
     :::image type="content" source="../media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter tuning 3-dimensional scatter chart":::
 

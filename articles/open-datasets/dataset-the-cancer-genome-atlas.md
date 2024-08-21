@@ -2,7 +2,7 @@
 title: TCGA Open Data
 titleSuffix: Azure Open Datasets
 description: Learn how to use the TCGA open dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 author: mamtagiri
 ms.author: mamtagiri
@@ -17,7 +17,7 @@ The Cancer Genome Atlas (TCGA), a landmark cancer genomics program, molecularly 
 - Open access [available on Azure]: This dataset contains deindentified clinical and biospecimen data or summarized data that doesn't contain any individually identifiable information. The data types included are Gene expression, methylation beta values and protein quantification. DNA level datatype includes gene level copy number and masked copy number segment.
 - Controlled access: This dataset is the individual level sequence data and requires approval through dbGap for access.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ### Data source
 

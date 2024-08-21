@@ -6,7 +6,7 @@ services: azure-resource-manager
 ms.author: jushiman
 ms.date: 03/10/2022
 ms.topic: quickstart
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service. In this quickstart, you use a Bicep file to deploy an isolated Docker container and make its web application available with a public IP address.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

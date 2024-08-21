@@ -4,8 +4,8 @@ description: Learn how to use Flexible and Uniform orchestration modes for Virtu
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
@@ -95,7 +95,7 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 
 ### Monitor application health
 
-Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
+Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. When configuring application monitoring, you must install and configure the Application Health Extension if using Flexible Orchestration. For Uniform scale set instances, you can use either the Application Health Extension, or Health Probes.
 
 ### List scale sets VM API changes
 
@@ -137,7 +137,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Proximity Placement Groups   | Yes, when using one Availability Zone or none. Cannot be changed after deployment. Read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, when using one Availability Zone or none. Can be changed after deployment stopping all instances. Read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | Yes  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
-| Add/remove existing VM to the group  | No  | No  | No |
+| Add/remove existing VM to the group  | Yes  | No  | No |
 | Service Fabric  | No  | Yes  | No |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
 | UserData  | Yes | Yes  | UserData can be specified for individual VMs |

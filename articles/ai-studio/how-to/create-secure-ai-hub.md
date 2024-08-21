@@ -1,48 +1,50 @@
 ---
-title: Create a secure AI hub
+title: Create a secure hub
 titleSuffix: Azure AI Studio
-description: Create an Azure AI hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
+description: Create an Azure AI Studio hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 03/22/2024
-ms.reviewer: jhirono
+ms.date: 5/21/2024
+ms.reviewer: meerakurup 
 ms.author: larryfr
 author: Blackmist
-# Customer intent: As an administrator, I want to create a secure AI hub and project with a managed virtual network so that I can secure access to the AI hub and project resources.
+# Customer intent: As an administrator, I want to create a secure hub and project with a managed virtual network so that I can secure access to the Azure AI Studio hub and project resources.
 ---
 
-# How to create a secure AI hub and project with a managed virtual network
+# How to create a secure Azure AI Studio hub and project with a managed virtual network
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-You can secure your AI hub, AI projects, and managed resources in a managed virtual network. With a managed virtual network, inbound access is only allowed through a private endpoint for your AI hub resource. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
+You can secure your Azure AI Studio hub, projects, and managed resources in a managed virtual network. With a managed virtual network, inbound access is only allowed through a private endpoint for your hub. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
 
 > [!IMPORTANT]
-> The managed virtual network doesn't provide inbound connectivity for your clients. For more information, see the [Connect to the AI hub](#connect-to-the-ai-hub) section. 
+> The managed virtual network doesn't provide inbound connectivity for your clients. For more information, see the [Connect to the hub](#connect-to-the-hub) section. 
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Virtual Network that you use to securely connect to Azure services. For example, you might use [Azure Bastion](/azure/bastion/bastion-overview), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect to the Azure Virtual Network from your on-premises network. If you don't have an Azure Virtual Network, you can create one by following the instructions in [Create a virtual network](/azure/virtual-network/quick-create-portal).
 
-## Create an AI hub
+## Create a hub
 
 1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**.
-1. Enter your AI hub name, subscription, resource group, and location details.
+1. Enter your hub name, subscription, resource group, and location details. You can also select an existing Azure AI services resource or create a new one.
 
-    :::image type="content" source="../media/how-to/network/ai-hub-basics.png" alt-text="Screenshot of the option to set Azure AI hub resource basic information." lightbox="../media/how-to/network/ai-hub-basics.png":::
+    :::image type="content" source="../media/how-to/network/ai-hub-basics.png" alt-text="Screenshot of the option to set hub basic information." lightbox="../media/how-to/network/ai-hub-basics.png":::
 
-1. Select **Next: Resources** to specify resources. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety, and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+1. Select **Next: Storage**. Select an existing **Storage account** and **Key vault** resource or create new ones. Optionally, choose an existing **Application insights**, and **Container Registry** for logs and docker images.
 
-    :::image type="content" source="../media/how-to/network/ai-hub-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/network/ai-hub-resources.png"::: 
+    :::image type="content" source="../media/how-to/network/ai-hub-resources.png" alt-text="Screenshot of the Create a hub with the option to set resource information." lightbox="../media/how-to/network/ai-hub-resources.png"::: 
 
-1. Select **Next: Networking** to configure the managed virtual network that AI Studio uses to secure its AI hub and AI project resources.
+1. Select **Next: Networking** to configure the managed virtual network that AI Studio uses to secure its hub and projects.
     
     1. Select **Private with Internet Outbound**, which allows compute resources to access the public internet for resources such as Python packages.
 
-        :::image type="content" source="../media/how-to/network/ai-hub-networking.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set network isolation information." lightbox="../media/how-to/network/ai-hub-networking.png":::
+        :::image type="content" source="../media/how-to/network/ai-hub-networking.png" alt-text="Screenshot of the Create a hub with the option to set network isolation information." lightbox="../media/how-to/network/ai-hub-networking.png":::
 
-    1. To allow your clients to connect through your Azure Virtual Network to the AI hub, use the following steps to add a private endpoint.
+    1. To allow your clients to connect through your Azure Virtual Network to the hub, use the following steps to add a private endpoint.
     
         1. Select **+ Add** from the **Workspace inbound access** section of the **Networking** tab. The **Create private endpoint** form is displayed.
         
@@ -54,9 +56,9 @@ You can secure your AI hub, AI projects, and managed resources in a managed virt
 
         1. Select **Ok** to save the endpoint configuration.
 
-1. Select **Review + create**, then **Create** to create the AI hub. Once the AI hub has been created, any AI projects or compute instances created from the AI hub inherit the network configuration.
+1. Select **Review + create**, then **Create** to create the hub. Once the hub has been created, any projects or compute instances created from the hub inherit the network configuration.
 
-## Connect to the AI hub
+## Connect to the hub
 
 The managed virtual network doesn't directly provide access to your clients. Instead, your clients connect to an Azure Virtual Network that *you* manage. There are multiple methods that you might use to connect clients to the Azure Virtual Network. The following table lists the common ways that clients connect to an Azure Virtual Network:
 
@@ -70,4 +72,4 @@ The managed virtual network doesn't directly provide access to your clients. Ins
 
 - [Create a project](create-projects.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
-- [Learn more about Azure AI hub resources](../concepts/ai-resources.md)
+- [Learn more about Azure AI Studio hubs](../concepts/ai-resources.md)

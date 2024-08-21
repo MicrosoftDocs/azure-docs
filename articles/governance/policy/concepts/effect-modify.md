@@ -11,9 +11,9 @@ The `modify` effect is used to add, update, or remove properties or tags on a su
 
 The `modify` effect supports the following operations:
 
-- Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
-- Add or replace the value of managed identity type (`identity.type`) of virtual machines and Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
-- Add or replace the values of certain aliases.
+- _Add_, _replace_, or _remove_ resource tags. Only tags can be removed. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
+- _Add_ or _replace_ the value of managed identity type (`identity.type`) of virtual machines and Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
+- _Add_ or _replace_ the values of certain aliases.
   - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }` in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with `modify`.
 
 > [!IMPORTANT]
@@ -24,9 +24,9 @@ The `modify` effect supports the following operations:
 
 ## Modify evaluation
 
-Modify evaluates before the request gets processed by a Resource Provider during the creation or updating of a resource. The `modify` operations are applied to the request content when the `if` condition of the policy rule is met. Each `modify` operation can specify a condition that determines when it's applied. Operations with _false_ condition evaluations are skipped.
+Modify evaluates before the request gets processed by a Resource Provider during the creation or updating of a resource. The `modify` operations are applied to the request content when the `if` condition of the policy rule is met. Each `modify` operation can specify a condition that determines when it's applied. 
 
-When an alias is specified, the more checks are performed to ensure that the `modify` operation doesn't change the request content in a way that causes the resource provider to reject it:
+When an alias is specified, more checks are performed to ensure that the `modify` operation doesn't change the request content in a way that causes the resource provider to reject it:
 
 - The property the alias maps to is marked as **Modifiable** in the request's API version.
 - The token type in the `modify` operation matches the expected token type for the property in the request's API version.
@@ -38,6 +38,12 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 > to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the `modify` operation used for each API version.
+
+There are some cases when modify operations are skipped during evaluation:
+- When the condition of an operation in the `operations` array is evaluated to _false_, that particular operation is skipped.
+- If an alias specified for an operation isn't modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request is blocked. If the conflict effect is set to _audit_, the request is allowed through but the modify operation is skipped.
+- In some cases, modifiable properties are nested within other properties and have an alias like `Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled`. If the "parent" property, in this case `deleteRetentionPolicy`, isn't present in the request, modification is skipped because that property is assumed to be omitted intentionally.
+- When a modify operation attempts to add or replace the `identity.type` field on a resource other than a Virtual Machine or Virtual Machine Scale Set, policy evaluation is skipped altogether so the modification isn't performed. In this case, the resource is considered not [applicable](../concepts/policy-applicability.md) to the policy.
 
 When a policy definition using the `modify` effect is run as part of an evaluation cycle, it doesn't make changes to resources that already exist. Instead, it marks any resource that meets the `if` condition as non-compliant.
 
@@ -59,7 +65,9 @@ The `details` property of the `modify` effect has all the subproperties that def
   - An array of all tag operations to be completed on matching resources.
   - Properties:
     - `operation` (required)
-      - Defines what action to take on a matching resource. Options are: _addOrReplace_, _Add_, _Remove_. _Add_ behaves similar to the [append](./effect-append.md) effect.
+      - Defines what action to take on a matching resource. Options are: `addOrReplace`, `Add`, and `Remove`. 
+      - `Add` behaves similar to the [append](./effect-append.md) effect.
+      - `Remove` is only supported for resource tags.
     - `field` (required)
       - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for other [fields](./definition-structure-policy-rule.md#fields).
     - `value` (optional)
@@ -106,7 +114,7 @@ The `operation` property has the following options:
 |-|-|
 | `addOrReplace` | Adds the defined property or tag and value to the resource, even if the property or tag already exists with a different value. |
 | `add` | Adds the defined property or tag and value to the resource. |
-| `remove` | Removes the defined property or tag from the resource. |
+| `remove` | Removes the defined tag from the resource. Only supported for tags. |
 
 ## Modify examples
 

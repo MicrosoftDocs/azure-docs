@@ -140,13 +140,13 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
   - [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)
   
-For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/Pre-Installation.html).
+For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/preinstallation.html).
 
 ## Install JetStream DR on Azure VMware Solution  
  
 You can follow these steps for both supported scenarios. 
  
-1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/Installation.html).  
+1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://openjournalsystems.com/ojs-2-user-guide/installation/).  
 
 1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
     
@@ -260,7 +260,7 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 
 1. [Add an external storage site](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/add-a-storage-site/).  
 
-1. [Deploy a JetStream DRVA appliance](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/DeployaDRVA.html). 
+1. [Deploy a JetStream DRVA appliance](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/deploydrva.html). 
 
 1. Create a JetStream replication log store volume using one of the datastores available to the Azure VMware Solution cluster. 
 

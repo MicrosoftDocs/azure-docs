@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: eur
@@ -21,6 +22,9 @@ zone_pivot_groups: programming-languages-ai-services
 # Use pronunciation assessment
 
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio.
+
+> [!NOTE]
+> Pronunciation assessment uses a specific version of the speech-to-text model, different from the standard speech to text model, to ensure consistent and accurate pronunciation assessment.
 
 ## Use pronunciation assessment in streaming mode
 
@@ -76,14 +80,125 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone-end
 
+### Continuous recognition
+
+::: zone pivot="programming-language-csharp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) under the function `pronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/python/console/speech_sample.py) under the function `pronunciation_assessment_continuous_from_file`.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/js/node/pronunciationAssessmentContinue.js).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) under the function `pronunciationAssessFromFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift) under the function `continuousPronunciationAssessment`.
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
+
 ## Set configuration parameters
 
 ::: zone pivot="programming-language-go"
+
 > [!NOTE]
 > Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide. Select another programming language for your solution.
+
 ::: zone-end
 
-In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, you can use the following sample code.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end  
+
+::: zone pivot="programming-language-cpp"
+
+```cpp
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, language="en-US", audio_config=audio_config)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+speechConfig.speechRecognitionLanguage = "en-US";
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```ObjectiveC
+SPXSpeechRecognizer* recognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+```swift
+let recognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, language: "en-US", audioConfiguration: audioConfig)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
 
 > [!TIP]
 > If you aren't sure which locale to set for a language that has multiple locales, try each locale separately. For instance, for Spanish, try `es-ES` and `es-MX`. Determine which locale scores higher for your scenario.
@@ -188,7 +303,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't set the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results).<br/><br/>For pricing differences between scripted and unscripted assessment, see [Pricing](./pronunciation-assessment-tool.md#pricing). |
 | `GradingSystem` | The point system for score calibration. `FivePoint` gives a 0-5 floating point score. `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. |
 | `Granularity` | Determines the lowest level of evaluation granularity. Returns scores for levels greater than or equal to the minimal value. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph. It depends on your input reference text. Default: `Phoneme`.|
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table. |
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet above the table. |
 | `ScenarioId` | A GUID for a customized point system. |
 
 ### Configuration methods
@@ -199,6 +314,8 @@ This table lists some of the optional methods you can set for the `Pronunciation
 > Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
 > 
 > To explore the content and prosody assessments, upgrade to the SDK version 1.35.0 or later.
+>
+> There is no length limit for the topic parameter.
 
 | Method | Description |
 |-----------|-------------|
@@ -385,7 +502,7 @@ This table lists some of the key pronunciation assessment results for the script
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. | Full Text level |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
 | `ProsodyScore` | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
-| `PronScore` | Overall score of the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |Full Text level|
+| `PronScore` | Overall score of the pronunciation quality of the given speech. `PronScore` is calculated from `AccuracyScore`, `FluencyScore`, `CompletenessScore`, and `ProsodyScore` with weight, provided that `ProsodyScore` and `CompletenessScore` are available. If either of them isn't available, `PronScore` won't consider that score.|Full Text level|
 | `ErrorType` | This value indicates the error type compared to the reference text. Options include whether a word is omitted, inserted, or improperly inserted with a break. It also indicates a missing break at punctuation. It also indicates whether a word is badly pronounced, or monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
 
 #### Unscripted assessment results
@@ -405,7 +522,7 @@ This table lists some of the key pronunciation assessment results for the unscri
 | `VocabularyScore`  | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity. | Full Text level |
 | `GrammarScore`     | Correctness in using grammar and variety of sentence patterns. Lexical accuracy, grammatical accuracy, and diversity of sentence structures jointly elevate grammatical errors. | Full Text level|
 | `TopicScore`       | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
-| `PronScore`        | Overall score of the pronunciation quality of the given speech. This value is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. | Full Text level |
+| `PronScore`        | Overall score of the pronunciation quality of the given speech. `PronScore` is calculated from `AccuracyScore`, `FluencyScore`, and `ProsodyScore` with weight, provided that `ProsodyScore` is available. If `ProsodyScore` isn't available, `PronScore` won't consider that score.| Full Text level |
 | `ErrorType`        | A word is badly pronounced, improperly inserted with a break, or missing a break at punctuation. It also indicates whether a pronunciation is monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level |
 
 The following table describes the prosody assessment results in more detail:
@@ -418,7 +535,7 @@ The following table describes the prosody assessment results in more detail:
 | `ErrorTypes`      | Error types related to breaks, including `UnexpectedBreak` and `MissingBreak`. The current version doesn't provide the break error type. You need to set thresholds on the fields `UnexpectedBreak – Confidence` and `MissingBreak – confidence` to decide whether there's an unexpected break or missing break before the word. |
 | `UnexpectedBreak` | Indicates an unexpected break before the word. |
 | `MissingBreak`    | Indicates a missing break before the word. |
-| `Thresholds`      | Suggested thresholds on both confidence scores are 0.75. That means, if the value of `UnexpectedBreak – Confidence` is larger than 0.75, it has an unexpected break. If the value of `MissingBreak – confidence` is larger than 0.75, it has a missing break. If you want to have variable detection sensitivity on these two breaks, you can assign different thresholds to the `UnexpectedBreak - Confidence` and `MissingBreak - Confidence` fields. |
+| `Thresholds`      | Suggested thresholds on both confidence scores are 0.75. That means, if the value of `UnexpectedBreak – Confidence` is larger than 0.75, it has an unexpected break. If the value of `MissingBreak – confidence` is larger than 0.75, it has a missing break. While 0.75 is a value we recommend, it's better to adjust the thresholds based on your own scenario. If you want to have variable detection sensitivity on these two breaks, you can assign different thresholds to the `UnexpectedBreak - Confidence` and `MissingBreak - Confidence` fields.  |
 | `Intonation`      | Indicates intonation in speech. |
 | `ErrorTypes`      | Error types related to intonation, currently supporting only Monotone. If the `Monotone` exists in the field `ErrorTypes`, the utterance is detected to be monotonic. Monotone is detected on the whole utterance, but the tag is assigned to all the words. All the words in the same utterance share the same monotone detection information. |
 | `Monotone`   | Indicates monotonic speech. |
@@ -617,9 +734,9 @@ You can get pronunciation assessment scores for:
 - Syllable groups
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
-### Supported features per locale
+## Supported features per locale
 
-The following table summarizes which features that locales support. For more specifies, see the following sections.
+The following table summarizes which features that locales support. For more specifies, see the following sections. If the locales you require aren't listed in the following table for the supported feature, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
 | Phoneme alphabet | IPA     | SAPI |
 |:-----------------|:--------|:-----|
@@ -720,7 +837,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 ::: zone-end
 
-## Assess spoken phonemes
+### Assess spoken phonemes
 
 With spoken phonemes, you can get confidence scores that indicate how likely the spoken phonemes matched the expected phonemes.
 
@@ -966,9 +1083,25 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ::: zone-end
 
+## Pronunciation score calculation
+
+Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
+  
+When sorting the scores of accuracy, prosody, fluency, and completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
+
+For reading scenario:
+  - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
+  - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+
+For the speaking scenario (the completeness score isn't applicable):
+  - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+  - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
+
+This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
+
 ## Related content
 
 - Learn about quality [benchmark](https://aka.ms/pronunciationassessment/techblog).
-- Try [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md).
+- Try [pronunciation assessment in the studio](pronunciation-assessment-tool.md).
 - Check out an easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS).
 - Watch the [video demo](https://www.youtube.com/watch?v=NQi4mBiNNTE) of pronunciation assessment.

@@ -1,10 +1,10 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, has-azure-ad-ps-ref
-ms.date: 05/11/2023
+ms.date: 06/15/2024
 ---
 
 # Use Enterprise Security Package in HDInsight
@@ -55,11 +55,11 @@ Because Kerberos relies on password hashes, you must [enable password hash sync 
 
 If you're using federation with Active Directory Federation Services (AD FS), you must enable password hash sync. (For a recommended setup, see [this video](https://youtu.be/qQruArbu2Ew).) Password hash sync helps with disaster recovery in case your AD FS infrastructure fails, and it also helps provide leaked-credential protection. For more information, see [Enable password hash sync with Microsoft Entra Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-Using on-premises Active Directory or Active Directory on IaaS VMs alone, without Microsoft Entra ID and Microsoft Entra Domain Services, isn't a supported configuration for HDInsight clusters with ESP.
+When you use on-premises Active Directory or Active Directory on IaaS VMs alone, without Microsoft Entra ID and Microsoft Entra Domain Services, isn't a supported configuration for HDInsight clusters with ESP.
 
 [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
-If federation is being used and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Microsoft Entra tenant. To check and set the HRD policy:
+If you use federation and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Microsoft Entra tenant. To check and set the HRD policy:
 
 1. Install the preview [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 

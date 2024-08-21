@@ -4,7 +4,7 @@ description: Learn the best practices for managing costs for virtual machines.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.custom: subject-cost-optimization
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 02/21/2024
 ---

@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -29,9 +29,8 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, Switzerland North, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
-- You can't currently cancel a task run on an agent pool.
 
 ## Prerequisites
 
@@ -42,12 +41,12 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 Agent pool tiers provide the following resources per instance in the pool.
 
-|Tier    | Type  |  CPU  |Memory (GB)  |
-|---------|---------|---------|---------|
-|S1     |  standard    | 2       |    3     |
-|S2     |  standard    | 4       |    8     |
-|S3     |  standard    | 8       |   16     |
-|I6     |  isolated    | 64     |   216     |
+| Tier | Type     | CPU | Memory (GB) |
+| ---- | -------- | --- | ----------- |
+| S1   | standard | 2   | 3           |
+| S2   | standard | 4   | 8           |
+| S3   | standard | 8   | 16          |
+| I6   | isolated | 64  | 216         |
 
 
 ## Create and manage a task agent pool
@@ -93,18 +92,40 @@ az acr agentpool update \
 
 Task agent pools require access to the following Azure services. The following firewall rules must be added to any existing network security groups or user-defined routes.
 
-| Direction | Protocol | Source         | Source Port | Destination          | Dest Port | Used    |
-|-----------|----------|----------------|-------------|----------------------|-----------|---------|
-| Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault        | 443       | Default |
-| Outbound  | TCP      | VirtualNetwork | Any         | Storage              | 443       | Default |
-| Outbound  | TCP      | VirtualNetwork | Any         | EventHub             | 443       | Default |
-| Outbound  | TCP      | VirtualNetwork | Any         | AzureActiveDirectory | 443       | Default |
-| Outbound  | TCP      | VirtualNetwork | Any         | AzureMonitor         | 443       | Default |
+| Direction | Protocol | Source         | Source Port | Destination          | Dest Port | Used    | Remarks                                           |
+| --------- | -------- | -------------- | ----------- | -------------------- | --------- | ------- | ------------------------------------------------- |
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault        | 443       | Default |                                                   |
+| Outbound  | TCP      | VirtualNetwork | Any         | Storage              | 443       | Default |                                                   |
+| Outbound  | TCP      | VirtualNetwork | Any         | EventHub             | 443       | Default |                                                   |
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureActiveDirectory | 443       | Default |                                                   |
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureMonitor         | 443,12000 | Default | Port 12000 is a unique port used for diagnostics  |
 
 > [!NOTE]
 > If your tasks require additional resources from the public internet, add the corresponding rules. For example, additional rules are needed to run a docker build task that pulls the base images from Docker Hub, or restores a NuGet package.
 
 Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules.](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
+
+#### Advanced network configuration
+
+If the standard Firewall/NSG (Network Security Group) rules are deemed too permissive, and more fine-grained control is required for outbound connections, consider the following approach:
+
+- Enable service endpoints on the agent pool subnet. This grants the agent pool access to its service dependencies while maintaining a secure network posture.
+- It's important to note that outbound Firewall/NSG rules are still necessary. These rules facilitate the Virtual Network's ability to switch the source IP from public to private, which is an additional step beyond enabling service endpoints.
+ 
+More information on service endpoints is documented [here][az-vnet-svc-ep].
+ 
+At minimum, the following service endpoints will be required
+ 
+- Microsoft.AzureActiveDirectory
+- Microsoft.ContainerRegistry
+- Microsoft.EventHub
+- Microsoft.KeyVault
+- Microsoft.Storage (or the corresponding storage regions taking geo-replication into account)
+ 
+> [!NOTE] 
+> Currently a service endpoint for Azure Monitor does not exist. If outbound traffic for Azure Monitor is not configured, the agent pool will be unable to emit diagnostic logs but may appear to still operate normally. In this case ACR will be unable to help fully troubleshoot any issues encountered so it is important that the network administrator take this into account when planning the network configuration.
+ 
+Also, it is important to note that all of ACR Tasks have pre-cached images for some of the more common use cases. Tasks will only cache a single version at a time, meaning that if the full tagged image reference is used, then the build agent will attempt to pull the image. For example, a common use case is `cmd: mcr.microsoft.com/acr/acr-cli:<tag>`. However, the pre-cached version is frequently updated, which means the actual version on the machine will likely be higher. In this case, the network configuration must configure a route for outbound traffic to the target registry host which in the example above would be mcr.microsoft.com. The same rules would apply to any other external public registry (docker.io, quay.io, ghcr.io, etc.).
 
 ### Create pool in VNet
 
@@ -200,3 +221,4 @@ For more examples of container image builds and maintenance in the cloud, check 
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
 [az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [create-reg-cli]: container-registry-get-started-azure-cli.md
+[az-vnet-svc-ep]: ../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks

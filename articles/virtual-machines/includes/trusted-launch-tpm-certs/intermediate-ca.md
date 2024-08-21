@@ -3,7 +3,7 @@ title: Intermediate CA for TPM cert
 description: Include file for Intermediate CA
 author: ju-shim
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 09/28/2023
 ms.author: jushiman

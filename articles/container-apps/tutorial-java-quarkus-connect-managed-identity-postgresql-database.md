@@ -5,16 +5,16 @@ ms.devlang: java
 author: KarlErickson
 ms.topic: tutorial
 ms.author: karler
-ms.service: container-apps
-ms.date: 09/26/2022
+ms.service: azure-container-apps
+ms.date: 06/04/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
 
-[Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
+[Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
 
-This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](../postgresql/index.yml) database with a managed identity running on [Container Apps](overview.md).
+This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](/azure/postgresql/) database with a managed identity running on [Container Apps](overview.md).
 
 What you will learn:
 
@@ -25,7 +25,7 @@ What you will learn:
 > * Create a PostgreSQL database in Azure.
 > * Connect to a PostgreSQL Database with managed identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 1. Prerequisites
 
@@ -57,7 +57,7 @@ az acr create \
 
 ## 3. Clone the sample app and prepare the container image
 
-This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](../postgresql/index.yml). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
+This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](/azure/postgresql/). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 
@@ -84,8 +84,6 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
    Delete the existing content in *application.properties* and replace with the following to configure the database for dev, test, and production modes:
 
-   ### [Flexible Server](#tab/flexible)
-
    ```properties
    quarkus.package.type=uber-jar
 
@@ -106,67 +104,6 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    &azure.tenantId=${AZURE_TENANT_ID}
 
    %prod.quarkus.datasource.username=${AZURE_MI_NAME}
-   %prod.quarkus.datasource.jdbc.url=jdbc:postgresql://${DBHOST}.postgres.database.azure.com:5432/${DBNAME}?\
-   authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin\
-   &sslmode=require
-
-   %dev.quarkus.class-loading.parent-first-artifacts=com.azure:azure-core::jar,\
-   com.azure:azure-core-http-netty::jar,\
-   io.projectreactor.netty:reactor-netty-core::jar,\
-   io.projectreactor.netty:reactor-netty-http::jar,\
-   io.netty:netty-resolver-dns::jar,\
-   io.netty:netty-codec::jar,\
-   io.netty:netty-codec-http::jar,\
-   io.netty:netty-codec-http2::jar,\
-   io.netty:netty-handler::jar,\
-   io.netty:netty-resolver::jar,\
-   io.netty:netty-common::jar,\
-   io.netty:netty-transport::jar,\
-   io.netty:netty-buffer::jar,\
-   com.azure:azure-identity::jar,\
-   com.azure:azure-identity-providers-core::jar,\
-   com.azure:azure-identity-providers-jdbc-postgresql::jar,\
-   com.fasterxml.jackson.core:jackson-core::jar,\
-   com.fasterxml.jackson.core:jackson-annotations::jar,\
-   com.fasterxml.jackson.core:jackson-databind::jar,\
-   com.fasterxml.jackson.dataformat:jackson-dataformat-xml::jar,\
-   com.fasterxml.jackson.datatype:jackson-datatype-jsr310::jar,\
-   org.reactivestreams:reactive-streams::jar,\
-   io.projectreactor:reactor-core::jar,\
-   com.microsoft.azure:msal4j::jar,\
-   com.microsoft.azure:msal4j-persistence-extension::jar,\
-   org.codehaus.woodstox:stax2-api::jar,\
-   com.fasterxml.woodstox:woodstox-core::jar,\
-   com.nimbusds:oauth2-oidc-sdk::jar,\
-   com.nimbusds:content-type::jar,\
-   com.nimbusds:nimbus-jose-jwt::jar,\
-   net.minidev:json-smart::jar,\
-   net.minidev:accessors-smart::jar,\
-   io.netty:netty-transport-native-unix-common::jar
-   ```
-
-   ### [Single Server](#tab/single)
-
-   ```properties
-   quarkus.package.type=uber-jar
-
-   quarkus.hibernate-orm.database.generation=drop-and-create
-   quarkus.datasource.db-kind=postgresql
-   quarkus.datasource.jdbc.max-size=8
-   quarkus.datasource.jdbc.min-size=2
-   quarkus.hibernate-orm.log.sql=true
-   quarkus.hibernate-orm.sql-load-script=import.sql
-   quarkus.datasource.jdbc.acquisition-timeout = 10
-
-   %dev.quarkus.datasource.username=${AZURE_CLIENT_NAME}@${DBHOST}
-   %dev.quarkus.datasource.jdbc.url=jdbc:postgresql://${DBHOST}.postgres.database.azure.com:5432/${DBNAME}?\
-   authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin\
-   &sslmode=require\
-   &azure.clientId=${AZURE_CLIENT_ID}\
-   &azure.clientSecret=${AZURE_CLIENT_SECRET}\
-   &azure.tenantId=${AZURE_TENANT_ID}
-
-   %prod.quarkus.datasource.username=${AZURE_MI_NAME}@${DBHOST}
    %prod.quarkus.datasource.jdbc.url=jdbc:postgresql://${DBHOST}.postgres.database.azure.com:5432/${DBNAME}?\
    authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin\
    &sslmode=require
@@ -274,8 +211,6 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create the database service.
 
-   ### [Flexible Server](#tab/flexible)
-
    ```azurecli-interactive
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'
@@ -289,24 +224,6 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --admin-password $DB_PASSWORD \
        --sku-name GP_Gen5_2
    ```
-
-   ### [Single Server](#tab/single)
-
-   ```azurecli-interactive
-   DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
-   ADMIN_USERNAME='demoadmin'
-   ADMIN_PASSWORD='<admin-password>'
-
-   az postgres server create \
-       --resource-group $RESOURCE_GROUP \
-       --name $DB_SERVER_NAME \
-       --location $LOCATION \
-       --admin-user $DB_USERNAME \
-       --admin-password $DB_PASSWORD \
-       --sku-name GP_Gen5_2
-   ```
-
-   ---
 
    The following parameters are used in the above Azure CLI command:
 
@@ -324,22 +241,11 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create a database named `fruits` within the PostgreSQL service with this command:
 
-   ### [Flexible Server](#tab/flexible)
-
    ```azurecli-interactive
    az postgres flexible-server db create \
        --resource-group $RESOURCE_GROUP \
        --server-name $DB_SERVER_NAME \
        --database-name fruits
-   ```
-
-   ### [Single Server](#tab/single)
-
-   ```azurecli-interactive
-   az postgres db create \
-       --resource-group $RESOURCE_GROUP \
-       --server-name $DB_SERVER_NAME \
-       --name fruits
    ```
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
@@ -350,22 +256,8 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
 
-   ### [Flexible Server](#tab/flexible)
-
    ```azurecli-interactive
    az containerapp connection create postgres-flexible \
-       --resource-group $RESOURCE_GROUP \
-       --name my-container-app \
-       --target-resource-group $RESOURCE_GROUP \
-       --server $DB_SERVER_NAME \
-       --database fruits \
-       --managed-identity
-   ```
-
-   ### [Single Server](#tab/single)
-
-   ```azurecli-interactive
-   az containerapp connection create postgres \
        --resource-group $RESOURCE_GROUP \
        --name my-container-app \
        --target-resource-group $RESOURCE_GROUP \

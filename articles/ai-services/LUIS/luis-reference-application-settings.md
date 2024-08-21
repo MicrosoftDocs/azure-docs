@@ -15,7 +15,7 @@ ms.date: 01/19/2024
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-These settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and updated with the REST APIs or LUIS portal.
+These settings are stored in the [exported](/rest/api/luis/versions/export) app and updated with the REST APIs or LUIS portal.
 
 Changing your app version settings resets your app training status to untrained.
 
@@ -38,7 +38,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 ### Language support for diacritics
 
-#### Brazilian portuguese `pt-br` diacritics
+#### Brazilian Portuguese `pt-br` diacritics
 
 |Diacritics set to false|Diacritics set to true|
 |-|-|
@@ -75,7 +75,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 #### French `fr-` diacritics
 
-This includes both french and canadian subcultures.
+This includes both French and Canadian subcultures.
 
 |Diacritics set to false|Diacritics set to true|
 |--|--|
@@ -119,7 +119,7 @@ This includes both french and canadian subcultures.
 
 #### Spanish `es-` diacritics
 
-This includes both spanish and canadian mexican.
+This includes both Spanish and Canadian Mexican.
 
 |Diacritics set to false|Diacritics set to true|
 |-|-|

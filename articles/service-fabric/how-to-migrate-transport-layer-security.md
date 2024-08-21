@@ -4,7 +4,7 @@ description: A how-to guide for migrating to TLS version 1.3 for classic and man
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/29/2024
 ---
@@ -28,6 +28,9 @@ If you only use certificates and don't need to define endpoints for your cluster
     * For managed clusters, you can follow the steps outlined in the [Modify the OS SKU for a node type section of the Service Fabric managed cluster node types how-to guide](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type).
     * For classic clusters, you can follow the steps outlined in [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md).
 1. Determine if you use token-based authentication. You can check in the portal or review your cluster's manifest in the Service Fabric Explorer. If you do use token-based authentication, Microsoft Entra ID settings appear in the cluster manifest.
+1. Use the correct API version for deployments, depending on your cluster type:
+    * For managed clusters, use `2023-12-01-preview` or higher
+    * For classic clusters, use `2023-11-01-preview` or higher
 
 Once you complete these prerequisite steps, you're ready to enable TLS 1.3 on your Service Fabric clusters.
 

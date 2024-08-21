@@ -5,6 +5,10 @@ ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
 ---
+> [!IMPORTANT]
+> On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+> Please follow this [migration guide](/azure/communication-services/tutorials/call-chat-migrate-android-push-fcm-v1) if your Communication reosurce is still using the old FCM legacy APIs.
+
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ### Additional Prerequisites for Push Notifications

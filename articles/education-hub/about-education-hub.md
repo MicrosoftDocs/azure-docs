@@ -1,6 +1,6 @@
 ---
 title: What is the Azure Education Hub?
-description: Explains the purpose of the Azure Education Hub, including prerequisites and support options.
+description: Learn about the purpose of the Azure Education Hub, including prerequisites.
 author: denrea
 ms.author: rymend
 ms.topic: overview
@@ -10,20 +10,17 @@ ms.service: azure-education
 
 # What is the Azure Education Hub?
 
-The Microsoft Azure [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/quickstart) is a tool that helps academic users provision and manage cloud credit across many different Azure subscriptions. This is useful when faculty
-members need to manage many cloud-based student projects. The Education Hub is also useful for research purposes when your Azure credit needs are not yet known.
+The Microsoft Azure [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/quickstart) is a tool that helps academic users provision and manage cloud credit across Azure subscriptions.
 
-Users can easily adjust the amount of allocated credit within each subscription or in bulk. Subscriptions can also be suspended—for example, when a semester or quarter project is complete—to maximize available credits.
+This tool is useful when you need to manage many cloud-based student projects. The Education Hub is also useful for research purposes when you don't yet know your Azure credit needs.
+
+You can easily adjust the amount of allocated credit within each subscription or in bulk. You can also suspend subscriptions to maximize available credits. For example, you might suspend subscriptions when a semester or quarter project is complete.
 
 ## Prerequisites
 
-To access the Education Hub, you should already have received an email notification that you've been approved for an academic grant. The email contains your approved credit
-amount and a link to the [Education Hub](https://aka.ms/startedu).
+To access the Education Hub, you must first receive an email notification that confirms your approval for an academic grant and contains your approved credit amount.
 
-To use your academic grant, you must create a classroom in the
-Education Hub and use subscriptions within the classroom that will access your Azure credit.
-
-## Next steps
+## Related content
 
 - [Access the Education Hub](access-education-hub.md)
-- [Support options](educator-service-desk.md)
+- [Learn about support options](educator-service-desk.md)

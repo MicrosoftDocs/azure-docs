@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 02/07/2024
+ms.date: 06/18/2024
 ms.topic: conceptual
 ---
 
@@ -50,7 +50,7 @@ Most Azure tasks and services can be used with delegated resources across manage
   - Manage Windows Server or Linux machines outside Azure that are connected to delegated subscriptions
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of [policies are applied](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md) across customers' hybrid environments
-  - Use Microsoft Defender for Cloud to [monitor compliance across customers' hybrid environments](../../defender-for-cloud/quickstart-onboard-machines.md?pivots=azure-arc)
+  - Use Microsoft Defender for Cloud to [monitor compliance across customers' hybrid environments](/azure/defender-for-cloud/quickstart-onboard-machines?pivots=azure-arc)
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md):
   - [Connect Kubernetes clusters](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) to deploy configurations to connected clusters
@@ -62,7 +62,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 [Azure Backup](../../backup/index.yml):
 
-- Back up and restore customer data [from on-premises workloads, Azure VMs, Azure file shares, and more](../..//backup/backup-overview.md#what-can-i-back-up)
+- Back up and restore customer data using Azure Backup. Currently, the following Azure workloads are supported: Azure Virtual Machines (Azure VM), Azure Files, SQL Server on Azure VMs, SAP HANA on Azure VMs. Workloads which leverage [Backup vault](../../backup/backup-vault-overview.md) (such as Azure Database for PostgreSQL, Azure Blob, Azure Managed Disk, and Azure Kubernetes Services) currently aren't fully supported.
 - View data for all delegated customer resources in [Backup center](../../backup/backup-center-overview.md)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
@@ -75,16 +75,16 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost is based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription. Currently, you can view consumption costs at retail rates for each individual customer subscription based on Azure RBAC access.
 
-[Azure Key Vault](../../key-vault/general/index.yml):
+[Azure Key Vault](/azure/key-vault/general/):
 
 - Create Key Vaults in customer tenants
 - Use a managed identity to create Key Vaults in customer tenants
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml):
+[Azure Kubernetes Service (AKS)](/azure/aks/):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 - Deploy and manage clusters in customer tenants
-- [Use Azure Monitor for containers](../../aks/monitor-aks.md) to monitor performance across customer tenants
+- [Use Azure Monitor for containers](/azure/aks/monitor-aks) to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -138,7 +138,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
 - Note that you can't use Microsoft Entra ID for remote login to VMs
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/index.yml):
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/):
 
 - Cross-tenant visibility
   - Monitor compliance with security policies and ensure security coverage across all tenants' resources

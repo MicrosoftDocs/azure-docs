@@ -2,7 +2,7 @@
 title: Use internal DNS for VM name resolution with the Azure CLI
 description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location westus
 
 ## Create the virtual network
 
-The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network](../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
+The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network).
 
 Create the virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 

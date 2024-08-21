@@ -3,7 +3,7 @@ title: Azure Firewall Standard features
 description: Learn about Azure Firewall features.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 08/30/2023
 ms.author: victorh
@@ -49,7 +49,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no extra cost for a firewall deployed in more than one Availability Zone. Also, Microsoft has announced that Azure won't charge for the data transfer across availability zones, regardless of whether you use private or public IPs on your [Azure resources](https://azure.microsoft.com/updates/update-on-interavailability-zone-data-transfer-pricing/).
 
 As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
@@ -116,7 +116,13 @@ Forced Tunnel mode can't be configured at run time. You can either redeploy the 
 
 ## Outbound SNAT support
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, it will use the Public IPs as needed based on available ports. It will **randomly pick the first Public IP** and only use the **next available Public IP** after no more connections can be made from the current public IP **due to SNAT port exhaustion**.
+
+In scenarios where you have high throughput or dynamic traffic patterns, it is recommended to use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview). Azure NAT Gateway dynamically selects public IPs for providing outbound connectivity. To learn more about how to integrate NAT Gateway with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
+
+Azure NAT Gateway can be used with Azure Firewall by associating NAT Gateway to the Azure Firewall subnet. See the [Integrate NAT gateway with Azure Firewall](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) tutorial for guidance on this configuration. 
+
+Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 

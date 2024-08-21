@@ -1,7 +1,7 @@
 ---
 title: Diabetes dataset
 description: Learn how to use the diabetes dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -12,7 +12,7 @@ The Diabetes dataset has 442 samples with 10 features, making it ideal for getti
 [Original dataset description](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html) 
 | [Original data file](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt)
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Columns
 

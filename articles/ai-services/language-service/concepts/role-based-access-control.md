@@ -36,7 +36,7 @@ Azure RBAC can be assigned to a Language resource. To grant access to an Azure r
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
 
 ## Language role types
 
@@ -72,14 +72,14 @@ A user that should only be validating and reviewing the Language apps, typically
       All GET APIs under: 
         * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
         * [Language authoring text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
-        * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+        * [Question answering projects](/rest/api/questionanswering/question-answering-projects)
       Only `TriggerExportProjectJob` POST operation under: 
          * [Language authoring conversational language understanding export API](/rest/api/language/2023-04-01/text-analysis-authoring/export)
          * [Language authoring text analysis export API](/rest/api/language/2023-04-01/text-analysis-authoring/export)
       Only Export POST operation under: 
-         * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
+         * [Question Answering Projects](/rest/api/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
-         *[Language Runtime CLU APIs](/rest/api/language/2023-04-01/conversation-analysis-runtime)
+         *[Language Runtime CLU APIs](/rest/api/language)
          *[Language Runtime Text Analysis APIs](https://go.microsoft.com/fwlink/?linkid=2239169)
     :::column-end:::
 :::row-end:::
@@ -108,7 +108,7 @@ A user that is responsible for building and modifying an application, as a colla
       * All POST, PUT and PATCH APIs under:
          * [Language conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
          * [Language text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
-         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+         * [question answering projects](/rest/api/questionanswering/question-answering-projects)
           Except for
           * Delete deployment
           * Delete trained model
@@ -143,7 +143,7 @@ These users are the gatekeepers for the Language applications in production envi
       All APIs available under:
         * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
         * [Language authoring text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
-        * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+        * [question answering projects](/rest/api/questionanswering/question-answering-projects)
          
     :::column-end:::
 :::row-end:::

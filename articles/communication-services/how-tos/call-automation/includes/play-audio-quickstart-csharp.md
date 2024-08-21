@@ -71,6 +71,10 @@ To play audio to participants using audio files, you need to make sure the audio
 
 ``` csharp
 var playSource = new FileSource(new Uri(audioUri));
+
+//Multiple FileSource Prompts, if you want to play multiple audio files in one request you can provide them in a list.
+//var playSources = new List<PlaySource>() { new FileSource(new Uri("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav")), new FileSource(new Uri("https://www2.cs.uic.edu/~i101/SoundFiles/preamble10.wav")) };
+
 ```
 
 ### Play source - Text-To-Speech
@@ -81,7 +85,10 @@ To play audio using Text-To-Speech through Azure AI services, you need to provid
 String textToPlay = "Welcome to Contoso";
 
 // Provide SourceLocale and VoiceKind to select an appropriate voice. 
-var playSource = new TextSource(textToPlay, "en-US", VoiceKind.Female); 
+var playSource = new TextSource(textToPlay, "en-US", VoiceKind.Female);
+
+//Multiple TextSource prompt, if you want to play multiple text prompts in one request you can provide them in a list.
+//var playSources = new List<PlaySource>() { new TextSource("recognize prompt one") { VoiceName = SpeechToTextVoice }, new TextSource("recognize prompt two") { VoiceName = SpeechToTextVoice }, new TextSource(content) { VoiceName = SpeechToTextVoice } };
 ```
 
 ``` csharp
@@ -89,6 +96,9 @@ String textToPlay = "Welcome to Contoso";
  
 // Provide VoiceName to select a specific voice. 
 var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
+
+//Multiple TextSource prompt, if you want to play multiple text prompts in one request you can provide them in a list.
+//var playSources = new List<PlaySource>() { new TextSource("recognize prompt one") { VoiceName = SpeechToTextVoice }, new TextSource("recognize prompt two") { VoiceName = SpeechToTextVoice }, new TextSource(content) { VoiceName = SpeechToTextVoice } };
 ```
 
 ### Play source - Text-To-Speech with SSML
@@ -133,6 +143,54 @@ var playResponse = await callAutomationClient.GetCallConnection(callConnectionId
     .PlayToAllAsync(playSource); 
 ```
 
+### Support for barge-in
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+
+```csharp
+var GoodbyePlaySource = new TextSource("Good bye")
+{
+    VoiceName = "en-US-NancyNeural"
+};
+
+PlayToAllOptions playOptions = new PlayToAllOptions(GoodbyePlaySource)
+{
+    InterruptCallMediaOperation = false,
+    OperationCallbackUri = new Uri(callbackUriHost),
+    Loop = true
+};
+
+await callConnectionMedia.PlayToAllAsync(playOptions);
+
+// Interrupt media with text source
+
+// Option1:
+var interrupt = new TextSource("Interrupt prompt message")
+{
+    VoiceName = "en-US-NancyNeural"
+};
+
+PlayToAllOptions playInterrupt = new PlayToAllOptions(interrupt)
+{
+    InterruptCallMediaOperation = true,
+    OperationCallbackUri = new Uri(callbackUriHost),
+    Loop = false
+};
+
+await callConnectionMedia.PlayToAllAsync(playInterrupt);
+
+/*
+Option2: Interrupt media with file source
+var interruptFile = new FileSource(new Uri(<AUDIO URL>));
+PlayToAllOptions playFileInterrupt = new PlayToAllOptions(interruptFile)
+{
+    InterruptCallMediaOperation = true,
+    OperationCallbackUri = new Uri(callbackUriHost),
+    Loop = false
+};
+await callConnectionMedia.PlayToAllAsync(playFileInterrupt);
+*/
+```
+
 ## Play audio to a specific participant
 
 In this scenario, audio is played to a specific participant. 
@@ -143,6 +201,10 @@ var playResponse = await callAutomationClient.GetCallConnection(callConnectionId
     .GetCallMedia() 
     .PlayAsync(playSource, playTo); 
 ```
+
+## Play multiple audio prompts 
+
+The play actions all supports the ability to send multiple play sources with just one request. This means you send a list of prompts to play in one go instead of individually making these requests.
 
 ## Play audio on loop
 
@@ -185,6 +247,15 @@ Your application receives action lifecycle event updates on the callback URL tha
 if (acsEvent is PlayCompleted playCompleted) 
 { 
     logger.LogInformation("Play completed successfully, context={context}", playCompleted.OperationContext); 
+} 
+```
+
+### Example of how you can deserialize the *PlayStarted* event:
+
+``` csharp
+if (acsEvent is PlayStarted playStarted) 
+{ 
+    logger.LogInformation("Play started successfully, context={context}", playStarted.OperationContext); 
 } 
 ```
 

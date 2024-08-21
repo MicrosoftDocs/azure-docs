@@ -1,16 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: Enable NVMe FAQ
-  description: Provides answers to some of the common questions about enabling NVMe interface on virtual machines
-  author: priyashan-19
-  ms.service: virtual-machines
+  title: NVMe - General FAQ
+  description: Get answers to common questions about enabling the NVMe interface on virtual machines.
+  ms.service: azure-virtual-machines
   ms.topic: faq
-  ms.date: 10/30/2023
-  ms.author: wwilliams, priyashan
   ms.custom: references_regions
-title: Enable NVMe FAQs
+title: General FAQ for NVMe
 summary: |
-  This article addresses some common questions about enabling NVMe interface on virtual machines created in Azure.
+  This article addresses some common questions about NVM Express (NVMe) support on virtual machines (VMs) created in Azure.
 
 
 
@@ -20,243 +17,84 @@ sections:
       - question: |
           What is NVMe?
         answer: |
-          NVMe stands for nonvolatile memory express, a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response times.
+          NVMe is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times.
+          
+          NVMe offers higher input/output operations per second (IOPS) and higher throughput in megabytes per second (MBps). This capability can significantly improve the performance of both temporary (local) and remote NVMe disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for I/O-intensive workloads that require fast data transfer to the Azure managed disks.
       - question: |
-          What are the benefits of using NVMe interface on a VM family?
+          Which types of storage interfaces are supported in Azure VM families?
         answer: |
-          By enabling NVMe, the VM offers higher IOPS (Input/Output Operations Per Second) and throughput (MB/s), which can significantly improve the performance of remote disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for IO-intensive workloads that require fast and reliable data transfer to the Azure managed disks.
+          Azure VMs support two types of storage interfaces: Small Computer System Interface (SCSI) and NVMe. The SCSI interface is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. NVMe is similar to SCSI in that it provides connectivity and data transfer, but NVMe is a faster and more efficient interface for data transfer between servers and storage systems. For more information, read about [converting VMs from SCSI to NVMe](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/converting-virtual-machines-running-linux-from-scsi-to-nvme/ba-p/4162497).
+ 
       - question: |
-          What types of storage interface does Azure support in the VM families?
+          How do Azure Boost and NVMe improve the performance of the VMs that Azure offers?
         answer: |
-          In Azure, the older generations (v2, v3, v4) support Small Computer System Interface (SCSI) and current generation (v5) VM series support both NVMe and SCSI storage interfaces. SCSI is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. 
+          Azure Boost is a Microsoft-designed system that offloads server virtualization processes traditionally performed by the hypervisor and host OS onto purpose-built software and hardware. Offloading these processes enables faster storage and networking performance for Azure VM customers.
+          
+          One of the primary advantages of Azure Boost is its ability to enhance the throughput of Azure managed disks and local storage. This enhancement is enabled by offloading the storage processing tasks to hardware that's dedicated for Azure Boost.
+          
+          Azure Boost also optimizes performance by using the industry-standard NVMe interface, which capitalizes on the low latency and internal parallelism of solid-state storage drives. For details on the performance that Azure Boost offers, refer to the [Microsoft blog post about general availability of Azure Boost](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/announcing-the-general-availability-of-azure-boost/ba-p/3981384).
       - question: |
           Will Azure continue to support SCSI interface VMs?
         answer: |
-          Yes, Azure continues to support SCSI VMs on the older generation and current generation VM offerings in the GP (General Purpose) category, which includes the v2, v3, v4 and v5 series. 
-      - question: |
-          How is the NVMe enabled Ebsv5 different from the L series VM that Azure offers?
-        answer: |
-          The NVMe enabled Ebsv5 series is designed to offer the highest Azure managed disk storage performance. The L series VMs are designed to offer higher IOPS and throughout on the local NVMe disks, which are ephemeral. Refer to the [VM sizes documentation](/azure/virtual-machines/sizes) for details on the performance offered by the Ebsv5 and L series. 
-  - name: Azure Disk Storage Performance with NVMe on Ebsv5 and Ebdsv5
+          Yes. Azure will continue to support the SCSI interface on the versions of VM offerings that provide SCSI storage. However, not all new VM series will have SCSI storage as an option going forward.
+  - name: NVMe supportability
     questions:
       - question: |
-          What performance advantages can be expected when using NVMe on the Ebsv5 and Ebdsv5 VM families in Azure?
+          Which VM generations support NVMe disks?
         answer: |
-          The NVMe enabled on the Ebdsv5 and Ebdsv5 sizes offer more than higher IOPS and throughput than the SCSI sizes in the same family at no extra cost. For workloads with high IO demands and requiring improved remote storage performance, we recommend trying the new NVMe sizes. For more information on the benefits of performance, see the VM spec page. 
-      - question: |
-          What I/O size is recommended to achieve the published performance? 
-        answer: |
-          To achieve the maximum IOPS, we recommend using a 4 KiB or 8 KiB block size. For maximum performance throughput, you can choose to use one of the following block sizes: 64 KiB, 128 KiB, 256 KiB, 512 KiB or 1024 KiB. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
-      - question: |
-          What workloads benefit with NVMe on Ebsv5 family? 
-        answer: |
-          The Ebsv5 VM families are suitable for various workloads that require high I/O and improved remote storage performance. Some examples of such workloads include: 
-            - Online transaction processing (OLTP) workloads: These workloads involve frequent, small, and fast database transactions, such as online banking, e-commerce, and point-of-sale systems. 
-            - Online analytical processing (OLAP) workloads: These workloads involve complex queries and large-scale data processing, such as data mining, business intelligence, and decision support systems. 
-            - Data warehousing workloads: These workloads involve collecting, storing, and analyzing large volumes of data from multiple sources, such as customer data, sales data, and financial data. 
-            - Replication and disaster recovery workloads: These workloads involve replicating data between multiple databases or sites for backup and disaster recovery purposes. 
-            - Database development and testing workloads: These workloads involve creating, modifying, and testing database schemas, queries, and applications. 
-  - name: Enabling NVMe and Compatible VMs and Platforms
-    questions:
-      - question: |
-          What platforms and generations support NVMe VMs? 
-        answer: |
-          NVMe VMs are only accessible on the platform with the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor. However, support for more platforms and generations is coming soon. Stay informed by following our product launch announcements in Azure updates.
-      - question: |
-          What VM families support NVMe? 
-        answer: |
-          - NVMe interface is supported only the Ebsv5 and Ebdsv5 VM families. Watch out for our product launch announcements in the Azure updates. 
-          - You can learn from the [SKU API response](/rest/api/compute/resource-skus/list?tabs=HTTP) about SKUs as NVMe support is added
-      - question: |
-          How do I enable NVMe on a VM family? 
-        answer: |
-          To enable the NVMe  for remote disk, ensure that the following five conditions are met:
-          - Choose a VM family that supports NVMe. It's important to note that only Ebsv5 and Ebdsv5 VM sizes are equipped with NVMe in the Intel v5 generation VMs. Make sure to select either one of the series, Ebsv5 or Ebdsv5 VM.
-          - [Select the operating system image](/azure/virtual-machines/enable-nvme-interface) that is tagged with NVMe support.
-          Once supported **VM family and OS image** is selected, you are prompted to select the NVMe disk controller type.
-            
-            :::image type="content" source="./media/enable-nvme/nvme-faq-1.png" alt-text="Screenshot of prompt to select NVMe disk controller type.":::
-
-          - Opt in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/PowerShell template. For step-by-step instructions, refer [here](enable-nvme-interface.md).
-          - Only Gen2 images are supported.  
-          - Choose one of the Azure regions where NVMe is enabled. 
-          By meeting the five conditions, you are able to enable NVMe on the supported VM family in no time. Follow the above conditions while creating and resizing a VM with NVMe to ensure successful launch of feature.
-      - question: |
-          How can I check if a given image is tagged as NVMe? 
-        answer: |
-          To check if a given image is tagged as NVMe, use the following command: 
-            ```
-            az vm image show --urn URN_OF_IMAGE
-            ```
-      - question: |
-          How do I use a base image that supports NVMe and create a custom image for my remote disk?
-        answer: |
-          Let's say you want to tag an image that supports NVMe, but it wasn't tagged yet. Follow these four steps:
-            1. Upload NVMe supported VHD to your storage account. [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a fast way, but you can also use Azure portal to upload.
-                ```
-                azcopy copy <local path to your vhd> <container in your storage account>
-                ```
-            2. [Create your image gallery](/azure/virtual-machines/create-gallery) using PowerShell, Azure portal, or CLI.
-            3. Create the [image definition](/azure/virtual-machines/image-version), make sure to include `--feature DiskControllerTypes=SCSI,NVMe`. See the following CLI example:
-                ```
-                az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe
-                ```
-            4. Create the [image version](/azure/virtual-machines/image-version) under the NVMe-tagged gallery with the NVMe-supported VHD. See the following CLI example:
-                ```
-                az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>
-                ```
-      - question: |
-          How can I resize a SCSI Ebsv5 or Ebdsv5 VM (for example, 8 vCPU) created using untagged image to a NVMe-enabled VM of the different size(E112i) without recreating the VM configurations and without tagging the image? 
-        answer: |
-          - The source VM (for example, E8bsv5 in this case), should use a NVMe none tagged OS image that supports NVMe
-          - Ensure to set the destination *discontrollertype* of the VM as NVMe also in E112i VMs. Use the following PowerShell script to set the disk controller type:
-            ```
-            azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]
-            ```
-  - name: Missing Required Configurations
-    questions:
-      - question: |
-          What happens if I want to use another VM family other than Ebsv5 or Ebdsv5 series? 
-        answer: |
-          If you're considering using a VM family other than the Ebsv5 or Ebdsv5 series, it's important to note that the NVMe interface is only supported on these two families. If you select a nonsupported VM family, you receive an error message that reads:  
-          "The selected VM size can't boot with DiskControllerType. Check that the disk controller type provided is one of the supported disk controller types for the VM size Y Please query SKU API at https://docs.microsoft.com/rest/api/compute/resource-skus/list to determine supported disk controller types for the VM size Resource SKUs - List - REST API (Azure Compute)".  
-          Therefore, to ensure that you use the NVMe interface successfully, choose either the Ebsv5 or Ebdsv5 VM, family. 
-      - question: |
-          What happens if I miss opting in the disk controller type?  
-        answer: |
-          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's crucial to opt in for the NVMe disk controller type. Failure to do so results in the VMs with their default configuration, SCSI. Since no other VM families currently support the NVMe interface, specifying the NVMe disk controller type is mandatory to launch VMs successfully with the NVMe interface. So, opt in for the NVMe disk controller type to avoid any complications in launching your VMs. 
-      - question: |
-         What happens if the OS I use isn't tagged as NVMe support? 
-        answer: |         
-          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you receive an error message that reads: "The selected image isn't supported for NVMe. See supported VM images."  
-                    
-          :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of example of choosing one of the supported OS images on NVMe":::
-      - question: |
-          When will NVMe support be added to the OS image I currently use?   
-        answer: |
-          NVMe support is available in about 33+ OS versions. We continuously improve the OS image coverage and recommend referring to the page for updates on the latest OS image support added. This page provides up-to-date information on which OS images are tagged as NVMe supported and when new OS images are available with NVMe support. 
-      - question: |
-          What are the implications of using a Gen 1 image in Azure?    
-        answer: |
-          Using a Gen 2 image is a pre-requisite to enable NVMe interface on the Ebsv5 or Ebdsv5 VM series. If you use a Gen 1 VM image, you receive an error message that reads: "The selected image isn't supported for NVMe. See supported VM images."
+          Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Da/Ea/Fav6 and newer) typically support only the NVMe storage interface. However, Ebsv5/Ebdsv5 and Lsv2/Lsv3/Lasv3 VMs introduced NVMe as an option for temporary disks.  
           
-          :::image type="content" source="./media/enable-nvme/nvme-faq-3.png" alt-text="Screenshot of example of choosing one of the supported OS images on NVMe interface for Gen 2.":::
+          For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes). 
       - question: |
-          What are the consequences of selecting an Azure region where NVMe isn't currently enabled?    
+          Will Generation 1 VMs be supported with NVMe disks?
         answer: |
-          NVMe is currently available only in the following 13 Azure regions: US North Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US 2, East US 2, and South central US. If you choose a nonsupported region, E96bsv5 or E112i are disabled in the size selection drop-down.  Even though you may see the smaller sizes E2-64bsv5 or E2-64bdsv5, NVMe deployment won't be successful due to missing configurations. 
+          No, there are no plans to support NVMe disks on Generation 1 VMs. If you think your workload benefits from NVMe performance, you must switch to the Generation 2 VMs. To create a Generation 2 VM, follow the [documented steps](/azure/virtual-machines/generation-2#creating-a-generation-2-vm). If you try to use a Generation 1 VM image, either you won't be able to select an NVMe-capable VM, or you'll get this error message: "The selected image is not supported for NVMe. See supported VM images." 
       - question: |
-          The Azure region I need doesn't support NVMe, when will NVMe be available?     
+          What happens if the OS that I use isn't tagged as NVMe supported?
         answer: |
-           Watch out for our product launch announcements in the Azure updates. 
-  - name: NVMe Supportability
+          You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's tagged as NVMe. If you use an untagged image, a SCSI-based VM is created, and the VM might not perform as you intended. Be sure to follow all the [instructions](/azure/virtual-machines/enable-nvme-interface).
+          
+          To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) tagged as NVMe. If your current OS image is not supported for NVMe, you'll get this error message: "The selected image is not supported for NVMe. See supported VM images."
+
+          :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of an example of choosing one of the supported operating system images on NVMe.":::
+      - question: |
+          When will NVMe support be added to the OS image that I currently use?
+        answer: |
+          NVMe support is available in more than 50 of the most popular OS images. We're not adding NVMe support to older OS images. However, we continuously improve the OS image coverage. We recommend that you refer to [this page](/azure/virtual-machines/enable-nvme-interface) for updates on the latest OS image support for both Linux and Windows. 
+      - question: |
+          What happens if the OS that I want to use doesn't support NVMe?
+        answer: |
+          Many of the latest Azure VM generations are NVMe-only and require an [OS image that supports NVMe](/azure/virtual-machines/enable-nvme-interface). If you require an OS that does not support NVMe, use a VM series that still has SCSI support. 
+      - question: |
+          How can I create a VM with the NVMe interface?
+        answer: |
+          You can enable NVMe during VM creation by using methods such as the Azure portal, the Azure CLI, Azure PowerShell, and Azure Resource Manager templates. To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and select the NVMe disk controller type for the VM. You can also update a VM to NVMe when it's stopped and deallocated, if the VM size supports NVMe.
+          
+          To enable the NVMe interface during VM creation by using the Azure portal:
+
+          1. Add a disk controller filter. To find the NVMe-eligible sizes, select **See All Sizes**, select the **Disk controller** filter, and then select **NVMe**.
+
+             :::image type="content" source="./media/enable-nvme/azure-portal-1.png" alt-text="Screenshot of selections for adding a disk controller filter for the NVMe interface.":::
+
+          1. Enable the NVMe feature by going to the **Advanced** tab and selecting the checkbox under **Performance (NVMe)**.
+
+             :::image type="content" source="./media/enable-nvme/azure-portal-2.png" alt-text="Screenshot of the checkbox for enabling the NVMe interface feature.":::
+
+          1. Verify that the feature is enabled by going to the **Review and Create** tab and confirming that the **Disk controller type** value is **NVMe**.
+
+             :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of the area for reviewing and verifying advanced features for a virtual machine, including the NVMe feature.":::
+      - question: |
+          Can VMs configured with Trusted Launch move from SCSI to NVMe?
+        answer: |
+          No, VMs configured with Trusted Launch can't move from SCSI to NVMe.
+
+  - name: Azure storage performance with NVMe disks
     questions:
       - question: |
-          What sizes in the Ebsv5 and Ebdsv5 family support NVMe?  
+          What types of workloads benefit from NVMe disks?
         answer: |
-          The sizes E2-E112i support NVMe on Ebsv5 and Ebdsv5 families.   
+          The VM families that use NVMe disks demonstrate performance benefits compared to SCSI across various workloads that require higher I/O and improved storage performance. These workloads include application servers, web servers, databases, data warehousing, and analytics. You can achieve these benefits across VMs that use temporary and/or remote NVMe disks.
       - question: |
-          What sizes in the Ebsv5 and Ebdsv5 family support SCSI? 
+          What performance gains can I expect from NVMe disks?
         answer: |
-          All sizes (E2-E96) on the Ebsv5 and Ebsdv5 families support SCSI except E112i. 
-      - question: |
-          What OS types and versions are supported?  
-        answer: |         
-          NVMe support is available in about 30+ OS versions. Refer to the page for updates on the latest OS image support added. This page provides up-to-date information on which OS images are tagged as NVMe supported and when new OS images are available with NVMe support. 
-      - question: |
-          Will Gen 1 VMs be supported with NVMe?   
-        answer: |
-          No, there are no immediate plans to support NVMe on Gen 1 VMs. If you think your workload benefits NVMe performance, we recommend switching to the Gen 2 VMs. Refer to the steps here to convert Gen 1 VM image to Gen 2 or [create a new Gen 2 VM](/azure/virtual-machines/generation-2). 
-      - question: |
-          Which Azure disk storage options are compatible with NVMe?  
-        answer: |
-          NVMe sizes can be combined with Premium SSD v1, Premium SSD v2, and Ultra disks. For additional information on Azure disk offerings, see [Azure Managed disks](/azure/virtual-machines/disks-types).  
-      - question: |
-          I have a SCSI Ebsv5 VM. How do I switch to NVMe of the same VM size?   
-        answer: |         
-          The steps to switch from SCSI to NVMe are the same as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
-      - question: |
-          How can I switch back to SCSI interface from NVMe VM?   
-        answer: |
-          To switch back to SCSI from NVMe, follow the same steps as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
-      - question: |
-          Does Azure support live resizing on disks with NVMe VM sizes?  
-        answer: |
-          Live resizing is currently supported on Premium v1, Standard SSD, and Standard HDD disks. Nevertheless, you can add disks without restarting the VM.
-      - question: |
-          How can I identify NVMe disks on Linux VM?   
-        answer: |         
-          - Get nvme-cli package using the command =” sudo apt install nvme-cli” 
-          - Run NVMe list command =” sudo nvme list “to fetch NVMe disk details:  
-                         
-             :::image type="content" source="./media/enable-nvme/nvme-faq-4.png" alt-text="Screenshot of instructions to identify NVMe disks on Linux VM.":::
-
-            :::image type="content" source="./media/enable-nvme/nvme-faq-5.png" alt-text="Screenshot of instructions to choose namespace ID in Linux portal.":::
-            
-            Here's how the data shows in response to Azure PowerShell commands
-                     
-            :::image type="content" source="./media/enable-nvme/nvme-faq-6.png" alt-text="Screenshot of an example of response to Azure PowerShell command.":::
-      - question: |
-          How can I identify NVMe disks on windows VM?  
-        answer: |
-          Launch PowerShell and use the following command: `wmic diskdrive get model,scsilogicalunit`
-
-          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example of Powershell command example to launch NVMe on Windows.":::
-        
-          The ASAP attached disks are presented in the guest with model string “Virtual_Disk NVME Premium” and the SCSI Logical Unit will have value portal visible LUN ID incremented by 1.   
-          Here's a snapshot of how NVMe disks are seen in NVMe enabled Windows VM: 
-
-          :::image type="content" source="./media/enable-nvme/nvme-faq-8.png" alt-text="Diagram that shows example of PowerShell command to identify the NVMe disk on Windows VM.":::
-
-          The following snapshot shows in guest output for data disks attached at LUN 0 and LUN 4 (CRP). The LUN ID is equivalent to NAMESPACE ID.
-
-          :::image type="content" source="./media/enable-nvme/nvme-faq-9.png" alt-text="Diagram that shows the example of how NVMe disks are seen in NVMe enabled Windows VM.":::
-  - name: NVMe Pricing
-    questions:
-      - question: |
-          What is the price for NVMe Ebsv5 prices?  
-        answer: |
-         The NVMe enabled Ebsv5 and Ebdsv5 VMs are the same price as SCSI VMs. Refer to the pricing pages for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). With NVMe, you get higher performance at no extra cost. 
-      - question: |
-          How can I try before purchasing this VM series? Is preview still available?  
-        answer: |
-          The preview period for this offer is over, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes.
-  - name: Known Issues
-    questions:
-      - question: |
-          What happens if I create an E112i VM using an OS image that isn't tagged as NVMe? 
-        answer: |
-         An NVMe E112i VM can only be created using an image (PIR & [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that is tagged as NVMe. If an untagged image is used, a SCSI VM is created, and the VM may not perform as intended. There's a solution in development to prevent the creation of an NVMe VM from a nontagged NVMe image. Make sure to follow all instructions listed in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
-      - question: |
-          How can I resize a SCSI Ebsv5 or Ebdsv5 VM (for example, 48 vCPU) to an NVMe-enabled VM of the different size (E112i) without re-creating the VM configurations? 
-        answer: |
-          Let's say you want to resize a E48 vCPU SCSI VM to E112i NVMe, use the following PowerShell script. 
-          - The source VM (for example, E48bsv5 in this case) should use a NVMe tagged OS image 
-          - Ensure to set the destination **diskcontrollertype** of the VM as NVMe also in E112i VMs
-          ```
-          azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]
-          ```
-      - question: |
-          Can I convert a SCSI Ebv5 or Ebdsv5 VM to NVMe enabled while retaining same VM vCPU size with a NVMe tagged OS image?  
-        answer: |
-          Currently, this scenario is only supported in Linux operating systems and isn't supported in Windows operating systems.
-      - question: |
-          Are shared disks in remote disks supported with NVMe VMs? 
-        answer: |
-          Shared disk feature is currently supported for all disks Premium SSD, Premium SSD v2, and Ultra. 
-  - name: Reporting Issues
-    questions:
-      - question: |
-          My VMs don't reach the published performance limits. Where do I report this issue? 
-        answer: |
-         If you see performance issues, you can submit a [support ticket](https://azure.microsoft.com/support/create-ticket). Provide all relevant information on the ticket, such as the subscription, VM size used, region, logs, and screenshot. 
-            
-            :::image type="content" source="./media/enable-nvme/nvme-faq-10.png" alt-text="Screenshot of example of guest output for data disks.":::
-      - question: |
-          How can I get more help if I run into issues while setting up the VMs with the NVMe interface?  
-        answer: |
-         If you run into issues while creating or resizing Ebsv5 or Ebdsv5 to NVMe, and need assistance, you can submit a [support ticket](https://azure.microsoft.com/support/create-ticket).
-            
-            :::image type="content" source="./media/enable-nvme/nvme-faq-11.png" alt-text="Screenshot of example for reporting issues for feature by submitting support ticket.":::
-
-            :::image type="content" source="./media/enable-nvme/nvme-faq-12.png" alt-text="Screenshot of support ticket selection details.":::
+          The performance gains that your applications can achieve depend on several factors, including VM type, VM size, and I/O block size. To identify the ideal block size and to achieve peak transfer rates, test on the individual VM sizes. It's important to optimize the I/O size based on the specific requirements of your application. For more information on the performance capabilities of individual VM types, see the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).

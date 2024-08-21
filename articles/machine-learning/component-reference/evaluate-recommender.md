@@ -3,7 +3,7 @@ title: "Evaluate Recommender: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Evaluate Recommender component in Azure Machine Learning to evaluate the accuracy of recommender model predictions.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

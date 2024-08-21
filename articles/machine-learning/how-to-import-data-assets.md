@@ -3,12 +3,12 @@ title: Import data (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: ambadal
-author: AmarBadal
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: ambadal
 ms.date: 04/18/2024
 ms.custom: data4ml
 ---
@@ -41,7 +41,7 @@ To create and work with data assets, you need:
 * [Workspace connections created](how-to-connection.md)
 
 > [!NOTE]
-> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
+> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.15.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
 >
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI as shown here:
 
@@ -58,8 +58,8 @@ az extension show -n ml #(the version value needs to be 2.15.1 or later)
 # [Python SDK](#tab/python)
 
 ```python
-pip uninstall azure-ai-ml
-pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.15.0 or later)
 ```
 
 # [Studio](#tab/azure-studio)

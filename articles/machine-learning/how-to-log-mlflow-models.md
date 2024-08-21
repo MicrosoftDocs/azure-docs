@@ -3,10 +3,10 @@ title: Logging MLflow models
 titleSuffix: Azure Machine Learning
 description: Logging MLflow models, instead of artifacts, with MLflow SDK in Azure Machine Learning
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 02/16/2024
 ms.topic: conceptual

@@ -4,7 +4,7 @@ description: Run cross-service queries to correlated data in Azure Data Explorer
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 08/12/2024
 ms.reviewer: osalzberg
 ---
 
@@ -155,6 +155,7 @@ To create an alert rule based on a cross-service query from your Log Analytics w
     * The query returns the first 1,000 records only.
     * Azure Monitor doesn't return Azure Resource Graph query errors.
     * The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
+    * Joins are not supported when not using Hint.
     * These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 
 

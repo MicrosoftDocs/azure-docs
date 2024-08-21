@@ -3,13 +3,13 @@ title: Create and attach Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
 description: 'Learn how to create a new Azure Kubernetes Service cluster through Azure Machine Learning, or how to attach an existing AKS cluster to your workspace.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, sdkv1
-ms.author: bozhlin
-author:  bozhong68
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: bozhlin
 ms.date: 04/21/2022
 ---
 
@@ -37,21 +37,21 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 - An AKS can only be created or attached as a single compute target in Azure Machine Learning workspace. Multiple attachments for one AKS is not supported.
 - If you need a **Standard Load Balancer(SLB)** deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then **attach** it to the Azure Machine Learning workspace.
 
-- If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](../../aks/limit-egress-traffic.md). The egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
+- If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](/azure/aks/limit-egress-traffic). The egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
     - The cluster can use the Public IP created by default with the BLB or SLB, Or
-    - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [Customize cluster egress with a user-defined-route](../../aks/egress-outboundtype.md).
+    - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [Customize cluster egress with a user-defined-route](/azure/aks/egress-outboundtype).
     
     The Azure Machine Learning control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
 
 - To attach an AKS cluster, the service principal/user performing the operation must be assigned the __Owner or contributor__ Azure role-based access control (Azure RBAC) role on the Azure resource group that contains the cluster. The service principal/user must also be assigned [Azure Kubernetes Service Cluster Admin Role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
-- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../../aks/api-server-authorized-ip-ranges.md), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
+- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](/azure/aks/api-server-authorized-ip-ranges), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 
     Authorized IP ranges only works with Standard Load Balancer.
 
-- If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+- If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
-- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning. 
+- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine Learning. 
 
 - The compute name for the AKS cluster MUST be unique within your Azure Machine Learning workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
  
@@ -66,8 +66,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster. For more information on scaling the nodes in an AKS cluster, see the following articles:
 
-    - [Manually scale the node count in an AKS cluster](../../aks/scale-cluster.md)
-    - [Set up cluster autoscaler in AKS](../../aks/cluster-autoscaler.md)
+    - [Manually scale the node count in an AKS cluster](/azure/aks/scale-cluster)
+    - [Set up cluster autoscaler in AKS](/azure/aks/cluster-autoscaler)
 
 - __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and __cpu and memory__.
 
@@ -77,7 +77,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 ## Azure Kubernetes Service version
 
-Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](../../aks/supported-kubernetes-versions.md).
+Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](/azure/aks/supported-kubernetes-versions).
 
 When **creating** an Azure Kubernetes Service cluster using one of the following methods, you *do not have a choice in the version* of the cluster that is created:
 
@@ -235,7 +235,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=/azure/bread/toc.json&toc=/azure/aks/TOC.json#az-aks-create)
-* [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
+* [Create an AKS cluster (portal)](/azure/aks/learn/quick-kubernetes-deploy-portal)
 * [Create an AKS cluster (ARM Template on Azure Quickstart Templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
@@ -413,7 +413,7 @@ aks_target.wait_for_completion(show_output = True)
 To detach a cluster from your workspace, use one of the following methods:
 
 > [!WARNING]
-> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../../aks/learn/quick-kubernetes-deploy-cli.md#delete-the-cluster).
+> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/learn/quick-kubernetes-deploy-cli#delete-the-cluster).
 
 # [Python SDK](#tab/python)
 
@@ -528,5 +528,5 @@ To resolve this problem, create/attach the cluster by using the `load_balancer_t
 
 ## Next steps
 
-* [Use Azure RBAC for Kubernetes authorization](../../aks/manage-azure-rbac.md)
+* [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac)
 * [How and where to deploy a model](how-to-deploy-and-where.md)

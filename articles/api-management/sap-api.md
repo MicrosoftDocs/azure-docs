@@ -1,8 +1,10 @@
 ---
 title: Import an SAP API using the Azure portal | Microsoft Docs
-titleSuffix: 
+titleSuffix:
 description: Learn how to import OData metadata from SAP as an API to Azure API Management, either directly or by converting the metadata to an OpenAPI specification.
-ms.service: api-management
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
@@ -21,9 +23,6 @@ In this article, you'll:
 > * Import OData metadata to API Management, either directly or after conversion to an OpenAPI specification
 > * Complete API configuration
 > * Test the API in the Azure portal
-
-> [!NOTE]
-> Importing an OData API to API Management from its metadata description is in preview. [Learn more](import-api-from-odata.md).
 
 ## Prerequisites
 
@@ -147,4 +146,3 @@ Also, configure authentication to your backend using an appropriate method for y
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-

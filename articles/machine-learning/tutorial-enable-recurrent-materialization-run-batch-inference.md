@@ -3,14 +3,14 @@ title: "Tutorial 3: Enable recurrent materialization and run batch inference"
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is part of a tutorial series on managed feature store.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: rsethur
-ms.author: seramasu
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 11/28/2023
-ms.reviewer: franksolomon
+ms.reviewer: seramasu
 ms.custom: sdkv2, build-2023, ignite-2023, update-code
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -49,11 +49,11 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
 2. Start the Spark session.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=start-spark-session)]
 
 3. Set up the root directory for the samples.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=root-dir)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=root-dir)]
 
 4. Set up the CLI.
    ### [Python SDK](#tab/python)
@@ -64,15 +64,15 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
    1. Install the Azure Machine Learning extension.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=install-ml-ext-cli)]
 
    2. Authenticate.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=auth-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=auth-cli)]
 
    3. Set the default subscription.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=set-default-subs-cli)]
 
    ---
 
@@ -80,17 +80,17 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
    The tutorial notebook runs from this current workspace.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-ws-crud-client)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=init-ws-crud-client)]
 
 6. Initialize the feature store variables.
 
    Be sure to update the `featurestore_name` value, to reflect what you created in the first tutorial.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-crud-client)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=init-fs-crud-client)]
 
 7. Initialize the feature store SDK client.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-core-sdk)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=init-fs-core-sdk)]
 
 ## Enable recurrent materialization on the transactions feature set
 
@@ -109,7 +109,7 @@ To handle inference of the model in production, you might want to set up recurre
 
 As explained in earlier tutorials, after data is materialized (backfill or recurrent materialization), feature retrieval uses the materialized data by default.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=enable-recurrent-mat-txns-fset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=enable-recurrent-mat-txns-fset)]
 
 ## (Optional) Save the YAML file for the feature set asset
 
@@ -117,7 +117,7 @@ You use the updated settings to save the YAML file.
 
 ### [Python SDK](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=dump-txn-fset-with-mat-yaml)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=dump-txn-fset-with-mat-yaml)]
 
 ### [Azure CLI](#tab/cli)
 
@@ -138,7 +138,7 @@ The batch inference has these steps:
    > [!NOTE]
    > You use a job for batch inference in this example. You can also use batch endpoints in Azure Machine Learning.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=run-batch-inf-pipeline)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=run-batch-inf-pipeline)]
 
 ### Inspect the output data for batch inference
 
@@ -151,7 +151,7 @@ In the pipeline view:
 
    In the batch inference pipeline (*/project/fraud_mode/pipelines/batch_inference_pipeline.yaml*) outputs, because you didn't provide `name` or `version` values for `outputs` of `inference_step`, the system created an untracked data asset with a GUID as the name value and `1` as the version value. In this cell, you derive and then display the data path from the asset.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=inspect-batch-inf-output-data)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3.Enable-recurrent-materialization-run-batch-inference.ipynb?name=inspect-batch-inf-output-data)]
 
 ## Clean up
 

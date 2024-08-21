@@ -2,7 +2,7 @@
 title: Common PowerShell commands for Azure Virtual Machines
 description: Common PowerShell commands to get you started creating and managing VMs in Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 09/07/2023
 ms.author: jushiman
@@ -24,7 +24,7 @@ These variables might be useful if running more than one of the commands in this
 | Task | Command |
 | ---- | ------- |
 | Create a simple VM | [New-AzVM](/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> New-AzVM has a set of *simplified* parameters, where all that is required is a single name. The value for -Name will be used as the name for all of the resources required for creating a new VM. You can specify more, but this is all that is required.|
-| Create a VM from a custom image | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created your own [managed image](capture-image-resource.md). You can use an image to make multiple, identical VMs. |
+| Create a VM from a custom image | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created your own [managed image](capture-image-resource.yml). You can use an image to make multiple, identical VMs. |
 
 
 

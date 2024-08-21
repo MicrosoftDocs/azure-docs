@@ -3,13 +3,12 @@ title: Authentication for managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works for Azure Machine Learning managed online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2
 ms.date: 12/15/2023
 ---
@@ -102,9 +101,9 @@ For data plane operations, your user identity needs to have a proper Azure role-
 
 | Operation | Required Azure RBAC role | Scope that the role is assigned for |
 | -- | -- | -- |
-| Invoke online endpoints with key or Azure Machine Learning token (`aml_token`). | Doesn't require a role. | Not applicable |
+| Invoke online endpoints with key (`key`) or Azure Machine Learning token (`aml_token`). | Doesn't require a role. | Not applicable |
 | Invoke _managed_ online endpoints with Microsoft Entra token (`aad_token`). | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` | endpoint |
-| Invoke _Kubernetes_ online endpoints with Microsoft Entra token (`aad_token`). | Doesn't require a role. | Not applicable |
+| Invoke _Kubernetes_ online endpoints with Microsoft Entra token (`aad_token`). | Kubernetes online endpoint doesn't support Microsoft Entra token for data plane operations. | Not applicable |
 
 
 ## Permissions needed for endpoint identity

@@ -1,54 +1,71 @@
 ---
-title: Configure rolling upgrades on Virtual Machine Scale Sets
-description: Learn about how to configure rolling upgrades on Virtual Machine Scale Sets
+title: Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
+description: Learn about how to configure rolling upgrades on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 03/07/2024
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 7/23/2024
 ms.reviewer: ju-shim
-ms.custom: upgradepolicy
+ms.custom: upgradepolicy, maxsurge
 ---
-# Configure rolling upgrades on Virtual Machine Scale Sets
+# Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrade policy is only available for Virtual Machine Scale Sets with Uniform Orchestration.
+> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
+>
+> **MaxSurge for Virtual Machine scale Sets with Uniform  Orchestration is currently in preview.** 
+> 
+> **Rolling upgrade policy and MaxSurge for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
+>
+> Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
 Rolling upgrade policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances available to take traffic, meaning you don't need to take down your entire workload to make a change. 
 
 Rolling upgrade policy is best suited for production workloads.
 
+## Prerequisites 
+
+Before configuring a rolling upgrade policy on a Virtual Machine Scale Set with Flexible Orchestration or enabling MaxSurge on either Flexible or Uniform Orchestration deployments, register the feature providers to your subscription.
+
+## Feature Registration
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName VMSSFlexRollingUpgrade -ProviderNameSpace Microsoft.Compute
+
+Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute
+```
+
 
 ## Requirements
 
-- If using a rolling upgrade policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
+- When using a rolling upgrade policy on Virtual Machine Scale Sets with Flexible Orchestration, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
 
-- If using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+- When using a rolling upgrade policy on Virtual Machine Scale Sets with Uniform Orchestration, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
->[!IMPORTANT]
-> MaxSurge is currently in preview for Virtual Machine Scale Sets. To use this preview feature, register the provider feature using Azure Cloud Shell. 
->
-> `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`
->
->Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+- When using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
+
 
 ## Concepts
 
+> [!NOTE]
+> [Automatic OS image upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [automatic extension upgrades](../virtual-machines/automatic-extension-upgrade.md) automatically inherit the rolling upgrade policy and use it to perform upgrades. 
+
 |Setting | Description |
 |---|---|
-|**Upgrade Policy Mode** | The upgrade policy modes available on Virtual Machine Scale Sets are **Automatic**, **Manual** and **Rolling**. | 
+|**Upgrade Policy Mode** | The upgrade policy modes available on Virtual Machine Scale Sets are **Automatic**, **Manual**, and **Rolling**. | 
 |**Rolling upgrade batch size %** | Specifies how many of the total instances of your scale set you want to be upgraded at one time. <br><br>Example: A batch size of 20% when you have 10 instances in your scale set results in upgrade batches with two instances each. |
 |**Pause time between batches (sec)** | Specifies how long you want your scale set to wait between upgrading batches.<br><br> Example: A pause time of 10 seconds means that once a batch is successfully completed, the scale set will wait 10 seconds before moving onto the next batch. |
 |**Max unhealthy instance %** | Specifies the total number of instances allowed to be marked as unhealthy before and during the rolling upgrade. <br><br>Example: A max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy, the rolling upgrade stops. |
 | **Max unhealthy upgrade %**| Specifies the total number of instances allowed to be marked as unhealthy after being upgraded. <br><br>Example: A max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy after being upgraded, the rolling upgrade is canceled. <br><br>Max unhealthy upgrade % is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
-|**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale set that show as failed or unhealthy when a rolling upgrade begins, the scale set updates those instances first. |
+|**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale are failed or unhealthy when a rolling upgrade begins, the scale set updates those instances first. |
 | **Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. |
-| **MaxSurge** | MaxSurge is currently in preview for Virtual Machine Scale Sets Uniform Orchestration. To use this preview feature, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`.<br><br> With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances are successfully created and marked as healthy, they begin taking traffic. The scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances begin taking traffic again, and the next batch begins. This continues until all instances brought up-to-date. |
+| **MaxSurge (Preview)** | With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances is successfully created and marked as healthy, they begin taking traffic. The scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>For more information see [MaxSurge rolling upgrades](virtual-machine-scale-sets-maxsurge.md). |
 
 
 ## Setting or updating the rolling upgrade policy
 
-Rolling upgrade policy can be configured during scale set creation. Because Rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from manual to Rolling.
+Rolling upgrade policy can be configured during scale set creation. Because rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from manual to rolling.
 
 ### [Portal](#tab/portal1)
 
@@ -56,6 +73,22 @@ Select the Virtual Machine Scale Set you want to change the upgrade policy for. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
+### [CLI](#tab/cli1)
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update). 
+
+```azurecli-interactive
+az vmss update \
+	--name myScaleSet \
+	--resource-group myResourceGroup \
+  --set upgradePolicy.mode=Rolling \
+	--max-batch-instance-percent 10 \
+	--max-unhealthy-instance-percent 20 \
+	--max-unhealthy-upgraded-instance-percent 20 \
+	--prioritize-unhealthy-instances true \
+	--pause-time-between-batches PT2S \
+	--max-surge true 
+
+```
 
 ### [PowerShell](#tab/powershell1)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
@@ -81,7 +114,7 @@ Update-Azvmss -ResourceGroupName "myResourceGroup" `
 
 ### [ARM Template](#tab/template1)
 
-Update the properties section of your ARM template and set the upgrade policy to Rolling and various rolling upgrade options.  
+Update the properties section of your ARM template and set the upgrade policy to rolling and various rolling upgrade options.  
 
 
 ``` ARM Template
@@ -119,7 +152,7 @@ Additionally, you can view exactly what changes are being rolled out in the Acti
 
 ### [CLI](#tab/cli2)
 
-You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
+You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade).
 
 ```azurecli
 az vmss rolling-upgrade get-latest \
@@ -155,7 +188,7 @@ az vmss rolling-upgrade get-latest \
 
 ### [PowerShell](#tab/powershell2)
 
-You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
+You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade).
 
 ```azurepowershell
 Get-AzVMssRollingUpgrade `
@@ -210,21 +243,15 @@ You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/po
 Stop-AzVmssRollingUpgrade `
     -ResourceGroupName myResourceGroup `
     -VMScaleSetName myScaleSet
-
-Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
-StartTime : 1/12/2024 8:40:46 PM
-EndTime   : 1/12/2024 8:45:18 PM
-Status    : Succeeded
-Error     : 
 ```
 ---
 
 ## Restart a rolling upgrade
 
-If you decide to cancel a rolling upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new rolling upgrade. If you want to restart a rolling upgrade, to trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
+If you decide to cancel a rolling upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new rolling upgrade. If you want to restart a rolling upgrade, trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
 
 ### [CLI](#tab/cli4)
-To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
+To restart a rolling upgrade after it has been canceled, trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
 az vmss update \
@@ -233,7 +260,7 @@ az vmss update \
 ```
 
 ### [PowerShell](#tab/powershell4)
-To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
+To restart a rolling upgrade after it's been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell
 $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"

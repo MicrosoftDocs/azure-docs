@@ -1,7 +1,7 @@
 ---
 title: San Francisco Safety Data
 description: Learn how to use the San Francisco Safety dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 Fire department calls for service and 311 cases in San Francisco.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 Fire Calls-For-Service includes all fire unit responses to calls. Each record includes the call number, incident number, address, unit identifier, call type, and disposition. All relevant time intervals are also included. Because this dataset is based on responses, and since most calls involved multiple units, there are multiple records for each call number. Addresses are associated with a block number, intersection, or call box, not a specific address.
 
@@ -43,7 +43,7 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | dateTime | timestamp | 6,496,563 | 2020-10-19 12:28:08 2020-07-28 06:40:26 | The date and time when the service request was made or when the fire call was received. |
 | latitude | double | 1,615,369 | 37.777624238929 37.786117211838 | Latitude of the location, using the WGS84 projection. |
 | longitude | double | 1,554,612 | -122.39998111124 -122.419854245692 | Longitude of the location, using the WGS84 projection. |
-| source | string | 9 | Phone Mobile/Open311 | Mechanism or path by which the service request was received; typically “Phone”, “Text/SMS”, “Website”, “Mobile App”, “Twitter”, etc. but terms may vary by system. |
+| source | string | 9 | Phone Mobile/Open311 | Mechanism or path by which the service request was received; typically “Phone”, “Text/SMS”, “Website”, “Mobile App”, “X”, etc. but terms may vary by system. |
 | status | string | 3 | Closed Open | A single-word indicator of the current state of the service request. (Note: GeoReport V2 only permits “open” and “closed”) |
 | subcategory | string | 1,270 | Medical Incident Bulky Items | The human readable name of the service request subtype for 311 cases or call type for 911 fire calls. |
 

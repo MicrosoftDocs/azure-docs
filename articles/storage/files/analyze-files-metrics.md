@@ -1,16 +1,16 @@
 ---
-title: Analyze Azure Files metrics
-description: Learn to use Azure Monitor to analyze Azure Files metrics such as availability, latency, and utilization.
+title: Analyze Azure Files metrics with Azure Monitor
+description: Learn to use Azure Monitor to monitor workload performance, throughput, and IOPS. Analyze Azure Files metrics such as availability, latency, and utilization.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 08/19/2024
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
 
-# Analyze Azure Files metrics using Azure Monitor
+# Use Azure Monitor to Analyze Azure Files metrics
 
 Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
 
@@ -254,13 +254,13 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
-1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
-1. From the left navigation, select **Data storage** > **File shares**. Select the file share you want to monitor.
-1. From the left navigation, select **Monitoring** > **Metrics**.
-1. When using Azure Monitor for Azure Files, it’s important to always select the **Files** metric namespace. Select **Add metric**.
-1. Under **Metric namespace** select **File**.
+1. Navigate to your storage account in the [Azure portal](https://portal.azure.com). 
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Under **Metric namespace**, select **File**.
 
 :::image type="content" source="media/analyze-files-metrics/add-metric-namespace-file.png" alt-text="Screenshot showing how to select the Files metric namespace." lightbox="media/analyze-files-metrics/add-metric-namespace-file.png":::
+
+Now you can select a metric depending on what you want to monitor.
 
 ### Monitor availability
 

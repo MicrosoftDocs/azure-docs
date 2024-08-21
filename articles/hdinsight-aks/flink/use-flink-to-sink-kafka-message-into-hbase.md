@@ -1,22 +1,22 @@
 ---
 title: Write messages to Apache HBase® with Apache Flink® DataStream API
 description: Learn how to write messages to Apache HBase with Apache Flink DataStream API.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/01/2024
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-In this article, learn how to write messages to HBase with Apache Flink DataStream API
+In this article, learn how to write messages to HBase with Apache Flink DataStream API.
 
 ## Overview
 
 Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table.
 
-In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
+In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka article and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
 
 
 ## Prerequisites
@@ -346,18 +346,28 @@ public class KafkaSinkToHbase {
 }
 
 ```
+## Submit job
 
-### Submit job on Secure Shell
+1. Upload the job Jar to Storage Account associated with the Cluster.
 
-We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs.
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png" alt-text="Screenshot showing how to upload jar." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png":::
 
-:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
+1. Add job details in Application Mode tab.
 
-### Monitor job on Flink UI
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png" alt-text="Screenshot showing application mode." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png"::: 
 
-We can monitor the jobs on Flink Web UI.
+    > [!NOTE]
+    > Make sure to add `Hadoop.class.enable` and `classloader.resolve-order` setting.
 
-:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
+1. Select **Job Log Aggregation** to store logs in ABFS.
+
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/deployment-type.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/deployment-type.png":::
+
+1. Submit the job.
+
+1. You should be able to see the job submitted status here.
+
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/job-status.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/job-status.png":::
 
 ## Validate HBase table data
 

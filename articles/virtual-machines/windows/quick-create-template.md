@@ -2,7 +2,7 @@
 title: 'Quickstart: Use a Resource Manager template to create a Windows VM'
 description: Learn how to use a Resource Manager template to create, deploy and clean up a Windows virtual machine.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 04/03/2023
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm
 
 This quickstart shows you how to use an Azure Resource Manager template to deploy a Windows virtual machine (VM) in Azure.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

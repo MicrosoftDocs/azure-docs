@@ -8,7 +8,7 @@ ms.custom: include file, linux-related-content
 #Customer intent: This file is duplicated as vpn-gateway-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to Virtual WAN.
 ---
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+[!INCLUDE [OpenVPN client version 2.6 not supported](./vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
 

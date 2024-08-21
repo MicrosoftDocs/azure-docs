@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 03/29/2024
 ms.custom: references_regions, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -120,6 +120,7 @@ Vaulted backup for Azure Files (preview) is available in West Central US, Southe
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum number of restore per day                           | 20      |
+| Maximum size of a file (if the destination account is in a Vnet) | 1TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 | Maximum duration of a restore job                           | 15 days

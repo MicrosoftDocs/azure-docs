@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 As a Global Administrator in Microsoft Entra ID, you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Why would you need to elevate your access?
 
@@ -75,7 +75,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. Perform the steps in the following section to remove your elevated access.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure VM sizes naming conventions
 description: Explains the naming conventions used for Azure VM sizes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 subservice: sizes
 author: mimckitt
 ms.topic: conceptual

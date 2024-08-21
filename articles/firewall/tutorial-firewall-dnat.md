@@ -3,7 +3,7 @@ title: Filter inbound Internet traffic with Azure Firewall DNAT using the portal
 description: In this article, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: victorh
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Filter inbound Internet traffic with Azure Firewall DNAT using the Azure portal
 
-You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private/public IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 > [!NOTE]
 > This article uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this procedure using Firewall Policy, see [Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal](tutorial-firewall-dnat-policy.md)
@@ -138,7 +138,7 @@ Review the summary, and then select **Create**. This takes a few minutes to comp
 
 After deployment finishes, note the private IP address for the virtual machine. It is used later when you configure the firewall. Select the virtual machine name. Select **Overview**, and under **Networking** note the private IP address.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 

@@ -4,7 +4,7 @@ description: Use Azure PowerShell to create and manage Windows virtual machines 
 services: virtual-network
 author: steveesp
 manager: gedegrac
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-azurepowershell

@@ -1,21 +1,21 @@
 ---
-title: Deploy and manage updates using Updates view (preview).
-description: This article describes how to view the updates pending for your environment and then deploy and manage them using the Updates (preview) option in Azure Update Manager.
+title: Deploy and manage updates using Updates view
+description: This article describes how to view the updates pending for your environment and then deploy and manage them using the Updates option in Azure Update Manager
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/18/2024
+ms.date: 06/21/2024
 ms.topic: how-to
 ---
 
-# Deploy and manage updates using the Update view (preview)
+# Deploy and manage updates using the Update view
 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 This article describes how you can manage machines from an updates standpoint. 
 
-The Updates blade (preview) allows you to manage machines from an updates viewpoint. It implies that you can see how many Linux and Windows updates are pending and the update applies to which machines. It also enables you to act on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
+The Updates blade allows you to manage machines from an updates viewpoint. It implies that you can see how many Linux and Windows updates are pending and the update applies to which machines. It also enables you to act on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png" alt-text="Screenshot that shows number of updates and the type of updates pending on your Windows and Linux machines." lightbox="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png":::
 
@@ -32,7 +32,7 @@ In the **Overview** blade of Azure Update Manager, the Updates view provides a s
 
 ## Updates list view
 
-You can use either the **Overview** blade or select the **Updates (preview)** blade that provides a list view of the updates pending in your environment. You can perform the following actions on this page:
+You can use either the **Overview** blade or select the **Updates** blade that provides a list view of the updates pending in your environment. You can perform the following actions on this page:
 
 - Filter Windows and Linux updates by selecting the cards for each.
 - Filter updates by using the filter options at the top like **Resource group**, **Location**,  **Resource type**, **Workloads**, **Update Classifications**
@@ -52,12 +52,12 @@ You can use either the **Overview** blade or select the **Updates (preview)** bl
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/multi-updates-selection.png" alt-text="Screenshot that shows multi selection from list view." lightbox="./media/deploy-manage-updates-using-updates-view/multi-updates-selection.png":::
 
-1. **One-time update**  - Allows you to install update(s) on the applicable machines on demand and can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md#).
+ - **One-time update**  - Allows you to install update(s) on the applicable machines on demand and can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md#).
 
     :::image type="content" source="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png" alt-text="Screenshot that shows how to install one-time updates." lightbox="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png":::
 
 
-1. **Schedule updates** - Allows you to install updates later, you have to select a future date on when you would like to install the update(s) and specify an end date when the schedule should end. For more information on scheduled updates, see [how to schedule updates](scheduled-patching.md).
+- **Schedule updates** - Allows you to install updates later, you have to select a future date on when you would like to install the update(s) and specify an end date when the schedule should end. For more information on scheduled updates, see [how to schedule updates](scheduled-patching.md).
 
     :::image type="content" source="./media/deploy-manage-updates-using-updates-view/schedule-updates.png" alt-text="Screenshot that shows how to schedule updates." lightbox="./media/deploy-manage-updates-using-updates-view/schedule-updates.png":::
 

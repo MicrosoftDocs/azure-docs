@@ -3,7 +3,7 @@ title: Create and encrypt a Linux VM with the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 02/20/2024

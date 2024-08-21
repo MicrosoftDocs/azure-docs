@@ -4,7 +4,7 @@ description: This article explains how to use service fabric KeyVaultReference s
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -220,6 +220,6 @@ Both declaring the ManagedKeyVaultReference as an application parameter, as well
 
 ## Next steps
 
-- [Azure KeyVault Documentation](../key-vault/index.yml)
+- [Azure KeyVault Documentation](/azure/key-vault/)
 - [Learn about Central Secret Store](service-fabric-application-secret-store.md)
 - [Learn about Managed identity for Service Fabric Applications](concepts-managed-identity.md)

@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: batch
+ms.service: azure-batch
 ms.date: 03/09/2023
 ---
 

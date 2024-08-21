@@ -1,19 +1,20 @@
 ---
-title: NCv3-series specs include
+title: NCv3 series specs include
 description: Include file containing specifications of NCv3-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/18/2024
+ms.date: 07/31/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 6 - 24<sup>vCores    | Intel® Xeon® E5-2690 v4 (Broadwell)                  |
-| Memory           | 112 - 448<sup>GiB    |                                                |
-| Data Disks       | 12 - 32<sup>Disks     | 20000 - 80000<sup>IOPS</sup> / 200 - 800<sup>MBps    |
-| Network          | 4 - 8 <sup>NICs       |                                                    |
-| Accelerators     | 1 - 4 <sup>GPUs</sup> | NVIDIA Tesla V100 16<sup>GiB </sup> <br> 16 - 64<sup>GiB</sup> per VM |
+| Processor      | 6 - 24 vCPUs       | Intel Xeon E5-2690 v4 (Broadwell) [x86-64]                               |
+| Memory         | 112 - 448 GiB          |                                  |
+| Local Storage  | 1 Disk           | 736 - 2948 GiB <br> IOPS (RR) <br> MBps (RR)                               |
+| Remote Storage | 12 - 32 Disks    | 20000 - 80000 IOPS <br>200 - 800 MBps   |
+| Network        | 4 - 8 NICs          |  Mbps                          |
+| Accelerators   | 1 - 4              | Nvidia Tesla V100 GPU (16GB)                           |

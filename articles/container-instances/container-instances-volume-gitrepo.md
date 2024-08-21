@@ -4,10 +4,10 @@ description: Learn how to mount a gitRepo volume to clone a Git repository into 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 04/24/2024
 ---
 
 # Mount a gitRepo volume in Azure Container Instances
@@ -19,7 +19,7 @@ Learn how to mount a *gitRepo* volume to clone a Git repository into your contai
 
 ## gitRepo volume
 
-The *gitRepo* volume mounts a directory and clones the specified Git repository into it at container startup. By using a *gitRepo* volume in your container instances, you can avoid adding the code for doing so in your applications.
+The *gitRepo* volume mounts a directory and clones the specified Git repository into it during container creation. By using a *gitRepo* volume in your container instances, you can avoid adding the code for doing so in your applications.
 
 When you mount a *gitRepo* volume, you can set three properties to configure the volume:
 

@@ -6,15 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 01/23/2024
-ms.custom: engagement-fy23
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 ---
 
 
 # Troubleshoot the Azure Migrate appliance
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
@@ -133,7 +133,7 @@ This issue usually happens when the Azure user account used to register the appl
 ### Remediation
 
 1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
-1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](../key-vault/general/assign-access-policy-portal.md).
+1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](/azure/key-vault/general/assign-access-policy-portal).
 1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Migrate: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md).
 1. If you have the required permissions and connectivity, retry the registration on the appliance after some time.
 
@@ -322,4 +322,7 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 
 ## Next steps
 
-Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+
+

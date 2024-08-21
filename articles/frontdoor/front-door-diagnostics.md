@@ -3,7 +3,7 @@ title: Monitor metrics and logs - Azure Front Door
 description: This article describes the different metrics and logs that Azure Front Door records.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: duau
@@ -26,19 +26,19 @@ Azure Front Door measures and sends its metrics in 60-second intervals. The metr
 
 The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
-| Metrics | Description | Dimensions |
-|--|--|--|
-| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint |
-| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group |
-| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin |
-| Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |
-| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
-| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
-| Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group |
-| Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
-| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
+| Metrics | Description | Dimensions | Recommended aggregations |
+|--|--|--|--|
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint | Avg, Min |
+| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group | Avg |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin | Avg, Max |
+| Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group | Avg, Sum |
+| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region | Avg, Max |
+| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region | Avg, Max |
+| Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Sum |
+| Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name | Avg, Sum |
 
 > [!NOTE]
 > If a request to the origin times out, the value of the *Http Status* dimension is **0**.

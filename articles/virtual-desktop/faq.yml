@@ -2,11 +2,11 @@
 metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.service: virtual-desktop
   ms.date: 10/23/2023
-  ms.author: helohr 
+  ms.author: daknappe
+  ms.custom: docs_inherited 
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
@@ -48,7 +48,7 @@ sections:
       - question: |
          What are location restrictions?
         answer: |
-          All service resources have a location associated with them. A host pool's location determines which geography the service metadata for the host pool is stored in. An application group can't exist without a host pool. If you add apps to a RemoteApp application group, you'll also need a session host to determine the start menu apps. For any application group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the application group's location should be the same as the host pool's.
+          All service resources have a location associated with them. A host pool's location determines which geography the service metadata for the host pool is stored in. An application group can't exist without a host pool. If you add apps to a RemoteApp application group, you also need a session host to determine the start menu apps. For any application group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the application group's location should be the same as the host pool's.
           
           Workspaces also must be in the same location as their application groups. Whenever the workspace updates, the related application group updates along with it. Like with application groups, the service requires that all workspaces are associated with application groups created in the same location.
           
@@ -90,7 +90,7 @@ sections:
         answer: |
           Azure Virtual Desktop doesn't support Microsoft Entra guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Microsoft Entra ID. The other company would manage the guest users' user objects in both Microsoft Entra ID and Active Directory like local accounts.
           
-          You can't use your own licenses for the benefit of a third party. Also, Azure Virtual Desktop doesn't currently support Microsoft Account (MSA).
+          You can't use your own licenses for the benefit of a third-party. Also, Azure Virtual Desktop doesn't currently support Microsoft Account (MSA).
           
       - question: |
          Why don't I see the client IP address in the WVDConnections table?
@@ -120,7 +120,7 @@ sections:
           | Steady state IOPS | 10 |
           | Sign in/sign out IOPS | 50 |
           
-          The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign-in and sign-out.
+          The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS when signing in and signing out.
           
       - question: |
          Is there a scale limit for host pools created in the Azure portal?
@@ -129,7 +129,7 @@ sections:
           
           - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
           
-          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You'll need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
+          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
           
           - The VM prefix name can't exceed 11 characters, so that when a sequential number is added the total name is a maximum of 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
@@ -140,17 +140,17 @@ sections:
           
           You also can't use CSP sandbox subscriptions with the Azure Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
           
-          Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
+          Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts aren't able to modify the resource provider.
           
       - question: |
          How often should I turn my VMs on to prevent registration issues?
         answer: |
-          After you register a VM to a host pool within the Azure Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend VMs to be online for 20 minutes every 90 days so that the machine can refresh its tokens and update the agent and side-by-side stack components. Turning your VM on within this time limit will prevent its registration token from expiring or becoming invalid. If you've started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Azure Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
+          After you register a VM to a host pool within the Azure Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend VMs to be online for 20 minutes every 90 days so that the machine can refresh its tokens and update the agent and side-by-side stack components. Turning on your VM within this time limit prevents its registration token from expiring or becoming invalid. If you started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Azure Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
           
       - question: |
          Can I set availability options when creating host pools?
         answer: |
-          Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
+          Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
           
           Make sure that [your Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) are available in the region where your VMs are located.
           
@@ -183,18 +183,18 @@ sections:
       - question: |
          Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
         answer: |
-          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported with Azure Virtual Desktop.
+          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) aren't supported with Azure Virtual Desktop.
 
       - question: |
          If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
         answer: |
-         If the region you stored your host pool metadata in goes down, Azure Virtual Desktop won't accept new user connections to the session host VMs in that host pool. However, any existing sessions on the session host VMs in that host pool will remain connected and unaffected.
+         Metadata of a host pool is replicated within a geography for resiliency. If the region your host pool is in goes down, it fails over to its replica. During this failover period, Azure Virtual Desktop doesn't accept new user connections to the session host VMs in that host pool until the failover is complete. Any existing sessions on the session host VMs in that host pool remain connected and unaffected. To learn more about how service resilience is implemented for Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
 
       - question: |
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
         answer: |
-         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you'll receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
+         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
       - question: Can I do an in-place upgrade of a session host's operating system?
         answer: |
-          Yes. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).
+          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).

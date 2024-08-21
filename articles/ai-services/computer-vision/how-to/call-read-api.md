@@ -49,7 +49,7 @@ When using the Read operation, use the following values for the optional `model-
 
 ### Input language
 
-By default, the service extracts all text from your images or documents including mixed languages. The [Read operation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) has an optional request parameter for language. Only provide a language code if you want to force the document to be processed as that specific language. Otherwise, the service may return incomplete and incorrect text.
+By default, the service extracts all text from your images or documents including mixed languages. The [Read operation](/rest/api/computervision/read/read?view=rest-computervision-v3.2-preview&tabs=HTTP) has an optional request parameter for language. Only provide a language code if you want to force the document to be processed as that specific language. Otherwise, the service may return incomplete and incorrect text.
 
 ### Natural reading order output (Latin languages only)
 
@@ -67,7 +67,7 @@ By default, the service extracts text from all pages in the documents. Optionall
 
 You submit either a local image or a remote image to the Read API. For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
 
-The Read API's [Read call](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
+The Read API's [Read call](/rest/api/computervision/read/read?view=rest-computervision-v3.2-preview&tabs=HTTP) takes an image or PDF document as the input and extracts text asynchronously.
 
 `https://{endpoint}/vision/v3.2/read/analyze[?language][&pages][&readingOrder]`
 
@@ -85,7 +85,7 @@ The call returns with a response header field called `Operation-Location`. The `
 
 ## Get results from the service
 
-The second step is to call [Get Read Results](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation.
+The second step is to call [Get Read Result](/rest/api/computervision/get-read-result/get-read-result?view=rest-computervision-v3.2-preview&tabs=HTTP) operation. This operation takes as input the operation ID that was created by the Read operation.
 
 `https://{endpoint}/vision/v3.2/read/analyzeResults/{operationId}`
 
@@ -192,4 +192,4 @@ The response includes a classification of whether each line of text is in handwr
 ## Next steps
 
 - Get started with the [OCR (Read) REST API or client library quickstarts](../quickstarts-sdk/client-library.md).
-- [Read 3.2 REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- [Read 3.2 REST API reference](/rest/api/computervision/read/read?view=rest-computervision-v3.2-preview&tabs=HTTP).

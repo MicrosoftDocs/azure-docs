@@ -3,7 +3,7 @@ title: Troubleshooting ML pipelines
 titleSuffix: Azure Machine Learning
 description: How to troubleshoot when you get errors running a machine learning pipeline. Common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: zhanxia
 author: xiaoharper
@@ -187,13 +187,13 @@ Testing scripts locally is a great way to debug major code fragments and complex
 
 ### Logging options and behavior
 
-The following table provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
+The following table provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning and Python ones shown here.
 
 | Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [How to track experiments](how-to-log-view-metrics.md)<br>[azureml.core.Run class](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Python printing/logging    | Log    | `print(val)`<br>`logging.info(message)`                          | Driver logs, Azure Machine Learning designer | [How to track experiments](how-to-log-view-metrics.md)<br><br>[Python logging](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - traces                | [Debug pipelines in Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+
 
 #### Logging options example
 
@@ -201,7 +201,6 @@ The following table provides information for different debug options for pipelin
 import logging
 
 from azureml.core.run import Run
-from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 run = Run.get_context()
 
@@ -222,9 +221,6 @@ logger.info("I am a plain info statement, I will be sent to the driver logs.")
 handler = AzureLogHandler(connection_string='<connection string>')
 logger.addHandler(handler)
 
-# Python logging with OpenCensus AzureLogHandler
-logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
-logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
 ## Azure Machine Learning designer
@@ -259,9 +255,6 @@ You can also find the log files for specific runs in the pipeline run detail pag
 
 > [!IMPORTANT]
 > To update a pipeline from the pipeline run details page, you must **clone** the pipeline run to a new pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 
-
-## Application Insights
-For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](./how-to-log-pipelines-application-insights.md)
 
 ## Interactive debugging with Visual Studio Code
 
@@ -353,6 +346,6 @@ model_download_step = PythonScriptStep(
 
 * For a complete example showing automated machine learning in ML pipelines, see [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
 
-* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package.
+* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/azureml.pipeline.core) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package.
 
 * See the list of [designer exceptions and error codes](../algorithm-module-reference/designer-error-codes.md).

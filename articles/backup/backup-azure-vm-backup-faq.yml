@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 04/12/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
@@ -258,7 +258,7 @@ sections:
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
-          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
       - question: Can I use Azure VM snapshots to restore in another subscription?
         answer: |
@@ -282,7 +282,7 @@ sections:
 
       - question: Does Cross Zonal Restore support all Azure VM?
         answer: |
-          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups) and [Trusted Launch VMs](backup-support-matrix-iaas.md#tvm-backup).
+          No, it's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
       - question: Can I use Azure VM snapshots to restore in another zone?
         answer: |

@@ -374,10 +374,10 @@ Remote SSH debugging prerequisites may be different depending on the language yo
     PS C:\> docker ps        
     CONTAINER ID   IMAGE                                                             COMMAND                   CREATED        STATUS         PORTS                                                                                                                                   NAMES
     a317b8058786   myacr.azurecr.io/filtermodule:0.0.1-amd64                         "dotnet filtermodule…"    24 hours ago   Up 6 minutes                                                                                                                                           filtermodule
-    d4d949f8dfb9   mcr.microsoft.com/azureiotedge-hub:1.4                            "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes   0.0.0.0:443->443/tcp, :::443->443/tcp, 0.0.0.0:5671->5671/tcp, :::5671->5671/tcp, 0.0.0.0:8883->8883/tcp, :::8883->8883/tcp, 1883/tcp   edgeHub
+    d4d949f8dfb9   mcr.microsoft.com/azureiotedge-hub:1.5                            "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes   0.0.0.0:443->443/tcp, :::443->443/tcp, 0.0.0.0:5671->5671/tcp, :::5671->5671/tcp, 0.0.0.0:8883->8883/tcp, :::8883->8883/tcp, 1883/tcp   edgeHub
     1f0da9cfe8e8   mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0   "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes                                                                                                    
                                            tempSensor
-    66078969d843   mcr.microsoft.com/azureiotedge-agent:1.4                          "/bin/sh -c 'exec /a…"    24 hours ago   Up 6 minutes                                                                                                    
+    66078969d843   mcr.microsoft.com/azureiotedge-agent:1.5                          "/bin/sh -c 'exec /a…"    24 hours ago   Up 6 minutes                                                                                                    
                                            edgeAgent
     ```
 
@@ -428,6 +428,6 @@ See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily
 
 ## Next steps
 
-After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
+After you've built your module, learn how to [deploy Azure IoT Edge modules](how-to-deploy-modules-cli.md).
 
 To develop modules for your IoT Edge devices, understand and use [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).

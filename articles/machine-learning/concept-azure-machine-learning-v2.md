@@ -3,13 +3,13 @@ title: 'How Azure Machine Learning works (v2)'
 titleSuffix: Azure Machine Learning
 description: This article gives you a high-level understanding of the resources and assets that make up Azure Machine Learning (v2).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: conceptual
-ms.author: balapv
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 02/27/2024
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---

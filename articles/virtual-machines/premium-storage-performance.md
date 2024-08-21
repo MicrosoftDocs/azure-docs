@@ -76,13 +76,13 @@ It's important to determine the optimal throughput and IOPS values that your app
 
 Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium storage provides consistently low latencies. Premium disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable **ReadOnly** host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
 
-When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
+When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, evaluate the latency of the application to avoid unexpected high latency behavior.
 
-The following control plane operations on managed disks might involve movement of the disk from one storage location to another. This movement is orchestrated via the background copy of data, which can take several hours to complete. Typically, the time is less than 24 hours depending on the amount of data in the disks. During that time, your application can experience higher than usual read latency because some reads can get redirected to the original location and take longer to complete.
+Some control plane operations on managed disks might move the disk from one storage location to another. Moving the disk between storage locations is orchestrated via a background copy of data, which can take several hours to complete. Typically, the time is less than 24 hours depending on the amount of data in the disks. During that time, your application can experience higher than usual read latency because some reads can get redirected to the original location and take longer to complete.
 
-There's no effect on write latency during this period. For Premium SSD v2 and Ultra Disks, if the disk has a 4K sector size, it experiences higher read latency. If the disk has a 512e sector size, it experiences both higher read and write latency.
+During a background copy, there's no effect on write latency for most disk types. For Premium SSD v2 and Ultra Disks, if the disk has a 4K sector size, it experiences higher read latency. If the disk has a 512e sector size, it experiences higher read and write latency.
 
-Control plane operations are used to:
+The following control plane operations might move the disk between storage locations, and cause increased latency:
 
 - Update the storage type.
 - Detach and attach a disk from one VM to another.
@@ -271,7 +271,7 @@ When you run Linux with premium storage, check the latest updates about required
 
 Premium storage offers various sizes so you can choose one that best suits your needs. Each disk size has a different scale limit for IOPS, bandwidth, and storage. Choose the right premium storage disk size depending on the application requirements and the high-scale VM size. The following table shows the disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for managed disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-premium-ssd-sizes.md)]
 
 How many disks you choose depends on the disk size chosen. You could use a single P50 disk or multiple P10 disks to meet your application requirement. Take into account considerations listed here when you're making the choice.
 

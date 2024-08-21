@@ -11,7 +11,7 @@ ms.author: trrwilson
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource)
+> * [Create a Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture

@@ -14,25 +14,23 @@ ms.date: 01/31/2024
 # Cancel translation
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **DELETE**
 
-Cancel a current processing or queued operation. An operation isn't canceled if completed, failed, or canceling. A bad request is returned. Completed translations aren't canceled and are charged. All pending translations are canceled if possible.
+* This method cancels a translation job that is currently processing or queued (pending) as indicated in the request by the `id` query parameter. 
+* An operation isn't canceled if already completed, failed, or still canceling. In those instances, a bad request is returned. 
+* Completed translations can't be canceled and are charged.
 
 ## Request URL
 
-Send a `DELETE` request to:
-
-```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
-```
-
-Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+  curl -i -X  DELETE "{document-translation-endpoint}/translator/document/batches/{id}?api-version={date}"
+```
 
 ## Request parameters
 
@@ -41,6 +39,16 @@ Request parameters passed on the query string are:
 |Query parameter|Required|Description|
 |-----|-----|-----|
 |`id`|True|The operation-ID.|
+
+### Locating  the `id` value
+
+ You can find the job `id` in the POST `start-batch-translation` method response Header `Operation-Location` URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
+
+|**Response header**|**Response URL**|
+|-----------------------|----------------|
+|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
+
+* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation _**jobs**_ and their `id`s.
 
 ## Request headers
 
@@ -146,4 +154,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)

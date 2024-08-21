@@ -2,9 +2,9 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 05/08/2023
-ms.service: backup
-ms.custom: engagement-fy23
+ms.date: 01/04/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -102,7 +102,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model doesn't allow log backup.</li><li>Differential and log backups aren't allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you've configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
+| This SQL database doesn't support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model doesn't allow log backup.</li><li>Differential and log backups aren't allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you've configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
 
 ### OperationCancelledBecauseConflictingOperationRunningUserError
 
@@ -115,14 +115,14 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup, file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
 
 
 ### UserErrorSQLPODoesNotExist
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and don't need future backups, then in the Recovery Services vault, select **Stop backup** with **Retain Backup Data** or **Delete Backup Data**. For more information, see [Manage and monitor backed-up SQL Server databases](manage-monitor-sql-database-backup.md).
+| SQL database doesn't exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and don't need future backups, then in the Recovery Services vault, select **Stop backup** with **Retain Backup Data** or **Delete Backup Data**. For more information, see [Manage and monitor backed-up SQL Server databases](manage-monitor-sql-database-backup.md).
 
 ### UserErrorSQLLSNValidationFailure
 
@@ -134,7 +134,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Azure Backup is not able to connect to the SQL instance. | Azure Backup can't connect to the SQL Server instance. | Use the additional details on the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings don't allow remote connections, change the settings. See the following articles for information about changing the settings:<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, use these links to fix them:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup isn't able to connect to the SQL instance. | Azure Backup can't connect to the SQL Server instance. | Use the additional details on the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings don't allow remote connections, change the settings. See the following articles for information about changing the settings:<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, use these links to fix them:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### UserErrorParentFullBackupMissing
 
@@ -146,7 +146,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL Server documentation](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
+| Can't take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL Server documentation](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
@@ -232,7 +232,7 @@ The VM is not able to contact Azure Backup service due to internet connectivity 
 
 | Error message | Possible cause | Recommended action |
 | --- | --- | --- |
-| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you enable the mirroring operation on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
+| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you enable the mirroring operation on an SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
 
 ### UserErrorWindowsWLExtFailedToStartPluginService
 

@@ -2,7 +2,7 @@
 title: Azure boot diagnostics
 description: Overview of Azure boot diagnostics and managed boot diagnostics
 services: virtual-machines
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom:
 author: mimckitt
 ms.author: mimckitt
@@ -37,7 +37,7 @@ To configure the storage firewall for Azure Serial Console, see [Use Serial Cons
 
 ## Boot diagnostics view
 
-Go to the virtual machine blade in the Azure portal, the boot diagnostics option is under the *Support and Troubleshooting* section in the Azure portal. Selecting boot diagnostics display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users see a desktop background and for Linux, users see a login prompt.
+Go to the virtual machine blade in the Azure portal, the boot diagnostics option is under the *Help* section in the Azure portal. Selecting boot diagnostics display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users see a desktop background and for Linux, users see a login prompt.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics":::
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::

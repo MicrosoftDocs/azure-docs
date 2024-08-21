@@ -65,16 +65,21 @@ The image version must meet the following requirements:
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
-> [!NOTE]
+> [!IMPORTANT]
 > - Microsoft Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
 > - Any image that doesn't meet Windows 365 requirements isn't shown in the list of images that are available for creation.
+
+> [!NOTE]
+> Microsoft Dev Box doesn't support preview builds from the Windows Insider Program.
 
 ### Reduce provisioning and startup times
 
 When you create a generalized VM to capture to an image, the following issues can affect provisioning and startup times:
 
 1. Create the image by using these three sysprep options: `/generalize /oobe /mode:vm`. 
-    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).1. Enable the Read/Write cache on the OS disk.
+    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
+ 
+1. Enable the Read/Write cache on the OS disk.
     - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
 
 1.  Enable nested virtualization in your base image:
@@ -127,7 +132,7 @@ Use the following steps to manually assign each role.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    | --- | --- |
@@ -143,7 +148,7 @@ Use the following steps to manually assign each role.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    | --- | --- |

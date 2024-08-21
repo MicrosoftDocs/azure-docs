@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 06/25/2024
 ---
 
 # Index JSON blobs and files in Azure AI Search
@@ -36,6 +36,10 @@ For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one bl
 
 Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a "documentRoot" property indicating where the array is placed within the blob.
 
+> [!NOTE]
+> When a JSON parsing mode is used, Azure AI Search assumes that all blobs use the same parser (either for **`json`**, **`jsonArray`** or **`jsonLines`**). If you have a mix of different file types in the same data source, consider using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported.
+
+
 The following sections describe each mode in more detail. If you're unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
 <a name="parsing-single-blobs"></a>
@@ -59,7 +63,7 @@ The blob indexer parses the JSON document into a single search document, loading
 Although the default behavior is one search document per JSON blob, setting the **`json`** parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -73,6 +77,7 @@ api-key: [admin key]
 
 > [!NOTE]
 > As with all indexers, if fields do not clearly match, you should expect to explicitly specify individual [field mappings](search-indexer-field-mappings.md) unless you are using the implicit fields mappings available for blob content and metadata, as described in [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md).
+
 
 ### json example (single hotel JSON files)
 
@@ -97,7 +102,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 The `parameters` property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -156,7 +161,7 @@ If your blob contains multiple JSON entities separated by a newline, and you wan
 For JSON lines, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

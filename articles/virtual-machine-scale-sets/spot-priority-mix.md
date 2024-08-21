@@ -3,18 +3,15 @@ title: Get high availability and cost savings with Spot Priority Mix for Virtual
 description: Learn how to run a mix of Spot VMs and uninterruptible standard VMs for Virtual Machine Scale Sets to achieve high availability and cost savings.
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machine-scale-sets
-ms.subservice: spot
+ms.service: azure-virtual-machine-scale-sets
+ms.subservice: azure-spot-vm
 ms.topic: conceptual
-ms.date: 07/01/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
 
 # Spot Priority Mix for high availability and cost savings
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
@@ -34,6 +31,10 @@ You can configure a custom percentage distribution across Spot and standard VMs.
 
 The eviction policy of your Spot VMs follows what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. Alternatively, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks are deleted.
 
+### Scale-In Policy
+
+When using Spot Priority Mix, your scale-in policy for the scale set will operate to try to maintain the percentage split of the Spot and Standard VMs in your scale set. Spot Priority Mix will determine if Spot or Standard VMs need to be removed during scale-in actions to maintain your percentage split, rather than deleting the oldest or newest VM. 
+
 ### ARM Template
 
 You can set your Spot Priority Mix by using an ARM template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
@@ -49,8 +50,6 @@ You can set your Spot Priority Mix by using an ARM template to add the following
 
 - `baseRegularPriorityCount` – Specifies a base number of VMs that are standard, *Regular* priority; if the Scale Set capacity is at or below this number, all VMs are *Regular* priority.
 - `regularPriorityPercentageAboveBase` – Specifies the percentage split of *Regular* and *Spot* priority VMs that are used when the Scale Set capacity is above the *baseRegularPriorityCount*.
-
-You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f83-f6bf-4d24-aa03-175b0c43da32) for more context.
 
 ### [Portal](#tab/portal)
 
@@ -76,7 +75,7 @@ az vmss create -n myScaleSet \
 		--regular-priority-percentage 50 \
 		--orchestration-mode flexible \
 		--instance-count 4 \
-		--image CentOS85Gen2 \
+		--image Ubuntu2204 \
 		--priority Spot \
 		--eviction-policy Deallocate \
 		--single-placement-group False \

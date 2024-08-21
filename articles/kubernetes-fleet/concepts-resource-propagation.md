@@ -1,14 +1,16 @@
 ---
-title: "Kubernetes resource propagation from hub cluster to member clusters (Preview)"
+title: "Kubernetes resource propagation from hub cluster to member clusters"
 description: This article describes the concept of Kubernetes resource propagation from hub cluster to member clusters.
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ---
 
-# Kubernetes resource propagation from hub cluster to member clusters (Preview)
+# Kubernetes resource propagation from hub cluster to member clusters
 
 This article describes the concept of Kubernetes resource propagation from hub clusters to member clusters using Azure Kubernetes Fleet Manager (Fleet).
 
@@ -62,7 +64,12 @@ The `ClusterResourcePlacement` object supports [using ConfigMap to envelope the 
 
 For more information, see the [`ClusterResourcePlacement` API reference][clusterresourceplacement-api].
 
-Once you select the resources, multiple placement policies are available:
+When creating the `ClusterResourcePlacement`, the following affinity types can be specified:
+
+- **requiredDuringSchedulingIgnoredDuringExecution**: As this affinity is of the required type during scheduling, it **filters** the clusters based on their properties.
+- **preferredDuringSchedulingIgnoredDuringExecution**: As this affinity is only of the preferred type, but is not required during scheduling, it provides preferential ranking to clusters based on properties specified by you such as cost or resource availability.
+
+Multiple placement types are available for controlling the number of clusters to which the Kubernetes resource needs to be propagated:
 
 * `PickAll` places the resources into all available member clusters. This policy is useful for placing infrastructure workloads, like cluster monitoring or reporting applications.
 * `PickFixed` places the resources into a specific list of member clusters by name.
@@ -72,7 +79,7 @@ Once you select the resources, multiple placement policies are available:
 
 You can use a `PickAll` placement policy to deploy a workload across all member clusters in the fleet (optionally matching a set of criteria).
 
-The following example shows how to deploy a `test-deployment` namespace and all of its objects across all clusters labeled with `environment: production`:
+The following example shows how to deploy a `prod-deployment` namespace and all of its objects across all clusters labeled with `environment: production`:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -96,7 +103,7 @@ spec:
       version: v1
 ```
 
-This simple policy takes the `test-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
+This simple policy takes the `prod-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
 
 ### `PickFixed` placement policy
 
@@ -329,6 +336,19 @@ The Fleet scheduler prioritizes the stability of existing workload placements. T
   * A cluster with a placement is removed from the fleet will attempt to replace all affected workloads without affecting their other placements.
 
 Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) roll out gradually in existing placements but do **not** trigger rescheduling of the workload.
+
+## Tolerations
+
+`ClusterResourcePlacement` objects support the specification of tolerations, which apply to the `ClusterResourcePlacement` object. Each toleration object consists of the following fields:
+
+* `key`: The key of the toleration.
+* `value`: The value of the toleration.
+* `effect`: The effect of the toleration, such as `NoSchedule`.
+* `operator`: The operator of the toleration, such as `Exists` or `Equal`.
+
+Each toleration is used to tolerate one or more specific taints applied on the `ClusterResourcePlacement`. Once all taints on a [`MemberCluster`](./concepts-fleet.md#what-are-member-clusters) are tolerated, the scheduler can then propagate resources to the cluster. You can't update or remove tolerations from a `ClusterResourcePlacement` object once it's created.
+
+For more information, see [the upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md#tolerations).
 
 ## Access the Kubernetes API of the Fleet resource cluster
 

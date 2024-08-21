@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 02/14/2024
+ms.date: 04/29/2024
 ms.author: lajanuar
 ---
 
@@ -29,14 +29,19 @@ Requests to Translator are, in most cases, handled by the datacenter that is clo
 
 To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography.
 
-|Geography|Base URL (geographical endpoint)|Datacenters|
-|:--|:--|:--|
-|Global (`non-regional`)|    api.cognitive.microsofttranslator.com|Closest available datacenter|
-|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|Korea South, Japan East, Southeast Asia, and Australia East|
-|Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
-|United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
+✔️ Feature: **Translator Text** </br>
 
-<sup>`1`</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests. 
+| Service endpoint | Request processing data center |
+|------------------|--------------------------|
+|**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
+|**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland):**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
+|**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
+
+#### Switzerland service endpoints
+
+Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests.
 
 For example: If you create a Translator resource in Azure portal with `Resource region` as `Switzerland North` and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
 
@@ -49,7 +54,7 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 -d "[{'Text':'Hello'}]" -v
 ```
 
-<sup>`2`</sup> Custom Translator isn't currently available in Switzerland.
+Custom Translator isn't currently available in Switzerland.
 
 ## Authentication
 
@@ -181,6 +186,9 @@ An authentication token is valid for 10 minutes. The token should be reused when
 ##### **Translator property page—Azure portal**
 
 :::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="Screenshot:Translator properties page in the Azure portal. ":::
+
+> [!IMPORTANT]
+> Assign [**Cognitive Services User**](../../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role to the service principal. By assigning this role, you're granting service principal access to the Translator resource.
 
 ### **Examples**
 

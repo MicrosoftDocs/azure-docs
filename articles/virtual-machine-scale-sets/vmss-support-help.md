@@ -3,9 +3,9 @@ title: Azure Virtual Machine Scale Sets support and help options
 description: How to obtain help and support for questions or problems when you create solutions using Azure Virtual Machine Scale Sets. 
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.topic: troubleshooting
-ms.date: 03/02/2023
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: support-help-page
 ---

@@ -4,9 +4,9 @@ titleSuffix: Azure Route Server
 description: Learn about how Azure Route Server exchanges routes between network virtual appliances (NVA), Azure ExpressRoute gateways, and Azure VPN gateways.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 02/16/2024
+ms.date: 05/14/2024
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server with ExpressRoute and Azure VPN so that routes can be exchanged between the two on-premises networks.
 ---
@@ -41,8 +41,9 @@ If you enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes 
 
 :::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute and VPN gateways exchanging routes through Azure Route Server.":::
 
-> [!NOTE] 
-> When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred by default. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md).
+## Considerations
+* When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred by default. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md).
+* If **branch-to-branch** is enabled and your on-premises advertises a route with Azure BGP community 65517:65517, then the ExpressRoute gateway will drop this route. 
 
 ## Related content
 

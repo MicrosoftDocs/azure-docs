@@ -4,15 +4,17 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 2/20/2024
+ms.date: 6/12/2024
 ---
 
 # Upgrade to App Service Environment v3
 
 > [!IMPORTANT]
-> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in loss of the environments, running applications, and all application data.
+> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/v2/App-Service-Environment-v1v2-Retirement-Update). After that date, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production after 31 August 2024.  
 >
-> As of [29 January 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/), you can no longer create new App Service Environment v1 and v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API.
+> You must complete migration to App Service Environment v3 before 31 August 2024 or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 This page is your one-stop shop for guidance and resources to help you upgrade successfully with minimal downtime. Follow the guidance to plan and complete your upgrade as soon as possible. This page is updated with the latest information as it becomes available.
@@ -21,11 +23,11 @@ This page is your one-stop shop for guidance and resources to help you upgrade s
 
 |Step|Action|Resources|
 |----|------|---------|
-|**1**|**Pre-flight check**|Determine if your environment meets the prerequisites to automate your upgrade using one of the automated migration features. Decide whether an in-place or side-by-side migration is right for your use case.<br><br>- [Migration path decision tree](#migration-path-decision-tree)<br>- [Automated upgrade using the in-place migration feature](migrate.md)<br>- [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md)<br><br>If not, you can upgrade manually.<br><br>- [Manual migration](migration-alternatives.md)|
-|**2**|**Migrate**|Based on results of your review, either upgrade using one of the automated migration features or follow the manual steps.<br><br>- [Use the in-place automated migration feature](how-to-migrate.md)<br>- [Use the side-by-side automated migration feature](how-to-side-by-side-migrate.md)<br>- [Migrate manually](migration-alternatives.md)|
+|**1**|**Pre-flight check**|Determine if your environment meets the prerequisites to automate your upgrade using one of the automated migration features. Decide whether an in-place or side-by-side migration is right for your use case.<br>- [Migration path decision tree](#migration-path-decision-tree)<br>- [Automated upgrade using the in-place migration feature](migrate.md)<br>- [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md)<br><br>If not, you can upgrade manually.<br>- [Manual migration](migration-alternatives.md)|
+|**2**|**Migrate**|Based on results of your review, either upgrade using one of the automated migration features or follow the manual steps.|
 |**3**|**Testing and troubleshooting**|Upgrading using one of the automated migration features requires a 3-6 hour service window. If you use the side-by-side migration feature, you have the opportunity to [test and validate your App Service Environment v3](./side-by-side-migrate.md#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration) before completing the upgrade. Support teams are monitoring upgrades to ensure success. If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).|
-|**4**|**Optimize your App Service plans**|Once your upgrade is complete, you can optimize the App Service plans for additional benefits.<br><br>Review the autoselected Isolated v2 SKU sizes and scale up or scale down your App Service plans as needed.<br><br>- [Scale down your App Service plans](../manage-scale-up.md)<br>- [App Service Environment post-migration scaling guidance](migrate.md#pricing)<br><br>Explore reserved instance pricing, savings plans, and check out the pricing estimates if needed.<br><br>- [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [How reservation discounts apply to Isolated v2 instances](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances)<br>- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)|
-|**5**|**Learn more**|On-demand: [Learn Live webinar with Azure FastTrack Architects](https://www.youtube.com/watch?v=lI9TK_v-dkg&ab_channel=MicrosoftDeveloper).<br><br>Need more help? [Submit a request](https://cxp.azure.com/nominationportal/nominationform/fasttrack) to contact FastTrack.<br><br>[Frequently asked questions](migrate.md#frequently-asked-questions)<br><br>[Community support](https://aka.ms/asev1v2retirement)|
+|**4**|**Optimize your App Service plans**|Once your upgrade is complete, you can optimize the App Service plans for additional benefits.<br><br>Review the autoselected Isolated v2 SKU sizes and scale up or scale down your App Service plans as needed.<br>- [Scale down your App Service plans](../manage-scale-up.md)<br>- [App Service Environment post-migration scaling guidance](migrate.md#pricing)<br><br>Explore reserved instance pricing, savings plans, and check out the pricing estimates if needed.<br>- [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [How reservation discounts apply to Isolated v2 instances](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances)<br>- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)|
+|**5**|**Learn more**|Overview of the upgrade process with App Service Environment Product Managers:<br>- [Azure App Service Community Standup: App Service Environment Migration](https://www.youtube.com/live/rjeVKFZHeb4)<br><br>On-demand Learn Live sessions with Azure FastTrack Architects:<br>- [Use the in-place automated migration feature](https://www.youtube.com/watch?v=lI9TK_v-dkg)<br>- [Use the side-by-side automated migration feature](https://www.youtube.com/watch?v=VccH5C0rdto)<br><br>Need more help? [Submit a request](https://cxp.azure.com/nominationportal/nominationform/fasttrack) to contact FastTrack.<br><br>[Frequently asked questions](migrate.md#frequently-asked-questions)<br><br>[Community support](https://aka.ms/asev1v2retirement)|
 
 ## Additional information
 
@@ -47,15 +49,36 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 
 There are two automated migration features available to help you upgrade to App Service Environment v3. 
 
-- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
+- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place and is the recommended migration option. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
 - **Side-by-side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There's no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md).
+    > [!NOTE]
+    > Side-by-side migration comes with additional challenges compared to in-place migration. For customers who need to decide between the two options, the recommendation is to use in-place migration since there are fewer steps and less complexity. If you decide to use side-by-side migration, review the [common sources of issues when migrating using the side-by-side migration feature](side-by-side-migrate.md#common-sources-of-issues-when-migrating-using-the-side-by-side-migration-feature) section to avoid common pitfalls.
+    >
 - **Manual migration options** are available if you can't use the automated migration features. For more information about these options, see [Migration alternatives](migration-alternatives.md).
+
+### Why do some customers see performance differences after migrating?
+
+App Service Environment v3 uses newer virtual machines that are based on virtual CPUs (vCPU), not physical cores. One vCPU typically doesn't equate to one physical core in terms of raw CPU performance. As a result, CPU-bound workloads might see a performance difference if attempting to match old-school physical core counts to current vCPU counts.
+
+When migrating to App Service Environment v3, we map App Service plan tiers as follows: 
+
+|App Service Environment v2 SKU|App Service Environment v3 SKU|
+|------------------------------|------------------------------|
+|I1                            |I1v2                          |
+|I2                            |I2v2                          |
+|I3                            |I3v2                          |
 
 ### Migration path decision tree
 
-Use the following decision tree to determine which migration path is right for you.
+Use the following decision tree to determine which migration path is right for you. The recommendation for all customers is to use the in-place migration feature if your App Service Environment meets the criteria for an automated migration. In-place migration is the simplest and fastest way to upgrade to App Service Environment v3.
 
 :::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Screenshot of the decision tree for helping decide which App Service Environment upgrade option to use." lightbox="./media/migration/migration-path-decision-tree-expanded.png":::
+
+### Post-retirement date activities
+
+After 31 August 2024, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Additionally, since these products will be retired, after the official retirement on 31 August 2024, Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production.  
+
+You must complete migration to App Service Environment v3 as soon as possible or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
 
 ### Cost saving opportunities after upgrading to App Service Environment v3
 

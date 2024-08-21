@@ -14,7 +14,7 @@ Azure Data Manager for Energy is available in two tiers; Standard and Developer.
 
 
 ## Developer tier 
-The Developer tier of Azure Data Manager for Energy is designed for users who want more flexibility and speed in building out new applications and testing their [OSDU&trade;](https://osduforum.org) Data Platform backed solutions. The Developer tier provides users with the same high bar of security features, and application integration services as the Standard tier at a lower cost and with reduced resource capacity. Organizations can isolate and manage their test and production environments more cost-effectively. Use cases for the Developer tier of Azure Data Manager for Energy includes the following:
+The Developer tier of Azure Data Manager for Energy is designed for users who want more flexibility and speed in building out new applications and testing their [OSDU&reg;](https://osduforum.org) Data Platform backed solutions. The Developer tier provides users with the same high bar of security features, and application integration services as the Standard tier at a lower cost and with reduced resource capacity. Organizations can isolate and manage their test and production environments more cost-effectively. Use cases for the Developer tier of Azure Data Manager for Energy includes the following:
 
 * Evaluating and creating data migration strategy
 * Building proof of concepts and business case demonstrations
@@ -22,7 +22,7 @@ The Developer tier of Azure Data Manager for Energy is designed for users who wa
 * Validating application compatibility
 * Validating security features such as Customer Managed Encryption Keys (CMEK)
 * Implementing sensitive data classification
-* Testing new [OSDU&trade;](https://osduforum.org) Data Platform releases
+* Testing new [OSDU&reg;](https://osduforum.org) Data Platform releases
 * Validating data by ingesting in a safe pre production environment
 * Testing new third party or in-house applications 
 * Validating service updates
@@ -53,8 +53,8 @@ The standard tier is designed for production scenarios as it provides high avail
 ## Tier details
 | Features | Developer Tier | Standard Tier |
 | ------------ | ------- |  ------- |
-Recommended Use Cases | Non-Production scenario such as [OSDU&trade;](https://osduforum.org) Data Platform testing, data validation, feature testing, troubleshooting, training, and proof of concepts. | Production data availability and business workflows
-[OSDU&trade;](https://osduforum.org) Data Platform Compatibility| Yes | Yes
+Recommended Use Cases | Non-Production scenario such as [OSDU&reg;](https://osduforum.org) Data Platform testing, data validation, feature testing, troubleshooting, training, and proof of concepts. | Production data availability and business workflows
+[OSDU&reg;](https://osduforum.org) Data Platform Compatibility| Yes | Yes
 Pre Integration w/ Leading Industry Apps | Yes | Yes
 Support | Yes | Yes
 Azure Customer Managed Encryption Keys|Yes| Yes

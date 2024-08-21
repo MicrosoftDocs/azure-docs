@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Monitor Azure Site Recovery
@@ -95,7 +95,7 @@ Azure Site Recovery provides default alerts via Azure Monitor as a preview featu
 - Failover failure alerts for Azure VM, Hyper-V, and VMware replication.
 - Auto certification expiry alerts for Azure VM replication.
 
-For detailed instructions on enabling and configuring these built-in alerts, see [Built-in Azure Monitor alerts for Azure Site Recovery (preview)](site-recovery-monitor-and-troubleshoot.md#built-in-azure-monitor-alerts-for-azure-site-recovery-preview). Also see [Common questions about built-in Azure Monitor alerts for Azure Site Recovery](monitoring-common-questions.md#built-in-azure-monitor-alerts-for-azure-site-recovery).
+For detailed instructions on enabling and configuring these built-in alerts, see [Built-in Azure Monitor alerts for Azure Site Recovery (preview)](site-recovery-monitor-and-troubleshoot.md#built-in-azure-monitor-alerts-for-azure-site-recovery). Also see [Common questions about built-in Azure Monitor alerts for Azure Site Recovery](monitoring-common-questions.md#built-in-azure-monitor-alerts-for-azure-site-recovery).
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

@@ -3,7 +3,7 @@ title: Manage the default domain in Azure Static Web Apps
 description: Learn to set and unset a default domain in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 02/10/2022
 ms.author: cshoe
@@ -44,4 +44,4 @@ To stop domains redirecting to a default domain, follow the below steps.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](authentication-authorization.md)
+> [Configure app settings](authentication-authorization.yml)

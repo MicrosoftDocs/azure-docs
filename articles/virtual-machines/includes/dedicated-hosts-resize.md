@@ -4,7 +4,7 @@ description: Include file for dedicated hosts resize functionality
 services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: azure-dedicated-host
 ms.date: 09/11/2023
 ms.author: mattmcinnes

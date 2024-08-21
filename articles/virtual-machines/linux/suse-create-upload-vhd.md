@@ -2,12 +2,12 @@
 title: Create and upload a SUSE Linux VHD in Azure
 description: Learn how to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system.
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/28/2024
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -221,33 +221,35 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo rm -f ~/.bash_history
     ```
 
-## Prepare openSUSE 15.2+
+## Prepare openSUSE 15.4+
 
 1. On the center pane of Hyper-V Manager, select the virtual machine.
-2. Select **Connect** to open the window for the virtual machine.
-3. In a terminal, run the command `zypper lr`. If this command returns output similar to the following example, the repositories are configured as expected and no adjustments are necessary. (Version numbers might vary.)
+1. Select **Connect** to open the window for the virtual machine.
+1. In a terminal, run the command `zypper lr`. If this command returns output similar to the following example, the repositories are configured as expected and no adjustments are necessary. (Version numbers might vary.)
 
-   | # | Alias                 | Name                  | Enabled | Refresh
-   | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | Yes     | Yes
-   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | Yes     | Yes
-   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | Yes     | Yes
+   | # | Alias                                                                                      | Name          | Enabled | GPG Check | Refresh
+   | - | :------------------------------------------------------------------------------------------| :-------------| :-------| :---------| :------
+   | 1 | Cloud:Tools_15.4                                                                           | Cloud:Tools-> | Yes     | (r ) Yes  | Yes
+   | 2 | openSUSE_stable_OSS                                                                        | openSUSE_st-> | Yes     | (r ) Yes  | Yes
+   | 3 | openSUSE_stable_Updates                                                                    | openSUSE_st-> | Yes     | (r ) Yes  | Yes 
+   
+   If the the message "___No repositories defined___" appears from the `zypper lr`  the repositories must be added manually.
+   
+   Below are examples of commands for adding these repositories (versions and links may vary):
+   
+   ```bash
+   sudo zypper ar -f https://download.opensuse.org/update/openSUSE-stable openSUSE_stable_Updates
+   sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
+   sudo zypper ar -f https://download.opensuse.org/distribution/openSUSE-stable/repo/oss openSUSE_stable_OSS
+   ```
+   
+   You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
+   
+   ```bash
+   sudo zypper mr -e [NUMBER OF REPOSITORY]
+   ```
 
-    If the command returns "No repositories defined," use the following commands to add these repos:
-
-    ```bash
-    sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
-    sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
-    sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
-    ```
-
-    You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
-
-    ```bash
-    sudo zypper mr -e [NUMBER OF REPOSITORY]
-    ```
-
-4. Update the kernel to the latest available version:
+1. Update the kernel to the latest available version:
 
     ```bash
     sudo zypper up kernel-default
@@ -259,16 +261,16 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo zypper update
     ```
 
-5. Install the Azure Linux Agent:
+1. Install the Azure Linux Agent:
 
     ```bash
     sudo zypper install WALinuxAgent
     ```
 
-6. Modify the kernel boot line in your GRUB configuration to include other kernel parameters for Azure. To do this, open */boot/grub/menu.lst* in a text editor and ensure that the default kernel includes the following parameters:
+1. Modify the kernel boot line in your GRUB configuration to include other kernel parameters for Azure. To do this, open */boot/grub/menu.lst* in a text editor and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-     console=ttyS0 earlyprintk=ttyS0
+    console=ttyS0 earlyprintk=ttyS0
     ```
 
    This option ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
@@ -277,21 +279,21 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
      libata.atapi_enabled=0 reserve=0x1f0,0x8
     ```
 
-7. We recommend that you edit the */etc/sysconfig/network/dhcp* file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following setting:
+1. We recommend that you edit the */etc/sysconfig/network/dhcp* file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following setting:
 
     ```config
      DHCLIENT_SET_HOSTNAME="no"
     ```
 
-8. In the */etc/sudoers* file, comment out or remove the following lines if they exist. This is an important step.
+1. In the */etc/sudoers* file, comment out or remove the following lines if they exist. This is an important step.
 
     ```output
     Defaults targetpw   # ask for the password of the target user i.e. root
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-9. Ensure that the SSH server is installed and configured to start at boot time.
-10. Don't create swap space on the OS disk.
+1. Ensure that the SSH server is installed and configured to start at boot time.
+1. Don't create swap space on the OS disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that's attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk and will be emptied when the VM is deprovisioned.
 
@@ -305,26 +307,26 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set the size to whatever you need it to be.
     ```
 
-11. Ensure that the Azure Linux Agent runs at startup:
+1. Ensure that the Azure Linux Agent runs at startup:
 
     ```bash
     sudo systemctl enable waagent.service
     ```
 
-12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure.
+1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure.
 
     If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovisioning step.
 
     ```bash
-        sudo rm -f ~/.bash_history # Remove current user history
-        sudo rm -rf /var/lib/waagent/
-        sudo rm -f /var/log/waagent.log
-        sudo waagent -force -deprovision+user
-        sudo rm -f ~/.bash_history # Remove root user history
-        sudo export HISTSIZE=0
+    sudo rm -f ~/.bash_history # Remove current user history
+    sudo rm -rf /var/lib/waagent/
+    sudo rm -f /var/log/waagent.log
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history # Remove root user history
+    sudo export HISTSIZE=0
     ```
 
-13. Select **Action** > **Shut Down** in Hyper-V Manager.
+1. Select **Action** > **Shut Down** in Hyper-V Manager.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
-title: Share a Windows folder with Azure IoT Edge for Linux on Windows | Microsoft Docs
-description: How to share a Windows folder with the Azure IoT Edge for Linux on Windows virtual machine
+title: Share Windows folder with Azure IoT Edge for Linux on Windows
+description: How to share a Windows folders and files with the Azure IoT Edge for Linux on Windows virtual machine.
 author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 11/1/2022
+ms.topic: how-to
+ms.date: 06/04/2024
 ms.author: patricka
 ---
 
@@ -22,9 +22,9 @@ This article shows you how to enable the folder sharing between the Windows host
 ## Prerequisites
 - Azure IoT Edge for Linux on Windows 1.4.4 LTS update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
 - A machine with an x64/x86 processor.
-- Windows 10/11 (21H2) or higher with [November 2022](https://support.microsoft.com/en-us/topic/november-15-2022-kb5020030-os-builds-19042-2311-19043-2311-19044-2311-and-19045-2311-preview-237a9048-f853-4e29-a3a2-62efdbea95e2) update applied.
+- Windows 10/11 (21H2) or higher with [November 2022](https://support.microsoft.com/topic/november-15-2022-kb5020030-os-builds-19042-2311-19043-2311-19044-2311-and-19045-2311-preview-237a9048-f853-4e29-a3a2-62efdbea95e2) update applied.
 
-If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy and provision EFLOW.
+If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy, and provision EFLOW.
 
 ## How it works?
 
@@ -32,12 +32,12 @@ The Azure IoT Edge for Linux on Windows file and folder sharing mechanism is imp
 
 :::image type="content" source="media/how-to-share-windows-folder-to-vm/folder-sharing-virtiofs.png" alt-text="Screenshot of a Windows folder shared with the EFLOW virtual machine using Virtio-FS technology.":::
 
-Only Windows folders can be shared to the EFLOW Linux VM and not the other way. Also, for security reasons, when setting the folder sharing mechanism, the user must provide a _root folder_ and all the shared folders must be under that _root folder_. 
+Only Windows folders can be shared to the EFLOW Linux VM and not the other way. Also, for security reasons, when setting the folder sharing mechanism, the user must provide a *root folder* and all the shared folders must be under that *root folder*. 
 
 Before starting with the adding and removing share mechanisms, let's define four concepts:
 
 - **Root folder**: Windows folder that is the root path containing subfolders to be shared to the EFLOW VM. The root folder isn't shared to the EFLOW VM. Only the subfolders under the root folder are shared to the EFLOW VM.
-- **Shared folder**: A Windows folder that's under the _root folder_ and is shared with the EFLOW VM. All the content inside this folder is shared with the EFLOW VM.
+- **Shared folder**: A Windows folder that's under the *root folder* and is shared with the EFLOW VM. All the content inside this folder is shared with the EFLOW VM.
 - **Mounting point**: Path inside the EFLOW VM where the Windows folder content is placed. 
 - **Mounting option**: *Read-only* or *read and write* access. Controls the file access of the mounted folder inside the EFLOW VM. 
 
@@ -49,25 +49,25 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
 
 1. Start by creating a new root shared folder. Go to **File Explorer** and choose a location for the *root folder* and create the folder. 
 
-   For example, create a *root folder* under _C:\Shared_ named **EFLOW-Shared**.
+   For example, create a *root folder* under *C:\Shared* named **EFLOW-Shared**.
 
-   :::image type="content" source="media/how-to-share-windows-folder-to-vm/root-folder.png" alt-text="Screenshot of the Windows root folder.":::
+   :::image type="content" source="media/how-to-share-windows-folder-to-vm/root-folder.png" alt-text="Screenshot of the C:\Shared folder that includes EFLOW-Shared folder.":::
 
 1. Create one or more *shared folders* to be shared with the EFLOW virtual machine. Shared folders should be created under the *root folder* from the previous step. 
 
    For example, create two folders one named **Read-Access** and one named **Read-Write-Access**. 
 
-   :::image type="content" source="media/how-to-share-windows-folder-to-vm/shared-folders.png" alt-text="Screenshot of Windows shared folders.":::
+   :::image type="content" source="media/how-to-share-windows-folder-to-vm/shared-folders.png" alt-text="Screenshot of Windows shared folders Read-Access and Read-Write-Access.":::
 
-1. Within the _Read-Access_ shared folder, create a sample file that we'll later read inside the EFLOW virtual machine.
+1. Within the *Read-Access* shared folder, create a sample file that we'll later read inside the EFLOW virtual machine.
 
-    For example, using a text editor, create a file named _Hello-World.txt_ within the _Read-Access_ folder and save some text in the file.
+    For example, using a text editor, create a file named *Hello-World.txt* within the *Read-Access* folder and save some text in the file.
 
 1. Using a text editor, create the shared folder configuration file. This file contains the information about the folders to be shared with the EFLOW VM including the mounting points and the mounting options. For more information about the JSON configuration file, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md).
 
     For example, using the previous scenario, we'll share the two *shared folders* we created under the *root folder*. 
-    - _Read-Access_ shared folder will be mounted in the EFLOW virtual machine under the path _/tmp/host-read-access_ with *read-only* access.
-    - _Read-Write-Access_ shared folder will be mounted in the EFLOW virtual machine under the path _/tmp/host-read-write-access_ with *read and write* access.
+    - *Read-Access* shared folder is mounted in the EFLOW virtual machine under the path */tmp/host-read-access* with *read-only* access.
+    - *Read-Write-Access* shared folder is mounted in the EFLOW virtual machine under the path */tmp/host-read-write-access* with *read and write* access.
 
     Create the JSON configuration file named **sharedFolders.json** within the *root folder* *EFLOW-Shared* with the following contents:
 
@@ -91,9 +91,9 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
     ]
     ```
 
-1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
+1. Open an elevated *PowerShell* session by starting with **Run as Administrator**.
 
-1. Create the shared folder assignation using the configuration file (_sharedFolders.json_) previously created.
+1. Create the shared folder assignation using the configuration file (*sharedFolders.json*) previously created.
 
     ```powershell
     Add-EflowVmSharedFolder -sharedFoldersJsonPath "C:\Shared\EFLOW-Shared\sharedFolders.json"
@@ -104,7 +104,7 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
     Connect-EflowVm
     ``` 
 
-1. Go to the _Read-Access_ shared folder (mounted under _/tmp/host-read-access_) and check the content of the _Hello-World.txt_ file.
+1. Go to the *Read-Access* shared folder (mounted under */tmp/host-read-access*) and check the content of the *Hello-World.txt* file.
     
     >[!NOTE]
     >By default, all shared folders are shared under *root* ownership. To access the folder, you should log in as root using `sudo su` or change the folder ownership to *iotedge-user* using `chown` command.
@@ -114,7 +114,7 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
     cd /tmp/host-read-access
     cat Hello-World.txt
     ```
-If everything was successful, you should be able to see the contents of the _Hello-World.txt_ file within the EFLOW virtual machine. Verify write access by creating a file inside the _/tmp/host-read-write-access_ and then checking the contents of the new created file inside the _Read-Write-Access_ Windows host folder. 
+If everything was successful, you should be able to see the contents of the *Hello-World.txt* file within the EFLOW virtual machine. Verify write access by creating a file inside the */tmp/host-read-write-access* and then checking the contents of the new created file inside the *Read-Write-Access* Windows host folder. 
 
 ## Check shared folders
 The following steps provide example EFLOW PowerShell commands to check the Windows shared folders and options (access permissions and mounting point) with the EFLOW virtual machine.
@@ -122,7 +122,7 @@ The following steps provide example EFLOW PowerShell commands to check the Windo
 1. Open an elevated PowerShell session by starting with **Run as Administrator**.
 
 1. List the information of the Windows shared folders under the *root folder*.
-    For example, using the scenario in the previous section, we can list the information of both _Read-Access_ and _Read-Write-Access_ shared folders. 
+    For example, using the scenario in the previous section, we can list the information of both *Read-Access* and *Read-Write-Access* shared folders. 
     ```powershell
     Get-EflowVmSharedFolder -sharedfolderRoot "C:\Shared\EFLOW-Shared" -hostFolderPath @("Read-Access", "Read-Write-Access")
     ``` 
@@ -135,7 +135,7 @@ The following steps provide example EFLOW PowerShell commands to stop sharing a 
 
 1. Open an elevated PowerShell session by starting with **Run as Administrator**.
 
-1. Stop sharing the folder named _Read-Access_ under the **Root folder** with the EFLOW virtual machine.
+1. Stop sharing the folder named *Read-Access* under the **Root folder** with the EFLOW virtual machine.
     ```powershell
     Remove-EflowVmSharedFolder -sharedfolderRoot "C:\Shared\EFLOW-Shared" -hostFolderPath "Read-Access"
     ``` 

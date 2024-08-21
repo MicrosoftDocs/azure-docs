@@ -1,6 +1,6 @@
 ---
 title: LUIS frequently asked questions
-description: Use this article to see frequently asked questions about LUIS, and troubleshooting information
+description: Use this article to see frequently asked questions about LUIS, and troubleshooting information.
 ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
@@ -30,24 +30,24 @@ Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#l
 
 ## What are Synonyms and word variations?
 
-LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they are used in similar contexts in the examples provided:
+LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they're used in similar contexts in the examples provided:
 
 * Buy
 * Buying
 * Bought
 
-For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md)
+For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md).
 
 ## What are the Authoring and prediction pricing?
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing. See [Resource usage and limits](luis-limits.md#resource-usage-and-limits)
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing. See [Resource usage and limits](luis-limits.md#resource-usage-and-limits).
 
 ## What are the supported regions?
 
-See [region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+See [region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ## How does LUIS store data?
 
-LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted.See [Data retention](luis-concept-data-storage.md) to know more details about data storage
+LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. See [Data retention](luis-concept-data-storage.md) for more details about data storage.
 
 ## Does LUIS support Customer-Managed Keys (CMK)?
 
@@ -59,7 +59,7 @@ Yes, it is good to train your  **None**  intent with utterances, especially as y
 
 ## How do I edit my LUIS app programmatically?
 
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](luis-how-to-azure-subscription.md).
+To edit your LUIS app programmatically, use the [Authoring API](/rest/api/luis/operation-groups). See [Call LUIS authoring API](get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](luis-how-to-azure-subscription.md).
 
 ## Should variations of an example utterance include punctuation?
 
@@ -71,7 +71,7 @@ Use one of the following solutions:
 
 ## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
+Enable or disable the use nondeterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 
@@ -115,7 +115,7 @@ To get the same top intent between all the apps, make sure the intent prediction
 
 When training these apps, make sure to [train with all data](how-to/train-test.md).
 
-Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md) website or the authoring API for a [single utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) or for a [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
+Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) website or the authoring API for a [single utterance](/rest/api/luis/examples/add) or for a [batch](/rest/api/luis/examples/batch?).
 
 Schedule a periodic review, such as every two weeks, of [endpoint utterances](how-to/improve-application.md) for active learning, then retrain and republish the app.
 

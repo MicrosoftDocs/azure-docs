@@ -3,7 +3,7 @@ title: Associate a Virtual Machine Scale Set with uniform orchestration to a Cap
 description: Learn how to associate a new or existing virtual machine scale with uniform orchestration set to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
@@ -121,8 +121,6 @@ To learn more, go to Azure PowerShell command [New-AzVmss](/powershell/module/az
 An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSrestON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
-
-If your environment meets the prerequisites and you are familiar with using ARM templates, use this [Create Virtual Machine Scale Sets with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineScaleSetWithReservation.json) template. 
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

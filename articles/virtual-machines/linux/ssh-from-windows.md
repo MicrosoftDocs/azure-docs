@@ -2,7 +2,7 @@
 title: Use SSH keys to connect to Linux VMs
 description: Learn how to generate and use SSH keys from a Windows computer to connect to a Linux virtual machine on Azure.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.date: 12/13/2021
 ms.topic: how-to
@@ -19,6 +19,9 @@ This article is for Windows users who want to [create](#create-an-ssh-key-pair) 
 
 
 To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
+
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 ## Overview of SSH and keys
 
@@ -38,6 +41,9 @@ Your public key can be shared with anyone, but only you (or your local security 
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
+> [!NOTE]
+> During preview, ED25519 keys can only be used with Linux VMs.
+
 ## SSH clients
 
 Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and use SSH keys and make SSH connections from PowerShell or a command prompt.
@@ -52,7 +58,7 @@ The easiest way to create and manage your SSH keys is to [use the portal to crea
 
 You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
-To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following command:
+To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, use the following command:
 
 ```powershell
 ssh-keygen -m PEM -t rsa -b 2048

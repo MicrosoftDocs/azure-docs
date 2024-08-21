@@ -34,8 +34,8 @@ If you can see a fired alert in the Azure portal, but didn't receive the email t
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
-    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User*. Make sure that you assigned the role at the subscription level, and not at the resource level or resource group level.
-
+    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User* or *Group*. Make sure that you assigned the role at the subscription level, and not at the resource level or resource group level.
+   
 1. **Are your email server and mailbox accepting external emails?**
 
     Verify that emails from these three addresses aren't blocked:
@@ -55,6 +55,8 @@ If you can see a fired alert in the Azure portal, but didn't receive the email t
    - The settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**
+   > [!NOTE]
+   > Keep in mind if you unsubscribe from an action group then all members from a distribution list will be unsubscribed as well. You can continue to use your distribution list email address. However, you will need to inform the users of your distribution list that if they unsubscribe, they are unsubscribing the whole distribution list rather than just themselves. A work around for this is to add the email address of all the users in the action group individually. One action group can contain up to 1000 email address. Then, if a specific user wants to unsubscribe, then they will be able to do so without affecting the other users. You will also be able to see which users have unsubscribed.
 
     The alert emails provide a link to unsubscribe from the action group. To check if you accidentally unsubscribed from this action group, either:
 
@@ -212,7 +214,7 @@ If you received a notification for an alert (such as an email or an SMS) more th
 
 ### **The `MetricValue` field contains "null" for resolved log search alert notifications.**
 
-   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-the-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there's no value that caused the alert to resolve, but rather elapsed time.
+   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there's no value that caused the alert to resolve, but rather elapsed time.
 
 ### The dimensions list is empty or alert title doesn't contain a dimension name
 

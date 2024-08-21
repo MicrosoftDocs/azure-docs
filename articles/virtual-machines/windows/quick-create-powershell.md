@@ -2,7 +2,7 @@
 title: Quickstart - Create a Windows VM with Azure PowerShell
 description: Learn how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 04/04/2023
@@ -29,7 +29,7 @@ To open the Cloud Shell, just select **Open Cloudshell** from the upper right co
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
+New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus'
 ```
 
 ## Create virtual machine
@@ -42,7 +42,7 @@ When prompted, provide a username and password to be used as the sign-in credent
 New-AzVm `
     -ResourceGroupName 'myResourceGroup' `
     -Name 'myVM' `
-    -Location 'East US' `
+    -Location 'eastus' `
     -Image 'MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest' `
     -VirtualNetworkName 'myVnet' `
     -SubnetName 'mySubnet' `

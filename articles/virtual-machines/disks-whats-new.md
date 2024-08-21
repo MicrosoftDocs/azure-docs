@@ -16,11 +16,14 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 ## Update summary
 
 - [What's new in 2024](#whats-new-in-2024)
-    - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
-        - [Generally available: Azure VM Backup support for Ultra Disks and Premium SSD v2](#generally-available-azure-vm-backup-support-for-ultra-disks-and-premium-ssd-v2)
-        - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
-        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
-        - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
+
+  - [Quarter 2 (April, May, June)](#quarter-2-april-may-june)
+    - [Generally available: New Property for Disks-LastOwnershipUpdateTime](#generally-available-new-property-for-disks-lastownershipupdatetime)
+  - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
+      - [Generally available: Azure VM Backup support for Ultra Disks and Premium SSD v2](#generally-available-azure-vm-backup-support-for-ultra-disks-and-premium-ssd-v2)
+      - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
+      - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
+      - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
 - [What's new in 2023](#whats-new-in-2023)
     - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
         - [Encryption at host GA for Premium SSD v2 and Ultra Disks](#encryption-at-host-ga-for-premium-ssd-v2-and-ultra-disks)
@@ -44,6 +47,12 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [GA: Entra ID support for managed disks](#ga-entra-id-support-for-managed-disks)
 
 ## What's new in 2024
+
+### Quarter 2 (April, May, June)
+
+#### Generally Available: New Property for Disks-LastOwnershipUpdateTime
+
+We are excited to introduce a new property for disks in the Azure Portal, Azure PowerShell module, and Azure CLI. This property, `LastOwnershipUpdateTime`, reflects the time when a disk’s state was last changed. This property can be used with the `diskState` to identify the current state of a disk, and when it was last updated. For more information, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
 
 ### Quarter 1 (January, February, March)
 

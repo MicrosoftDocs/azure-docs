@@ -1,7 +1,7 @@
 ---
 title: Import utterances using Node.js - LUIS
 titleSuffix: Azure AI services
-description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
+description: Learn how to build a LUIS app programmatically from pre-existing data in CSV format using the LUIS Authoring API.
 #services: cognitive-services
 ms.author: aahi
 author: aahill
@@ -28,12 +28,12 @@ LUIS provides a programmatic API that does everything that the [LUIS](luis-refer
 * Sign in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-how-to-azure-subscription.md) in Account Settings. You use this key to call the Authoring APIs.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 * This article starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
+* Install the latest Node.js version. Download it from [here](https://nodejs.org/en/download/).
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
 All of the code in this article is available on the [Azure-Samples Language Understanding GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
 
-## Map preexisting data to intents and entities
+## Map pre-existing data to intents and entities
 Even if you have a system that wasn't created with LUIS in mind, if it contains textual data that maps to different things users want to do, you might be able to come up with a mapping from the existing categories of user input to intents in LUIS. If you can identify important words or phrases in what the users said, these words might map to entities.
 
 Open the [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. It contains a log of user queries to a hypothetical home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them.
@@ -111,7 +111,7 @@ The following code adds the entities to the LUIS app. Copy or [download](https:/
 
 
 ## Add utterances
-Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API, which allows you to add up to 100 utterances at a time.  Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_upload.js`.
+Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](/rest/api/luis/examples/batch) API, which allows you to add up to 100 utterances at a time.  Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 
@@ -120,7 +120,7 @@ Once the entities and intents have been defined in the LUIS app, you can add the
 
 
 ### Install Node.js dependencies
-Install the Node.js dependencies from NPM in the terminal/command line.
+Install the Node.js dependencies in the terminal/command line.
 
 ```console
 > npm install
@@ -147,7 +147,7 @@ Run the script from a terminal/command line with Node.js.
 > node index.js
 ```
 
-or
+Or
 
 ```console
 > npm start
@@ -189,12 +189,12 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 
 ## Next steps
 
-[Test and train your app in LUIS website](how-to/train-test.md)
+[Test and train your app in LUIS website](how-to/train-test.md).
 
 ## Additional resources
 
 This sample application uses the following LUIS APIs:
-- [create app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [add intents](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e)
-- [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
+- [create app](/rest/api/luis/apps/add)
+- [add intents](/rest/api/luis/features/add-intent-feature)
+- [add entities](/rest/api/luis/features/add-entity-feature)
+- [add utterances](/rest/api/luis/examples/add)

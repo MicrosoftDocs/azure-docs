@@ -4,8 +4,8 @@ description: Learn how to prepare Linux in Edge Storage Accelerator using AKS en
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 04/08/2024
-
 ---
 
 # Prepare Linux (preview)
@@ -18,7 +18,7 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 ## Prerequisites
 
 > [!NOTE]
-> Edge Storage Accelerator is only available in the following regions: East US 2, West US 3, West Europe.
+> Edge Storage Accelerator is only available in the following regions: East US, East US 2, West US 3, West Europe.
 
 ### Arc-connected Kubernetes cluster
 

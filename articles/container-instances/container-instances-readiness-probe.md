@@ -4,7 +4,7 @@ description: Learn how to configure a probe to ensure containers in Azure Contai
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom:
 services: container-instances
 ms.date: 06/17/2022

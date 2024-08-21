@@ -3,7 +3,7 @@ title: 'Make the D: drive of a VM a data disk '
 description: 'Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.'
 services: virtual-machines
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.subservice: disks
 ms.topic: how-to
@@ -22,7 +22,7 @@ If you resize or **Stop (Deallocate)** a virtual machine, this may trigger place
 For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ## Attach the data disk
-First, you'll need to attach the data disk to the virtual machine. To do this using the portal, see [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.md).
+First, you'll need to attach the data disk to the virtual machine. To do this using the portal, see [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.yml).
 
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 
@@ -56,4 +56,4 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching an additional data disk](attach-managed-disk-portal.md).
+* You can increase the storage available to your virtual machine by [attaching an additional data disk](attach-managed-disk-portal.yml).

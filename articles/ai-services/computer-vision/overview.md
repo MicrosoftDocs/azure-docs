@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
 ms.custom:
   - ignite-2023
@@ -17,8 +17,6 @@ keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 ---
 
 # What is Azure AI Vision?
-
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 Azure's Azure AI Vision service gives you access to advanced algorithms that process images and return information based on the visual features you're interested in. 
 

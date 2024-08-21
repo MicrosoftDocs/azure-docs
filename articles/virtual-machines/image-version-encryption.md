@@ -2,7 +2,7 @@
 title: Create an encrypted image version with customer-managed keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/22/2023
@@ -18,13 +18,13 @@ Images in an Azure Compute Gallery (formerly known as Shared Image Gallery) are 
 
 You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both of these features together for doubled encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
-Server-side encryption through customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](../key-vault/keys/hsm-protected-keys.md) to your key vault or generate new RSA keys in Azure Key Vault.
+Server-side encryption through customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](/azure/key-vault/keys/hsm-protected-keys) to your key vault or generate new RSA keys in Azure Key Vault.
 
 ## Prerequisites
 
 This article requires that you already have a disk encryption set in each region where you want to replicate your image:
 
-- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
+- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.yml) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
 
 - To use both platform-managed and customer-managed keys (for double encryption), see the articles about enabling double encryption at rest by using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 

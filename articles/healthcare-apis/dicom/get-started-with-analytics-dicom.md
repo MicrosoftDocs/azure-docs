@@ -3,8 +3,8 @@ title: Get started using DICOM data in analytics workloads - Azure Health Data S
 description: Learn how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
 services: healthcare-apis
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: quickstart
 ms.date: 10/13/2023
 ms.author: mmitrik

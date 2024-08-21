@@ -42,7 +42,7 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |Power| Dual, Hot-Plug, Redundant Power Supply (1+1), 600 W|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R350 - Bill of Materials
+## Dell PowerEdge R350 - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|

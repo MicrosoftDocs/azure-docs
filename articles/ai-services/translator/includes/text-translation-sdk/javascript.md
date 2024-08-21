@@ -72,12 +72,12 @@ To interact with the Translator service using the client library, you need to cr
 ## Code sample
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, see Azure AI services [security](../../../../ai-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, see Azure AI services [security](../../../../ai-services/security-features.md).
 
 **Translate text**
 
   > [!NOTE]
-  > In this example we are using a regional endpoint. If you're using the global endpoint, see [Create a Text Translation client](../../create-translator-resource.md#create-a-text-translation-client).
+  > In this example we are using a regional endpoint. If you're using the global endpoint, see [Create a Text Translation client](../../create-translator-resource.yml#create-a-text-translation-client).
 
 ```javascript
 const TextTranslationClient = require("@azure-rest/ai-translation-text").default

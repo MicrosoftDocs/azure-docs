@@ -2,10 +2,10 @@
 title: Attach a Kubernetes cluster to Azure Machine Learning workspace
 description: Learn about how to attach a Kubernetes cluster
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/18/2024
 ms.topic: how-to
@@ -51,6 +51,7 @@ Otherwise, if a [user-assigned managed identity is specified in Azure Machine Le
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
 |Kubernetes - Azure Arc or Azure Kubernetes Service|Reader <br> Kubernetes Extension Contributor <br> Azure Kubernetes Service Cluster Admin |Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
+|Azure Kubernetes Service|Contributor|Required only for AKS clusters that use the Trusted Access feature. The workspace uses user-assigned managed identity. See [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md) for details.|
 
 
 > [!TIP]
@@ -176,7 +177,7 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
 
 ### Assign Azure roles to managed identity
 Azure offers a couple of ways to assign roles to a managed identity.
-- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.md)
+- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.yml)
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 

@@ -13,7 +13,7 @@ ms.date: 04/18/2023
 
 To create a cluster with the Azure Linux Container Host, you will use:
 1. Azure resource groups, a logical container into which Azure resources are deployed and managed.
-1. [Azure Kubernetes Service (AKS)](../../articles/aks/intro-kubernetes.md), a hosted Kubernetes service that allows you to quickly create a production ready Kubernetes cluster.
+1. [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), a hosted Kubernetes service that allows you to quickly create a production ready Kubernetes cluster.
 
 In this tutorial, part one of five, you will learn how to:
 
@@ -27,7 +27,7 @@ In later tutorials, you'll learn how to add an Azure Linux node pool to an exist
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## 1 - Install the Kubernetes CLI

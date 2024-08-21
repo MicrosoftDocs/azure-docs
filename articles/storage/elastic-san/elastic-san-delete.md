@@ -1,10 +1,10 @@
 ---
 title: Delete an Azure Elastic SAN
-description: Learn how to delete an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or the Azure CLI.
+description: Learn how to delete an Azure Elastic SAN and its resources with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

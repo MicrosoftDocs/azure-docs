@@ -1,20 +1,20 @@
 ---
 title: OData language overview
 titleSuffix: Azure AI Search
-description: OData language overview for filters, select, and order-by for Azure AI Search queries.
+description: OData language overview for filters, select, and order-by for Azure AI Search keyword search.
 
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 08/19/2024
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure AI Search
 
-This article provides an overview of the OData expression language used in $filter, $order-by, and $select expressions in Azure AI Search. The language is presented "bottom-up" starting with the most basic elements. The OData expressions that you can construct in a query request range from simple to highly complex, but they all share common elements. Shared elements include:
+This article provides an overview of the OData expression language used in `$filter`, `$order-by`, and `$select` expressions for keyword search in Azure AI Search over numeric and string (nonvector) fields. 
+
+The language is presented "bottom-up" starting with the most basic elements. The OData expressions that you can construct in a query request range from simple to highly complex, but they all share common elements. Shared elements include:
 
 + **Field paths**, which refer to specific fields of your index.
 + **Constants**, which are literal values of a certain data type.
@@ -27,6 +27,8 @@ Once you understand these common concepts, you can continue with the top-level s
 
 The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
+For examples in other languages such as Python or C#, see the examples in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
+
 > [!NOTE]
 > Terminology in Azure AI Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure AI Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure AI Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure AI Search terminology is used throughout this reference.
 
@@ -36,7 +38,7 @@ The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Ex
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
-```
+```odata
 field_path ::= identifier('/'identifier)*
 
 identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
@@ -95,9 +97,9 @@ Field paths are used in many parameters of the [Azure AI Search REST APIs](/rest
 
 ## Constants
 
-Constants in OData are literal values of a given [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure AI Search. Constants of collection types aren't supported.
+Constants in OData are literal values of a given [Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure AI Search. Constants of collection types aren't supported.
 
-The following table shows examples of constants for each of the data types supported by Azure AI Search:
+The following table shows examples of constants for each of the nonvector data types that support OData expressions:
 
 | Data type | Example constants |
 | --- | --- |
@@ -125,7 +127,7 @@ The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Ex
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
-```
+```odata
 constant ::=
     string_literal
     | date_time_offset_literal
@@ -195,13 +197,13 @@ An interactive syntax diagram is also available:
 
 Field paths and constants are the most basic part of an OData expression, but they're already full expressions themselves. In fact, the **$select** parameter in Azure AI Search is nothing but a comma-separated list of field paths, and **$orderby** isn't much more complicated than **$select**. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
 
-However, most of the time you'll need more complex expressions that refer to more than one field and constant. These expressions are built in different ways depending on the parameter.
+However, it's more common to have complex expressions that refer to more than one field and constant. These expressions are built in different ways depending on the parameter.
 
 The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for the **$filter**, **$orderby**, and **$select** parameters. These are built up from simpler expressions that refer to field paths and constants:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
-```
+```odata
 filter_expression ::= boolean_expression
 
 order_by_expression ::= order_by_clause(',' order_by_clause)*

@@ -4,10 +4,10 @@ description: Learn how to deploy, upgrade, or delete a Service Fabric applicatio
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 05/24/2023
+ms.date: 06/14/2024
 ---
 
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
@@ -27,6 +27,9 @@ In this document, you will learn how to:
 > * Deploy service fabric application resources by using Resource Manager.
 > * Upgrade service fabric application resources by using Resource Manager.
 > * Delete service fabric application resources.
+
+> [!NOTE]
+> This document is part four of a four-part tutorial series, beginning with [deploying a Service Fabric managed cluster](tutorial-managed-cluster-deploy.md). As such, it's expected that you deployed your cluster before this step. However, if you intend to deploy your cluster and application together, in the same ARM or Bicep template, know that `versions` must have a dependency on `nodeType`. Otherwise, the deployment fails.
 
 ## Deploy Service Fabric application resources
 

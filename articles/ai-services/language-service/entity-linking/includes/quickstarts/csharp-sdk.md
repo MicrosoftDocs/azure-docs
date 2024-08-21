@@ -8,9 +8,9 @@ ms.date: 12/19/2023
 ms.author: jboback
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [More samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 
-Use this quickstart to create an entity linking application with the client library for .NET. In the following example, you will create a C# application that can identify and disambiguate entities found in text.
+Use this quickstart to create an entity linking application with the client library for .NET. In the following example, you create a C# application that can identify and disambiguate entities found in text.
 
 [!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
@@ -18,14 +18,19 @@ Use this quickstart to create an entity linking application with the client libr
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, select **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
-
 
 
 ## Setting up
+
+[!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
+
+
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
 ### Create a new .NET Core application
 
@@ -37,9 +42,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code. 
-
-[!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
+Copy the following code into your *program.cs* file and run the code. 
 
 ```csharp
 using Azure;
@@ -51,8 +54,12 @@ namespace EntityLinkingExample
 {
     class Program
     {
-        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
+        // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+        static string languageKey = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential(languageKey);
+        private static readonly Uri endpoint = new Uri(languageEndpoint);
         
         // Example method for recognizing entities and providing a link to an online data source.
         static void EntityLinkingExample(TextAnalyticsClient client)

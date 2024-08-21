@@ -1,22 +1,22 @@
 ---
 title: Security in HDInsight on AKS
 description: An introduction to security with managed identity from Microsoft Entra ID in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 05/11/2024
 ---
 
 # Overview of enterprise security in Azure HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Azure HDInsight on AKS offers is secure by default, and there are several methods to address your enterprise security needs. Most of these solutions are activated by default. 
+Azure HDInsight on AKS offers security by default, and there are several methods to address your enterprise security needs.
 
 This article covers overall security architecture, and security solutions by dividing them into four traditional security pillars: perimeter security, authentication, authorization, and encryption.
 
 ## Security architecture
 
-Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](../key-vault/general/basic-concepts.md), defined by the customer. This makes the setup robust and secure by default.
+Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](/azure/key-vault/general/basic-concepts), defined by the customer. This feature makes the setup robust and secure by default.
 
 The below diagram illustrates a high-level technical architecture of security in HDInsight on AKS. 
 
@@ -64,13 +64,12 @@ The above roles are from the ARM operations perspective. For more information, s
 
 You can allow users, service principals, managed identity to access the cluster through portal or using ARM. 
 
-This access enables you to
-
-* View clusters and manage jobs.
+This access enables
+* View clusters, and manage jobs.
 * Perform all the monitoring and management operations.
 * Perform auto scale operations and update the node count.
   
-The access won't be provided for
+The access not provided for
 * Cluster deletion
 
 :::image type="content" source="./media/concept-security/cluster-access.png" alt-text="Screenshot showing the cluster data access." border="true" lightbox="./media/concept-security/cluster-access.png":::

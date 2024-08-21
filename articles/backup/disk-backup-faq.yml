@@ -3,7 +3,7 @@ metadata:
   title: Frequently asked questions about Azure Disk Backup
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 08/23/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
@@ -46,7 +46,7 @@ sections:
       - question: |
           Why does backup policy limit the retention duration?
         answer: |
-          Azure Disk Backup uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
+          Azure Disk Backup uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
           
       - question: |
           How does the hourly and daily backup frequency work in the backup policy?
@@ -92,6 +92,11 @@ sections:
           What is a target resource group?
         answer: |
           During a restore operation, you can choose the subscription and a resource group where you want to restore the disk to. Azure Backup will create new disks from the recovery point in the selected resource group. This is referred to as a target resource group. Note that the Backup vault's managed identity requires the role assignment on the target resource group to be able to perform restore operation successfully. For more information, see the [restore documentation](restore-managed-disks.md).
+          
+      - question: |
+          What is the maximum delay I can expect in backup start time from the scheduled backup time for the Disk Backup?
+        answer: |
+          Scheduled Backups are performed within a 2-hour window from the time scheduled as per the backup policy. Thus, you can expect a maximum delay of 2 hours in backup start time from the scheduled backup time for the Disk Backup.
           
       - question: |
           What are the permissions used by Azure Backup during backup and restore operation?

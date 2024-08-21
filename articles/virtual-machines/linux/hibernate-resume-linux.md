@@ -2,12 +2,12 @@
 title: Learn about hibernating your Linux virtual machine
 description: Learn how to hibernate a Linux virtual machine.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 05/20/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Hibernating Linux virtual machines
@@ -32,6 +32,8 @@ The following Linux operating systems support hibernation:
 - Ubuntu 18.04 LTS
 - Debian 11
 - Debian 10 (with backports kernel)
+- RHEL 9.0 and higher (with minimum kernel version 5.14.0-70)
+- RHEL 8.3 and higher (with minimum kernel version 4.18.0.240)
 
 ### Prerequisites and configuration limitations
 -	Hibernation isn't supported with Trusted Launch for Linux VMs  
@@ -40,7 +42,7 @@ For general limitations, Azure feature limitations supported VM sizes, and featu
 
 ## Creating a Linux VM with hibernation enabled
 
-To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM on initial creation. You can't enable this feature after the VM is created.
+To hibernate a VM, you must first enable the feature on the VM.
 
 To enable hibernation during VM creation, you can use the Azure portal, CLI, PowerShell, ARM templates and API. 
 
@@ -48,7 +50,7 @@ To enable hibernation during VM creation, you can use the Azure portal, CLI, Pow
 
 To enable hibernation in the Azure portal, check the 'Enable hibernation' box during VM creation.
 
-![Screenshot of the checkbox in the Azure portal to enable hibernation while creating a new Linux VM.](../media/hibernate-resume/hibernate-enable-during-vm-creation.png)
+![Screenshot of the checkbox in the Azure portal to enable hibernation while creating a new Linux VM.](../media/hibernate-resume/create-vm-with-hibernation-enabled.png)
 
 
 ### [CLI](#tab/enableWithCLI)
@@ -58,7 +60,7 @@ To enable hibernation in the Azure CLI, create a VM by running the following [az
 ```azurecli
  az vm create --resource-group myRG \
    --name myVM \
-   --image Win2019Datacenter \
+   --image Ubuntu2204 \
    --public-ip-sku Standard \
    --size Standard_D2s_v5 \
    --enable-hibernation true 
@@ -78,21 +80,19 @@ New-AzVm `
  -SecurityGroupName 'myNetworkSecurityGroup' ` 
  -PublicIpAddressName 'myPublicIpAddress' ` 
  -Size Standard_D2s_v5 ` 
- -Image Win2019Datacenter ` 
+ -Image 'imageName' ` 
  -HibernationEnabled ` 
  -OpenPorts 80,3389 
 ```
 
 ### [REST](#tab/enableWithREST)
 
-First, [create a VM with hibernation enabled](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+To create a VM with hibernation enabled, set *hibernationEnabled* to `true`.
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
-```
-Your output should look something like this:
 
-```
+
 {
   "location": "eastus",
   "properties": {
@@ -101,43 +101,6 @@ Your output should look something like this:
     },
     "additionalCapabilities": {
       "hibernationEnabled": true
-    },
-    "storageProfile": {
-      "imageReference": {
-        "publisher": "MicrosoftWindowsServer",
-        "offer": "WindowsServer",
-        "sku": "2019-Datacenter",
-        "version": "latest"
-      },
-      "osDisk": {
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "vmOSdisk",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "{vm-name}",
-      "adminPassword": "{your-password}"
-    },
-    "diagnosticsProfile": {
-      "bootDiagnostics": {
-        "storageUri": "http://{existing-storage-account-name}.blob.core.windows.net",
-        "enabled": true
-      }
     }
   }
 }
@@ -148,6 +111,80 @@ To learn more about REST, check out an [API example](/rest/api/compute/virtual-m
 ---
 
 Once you've created a VM with hibernation enabled, you need to configure the guest OS to successfully hibernate your VM. 
+
+## Enabling hibernation on an existing Linux VM 
+
+To enable hibernation on an existing VM, you can use Azure CLI, PowerShell, or REST API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. For more information, see [supported OS versions](hibernate-resume-linux.md#supported-linux-distros).
+
+
+
+### [CLI](#tab/enableWithCLIExisting)
+
+To enable hibernation on an existing VM using Azure CLI, first deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM.
+
+1. Update the OS disk to set *supportsHibernation* to `true`. If *supportsHibernation* is already set to `true`, you can skip this step and proceed to the next step.
+
+    ```azurecli
+       az disk update --resource-group myResourceGroup \
+       --name MyOSDisk \   
+       --set supportsHibernation=true 
+    ```
+
+1. Update the VM to enable hibernation.
+
+   ```azurecli
+      az vm update --resource-group myResourceGroup \
+      --name myVM \
+      --enable-hibernation true 
+   ```
+1. Start the VM and then proceed to configuring hibernation in the guest OS.
+
+   ```azurecli
+      az vm start --resource-group myResourceGroup \
+      --name myVM \      
+   ```
+
+### [PowerShell](#tab/enableWithPSExisting)
+
+1. To enable hibernation on an existing VM using Azure PowerShell, first stop your VM with [Stop-Az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM. 
+
+   ```powershell
+   Stop-AzVM `
+    -ResourceGroupName 'myResourceGroup' ` 
+    -Name 'myVM'
+   ```
+
+ 1. Once the VM is stopped, update the OS disk to set *SupportsHibernation* to `true`. If *SupportsHibernation* is already set to `true`, you can skip this step and proceed to the next step.
+
+    ```powershell
+    $disk = Get-AzDisk `
+       -ResourceGroupName "myResourceGroup" `
+       -DiskName "myOSDisk"
+    $disk.SupportsHibernation = $True
+    Update-AzDisk `
+      -ResourceGroupName ‘myResourceGroup' `
+      -DiskName 'myOSDisk' `
+      -Disk $disk
+    ```
+1. Enable hibernation on the VM.
+
+   ```powershell
+   $vm= Get-AzVM `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM"
+   Update-AzVM `
+     -ResourceGroupName "myResourceGroup" `
+     -VM $vm `
+     -HibernationEnabled
+   ```
+1. Start the VM and then proceed to configuring hibernation in the guest OS.
+
+   ```powershell
+   Start-AzVM `
+    -ResourceGroupName 'myResourceGroup' ` 
+    -Name 'myVM'
+   ```
+---
 
 ## Configuring hibernation in the guest OS
 
@@ -169,9 +206,12 @@ If the extension is missing, you can [manually install the LinuxHibernateExtensi
 >[!NOTE]
 > Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the Linux hibernation troubleshooting guide](../linux/hibernate-resume-troubleshooting-linux.md#azure-extensions-disabled-on-debian-images).
 
+>[!NOTE]
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](expand-disks.md?tabs=rhellvm#increase-the-size-of-the-os-disk).
+
 #### [CLI](#tab/cliLHE)
     
-To install LinuxHibernateExtension with the Azure CLI, run the following command:
+To install *LinuxHibernateExtension* with the Azure CLI, run the following command:
 
 ```azurecli
 az vm extension set -n LinuxHibernateExtension --publisher Microsoft.CPlat.Core --version 1.0 \    --vm-name MyVm --resource-group MyResourceGroup --enable-auto-upgrade true
@@ -195,21 +235,9 @@ You can install the hibernation-setup-tool package on your Linux VM from Microso
 
 To use the Linux software repository, follow the instructions at [Linux package repository for Microsoft software](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software#ubuntu).
 
-#### [Ubuntu 18.04 (Bionic)](#tab/Ubuntu18HST) 
+#### [Debian/Ubuntu](#tab/Ubuntu20HST) 
 
-To use the repository in Ubuntu 18.04, open git bash and run this command:
-
-```bash
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-
-sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
-
-sudo apt-get update
-```
-
-#### [Ubuntu 20.04 (Focal)](#tab/Ubuntu20HST) 
-
-To use the repository in Ubuntu 20.04, open git bash and run this command:
+To use the hibernation-setup-tool in Debian and Ubuntu versions, open git bash and run this command:
 
 ```bash
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee etc/apt/trusted.gpg.d/microsoft.asc
@@ -218,13 +246,32 @@ sudo apt-add-repository https://packages.microsoft.com/ubuntu/20.04/prod
 
 sudo apt-get update
 ```
----
-
 
 To install the package, run this command in git bash:
 ```bash
 sudo apt-get install hibernation-setup-tool
 ```
+
+
+#### [RHEL](#tab/RHELHST) 
+
+To use the hibernation-setup-tool in RHEL versions, run this command:
+
+```bash
+curl -sSL -O https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm
+
+sudo rpm -i packages-microsoft-prod.rpm
+
+rm packages-microsoft-prod.rpm
+
+sudo dnf update
+
+sudo dnf install hibernation-setup-tool
+```
+---
+
+>[!NOTE]
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](expand-disks.md?tabs=rhellvm#increase-the-size-of-the-os-disk).
 
 Once the package installs successfully, your Linux guest OS is configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, simplifying your VM creation experience. 
 

@@ -2,7 +2,7 @@
 title: Create an Azure Compute Gallery for sharing resources
 description: Learn how to create an Azure Compute Gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 03/23/2023
@@ -186,14 +186,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <a name=community></a>
 ## Create a community gallery
 
-A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery is the prefix you provide, plus a unique GUID.
-
-During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
-
-> [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users.
+A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery is the prefix you provide, plus a unique GUID. Make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
 When creating an image to share with the community, you need to provide contact information. This information is shown **publicly**, so be careful when providing:
 - Community gallery prefix

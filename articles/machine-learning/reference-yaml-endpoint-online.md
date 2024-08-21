@@ -3,16 +3,15 @@ title: 'Online endpoints YAML reference'
 titleSuffix: Azure Machine Learning
 description: Learn about the YAML files used to deploy models as online endpoints
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: cliv2
 
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 11/15/2023
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: sehan
 ---
 
 # CLI (v2) online endpoint YAML schema
@@ -34,7 +33,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined under [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).| | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure Machine Learning token-based authentication are supported. Key-based authentication doesn't expire but Azure Machine Learning token-based authentication does. | `key`, `aml_token` | `key` |
+| `auth_mode` | string | The authentication method for invoking the endpoint (data plane operation). Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. Use `aad_token` for Microsoft Entra token-based authentication (preview). | `key`, `aml_token`, `aad_token` | `key` |
 | `compute` | string | Name of the compute target to run the endpoint deployments on. This field is only applicable for endpoint deployments to Azure Arc-enabled Kubernetes clusters (the compute target specified in this field must have `type: kubernetes`). Don't specify this field if you're doing managed online inference. | | |
 | `identity` | object | The managed identity configuration for accessing Azure resources for endpoint provisioning and inference. | | |
 | `identity.type` | string | The type of managed identity. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |

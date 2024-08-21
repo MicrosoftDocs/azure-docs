@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 08/14/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -17,7 +17,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
@@ -61,7 +61,7 @@ By default, the following users can view and manage reservations:
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
@@ -107,19 +107,19 @@ We don’t allow changing billing frequency after a reservation is purchased. If
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -AppliedScopeType Single -AppliedScope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     ```
 
 ## Cancel, exchange, or refund reservations

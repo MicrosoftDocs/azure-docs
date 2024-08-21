@@ -3,7 +3,7 @@ title: Create, change, or delete an Azure network interface
 titlesuffix: Azure Virtual Network
 description: Learn how to create, delete, and view and change settings for network interfaces by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/20/2023
@@ -211,7 +211,7 @@ You can configure the following settings for a NIC:
 >
 >The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC changes. For more information, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## View network interface settings
 
@@ -610,7 +610,7 @@ $nic | Set-AzNetworkInterface
 
 You can delete a NIC if it's not attached to a VM. If the NIC is attached to a VM, you must first stop and deallocate the VM, then detach the NIC. 
 
-To detach the NIC from the VM, complete the steps in [Remove a network interface from a VM](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM. 
+To detach the NIC from the VM, complete the steps in [Remove a network interface from a VM](virtual-network-network-interface-vm.yml#remove-a-network-interface-from-a-vm). A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM. 
 
 # [Portal](#tab/azure-portal)
 
@@ -711,7 +711,7 @@ For other network interface tasks, see the following articles:
 |Task|Article|
 |----|-------|
 |Add, change, or remove IP addresses for a network interface.|[Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md)|
-|Add or remove network interfaces for VMs.|[Add network interfaces to or remove network interfaces from virtual machines](virtual-network-network-interface-vm.md)|
+|Add or remove network interfaces for VMs.|[Add network interfaces to or remove network interfaces from virtual machines](virtual-network-network-interface-vm.yml)|
 |Create a VM with multiple NICs|- [How to create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Create and manage a Windows virtual machine that has multiple NICs](/azure/virtual-machines/windows/multiple-nics)|
 |Create a single NIC VM with multiple IPv4 addresses.|- [Assign multiple IP addresses to virtual machines by using the Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md)<br>- [Assign multiple IP addresses to virtual machines by using Azure PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Create a single NIC VM with a private IPv6 address behind Azure Load Balancer.|- [Create a public load balancer with IPv6 by using Azure CLI](/azure/load-balancer/load-balancer-ipv6-internet-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Create an internet facing load balancer with IPv6 by using PowerShell](/azure/load-balancer/load-balancer-ipv6-internet-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Deploy an internet-facing load-balancer solution with IPv6 by using a template](/azure/load-balancer/load-balancer-ipv6-internet-template?toc=%2fazure%2fvirtual-network%2ftoc.json)|

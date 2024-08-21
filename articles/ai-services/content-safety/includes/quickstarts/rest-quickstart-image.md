@@ -14,7 +14,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
@@ -27,25 +27,13 @@ The following section walks through a sample image moderation request with cURL.
 
 Choose a sample image to analyze, and download it to your device. 
 
-We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. If your format is animated, we'll extract the first frame to do the detection.
+We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 7,200 x 7,200 pixels. If your format is animated, we'll extract the first frame to do the detection.
 
 You can input your image by one of two methods: **local filestream** or **blob storage URL**.
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
 - **Blob storage URL**: Upload your image to an Azure Blob Storage account. Follow the [blob storage quickstart](/azure/storage/blobs/storage-quickstart-blobs-portal) to learn how to do this. Then open Azure Storage Explorer and get the URL to your image. Save it to a temporary location. 
 
-   Next, you need to give your Content Safety resource access to read from the Azure Storage resource. Enable system-assigned Managed identity for the Azure AI Content Safety instance and assign the role of **Storage Blob Data Contributor/Owner/Reader** to the identity:
-   
-   1. Enable managed identity for the Azure AI Content Safety instance. 
-
-      :::image type="content" source="../../media/role-assignment.png" alt-text="Screenshot of Azure portal enabling managed identity.":::
-
-   1. Assign the role of **Storage Blob Data Contributor/Owner/Reader** to the Managed identity. Any roles highlighted below should work.
-
-      :::image type="content" source="../../media/add-role-assignment.png" alt-text="Screenshot of the Add role assignment screen in Azure portal.":::
-
-      :::image type="content" source="../../media/assigned-roles.png" alt-text="Screenshot of assigned roles in the Azure portal.":::
-
-      :::image type="content" source="../../media/managed-identity-role.png" alt-text="Screenshot of the managed identity role.":::
+   [!INCLUDE [storage-account-access](../storage-account-access.md)]
 
 ### Analyze image content
 
@@ -63,9 +51,7 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
   "image": {
     "content": "<base_64_string>"
   },
-  "categories": [
-    "Hate", "SelfHarm", "Sexual", "Violence"
-  ],
+  "categories": ["Hate", "SelfHarm", "Sexual", "Violence"],
   "outputType": "FourSeverityLevels"
 }'
 ```
@@ -75,9 +61,9 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 >
 > ```
 > {
->  "image": {
->    "blobUrl": "<your_storage_url>"
->  }
+>   "image": {
+>     "blobUrl": "<your_storage_url>"
+>   }
 > }
 > ```
 
@@ -93,9 +79,9 @@ The parameters in the request body are defined in this table:
 
 | Name        | Required?     | Description  | Type    |
 | :---------- | ----------- | :------------ | ------- |
-| **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request is refused. The maximum allowed size of the image is 2048 pixels x 2048 pixels, and the maximum file size is 4 MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
+| **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request is refused. The maximum allowed size of the image is 7,200 x 7,200 pixels, and the maximum file size is 4 MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
 | **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
-| **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels. The value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
+| **outputType** | Optional | Image moderation API only supports `"FourSeverityLevels"`. Output severities in four levels. The value can be `0,2,4,6` | String|
 
 ### Output
 
@@ -103,24 +89,24 @@ You should see the image moderation results displayed as JSON data in the consol
 
 ```json
 {
-    "categoriesAnalysis": [
-        {
-            "category": "Hate",
-            "severity": 2
-        },
-        {
-            "category": "SelfHarm",
-            "severity": 0
-        },
-        {
-            "category": "Sexual",
-            "severity": 0
-        },
-        {
-            "category": "Violence",
-            "severity": 0
-        }
-    ]
+  "categoriesAnalysis": [
+    {
+      "category": "Hate",
+      "severity": 2
+    },
+    {
+      "category": "SelfHarm",
+      "severity": 0
+    },
+    {
+      "category": "Sexual",
+      "severity": 0
+    },
+    {
+      "category": "Violence",
+      "severity": 0
+    }
+  ]
 }
 ```
 

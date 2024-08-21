@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Use a quickstart Azure Resource Manager template (ARM template) to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: quickstart
 ms.date: 09/20/2022
 ms.author: victorh
@@ -16,9 +16,9 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickst
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Web Application Firewall (WAF) v2 on Azure Application Gateway.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, you can select the **Deploy to Azure** button to open the template in the Azure portal.
 

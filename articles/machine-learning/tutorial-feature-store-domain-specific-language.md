@@ -3,14 +3,14 @@ title: "Tutorial 7: Develop a feature set using Domain Specific Language (previe
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is part 7 of the managed feature store tutorial series.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 03/29/2024
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -68,7 +68,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
    1. Run the tutorial
 
       * Option 1: Create a new notebook, and execute the instructions in this document, step by step
-      * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb`. You can keep this document open, and refer to it for more explanation and documentation links
+      * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb`. You can keep this document open, and refer to it for more explanation and documentation links
 
    1. To configure the notebook environment, you must upload the `conda.yml` file
 
@@ -92,7 +92,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. This code cell sets up the root directory for the samples and starts the Spark session. It needs about 10 minutes to install all the dependencies and start the Spark session:
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=setup-root-dir)]
 
 ## Provision the necessary resources
 
@@ -120,7 +120,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
       * Option 2: Create a feature store using the Python SDK
          Provide `featurestore_name`, `featurestore_resource_group_name`, and `featurestore_subscription_id` values, and execute this cell to create a minimal feature store:
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=create-min-fs)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=create-min-fs)]
 
    1. Assign permissions to your user identity on the offline store:
 
@@ -130,7 +130,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
       1. You'll see the list of feature stores that you have access to. Select the feature store that you created above
       1. Select the storage account link under **Account name** on the **Offline materialization store** card, to navigate to the ADLS Gen2 storage account for the offline store
          :::image type="content" source="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" lightbox="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" alt-text="This screenshot shows the storage account link for the offline materialization store on the feature store UI.":::
-      1. Visit [this resource](../role-based-access-control/role-assignments-portal.md) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
+      1. Visit [this resource](../role-based-access-control/role-assignments-portal.yml) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
 
 ## Available DSL expressions and benchmarks
 
@@ -158,25 +158,25 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. Execute this code cell to create a feature set specification, using DSL expressions and parquet files as source data.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=create-dsl-parq-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=create-dsl-parq-fset)]
 
    1. This code cell defines the start and end times for the feature window.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=define-feat-win)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=define-feat-win)]
 
    1. This code cell uses `to_spark_dataframe()` to get a dataframe in the defined feature window from the above feature set specification defined using DSL expressions:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=sparkdf-dsl-parq)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=sparkdf-dsl-parq)]
 
    1. Print some sample feature values from the feature set defined with DSL expressions:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=display-dsl-parq)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=display-dsl-parq)]
 
 ## Create a feature set specification using UDF
 
    1. Create a feature set specification that uses UDF to perform the same transformations:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=create-udf-parq-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=create-udf-parq-fset)]
 
       This transformation code shows that the UDF defines the same transformations as the DSL expressions:
 
@@ -226,13 +226,13 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. Use `to_spark_dataframe()` to get a dataframe from the above feature set specification, defined using UDF:
       
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=sparkdf-udf-parq)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=sparkdf-udf-parq)]
 
    1. Compare the results and verify consistency between the results from the DSL expressions and the transformations performed with UDF. To verify, select one of the `accountID` values to compare the values in the two dataframes:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=display-dsl-acct)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=display-dsl-acct)]
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=display-udf-acct)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=display-udf-acct)]
 
 ## Export feature set specifications as YAML
 
@@ -250,11 +250,11 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. Execute this code cell to write YAML specification file for the feature set, using parquet data source and DSL expressions:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=dump-dsl-parq-fset-spec)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=dump-dsl-parq-fset-spec)]
 
    1. Execute this code cell to write a YAML specification file for the feature set, using UDF:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=dump-udf-parq-fset-spec)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=dump-udf-parq-fset-spec)]
 
 ## Initialize SDK clients
 
@@ -271,31 +271,31 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. Feature store core SDK: This SDK (`azureml-featurestore`) facilitates feature set development and consumption:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=init-python-clients)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=init-python-clients)]
 
 ## Register `account` entity with the feature store
 
    Create an account entity that has a join key `accountID` of `string` type:
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=register-account-entity)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=register-account-entity)]
 
 ## Register the feature set with the feature store
 
    1. Register the `transactions-dsl` feature set (that uses DSL) with the feature store, with offline materialization enabled, using the exported feature set specification:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=register-dsl-trans-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=register-dsl-trans-fset)]
 
    1. Materialize the feature set to persist the transformed feature data to the offline store:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=mater-dsl-trans-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=mater-dsl-trans-fset)]
 
    1. Execute this code cell to track the progress of the materialization job:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=track-mater-job)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=track-mater-job)]
 
    1. Print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. The `get_offline_features()` method used to retrieve the training/inference data also uses the materialization store by default:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=lookup-trans-dsl-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=lookup-trans-dsl-fset)]
 
 ## Generate a training dataframe using the registered feature set
 
@@ -305,29 +305,29 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
 
    1. First, explore the observation data:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=load-obs-data)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=load-obs-data)]
 
    1. Select features that would be part of the training data, and use the feature store SDK to generate the training data:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=select-features-dsl)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=select-features-dsl)]
 
    1. The `get_offline_features()` function appends the features to the observation data with a point-in-time join. Display the training dataframe obtained from the point-in-time join:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=get-offline-features-dsl)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=get-offline-features-dsl)]
 
 ### Generate a training dataframe from feature sets using DSL and UDF
 
    1. Register the `transactions-udf` feature set (that uses UDF) with the feature store, using the exported feature set specification. Enable offline materialization for this feature set while registering with the feature store:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=register-udf-trans-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=register-udf-trans-fset)]
 
    1. Select features from the feature sets (created using DSL and UDF) that you would like to become part of the training data, and use the feature store SDK to generate the training data:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=select-features-dsl-udf)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=select-features-dsl-udf)]
 
    1. The function `get_offline_features()` appends the features to the observation data with a point-in-time join. Display the training dataframe obtained from the point-in-time join:
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=get-offline-features-dsl-udf)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7.Develop-feature-set-domain-specific-language-dsl.ipynb?name=get-offline-features-dsl-udf)]
 
 The features are appended to the training data with a point-in-time join. The generated training data can be used for subsequent training and batch inferencing steps.
 

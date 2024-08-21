@@ -2,7 +2,7 @@
 title: Connect using WinRM to an Azure VM running Windows
 description: Set up WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 3/25/2022
 ms.author: mimckitt 

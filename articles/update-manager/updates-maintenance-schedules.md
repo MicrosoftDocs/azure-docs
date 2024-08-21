@@ -2,7 +2,7 @@
 title: Updates and maintenance in Azure Update Manager
 description: This article describes the updates and maintenance options available in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 06/19/2024
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -23,7 +23,7 @@ This article provides an overview of the various update options and orchestratio
 
 ### Automatic OS image upgrade
 
-When you enable the [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) on your [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md), it helps ease Azure Update Manager to safely and automatically upgrade the OS disk for all instances in the scale set.
+When you enable the [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) on your [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md), it helps ease update management by safely and automatically upgrade the OS disk for all instances in the scale set.
 
 Automatic OS upgrade has the following characteristics:
 - After you configure, the latest OS image published by the image publishers is automatically applied to the scale set without any user intervention.

@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 10/26/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Using a system-assigned managed identity for an Azure Automation account

@@ -3,13 +3,15 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/06/2024
+ms.date: 06/27/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Configure IoT Edge device settings
+
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article shows settings and options for configuring the IoT Edge */etc/aziot/config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
@@ -19,7 +21,7 @@ If you change a device's configuration, use `sudo iotedge config apply` to apply
 
 ## Global parameters
 
-The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io](https://toml.io/).
 
 ### Hostname
 
@@ -338,7 +340,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+image = "mcr.microsoft.com/azureiotedge-agent:1.5"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]
@@ -459,7 +461,7 @@ auto_generated_edge_ca_expiry_days = 90
 This setting manages autorenewal of the Edge CA certificate. Autorenewal applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime doesn't have enough information to renew them.
 
 > [!IMPORTANT]
-> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal.
+> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal by not including the [edge_ca.auto_renew] section.
 
 ```toml
 [edge_ca.auto_renew]

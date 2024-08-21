@@ -137,16 +137,12 @@
         href: how-to-deploy-modules-portal.md
       - name: Azure CLI
         href: how-to-deploy-modules-cli.md
-      - name: Visual Studio Code
-        href: how-to-deploy-modules-vscode.md
     - name: Deploy at scale
       items:
       - name: Azure portal
         href: how-to-deploy-at-scale.md
       - name: Azure CLI
         href: how-to-deploy-cli-at-scale.md
-      - name: Visual Studio Code
-        href: how-to-deploy-vscode-at-scale.md
   - name: Monitor and diagnose
     items:
       - name: Monitor IoT Edge deployments
@@ -183,8 +179,6 @@
         href: how-to-authenticate-downstream-device.md
       - name: Connect a downstream device
         href: how-to-connect-downstream-device.md
-      - name: Modbus protocol gateway
-        href: deploy-modbus-gateway.md
     - name: Gateways for IoT Edge devices
       items:
       - name: Configure gateways for IoT Edge devices
@@ -291,7 +285,7 @@
   - name: Azure IoT Edge 1.1 archive
     href: /previous-versions/azure/iot-edge
   - name: Runtime modules environment variables
-    href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
+    href: https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
   - name: Azure CLI

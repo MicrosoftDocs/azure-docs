@@ -3,16 +3,16 @@ title: Design and architect Azure ExpressRoute for resiliency
 description: Learn how to design and architect Azure ExpressRoute for resiliency to ensure high availability and reliability in your network connections between on-premises and Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 04/18/2024
+ms.date: 07/16/2024
 ms.author: duau
 ms.custom: ai-usage
 ---
 
 # Design and architect Azure ExpressRoute for resiliency
 
-Azure ExpressRoute is an essential hybrid connectivity service widely used for its low latency, resilience, high throughput private connectivity between their on-premises network and Azure workloads. It offers the ability to achieve reliability, resiliency, and disaster recovery in network connections between on-premises and Azure to ensure availability of business and mission-critical workloads. This capability also extends access to Azure resources in a scalable, and cost-effective way.
+Azure ExpressRoute is an essential hybrid connectivity service widely used for its low latency, resilience, high throughput private connectivity between your on-premises network and Azure workloads. It offers the ability to achieve reliability, resiliency, and disaster recovery in network connections between on-premises and Azure to ensure availability of business and mission-critical workloads. This capability also extends access to Azure resources in a scalable, and cost-effective way.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-vs-maximum-resiliency.png" alt-text="Diagram illustrating a connection between an on-premises network and Azure through ExpressRoute.":::
 
@@ -25,24 +25,24 @@ Users of ExpressRoute rely on the availability and performance of edge sites, WA
 There are three ExpressRoute resiliency architectures that can be utilized to ensure high availability and resiliency in your network connections between on-premises and Azure. These architecture designs include:
 
 * [Maximum resiliency](#maximum-resiliency)
-* [High resiliency](#high-resiliency)
+* [High resiliency](#high-resiliency---in-preview)
 * [Standard resiliency](#standard-resiliency)
 
 ### Maximum resiliency
 
-The maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
+The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/maximum-resiliency.png" alt-text="Diagram illustrating a pair of ExpressRoute circuits, configured at two distinct peering locations, between an on-premises network and Microsoft.":::
 
-### High resiliency
+### High resiliency - In Preview
 
-High resiliency, also referred to as multi-site or site resiliency, enables the use of multiple sites within the same metropolitan (Metro) area to connect your on-premises network through ExpressRoute to Azure. High resiliency offers site diversity by splitting a single circuit across two sites. The first connection is established at one site and the second connection at a different site. The objective of multi-site resiliency is to mitigate the effect of edge-sites isolation and failures by introducing capabilities to enable site diversity. Site diversity is achieved by using a single circuit across paired sites within a metropolitan city, which offers resiliency to failures between edge and region. High resiliency provides a higher level of site resiliency than standard resiliency, but not as much as maximum resiliency. High resiliency is priced the same as standard resiliency, with latency parity across two sites. This architecture can be used for business and mission-critical workloads within a region. For more information, see [ExpressRoute Metro](metro.md)
+High resiliency, also referred to as ExpressRoute Metro, enables the use of multiple sites within the same metropolitan (Metro) area to connect your on-premises network through ExpressRoute to Azure. High resiliency offers site diversity by splitting a single circuit across two sites. The first connection is established at one site and the second connection at a different site. The objective of ExpressRoute Metro is to mitigate the effect of edge-sites isolation and failures by introducing capabilities to enable site diversity. Site diversity is achieved by using a single circuit across paired sites within a metropolitan city, which offers resiliency to failures between edge and region. ExpressRoute Metro provides a higher level of site resiliency than Standard resiliency, but not as much as Maximum resiliency. ExpressRoute Metro architecture can be used for business and mission-critical workloads within a region. For more information, see [ExpressRoute Metro](metro.md)
 
 :::image type="content" source="./media/design-architecture-for-resiliency/high-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at two distinct peering locations.":::
 
 ### Standard resiliency
 
-Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Microsoft guarantees an availability [service level agreements (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for Microsoft Enterprise Edge (MSEE) to the gateway for this configuration. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
+Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at a single peering location.":::
 
@@ -135,5 +135,5 @@ ExpressRoute uses [Azure Service Health](../service-health/overview.md) to notif
 
 #### Configure gateway health monitoring & alerting 
 
-[Setup monitoring](expressroute-monitoring-metrics-alerts.md#expressroute-gateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
+[Setup monitoring](monitor-expressroute-reference.md#supported-metrics-for-microsoftnetworkexpressroutegateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
 

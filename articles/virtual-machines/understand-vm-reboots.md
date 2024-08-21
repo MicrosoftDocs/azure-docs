@@ -2,7 +2,7 @@
 title: Understand VM reboots
 description: Understand VM reboots - maintenance vs downtime
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 02/28/2023
 ms.author: mattmcinnes

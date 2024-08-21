@@ -19,14 +19,11 @@ To establish a voice call with good quality, several factors must be considered.
 - The users granted the microphone permission
 - The users microphone is working properly
 - The network conditions are good enough on sending and receiving ends
-- The audio output level is functioning properly
+- The audio output device is functioning properly
 
 All of these factors are important from an end-to-end perspective.
 
-Device and network issues are considered external problems from the perspective of the ACS Calling SDK.
-Your application should integrate the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md)
-to monitor device and network issues and display warning messages accordingly.
-In this way, users are aware of the issue and can troubleshoot on their own.
+Device and network issues are considered external problems from the perspective of the ACS Calling SDK. Your application should integrate the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) to monitor device and network issues and display warning messages accordingly. In this way, users are aware of the issue and can troubleshoot on their own.
 
 ## Common issues in audio calls
 Here we list several common audio issues, along with potential causes for each issue:

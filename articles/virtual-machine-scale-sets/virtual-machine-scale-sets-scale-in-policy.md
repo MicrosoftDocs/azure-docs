@@ -5,9 +5,9 @@ services: virtual-machine-scale-sets
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: scale-in-policy
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
@@ -26,8 +26,13 @@ The scale-in policy feature provides users a way to configure the order in which
 ### Default scale-in policy
 
 #### Flexible orchestration 
-With this policy, virtual machines are scaled-in after balancing across availability zones (if the scale set is in zonal configuration), and the oldest virtual machine as per `createdTime` is scaled-in first. 
-Balancing across fault domain isn't available in Default policy with flexible orchestration mode. 
+By default, Virtual Machine Scale Set applies this policy to determine which instance(s) will be scaled in. With the *Default* policy, VMs are selected for scale-in in the following order:
+
+1. Balance virtual machines across availability zones (if the scale set is deployed in zonal configuration)
+2. Balance virtual machines across fault domains (best effort)
+3. Delete virtual machine with the highest instance ID
+
+Users don't need to specify a scale-in policy if they just want the default ordering to be followed.
 
 #### Uniform orchestration 
 By default, Virtual Machine Scale Set applies this policy to determine which instance(s) will be scaled in. With the *Default* policy, VMs are selected for scale-in in the following order:

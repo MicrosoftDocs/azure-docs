@@ -2,7 +2,7 @@
 title: Azure CLI Script Sample - Create a SignalR Service
 description: Learn by following the sample script to create a new Azure SignalR Service in a new resource group, with a random name.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/30/2022
@@ -14,13 +14,13 @@ ms.custom: mvc, devx-track-azurecli
 
 This sample script creates a new Azure SignalR Service resource in a new resource group with a random name.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -28,7 +28,7 @@ This sample script creates a new Azure SignalR Service resource in a new resourc
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

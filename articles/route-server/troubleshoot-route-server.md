@@ -3,7 +3,7 @@ title: Troubleshoot Azure Route Server issues
 description: Learn how to troubleshoot some of the common issues that you may have when you use Azure Route Server in your virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 12/17/2023
 
@@ -35,6 +35,18 @@ If you want to inspect your on-premises traffic using a firewall, you can force 
 
 10.0.0.0/16 is the address space of the virtual network and 10.0.1.0/27 is the address space of RouteServerSubnet. 10.0.2.1 is the IP address of the firewall.
 
+### I added a user-defined route (UDR) with next hop type as Virtual Network Gateway, but this UDR is not taking effect. Is this expected?
+
+Yes, this is expected behavior. User-defined routes with next hop type **Virtual Network Gateway** are not supported for subnets within Route Server's virtual network and peered virtual networks. However, if you want to configure your next hop to be a network virtual appliance (NVA) or the internet, adding a user-defined route with next hop type **VirtualAppliance** or **Internet** is supported. 
+
+### In my VM's network interface's effective routes, why do I have a user-defined route (UDR) with next hop type set to **None**? 
+
+If you advertise a route from your NVA to Route Server that is an exact prefix match as another user-defined route, then the advertised route's next hop must be valid. If the advertised next hop is a load balancer without a configured backend pool, then this invalid route will take precedence over the user-defined route. In your network interface's effective routes, the invalid advertised route will be displayed as a user-defined route with next hop type set to **None**. 
+
+### Why do I lose connectivity after associating a service endpoint policy to the RouteServerSubnet or GatewaySubnet?
+ 
+If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.
+
 ### Why can't I TCP ping from my NVA to the BGP peer IP of the Route Server after I set up the BGP peering between them?
 
 In some NVAs, you need to add a static route to the Route Server subnet to be able to TCP ping the Route Server from the NVA and to avoid BGP peering flapping. For example, if the Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
@@ -53,13 +65,13 @@ When you deploy a Route Server to a virtual network, we need to update the contr
 
 ### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by the Route Server?
 
-Although Azure VPN gateway can receive the default route from its BGP peers including the Route Server, it [doesn't advertise the default route](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-will-azure-vpn-gateways-advertise-to-me) to other peers. 
+Although Azure VPN gateway can receive the default route from its BGP peers including the Route Server, it [doesn't advertise the default route](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-do-azure-vpn-gateways-advertise-to-me) to other peers. 
 
 ### Why does my NVA not receive routes from the Route Server even though the BGP peering is up?
 
 The ASN that the Route Server uses is 65515. Make sure you configure a different ASN for your NVA so that an *eBGP* session can be established between your NVA and Route Server so route propagation can happen automatically. Make sure you enable "multi-hop" in your BGP configuration because your NVA and the Route Server are in different subnets in the virtual network.
 
-### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren’t the NVA routes in the effective routing table of my VM? 
+### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren't the NVA routes in the effective routing table of my VM? 
 
 * If your VM is in the same virtual network as your NVA and Route Server:
 

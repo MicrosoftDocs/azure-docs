@@ -3,11 +3,11 @@ title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 10/24/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, sdkv2
@@ -193,7 +193,7 @@ There are two supported tracing headers:
 - `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
 
    > [!Note]
-   > When you create a support ticket for a failed request, attach the failed request ID to expedite the investigation.
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite the investigation. Alternatively, provide the name of the region and the endpoint name.
    
 - `x-ms-client-request-id` is available for client tracing scenarios. This header is sanitized to only accept alphanumeric characters, hyphens and underscores, and is truncated to a maximum of 40 characters.
 
@@ -204,6 +204,7 @@ The following list is of common deployment errors that are reported as part of t
 * [ImageBuildFailure](#error-imagebuildfailure)
     * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
     * [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
+    * [Image build timing out](#image-build-timing-out)
     * [Generic or unknown failure](#generic-image-build-failure)
 * [OutOfQuota](#error-outofquota)
     * [CPU](#cpu-quota)
@@ -229,6 +230,7 @@ The following list is of common deployment errors that are reported as part of t
 * [ResourceNotFound](#error-resourcenotfound)
     * [Azure Resource Manager can't find a required resource](#resource-manager-cannot-find-a-resource)
     * [Azure Container Registry is private or otherwise inaccessible](#container-registry-authorization-error)
+* [WorkspaceManagedNetworkNotReady](#error-workspacemanagednetworknotready)
 * [OperationCanceled](#error-operationcanceled)
     * [Operation was canceled by another operation that has a higher priority](#operation-canceled-by-another-higher-priority-operation)
     * [Operation was canceled due to a previous operation waiting for lock confirmation](#operation-canceled-waiting-for-lock-confirmation)
@@ -261,6 +263,13 @@ Container registries that are behind a virtual network may also encounter this e
 #### Image build compute not set in a private workspace with VNet
 
 If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the workspace's Azure Container Registry is private and configured with a private endpoint, you need to [enable Azure Container Registry](how-to-managed-network.md#configure-image-builds) to allow building images in the virtual network. 
+
+### Image build timing out
+
+Image build timeouts are often due to an image becoming too large to be able to complete building within the timeframe of deployment creation.
+To verify if this is your issue, check your image build logs at the location that the error may specify. The logs are cut off at the point that the image build timed out.
+
+To resolve this, please [build your image separately](/azure/devops/pipelines/ecosystems/containers/publish-to-acr?view=azure-devops&tabs=javascript%2Cportal%2Cmsi) so that the image only needs to be pulled during deployment creation.
 
 #### Generic image build failure
 
@@ -531,6 +540,10 @@ At deployment time, your online endpoint's system identity pulls the image from 
 
 For more diagnostic information, see [How To Use the Workspace Diagnostic API](../machine-learning/how-to-workspace-diagnostic-api.md).
 
+### ERROR: WorkspaceManagedNetworkNotReady
+
+This error occurs when you tried to create an online deployment under the workspace which enabled workspace managed VNet but the managed VNet is not provisioned yet. Workspace managed VNet should be provisioned before you create an online deployment. Follow instructions [Manually provision workspace managed VNet](how-to-managed-network.md#manually-provision-a-managed-vnet) to manually provision the workspace managed VNet. Once completed, you may start creating online deployments. For more information, see [Network isolation with managed online endpoint](concept-secure-online-endpoint.md) and [Secure your managed online endpoints with network isolation](how-to-secure-online-endpoint.md).
+
 ### ERROR: OperationCanceled
 
 The following list is of reasons you might run into this error when using either managed online endpoint or Kubernetes online endpoint:
@@ -643,7 +656,7 @@ You might get the following error during the Kubernetes model deployments:
 
 To mitigate this error, you can:
 
-* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
 * The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
 
 

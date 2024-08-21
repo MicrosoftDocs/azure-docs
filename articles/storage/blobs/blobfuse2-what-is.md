@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: An overview of how to use BlobFuse to mount an Azure Blob Storage container through the Linux file system.
 author: akashdubey-ms
 ms.author: akashdubey
-ms.reviewer: tamram
+
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
@@ -13,7 +13,7 @@ ms.custom: engagement-fy23, linux-related-content
 
 # What is BlobFuse? - BlobFuse2
 
-BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure block blob data through the Linux file system.
+BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure **block blob** data through the Linux file system. **Page blob**s are not supported.
 
 ## About the BlobFuse2 open source project
 
@@ -43,6 +43,10 @@ Other key features in BlobFuse2 include:
 - Streaming to support reading and writing large files
 - Parallel downloads and uploads to improve access time for large files
 - Multiple mounts to the same container for read-only workloads
+
+> [!IMPORTANT]
+> If you are using versions 2.2.0, 2.2.1, or 2.3.0, refrain from using the `Block-cache` mode and switch to the `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
+
 
 ## BlobFuse2 enhancements from BlobFuse v1
 

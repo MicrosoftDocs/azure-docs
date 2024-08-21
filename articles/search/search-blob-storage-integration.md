@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 05/04/2024
 ---
 
 # Search over Azure Blob Storage content
@@ -78,13 +78,13 @@ The Azure blob indexer comes with configuration parameters and supports change t
 
 ### Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, cold, and archive. Indexers can retrieve blobs on hot, cool, and cold access tiers. 
 
 ### Supported content types
 
 By running a blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 <a name="PartsOfBlobToIndex"></a> 
 
@@ -95,7 +95,7 @@ You can control which blobs are indexed, and which are skipped, by the blob's fi
 Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
 
 ```http
-PUT /indexers/[indexer name]?api-version=2023-11-01
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
     "parameters" : { 
         "configuration" : { 

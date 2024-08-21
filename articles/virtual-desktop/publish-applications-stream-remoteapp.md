@@ -4,7 +4,7 @@ description: How to publish applications with RemoteApp in Azure Virtual Desktop
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 12/08/2023
+ms.date: 03/05/2024
 ms.author: daknappe
 ---
 
@@ -178,7 +178,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
       New-AzWvdApplication @parameters
       ```
 
-   - To add an MSIX or Appx application from *MSIX app attach* or *app attach (preview)*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
+   - To add an MSIX or Appx application from *app attach* or *MSIX app attach*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
    
       - For **MSIX app attach**, get the application details and store them in a variable:
       

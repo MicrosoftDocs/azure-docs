@@ -2,7 +2,7 @@
 title: Quickstart - Create a Windows VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Windows virtual machine
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 01/04/2024
@@ -35,13 +35,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > [!NOTE]
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
-
-1. On the right side, you see an example summary of the estimated costs. This updates as you select options that affect the cost, such as choosing *Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2* for your **Image**.
-
-
-   ![Screenshot of Windows virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/windows-estimated-monthly-cost.png)
-
-   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 

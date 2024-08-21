@@ -49,6 +49,16 @@
       "source_path_from_root": "/articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md#configure-remote-desktop-to-use-multiple-monitors",
       "redirect_url": "/azure/dev-box/tutorial-configure-multiple-monitors",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-determine-your-quota-usage.md",
+      "redirect_url": "/azure/dev-box/how-to-request-quota-increase",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-connect-to-dev-box-with-windows-app.md",
+      "redirect_url": "/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box",
+      "redirect_document_id": false
     }
   ]
 }

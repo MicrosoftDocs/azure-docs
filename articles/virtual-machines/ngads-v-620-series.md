@@ -3,7 +3,7 @@ title: Overview of NGads V620 Series (preview)
 description: Overview of NGads V620 series GPU-enabled virtual machines  
 author: isgonzalez-MSFT 
 ms.author: isgonzalez
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/11/2023 
@@ -13,7 +13,7 @@ ms.date: 06/11/2023
 # NGads V620-series
 
 
-The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They're powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32 GB, which can be divided up to four ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45 GHz and a boost<sup>1</sup> speed of 3.5Ghz. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.<br>
+The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They're powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/newsroom/press-releases/2021-11-4-amd-radeon-pro-v620-gpu-delivers-powerful-multi-.html) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32 GB, which can be divided up to four ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45 GHz and a boost<sup>1</sup> speed of 3.5Ghz. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.<br>
 (<sup>1</sup> EPYC-018: Max boost for AMD EPYC processors is the maximum frequency achievable by any single core on the processor under normal operating conditions for server systems.)
 
 NGads instances come in four sizes, allowing customers to right-size their gaming environments for the performance and cost that best fits their business needs. The NG-series virtual machines feature partial GPUs to enable you to pick the right-sized virtual machine for GPU accelerated graphics applications and virtual desktops.  The vm sizes start with 1/4 of a GPU with 8-GiB frame buffer up to a full GPU with 32-GiB frame buffer. The NGads VMs also feature Direct Disk NVMe ranging from 1 to 4x 960 GB disks per VM.

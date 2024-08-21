@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/16/2023
+ms.date: 06/10/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
@@ -264,7 +264,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
     > 
     > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
-    > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/39b5c1ffee47235549fdf628591853a8989af989/edgelet/contrib/config/linux/template.toml#L232) as the provisioning certificate auto-renew configuration above. 
+    > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L257) as the provisioning certificate auto-renew configuration above. 
     > 
     > This way, IoT Edge certificate service uses the bootstrap certificate for initial authentication with EST server, and requests an identity certificate for future EST requests to the same server. If, for some reason, the EST identity certificate expires before renewal, IoT Edge falls back to using the bootstrap certificate. 
 

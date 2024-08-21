@@ -1,7 +1,7 @@
 ---
 author: karlerickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 11/06/2023
 ---
@@ -28,9 +28,9 @@ Use the following steps to create the service instance:
    | **Name**                      | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Region**                    | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Hosting options and plans** | **Enterprise**                    | The pricing plan that determines the resource and cost associated with your instance.                                                                                                                                                                                                              |
-   | **Zone Redundant**            | Unchecked                         | The option to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                          |
+   | **Zone Redundant**            | Unselected                        | The option to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                          |
    | **Software IP Plan**          | Pay-as-You-Go                     | The pricing plan that lets you pay as you go with Azure Spring Apps.                                                                                                                                                                                                                               |
-   | **Deploy sample project**     | Unchecked                         | The option to use the built-in sample application.                                                                                                                                                                                                                                                 |
+   | **Deploy sample project**     | Unselected                        | The option to use the built-in sample application.                                                                                                                                                                                                                                                 |
 
 1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 

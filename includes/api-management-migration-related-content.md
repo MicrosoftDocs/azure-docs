@@ -1,14 +1,13 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/13/2024
 ms.author: danlep
 ---
 ## Video
 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=0e082046-7a52-48b6-8818-6997eb422992]
->
+> [!VIDEO 0e082046-7a52-48b6-8818-6997eb422992]
 
 ## Related content
 

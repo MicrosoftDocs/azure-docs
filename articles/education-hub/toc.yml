@@ -1,4 +1,4 @@
-- name: Azure Education Hub Documentation
+- name: Azure Education Hub documentation
   href: ./index.yml
 - name: Overview 
   items:
@@ -28,7 +28,7 @@
       href: get-started-education-hub.md
     - name: Set up a lab
       href: set-up-lab.md
-    - name: Allocate Credit to an Educator
+    - name: Allocate credit to an educator
       href: it-admin-allocate-credit.md
   - name: Azure Dev Tools for Teaching
     items:
@@ -40,45 +40,37 @@
   items:
   - name: Azure Classroom
     items:
-    - name: Manage your Academic Grant
+    - name: Manage your academic grant
       href: hub-overview-page.md
-    - name: How to set up a custom tenant
-      href: custom-tenant-set-up-classroom.md
     - name: Create an assignment and allocate credit
       href: create-assignment-allocate-credit.md
-    - name: Service desk
+    - name: Get support
       href: educator-service-desk.md
-    - name: How to use a script to automate lab functionality
+    - name: Use a script to automate lab functionality
       href: full-api-script.md
-    - name: How to create a lab
+    - name: Create a lab
       href: create-lab-education-hub.md
-    - name: How to add students to a lab
+    - name: Add students to a lab
       href: add-student-api.md
-    - name: How to delete a lab
+    - name: Delete a lab
       href: delete-lab-education-hub-apis.md
-    - name: How to manage students
-      href: azure-dev-tools-teaching/manage-students.md
+    - name: Find IDs for calling Azure Education Hub APIs
+      href: find-ids.md
   - name: Azure Dev Tools for Teaching
     items:
-    - name: How to download software
+    - name: Download software
       href: azure-dev-tools-teaching/download-software.md
+    - name: Manage students
+      href: azure-dev-tools-teaching/manage-students.md
   - name: Azure for Students
     items:
-    - name: How to Track Usage and Create Budgets in Azure for Students
+    - name: Track usage and create budgets
       href: navigate-costs.md
-- name: Tutorials
-  items:
-  - name: Azure for Students
-    items:
-    - name: Deploy resources with Azure for Students
+    - name: Deploy resources
       href: deploy-resources-azure-for-students.md
-  - name: Azure Classroom
-    items:
-    - name: Find IDs required for calling Azure Education Hub APIs
-      href: find-ids.md
 - name: Troubleshooting
   items:
   - name: Frequently asked questions
     href: faq.md
-  - name: Login errors
+  - name: Sign-in errors
     href: azure-dev-tools-teaching/troubleshoot-login.md

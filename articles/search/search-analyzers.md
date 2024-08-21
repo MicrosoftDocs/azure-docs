@@ -1,13 +1,13 @@
 ---
 title: Analyzers for linguistic and text processing
 titleSuffix: Azure AI Search
-description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
+description: Assign analyzers to searchable string fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 05/23/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -38,7 +38,11 @@ In Azure AI Search, an analyzer is automatically invoked on all string fields ma
 
 By default, Azure AI Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. The standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
-You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md) for linguistic processing, a [custom analyzer](index-add-custom-analyzers.md), or a built-in analyzer from the [list of available analyzers](index-add-custom-analyzers.md#built-in-analyzers).
+You can override the default on a field-by-field basis. Alternative analyzers are:
+
++ [language analyzer](index-add-language-analyzers.md) for linguistic processing
++ [custom analyzer](index-add-custom-analyzers.md) for custom configurations
++ [built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers) for as-is usage
 
 ## Types of analyzers
 

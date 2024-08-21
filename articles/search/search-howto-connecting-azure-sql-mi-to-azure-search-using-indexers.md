@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 05/23/2024
 ---
 
 # Indexer connections to Azure SQL Managed Instance through a public endpoint

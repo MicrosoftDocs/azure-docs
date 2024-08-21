@@ -4,10 +4,10 @@ titleSuffix: Azure Network Watcher
 description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
-ms.date: 11/27/2023
+ms.date: 04/24/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -57,37 +57,37 @@ Traffic analytics provides the following information:
 
 To use traffic analytics, you need the following components:
 
-- **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can use Network Watcher to turn NSG flow logs on and off. For more information, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
+- **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can use Network Watcher to turn network security group flow logs on and off. For more information, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
 
 - **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Azure Monitor Logs is an Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md?toc=/azure/network-watcher/toc.json). Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md?toc=/azure/network-watcher/toc.json).
 
 - **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
 
-- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
+- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [network security group flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [virtual network flow logs](vnet-flow-logs-overview.md):
 
     - **Network security group (NSG)**: A resource that contains a list of security rules that allow or deny network traffic to or from resources that are connected to an Azure virtual network. Network security groups can be associated with subnets, network interfaces (NICs) that are attached to VMs (Resource Manager), or individual VMs (classic). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json).
     
-    - **NSG flow logs**: Recorded information about ingress and egress IP traffic through a network security group. NSG flow logs are written in JSON format and include:
+    - **Network security group flow logs**: Recorded information about ingress and egress IP traffic through a network security group. Network security group flow logs are written in JSON format and include:
     
       - Outbound and inbound flows on a per rule basis.
       - The NIC that the flow applies to.
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information about NSG flow logs, see [NSG flow logs overview](nsg-flow-logs-overview.md).
+      For more information about network security group flow logs, see [Network security group flow logs overview](nsg-flow-logs-overview.md).
     
     - **Virtual network (VNet)**: A resource that enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. For more information, see [Virtual network overview](../virtual-network/virtual-networks-overview.md?toc=/azure/network-watcher/toc.json).
     
-    - **VNet flow logs (preview)**: Recorded information about ingress and egress IP traffic through a virtual network. VNet flow logs are written in JSON format and include:
+    - **Virtual network flow logs**: Recorded information about ingress and egress IP traffic through a virtual network. Virtual network flow logs are written in JSON format and include:
     
       - Outbound and inbound flows.
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information about VNet flow logs, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+      For more information about virtual network flow logs, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
       > [!NOTE]
-      > For information about the differences between NSG flow logs and VNet flow logs, see [VNet flow logs compared to NSG flow logs](vnet-flow-logs-overview.md#vnet-flow-logs-compared-to-nsg-flow-logs) 
+      > For information about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs).
 
 ## How traffic analytics works
 
@@ -97,14 +97,14 @@ An example might involve Host 1 at IP address 10.10.10.10 and Host 2 at IP addre
 
 Reduced logs are enhanced with geography, security, and topology information and then stored in a Log Analytics workspace. The following diagram shows the data flow:
 
-:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from an NSG log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
+:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from a network security group log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
 
 ## Prerequisites
 
 Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- NSG flow logs enabled for the network security groups you want to monitor or VNet flow logs enabled for the virtual network you want to monitor. For more information, see [Create a flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Enable VNet flow logs](vnet-flow-logs-powershell.md#enable-vnet-flow-logs).
+- Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
 - An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json).
 
 - One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
@@ -139,9 +139,9 @@ Traffic analytics requires the following prerequisites:
 
     <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
 
-    <sup>2</sup> Only required when using traffic analytics to analyze VNet flow logs (preview). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
 
-    To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
+    To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
     > [!CAUTION]
     > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.

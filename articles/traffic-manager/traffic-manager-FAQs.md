@@ -3,9 +3,9 @@ title: Azure Traffic Manager - FAQ
 description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 06/03/2024
 ms.author: greglin
 ---
 
@@ -86,7 +86,7 @@ One of the metrics provided by Traffic Manager is the number of queries responde
 
 ### When I delete a Traffic Manager profile, what is the amount of time before the name of the profile is available for reuse?
 
-When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
+When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant isn't able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
 
 For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name is made available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
 
@@ -144,7 +144,11 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 ### What are some use cases where subnet routing is useful?
 
 Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website from your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have subpar performance when IPv6 is used.
+
 Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
+
+> [!NOTE]
+> Azure Traffic Manager supports IPv6 addresses in subnet overrides for subnet profiles. This capability enables more granular control over traffic routing based on the source IP address of DNS queries, including both IPv4 and IPv6 addresses. 
 
 ### How does Traffic Manager know the IP address of the end user?
 
@@ -211,7 +215,7 @@ Yes, Real User Measurements is designed to ingest data collected through differe
 
 ### How many measurements are made each time my Real User Measurements enabled web page is rendered?
 
-When Real User Measurements is used with the measurement JavaScript provided, each page rendering results in six measurements being taken. These are then reported back to the Traffic Manager service. You are charged for this feature based on the number of measurements reported to Traffic Manager service. For example, if the user navigates away from your webpage while the measurements are being taken but before it was reported, those measurements aren't considered for billing purposes.
+When Real User Measurements is used with the measurement JavaScript provided, each page rendering results in six measurements being taken. These are then reported back to the Traffic Manager service. You're charged for this feature based on the number of measurements reported to Traffic Manager service. For example, if the user navigates away from your webpage while the measurements are being taken but before it was reported, those measurements aren't considered for billing purposes.
 
 ### Is there a delay before Real User Measurements script runs in my webpage?
 
@@ -223,19 +227,19 @@ No, each time it's invoked, the Real User Measurements script measures a set of 
 
 ### Can I limit the number of measurements made to a specific number?
 
-The measurement JavaScript is embedded within your webpage and you are in complete control over when to start and stop using it. As long as the Traffic Manager service receives a request for a list of Azure regions to be measured, a set of regions is returned.
+The measurement JavaScript is embedded within your webpage and you're in complete control over when to start and stop using it. As long as the Traffic Manager service receives a request for a list of Azure regions to be measured, a set of regions is returned.
 
 ### Can I see the measurements taken by my client application as part of Real User Measurements?
 
-Since the measurement logic is run from your client application, you are in full control of what happens including seeing the latency measurements. Traffic Manager doesn't report an aggregate view of the measurements received under the key linked to your subscription.
+Since the measurement logic is run from your client application, you're in full control of what happens including seeing the latency measurements. Traffic Manager doesn't report an aggregate view of the measurements received under the key linked to your subscription.
 
 ### Can I modify the measurement script provided by Traffic Manager?
 
-While you are in control of what is embedded on your web page, we strongly discourage you from making any changes to the measurement script to ensure that it measures and reports the latencies correctly.
+While you're in control of what is embedded on your web page, we strongly discourage you from making any changes to the measurement script to ensure that it measures and reports the latencies correctly.
 
 ### Will it be possible for others to see the key I use with Real User Measurements?
 
-When you embed the measurement script to a web page, it is possible for others to see the script and your Real User Measurements (RUM) key. But it’s important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won’t compromise your Azure account safety.
+When you embed the measurement script to a web page, it's possible for others to see the script and your Real User Measurements (RUM) key. But it’s important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won’t compromise your Azure account safety.
 
 ### Can others abuse my RUM key?
 
@@ -315,7 +319,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions isn't possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It isn't possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it's possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
+For other endpoint types, it's possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](../role-based-access-control/role-assignments-portal.yml). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -334,6 +338,18 @@ Typically, Traffic Manager is used to direct traffic to applications deployed in
 Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group or subscription, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
 
 For more information, see [To move an endpoint](traffic-manager-manage-endpoints.md#to-move-an-endpoint).
+
+### Does Azure Traffic Manager support IPv6 Extension Mechanisms for DNS (ECS)?
+
+Azure Traffic Manager supports IPv6 addresses with Extension Mechanisms for DNS (ECS). This means that when a DNS query includes ECS information, Azure Traffic Manager can use the source IP address within the ECS to make intelligent routing decisions. 
+
+The support for IPv6 ECS brings several advantages: 
+
+- **Improved Localization**: By considering the IPv6 address in the ECS, Traffic Manager can route users to the nearest or most appropriate endpoint, enhancing the user experience with reduced latency. 
+- **Enhanced Traffic Control**: IPv6 ECS allows for more granular traffic routing decisions, enabling better management of global traffic and distribution. 
+
+When using IPv6 ECS, it’s important to ensure that your endpoints are correctly configured to handle IPv6 traffic. Also verify that your DNS infrastructure, including recursive resolvers, is capable of handling ECS information with IPv6 addresses. 
+
 
 ## Traffic Manager endpoint monitoring
 
@@ -478,7 +494,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How can I get notified if one of my endpoints goes down?
 
-One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md). 
 
 ## Traffic Manager nested profiles
 
@@ -507,7 +523,7 @@ For full details, see the [Traffic Manager pricing page](https://azure.microsoft
 
 ### Is there a performance impact for nested profiles?
 
-No. There's no performance impact incurred when using nested profiles.
+No, there's no performance impact incurred when using nested profiles.
 
 The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you're using a single profile or nested profiles. There's no need to create a CNAME record for each profile in the hierarchy.
 
@@ -525,8 +541,13 @@ The following table describes the behavior of Traffic Manager health checks for 
 | CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
 | Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
 
-> [!NOTE]
-> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you disable and then enable two child profiles simultaneously. If there is a brief period when both endpoints are disabled, this can result in the parent profile entering a compromised state. To avoid this problem, use caution when making simultaneous changes to child profiles. Consider staggering the changes slightly to prevent unintended disruptions to your traffic management configuration.
+> [!IMPORTANT]
+> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you simultaneously disable and enable two child profiles. If these actions occur at the same time, there might be a brief period when both endpoints are disabled, leading to the parent profile entering a compromised state.<br><br>
+> To avoid this problem, exercise caution when making simultaneous changes to child profiles. Consider staggering these actions slightly to prevent unintended disruptions to your traffic management configuration. 
+
+### Why can't I add Azure Cloud Services Extended Support Endpoints to my Traffic Manager profile? 
+
+In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.
 
 ## Next steps:
 

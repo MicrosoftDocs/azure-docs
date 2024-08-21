@@ -3,11 +3,11 @@ title: Schedule Azure Machine Learning pipeline jobs
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule pipeline jobs that allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 03/27/2023
 ms.topic: how-to
 ---
@@ -100,7 +100,7 @@ When you have a pipeline job with satisfying performance and outputs, you can se
       - **Time zone**: the time zone based on which to calculate the trigger time, by default is (UTC) Coordinated Universal Time.
       - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency as minutely, hourly, daily, weekly and monthly.
       - **Start**: specifies the date from when the schedule becomes active. By default it's the date you create this schedule.
-      - **End**: specifies the date after when the schedule becomes inactive. By default its NONE, which means the schedule will always be active until you manually disable it.
+      - **End**: specifies the date after when the schedule becomes inactive. By default it's NONE, which means the schedule will always be active until you manually disable it.
       - **Tags**: tags of the schedule.
 
     After you configure the basic settings, you can directly select **Review + Create**, and the schedule will automatically submit jobs according to the recurrence pattern you specified.
@@ -491,6 +491,11 @@ Currently there are three action rules related to schedules and you can configur
 | Read   | Get and list schedules in Machine Learning workspace                        | Microsoft.MachineLearningServices/workspaces/schedules/read   |
 | Write  | Create, update, disable and enable schedules in Machine Learning workspace | Microsoft.MachineLearningServices/workspaces/schedules/write  |
 | Delete | Delete a schedule in Machine Learning workspace                            | Microsoft.MachineLearningServices/workspaces/schedules/delete |
+
+## Cost considerations
+
+- Schedules are billed based on the number of schedules, each schedule will create a logic apps host Azure Machine Learning subs on behalf (HOBO) of the user. 
+- The cost of logic apps will change back to the user's Azure subscription, and you can find costs of HOBO resources are billed using the same meter emitted by the original RP. They are shown under the host resource (the workspace).
 
 ## Frequently asked questions
 

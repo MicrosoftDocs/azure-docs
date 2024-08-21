@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
@@ -17,7 +17,7 @@ ms.author: lajanuar
 >
 > This project targets Azure AI Document Intelligence API version 2.1 using cURL to execute REST API calls.
 
-[Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/)
+[Document Intelligence REST API](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) | [Azure REST API reference](/rest/api/azure/)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ ms.author: lajanuar
 
 - [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 - An Azure Storage blob that contains a set of training data. See [Build and train a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. You can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
-- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
@@ -77,7 +77,7 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-4
 
 ### Get layout results
 
-After you called the [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API, poll the [Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you called the [Analyze Layout](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API, poll the [Get Analyze Layout Result](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<key>* with the key you copied from the previous step.
@@ -221,7 +221,7 @@ This response body output has been shortened for simplicity. See the [full sampl
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pretrained receipt model. For more information about receipt analysis, see the [Document Intelligence receipt model](../../../concept-receipt.md). To start analyzing a receipt, call the [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) API using the cURL command. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from US receipts, using a pretrained receipt model. For more information about receipt analysis, see the [Document Intelligence receipt model](../../../concept-receipt.md). To start analyzing a receipt, call the [Analyze Receipt](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API using the cURL command. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<your receipt URL>* with the URL address of a receipt image.
@@ -245,7 +245,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/operations/aeb13e1
 
 ### Get receipt results
 
-After you've called the Analyze Receipt API, call the [Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the Analyze Receipt API, call the [Get Analyze Receipt Result](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence key.
 1. Replace *\<resultId>* with the result ID from the previous step.
@@ -592,7 +592,7 @@ This response body output has been shortened for readability. See the [full samp
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pretrained model. For more information about business card analysis, see the [Document Intelligence business card model](../../../concept-business-card.md). To start analyzing a business card, you call the [Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync) API using the cURL command. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from English business cards, using a pretrained model. For more information about business card analysis, see the [Document Intelligence business card model](../../../concept-business-card.md). To start analyzing a business card, you call the [Analyze Business Card](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API using the cURL command. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<your business card URL>* with the URL address of a receipt image.
@@ -614,7 +614,7 @@ In the following example, as part of the URL, the string after `analyzeResults/`
 https://cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-After you call the Analyze Business Card API, call the [Get Analyze Business Card Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the Analyze Business Card API, call the [Get Analyze Business Card Result](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence key.
 1. Replace *\<resultId>* with the result ID from the previous step.
@@ -749,7 +749,7 @@ The script prints responses to the console until the Analyze Business Card opera
 
 ## Analyze invoices
 
-You can use Document Intelligence to extract field text and semantic values from a given invoice document. To start analyzing an invoice, use the cURL command. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md). To start analyzing an invoice, call the [Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291) API using the cURL command.
+You can use Document Intelligence to extract field text and semantic values from a given invoice document. To start analyzing an invoice, use the cURL command. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md). To start analyzing an invoice, call the [Analyze Invoice](/rest/api/aiservices/operation-groups?view=rest-aiservices-v2.1&preserve-view=true) API using the cURL command.
 
 Before you run the command, make these changes:
 
@@ -773,7 +773,7 @@ In the following example, as part of the URL, the string after `analyzeResults/`
 https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-After you've called the Analyze Invoice API, call the [Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83) API to get the status of the operation and the extracted data.
+After you've called the Analyze Invoice API, call the [Get Analyze Invoice Result](/rest/api/aiservices/operation-groups?view=rest-aiservices-v2.1&preserve-view=true) API to get the status of the operation and the extracted data.
 
 Before you run the command, make these changes:
 
@@ -953,7 +953,7 @@ This response body JSON content has been shortened for readability. See the [ful
 
 ## Analyze identity documents
 
-To start analyzing an identification (ID) document, use the cURL command. For more information about ID document analysis, see the [Document Intelligence ID document model](../../../concept-id-document.md). To start analyzing an ID document, you call the [Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) API using the cURL command.
+To start analyzing an identification (ID) document, use the cURL command. For more information about ID document analysis, see the [Document Intelligence ID document model](../../../concept-id-document.md). To start analyzing an ID document, you call the [Analyze ID Document](/rest/api/aiservices/operation-groups?view=rest-aiservices-v2.1&preserve-view=true) API using the cURL command.
 
 Before you run the command, make these changes:
 
@@ -979,7 +979,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocume
 
 ### Get the Analyze ID Document result
 
-After you call the Analyze ID Document API, call the [Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the Analyze ID Document API, call the [Get Analyze ID Document Result](/rest/api/aiservices/operation-groups?view=rest-aiservices-v2.1&preserve-view=true) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence key.
 1. Replace *\<resultId>* with the result ID from the previous step.
@@ -1172,7 +1172,7 @@ Training without labeled data is the default operation and is simpler. Alternati
 
 ### Train a model without labels
 
-To train a Document Intelligence model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
+To train a Document Intelligence model with the documents in your Azure blob container, call the **[Train Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<key>* with the key you copied from the previous step.
@@ -1208,7 +1208,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/77d
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, call the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, call the [Train Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 
@@ -1243,7 +1243,7 @@ In the following example, as part of the URL, the string after `models/` is the 
 https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/62e79d93-78a7-4d18-85be-9540dbb8e792
 ```
 
-After you start the train operation, use [Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel) to check the training status. Pass the model ID into the API request to check the training status:
+After you start the train operation, use [Get Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) to check the training status. Pass the model ID into the API request to check the training status:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence key.
 1. Replace *\<key>* with your key
@@ -1255,7 +1255,7 @@ curl -X GET "https://<endpoint>/formrecognizer/v2.1/custom/models/<modelId>" -H 
 
 ## Analyze forms with a custom model
 
-Next, use your newly trained model to analyze a document and extract fields and tables from it. Call the [Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) API by running the following cURL command. Before you run the command, make these changes:
+Next, use your newly trained model to analyze a document and extract fields and tables from it. Call the [Analyze Form](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace *\<endpoint>* with the endpoint that you obtained from your Document Intelligence key.
 1. Replace *\<model ID>* with the model ID that you received in the previous section.
@@ -1280,7 +1280,7 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/e175e9db-d920-4
 
 Save this results ID for the next step.
 
-Call the [Analyze Form Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeFormResult) API to query the results of the Analyze operation.
+Call the [Analyze Form Result](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API to query the results of the Analyze operation.
 
 1. Replace *\<endpoint>* with the endpoint that you obtained from your Document Intelligence key.
 1. Replace *\<result ID>* with the ID that you received in the previous section.
@@ -1445,7 +1445,7 @@ This sample JSON output has been shortened for simplicity. See the [full sample 
 
 ## Manage custom models
 
-Use the [List Custom Models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) API in the following command to return a list of all the custom models that belong to your subscription.
+Use the [List Custom Models](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API in the following command to return a list of all the custom models that belong to your subscription.
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<key>* with the key you copied from the previous step.
@@ -1478,7 +1478,7 @@ You receive a `200` success response, with JSON data like the following. The `"m
 
 ### Get a specific model
 
-To retrieve detailed information about a specific custom model, use the [Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel) API in the following command.
+To retrieve detailed information about a specific custom model, use the [Get Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API in the following command.
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<key>* with the key you copied from the previous step.
@@ -1530,7 +1530,7 @@ You receive a `200` success response, with a request body JSON data like the fol
 
 ### Delete a model from the resource account
 
-You can also delete a model from your account by referencing its ID. This command calls the [Delete Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) API to delete the model used in the previous section.
+You can also delete a model from your account by referencing its ID. This command calls the [Delete Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API to delete the model used in the previous section.
 
 1. Replace *\<endpoint>* with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace *\<key>* with the key you copied from the previous step.
@@ -1547,4 +1547,4 @@ You receive a `204` success response, indicating that your model is marked for d
 For this project, you used the Document Intelligence REST API to analyze forms in different ways. Next, explore the reference documentation to learn about Document Intelligence API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [REST API reference documentation](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)

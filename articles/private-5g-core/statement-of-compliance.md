@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's compliance with specifications. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 01/20/2022
 ms.custom: template-concept
@@ -32,6 +32,7 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 - TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunneling Protocol for Control plane (GTPv2-C); Stage 3.
 - TS 33.401: 3GPP System Architecture Evolution (SAE); Security architecture.
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP).
+- TS 29.061: Interworking between the Public Land Mobile Network (PLMN) supporting packet based services and Packet Data Networks (PDN)
 
 ### 5G handover procedures
 

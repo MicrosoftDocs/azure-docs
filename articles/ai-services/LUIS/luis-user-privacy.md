@@ -21,9 +21,9 @@ ms.date: 01/19/2024
 Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​
-Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [Azure portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](/rest/api/luis/operation-groups).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Customer content is stored encrypted in Microsoft regional Azure storage and includes:
 
@@ -38,7 +38,7 @@ LUIS users have full control to delete any user content, either through the LUIS
 | | **User Account** | **Application** | **Example Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](how-to/sign-in.md) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Active learning utterances](how-to/improve-application.md)<br>[Logged Utterances](luis-concept-data-storage.md#disable-logging-utterances) |
-| **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **APIs** | [Link](/rest/api/luis/azure-accounts/remove-from-app) | [Link](/rest/api/luis/apps/delete) | [Link](/rest/api/luis/examples/delete) | [Link](/rest/api/luis/versions/delete-unlabelled-utterance) |
 
 
 ## Exporting customer data
@@ -46,7 +46,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 | | **User Account** | **Application** | **Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
-| **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
+| **APIs** | [Link](/rest/api/luis/azure-accounts/list-user-luis-accounts) | [Link](/rest/api/luis/versions/export) | [Link](/rest/api/luis/examples/list) | [Link](/rest/api/luis/apps/download-query-logs) |
 
 ## Location of active learning
 

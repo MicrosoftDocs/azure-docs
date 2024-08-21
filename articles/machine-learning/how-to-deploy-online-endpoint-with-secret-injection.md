@@ -3,12 +3,11 @@ title: Access secrets from online deployment using secret injection (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to use secret injection with online endpoint and deployment to access secrets like API keys.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 01/10/2024
 ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2, devx-track-azurecli
@@ -123,7 +122,7 @@ Alternatively, you can create a custom connection by using Azure Machine Learnin
 
 #### (Optional) Use Azure Key Vault as a secret store
 
-Create the key vault and set a secret to use in your deployment. For more information on creating the key vault, see [Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli.md). Also,
+Create the key vault and set a secret to use in your deployment. For more information on creating the key vault, see [Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/secrets/quick-create-cli). Also,
 - [az keyvault CLI](/cli/azure/keyvault#az-keyvault-create) and [Set Secret REST API](/rest/api/keyvault/secrets/set-secret/set-secret) show how to set a secret.
 - [az keyvault secret show CLI](/cli/azure/keyvault/secret#az-keyvault-secret-show) and [Get Secret Versions REST API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions) show how to retrieve a secret version.
 
@@ -216,7 +215,7 @@ If the following conditions are met, the endpoint identity will automatically be
 - The endpoint uses an SAI.
 - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
 
-The endpoint identity won't automatically be granted a role to read secrets from the Key Vault. If you want to use the Key Vault as a secret store, you need to manually assign a proper role such as `Key Vault Secrets User` to the _endpoint identity_ on the scope of the Key Vault. For more information on roles, see [Azure built-in roles for Key Vault data plane operations](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
+The endpoint identity won't automatically be granted a role to read secrets from the Key Vault. If you want to use the Key Vault as a secret store, you need to manually assign a proper role such as `Key Vault Secrets User` to the _endpoint identity_ on the scope of the Key Vault. For more information on roles, see [Azure built-in roles for Key Vault data plane operations](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 ### [User-assigned identity](#tab/uai)
 

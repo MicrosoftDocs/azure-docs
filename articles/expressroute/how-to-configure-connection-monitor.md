@@ -3,7 +3,7 @@ title: 'Configure Connection Monitor for Azure ExpressRoute'
 description: Configure cloud-based network connectivity monitoring for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
@@ -13,7 +13,7 @@ ms.author: duau
 
 This article helps you configure a Connection Monitor extension to monitor ExpressRoute. Connection Monitor is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). Connection Monitor is part of Azure Monitor logs.  The extension also lets you monitor network connectivity for your private and Microsoft peering connections. When you configure Connection Monitor for ExpressRoute, you can detect network issues to identify and eliminate.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 With Connection Monitor for ExpressRoute you can:
 
@@ -147,7 +147,7 @@ If you're creating a new Azure VM for monitoring connectivity your VNet, you can
 
 #### Existing Azure virtual machine
 
-If you're using an existing VM to monitor connectivity, you can install the Network Agent separately for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+If you're using an existing VM to monitor connectivity, you can install the Network Agent separately for [Linux](../network-watcher/network-watcher-agent-linux.md) and [Windows](../network-watcher/network-watcher-agent-windows.md).
 
 ### <a name="firewall"></a>Open the firewall ports on the monitoring agent servers
 

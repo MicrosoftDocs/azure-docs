@@ -7,13 +7,10 @@ ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment, linux-related-content
 recommendations: false
-ms.date: 06/14/2023
+ms.date: 06/06/2024
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
 
@@ -96,7 +93,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     b. Enter Log Analytics workspace (optional, required to store log analytics).
 
-    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9, and Ubuntu 18.04).
+    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8 and Ubuntu 18.04).
 
     :::image type="content" source="./media/stig-linux-diagnostic-settings.png" alt-text="Management section showing where you select the diagnostic settings for the virtual machine" border="false":::
 

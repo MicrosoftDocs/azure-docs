@@ -3,7 +3,7 @@ title: Overview of Microsoft Teams Direct Routing with Azure Communications Gate
 description: Understand how Azure Communications Gateway works with Microsoft Teams Direct Routing and your fixed network.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 03/31/2024
 ms.custom: template-concept
@@ -51,28 +51,24 @@ An Azure Communications Gateway deployment is designed to support Direct Routing
 
 Your Azure Communications Gateway deployment always receives an FQDN (fully qualified domain name) when it's created. You use this FQDN as the _base domain_ for your carrier tenant.
 
-> [!TIP]
-> You can provide your own base domain to use with Azure Communications Gateway, or use the domain name that Azure automatically allocates. For more information, see [Topology hiding with domain delegation](#topology-hiding-with-domain-delegation).
-
 Azure Communications Gateway also receives two per-region subdomains of the base domain (one per region).
 
 Each of your customers needs _customer subdomains_ of these per-region domains. Azure Communications Gateway includes one of these subdomains in the Contact header of each message it sends to the Microsoft Phone System: the presence of the subdomain allows the Microsoft Phone System to identify the customer tenant for each message. For more information, see [Identifying the customer tenant for Microsoft Phone System](#identifying-the-customer-tenant-for-microsoft-phone-system).
 
 For each customer, you must:
 
-1. Choose a suitable subdomain. The label for the subdomain must:
-    - Contain only letters, numbers, underscores, and dashes.
-    - Be up to **eight** characters in length.
-    - Not contain a wildcard or multiple labels separated by `.`.
+1. Choose a suitable customer-specific DNS label to form the subdomains.
+    - The label must be up to **nine** characters in length and can only contain letters, numbers, underscores, and dashes.
+    - You must not use wildcard subdomains or subdomains with multiple labels.
+    - For example, you could allocate the label `contoso`.
     > [!IMPORTANT]
-    > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1-r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
-2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
-3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
+    > The full customer subdomains (including the per-region domain names) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
+1. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
+1. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
 As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal (preview) or the Provisioning API (preview). This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
 
-> [!TIP]
-> For a walkthrough of setting up a customer tenant and numbers for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md) and [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask your customer to carry out the steps that need access to their tenant.
+For instructions, see [Manage Microsoft Teams Direct Routing customers and numbers with Azure Communications Gateway](manage-enterprise-teams-direct-routing.md).
 
 ## Support for caller ID screening
 
@@ -87,7 +83,7 @@ The following diagram shows the call flow for an INVITE from a number that is as
 :::image-end:::
 
 > [!NOTE]
-> The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
+> The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#create-an-azure-communications-gateway-resource). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
 
 The following diagram shows the call flow for an INVITE from a number that isn't assigned to a customer. Azure Communications Gateway rejects the call with a 403.
 
@@ -156,12 +152,6 @@ For full details of the media interworking features available in Azure Communica
 Azure Communications Gateway has Preview support for Direct Routing media bypass. Direct Routing media bypass allows media to flow directly between Azure Communications Gateway and Microsoft Teams clients in some scenarios instead of always sending it through the Microsoft Phone System. Media continues to flow through Azure, because both Azure Communications Gateway and Microsoft Phone System are located in Azure.
 
 If you believe that media bypass support (preview) would be useful for your deployment, discuss your requirements with a Microsoft representative.
-
-## Topology hiding with domain delegation
-
-The domain for your Azure Communications Gateway deployment is visible to customer administrators in their Microsoft 365 admin center. By default, each Azure Communications Gateway deployment receives an automatically generated domain name in the form `<deployment-id>.commsgw.azure.com`, where `<deployment-id>` is autogenerated and unique to the deployment. For example, the domain name might be `a1b2c3d4e5f6g7h8.commsgw.azure.com`.
-
-To hide the details of your deployment, you can configure Azure Communications Gateway to use a subdomain of your own base domain. Customer administrators see subdomains of this domain in their Microsoft 365 admin center. This process uses [DNS delegation with Azure DNS](../dns/dns-domain-delegation.md). You must configure DNS delegation as part of deploying Azure Communications Gateway.
 
 ## Next steps
 

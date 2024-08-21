@@ -1,14 +1,14 @@
 ---
 title: Azure Site Recovery dashboard and built-in alerts
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 04/29/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Monitor Site Recovery
+# Use the Recovery Services dashboard
 
 In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
@@ -124,7 +124,7 @@ In **Jobs**, monitor the status of Site Recovery operations.
 
 Monitor jobs as follows:
 
-1. In the dashboard > **Jobs** section, you can see a summary of jobs that have completed, are in progress, or waiting for input, in the last 24 hours. You can select on any state to get more information about the relevant jobs.
+1. In the dashboard > **Jobs** section, you can see a summary of jobs that have completed, are in progress, or waiting for input, in the last 24 hours. You can select any state to get more information about the relevant jobs.
 2. Select **View all** to see all jobs in the last 24 hours.
 
     > [!NOTE]
@@ -162,6 +162,9 @@ You can subscribe to receive email notifications for these critical events:
 - No connectivity between the on-premises infrastructure components and Site Recovery service. Connectivity between Site Recovery and on-premises servers registered in a vault is detected using a heartbeat mechanism.
 - Failover failures.
 
+> [!NOTE]
+> Enabling email notification for ASR does not incur any additional costs.
+
 Subscribe as follows:
 
 In the vault > **Monitoring** section, select **Site Recovery Events**.
@@ -170,23 +173,16 @@ In the vault > **Monitoring** section, select **Site Recovery Events**.
 
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/email.png" alt-text="Screenshot displays Email notifications view." lightbox="./media/site-recovery-monitor-and-troubleshoot/email.png":::
 
-## Built-in Azure Monitor alerts for Azure Site Recovery (preview)
+## Built-in Azure Monitor alerts for Azure Site Recovery
 
-Azure Site Recovery also provides default alerts via Azure Monitor, which enables you to have a consistent experience for alert management across different Azure services. With Azure Monitor based alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, Webhook, Logic app, and more. You can also use other alert management capabilities offered by Azure Monitor, for example, suppressing notifications during a planned maintenance window.
-
-### Enable built-in Azure Monitor alerts
-
-To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertsToAzureMonitor** for the selected subscription. 
+Azure Site Recovery also provides default alerts via Azure Monitor, which enables you to have a consistent experience for alert management across different Azure services. With Azure Monitor based alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, Webhook, Logic app, and more. You can also use other alert management capabilities offered by Azure Monitor, for example, suppressing notifications during a planned maintenance window.  
 
 > [!NOTE]
-> - We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
-> - If the Recovery Services vault is created before the subscription is registered, then the subscription should be re-registered. 
-
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png" alt-text="Screenshot displays feature flag to register for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png":::
+> We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
 
 ### Alerts scenarios
 
-Once you register this feature, Azure Site Recovery sends a default alert (surfaced via Azure Monitor) whenever any of the following critical events occur:
+Azure Site Recovery sends a default alert (surfaced via Azure Monitor) whenever any of the following critical events occur:
 
 - Enable disaster recovery failure alerts for Azure VM, Hyper-V, and VMware replication.
 - Replication health critical alerts for Azure VM, Hyper-V, and VMware replication.
@@ -195,7 +191,48 @@ Once you register this feature, Azure Site Recovery sends a default alert (surfa
 - Failover failure alerts for Azure VM, Hyper-V, and VMware replication.
 - Auto certification expiry alerts for Azure VM replication.
 
-To test the working of the alerts for a test VM using Azure Site Recovery, you can disable public network access for the cache storage account so that a **Replication Health turned to critical** alert is generated. *Alerts* are generated by default, without any need for  rule configuration. However, to enable *notifications* (for example, email notifications) for these generated alerts, you must create an alert processing rule as described in the following sections.
+To test the working of the alerts for a test VM using Azure Site Recovery, you can disable public network access for the cache storage account so that a **Replication Health turned to critical** alert is generated. 
+
+> [!NOTE]
+> *Alerts* are generated by default, without any need for  rule configuration. However, to enable *notifications* (for example, email notifications) for these generated alerts, you must create an alert processing rule as described in the following sections.
+
+### Manage Azure Site Recovery alerts in Recovery Services Vault 
+
+You can view the alerts settings under **Recovery Services Vault** > **Settings** > **Properties** > **Monitoring Settings**. The built-in alerts for Site Recovery are enabled by default, but you can disable either or both categories of Site Recovery alerts. Select the checkbox to opt out of classic alerts for Site Recovery and only use built-in alerts. If not done, duplicate alerts are generated for classic and built-in.  
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
+
+### Manage Azure Site Recovery alerts in Business Continuity Center
+
+To manage your alerts settings, go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** option. Select **Manage alerts** > **Manage built-in alert settings for resources** option.  
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center-properties.png" alt-text="Screenshot displays properties for alerting feature in Business Continuity Center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center-properties.png":::
+
+Get an at-scale view of all vaults across all subscriptions using Classic Alerts for Backup and Site Recovery. You can update the alert settings for each vault by selecting **Update**. You can also select only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Update settings and select **Update** to save. 
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png" alt-text="Screenshot displays opt-in properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png":::
+
+### Manage Azure Site Recovery alerts in Backup Center
+
+To manage your alerts settings, do the following:
+
+1. Select *Click here to take action* to manage built-in alerts for site recovery. 
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center.png" alt-text="Screenshot displays Backup Center properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center.png":::
+1. Select **Manage alerts** to view alert configurations. Select **Create rule** to create alert processing rules to route alerts to different notification channels. 
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-manage.png" alt-text="Screenshot displays manage properties in Backup center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-manage.png":::
+1. Check which vaults have classic alerts configured for Backup and Site Recovery. The two columns **Backup Classic Alerts** and **Site Recovery Classic Alerts** show **Yes** if classic alerts are on. We recommend, to switch to Azure Monitor based alerts for a better monitoring experience by selecting **Update**. 
+1. Select the options to only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Security alerts can't be disabled. Update settings and select **Update** to save. 
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png" alt-text="Screenshot displays opt-in properties for alerting feature in Backup center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png":::
+
+
+### View the generated Azure Site Recovery alerts in Recovery Services vault
+
+Follow these steps to view the alerts generated for a particular vault via the vault experience:
+
+1.	On the [Azure portal](https://ms.portal.azure.com), go to the Recovery Services vault that you are using. 
+2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts.   You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
+3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
+4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
 ### View the generated Azure Site Recovery alerts in Azure Monitor
 
@@ -204,21 +241,26 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 1.	On the [Azure portal](https://ms.portal.azure.com), go to **Azure Monitor** > **Alerts**.
 2.	Set the filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. 
     You can also customize the values of other filters to see alerts of a specific time range up to 30 days or for vaults, subscriptions, severity and alert state (user response).
+
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
 3.	Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png" alt-text="Screenshot displays alert details via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png":::
 
-### View the generated Azure Site Recovery alerts in Recovery Services vault
 
-Follow these steps to view the alerts generated for a particular vault via the vault experience:
+### View the generated Azure Site Recovery alerts in Business Continuity Center
 
-1.	On the [Azure portal](https://ms.portal.azure.com), go to the Recovery Services vault that you are using. 
-2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
-3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
-4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
+You can manage your alerts settings under **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** blade. This shows you the alerts in order of **Severity** and **Category**. Select the hyperlink or **View affected resources** to get a detailed view of the alerts. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png" alt-text="Screenshot displays alerts via Recovery Services vault in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png" alt-text="Screenshot displays Backup Center alerts." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png":::
+
+Select **View alert** to get alert details and take action. 
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays View alert option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
+
+Like Azure Monitor, Business Continuity Center, and Recovery Services Vault you can view alerts from Backup Center as well. 
+
 
 ### Configure email notifications for alerts
 
@@ -228,11 +270,9 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
  
 1.	Go to **Azure Monitor** > **Alerts** and select **Alert processing rules** on the top pane.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png" alt-text="Screenshot displays alert processing rules option in Azure Monitor." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing.png" alt-text="Screenshot displays create new alert processing option." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing.png":::
 
 2.	Select **Create**.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-create-button.png" alt-text="Screenshot displays create new alert processing rule." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-create-button.png":::
 
 3.	Under **Scope** > **Select scope** of the alert processing rule, you can apply the rule for all the resources within a subscription. Other customizations can be made to the scope by applying filters. For example, generating notification for alert of a certain severity.
 
@@ -244,9 +284,6 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/create-action-group.png" alt-text="Screenshot displays the Create new action group option." lightbox="./media/site-recovery-monitor-and-troubleshoot/create-action-group.png":::
 
 5.	For the creation of an action group, in the **Basics** tab select the name of the action group, the subscription, and the resource group under which it must be created.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-action-groups-basic.png" alt-text="Screenshot displays Configure notifications by creating action group." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-action-groups-basic.png":::
-
 6.	Under the **Notifications** tab, select the destination of the notification **Email/ SMS Message/ Push/ Voice** and enter the recipient's email ID and other details as necessary.
 
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-email.png" alt-text="Screenshot displays the select required notification channel option." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-email.png":::
@@ -256,13 +293,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
     > The created action group appears in the **Rule settings** page.
 
 8.	In the **Scheduling** tab select **Always**.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-scheduling.png" alt-text="Screenshot displays Scheduling options for alert processing rule." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-scheduling.png":::
-
 9.	Under the **Details** tab specify the subscription, resource group and name of the alert processing rule being created.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-details.png" alt-text="Screenshot displays Save the alert processing rule in any subscription." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-details.png":::
-
 10.	Add Tags if needed and select **Review+Create** > **Create**. The alert processing rule will be active in a few minutes.
 
 ### Configure notifications to non-email channels

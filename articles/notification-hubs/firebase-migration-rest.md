@@ -3,9 +3,9 @@ title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) mig
 description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using REST APIs.
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 04/12/2024
+ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 04/12/2024
@@ -14,6 +14,9 @@ ms.lastreviewed: 04/12/2024
 # Google Firebase Cloud Messaging migration using REST API and the Azure portal
 
 This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
+
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
 
 ## Concepts for FCM v1
 
@@ -62,7 +65,7 @@ Go to your notification hub on the Azure portal, and select **Settings > Google 
 
 #### Option 2: Update FcmV1 credentials via management plane hub operation
 
-See the [description of a NotificationHub FcmV1Credential.](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
+See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
 
 - Use API version: 2023-10-01-preview
 - **FcmV1CredentialProperties**:

@@ -2,7 +2,7 @@
 title: Salt Minion for Linux or Windows Azure VMs  
 description: Install Salt Minion on Linux or Windows VMs using the VM Extension.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-arm-template, devx-track-azurecli, devx-track-terraform, linux-related-content
 ms.author: gabsta

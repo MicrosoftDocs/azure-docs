@@ -1,9 +1,9 @@
 ---
 title: Linter rule - no deployments resources
 description: Linter rule - no deployments resources
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no deployments resources
@@ -37,7 +37,7 @@ In ARM templates, you can reuse or modularize a template through nesting or link
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2024-03-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -47,7 +47,7 @@ In ARM templates, you can reuse or modularize a template through nesting or link
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2023-01-01",
+              "apiVersion": "2023-04-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
               "sku": {
@@ -69,7 +69,7 @@ In Bicep, you can still use the `Microsoft.Resources/deployments` resource for n
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource nestedTemplate1 'Microsoft.Resources/deployments@2023-07-01' = {
+resource nestedTemplate1 'Microsoft.Resources/deployments@2024-03-01' = {
   name: 'nestedTemplate1'
   properties:{
     mode: 'Incremental'
@@ -79,7 +79,7 @@ resource nestedTemplate1 'Microsoft.Resources/deployments@2023-07-01' = {
       resources: [
         {
           type: 'Microsoft.Storage/storageAccounts'
-          apiVersion: '2023-01-01'
+          apiVersion: '2023-04-01'
           name: storageAccountName
           location: location
           sku: {
@@ -116,7 +116,7 @@ _nested_nestedTemplate1.bicep_:
 param storageAccountName string
 param location string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -126,7 +126,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 }
 ```
 
-Additionally, you can also refence ARM templates using the [module](./modules.md) statement.
+Additionally, you can also reference ARM templates using the [module](./modules.md) statement.
 
 _main.bicep_:
 
@@ -162,7 +162,7 @@ _createStorage.json_:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2023-04-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {

@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -219,12 +219,12 @@ The following [az network nic show][az-network-nic-show] commands get the privat
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIPAddress" \
   --output tsv)
 
 DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIPAddress" \
   --output tsv)
 
 # An FQDN is associated with each IP address in the IP configurations
@@ -248,7 +248,7 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), que
 REPLICA_LOCATION=eastus
 GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIPAddress" \
   --output tsv) 
 
 GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
@@ -480,7 +480,7 @@ Data endpoint(s): `{REGISTRY_NAME}.{REGISTRY_LOCATION}.data.azurecr.io`
 
 For a geo-replicated registry, customer needs to configure access to the data endpoint for each regional replica.
 
-You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](../aks/http-proxy.md) to integrate with AKS. 
+You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](/azure/aks/http-proxy) to integrate with AKS. 
 
 Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
 

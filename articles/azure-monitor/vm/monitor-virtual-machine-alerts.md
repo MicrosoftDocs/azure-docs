@@ -73,7 +73,7 @@ If you set the target resource of a log search alert rule to a specific machine,
 
 If you set the target resource of a log search alert rule to a Log Analytics workspace, you have access to all data in that workspace. For this reason, you can alert on data from all machines in the workgroup with a single rule. This arrangement gives you the option of creating a single alert for all machines. You can then use dimensions to create a separate alert for each machine.
 
-For example, you might want to alert when an error event is created in the Windows event log by any machine. You first need to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) to send these events to the `Event` table in the Log Analytics workspace. Then you create an alert rule that queries this table by using the workspace as the target resource and the condition shown in the following image.
+For example, you might want to alert when an error event is created in the Windows event log by any machine. You first need to create a data collection rule as described in [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md) to send these events to the `Event` table in the Log Analytics workspace. Then you create an alert rule that queries this table by using the workspace as the target resource and the condition shown in the following image.
 
 The query returns a record for any error messages on any machine. Use the **Split by dimensions** option and specify **_ResourceId** to instruct the rule to create an alert for each machine if multiple machines are returned in the results.
 
@@ -95,8 +95,10 @@ The following section lists common alert rules for virtual machines in Azure Mon
 > [!NOTE]
 > The details for log search alerts provided here are using data collected by using [VM Insights](vminsights-overview.md), which provides a set of common performance counters for the client operating system. This name is independent of the operating system type.
 
-### Machine unavailable
+### Machine availability
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method is to create a metric alert rule in Azure Monitor by using the VM availability metric, which is currently in public preview. For a walk-through on this metric, see [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md).
+
+An alert rule is limited to one activity log signal. So for every condition, one alert rule must be created. For example, "starts or stops the virtual machine" requires two alert rules. However, to be alerted when VM is restarted, only one alert rule is needed. 
 
 As described in [Scaling alert rules](#scaling-alert-rules), create an availability alert rule by using a subscription or resource group as the target resource. The rule applies to multiple virtual machines, including new machines that you create after the alert rule.
 

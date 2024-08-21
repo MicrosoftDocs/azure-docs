@@ -1,4 +1,4 @@
-- name: Microsoft Copilot for Azure (preview) documentation
+- name: Microsoft Copilot in Azure (preview) documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -6,12 +6,14 @@
   items:
   - name: Capabilities
     href: capabilities.md
-  - name: Limited access
-    href: limited-access.md
+  - name: Example prompts
+    href: example-prompts.md
   - name: Responsible AI FAQ
     href: responsible-ai-faq.md
 - name: How-to guides
   items:
+  - name: Manage access
+    href: manage-access.md
   - name: Write effective prompts
     href: write-effective-prompts.md
 - name: Enhanced scenarios
@@ -22,6 +24,8 @@
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
     href: build-infrastructure-deploy-workloads.md
+  - name: Use interactive deployments
+    href: use-guided-deployments.md
   - name: Get monitoring information
     href: get-monitoring-information.md
   - name: Optimize your code
@@ -30,18 +34,26 @@
     href: work-smarter-edge.md
   - name: Secure and protect storage accounts
     href: improve-storage-accounts.md
-  - name: Troubleshoot deployed web apps
+  - name: Troubleshoot deployed apps
     href: troubleshoot-app-service.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
+  - name: Generate PowerShell scripts
+    href: generate-powershell-scripts.md
+  - name: Generate Terraform infrastructure
+    href: generate-terraform-configurations.md
   - name: Author API Management policies
     href: author-api-management-policies.md
+  - name: Work with AKS clusters
+    href: work-aks-clusters.md
   - name: Generate Kubernetes YAML files
     href: generate-kubernetes-yaml.md
   - name: Understand service health
     href: understand-service-health.md
   - name: Analyze costs
     href: analyze-cost-management.md
+  - name: Query attack surface
+    href: query-attack-surface.md
 - name: Resources
   items:
   - name: Azure updates

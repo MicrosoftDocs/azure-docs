@@ -2,16 +2,16 @@
 title: 'VNet peering and Azure Bastion architecture'
 description: Learn how VNet peering and Azure Bastion can be used together to connect to VMs.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 
 ---
 
-# VNet peering and Azure Bastion
+# Virtual network peering and Azure Bastion
 
-Azure Bastion and VNet peering can be used together. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Azure Bastion and Virtual Network peering can be used together. When Virtual Network peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 Azure Bastion works with the following types of peering:
 

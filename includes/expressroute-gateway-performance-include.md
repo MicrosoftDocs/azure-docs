@@ -3,9 +3,9 @@
  description: include file
  services: expressroute
  author: duongau
- ms.service: expressroute
+ ms.service: azure-expressroute
  ms.topic: include
- ms.date: 02/26/2024
+ ms.date: 07/09/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -28,12 +28,12 @@ The following tables provides an overview of the different types of gateways, th
 
 This table applies to both the Azure Resource Manager and classic deployment models.
 
-| Gateway SKU | Connections per second | Mega-Bits per second | Packets per second | Supported number of VMs in the virtual network <sup>1<sup/> | Flow count limit |
-|--|--|--|--|--|--|
-| **Standard/ERGw1Az** | 7,000 | 1,000 | 100,000 | 2,000 | 100,000 |
-| **High Performance/ERGw2Az** | 14,000 | 2,000 | 200,000 | 4,500 | 200,000 |
-| **Ultra Performance/ErGw3Az** | 16,000 | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
-| **ErGwScale (per scale unit)** | N/A | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
+| Gateway SKU | Mega-Bits per second | Packets per second | Supported number of VMs in the virtual network <sup>1<sup/> | Flow count limit |
+|--|--|--|--|--|
+| **Standard/ERGw1Az** | 1,000 | 100,000 | 2,000 | 200,000 |
+| **High Performance/ERGw2Az** | 2,000 | 200,000 | 4,500 | 400,000 |
+| **Ultra Performance/ErGw3Az** | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
+| **ErGwScale (per scale unit)** | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
 
 <sup>1<sup/> The values in the table are estimates and varies depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs gets exceeded, the gateway will start to dropping packets.
 
@@ -41,4 +41,4 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 > * Application performance depends on multiple factors, such as end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, the control plane and data path capacity of the gateway is reduced.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
 > * ExpressRoute supports a maximum TCP and UDP packet size of 1400 bytes. Packet size larger than 1400 bytes will get fragmented.
-> * Azure Route Server can support up to 4000 VMs. This limit includes VMs in virtual networks that are peered. For more information, see [Azure Route Server limitations](../articles/route-server/overview.md#route-server-limits).
+> * Azure Route Server can support up to 4000 VMs. This limit includes VMs in virtual networks that are peered. For more information, see [Azure Route Server limitations](/azure/route-server/overview#route-server-limits).

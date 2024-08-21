@@ -1,6 +1,6 @@
 ---
 title: Create, view, and manage Azure Event Grid namespaces
-description: This article describes how to create, view and manage namespaces
+description: This article describes how to create, view, and manage namespaces
 author: robece
 ms.topic: how-to
 ms.custom:
@@ -12,11 +12,11 @@ ms.date: 11/15/2023
 
 # Create, view, and manage namespaces
 
-A namespace in Azure Event Grid is a logical container for one or more topics, clients, client groups, topic spaces and permission bindings. It provides a unique namespace, allowing you to have multiple resources in the same Azure region. With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
+A namespace in Azure Event Grid is a logical container for one or more topics, clients, client groups, topic spaces, and permission bindings. It provides a unique namespace, allowing you to have multiple resources in the same Azure region. Using an Azure Event Grid namespace, you can group together related resources and manage them as a single unit in your Azure subscription.
 
 
 
-This article shows you how to use the Azure portal to create, view and manage an Azure Event Grid namespace.
+This article shows you how to use the Azure portal to create, view, and manage an Azure Event Grid namespace.
 
 ## Create a namespace
 
@@ -32,7 +32,7 @@ This article shows you how to use the Azure portal to create, view and manage an
     1. Select an existing **resource group** or create a resource group.
     1. Enter a **name** for the namespace.
     1. Select the region or **location** where you want to create the namespace. 
-    1. If the selected region supports availability zones, the **Availability zones** checkbox can be enabled or disabled. The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable availability zones if needed. The selection cannot be changed once the namespace is created.
+    1. If the selected region supports availability zones, the **Availability zones** checkbox can be enabled or disabled. The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable availability zones if needed. The selection can't be changed once the namespace is created.
     1. Use the slider or text box to specify the number of **throughput units** for the namespace. Throughput units (TUs) define the ingress and egress event rate capacity in namespaces.
     1. Select **Next: Networking** at the bottom of the page. 
     
@@ -40,7 +40,7 @@ This article shows you how to use the Azure portal to create, view and manage an
 1. Follow steps from [Configure IP firewall](configure-firewall.md) or [Configure private endpoints](mqtt-configure-private-endpoints.md) to configure IP firewall or private endpoints for the namespace, and then select **Next: Security** at the bottom of the page.
 1. On the **Security** page, create a managed identity by following instructions from [Enable managed identity for a namespace](event-grid-namespace-managed-identity.md), and then select **Next: Tags** at the bottom of the page. 
 1. On the **Tags** tab, add the tags in case you need them. Then, select **Next: Review + create** at the bottom of the page.
-6. On the **Review + create** tab, review your settings and select **Create**.
+6. On the **Review + create** tab, review your settings, and select **Create**.
 1. On the **Deployment succeeded** page, select **Go to resource** to navigate to your namespace. 
 
 ## View a namespace

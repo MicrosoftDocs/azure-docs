@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: Configure the network fabric"
-description: Learn commands to create, view, list, update, and delete network fabrics.
+title: "Azure Operator Nexus: Configure the Network Fabric"
+description: Learn commands to create, view, list, update, and delete Network Fabrics.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -23,9 +23,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 * Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
-* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab**, **M8-A400-A100-C16-ab**, **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
-    * M4-A400-A100-C16-aa - up to four compute racks (BOM 1.6.2)
-    * M8-A400-A100-C16-aa - up to eight compute racks (BOM 1.6.2)
+* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**.
     * M4-A400-A100-C16-ab - Up to four Compute Racks (BOM 1.7.3)
     * M8-A400-A100-C16-ab - Up to eight Compute Racks (BOM 1.7.3)
 
@@ -85,7 +83,7 @@ Run the following command to create the Network Fabric:
 
 az networkfabric fabric create \ 
 --resource-group "NFResourceGroupName" 
---location "eastus" \
+--location "<Location>" \
 --resource-name "NFName" \
 --nf-sku "NFSKU" \
 --nfc-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName" 
@@ -108,7 +106,7 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
   "name": "NFName",
   "type": "microsoft.managednetworkfabric/networkfabrics",
-  "location": "eastus",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
     "createdByType": "Application",
@@ -180,7 +178,7 @@ Expected output:
 
 
 ```
-## show network fabric 
+## Show Network Fabric 
 
 ```azurecli
 az networkfarbic fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
@@ -198,7 +196,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -273,7 +271,7 @@ Expected output:
 }
 ```
 
-## List all network fabrics in a resource group
+## List all Network Fabrics in a resource group
 
 ```azurecli
 az networkfabric fabric list --resource-group "NFResourceGroup"  
@@ -291,7 +289,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -406,7 +404,7 @@ Run the following command to create the Network to Network Interconnect (Default
 
 az networkfabric nni create \
 --resource-group "NFResourceGroup" \
---location "eastus" \
+--location "<Location>" \
 --resource-name "NFNNIName" \
 --fabric "NFFabric" \
 --is-management-type "True" \
@@ -563,7 +561,7 @@ Run the following command to update Network Fabric Devices:
 az networkfabric device update \
 --resource-group "NFResourceGroup" \
 --resource-name "Network-Device-Name" \
---location "eastus" \
+--host-name "example-hostname" \
 --serial-number "xxxx"
 
 ```
@@ -575,7 +573,7 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
   "name": "Network-Device-Name",
   "type": "microsoft.managednetworkfabric/networkdevices",
-  "location": "eastus",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
     "createdByType": "Application",
@@ -609,7 +607,7 @@ For example, `AggrRack` consists of:
 
 ## List or Get Network Fabric Devices
 
-Run the following command to list network fabric devices in a resource group:
+Run the following command to list Network Fabric devices in a resource group:
 
 ```azurecli
 az networkfabric device list --resource-group "NFResourceGroup"
@@ -624,7 +622,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
@@ -648,7 +646,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "AR-MGMT2",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -672,7 +670,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "NPB",
     "networkDeviceSku": "DefaultSku",
@@ -696,7 +694,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
@@ -720,7 +718,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -744,7 +742,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -768,7 +766,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -792,7 +790,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -816,7 +814,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -840,7 +838,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -864,7 +862,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -899,7 +897,7 @@ Expected output:
   "configurationState": "Succeeded",
   "hostName": "example-hostname",
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-  "location": "eastus",
+  "location": "<Location>",
   "name": "Network-Device-Name",
   "networkDeviceRole": "ToR",
   "networkDeviceSku": "DefaultSku",
@@ -921,7 +919,7 @@ Expected output:
 ```
 
 
-## Provision a network fabric
+## Provision a Network Fabric
 
 After you update the device serial number, provision and show the fabric by running the following commands:
 
@@ -945,7 +943,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1020,7 +1018,7 @@ Expected output:
 ```
 
 ## Deprovision a Fabric 
-To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
+To deprovision a fabric, ensure that the fabric is in a provisioned operational state, stop the dhcp service on the terminal server, and then run this command:
 
 ```azurecli
 az networkfabric fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
@@ -1039,7 +1037,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1140,7 +1138,7 @@ Sample output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1225,3 +1223,7 @@ Expected output:
 (ResourceNotFound) The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName' under resource group 'NFResourceGroup' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
 Code: ResourceNotFound
 ```
+
+## Next steps
+
+After you successfully created a Network Fabric, the next step is to create a [cluster](./howto-configure-cluster.md).

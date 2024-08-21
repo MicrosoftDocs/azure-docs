@@ -1,15 +1,15 @@
 ---
 title: Distributed GPU training guide (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn best practices for distributed training with supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, TensorFlow, and InfiniBand.
-author: rtanase
-ms.author: ratanase
-ms.reviewer: sgilley
-ms.service: machine-learning
+description: Learn best practices for distributed training with supported frameworks, such as  PyTorch, DeepSpeed, TensorFlow, and InfiniBand.
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: ratanase
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 01/29/2024
-ms.custom: sdkv2, update-code
+ms.custom: sdkv2, update-code1
 ---
 
 # Distributed GPU training guide (SDK v2)
@@ -18,9 +18,6 @@ ms.custom: sdkv2, update-code
 
 Learn more about using distributed GPU training code in Azure Machine Learning. This article helps you run your existing distributed training code, and offers tips and examples for you to follow for each framework:
 
-* Message Passing Interface (MPI)
-    * Horovod
-    * Environment variables from Open MPI
 * PyTorch
 * TensorFlow
 * Accelerate GPU training with InfiniBand
@@ -31,48 +28,6 @@ Review the basic concepts of [distributed GPU training](concept-distributed-trai
 
 > [!TIP]
 > If you don't know which type of parallelism to use, more than 90% of the time you should use **distributed data parallelism**.
-
-## MPI
-
-Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. Azure Machine Learning constructs the full MPI launch command (`mpirun`) behind the scenes. You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
-
-> [!TIP]
-> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org) is included in all the [Azure Machine Learning GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure Machine Learning also provides [curated environments](resource-curated-environments.md) for popular frameworks.
-
-To run distributed training using MPI, follow these steps:
-
-1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environments](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-a-custom-environment) with the preferred deep learning framework and MPI.
-1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script is responsible for launching the processes per node.
-1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
-
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
-
-### Horovod
-
-Use the MPI job configuration when you use [Horovod](https://horovod.readthedocs.io/en/stable/index.html) for distributed training with the deep learning framework.
-
-Make sure your code follows these tips:
-
-* The training code is instrumented correctly with Horovod before adding the Azure Machine Learning parts.
-* Your Azure Machine Learning environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come preconfigured with Horovod and its dependencies.
-* Create a `command` with your desired distribution.
-
-### Horovod example
-
-* For the full notebook to run the Horovod example, see [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb).
-
-### Environment variables from Open MPI
-
-When running MPI jobs with Open MPI images, you can use the following environment variables for each process launched:
-
-1. `OMPI_COMM_WORLD_RANK`: The rank of the process
-2. `OMPI_COMM_WORLD_SIZE`: The world size
-3. `AZ_BATCH_MASTER_NODE`: The primary address with port, `MASTER_ADDR:MASTER_PORT`
-4. `OMPI_COMM_WORLD_LOCAL_RANK`: The local rank of the process on the node
-5. `OMPI_COMM_WORLD_LOCAL_SIZE`: The number of processes on the node
-
-> [!TIP]
-> Despite the name, the environment variable `OMPI_COMM_WORLD_NODE_RANK` doesn't correspond to the `NODE_RANK`. To use per-node-launcher, set `process_count_per_node=1` and use `OMPI_COMM_WORLD_RANK` as the `NODE_RANK`.
 
 ## PyTorch
 

@@ -3,14 +3,14 @@ title: How to do hyperparameter sweep in pipeline
 titleSuffix: Azure Machine Learning
 description: How to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: xiaoharper
-ms.author: zhanxia
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: zhanxia
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, cliv2, update-code
+ms.custom: devx-track-python, sdkv2, cliv2, update-code2
 ---
 
 # How to do hyperparameter tuning in pipeline (v2)

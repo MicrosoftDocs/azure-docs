@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 03/22/2024
+ms.date: 08/01/2024
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions
 ---
@@ -42,7 +42,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](/azure/aks/use-managed-identity).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -150,7 +150,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](/azure/aks/use-managed-identity).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -388,7 +388,7 @@ az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connec
 
 #### Using Kubelet identity as authentication method for AKS clusters
 
-For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [precreated kubelet managed identity](../../aks/use-managed-identity.md#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
+For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [precreated kubelet managed identity](/azure/aks/use-managed-identity#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
 
 ```azurecli
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
@@ -396,7 +396,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 #### Red Hat OpenShift onboarding guidance
 
-Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
+Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster before deploying the `microsoft.flux` extension.
 
 ```console
 NS="flux-system"
@@ -487,7 +487,7 @@ To view detailed conditions for a configuration object, select its name.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png" alt-text="Screenshot showing condition details for a configuration object in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png":::
 
-For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md). 
+For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md).
 
 ---
 
@@ -496,6 +496,12 @@ For more information, see [Monitor GitOps (Flux v2) status and activity](monitor
 Flux supports many parameters to enable various scenarios. For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
 For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
+
+### Work with local secret authentication reference
+
+To use a local secret authentication reference, the secret must exist within the same namespace where the `fluxConfiguration` will be deployed. The secret must also contain all of the authentication parameters needed for the source.
+
+For information on creating secrets for various `fluxConfiguration` sources, see [Local secret for authentication with source](gitops-flux2-parameters.md#local-secret-for-authentication-with-source).
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
@@ -568,7 +574,7 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 
 ## Configurable log-level parameters
 
-By default, the `log-level` for Flux controllers is set to `info`. Starting with [`microsoft.flux` v1.8.3](extensions-release.md#flux-gitops), you can modify these default settings using the `k8s-extension` command as follows:
+By default, the `log-level` for Flux controllers is set to `info`. Starting with `microsoft.flux` v1.8.3, you can modify these default settings using the `k8s-extension` command as follows:
 
 ```azurecli
 --config helm-controller.log-level=<info/error/debug>
@@ -579,12 +585,51 @@ By default, the `log-level` for Flux controllers is set to `info`. Starting with
 --config image-reflector-controller.log-level=<info/error/debug>
 ```
 
-Valid values are `debug`, `info`, or `error`. These values are only configurable for the controllers listed above; they don't apply to the `fluxconfig-agent` and `fluxconfig-controller`.
-
-For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
+Valid values are `debug`, `info`, or `error`. For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
 
 ```azurecli
 az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
+```
+
+Starting with [`microsoft.flux` v1.9.1](extensions-release.md#flux-gitops), `fluxconfig-agent` and `fluxconfig-controller` support `info` and `error` log levels (but not `debug`). These can be modified by using the k8s-extension command as follows:
+
+```azurecli
+--config fluxconfig-agent.log-level=<info/error>
+--config fluxconfig-controller.log-level=<info/error>
+```
+
+For example, the following command changes `log-level` to `error`:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config fluxconfig-agent.log-level=error fluxconfig-controller.log-level=error
+```
+
+### Azure DevOps SSH-RSA deprecation
+
+Azure DevOps [announced the deprecation of SSH-RSA](https://aka.ms/ado-ssh-rsa-deprecation) as a supported encryption method for connecting to Azure repositories using SSH. If you use SSH keys to connect to Azure repositories in Flux configurations, we recommend moving to more secure RSA-SHA2-256 or RSA-SHA2-512 keys.
+
+When reconciling Flux configurations, you might see an error message indicating ssh-rsa is about to be deprecated or is unsupported. If so, update the host key algorithm used to establish SSH connections to Azure DevOps repositories from the Flux `source-controller` and `image-automation-controller` (if enabled) by using the `az k8s-extension update` command. For example:
+
+```azurecli
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config source-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config image-automation-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+```
+
+For more information on Azure DevOps SSH-RSA deprecation,  see [End of SSH-RSA support for Azure Repos](https://aka.ms/ado-ssh-rsa-deprecation).
+
+### Configure annotation on Flux extension pods
+
+When configuring a solution other than Azure Firewall, [network and FQDN/application rules](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are required for an AKS cluster. Starting with [`microsoft.flux` v1.11.1](extensions-release.md#flux-gitops), Flux controller pods can now set the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` in their pod specifications. This allows traffic to the API Server's domain name even when a Layer 7 firewall is present, facilitating deployments during extension installation. To configure this annotation when using the Flux extension, use the following commands.
+
+```azurecli
+# Create flux extension with annotation
+
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --extension-type microsoft.flux --config setKubeServiceHostFqdn=true
+    
+# Update flux extension with annotation
+
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config setKubeServiceHostFqdn=true
 ```
 
 ### Workload identity in AKS clusters
@@ -607,6 +652,9 @@ Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you 
    
    # For image-reflector controller if you plan to enable it during extension creation, it is not deployed by default
    az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"image-reflector-controller" --audience api://AzureADTokenExchange
+
+   # For kustomize-controller
+   az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"kustomize-controller" --audience api://AzureADTokenExchange
    ```
 
 1. Make sure the custom resource that needs to use workload identity sets `.spec.provider` value to `azure` in the manifest. For example:

@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision
 ms.topic: tutorial
-ms.date: 07/04/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms application for mobile platforms, analyzes photos of Azure service logos and then deploys those services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms application for mobile platforms, analyzes photos of Azure service logos and then deploys those services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial shows you how to:
 
@@ -31,7 +31,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - The Xamarin workload for Visual Studio (see [Installing Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- The [Azure CLI](/cli/azure/install-azure-cli-windows) (optional)
+    > [!NOTE]
+    > You will need a macOS device to run an iOS emulator.
+- (Optional) The [Azure CLI](/cli/azure/install-azure-cli-windows)
 
 ## Get the source code
 
@@ -87,9 +89,9 @@ To learn more about how the app handles this data, start with the **GetResources
 
 ## Add text recognition
 
-The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Azure AI Vision service as well. The app uses the Azure AI Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Azure AI Vision is pretrained to perform certain operations on images or videos.
+The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Azure AI Vision service as well. The app uses the Azure AI Vision optical character recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Azure AI Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Azure AI Vision service to get a key and endpoint URL. For help on this step, see [How to obtain keys](../multi-service-resource.md?pivots=azportal).
+Subscribe to the Azure AI Vision service to get a key and endpoint URL. For help on this step, see [Create an Azure AI services resource](../multi-service-resource.md?pivots=azportal).
 
 ![The Azure AI Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -99,7 +101,7 @@ Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 ## Create a service principal
 
-The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using Azure role-based access control. To learn more, see the [service principals guide](/azure-stack/operator/azure-stack-create-service-principals).
+The app requires an Azure service principal account to deploy the detected Azure services to your Azure subscription. A service principal lets you delegate specific permissions to an app using Azure role-based access control. To learn more, see the [service principals guide](/azure-stack/operator/azure-stack-create-service-principals).
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
@@ -133,19 +135,14 @@ Take note of the `clientId` and `tenantId` values. Add them to the appropriate f
 
 ## Run the app
 
-At this point, you've given the app access to:
-
+Now you've given the app access to:
 - A trained Custom Vision model
 - The Azure AI Vision service
 - A service principal account
 
 Follow these steps to run the app:
 
-1. In Visual Studio Solution Explorer, select either the **VisualProvision.Android** project or the **VisualProvision.iOS** project. Choose a corresponding emulator or connected mobile device from the drop-down menu on the main toolbar. Then run the app.
-
-    > [!NOTE]
-    > You will need a macOS device to run an iOS emulator.
-
+1. In the Visual Studio Solution Explorer, select either the **VisualProvision.Android** project or the **VisualProvision.iOS** project. Choose a corresponding emulator or connected mobile device from the drop-down menu on the main toolbar. Then run the app.
 1. On the first screen, enter your service principal client ID, tenant ID, and password. Select the **Login** button.
 
     > [!NOTE]

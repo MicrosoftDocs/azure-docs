@@ -4,7 +4,7 @@ description: Learn how to deploy an example architecture used recently to migrat
 author: swread
 ms.author: sread
 manager: mamccrea 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ms.custom:
 ms.topic: how-to
@@ -24,7 +24,7 @@ To deploy this architecture, download and run the deploy.sh script found in the 
 The repository also has scripts for setting up a Grafana dashboard. You can use the dashboard to query Prometheus, the open-source monitoring and alerting system included with DB2.
 
 > [!NOTE]
-> The deploy.sh script on the client creates private SSH keys and passes them to the deployment template over HTTPS. For greater security, we recommend using [Azure Key Vault](../../../../key-vault/general/overview.md) to store secrets, keys, and passwords.
+> The deploy.sh script on the client creates private SSH keys and passes them to the deployment template over HTTPS. For greater security, we recommend using [Azure Key Vault](/azure/key-vault/general/overview) to store secrets, keys, and passwords.
 
 ## How the deployment script works
 
@@ -121,6 +121,6 @@ For more information about these and other known problems, see the kb.md file in
 
 - [Creating required users for a DB2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [DB2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [DB2 pureScale Clusters Data Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [DB2 pureScale Clusters Data Solution](https://www.ibm.com/docs/en/db2/10.1.0?topic=editions-db2-purescale-feature)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

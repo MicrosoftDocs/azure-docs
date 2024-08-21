@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 07/11/2023
+ms.date: 04/29/2024
 ---
 
 # Design virtual networks with Azure NAT Gateway
@@ -55,44 +55,44 @@ The following examples demonstrate coexistence of a load balancer or instance-le
 
 ### A NAT gateway and VM with an instance-level public IP
 
-:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram of a NAT gateway resource that consumes all IP addresses for a public IP prefix. The NAT gateway directs traffic for two subnets of VMs and a Virtual Machine Scale Set.":::
+:::image type="content" source="./media/nat-gateway-design/nat-gateway-instance-level-ip.png" alt-text="Diagram of a NAT gateway with a virtual machine that has an instance level IP address.":::
 
 *Figure: A NAT gateway and VM with an instance-level public IP*
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
-| Virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
-| VMs (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| VM (Subnet 1) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | NA </br> NAT gateway |
+| VMs (Subnet 2) | Inbound </br> Outbound |  NA </br> NAT gateway |
 
-The virtual machine uses the NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The virtual machine scale set from subnet B and VMs from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
+The virtual machine uses the NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet 1. The virtual machine scale set from subnet 1 and VMs from subnet 2 can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with a standard public load balancer
 
-:::image type="content" source="./media/nat-overview/flow-direction3.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer.":::
+:::image type="content" source="./media/nat-gateway-design/nat-gateway-load-balancer.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer.":::
 
 *Figure: A NAT gateway and VM with a standard public load balancer*
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VMs in backend pool | Inbound </br> Outbound | Load balancer </br> NAT gateway |
-| VM and virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+|VM and virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
+|VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use the NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the load balancer’s backend pool. VM and the virtual machine scale set from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
+NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use the NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances (Subnet 1) within the load balancer’s backend pool. VMs from subnet 2 can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with an instance-level public IP and a standard public load balancer
 
-:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram of a NAT gateway that supports outbound traffic to the internet from a virtual network. Inbound traffic is depicted with an instance-level public IP and a public load balancer.":::
+:::image type="content" source="./media/nat-gateway-design/nat-gateway-instance-level-ip-load-balancer.png" alt-text="Diagram of a NAT gateway that supports outbound traffic to the internet from a virtual network. Inbound traffic is depicted with an instance-level public IP and a public load balancer.":::
 
 *Figure: NAT Gateway and VM with an instance-level public IP and a standard public load balancer*
 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
-| VM (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
-| Virtual machine scale set | Inbound </br> Outbound | NA </br> NAT gateway |
-| VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+| VM (Subnet 1) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
+| Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
+| VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets A and B use the NAT gateway exclusively for outbound and return traffic. Instance level public IPs take precedence over load balancer. The VM in subnet A uses the instance level public IP for inbound originating traffic.
+The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. VMSS do not have instance-level public IPs.
 
 ## Monitor outbound network traffic with NSG flow logs
 

@@ -155,6 +155,30 @@ Use the following steps to create a private endpoint for an existing Azure Data 
 >
 > [![Screenshot that shows options for rejecting or approving a request to create a private endpoint.](media/how-to-manage-private-links/private-links-10-awaiting-approval.png)](media/how-to-manage-private-links/private-links-10-awaiting-approval.png#lightbox)
 
+## Manage multiple endpoints in the same virtual network
+### Access via IP vs DNS
+In the same virtual network, you can create multiple endpoints. Each end point will have a different IP. It is not possible to resolve one host name with two difference IPs. 
+- If you access the resource via IP: 
+   - The resource will be accessible only via the latest private IP address. 
+   - All the previous private IPs in the same vnet will become dangling. 
+   - Even when you delete the latest IP, all the previous IPs still remain dangling. 
+- If you access via DNS name:  You won't see any difference.
+
+
+### Know which endpoint the resource is connected to
+1. Go to any of the private endpoints, to the DNS configuration, and to Private DNS Zone associated with ADME resource.
+
+[![Screenshot that shows DNS Config.](media/how-to-manage-private-links/private-links-17-dns-config.png)](media/how-to-manage-private-links/private-links-17-dns-config.png#lightbox)
+
+
+2. In the private DNS zone, check the IP associated with the entry for your Azure Data Manager for Energy instance.
+
+[![Screenshot that shows DNS Zone.](media/how-to-manage-private-links/private-links-18-dns-zone.png)](media/how-to-manage-private-links/private-links-18-dns-zone.png#lightbox)
+
+
+3. This is the IP to which your resource is connected.
+
+
 ## Next steps
 <!-- Add a context sentence for the following links -->
 To learn more about using Customer Lockbox as an interface to review and approve or reject access requests.

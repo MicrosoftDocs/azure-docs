@@ -122,10 +122,3 @@ To learn more about analytics, see [How to use data explorer to analyze device d
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
-
-## Next steps
-
-Now that you've learned how to use device groups in your Azure IoT Central application, here's the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Connect an IoT Edge device to your Azure IoT Central application](tutorial-connect-iot-edge-device.md)

@@ -9,11 +9,13 @@ ms.author: nicktrog
 
 # Use an Azure compute gallery in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 An image contains the operating system, software applications, files, and settings that are installed on a VM. This article shows how educators or lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) for others to create new labs.
 
 You can use two types of images to set up a new lab:
 
-- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes deep learning frameworks and tools.
+- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#what-does-the-dsvm-include) includes deep learning frameworks and tools.
 - Custom images are created by your institution’s IT department and\or other educators. You can create both Windows and Linux custom images. You have the flexibility to install Microsoft and third-party applications based on your unique needs. You also can add files, change application settings, and more.
 
 > [!IMPORTANT]

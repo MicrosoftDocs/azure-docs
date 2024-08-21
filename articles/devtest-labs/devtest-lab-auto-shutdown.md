@@ -100,7 +100,7 @@ The following example shows you how to use Logic Apps to configure an auto shutd
 
 ### Create a logic app that sends email notifications
 
-Logic Apps provides many connectors that make it easy to integrate a service with other clients, like Office 365 and Twitter. At a high level, the steps to set up a Logic App for email notification are:
+Logic Apps provides many connectors that make it easy to integrate a service with other clients, like Office 365 and X. At a high level, the steps to set up a Logic App for email notification are:
 
 1. Create a logic app.
 1. Configure the built-in template.
@@ -247,6 +247,6 @@ Now, integrate with your email client.
 
 ## Next steps
 
-- [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.md)
+- [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.yml)
 - [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 - [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md)

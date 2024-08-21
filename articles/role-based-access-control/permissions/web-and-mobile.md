@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -51,7 +51,6 @@ Azure service: [App Service](/azure/app-service/)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.DomainRegistration/generateSsoRequest/Action | Generate a request for signing into domain control center. |
 > | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | Validate domain purchase object without submitting it |
 > | Microsoft.DomainRegistration/checkDomainAvailability/Action | Check if a domain is available for purchase |
 > | Microsoft.DomainRegistration/listDomainRecommendations/Action | Retrieve the list domain recommendations based on keywords |
@@ -297,6 +296,12 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/regeneratekey/action | Change the value of SignalR access keys in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/restart/action | To restart a SignalR resource in the management portal or through API. There will be certain downtime |
 > | Microsoft.SignalRService/SignalR/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.SignalRService/SignalR/customCertificates/read |  |
+> | Microsoft.SignalRService/SignalR/customCertificates/write |  |
+> | Microsoft.SignalRService/SignalR/customCertificates/delete |  |
+> | Microsoft.SignalRService/SignalR/customDomains/read |  |
+> | Microsoft.SignalRService/SignalR/customDomains/write |  |
+> | Microsoft.SignalRService/SignalR/customDomains/delete |  |
 > | Microsoft.SignalRService/SignalR/detectors/read | Read Detector |
 > | Microsoft.SignalRService/SignalR/eventGridFilters/read | Get the properties of the specified event grid filter or lists all the event grid filters for the specified SignalR resource |
 > | Microsoft.SignalRService/SignalR/eventGridFilters/write | Create or update an event grid filter for a SignalR resource with the specified parameters |
@@ -325,6 +330,8 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a SignalR replica resource |
 > | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a SignalR replica resource |
+> | Microsoft.SignalRService/SignalR/replicas/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
+> | Microsoft.SignalRService/SignalR/replicas/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
 > | Microsoft.SignalRService/SignalR/replicas/skus/read | List the valid SKUs for an existing resource |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
@@ -338,6 +345,12 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/WebPubSub/regeneratekey/action | Change the value of WebPubSub access keys in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/restart/action | To restart a WebPubSub resource in the management portal or through API. There will be certain downtime |
 > | Microsoft.SignalRService/WebPubSub/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.SignalRService/WebPubSub/customCertificates/read |  |
+> | Microsoft.SignalRService/WebPubSub/customCertificates/write |  |
+> | Microsoft.SignalRService/WebPubSub/customCertificates/delete |  |
+> | Microsoft.SignalRService/WebPubSub/customDomains/read |  |
+> | Microsoft.SignalRService/WebPubSub/customDomains/write |  |
+> | Microsoft.SignalRService/WebPubSub/customDomains/delete |  |
 > | Microsoft.SignalRService/WebPubSub/detectors/read | Read Detector |
 > | Microsoft.SignalRService/WebPubSub/hubs/write | Write hub settings |
 > | Microsoft.SignalRService/WebPubSub/hubs/read | Read hub settings |
@@ -366,6 +379,8 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a WebPubSub replica resource |
 > | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a WebPubSub replica resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
 > | Microsoft.SignalRService/WebPubSub/replicas/skus/read | List the valid SKUs for an existing resource |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
@@ -587,11 +602,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/read | Get Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/write | Put Event Grid Filter on server farm. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/read | Get first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/write | Create or Update first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/delete | Delete App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/read | Get App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/write | Update App Service Plans First Party Apps Settings. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Get App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Delete App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Get App Service Plans Hybrid Connection Namespaces Relays Web Apps. |
@@ -621,7 +631,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/sites/publish/Action | Publish a Web App |
 > | Microsoft.Web/sites/restart/Action | Restart a Web App |
 > | Microsoft.Web/sites/start/Action | Start a Web App |
-> | Microsoft.Web/sites/startDevSession/Action | Start Limelight Session for a Web App |
+> | Microsoft.Web/sites/startDevSession/Action | Start Dev Session for a Web App |
 > | Microsoft.Web/sites/stop/Action | Stop a Web App |
 > | Microsoft.Web/sites/slotsswap/Action | Swap Web App deployment slots |
 > | Microsoft.Web/sites/slotsdiffs/Action | Get differences in configuration between web app and slots |
@@ -813,7 +823,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/sites/slots/publish/Action | Publish a Web App Slot |
 > | Microsoft.Web/sites/slots/restart/Action | Restart a Web App Slot |
 > | Microsoft.Web/sites/slots/start/Action | Start a Web App Slot |
-> | Microsoft.Web/sites/slots/startDevSession/Action | Start Limelight Session for Web App Slot |
+> | Microsoft.Web/sites/slots/startDevSession/Action | Start Dev Session for Web App Slot |
 > | Microsoft.Web/sites/slots/stop/Action | Stop a Web App Slot |
 > | Microsoft.Web/sites/slots/slotsswap/Action | Swap Web App deployment slots |
 > | Microsoft.Web/sites/slots/slotsdiffs/Action | Get differences in configuration between web app and slots |

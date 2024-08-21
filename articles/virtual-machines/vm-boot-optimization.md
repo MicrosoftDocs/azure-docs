@@ -5,7 +5,7 @@ ms.author: surbhijain
 ms.reviewer: kofiforson 
 ms.date: 06/07/2023 
 ms.topic: how-to 
-ms.service: virtual-machines 
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 --- 
 
@@ -30,11 +30,11 @@ Optimization for the following images is supported:
 | Partition | MBR/GPT |
 | Hyper-V | Gen1/Gen2 |
 | OS State | Generalized |
+| Architecture | X64, ARM64 |
 
 The following types of images aren't supported: 
 
 * Images with size greater than 2 TB 
-* ARM64 images 
 * Specialized images
 
 

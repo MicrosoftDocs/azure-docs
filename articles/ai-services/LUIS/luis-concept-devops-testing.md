@@ -132,7 +132,7 @@ When LUIS is training a model, such as an intent, it needs both positive data - 
 
 The result of this non-deterministic training is that you may get a slightly [different prediction response between different training sessions](./luis-concept-prediction-score.md), usually for intents and/or entities where the [prediction score](./luis-concept-prediction-score.md) is not high.
 
-If you want to disable non-deterministic training for those LUIS app versions that you're building for the purpose of testing, use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` setting set to `true`.
+If you want to disable non-deterministic training for those LUIS app versions that you're building for the purpose of testing, use the [Version settings API](/rest/api/luis/versions) with the `UseAllTrainingData` setting set to `true`.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Guidelines and Recommendations for using Service Fabric Reliable Co
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 05/17/2023
 ---
@@ -37,6 +37,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Do not perform any blocking code inside a transaction.
 * When [string](/dotnet/api/system.string) is used as the key for a reliable dictionary, the sorting order uses [default string comparer CurrentCulture](/dotnet/api/system.string.compare#system-string-compare(system-string-system-string)). Note that the CurrentCulture sorting order is different from [Ordinal string comparer](/dotnet/api/system.stringcomparer.ordinal). 
 * Do not dispose or cancel a committing transaction. This is not supported and could crash the host process.
+* Do ensure the operation order of different dictionaries stays the same for all concurrent transactions when reading or writing multiple dictionaries to avoid deadlock.
 
 Here are some things to keep in mind:
 

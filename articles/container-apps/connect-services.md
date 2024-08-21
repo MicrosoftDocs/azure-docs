@@ -3,7 +3,7 @@ title: 'Tutorial: Connect to an Azure Cache for Redis service in Azure Container
 description: Connect a service in development and then promote to production in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/13/2023
@@ -109,7 +109,7 @@ The sample application manages a set of strings, either in-memory, or in Redis c
 Create the Redis dev service and name it `myredis`.
 
 ``` azurecli
-az containerapp service redis create \
+az containerapp add-on redis create \
   --name myredis \
   --resource-group "$RESOURCE_GROUP" \
   --environment "$ENVIRONMENT"
@@ -239,7 +239,7 @@ Run the following commands to delete your container app and the dev service.
 
 ``` azurecli
 az containerapp delete --name myapp
-az containerapp service redis delete --name myredis
+az containerapp add-on redis delete --name myredis
 ```
 
 Alternatively you can delete the resource group to remove the container app and all services.

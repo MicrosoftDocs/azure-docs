@@ -57,7 +57,7 @@ The open-source [EGo SDK](https://www.ego.dev) brings support for the Go program
 [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 <!-- LINKS - external -->
-[Azure Attestation](../attestation/overview.md)
+[Azure Attestation](/azure/attestation/overview)
 
 
 <!-- LINKS - internal -->

@@ -26,7 +26,7 @@ Managed identities for Azure resources are service principals that create a Micr
 >
 > * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target container URLs](use-native-documents.md#create-azure-blob-storage-containers).
 >
-> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md).
+> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature (SAS) tokens](shared-access-signatures.md).
 >
 
 ## Prerequisites
@@ -79,7 +79,7 @@ You must grant the Language resource access to your storage account before it ca
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select your Language resource.
-1. In the **Resource Management** group in the left pane, select **Identity**. If your resource was created in the global region, the **Identity** tab isn't visible. You can still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md) for authentication.
+1. In the **Resource Management** group in the left pane, select **Identity**. If your resource was created in the global region, the **Identity** tab isn't visible. You can still use [Shared Access Signature (SAS) tokens](shared-access-signatures.md) for authentication.
 1. Within the **System assigned** tab, turn on the **Status** toggle.
 
     :::image type="content" source="media/resource-management-identity-tab.png" alt-text="Screenshot that shows the resource management identity tab in the Azure portal.":::

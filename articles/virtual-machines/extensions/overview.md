@@ -2,7 +2,7 @@
 title: Azure virtual machine extensions and features
 description: Learn more about Azure VM extensions that provide post-deployment configuration and automation on Azure VMs.
 ms.topic: overview
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
@@ -42,6 +42,8 @@ Some individual VM extension applications might have their own environmental pre
 
 You don't need to connect to a VM directly to install or delete an extension. The Azure extension lifecycle is managed outside of the VM and integrated into the Azure platform.
 
+[Automatic extension upgrade](../automatic-extension-upgrade.md) can be used to monitor for new minor versions and automatically upgrade extensions in a safe rolling manner. 
+
 ## Troubleshoot extensions
 
 If you're looking for general troubleshooting steps for Windows VM extensions, refer to [Troubleshooting Azure Windows VM extension failures
@@ -74,3 +76,4 @@ Otherwise, specific troubleshooting information for each extension can be found 
 * For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).
 * To install the Linux Agent, see [Azure Linux Virtual Machine Agent overview](agent-linux.md).
 * To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent overview](agent-windows.md).
+* To automatically update the extensions to latest version, see [Automatic Extension Upgrade for VMs and Scale Sets in Azure](../automatic-extension-upgrade.md)

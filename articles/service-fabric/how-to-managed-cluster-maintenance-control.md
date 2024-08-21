@@ -4,12 +4,12 @@ description: Learn how to configure maintenance control for Service Fabric manag
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
-ms.date: 03/12/2024
+ms.date: 05/07/2024
 ---
 
-# (Preview) Introduction to MaintenanceControl on Service Fabric managed clusters
+# Introduction to MaintenanceControl on Service Fabric managed clusters
 Service Fabric managed clusters have multiple background operations that are necessary to the keep all the cluster updated, thus ensuring security and reliability. Even though these operations are critical, but executing in the background can result in the service replica to move to a different node. This failover results in 
 undesired and unnecessary interruptions, if the maintenance operation executes during the peak business hours. With the support for MaintenanceControl in Service Fabric managed clusters, customers would be able to define a recurring (daily, weekly, monthly) and custom maintenance window for their SFMC cluster resource, 
 as per their needs. All background maintenance operations will be allowed to execute only during this maintenance window. MaintenanceControl is applicable to these background operations:
@@ -17,9 +17,6 @@ as per their needs. All background maintenance operations will be allowed to exe
 * Automatic extension upgrade
 * Automatic SF runtime version updates
 * Automatic cluster certificate update
-
->[!NOTE]
->This feature is in Preview right now and should not be used in Production deployments
 
 **Requirements:**
 * Maintenance window configuration needs to be defined only for the Service Fabric managed cluster resource

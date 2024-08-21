@@ -2,11 +2,11 @@
 metadata:
   title: Windows Enterprise multi-session FAQ - Azure
   description: Frequently asked questions and best practices for using Windows Enterprise multi-session for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.service: windows
-  ms.date: 07/14/2023
-  ms.author: helohr
+  ms.date: 08/02/2024
+  ms.author: daknappe
+  ms.custom: docs_inherited
 title: Windows Enterprise multi-session FAQ
 summary: This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session.
 
@@ -51,10 +51,12 @@ sections:
           Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
           
       - question: Where can I find the Windows Enterprise multi-session image?
-        answer: Windows Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows + Microsoft 365 Apps for enterprise**.
-
-      - question: Which Windows Enterprise multi-session image should I use?
-        answer: The Azure gallery has several releases, including Windows Enterprise multi-session, version 1909, and Windows Enterprise multi-session, version 1903. We recommend using the latest version for improved performance and reliability.
+        answer: |
+          Windows Enterprise multi-session can be conveniently selected in the Azure Virtual Desktop management interface while managing your environment. When needed, you can navigate to [**Azure Marketplace**](https://azuremarketplace.microsoft.com/), search for the Windows 10 or Windows 11 offering, and select **Windows Enterprise multi-session plan**. For an image integrated with Microsoft 365 Apps for Enterprise, search with keyword **multi-session** to get to this offering. The marketplace images are updated monthly after the security patch release schedule of Windows Servicing & Delivery. The images with Microsoft 365 apps pre-installed are made available in the marketplace around the middle of the 3rd week of the month:  
+          - [Windows 10 and 11 updates](https://support.microsoft.com/en-us/topic/windows-10-and-windows-11-release-on-azure-marketplace-update-history-da826e21-45ae-f6b9-de71-5f0ee2ec1563)
+          - [Microsoft 365 Apps security updates](https://learn.microsoft.com/en-us/officeupdates/microsoft365-apps-security-updates) and [feature updates](https://learn.microsoft.com/en-us/officeupdates/monthly-enterprise-channel)
+            -  Windows 365 gallery images include the latest Monthly Enterprise Channel release with the latest security updates.  
+          - [Microsoft Teams updates](https://support.microsoft.com/en-us/office/what-s-new-in-microsoft-teams-d7092a6d-c896-424c-b362-a472d5f105de)
 
       - question: Which Windows Enterprise multi-session versions are supported?
         answer: Windows Enterprise multi-session, versions 1909 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows Enterprise, which means the March release is supported for 18 months and the September release for 30 months.

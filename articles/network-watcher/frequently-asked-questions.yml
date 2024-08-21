@@ -4,9 +4,9 @@ metadata:
   description: "This article answers frequently asked questions asked about the Azure Network Watcher service."
   author: halkazwini
   ms.author: halkazwini
-  ms.service: network-watcher
+  ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 03/31/2024
+  ms.date: 04/24/2024
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -35,8 +35,8 @@ sections:
             * [Packet capture](./network-watcher-packet-capture-overview.md) enables you to capture your virtual machine traffic.
             * [VPN troubleshoot](./network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
           * Traffic
-            * [NSG flow logs](./network-watcher-nsg-flow-logging-overview.md) and [VNet flow logs (preview)](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
-            * [Traffic analytics](./traffic-analytics.md) processes your NSG flow log data enabling you to visualize, query, analyze, and understand your network traffic.
+            * [Network security group flow logs](./network-watcher-nsg-flow-logging-overview.md) and [virtual network flow logs](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
+            * [Traffic analytics](./traffic-analytics.md) processes your network security group flow log data enabling you to visualize, query, analyze, and understand your network traffic.
           
           For more detailed information, see [Network Watcher overview](./network-watcher-overview.md).
           
@@ -88,7 +88,7 @@ sections:
       - question: |
           What is the NetworkWatcherRG?
         answer: |
-          NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the NSG flow log resources are created in **NetworkWatcherRG** resource group. You can customize the name of Network Watcher resource group using [PowerShell](network-watcher-create.md?tabs=powershell#enable-network-watcher-for-your-region), [Azure CLI](network-watcher-create.md?tabs=cli#enable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/create-or-update).
+          NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the network security group flow log resources are created in **NetworkWatcherRG** resource group. You can customize the name of Network Watcher resource group using [PowerShell](network-watcher-create.md?tabs=powershell#enable-network-watcher-for-your-region), [Azure CLI](network-watcher-create.md?tabs=cli#enable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/create-or-update).
 
       - question: |
           Does Network Watcher store customer data?
@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
       - question: |
           What ports does the Network Watcher Agent use?
@@ -188,17 +188,17 @@ sections:
       - question: |
           What is the difference between NSG flow logs and NSG diagnostics?
         answer: |
-          NSG flow logs log traffic flowing through a network security group. On the other hand, NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
+          Network security group flow logs log traffic flowing through a network security group. On the other hand, NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
 
       - question: |
-          Can I log ESP and AH traffic using NSG flow logs?
+          Can I log ESP and AH traffic using network security group flow logs?
         answer: |
-          No, NSG flow logs don't support ESP and AH protocols.
+          No, network security group flow logs don't support ESP and AH protocols.
 
       - question: |
           Can I log ICMP traffic using flow logs?
         answer: |
-          No, NSG flow logs and VNet flow logs don't support ICMP protocol.
+          No, network security group flow logs and virtual network flow logs don't support ICMP protocol.
 
       - question: |
           Can I delete a network security group that has flow logging enabled?
@@ -216,14 +216,14 @@ sections:
           Yes, you can use a storage account from a different subscription as long as this subscription is in the same region of the network security group and associated with the same Microsoft Entra tenant of the network security group or virtual network's subscription.
 
       - question: |
-          How do I use NSG flow logs with a storage account behind a firewall?
+          How do I use network security group flow logs with a storage account behind a firewall?
         answer: |
           To use a storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
           
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           2. Under the **Security + networking**, select **Networking**, then select **Firewalls and virtual networks**.
           3. In **Public network access**, select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
-          4. Enable NSG flow logs by creating a flow log for your target network security group using the storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
+          4. Enable network security group flow logs by creating a flow log for your target network security group using the storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
 
@@ -233,32 +233,32 @@ sections:
           Network Watcher has a built-in fallback mechanism that it uses when connecting to a storage account behind a firewall (firewall enabled). It tries to connect to the storage account using a key, and if that fails, it switches to a token. In this case, a 403 error is logged in the storage account activity log.
 
       - question: |
-          Can Network Watcher send NSG flow logs data to a storage account enabled with Private Endpoint?
+          Can Network Watcher send network security group flow logs data to a storage account enabled with Private Endpoint?
         answer: |
-          Yes, Network Watcher supports sending NSG flow logs data to a storage account enabled with a private endpoint.
+          Yes, Network Watcher supports sending network security group flow logs data to a storage account enabled with a private endpoint.
 
       - question: |
-          How do I use NSG flow logs with a storage account behind a Service Endpoint?
+          How do I use network security group flow logs with a storage account behind a Service Endpoint?
         answer: |
-          NSG flow logs are compatible with Service Endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
+          Network security group flow logs are compatible with Service Endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
           
       - question: |
           What is the difference between flow logs versions 1 and 2?
         answer: |
-          Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [NSG flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
+          Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [Network security group flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
       - question: |
           Can I create a flow log for a network security group that has a read-only lock?
         answer: |
-          No, a **read-only** lock on a network security group prevents the creation of the corresponding NSG flow log.
+          No, a **read-only** lock on a network security group prevents the creation of the corresponding network security group flow log.
 
       - question: |
           Can I create a flow log for a network security group that has a cannot-delete lock?
         answer: |
-          Yes, a **cannot-delete** lock on the network security group doesn't prevent the creation or modification of the corresponding NSG flow log.
+          Yes, a **cannot-delete** lock on the network security group doesn't prevent the creation or modification of the corresponding network security group flow log.
 
       - question: |
-          Can I automate NSG flow logs?
+          Can I automate network security group flow logs?
         answer: |
-          Yes, you can automate NSG flow logs via Azure Resource Manager templates (ARM templates). For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
+          Yes, you can automate network security group flow logs via Azure Resource Manager templates (ARM templates). For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
 

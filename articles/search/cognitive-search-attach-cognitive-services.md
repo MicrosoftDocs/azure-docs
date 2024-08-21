@@ -15,7 +15,7 @@ ms.date: 01/11/2024
 
 When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/multi-service-resource.md?pivots=azportal). 
 
-A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these services:
+A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/skillsets/create) and allows Microsoft to charge you for using these services:
 
 + [Azure AI Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
 + [Azure AI Language](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
@@ -49,10 +49,10 @@ If you leave the property unspecified, your search service attempts to use the f
 
 1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
-1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
+1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/skillsets/create):
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2024-07-01
 api-key: [admin key]
 Content-Type: application/json
 {
@@ -140,7 +140,7 @@ Enrichments are billable operations. If you no longer need to call Azure AI serv
 1. Remove the key in the body of the definition, and then send the request:
 
     ```http
-    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2024-07-01
     api-key: [admin key]
     Content-Type: application/json
     {
@@ -215,7 +215,7 @@ Billable built-in skills that make backend calls to Azure AI services include [E
 Image extraction is an Azure AI Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable on all tiers, except for 20 free daily extractions on the free tier. Image extraction costs apply to image files inside blobs, embedded images in other files (PDF and other app files), and for images extracted using [Document Extraction](cognitive-search-skill-document-extraction.md). For image extraction pricing, see the [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 > [!TIP]
-> To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
+> To lower the cost of skillset processing, enable [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
 
 ## Example: Estimate costs
 
@@ -242,5 +242,5 @@ Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of
 
 + [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/skillsets/create)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

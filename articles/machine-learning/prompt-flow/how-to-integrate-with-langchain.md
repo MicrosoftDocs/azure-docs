@@ -3,14 +3,15 @@ title: Integrate with LangChain in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to integrate with LangChain in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 11/02/2023
 ---
 
@@ -24,7 +25,7 @@ We introduce the following sections:
 - [Integrate with LangChain](#integrate-with-langchain)
   - [Benefits of LangChain integration](#benefits-of-langchain-integration)
   - [How to convert LangChain code into flow](#how-to-convert-langchain-code-into-flow)
-    - [Prerequisites for environment and runtime](#prerequisites-for-environment-and-runtime)
+    - [Prerequisites for environment and compute session](#prerequisites-for-environment-and-compute-session)
     - [Convert credentials to prompt flow connection](#convert-credentials-to-prompt-flow-connection)
       - [Create a connection](#create-a-connection)
     - [LangChain code conversion to a runnable flow](#langchain-code-conversion-to-a-runnable-flow)
@@ -45,9 +46,9 @@ We consider the integration of LangChain and prompt flow as a powerful combinati
 
 Assume that you already have your own LangChain code available locally, which is properly tested and ready for deployment. To convert it to a runnable flow on our platform, you need to follow the steps below.
 
-### Prerequisites for environment and runtime
+### Prerequisites for environment and compute session
 
-You can customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. Learn more about [automatic runtime](./how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page)
+You can customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. Learn more about [compute session](./how-to-manage-compute-session.md)
 
 
 ### Convert credentials to prompt flow connection
@@ -77,7 +78,7 @@ Then this custom connection is used to replace the key and credential you explic
 
 ### LangChain code conversion to a runnable flow
 
-All LangChain code can directly run in the Python tools in your flow as long as your runtime environment contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
+All LangChain code can directly run in the Python tools in your flow as long as your compute session contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
 
 #### Convert LangChain code to flow structure
 
@@ -140,5 +141,5 @@ Before running the flow, configure the **node input and output**, as well as the
 ## Next steps
 
 - [Langchain](https://langchain.com)
-- [Create a Custom Environment](./how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
-- [Create a Runtime](./how-to-create-manage-runtime.md)
+- [Manage compute session](./how-to-manage-compute-session.md)
+- [How to customize base image of compute session](how-to-customize-session-base-image.md)

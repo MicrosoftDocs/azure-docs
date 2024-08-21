@@ -4,7 +4,7 @@ description: Service Fabric managed clusters are an evolution of the Azure Servi
 ms.topic: overview
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/12/2024
 ---
@@ -13,7 +13,7 @@ ms.date: 03/12/2024
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience.
 
-The Azure Resource Model (ARM) template for traditional Service Fabric clusters requires you to define a cluster resource alongside a number of supporting resources, These resources must be configured correctly for the cluster and your services to function properly. In contrast, the encapsulation model for Service Fabric managed clusters consists of a single, *Service Fabric managed cluster* resource. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf.
+The Azure Resource Model (ARM) template for traditional Service Fabric clusters requires you to define a cluster resource alongside a number of supporting resources. These resources must be configured correctly for the cluster and your services to function properly. In contrast, the encapsulation model for Service Fabric managed clusters consists of a single, *Service Fabric managed cluster* resource. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf.
 
 **Service Fabric traditional cluster model**
 ![Service Fabric traditional cluster model][sf-composition]
@@ -49,7 +49,7 @@ Service Fabric managed clusters provide a number of advantages over traditional 
 **Best practices by default**
 - Simplified reliability and durability settings
 
-There's no extra cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster, and the same Service Fabric Service Leval Agreement (SLA) applies for managed clusters.
+There's no extra cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster, and the same Service Fabric Service Level Agreement (SLA) applies for managed clusters.
 
 > [!NOTE]
 > There is no migration path from existing Service Fabric clusters to managed clusters. You will need to create a new Service Fabric managed cluster to use this new resource type.

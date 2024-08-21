@@ -2,7 +2,7 @@
 title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 01/31/2024
 ms.author: jushiman
@@ -16,7 +16,7 @@ ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, d
 
 This article shows you how to change an existing virtual machine's [VM size](../sizes.md).
 
-After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available on the same hardware cluster that is currently hosting the VM.
+After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available on the same hardware cluster that is currently hosting the VM. It is important to understand that even when deallocation is not necessary, if the virtual machine is currently running, changing its size will cause it to restart. For this reason you should consider changing VM size as a disruptive procedure, especially for stateful workloads that are hosted on the VM.
 
 ![A diagram showing a smaller Azure VM icon with a growing arrow pointing to a new larger Azure VM icon.](./media/size-resize-vm.png "Resizing a VM")
 

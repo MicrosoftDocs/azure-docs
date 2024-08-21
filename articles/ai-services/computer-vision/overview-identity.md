@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
 ms.custom:
   - ignite-2023
@@ -38,7 +38,7 @@ This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/identity-detect-faces.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* The [tutorials](./Tutorials/liveness.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 For a more structured approach, follow a Training module for Face.
 * [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces/)
@@ -64,7 +64,7 @@ Optionally, face detection can extract a set of face-related attributes, such as
 
 [!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
-For more information on face detection and analysis, see the [Face detection](concept-face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
+For more information on face detection and analysis, see the [Face detection](concept-face-detection.md) concepts article. Also see the [Detect API](/rest/api/face/face-detection-operations/detect) reference documentation.
 
 You can try out Face detection quickly and easily in your browser using Vision Studio.
 
@@ -91,6 +91,7 @@ Concepts
 Face liveness SDK reference docs:
 - [Java (Android)](https://aka.ms/liveness-sdk-java)
 - [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
+- [JavaScript (Web)](https://aka.ms/liveness-sdk-web)
 
 ## Face recognition
 
@@ -114,14 +115,14 @@ The verification operation answers the question, "Do these two faces belong to t
 
 Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for access control, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID. It can also be used as a final check on the results of an Identification API call.
 
-For more information about Face recognition, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
+For more information about Face recognition, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](/rest/api/face/face-recognition-operations/identify-from-large-person-group) and [Verify](/rest/api/face/face-recognition-operations/verify-face-to-face) API reference documentation.
 
 
 ## Find similar faces
 
 The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image. 
 
-The service supports two working modes, **matchPerson** and **matchFace**. The **matchPerson** mode returns similar faces after filtering for the same person by using the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). The **matchFace** mode ignores the same-person filter. It returns a list of similar candidate faces that may or may not belong to the same person.
+The service supports two working modes, **matchPerson** and **matchFace**. The **matchPerson** mode returns similar faces after filtering for the same person by using the [Verify API](/rest/api/face/face-recognition-operations/verify-face-to-face). The **matchFace** mode ignores the same-person filter. It returns a list of similar candidate faces that may or may not belong to the same person.
 
 The following example shows the target face:
 
@@ -131,13 +132,13 @@ And these images are the candidate faces:
 
 ![Five images of people smiling. Images A and B show the same person.](./media/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
+To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar) reference documentation.
 
 ## Group faces
 
 The Group operation divides a set of unknown faces into several smaller groups based on similarity. Each group is a disjoint proper subset of the original set of faces. It also returns a single "messyGroup" array that contains the face IDs for which no similarities were found.
 
-All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
+All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Group API](/rest/api/face/face-recognition-operations/group) reference documentation.
 
 ## Input requirements
 

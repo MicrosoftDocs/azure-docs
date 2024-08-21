@@ -1,6 +1,6 @@
 ---
 author: spelluru
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 06/26/2023
 ms.author: spelluru
@@ -26,3 +26,84 @@ The other trusted services for Azure Relay can be found below:
 - Azure IoT Central
 - Azure Healthcare Data Services
 - Azure Digital Twins
+
+>[!NOTE]
+> In the **2021-11-01** version or newer of the Microsoft Relay SDK, the **"trustedServiceAccessEnabled"** property is available in the **Microsoft.Relay/namespaces/networkRuleSets** properties to enable Trusted Service Access.
+>
+> To allow trusted services in Azure Resource Manager templates, include this property in your template:
+> ```json
+> "trustedServiceAccessEnabled": "True"
+> ```
+
+For example, based on the ARM template provided above, we can modify it to include this Network Rule Set property for the enablement of Trusted Services:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "namespaces_name": {
+            "defaultValue": "contosorelay0215",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Relay/namespaces",
+            "apiVersion": "2021-11-01",
+            "name": "[parameters('namespaces_name')]",
+            "location": "East US",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Relay/namespaces/authorizationrules",
+            "apiVersion": "2021-11-01",
+            "name": "[concat(parameters('namespaces_sprelayns0215_name'), '/RootManageSharedAccessKey')]",
+            "location": "eastus",
+            "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_sprelayns0215_name'))]"
+            ],
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Relay/namespaces/networkRuleSets",
+            "apiVersion": "2021-11-01",
+            "name": "[concat(parameters('namespaces_sprelayns0215_name'), '/default')]",
+            "location": "East US",
+            "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_sprelayns0215_name'))]"
+            ],
+            "properties": {
+                "trustedServiceAccessEnabled": "True",
+                "publicNetworkAccess": "Enabled",
+                "defaultAction": "Deny",
+                "ipRules": [
+                    {
+                        "ipMask": "172.72.157.204",
+                        "action": "Allow"
+                    },
+                    {
+                        "ipMask": "10.1.1.1",
+                        "action": "Allow"
+                    },
+                    {
+                        "ipMask": "11.0.0.0/24",
+                        "action": "Allow"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```

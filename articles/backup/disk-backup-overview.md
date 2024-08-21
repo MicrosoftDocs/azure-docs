@@ -1,9 +1,9 @@
 ---
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
-ms.topic: conceptual
-ms.date: 08/17/2023
-ms.service: backup
+ms.topic: overview
+ms.date: 07/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -73,6 +73,10 @@ The retention period of snapshots is governed by the snapshot limit for a disk. 
 The retention period for a backup also follows the maximum limit of 450 snapshots with 50 snapshots kept aside for on-demand backups.
 
 For example, if the scheduling frequency for backups is set as Daily, then you can set the retention period for backups at a maximum value of 450 days. Similarly, if the scheduling frequency for backups is set as Hourly with a 1-hour frequency, then you can set the retention for backups at a maximum value of 18 days. 
+
+>[!Note]
+>- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
+>- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
 ## Why do I see more snapshots than my retention policy?
 

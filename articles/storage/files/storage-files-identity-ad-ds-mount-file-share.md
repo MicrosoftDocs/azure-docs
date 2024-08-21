@@ -1,10 +1,10 @@
 ---
 title: Mount SMB Azure file share using AD DS credentials
-description: Learn how to mount an SMB Azure file share using your on-premises Active Directory Domain Services credentials.
+description: Learn how to mount an SMB Azure file share using your on-premises Active Directory Domain Services (AD DS) credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/21/2023
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -43,7 +43,7 @@ Unless you're using [custom domain names](#mount-file-shares-using-custom-domain
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
 if ($connectTestResult.TcpTestSucceeded) {
     cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"localhost\<storage-account-name>`""
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>" -Persist
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>" -Persist -Scope global
 } else {
     Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
@@ -106,6 +106,6 @@ To use this method, complete the following steps:
 
 You should now be able to mount the file share using *storageaccount.domainname.com*. You can also mount the file share using the storage account key.
 
-## Next steps
+## Next step
 
 If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, you might need to [update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md).

@@ -2,7 +2,7 @@
 title: NV series retirement
 description: NV series retirement starting September 6, 2023
 author: vikancha-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/27/2023

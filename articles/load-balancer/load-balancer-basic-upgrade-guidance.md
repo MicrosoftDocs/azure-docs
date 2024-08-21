@@ -1,8 +1,8 @@
 ---
-title: Upgrading from basic Load Balancer - Guidance
+title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023
@@ -96,6 +96,11 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
 1. Remove the temporary frontend configuration
 1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected 
+
+## FAQ
+
+### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
 
 ## Next Steps
 

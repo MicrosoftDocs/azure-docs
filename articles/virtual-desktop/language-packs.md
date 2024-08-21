@@ -1,10 +1,11 @@
 ---
 title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 06/01/2022
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Add language packs to a Windows 10 multi-session image
 
@@ -224,7 +225,7 @@ To run sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
 
 3. You can now use the customized image to deploy an Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 

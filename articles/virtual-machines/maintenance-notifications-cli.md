@@ -1,7 +1,7 @@
 ---
 title: Get maintenance notifications using the CLI
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the Azure CLI.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.custom: devx-track-azurecli
 ms.topic: how-to

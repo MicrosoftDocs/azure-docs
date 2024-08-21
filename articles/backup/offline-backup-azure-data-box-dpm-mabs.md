@@ -2,8 +2,8 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 04/16/2024
-ms.service: backup
+ms.date: 05/24/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -54,7 +54,7 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
-- Ensure that you have the necessary permissions to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 - The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
 
   >[!NOTE]
