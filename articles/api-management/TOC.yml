@@ -681,7 +681,7 @@
     - name: stv1 compute platform retirement - Global Azure (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
     - name: stv1 compute platform retirement - Azure Government, Azure in China (February 2025)
-      href: breaking-changes/stv1-platform-retirement-sovereign-february-2025.md 
+      href: breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md 
     - name: Workspaces preview breaking changes, part 2 (March 2025)
       href: breaking-changes/workspaces-breaking-changes-march-2025.md
     - name: Git configuration retirement (March 2025)
