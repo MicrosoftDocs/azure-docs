@@ -22,7 +22,7 @@ Some of the key benefits you get with Azure Business Continuity Center include:
 
 - **Action center**: Azure Business Continuity Center provides at scale views for your protection across Azure, Hybrid and Edge environments along with the ability to perform the core actions across the solutions. 
 
-- **At-scale and unified monitoring capabilities**: Azure Business Continuity (ABC) center provides at-scale unified monitoring capabilities across the solutions that help you to view jobs and alerts across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
+- **At-scale and unified monitoring capabilities**: Azure Business Continuity (ABC) center provides at-scale unified monitoring capabilities across the solutions that help you to view jobs, alerts, and reports across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
 
 - **BCDR protection posture**: ABC center evaluates your current configuration and proactively notifies you of any gap in it with respect to Security configurations (currently applicable to Azure Backup). 
 
