@@ -17,7 +17,7 @@ ms.author: danlep
             embeddings-backend-id ="azure-openai-backend"
             embeddings-backend-auth ="system-assigned" >
             <vary-by>@(context.Subscription.Id)</vary-by>
-        </azure-openai-semantic-cache-lookup>
+        </llm-semantic-cache-lookup>
     </inbound>
     <outbound>
         <llm-semantic-cache-store duration="60" />
