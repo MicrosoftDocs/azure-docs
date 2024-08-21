@@ -2,7 +2,7 @@
 title: Create a virtual machine on VMware vCenter using Azure Arc
 description: In this quickstart, you learn how to create a virtual machine on VMware vCenter using Azure Arc
 ms.topic: tutorial
-ms.date: 08/19/2024
+ms.date: 08/21/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: PriskeyJeronika-MS
@@ -16,19 +16,21 @@ manager: jsuri
 
 This article describes how to provision a VM using vCenter resources through Azure.
 
+::: zone pivot="azureportal"
+
+## Create a VM in the Azure portal
+
 Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
-## Prerequisites
+### Prerequisites
 
 - An Azure subscription and resource group where you have an Arc VMware VM contributor role.
 
 - A resource pool/cluster/host on which you have Arc Private Cloud Resource User Role.
-
 - A virtual machine template resource on which you have Arc Private Cloud Resource User Role.
-
 - A virtual network resource on which you have Arc Private Cloud Resource User Role.
 
-## How to create a VM in the Azure portal
+Follow these steps to create VM in the Azure portal:
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com). Navigate to virtual machines browse view. You'll see a unified browse experience for Azure and Arc virtual machines.
 
@@ -63,7 +65,10 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 11. Select **Create** after reviewing all the properties. It should take a few minutes to create the VM.
 
-## How to create an Arc VMware machine using Bicep template
+::: zone-end
+
+::: zone pivot="bicep"
+## Create an Arc VMware machine using Bicep template
 
 The following bicep template can be used to create an Arc VMware machine. [Here](/azure/templates/microsoft.connectedvmwarevsphere/2023-12-01/virtualmachineinstances?pivots=deployment-language-arm-template) is the list of available Azure Resource Manager (ARM), Bicep, and Terraform templates for Arc-enabled VMware resources. To trigger any other Arc operation, convert the corresponding [ARM template to Bicep template](/azure/azure-resource-manager/bicep/decompile#decompile-from-json-to-bicep).
 
@@ -137,18 +142,21 @@ resource vm 'Microsoft.ConnectedVMwarevSphere/virtualMachineInstances@2023-12-01
 output vmId string = vm.id
 
 ```
-## How to create an Arc VMware machine with Terraform
+::: zone-end
 
-Follow these steps to create an Arc VMware machine using Terraform. The following two scenarios are covered in this article:
-
-1.	For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId. 
-2.	Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
+::: zone pivot="terraform"
+## Create an Arc VMware machine with Terraform
 
 ### Prerequisites
 
 - **Azure Subscription**: Ensure you have an active Azure subscription.
 - **Terraform**: Install Terraform on your machine.
 - **Azure CLI**: Install Azure CLI to authenticate and manage resources.
+
+Follow these steps to create an Arc VMware machine using Terraform. The following two scenarios are covered in this article:
+
+1.	For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId. 
+2.	Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
 
 ### Scenario 1
 For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId.
@@ -344,7 +352,6 @@ resource "azapi_resource" "guestAgent" {
 }
 
 ```
-
 #### Step 4: Run Terraform commands
 
 Use the -var-file flag to pass the *.tfvars* file during Terraform commands.
@@ -360,7 +367,7 @@ Use the -var-file flag to pass the *.tfvars* file during Terraform commands.
 
 Confirm the prompt by entering yes to apply the changes.
 
-#### Best practices
+### Best practices
 
 1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
 2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
@@ -568,11 +575,13 @@ Use the -var-file flag to pass the *.tfvars* file during Terraform commands.
 
 Confirm the prompt by entering yes to apply the changes.
 
-#### Best practices
+### Best practices
 
 1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
 2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
 3.	**State management**: Regularly back up your Terraform state files to avoid data loss.
+
+::: zone-end
 
 ## Next steps
 
