@@ -20,7 +20,7 @@ ms.author: danlep
         </azure-openai-semantic-cache-lookup>
     </inbound>
     <outbound>
-        <azure-openai-semantic-cache-store duration="60" />
+        <llm-semantic-cache-store duration="60" />
         <base />
     </outbound>
 </policies>
