@@ -24,7 +24,7 @@ When you create an App Service plan in a certain region (for example, West Europ
 - Size of VM instances (Small, Medium, Large)
 - Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2)
 
-The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time. There are the following categories of pricing tiers:
+The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time. These are the categories of pricing tiers:
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out. These tiers are intended to be used only for development and testing purposes.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out.
@@ -80,7 +80,7 @@ You don't get charged for using the App Service features that are available to y
 
 - App Service Domains - You pay when you purchase one in Azure and when you renew it each year.
 - App Service Certificates - You pay when you purchase one in Azure and when you renew it each year.
-- IP-based TLS connections - There's an hourly charge for each IP-based TLS connection, but some **Standard** tier or above gives you one IP-based TLS connection for free. SNI-based TLS connections are free.
+- IP-based TLS connections - There's an hourly charge for each IP-based TLS connection, but some **Standard** tiers or above give you one IP-based TLS connection for free. SNI-based TLS connections are free.
 
 > [!NOTE]
 > If you integrate App Service with another Azure service, you may need to consider charges from these other services. For example, if you use Azure Traffic Manager to scale your app geographically, Azure Traffic Manager also charges you based on your usage. To estimate your cross-services cost in Azure, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
