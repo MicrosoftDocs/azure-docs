@@ -10,14 +10,14 @@ ms.author: lianwei
 
 # Use a managed identity
 
-This article shows you how to create and use a managed identity for Azure Web PubSub.
+This article shows you how to create and use a managed identity in Azure Web PubSub.
 
 > [!IMPORTANT]
 > Azure Web PubSub can support only one managed identity. You can add *either* a system-assigned identity or a user-assigned identity.
 
 ## Add a system-assigned identity
 
-To set up a managed identity in the Azure portal, create an Azure Web PubSub instance, and then enable the feature.
+To set up a managed identity in the Azure portal, create an Azure Web PubSub instance, and then turn on the feature.
 
 1. In the Azure portal, create a Web PubSub resource. Go to the resource in the portal.
 
@@ -41,13 +41,13 @@ To create a Web PubSub resource by using a user-assigned identity, create the id
 
 1. Search for the identity that you created and select it. Select **Add**.
 
-   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot that shows adding a user-assigned identity in the Azure portal":::
+   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot that shows adding a user-assigned identity in the Azure portal.":::
 
 ## Use a managed identity in client events scenarios
 
-Azure Web PubSub is a fully managed service, so you can't use a managed identity to manually get tokens. Instead, when Web PubSub sends events to an event handler, it uses the managed identity to get an access token. The service then sets the access token in the `Authorization` header in the HTTP request.
+Azure Web PubSub is a fully managed service, so you can't use a managed identity to manually get tokens. Instead, when Web PubSub sends events to an event handler, it uses the managed identity to get an access token. The service then sets the access token in the `Authorization` header of the HTTP request.
 
-### Managed identity authentication in event handler settings
+### Set up managed identity authentication for an event handler
 
 1. Add a system-assigned identity or a user-assigned identity.
 
@@ -63,11 +63,11 @@ Azure Web PubSub is a fully managed service, so you can't use a managed identity
    - Use the Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using an empty resource actually acquires a token target for Microsoft Graph. Currently, Microsoft Graph enables token encryption, so it's not supported for an application to authenticate the token other than with Microsoft Graph. You should always create a service principal to represent your upstream target. Set **Application ID** or **Application ID URI** for the service principal you created.
+   > Using an empty resource actually acquires a token target for Microsoft Graph. Currently, Microsoft Graph enables token encryption, so it's not supported for an application to authenticate the token other than with Microsoft Graph. You should always create a service principal to represent your upstream target. Set the **Application ID** or **Application ID URI** value for the service principal you created.
 
 #### Authentication in an Azure Functions app
 
-You can easily set access validation for a Functions app without code changes.
+You can easily set access validation for a Functions app without making code changes.
 
 1. In the Azure portal, go to the Functions app.
 1. On the left menu, select **Authentication**.
@@ -89,11 +89,11 @@ If you're not using the Web Apps feature of Azure App Service or Azure Functions
 
 The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 
-To validate access tokens, your app should also validate the audience and the signing tokens. Signing tokens must be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+To validate an access token, your app should also validate the audience and the signing token. Signing tokens must be validated against the values in the OpenID discovery document. For an example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language that you want to use.
+Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse our [samples](../active-directory/develop/sample-v2-code.md) to find one that's written in the language you want to use.
 
-We provide libraries and code samples that show you how to handle token validation. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authorization libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+We provide libraries and code samples that show you how to handle token validation. Several open-source partner libraries also are available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authorization libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 If the event handler hosts in Azure Functions or Web Apps, an easy way is to [configure Microsoft Entra sign-in](../app-service/configure-authentication-provider-aad.md).
 
@@ -103,7 +103,7 @@ Web PubSub can access a key vault to get a secret by using a managed identity.
 
 1. Add a system-assigned identity or a user-assigned identity for Azure Web PubSub.
 
-1. In the key vault, grant secret read permissions for the managed identity via access policies. For more information, see [Assign a key vault access policy by using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
+1. In the key vault, grant secret read permissions for the managed identity by using access policies. For more information, see [Assign a key vault access policy in the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 
 Currently, this feature can be used in the following scenario:
 
