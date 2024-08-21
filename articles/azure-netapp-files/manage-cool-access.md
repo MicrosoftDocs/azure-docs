@@ -65,41 +65,19 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 # [Premium](#tab/premium)
 
-You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Premium storage with cool access. 
+You must submit a waitlist request to accessing this feature using the [request form](https://aka.ms/ANFcoolaccesssignup). The feature can take approximately one week to be enabled after you submit the waitlist request. Check the status of feature registration by using the command:
 
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
+```
 
 # [Ultra](#tab/ultra)
 
-You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Ultra storage with cool access. 
+You must submit a waitlist request to accessing this feature using the [request form](https://aka.ms/ANFcoolaccesssignup). The feature can take approximately one week to be enabled after you submit the waitlist request. Check the status of feature registration by using the command:
 
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
+```
 
 ---
 

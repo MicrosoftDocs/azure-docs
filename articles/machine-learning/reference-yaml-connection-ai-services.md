@@ -11,7 +11,7 @@ ms.topic: reference
 
 author: Blackmist
 ms.author: larryfr
-ms.date: 05/09/2024
+ms.date: 08/21/2024
 ms.reviewer: ambadal
 ---
 
@@ -49,7 +49,7 @@ While the `az ml connection` commands can be used to manage both Azure Machine L
 
 ## Examples
 
-Visit [this GitHub resource]() for examples. Several are shown here. These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
+These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
 
 ### YAML: API key
 
