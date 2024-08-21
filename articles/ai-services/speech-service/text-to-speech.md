@@ -110,6 +110,40 @@ When you use the personal voice feature, you're billed for both profile storage 
 
 When using the text-to-speech avatar feature, charges will be incurred based on the length of video output and will be billed per second. However, for the real-time avatar, charges are based on the time when the avatar is active, regardless of whether it is speaking or remaining silent, and will also be billed per second. To optimize costs for real-time avatar usage, refer to the tips provided in the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample) (search "Use Local Video for Idle"). Avatar hosting is billed per second per endpoint. You can suspend your endpoint to save costs. If you want to suspend your endpoint, you can delete it directly. To use it again, simply redeploy the endpoint.
 
+## Monitor Azure text to speech metrics
+
+Monitoring key metrics associated with text to speech services is crucial for managing resource usage and controlling costs. This section will guide you on how to find usage information in the Azure portal and provide detailed definitions of the key metrics.
+
+### How to find usage information in the Azure portal
+
+To effectively manage your Azure resources, it's essential to access and review usage information regularly. Here's how to find the usage information:
+
+1. Go to the [Azure portal](https://ms.portal.azure.com/) and sign in with your Azure account.
+
+1. Navigate to **Resources** and select your resource you wish to monitor.
+
+1. Select **Metrics** under **Monitoring** from the left-hand menu. 
+
+1. Customize metric views.
+
+   You can filter data by resource type, metric type, time range, and other parameters to create custom views that align with your monitoring needs. Additionally, you can save the metric view to dashboards by selecting **Save to dashboard** for easy access to frequently used metrics.
+
+1. Set up alerts.
+
+   To manage usage more effectively, set up alerts by navigating to the **Alerts** tab under **Monitoring** from the left-hand menu. Alerts can notify you when your usage reaches specific thresholds, helping to prevent unexpected costs.
+
+### Definition of metrics
+
+Below is a table summarizing the key metrics for Azure text to speech services. 
+
+| **Metric name**                  | **Description** |
+|----------------------------------|-----------------|
+| **Synthesized Characters**       | Tracks the number of characters converted into speech, including prebuilt neural voice and custom neural voice. For details on billable characters, see [Billable characters](#billable-characters). |
+| **Video Seconds Synthesized**    | Measures the total duration of video synthesized, including batch avatar synthesis, real-time avatar synthesis, and batch custom avatar synthesis.  |
+| **Avatar Model Hosting Seconds** | Tracks the total time in seconds that your custom avatar model is hosted. |
+| **Voice Model Hosting Hours**    | Tracks the total time in hours that your custom neural voice model is hosted.  |
+| **Voice Model Training Minutes** | Measures the total time in minutes for training your custom neural voice model.   |
+
 ## Reference docs
 
 * [Speech SDK](speech-sdk.md)
