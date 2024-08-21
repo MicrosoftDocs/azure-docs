@@ -20,12 +20,23 @@ This article shows how to copy a blob with asynchronous scheduling using the [Az
 
 The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Python](storage-blob-copy-url-python.md).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operation:
-    - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
-    - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_blob.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to perform a copy operation, or to abort a pending copy. For authorization with Microsoft Entra ID (recommended), the least privileged Azure RBAC built-in role varies based on several factors. To learn more, see the authorization guidance for [Copy Blob (REST API)](/rest/api/storageservices/copy-blob#authorization) or [Abort Copy Blob (REST API)](/rest/api/storageservices/abort-copy-blob#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 ## About copying blobs with asynchronous scheduling
 

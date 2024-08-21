@@ -21,14 +21,23 @@ In addition to the data they contain, blobs support system properties and user-d
 
 To learn about managing properties and metadata using asynchronous APIs, see [Set blob metadata asynchronously](#set-blob-metadata-asynchronously).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
-    - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
-    - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
-    - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)
-    - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Set Blob Properties (REST API)](/rest/api/storageservices/set-blob-properties#authorization), [Get Blob Properties (REST API)](/rest/api/storageservices/get-blob-properties#authorization), [Set Blob Metadata (REST API)](/rest/api/storageservices/set-blob-metadata#authorization), or [Get Blob Metadata (REST API)](/rest/api/storageservices/get-blob-metadata#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 ## About properties and metadata
 

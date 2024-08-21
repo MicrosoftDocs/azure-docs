@@ -130,9 +130,9 @@
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
-      href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-template-linux?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
-      href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-template-windows?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Windows virtual machines
       href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Containers

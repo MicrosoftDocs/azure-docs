@@ -16,7 +16,7 @@ ms.date: 12/12/2023
 
 This how-to guide shows how to create example logic app workflows for some common SAP integration scenarios using Azure Logic Apps and the SAP connector.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in service provider* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in service provider* connector that's hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 

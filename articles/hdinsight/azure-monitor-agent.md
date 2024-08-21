@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 07/31/2024
+ms.date: 08/14/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -84,13 +84,29 @@ Activate the new integration by going to your cluster's portal page and scrollin
 1. Then, select Enable and you can choose the Log Analytics workspace that you want your logs to be sent to.  
     :::image type="content" source="./media/azure-monitor-agent/monitor-integration.png" alt-text=" Screenshot showing Azure monitor integration." border="true" lightbox="./media/azure-monitor-agent/monitor-integration.png":::
 
-1. Enable Azure Monitor Agent Integration with Log Analytics and select your workspace (existing workspace when you're migrating from your previous image to newer image) 
+1. Enable Azure Monitor Agent Integration with Log Analytics and select your workspace (existing workspace when you're migrating from your previous image to newer image).
 
 1. Once you confirm the workspace selection, precondition steps commence. 
 
     :::image type="content" source="./media/azure-monitor-agent/pre-condition.png" alt-text="Screenshot showing preconditions." border="true" lightbox="./media/azure-monitor-agent/pre-condition.png":::
 
-1. Select Save once precondition steps are complete. 
+1. Select Save once precondition steps are complete.
+
+### Enable Azure Monitor Agent logging for Spark cluster  
+
+Azure HDInsight Spark clusters control AMA integration using a Spark configuration `spark.hdi.ama.enabled`, by default the value is set to false. This configuration controls whether the Spark specific logs will come up in the Log Analytics workspace. If you want to enable AMA in your Spark clusters and retrieve the Spark event logs in their LA workspaces, you need to perform an additional step to enable AMA for spark specific logs.
+
+The following steps describe how customers can enable the new Azure Monitor Agent logging for their spark workloads.
+
+1. Go to Ambari -> Spark Configs.
+
+1. Navigate to **Custom Spark defaults** and search for config `spark.hdi.ama.enabled`, the default value of this config will be false. Set this value as  **true**. 
+
+    :::image type="content" source="./media/azure-monitor-agent/enable-spark.png" alt-text="Screenshot showing how to enable Azure Monitor Agent logging for Spark cluster." border="true" lightbox="./media/azure-monitor-agent/enable-spark.png":::
+
+1. Click **save** and restart Spark services on all nodes. 
+
+1. Access the tables in LA workspace.  
 
 ### Access the new tables 
 

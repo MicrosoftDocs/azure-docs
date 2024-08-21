@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/virtual-machines/extensions/network-watcher-update.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-agent-update",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/network-watcher-windows.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-agent-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/network-watcher-linux.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-agent-linux",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-availability-sets.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-availability-sets",
             "redirect_document_id": false

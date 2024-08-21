@@ -9,7 +9,7 @@ ms.date: 03/11/2023
 ms.custom: template-how-to
 ---
 
-# Create a lab in the Azure Education Hub
+# Create a lab in the Azure Education Hub with REST APIs
 
 This article walks you through how to create a lab and verify its creation by using REST APIs.
 

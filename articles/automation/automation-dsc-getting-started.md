@@ -4,8 +4,8 @@ description: This article tells how to do the most common tasks in Azure Automat
 services: automation
 ms.subservice: desired-state-config
 ms.custom: devx-track-arm-template
-ms.date: 01/03/2022
-ms.topic: conceptual
+ms.date: 08/20/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 

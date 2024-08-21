@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 # Troubleshooting in Azure Communication Services
 <a name="calling-sdk-error-codes"></a>
 
-This document helps you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
+This document helps you troubleshoot issues that you might experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
@@ -328,7 +328,7 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
 
 ## Related articles
 - [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
-- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](./troubleshooting-codes.md).
+- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md)(./troubleshooting-codes.md).
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](metrics.md).
 - [Service limits](service-limits.md).

@@ -2,7 +2,7 @@
 title: Use the classic deployment model (Python) - feature guide
 description: Learn how to programmatically perform common service management tasks from Python.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

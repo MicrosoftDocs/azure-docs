@@ -13,7 +13,7 @@
   expanded: true
 - name: Concepts
   items:
-  - name: What's new?
+  - name: What's new in VPN Gateway?
     href: whats-new.md
   - name: Work remotely
     items:

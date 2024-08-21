@@ -32,6 +32,8 @@
           href: quickstart-openshift-arm-bicep-template.md
         - name: Upgrade an Azure Red Hat OpenShift cluster
           href: howto-upgrade.md
+        - name: Deploy large Azure Red Hat OpenShift clusters
+          href: howto-large-clusters.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
         - name: Deploy infrastructure nodes

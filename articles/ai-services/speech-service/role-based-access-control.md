@@ -1,12 +1,12 @@
 ---
-title: Role-based access control for Speech resources - Speech service
+title: Role-based access control for Speech resources
 titleSuffix: Azure AI services
 description: Learn how to assign access roles for a Speech resource.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/21/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 

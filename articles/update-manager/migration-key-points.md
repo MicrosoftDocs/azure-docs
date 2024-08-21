@@ -34,7 +34,7 @@ This article lists the significant details that you must note when you're migrat
   | **Every 100 Weeks and must be Executed on Fridays** | 23 Months (100/4.34). But there's no way in Azure Update Manager to say that execute every 23 Months on all Fridays of that Month, so the schedule isn't migrated. |
   | **More than 35 Months** | 35 months recurrence | 
   
-- SUC supports between 30 Minutes to six Hours for the Maintenance Window. MRP supports between 1 hour 30 minutes to 4 hours.
+- **SUC** (*Software Update Configuration*) supports between 30 Minutes to six Hours for the Maintenance Window. **MRP** (*Maintenance Resource Provider*) supports between 1 hour 30 minutes to 4 hours.
 
   | **Maintenance window in Automation Update Management** | **Maintenance window in Azure Update Manager** |
   |---|---|
