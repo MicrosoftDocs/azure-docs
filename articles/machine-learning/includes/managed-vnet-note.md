@@ -1,6 +1,6 @@
 ---
 author: blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.custom: build-2023
 ms.topic: include
 ms.date: 07/28/2023

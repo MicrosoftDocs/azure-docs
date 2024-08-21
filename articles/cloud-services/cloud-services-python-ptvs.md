@@ -2,7 +2,7 @@
 title: Get started with Python and Azure Cloud Services (classic)| Microsoft Docs
 description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
@@ -342,7 +342,7 @@ For more details about using Azure services from your web and worker roles, such
 
 [Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
-[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
+[Table Service]:/azure/cosmos-db/table-storage-how-to-use-python
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

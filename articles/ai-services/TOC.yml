@@ -76,6 +76,8 @@ items:
       href: authentication.md
     - name: Disable local authentication
       href: disable-local-auth.md
+    - name: Use Azure key vault
+      href: use-key-vault.md
     - name: Rotate keys
       href: rotate-keys.md
     - name: Use environment variables
@@ -84,8 +86,6 @@ items:
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
-    - name: Use Azure key vault
-      href: use-key-vault.md
     - name: Configure data loss prevention
       href: cognitive-services-data-loss-prevention.md
     - name: Security baseline

@@ -35,7 +35,7 @@ In this part one, you learn how to:
 ## Prerequisites
 
 > [!IMPORTANT]
-> You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
+> You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
 
 - You need to complete the [Build a custom chat app in Python using the prompt flow SDK quickstart](../quickstarts/get-started-code.md) to set up your environment. 
 

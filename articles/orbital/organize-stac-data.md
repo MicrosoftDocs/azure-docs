@@ -103,7 +103,7 @@ The following Azure services are used in this architecture.
 - [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](../service-bus-messaging/service-bus-messaging-overview.md) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
 - [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
-- [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Container Registry](../container-registry/container-registry-intro.md) to store and manage your container images and related artifacts.
@@ -140,7 +140,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
 - API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
-- [Azure Database for PostgreSQL Security](../postgresql/flexible-server/concepts-security.md) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
+- [Azure Database for PostgreSQL Security](/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization
 
@@ -154,7 +154,7 @@ Users can also adjust the configurations to meet their workload and scaling need
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview). Additionally, the following guidance can be useful in maximizing performance efficiency:
 
-- [Monitor and tune](../postgresql/single-server/tutorial-monitor-and-tune.md) provides a way to monitor your data and tune your database to improvement performance.
+- [Monitor and tune](/azure/postgresql/single-server/tutorial-monitor-and-tune) provides a way to monitor your data and tune your database to improvement performance.
 - [Performance tuning a distributing application](/azure/architecture/performance/) walks through a few different scenarios, how to identify key metrics and improve performance.
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) recommends baseline infrastructure architecture to deploy an Azure Kubernetes Service (AKS) cluster on Azure.
 - [Improve the performance of an API by adding a caching policy in Azure API Management](/training/modules/improve-api-performance-with-apim-caching-policy/) is a training module on improving performance through Caching Policy.

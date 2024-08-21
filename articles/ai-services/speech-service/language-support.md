@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 2/1/2024
+ms.date: 8/20/2024
 ms.author: eur
 ms.custom: references_regions, build-2024
 ---

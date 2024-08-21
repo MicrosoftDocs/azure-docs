@@ -135,6 +135,14 @@ Arc resource bridge doesn't support private link. All calls coming from the appl
 
 When trying to deploy Arc resource bridge, you might see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
 
+### Management machine unable to reach appliance
+
+When trying to deploy Arc resource bridge, you might receive an error message similar to:
+
+`"{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_Timeout occurred due to management machine being unable to reach the appliance VM IP, 10.2.196.170. Please ensure that the requirements are met: https://aka.ms/arb-machine-reqs: dial tcp 10.2.196.170:22: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\_\n}_, _errorMetadata_: { _errorCategory_: __ } "`
+
+This occurs when the management machine is trying to reach the ARB VM IP by SSH (Port 22) or API Server (Port 6443) and is unable to. This error may also occur if the Arc resource bridge API server is being proxied - the Arc resource bridge API server needs to be added to the noproxy settings. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md#inbound-connectivity-requirements).
+
 ### Not able to connect to URL
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
@@ -229,7 +237,7 @@ To resolve the error, one or more network misconfigurations might need to be add
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
    
-## Move Arc resource bridge location
+### Move Arc resource bridge location
 
 Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
@@ -285,10 +293,18 @@ When you deploy Arc resource bridge, you may encounter the error:
 
 This error is caused when there's a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP, then try the deployment again.
 
+### Resolves to multiple networks
+
+When deploying or upgrading Arc resource bridge, you may encounter an error similar to: 
+
+`{ "ErrorCode": "PreflightcheckErrorOnPrem", 
+"ErrorDetails": "Upgrade Operation Failed with error: \"{\\n \\\"code\\\": \\\"PreflightcheckError\\\",\\n \\\"message\\\": \\\"{\\\\n \\\\\\\"code\\\\\\\": \\\\\\\"InvalidEntityError\\\\\\\",\\\\n \\\\\\\"message\\\\\\\": \\\\\\\"Cannot retrieve vSphere Network 'seg-azure-arc-uson-avs-eastus': path 'seg-azure-arc-uson-avs-eastus' resolves to multiple networks\\\\\\\",\\\\n \\\\\\\"category\\\\\\\": \\\\\\\"\\\\\\\"\\\\n }\\\",\\n \\\"category\\\": \\\"\\\"\\n }\"" }` 
+
+This error occurs when the vSphere network segment resolves to multiple networks due to multiple vSphere network segments having the same name that is specified in the error. To fix this error, you can change the duplicate network name in vCenter (not the network with the appliance VM) or deploy Arc resource bridge on a different network.
+
 ### Arc resource bridge status is disconnected
 
 When running the initial Arc-enabled VMware onboarding script, you were prompted to provide a vSphere account. This account is stored locally within the Arc resource bridge as an encrypted Kubernetes secret. The account is used to allow the Arc resource bridge to interact with vCenter. If your Arc resource bridge status is disconnected, this may be due to the vSphere account stored locally within the resource bridge being expired. You must update the credentials within Arc resource bridge and for Arc-enabled VMware by [following the updating vSphere account credentials instructions](/azure/azure-arc/vmware-vsphere/administer-arc-vmware#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding).
-
 
 ### Error during host configuration
 

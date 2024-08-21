@@ -161,7 +161,7 @@ For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../cont
 
 ## Azure Cosmos DB limits
 
-For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits).
 
 ## Azure Data Explorer limits
 
@@ -169,11 +169,11 @@ For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/conc
 
 ## Azure Database for MySQL
 
-For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](../../mysql/concepts-limits.md).
+For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits).
 
 ## Azure Database for PostgreSQL
 
-For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
+For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits).
 
 ## Azure Deployment Environments limits
 

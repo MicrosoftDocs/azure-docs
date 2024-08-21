@@ -56,7 +56,7 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="57-71":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="57-71":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

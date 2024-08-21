@@ -25,8 +25,8 @@ You must satisfy the following requirements to complete this tutorial:
 <!-- LINKS - External -->
 [docker-get-started]: https://docs.docker.com/engine/docker-overview/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
+[docker-mac]: https://docs.docker.com/desktop/install/mac-install/
+[docker-windows]: https://docs.docker.com/desktop/install/windows-install/
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 8/20/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -63,7 +63,7 @@ To use the AI services connection via the APIs and SDKs, you need to get the key
 
 The AI services key and endpoint are used to authenticate and connect to AI services via the APIs and SDKs.
 
-For more information about AI services APIs and SDKs, see the [Azure AI services SDK reference documentation](../../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context) and [Azure AI services REST API](../../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context) reference documentation.
+For more information about AI services APIs and SDKs, see the [Azure AI services SDK reference documentation](../../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context) and [Azure AI services REST API](../../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context) reference documentation.
 
 ## Related content
 

@@ -3,7 +3,7 @@ title: Migration of custom fields to KQL-based transformations in Azure Monitor
 description: Learn how to migrate custom fields in a Log Analytics workspace in Azure Monitor with KQL-based custom columns using transformations. 
 ms.service: azure-monitor
 ms.topic: tutorial 
-ms.date: 03/31/2023
+ms.date: 08/12/2024
 ---
 
 

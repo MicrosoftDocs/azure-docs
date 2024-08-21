@@ -50,21 +50,19 @@ monikerRange: '<=doc-intel-4.0.0'
 
 Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation. </br></br>
 
-| ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
+| ✔️ [**Document analysis models**](#general-extraction-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
 
-## Document analysis models
+## General extraction models
 
-Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or development.
+General extraction models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or development.
 
 :::moniker range="doc-intel-4.0.0"
 :::row:::
    :::column:::
-      :::image type="icon" source="media/overview/icon-read.png" link="#read":::</br>
-   [**Read**](#read) | Extract printed </br>and handwritten text.
+   [**Read**](#read) | Extract printed and handwritten text.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-layout.png" link="#layout":::</br>
-    [**Layout**](#layout) | Extract text, tables, </br>and document structure.
+    [**Layout**](#layout) | Extract text, tables, and document structure.
    :::column-end:::
   :::row-end:::
 :::moniker-end
@@ -72,15 +70,12 @@ Document analysis models enable text extraction from forms and documents and ret
 :::moniker range="<=doc-intel-3.1.0"
 :::row:::
    :::column:::
-      :::image type="icon" source="media/overview/icon-read.png" link="#read":::</br>
    [**Read**](#read) | Extract printed </br>and handwritten text.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-layout.png" link="#layout":::</br>
     [**Layout**](#layout) | Extract text, tables, </br>and document structure.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-general-document.png" link="#general-document-deprecated-in-2023-10-31-preview":::</br>
     [**General document**](#general-document-deprecated-in-2023-10-31-preview) | Extract text, </br>structure, and key-value pairs.
    :::column-end:::
 :::row-end:::
@@ -91,194 +86,153 @@ Document analysis models enable text extraction from forms and documents and ret
 Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models.
 
 :::moniker range="doc-intel-4.0.0"
+### Financial Services and Legal
+
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
-    [**Invoice**](#invoice) | Extract customer and vendor details.
+    [**Bank Statement**](#bank-statement) | Extract account information and details from bank statements.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
-    [**Receipt**](#receipt) | Extract sales transaction details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
-    [**Identity**](#identity-id) | Extract verification details.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-check.png" link="#check":::</br>
     [**Check**](#check) | Extract relevant information from checks.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-pay-stub.png" link="#pay-stub":::</br>
+    [**Contract**](#contract-model) | Extract agreement and party details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+    [**Credit card**](#credit-card-model) | Extract payment card information.
+    :::column-end:::
+    :::column span="":::
+    [**Invoice**](#invoice) | Extract customer and vendor details.
+   :::column-end:::
+   :::column span="":::
     [**Pay Stub**](#pay-stub) | Extract pay stub details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-bank-statement.png" link="#bank-statement":::</br>
-    [**Bank Statement**](#bank-statement) | Extract account information and details from bank statements.
+    [**Receipt**](#receipt) | Extract sales transaction details.
    :::column-end:::
 :::row-end:::
+
+### US Tax
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [**Health Insurance card**](#health-insurance-card) | Extract insurance coverage details.
+    [**Unified US tax**](#unified-us-tax-forms) | Extract from any US tax forms supported.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
-    [**Contract**](#contract-model) | Extract agreement and party details.
-   :::column-end:::
-:::column span="":::
-      :::image type="icon" source="media/overview/icon-payment-card.png" link="#contract-model":::</br>
-    [**Credit/Debit card**](#credit-card-model) | Extract payment card information.
-   :::column-end:::
-       :::column span="":::
-      :::image type="icon" source="media/overview/icon-marriage-certificate.png" link="#contract-model":::</br>
-    [**Marriage certificate**](#marriage-certificate-model) | Extract certified marriage information.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-1003.png" link="#us-mortgage-1003-form":::</br>
-    [**US mortgage 1003**](#us-mortgage-1003-form) | Extract loan application details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-1004.png" link="#us-mortgage-1004-form":::</br>
-    [**US mortgage 1004**](#us-mortgage-1004-form) | Extract information from appraisal.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-1005.png" link="#us-mortgage-1005-form":::</br>
-    [**US mortgage 1005**](#us-mortgage-1005-form) | Extract information from validation of employment.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-1008.png" link="#us-mortgage-1008-form":::</br>
-    [**US mortgage 1008**](#us-mortgage-1008-form) | Extract loan transmittal details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-disclosure.png" link="#us-mortgage-disclosure-form":::</br>
-    [**US mortgage disclosure**](#us-mortgage-disclosure-form) | Extract final closing loan terms.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
     [**US Tax W-2**](#us-tax-w-2-model) | Extract taxable compensation details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
-    [**US Tax 1098**](#us-tax-1098-form) | Extract mortgage interest details.
+    [**US Tax 1098**](#us-tax-1098-and-variations-forms) | Extract `1098` variation details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098-e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E**](#us-tax-1098-e-form) | Extract student loan interest details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098-t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1098-T**](#us-tax-1098-t-form) | Extract qualified tuition details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1099.png" link="#us-tax-1098-t-form":::</br>
     [**US Tax 1099**](#us-tax-1099-and-variations-forms) | Extract `1099` variation details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1040.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1040**](#us-tax-1040-form) |  Extract `1040` variation details.
+    [**US Tax 1040**](#us-tax-1040-and-variations-forms) |  Extract `1040` variation details.
    :::column-end:::
 :::row-end:::
+
+### US Mortgage
+:::row:::
+   :::column span="":::
+    [**US mortgage 1003**](#us-mortgage-1003-form) | Extract loan application details.
+   :::column-end:::
+   :::column span="":::
+    [**US mortgage 1004**](#us-mortgage-1004-form) | Extract information from appraisal.
+   :::column-end:::
+   :::column span="":::
+    [**US mortgage 1005**](#us-mortgage-1005-form) | Extract information from validation of employment.
+   :::column-end:::
+   :::column span="":::
+    [**US mortgage 1008**](#us-mortgage-1008-form) | Extract loan transmittal details.
+   :::column-end:::
+   :::column span="":::
+    [**US mortgage disclosure**](#us-mortgage-disclosure-form) | Extract final closing loan terms.
+   :::column-end:::
+:::row-end:::
+
+### Personal Identification
+
+:::row:::
+   :::column span="":::
+    [**Health Insurance card**](#health-insurance-card) | Extract insurance coverage details.
+   :::column-end:::
+    :::column span="":::
+    [**Identity**](#identity-id) | Extract verification details.
+   :::column-end:::
+       :::column span="":::
+    [**Marriage certificate**](#marriage-certificate-model) | Extract certified marriage information.
+   :::column-end:::
+:::row-end:::
+
+
+
+
 :::moniker-end
 
 :::moniker range="<=doc-intel-3.1.0"
 
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
     [**Invoice**](#invoice) | Extract customer </br>and vendor details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
     [**Receipt**](#receipt) | Extract sales </br>transaction details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
     [**Identity**](#identity-id) | Extract identification </br>and verification details.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
     [**Business card**](#business-card) | Extract business contact details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
     [**US Tax W-2**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
-    [**US Tax 1098**](#us-tax-1098-form) | Extract mortgage interest details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098-e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E**](#us-tax-1098-e-form) | Extract student loan interest details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098-t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1098-T**](#us-tax-1098-t-form) | Extract qualified tuition details.
+    [**US Tax 1098**](#us-tax-1098-and-variations-forms) | Extract `1098` variation details.
    :::column-end:::
 :::row-end:::
 :::moniker-end
 
 ## Custom models
 
-* Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases.
-* Standalone custom models can be combined to create composed models.
+Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
 
-:::row:::
-    :::column:::
-        * **Extraction models**</br>
-        ✔️ Custom extraction models are trained to extract labeled fields from documents.
-    :::column-end:::
-:::row-end:::
+### Document field extraction models
+✔️ Document field extraction models are trained to extract labeled fields from documents.
 
 :::row:::
    :::column:::
-      :::image type="icon" source="media/overview/icon-custom-generative.png" link="#custom-generative":::</br>
-    [**Custom generative**](#custom-generative) | Extract data from unstructured documents and structured documents with varying templates.
+    [**Custom generative**](#custom-generative-document-field-extraction) | Build a custom extraction model using generative AI for documents with unstructured format and varying templates.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural":::</br>
     [**Custom neural**](#custom-neural) | Extract data from mixed-type documents.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-template.png" link="#custom-template":::</br>
     [**Custom template**](#custom-template) | Extract data from static layouts.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-composed.png" link="#custom-composed":::</br>
     [**Custom composed**](#custom-composed) | Extract data using a collection of models.
    :::column-end:::
 :::row-end:::
 
-:::row:::
-    :::column:::
-        * **Classification model**</br>
-         ✔️ Custom classifiers identify document types before invoking an extraction model.
-    :::column-end:::
-:::row-end:::
+### Custom classification models
+✔️ Custom classifiers identify document types before invoking an extraction model.
 
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>before invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) before invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -294,9 +248,15 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2024-02-29-preview`, `2023-10-31-preview`, and later releases:
+ The`2024-07-31-preview` release introduces `read` model support for [searchable PDF](concept-read.md#searchable-pdf) output:
+
+* [`Searchable PDF](concept-add-on-capabilities.md#searchable-pdf)
+
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-10-31-preview`, and later releases:
 
 * [`queryFields`](concept-add-on-capabilities.md#query-fields)
+
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs)
 
 ## Analysis features
 
@@ -318,7 +278,7 @@ You can use Document Intelligence to automate document processing in application
 |[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data extraction](concept-read.md#data-extraction)| &#9679; Digitizing any document. </br>&#9679; Compliance and auditing.</br>&#9679; Processing handwritten notes before translation.|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
-> [Return to model types](#document-analysis-models)
+> [Return to model types](#general-extraction-models)
 
 ### Layout
 
@@ -329,7 +289,7 @@ You can use Document Intelligence to automate document processing in application
 |[**prebuilt-layout**](concept-layout.md) |&#9679; Extract **text and layout** information from documents.</br>&#9679; [Data extraction](concept-layout.md#data-extraction) |&#9679; Document indexing and retrieval by structure.</br>&#9679; Financial and medical report analysis. |&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/layout)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#document-analysis-models)
+> [Return to model types](#general-extraction-models)
 
 ::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
@@ -342,7 +302,7 @@ You can use Document Intelligence to automate document processing in application
 |[**prebuilt-document**](concept-general-document.md)|&#9679; Extract **text,layout, and key-value pairs** from documents.</br>&#9679; [Data and field extraction](concept-general-document.md#data-extraction)|&#9679; Key-value pair extraction.</br>&#9679; Form processing.</br>&#9679; Survey data collection and analysis.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#document-analysis-models)
+> [Return to model types](#general-extraction-models)
 
 :::moniker-end
 ### Invoice
@@ -518,35 +478,13 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### US tax 1098 form
+### US tax 1098 (and variations) forms
 
 :::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
 
 | Model ID | Description| Development options |
 |----------|--------------|-------------------|
-|[**prebuilt-tax.us.1098**](concept-tax-document.md)|Extract mortgage interest information and details. </br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1098)|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
-
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
-
-### US tax 1098-E form
-
-:::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the Document Intelligence Studio.":::
-
-| Model ID | Description |Development options |
-|----------|--------------|-------------------|
-|[**prebuilt-tax.us.1098E**](concept-tax-document.md)|Extract student loan information and details. </br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1098)|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1098&formType=tax.us.1098E)</br>&#9679; </br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
-
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
-
-### US tax 1098-T form
-
-:::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the Document Intelligence Studio.":::
-
-| Model ID |Description|Development options |
-|----------|--------------|-----------------|
-|[**prebuilt-tax.us.1098T**](concept-tax-document.md)|Extract tuition information and details. </br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1098)|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1098&formType=tax.us.1098T)</br>&#9679; [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|
+|[**prebuilt-tax.us.1098{`variation`}**](concept-tax-document.md)|&#9679; Extract key information from 1098-form variations.</br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1098)|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -557,24 +495,34 @@ You can use Document Intelligence to automate document processing in application
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|[**prebuilt-tax.us.1099{`variation`}**](concept-tax-document.md)|Extract information from 1099-form variations.|&#9679; </br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1099-nec) [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1099)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+|[**prebuilt-tax.us.1099{`variation`}**](concept-tax-document.md)|&#9679; Extract information from 1099-form variations.</br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1099-nec)|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1099)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### US tax 1040 form
+### US tax 1040 (and variations) forms
 
 :::image type="content" source="media/overview/analyze-1040.png" alt-text="Screenshot of US tax 1040 tax form model analysis using Document Intelligence Studio.":::
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|**prebuilt-tax.us.1040**|Extract information from 1040-form variations.|&#9679; </br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1040-tax-form) [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+|[**prebuilt-tax.us.1040{`variation`}**](concept-tax-document.md)|&#9679; Extract information from 1040-form variations.</br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1040-tax-form)|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+
+::: moniker range=">=doc-intel-4.0.0"
+
+### Unified US tax forms
+
+| Model ID |Description|Development options |
+|----------|--------------|-----------------|
+|[**prebuilt-tax.us**](concept-tax-document.md)|&#9679;Extract information from any of the supported US tax forms.|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+
+:::moniker-end
 
 ::: moniker range="<=doc-intel-3.1.0"
 
 ### Business card
 
-:::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
+  :::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
 
 | Model ID | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
@@ -582,7 +530,8 @@ You can use Document Intelligence to automate document processing in application
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
-::: moniker-end
+
+:::moniker-end
 
 ### Custom model overview
 
@@ -595,7 +544,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-#### Custom generative
+#### Custom generative (document field extraction)
 
 :::image type="content" source="media/overview/analyze-custom-generative.png" alt-text="Screenshot of Custom generative model analysis using Azure AI Studio.":::
 

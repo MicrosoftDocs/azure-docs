@@ -87,6 +87,7 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 ## Related policies
 
 * [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
+* [llm-token-limit](llm-token-limit-policy.md) policy
 * [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) policy
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

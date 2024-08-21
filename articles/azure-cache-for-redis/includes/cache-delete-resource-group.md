@@ -1,13 +1,11 @@
 ---
-title: "include file"
-description: "include file"
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: "include"
-ms.date: 08/10/2023
-ms.author: franlanglois
-ms.custom: "include file"
+ms.date: 08/16/2024
+
+ms.topic: include
 ---
 
 ## Clean up resources

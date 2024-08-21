@@ -22,6 +22,9 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 > [!NOTE]
 > In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace only. Currently, you must integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
 
+> [!WARNING]
+> When using our [self-hosted gateway](self-hosted-gateway-overview.md), we do not guarantee all telemetry will be pushed to Azure Application Insights given it relies on [Application Insights' in-memory buffering](./../azure-monitor/app/telemetry-channels.md#built-in-telemetry-channels).
+
 ## Prerequisites
 
 * You need an Azure API Management instance. [Create one](get-started-create-service-instance.md) first.
@@ -37,7 +40,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
     
         * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     
-    1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+    1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
     
 ## Scenario overview
 

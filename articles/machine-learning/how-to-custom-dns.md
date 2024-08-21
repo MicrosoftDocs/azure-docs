@@ -266,9 +266,6 @@ $workspaceDns.CustomDnsConfigs | format-table
 
     :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal":::
 
-    > [!TIP]
-    > If the DNS settings do not appear at the bottom of the page, use the __DNS configuration__ link from the left side of the page to view the FQDNs.
-
 ---
 
 The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from the Azure Public Cloud:

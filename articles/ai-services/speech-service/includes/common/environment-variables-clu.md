@@ -2,14 +2,13 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/28/2023
+ms.date: 8/11/2024
 ms.author: eur
 ---
 
 Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you get a key for your <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech resource</a>, write it to a new environment variable on the local machine running the application.
 
-> [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../../security-features.md) article for more authentication options like [Azure Key Vault](../../../use-key-vault.md). 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)] 
 
 To set the environment variables, open a console window, and follow the instructions for your operating system and development environment. 
 - To set the `LANGUAGE_KEY` environment variable, replace `your-language-key` with one of the keys for your resource.

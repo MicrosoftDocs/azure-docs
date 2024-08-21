@@ -4,7 +4,7 @@ description: Get started with your deployments by learning how to quickly create
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, mode-api
