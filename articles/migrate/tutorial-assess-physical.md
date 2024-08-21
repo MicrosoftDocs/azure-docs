@@ -56,9 +56,6 @@ Run an assessment as follows:
    ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
-
-    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
-
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
