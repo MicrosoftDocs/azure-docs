@@ -44,8 +44,8 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------ | ------------------------------------------------ | ------------------------------------------- |
 | Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat         |
 | Chat actions | Send and receive text messages                   | Send and receive text messages              |
-|              | Send and receive rich text messages              | Send and receive rich text messages         |
-|              | -                                                | [Receive inline images\*](../../../tutorials/inline-image-tutorial-interop-chat.md)                        |
+|              | Send and receive rich text messages\*            | Send and receive rich text messages\*       |
+|              | -                                                | [Receive inline images](../../../tutorials/inline-image-tutorial-interop-chat.md)                        |
 |              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md)                   | [Receive file attachments\*](../../../tutorials/file-sharing-tutorial-interop-chat.md)                 |
 | Chat events  | Send and receive typing indicators                  | Send and receive typing indicators\*\*             |
 |              | Send and receive read receipts                      | Send and receive read receipts                 |
