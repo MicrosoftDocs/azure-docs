@@ -16,16 +16,16 @@ There are two ways to authenticate to Azure Web PubSub Service resources:
 
 1. Microsoft Entra ID
 
-2. Access Key
+2. Access Keys
 
- **Recommendation:** Microsoft Entra ID provides superior security and ease of use over access key. With Microsoft Entra ID, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Web PubSub Service resources when possible.
+ **Recommendation:** Microsoft Entra ID provides superior security and ease of use over access keys. With Microsoft Entra ID, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Web PubSub Service resources when possible.
 
 > [!IMPORTANT]
-> Disabling local authentication can have following influences:
+> Disabling local authentication has the following effects:
 >
-> - The current set of access keys will be permanently deleted.
+> - Access keys' current set is permanently deleted.
 > - Tokens signed with current set of access keys will become unavailable.
-> - Signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Microsoft Entra token.
+> - The signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Microsoft Entra token.
 
 ## Use Azure portal
 
