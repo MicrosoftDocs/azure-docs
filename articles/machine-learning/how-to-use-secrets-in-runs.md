@@ -1,16 +1,17 @@
 ---
 title: Authentication secrets
 titleSuffix: Azure Machine Learning
-description: Learn how to pass secrets to training jobs in secure fashion using Azure Key Vault.
+description: Learn how to securely get secrets from Azure Key Vault in your training jobs by using the Key Vault Secrets client library.
 services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: roastala
 ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 01/19/2024
+ms.date: 08/20/2024
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, FY25Q1-Linter
+# Customer intent: As a data scientist, I want to securely access secrets from Azure Key Vault in my training jobs so that I can use them in my training scripts.
 ---
 
 # Use authentication credential secrets in Azure Machine Learning jobs
@@ -42,7 +43,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * (Optional) An Azure Machine Learning compute cluster configured to use a [managed identity](how-to-create-attach-compute-cluster.md?tabs=azure-studio#set-up-managed-identity). The cluster can be configured for either a system-assigned or user-assigned managed identity.
 
-* If your job will run on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job will run on serverless compute, grant the managed identity specified for the job access to the secrets. The method used to grant access depends on how your key vault is configured:
+* If your job runs on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job runs on serverless compute, grant the managed identity specified for the job access to the secrets. The method used to grant access depends on how your key vault is configured:
 
     * [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide): When configured for Azure RBAC, add the managed identity to the __Key Vault Secrets User__ role on your key vault.
     * [Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy): When configured to use access policies, add a new policy that grants the __get__ operation for secrets and assign it to the managed identity.
@@ -52,7 +53,14 @@ Before following the steps in this article, make sure you have the following pre
     > [!TIP]
     > The quickstart link is to the steps for using the Azure Key Vault Python SDK. In the table of contents in the left navigation area are links to other ways to set a key.
 
-## Getting secrets
+## Get secrets
+
+There are two ways to get secrets during training:
+
+- Using a managed identity associated with the compute resource the training job runs on.
+- Using your identity by having the compute run the job on your behalf.
+
+# [Managed identity](#tab/managed)
 
 1. Add the `azure-keyvault-secrets` and `azure-identity` packages to the [Azure Machine Learning environment](concept-environments.md) used when training the model. For example, by adding them to the conda file used to build the environment.
 
@@ -76,6 +84,50 @@ Before following the steps in this article, make sure you have the following pre
     print(secret.value)
     ```
 
-## Next steps
+# [Your identity](#tab/user)
+
+1. Add the `azure-keyvault-secrets`, `azure-identity`, and `azure-ai-ml` packages to the [Azure Machine Learning environment](concept-environments.md) used when training the model. For example, by adding them to the conda file used to build the environment.
+
+    The environment is used to build the Docker image that the training job runs in on the compute cluster.
+
+1. From your training code, use the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme) and [Key Vault client library](/python/api/overview/azure/keyvault-secrets-readme) to get the managed identity credentials and authenticate to key vault. The `AzureMLOnBehalfOfCredential` class is used to authenticate on behalf of your user identity:
+
+    ```python
+    from azure.ai.ml.identity import AzureMLOnBehalfOfCredential
+    from azure.keyvault.secrets import SecretClient
+
+    credential = AzureMLOnBehalfOfCredential()
+    secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
+    ```
+
+    After authenticating, use the Key Vault client library to retrieve a secret by providing the associated key:
+
+    ```python
+    secret = secret_client.get_secret("secret-name")
+    print(secret.value)
+    ```
+
+1. When you submit the training job, you must specify that it runs on behalf of your identity by using `identity=UserIdentityConfiguration()`. The following example submits a job using this parameter:
+
+    ```python
+    from azure.ai.ml import Input, command
+    from azure.ai.ml.constants import AssetTypes
+    from azure.ai.ml.entities import UserIdentityConfiguration
+
+    job = command(
+        code="./sdk/ml/azure-ai-ml/samples/src",
+        command="python read_data.py --input_data ${{inputs.input_data}}",
+        inputs={"input_data": Input(type=AssetTypes.MLTABLE, path="./sample_data")},
+        environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1",
+        compute="cpu-cluster",
+        identity=UserIdentityConfiguration(),
+    )
+    ```    
+
+    For an example of using the Azure CLI to submit a job that uses your identity, visit [Https://github.com/Azure/azureml-examples/blob/d4c90eead3c1fd97393d0657f7a78831490adf1c/cli/jobs/single-step/on-behalf-of/README.md](https://github.com/Azure/azureml-examples/blob/d4c90eead3c1fd97393d0657f7a78831490adf1c/cli/jobs/single-step/on-behalf-of/README.md).
+
+---
+
+## Related content
 
 For an example of submitting a training job using the Azure Machine Learning Python SDK v2, see [Train models with the Python SDK v2](how-to-train-sdk.md).
