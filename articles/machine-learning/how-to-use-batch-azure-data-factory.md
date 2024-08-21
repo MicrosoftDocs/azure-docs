@@ -78,7 +78,7 @@ The pipeline looks as follows:
 
 # [Use a managed identity](#tab/mi)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows the high-level structure of the pipeline you're creating.":::
 
 The pipeline contains the following activities:
 
@@ -100,7 +100,7 @@ The pipeline requires you to configure the following parameters:
 
 # [Use a service principal](#tab/sp)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows the high-level structure of the pipeline you're creating.":::
 
 The pipeline contains the following activities:
 
