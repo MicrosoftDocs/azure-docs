@@ -10,7 +10,7 @@ ms.date: 08/20/2024
 
 This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-## Define output values
+## Define outputs
 
 The syntax for defining an output value is:
 
@@ -62,7 +62,7 @@ Decorators are written in the format `@expression` and are placed above ouput de
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| [description](#description) | all | string | Text that explains how to use the output. |
+| [description](#description) | all | string | Provide descriptions for the output. |
 | [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array outputs. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer output. This value is inclusive. |

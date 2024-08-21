@@ -22,11 +22,12 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
 
-## Declare parameters
+## Define parameters
 
 Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
 
 ```bicep
+@<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
 ```
 

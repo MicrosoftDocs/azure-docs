@@ -25,11 +25,12 @@ Bicep modules are converted into a single Azure Resource Manager template with [
 
 If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/training/modules/create-composable-bicep-files-using-modules/).
 
-## Definition syntax
+## Define modules
 
 The basic syntax for defining a module is:
 
 ```bicep
+@<decorator>(<argument>)
 module <symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
   params: {
@@ -274,7 +275,7 @@ Decorators are written in the format `@expression` and are placed above module d
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string | Text that explains how to use the variable.|
+| [description](#description) | string |Provide descriptions for the module.|
 | [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.

@@ -19,6 +19,7 @@ You are limited to 256 variables in a Bicep file. For more information, see [Tem
 The syntax for defining a variable is:
 
 ```bicep
+@<decorator>(<argument>)
 var <variable-name> = <variable-value>
 ```
 
@@ -120,7 +121,7 @@ Decorators are written in the format `@expression` and are placed above variable
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string | Text that explains how to use the variable. |
+| [description](#description) | string | Provide descriptions for the variable. |
 | [export](#export) | none | Indicates that the variable can be imported by another file. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
@@ -163,19 +164,6 @@ output stgOutput string = storageName
 ```
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
-
-## Import variables between Bicep files
-
-Only variables that bear the `@export()` decorator can be imported to other templates.
-
-The following example enables you to import the variable from other templates:
-
-```bicep
-@export()
-var myConstant = 'This is a constant value'
-```
-
-For more information, see [Import variables, types, and functions](./bicep-import.md#import-variables-types-and-functions).
 
 ## Configuration variables
 

@@ -106,29 +106,29 @@ In a module, you can specify a scope that is different than the scope for the re
 
 ## Decorator
 
-You can add one or more decorators for each of the following element:
+You can add one or more decorators for each of the following elements:
 
-* Parameters
-* Variables
-* Resources
-* Modules
-* Ouputs
-* Types
+* [Parameter](#parameters)
+* [Variable](#variables)
+* [Resource](#resources)
+* [Module](#modules)
+* [Output](#outputs)
+* [Type](#types)
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | allowed | [parameter](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | batchSize |[resource](./resource-declaration.md#batchsize), [module](./modules.md#batchsize)| N/A | integer | Set up instances to deploy sequentially. |
-| description | [parameter](./parameters.md#description), [variable](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [user-defined data type](./user-defined-data-types.md#description) | all | string | Text that explains how to use the element. |
-| discriminator | parameter | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
-| export | variable, type, function ||||
-| maxLength | parameter | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
-| maxValue | parameter | int | int | The maximum value for the integer parameter. This value is inclusive. |
-| metadata | parameter | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
-| minLength | parameter | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
-| minValue | parameter | int | int | The minimum value for the integer parameter. This value is inclusive. |
-| sealed | parameter, type, output | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
-| secure | parameter | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+| description | [parameter](./parameters.md#description), [variable](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [type](./user-defined-data-types.md#description), [function](./user-defined-functions.md#description) | all | string | Text that explains how to use the element. |
+| discriminator | [parameter](./parameters.md#discriminator, [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| export | [variable](./variables.md#export), [type](./user-defined-data-types.md#export), [function](./user-defined-functions.md#export) | all | none| Indicates that the element can be imported by another Bicep file. |
+| maxLength | [parameter](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The maximum length for string and array elemenets. The value is inclusive. |
+| maxValue | [parameter](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The maximum value for the integer elements. This value is inclusive. |
+| metadata | [parameter](./parameters.md#metadata), [output](./outputs.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that is equivalent to the description decorator. |
+| minLength | [parameter](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
+| minValue | [parameter](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
+| sealed | [parameter](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+| secure | [parameter](./parameters.md#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 ## Parameters
 

@@ -10,7 +10,7 @@ ms.date: 08/20/2024
 
 This article describes the syntax you use to add a resource to your Bicep file. You are limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-## Declaration
+## Define resources
 
 Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
@@ -66,7 +66,7 @@ Decorators are written in the format `@expression` and are placed above resource
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string | Text that explains how to use the variable.|
+| [description](#description) | string | Provide descriptions for the resource. |
 | [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
@@ -123,7 +123,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
-## Location
+## Resource location
 
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
@@ -167,11 +167,11 @@ az provider show \
 
 ---
 
-## Tags
+## Resource tags
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-bicep.md).
 
-## Managed identities for Azure resources
+## Managed identities for resources
 
 Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
 

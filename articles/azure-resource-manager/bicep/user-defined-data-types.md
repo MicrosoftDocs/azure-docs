@@ -12,11 +12,12 @@ Learn how to create user-defined data types in Bicep. For system-defined data ty
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
-## Syntax
+## Define types
 
 You can use the `type` statement to create user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
+@<decorator>(<argument>)
 type <user-defined-data-type-name> = <type-expression>
 ```
 
@@ -233,8 +234,8 @@ Decorators are written in the format `@expression` and are placed above the decl
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
+| [description](#description) | string | Provide descriptions for the user-defined data type. |
 | [discriminator](#discriminator) | string | Use this decorator to ensure the correct subclass is identified and managed. |
-| [description](#description) | string | Text that explains how to use the user-defined data type. |
 | [export](#export) | none | Indicates that the user-defined data type can be imported by another file. |
 | [sealed](#sealed) | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
 
@@ -351,22 +352,6 @@ output config object = serviceConfig
 ```
 
 For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
-
-## Import types between Bicep files
-
-Only user-defined data types that bear the `@export()` decorator can be imported to other templates.
-
-The following example enables you to import the two user-defined data types from other templates:
-
-```bicep
-@export()
-type myStringType = string
-
-@export()
-type myOtherStringType = myStringType
-```
-
-For more information, see [Import user-defined data types](./bicep-import-providers.md#import-user-defined-data-types-preview).
 
 ## Next steps
 
