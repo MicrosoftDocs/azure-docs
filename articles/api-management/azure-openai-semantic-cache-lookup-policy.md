@@ -59,7 +59,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) v2
 
 ### Usage notes

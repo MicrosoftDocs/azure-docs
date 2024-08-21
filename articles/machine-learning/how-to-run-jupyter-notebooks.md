@@ -1,7 +1,7 @@
 ---
 title: Run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
+description: Learn how to run Jupyter notebooks in Azure Machine Learning studio, using Jupyter, JupyterLab, or Visual Studio Code.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -10,19 +10,20 @@ ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 09/26/2023
+ms.date: 08/14/2024
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
 # Run Jupyter notebooks in your workspace
 
-This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio.  There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), and [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
+This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio. There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), and [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
 
-We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
+> [!TIP]
+> We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides. VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing. For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance](how-to-work-in-vs-code-remote.md).
 
-No matter which solution you use to run the notebook, you'll have access to all the files from your workspace. For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
+No matter which solution you use to run the notebook, you have access to all the files from your workspace. For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
 
-This rest of this article shows the experience for running the notebook directly in studio.
+This article shows the experience for running the notebook directly in studio.
 
 > [!IMPORTANT]
 > Features marked as (preview) are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -44,13 +45,13 @@ Use the **Notebooks** section of your workspace to edit and run Jupyter notebook
 
 ## Edit a notebook
 
-To edit a notebook, open any notebook located in the **User files** section of your workspace. Select the cell you wish to edit.  If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
+To edit a notebook, open any notebook located in the **User files** section of your workspace. Select the cell you wish to edit. If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
 
-You can edit the notebook without connecting to a compute instance.  When you want to run the cells in the notebook, select or create a compute instance.  If you select a stopped compute instance, it will automatically start when you run the first cell.
+You can edit the notebook without connecting to a compute instance. When you want to run the cells in the notebook, select or create a compute instance. If you select a stopped compute instance, it will automatically start when you run the first cell.
 
 When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python notebook.
 
-You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Machine Learning doesn't provide updates and fix bugs from Jupyter or JupyterLab as they're Open Source products outside of the boundary of Microsoft Support.
+When a compute instance is running, you can launch Jupyter or JupyterLab from the notebook toolbar. Azure Machine Learning doesn't provide updates and fix bugs from Jupyter or JupyterLab as they're Open Source products outside of the boundary of Microsoft Support.
 
 ## Focus mode
 
@@ -64,13 +65,14 @@ Use focus mode to expand your current view so you can focus on your
 ## Code completion (IntelliSense)
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes many features: List Members, Parameter Info, Quick Info, and Complete Word. With only a few keystrokes, you can:
+
 * Learn more about the code you're using
 * Keep track of the parameters you're typing
-* Add calls to properties and methods 
+* Add calls to properties and methods
 <!--
 ### Insert code snippets (preview)
 
-Use **Ctrl+Space** to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
+Use **Ctrl+Space** to trigger IntelliSense code snippets. Scroll through the suggestions or start typing to find the code you want to insert. Once you insert code, tab through the arguments to customize the code for your own use.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insert a code snippet":::
 
@@ -86,48 +88,48 @@ From the snippets panel, you can also submit a request to add new snippets.
 -->
 ## Share a notebook
 
-Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
+Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace. They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
 Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure Machine Learning studio. By default, your notebooks are in a folder with your username, and others can access them there.
 
-You can also copy the URL from your browser when you open a notebook, then send to others.  As long as they have appropriate access to your workspace, they can open the notebook.
+You can also copy the URL from your browser when you open a notebook, then send to others. As long as they have appropriate access to your workspace, they can open the notebook.
 
-Since you don't share compute instances, other users who run your notebook will do so on their own compute instance.  
+Since you don't share compute instances, other users who run your notebook will use their own compute instance.
 
-## Collaborate with notebook comments (preview)
+## Collaborate with notebook comments
 
 Use a notebook comment to collaborate with others who have access to your notebook.
 
-Toggle the comments pane on and off with the **Notebook comments** tool at the top of the notebook.  If your screen isn't wide enough, find this tool by first selecting the **...** at the end of the set of tools.
+Toggle the comments pane on and off with the **Notebook comments** tool at the top of the notebook. If your screen isn't wide enough, find this tool by first selecting the **...** at the end of the set of tools.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/notebook-comments-tool.png" alt-text="Screenshot of notebook comments tool in the top toolbar.":::  
 
 Whether the comments pane is visible or not, you can add a comment into any code cell:
 
-1. Select some text in the code cell.  You can only comment on text in a code cell.
+1. Select some text in the code cell. You can only comment on text in a code cell.
 1. Use the **New comment thread** tool to create your comment.
     :::image type="content" source="media/how-to-run-jupyter-notebooks/comment-from-code.png" alt-text="Screenshot of add a comment to a code cell tool.":::
-1. If the comments pane was previously hidden, it will now open.  
+1. If the comments pane was previously hidden, it opens now. 
 1. Type your comment and post it with the tool or use **Ctrl+Enter**.
 1. Once a comment is posted, select **...** in the top right to:
     * Edit the comment
     * Resolve the thread
     * Delete the thread
 
-Text that has been commented will appear with a purple highlight in the code. When you select a comment in the comments pane, your notebook will scroll to the cell that contains the highlighted text.
+Commented text appears with a purple highlight in the code. When you select a comment in the comments pane, your notebook scrolls to the cell that contains the highlighted text.
 
 > [!NOTE]
 > Comments are saved into the code cell's metadata.
 
 ## Clean your notebook (preview)
 
-Over the course of creating a notebook, you typically end up with cells you used for data exploration or debugging. The *gather* feature will help you produce a clean notebook without these extraneous cells.
+Over the course of creating a notebook, you typically end up with cells you used for data exploration or debugging. The *gather* feature helps you produce a clean notebook without these extraneous cells.
 
 1. Run all of your notebook cells.
 1. Select the cell containing the code you wish the new notebook to run. For example, the code that submits an experiment, or perhaps the code that registers a model.
 1. Select the **Gather** icon that appears on the cell toolbar.
     :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: select the Gather icon":::
-1. Enter the name for your new "gathered" notebook.  
+1. Enter the name for your new "gathered" notebook. 
 
 The new notebook contains only code cells, with all cells required to produce the same results as the cell you selected for gathering.
 
@@ -135,7 +137,7 @@ The new notebook contains only code cells, with all cells required to produce th
 
 Azure Machine Learning creates a checkpoint file when you create an *ipynb* file.
 
-In the notebook toolbar, select the menu and then **File&gt;Save and checkpoint** to manually save the notebook and it will add a checkpoint file associated with the notebook.
+In the notebook toolbar, select the menu and then **File&gt;Save and checkpoint** to manually save the notebook and it adds a checkpoint file associated with the notebook.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot of save tool in notebook toolbar":::
 
@@ -147,7 +149,6 @@ Select **Checkpoints** in the notebook menu to create a named checkpoint and to 
 
 In the notebook toolbar, select the menu and then **Export As** to export the notebook as any of the supported types:
 
-* Notebook
 * Python
 * HTML
 * LaTeX
@@ -162,19 +163,19 @@ To run a notebook or a Python script, you first connect to a running [compute in
 
 * If you don't have a compute instance, use these steps to create one:
 
-    1. In the notebook or script toolbar, to the right of the Compute dropdown, select **+ New Compute**. Depending on your screen size, this may be located under a **...** menu.
+    1. In the notebook or script toolbar, to the right of the Compute dropdown, select **+ New Compute**. Depending on your screen size, the control might be located under a **...** menu.
         :::image type="content" source="media/how-to-run-jupyter-notebooks/new-compute.png" alt-text="Create a new compute":::
     1. Name the Compute and choose a **Virtual Machine Size**. 
     1. Select **Create**.
-    1. The compute instance is connected to the file automatically.  You can now run the notebook cells or the Python script using the tool to the left of the compute instance.
+    1. The compute instance is connected to the file automatically. You can now run the notebook cells or the Python script using the tool to the left of the compute instance.
 
-* If you have a stopped compute instance, select  **Start compute** to the right of the Compute dropdown. Depending on your screen size, this may be located under a **...** menu.
+* If you have a stopped compute instance, select  **Start compute** to the right of the Compute dropdown. Depending on your screen size, the control might be located under a **...** menu.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Start compute instance":::
     
 Once you're connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
 
-Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
+Only you can see and use the compute instances you create. Your **User files** are stored separately from the machine and are shared among all compute instances in the workspace.
 
 ## Explore variables in the notebook
 
@@ -188,22 +189,22 @@ Select the tool to show the variable explorer window.
 
 ## Navigate with a TOC
 
-On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents.  Start a markdown cell with a heading to add it to the table of contents. Select an entry in the table to scroll to that cell in the notebook.  
+On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents. When you start a markdown cell with a heading, it is added to the table of contents. Select an entry in the table to scroll to that cell in the notebook. 
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Table of contents in the notebook":::
 
 ## Change the notebook environment
 
-The notebook toolbar allows you to change the environment on which your notebook runs.  
+The notebook toolbar allows you to change the environment on which your notebook runs. 
 
-These actions won't change the notebook state or the values of any variables in the notebook:
+These actions don't change the notebook state or the values of any variables in the notebook:
 
 |Action  |Result  |
 |---------|---------| --------|
-|Stop the kernel     |  Stops any running cell. Running a cell will automatically restart the kernel. |
+|Stop the kernel     |  Stops any running cell. Running a cell automatically restarts the kernel. |
 |Navigate to another workspace section     |     Running cells are stopped. |
 
-These actions will reset the notebook state and will reset all variables in the notebook.
+These actions reset the notebook state and resets all variables in the notebook.
 
 |Action  |Result  |
 |---------|---------| --------|
@@ -211,21 +212,21 @@ These actions will reset the notebook state and will reset all variables in the 
 | Switch compute    |     Notebook automatically uses the new compute. |
 | Reset compute | Starts again when you try to run a cell |
 | Stop compute     |    No cells will run  |
-| Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab.  |
+| Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab. |
 
 ## Add new kernels
 
 [Use the terminal](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
 
-Use the kernel dropdown on the right to change to any of the installed kernels.  
+Change to any of the installed kernels using the kernel dropdown on the right.
 
-## Manage packages
+ ## Manage packages
 
-Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently running kernel).
+Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently running kernel. Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently running kernel).
 
 ### Status indicators
 
-An indicator next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
+An indicator next to the **Compute** dropdown shows its status. The status is also shown in the dropdown itself. 
 
 |Color |Compute status |
 |---------|---------| 
@@ -251,9 +252,7 @@ Similar to Jupyter Notebooks, Azure Machine Learning studio notebooks have a mod
 
 ### Command mode shortcuts
 
-A cell is in command mode when there's no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.  The left border of the active cell is blue and solid, and its **Run** button is blue.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Notebook cell in command mode ":::
+A cell is in command mode when there's no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.
 
 | Shortcut                      | Description                          |
 | ----------------------------- | ------------------------------------|
@@ -293,9 +292,7 @@ A cell is in command mode when there's no text cursor prompting you to type. Whe
 
 ### Edit mode shortcuts
 
-Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or select a cell's editor area. The left border of the active cell is green and hatched, and its **Run** button is green. You also see the cursor prompt in the cell in Edit mode.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Notebook cell in edit mode":::
+Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or select a cell's editor area. You see the cursor prompt in the cell in Edit mode.
 
 Using the following keystroke shortcuts, you can more easily navigate and run code in Azure Machine Learning notebooks when in Edit mode.
 
@@ -333,14 +330,9 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * **Connecting to a notebook**: If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your [network allows websocket connections](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* **Private endpoint**: When a compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you're using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+* **Private endpoint**: When a compute instance is deployed in a workspace with a private endpoint, it can only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you're using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
 
-* **Kernel crash**: If your kernel crashed and was restarted, you can run the following command to look at Jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
-
-* **Kernel not found** or **Kernel operations were disabled**: When using the default Python 3.8 kernel on a compute instance, you may get an error such as "Kernel not found" or "Kernel operations were disabled". To fix, use one of the following methods:
-    * Create a new compute instance. This will use a new image where this problem has been resolved.
-    * Use the Py 3.6 kernel on the existing compute instance.
-    * From a terminal in the default py38 environment, run  ```pip install ipykernel==6.6.0``` OR ```pip install ipykernel==6.0.3```
+* **Kernel crash**: If your kernel crashed and was restarted, you can run the following command to look at Jupyter log and find more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
 
 * **Expired token**: If you run into an expired token issue, sign out of your Azure Machine Learning studio, sign back in, and then restart the notebook kernel.
 

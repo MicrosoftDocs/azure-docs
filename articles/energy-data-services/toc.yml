@@ -68,6 +68,8 @@
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
           href: how-to-add-more-data-partitions.md
+        - name: Deploy Geospatial Consumption Zone (GCZ)
+          href: how-to-deploy-gcz.md
         - name: Deploy OSDU Admin UI
           href: how-to-deploy-osdu-admin-ui.md
         - name: How to enable External Data Sources (EDS)

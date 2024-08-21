@@ -105,7 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## Reliable Dictionary notifications
 Reliable Dictionary provides notifications for the following events:
 
-* Rebuild: Called when **ReliableDictionary** has recovered its state from a recovered or copied local state or backup.
+* Rebuild: Called when **ReliableDictionary** has recovered to a readable intermediary recovery state from a recovered or copied local state or backup. A record of transactions since the creation of this recovery state will then be applied before the rebuild is complete. The application of those record will provide clear, add, update, and/or remove notifications.
 * Clear: Called when the state of **ReliableDictionary** has been cleared through the **ClearAsync** method.
 * Add: Called when an item has been added to **ReliableDictionary**.
 * Update: Called when an item in **IReliableDictionary** has been updated.
@@ -208,7 +208,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 Here are some things to keep in mind:
 
-* Notifications are fired as part of the execution of an operation. For example, a restore notification is fired as the last step of a restore operation. A restore will not finish until the notification event is processed.
+* Notifications are fired as part of the execution of an operation. For example, a restore notification is fired as a step of a restore operation. A restore will not continue until the notification event is processed.
 * Because notifications are fired as part of the applying operations, clients see only notifications for locally committed operations. And because operations are guaranteed only to be locally committed (in other words, logged), they might or might not be undone in the future.
 * On the redo path, a single notification is fired for each applied operation. This means that if transaction T1 includes Create(X), Delete(X), and Create(X), you'll get one notification for the creation of X, one for the deletion, and one for the creation again, in that order.
 * For transactions that contain multiple operations, operations are applied in the order in which they were received on the primary replica from the user.
@@ -219,3 +219,7 @@ Here are some things to keep in mind:
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
+
+
+## Known Issues
+* In specific situations, some transaction notifications may be skipped during a rebuild. In this case, the correct value is still present and can still be read or iterated; only the notification is missing. To recover the in-memory state, reliable collections uses a write ahead log that is periodically condensed into a checkpoint file. During restore, first the base state is loaded from checkpoint files which triggers a rebuild notification. Then the transactions saved in the log are applied, each triggering it's own clear, add, update, or remove notification. This issue can arise from a race condition where a new checkpoint is taken quickly after a restore. If the checkpoint completes before the application of the log, the in memory state will be set to the state of the new checkpoint. While this results in the correct state, it means that transactions in the log that were not yet applied will not send notifications. 

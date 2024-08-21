@@ -16,7 +16,7 @@ author: Blackmist
 
 # Manage, collaborate, and organize with hubs
 
-Hubs are the primary top-level Azure resource for AI studio and provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Once a hub is created, developers can create projects from it and access shared company resources without needing an IT administrator's repeated help.
+Hubs are the primary top-level Azure resource for AI Studio and provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Once a hub is created, developers can create projects from it and access shared company resources without needing an IT administrator's repeated help.
 
 Project workspaces that are created using a hub inherit the same security settings and shared resource access. Teams can create project workspaces as needed to organize their work, isolate data, and/or restrict access. 
 
@@ -99,7 +99,7 @@ Azure AI Studio layers on top of existing Azure services including Azure AI and 
 
 [!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
-When you create a new hub, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI studio. If not provided by you, and required, these resources are automatically created.
+When you create a new hub, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI Studio. If not provided by you, and required, these resources are automatically created.
 
 [!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
 

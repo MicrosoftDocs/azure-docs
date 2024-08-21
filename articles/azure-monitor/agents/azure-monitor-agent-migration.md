@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.reviewer: guywild
 ms.topic: conceptual 
-ms.date: 06/16/2024
+ms.date: 08/13/2024
 
 # Customer intent: As an azure administrator, I want to understand the process of migrating from the MMA agent to the AMA agent.
 
@@ -65,7 +65,7 @@ The **Azure Monitor Agent Migration Helper** workbook is a workbook-based Azure 
 
 ## Understand your agents
 
-Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
+Use the [DCR generator](./azure-monitor-agent-migration-data-collection-rule-generator.md) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
 To help understand your agents, review the following questions:
 
 |**Question**|**Actions**|
@@ -134,13 +134,12 @@ If however you're using System Center Operations Manager (SCOM), keep the MMA ag
 A SCOM Admin Management Pack exists and can help you remove the workspace configurations at scale while retaining the SCOM Management Group configuration. For more information on the SCOM Admin Management Pack, see [SCOM Admin Management Pack](https://github.com/thekevinholman/SCOM.Management).
 
 
-## Known parity gaps that may impact your migration
-
+## Known Migration Issues
 - IIS Logs: When IIS log collection is enabled, AMA might not populate the `sSiteName` column of the `W3CIISLog` table. This field gets collected by default when IIS log collection is enabled for the legacy agent. If you need to collect the `sSiteName` field using AMA, enable the `Service Name (s-sitename)` field in W3C logging of IIS. For steps to enable this field, see [Select W3C Fields to Log](/iis/manage/provisioning-and-managing-iis/configure-logging-in-iis#select-w3c-fields-to-log).
-
-- Sentinel: Windows Firewall logs aren't generally available (GA) yet.
 - SQL Assessment Solution: This is now part of SQL best practice assessment. The deployment policies require one Log Analytics Workspace per subscription, which isn't the best practice recommended by the AMA team.
-- Microsoft Defender for cloud: Some features for the new agent-less solution are in development. Your migration maybe impacted if you use File Integrity Monitoring (FIM), Endpoint protection discovery recommendations, OS Misconfigurations (Azure Security Benchmark (ASB) recommendations) and Adaptive Application controls.
+- Microsoft Defender for cloud: is moving to an agent-less solution. Some features will not be ready by the deprecation date. Customers should stay on MMA for machines that use File Integrity Monitoring (FIM), Endpoint protection discovery recommendations, OS Misconfigurations (Azure Security Benchmark (ASB) recommendations) and Adaptive Application controls.
+- Update management is moving to an agent-less solution but will not be ready by the MMA depreciation date. Customers that use Update Management should stay on MMA until the new service Automated Update Manager is ready.
+
 
 
 ## Next steps

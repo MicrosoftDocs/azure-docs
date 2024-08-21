@@ -43,7 +43,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) v2
 
 ### Usage notes

@@ -14,6 +14,8 @@ ms.date: 08/28/2023
 
 Create and assign persistent environment variables for your key and endpoint.
 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
 # [Command Line](#tab/command-line)
 
 ```cmd

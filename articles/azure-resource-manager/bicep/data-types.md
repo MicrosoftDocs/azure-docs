@@ -83,7 +83,7 @@ param emptyArray array = []
 param numberArray array = [1, 2, 3]
 
 output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
-output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 ```
 
 ## Booleans
@@ -327,6 +327,12 @@ type trueOrFalse = 'true' | 'false'
 type permittedIntegers = 1 | 2 | 3
 type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
 type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
+```
+
+Type unions must be reducible to a single ARM type, such as 'string', 'int', or 'bool'. Otherwise, you get the [BCP294](./diagnostics/bcp294.md) error code. For example:
+
+```bicep
+type foo = 'a' | 1
 ```
 
 Any type expression can be used as a sub-type in a union type declaration (between `|` characters). For example, the following examples are all valid:

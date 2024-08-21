@@ -2,7 +2,7 @@
 title: Use cloud-init to configure a swap partition on a Linux VM
 description: How to use cloud-init to configure a swap partition in a Linux VM during creation with the Azure CLI
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 03/29/2023

@@ -87,7 +87,7 @@ Advisor provides recommendations for the following services:
 - Azure Virtual Machine Scale Sets
 - Azure Virtual Network gateway
 
-Advisor also includes your recommendations from [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md), which might include recommendations for other resource types.
+Advisor also includes your recommendations from [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), which might include recommendations for other resource types.
 
 ### Can I postpone or dismiss a recommendation?
 

@@ -28,8 +28,8 @@ There are two tiers of keys for the Custom Vision service. You can sign up for a
 |How long prediction images stored|30 days|30 days|
 |[Prediction](/rest/api/customvision/predictions) operations with storage (Transactions Per Second)|2|10|
 |[Prediction](/rest/api/customvision/predictions) operations without storage (Transactions Per Second)|2|20|
-|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API calls Per Second)|2|10|
-|[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|
+|[TrainProject](/rest/api/customvision/train-project/train-project) (API calls Per Second)|2|10|
+|[Other API calls](/rest/api/custom-vision) (Transactions Per Second)|10|10|
 |Accepted image types|jpg, png, bmp, gif|jpg, png, bmp, gif|
 |Min image height/width in pixels|256 (see note)|256 (see note)|
 |Max image height/width in pixels|10,240|10,240|

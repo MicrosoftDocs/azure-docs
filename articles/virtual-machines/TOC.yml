@@ -279,14 +279,14 @@
           href: ./sizes/general-purpose/dcasv5-series.md
         - name: DCadsv5 series
           href: ./sizes/general-purpose/dcadsv5-series.md
-        - name: DCas_cc_v5 series
-          href: ./sizes/general-purpose/dcasccv5-series.md
-        - name: DCads_cc_v5 series
-          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
           href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
           href: ./sizes/general-purpose/dcedsv5-series.md 
+        - name: DCas_cc_v5 series
+          href: ./sizes/general-purpose/dcasccv5-series.md
+        - name: DCads_cc_v5 series
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCsv3 series
           href: ./sizes/general-purpose/dcsv3-series.md
         - name: DCdsv3 series
@@ -380,10 +380,10 @@
           href: ./sizes/memory-optimized/ec-family.md
         - name: ECasv5 and ECadsv5 series
           href: ecasv5-ecadsv5-series.md
-        - name: ECas_cc_v5 and ECads_cc_v5 series
-          href: ecasccv5-ecadsccv5-series.md
         - name: ECesv5 and ECedsv5 series
           href: ecesv5-ecedsv5-series.md  
+        - name: ECas_cc_v5 and ECads_cc_v5 series
+          href: ecasccv5-ecadsccv5-series.md
       - name: M family
         items:
         - name: Overview
@@ -441,6 +441,8 @@
           href: nc-series-retirement.md
         - name: NCads_H100_v5 series
           href: ./sizes/gpu-accelerated/ncadsh100v5-series.md
+        - name: NCCads_H100_v5 series
+          href: ./sizes/gpu-accelerated/nccadsh100v5-series.md
         - name: NCv2 series
           href: ./sizes/gpu-accelerated/ncv2-series.md
         - name: NCv2 series retirement
@@ -599,6 +601,9 @@
       - name: Set up Azure HPC or AI VMs
         displayName: How to setup HPC/AI VMs
         href: set-up-hpc-vms.md
+      - name: Set up InfiniBand
+        displayName: How to set up Infiniband
+        href: setup-infiniband.md  
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
         href: configure.md
@@ -941,6 +946,9 @@
       - name: Best practices
         displayName: Image builder, images, building, best practices
         href: image-builder-best-practices.md
+      - name: Connecting to Build VM
+        displayName: Image builder, images, building, connecting, build VM
+        href: ./linux/image-builder-connect-to-build-vm.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: /azure/reliability/reliability-image-builder?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
@@ -1235,13 +1243,13 @@
       items:
       - name: Linux
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-linux.md
+        href: ../network-watcher/network-watcher-agent-linux.md?toc=/azure/virtual-machines/toc.json
       - name: Windows
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-windows.md
+        href: ../network-watcher/network-watcher-agent-windows.md?toc=/azure/virtual-machines/toc.json
       - name: Update to latest version
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-update.md
+        href: ../network-watcher/network-watcher-agent-update.md?toc=/azure/virtual-machines/toc.json
     - name: InfiniBand Drivers
       items:
       - name: Linux

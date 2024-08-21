@@ -3,7 +3,7 @@ title:       Overview of Mbsv3 and Mbdsv3 Series
 description:  Overview of Mbsv3 and Mbdsv3 virtual machines
 author:      mingjiongz
 ms.author:   zhangjay
-ms.service:  virtual-machines
+ms.service: azure-virtual-machines
 # ms.prod:   sizes
 ms.topic:    conceptual
 ms.date:     07/15/2024

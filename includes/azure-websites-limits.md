@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu

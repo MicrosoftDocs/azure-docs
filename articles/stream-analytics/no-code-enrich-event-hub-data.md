@@ -69,6 +69,8 @@ This article describes how you can use the no code editor to easily create a Str
 
     :::image type="content" source="./media/no-code-enrich-event-hub-data/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/no-code-enrich-event-hub-data/no-code-list-jobs.png" :::
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
 Learn more about Azure Stream Analytics and how to monitor the job you've created.

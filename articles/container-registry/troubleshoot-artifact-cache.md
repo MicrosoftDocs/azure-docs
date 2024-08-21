@@ -99,7 +99,7 @@ Artifact cache currently supports the following upstream registries:
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+[create-and-store-keyvault-credentials]:/azure/key-vault/secrets/quick-create-portal
 
-[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy#assign-an-access-policy
 

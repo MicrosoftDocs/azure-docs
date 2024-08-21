@@ -1,6 +1,6 @@
 ---
 author: msakande
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 02/27/2024
 ms.author: mopeakande

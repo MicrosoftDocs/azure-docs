@@ -440,7 +440,7 @@ The following example creates a Python feed connection. A Personal Access Token 
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
 
 
 name = "my_pfeed_conn"
@@ -465,23 +465,11 @@ You can't create a Python feed connection in studio.
 
 ---
 
-### Azure Container Registry
+### Container Registry
 
 # [Azure CLI](#tab/cli)
 
 Create a connection to an Azure Container Registry with one of following YAML files. Be sure to update the appropriate values:
-
-* Connect using Microsoft Entra ID authentication:
-
-   ```yml
-   name: test_ws_conn_cr_managed
-   type: container_registry
-   target: https://test-feed.com
-   credentials:
-      type: managed_identity
-      client_id: client_id
-      resource_id: resource_id
-   ```
 
 * Connect using a username and password:
 
@@ -507,7 +495,7 @@ The following example creates an Azure Container Registry connection. A managed 
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 
 name = "my_acr_conn"
@@ -518,7 +506,7 @@ wps_connection = WorkspaceConnection(
     name=name,
     type="container_registry",
     target=target,
-    credentials=ManagedIdentityConfiguration (client_id="xxxxx", resource_id="xxxxx"),    
+    credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"), 
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```

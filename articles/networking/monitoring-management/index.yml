@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure network monitoring and management documentation
   description: Learn about the various Azure network monitoring and management services that you can use to monitor your network resources in Azure. 
-  ms.service: network-watcher
+  ms.service: azure-network-watcher
   ms.topic: hub-page
   author: halkazwini
   ms.author: halkazwini

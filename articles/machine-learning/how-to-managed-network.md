@@ -3,7 +3,7 @@ title: Managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed virtual network isolation for network security with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr
@@ -1020,9 +1020,9 @@ If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbo
 * `marketplace.visualstudio.com`
 * `vscode.download.prss.microsoft.com`
 
-### Scenario: Use batch endpoints
+### Scenario: Use batch endpoints or ParallelRunStep
 
-If you plan to use __Azure Machine Learning batch endpoints__ for deployment, add outbound _private endpoint_ rules to allow traffic to the following sub resources for the default storage account:
+If you plan to use __Azure Machine Learning batch endpoints__ for deployment or __ParallelRunStep__, add outbound _private endpoint_ rules to allow traffic to the following sub resources for the default storage account:
 
 * `queue`
 * `table`

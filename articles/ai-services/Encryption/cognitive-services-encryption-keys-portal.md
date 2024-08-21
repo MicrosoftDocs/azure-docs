@@ -53,7 +53,7 @@ When you use a customer-managed key, these resources are _in your Azure subscrip
 These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your project. This resource group contains the Microsoft-managed resources that your key is used with. The resource group is named using the formula of `<Azure AI resource group name><GUID>`. It isn't possible to change the naming of the resources in this managed resource group.
 
 > [!TIP]
-> * The [Request Units](../../cosmos-db/request-units.md) for the Azure Cosmos DB automatically scale as needed.
+> * The [Request Units](/azure/cosmos-db/request-units) for the Azure Cosmos DB automatically scale as needed.
 > * If your AI resource uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the project. You cannot provide your own VNet for use with the Microsoft-managed resources. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
 
 > [!IMPORTANT]
@@ -102,4 +102,4 @@ Each virtual machine also has a local temporary disk for OS operations. If you w
 ## Next steps
 
 * [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) is still required for Speech and Content Moderator.
-* [What is Azure Key Vault](../../key-vault/general/overview.md)?
+* [What is Azure Key Vault](/azure/key-vault/general/overview)?

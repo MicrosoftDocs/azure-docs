@@ -3,7 +3,7 @@ title: Name resolution for resources in Azure virtual networks
 titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: allensu
@@ -95,7 +95,7 @@ Points to consider when you're using Azure-provided name resolution:
 
 ### Reverse DNS Considerations
 
-Reverse DNS for VMs is supported in all Azure Resource Manager based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
+Reverse DNS for VMs is supported in all Azure Resource Manager based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to DNS when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.11.0.4

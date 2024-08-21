@@ -3,7 +3,7 @@
  description: This article gives details on using custom data and cloud-init on Azure virtual machines.
  services: virtual-machines
  author: mimckitt
- ms.service: virtual-machines
+ ms.service: azure-virtual-machines
  ms.topic: how-to
  ms.date: 02/24/2023
  ms.author: mimckitt

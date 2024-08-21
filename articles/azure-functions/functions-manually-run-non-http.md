@@ -11,9 +11,13 @@ This article demonstrates how to manually run a non HTTP-triggered function via 
 
 In some contexts, such as during development and troubleshooting, you might need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the [result of events](./functions-create-storage-blob-triggered-function.md). 
 
-[Postman](https://www.getpostman.com/) is used in the following example, but you can use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
-
 The procedure described in this article is equivalent to using the **Test/Run** functionality of a function's **Code + Test** tab in the Azure portal. You can also use Visual Studio Code to [manually run functions](functions-develop-vs-code.md#run-functions). 
+
+## Prerequisites 
+
+The examples in this article use an HTTP test tool. You can obtain and use any of these tools that send HTTP requests:
+
+[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 ## Define the request location
 
@@ -64,34 +68,22 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
 1. In the Azure portal, navigate top your function app and choose your function. 
 
-1. Select **Code + Test**, and then select **Logs**. You see messages from the function logged here when you manually run the function from Postman.
+1. Select **Code + Test**, and then select **Logs**. You see messages from the function logged here when you manually run the function from your HTTP test tool.
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Screenshot that shows the 'Code + Test' page with a message from the logs displayed." border="true":::
 
-1. Open Postman (or an equivalent HTTP composing tool) and enter the **request location in the URL text box**.
-
-1. Make sure that the HTTP method is set to **POST**, select the **Headers** tab, and add these two header key-value pairs:
+1. In your HTTP test tool, use the request location you defined as the request URL, make sure that the HTTP request method is POST, and include these two request headers:
 
     | Key | Value |
     | --- | --- |
     | **`x-functions-key`** | The master key value pasted from the clipboard. |
     |  **`Content-Type`** | `application/json` |
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers settings." border="true":::
-
-1. Select the **Body** tab and type `{ "input": "<TRIGGER_INPUT>" }` as the body for the request.  
-
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
-
-   The specific `<TRIGGER_INPUT>` you supply depends on the type of trigger, but it can only be a string, numeric, or boolean value. For services that use JSON payloads, such as Azure Service Bus, the test JSON payload should be escaped and serialized as a string. 
+1. Make sure that the POST request payload/body is `{ "input": "<TRIGGER_INPUT>" }`. The specific `<TRIGGER_INPUT>` you supply depends on the type of trigger, but it can only be a string, numeric, or boolean value. For services that use JSON payloads, such as Azure Service Bus, the test JSON payload should be escaped and serialized as a string. 
 
     If you don't want to pass input data to the function, you must still supply an empty dictionary `{}` as the body of the POST request. For more information, see the reference article for the specific non-HTTP trigger. 
 
-1. Select **Send**.
-        
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::
-
-    Postman then reports a status of **202 Accepted**.
+1. Send the HTTP POST request. The response should be an HTTP 202 (Accepted) response.
 
 1. Next, return to your function in the Azure portal. Review the logs and you see messages coming from the manual call to the function.
 

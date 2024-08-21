@@ -66,6 +66,8 @@ To successfully make a call against the Anomaly Detector service, you'll need th
 
 Create and assign persistent environment variables for your key and endpoint.
 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
 # [Command Line](#tab/command-line)
 
 ```CMD

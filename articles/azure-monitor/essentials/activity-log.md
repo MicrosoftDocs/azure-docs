@@ -13,16 +13,17 @@ ms.reviewer: orens
 
 The Azure Monitor Activity Log is a platform log that provides insight into subscription-level events. The Activity Log includes information like when a resource is modified or a virtual machine is started. You can view the Activity Log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the Activity Log and send it to different destinations.
 
-For more functionality, create a diagnostic setting to send the Activity Log to one or more of these locations for the following reasons:
+Create a diagnostic setting to send the Activity Log to one or more of these locations:
+ - [Log Analytics workspace](#send-to-log-analytics-workspace) for more complex querying and alerting
+ - [Azure Event Hubs](#send-to-azure-event-hubs) to forwarding logs outside of Azure.
+ - [Azure Storage](#send-to-azure-storage) for cheaper, long-term archiving.
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-configure.md).
-- Send to Azure Event Hubs to forward outside of Azure.
-- Send to Azure Storage for cheaper, long-term archiving.
 
 For details on how to create a diagnostic setting, see [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md).
 > [!TIP]
-> * Sending logs to Log Analytics workspace if free of charge for the default retention period.
-> * Send to Azure Monitor Logs for more complex querying and alerting and for longer retention of up to 12 years.
+> Send Activity Logs to a Log Analytics workspace for the following benefits:
+> * Sending logs to a Log Analytics workspace is free of charge for the default retention period.
+> * Send logs to a Log Analytics workspace for [longer retention of up to 12 years](../logs/data-retention-configure.md).
 > * Logs exported to a Log Analytics workspace can be [shown in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
 > * [Insights](./activity-log-insights.md) are provided for Activity Logs exported to Log Analytics.
 
@@ -248,12 +249,12 @@ If a log profile already exists, you first must remove the existing log profile,
    ```
     | Property | Required | Description |
     | --- | --- | --- |
-    | name |Yes |Name of your log profile. |
-    | storage-account-id |Yes |Resource ID of the storage account to which activity logs should be saved. |
-    | locations |Yes |Space-separated list of regions for which you want to collect activity log events. View a list of all regions for your subscription by using `az account list-locations --query [].name`. |
-    | days |Yes |Number of days for which events should be retained, from 1 through 365. A value of zero stores the logs indefinitely (forever). If zero, then the enabled parameter should be set to False. |
-    |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
-    | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+    | `name` |Yes |Name of your log profile. |
+    | `storage-account-id` |Yes |Resource ID of the storage account to which activity logs should be saved. |
+    | `locations` |Yes |Space-separated list of regions for which you want to collect activity log events. View a list of all regions for your subscription by using `az account list-locations --query [].name`. |
+    | `days` |Yes |Number of days for which events should be retained, from 1 through 365. A value of zero stores the logs indefinitely (forever). If zero, then the enabled parameter should be set to False. |
+    |`enabled` | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
+    | `categories` |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
 
 ---
@@ -262,7 +263,7 @@ If a log profile already exists, you first must remove the existing log profile,
 
 The Export activity logs experience sends the same data as the legacy method used to send the activity log with some changes to the structure of the `AzureActivity` table.
 
-The columns in the following table have been deprecated in the updated schema. They still exist in `AzureActivity`, but they have no data. The replacements for these columns aren't new, but they contain the same data as the deprecated column. They're in a different format, so you might need to modify log queries that use them.
+The columns in the following table are deprecated in the updated schema. They still exist in `AzureActivity`, but they have no data. The replacements for these columns aren't new, but they contain the same data as the deprecated column. They're in a different format, so you might need to modify log queries that use them.
 
 |Activity log JSON | 	Log Analytics column name<br/>*(older deprecated)*	| New Log Analytics column name |	Notes |
 |:---------|:---------|:---------|:---------|

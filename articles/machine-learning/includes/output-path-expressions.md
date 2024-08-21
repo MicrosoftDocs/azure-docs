@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: machine-learning
 author: blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.author: larryfr
 ms.custom: "include file"
 ms.topic: "include"
