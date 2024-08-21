@@ -53,7 +53,7 @@ Regularly scanning your codebase for embedded secrets can prevent accidental exp
 
 See:
 
-- [Azure DevOps Credential Scanner](../../devops/repos/security/github-advanced-security-secret-scanning.md?view=azure-devops)
+- [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning?view=azure-devops)
 - [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning)
 
 ### Leverage managed identities
