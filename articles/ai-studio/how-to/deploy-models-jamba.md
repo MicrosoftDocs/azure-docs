@@ -82,22 +82,38 @@ To get started with Jamba 1.5 mini deployed as a serverless API, explore our int
 These steps demonstrate the deployment of `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` models. To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
+
 1. Select **Model catalog** from the left sidebar.
+
 1. Search for and select a AI21 model like `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` or `AI21 Jamba Instruct` to open its Details page.
+
 1. Select **Deploy** to open a serverless API deployment window for the model.
+
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
+
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
+
     1. Search for and select a AI21 model like `AI21 Jamba 1.5 Large` or `AI21 Jamba 1.5 Mini` or `AI21 Jamba Instruct` to open the Model's Details page.
+
     1. Select **Confirm** to open a serverless API deployment window for the model.
+
 1. Select the project in which you want to deploy your model. To deploy the AI21-Jamba family models, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
+
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
+
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
+
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the [Prerequisites](#prerequisites). Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
+
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
+
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
+
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
+
 1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [Reference](#reference-for-jamba-family-models-deployed-as-a-serverless-api) section.
+
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
 To learn about billing for the AI21-Jamba family models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-family-models-deployed-as-a-serverless-api).
