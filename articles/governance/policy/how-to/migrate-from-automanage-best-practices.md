@@ -20,9 +20,9 @@ configuration. Azure Policy implements a robust array of features including:
 
 - *Comprehensive Compliance Management:* Azure Policy offers comprehensive compliance management by continuously assessing and auditing your resources. It provides detailed reports and dashboards to track compliance status, helping you to quickly detect and rectify non-compliance issues across your environment.
 
-- *Scalability:* Azure Policy is built to manage large-scale environments efficiently. It allows you to apply policies at different scopes (e.g., Management Group, Subscription, Resource Group levels), making it easier to enforce compliance across multiple resources and regions systematically.
+- *Scalability:* Azure Policy is built to manage large-scale environments efficiently. It allows you to apply policies at different scopes (for example, Management Group, Subscription, Resource Group levels), making it easier to enforce compliance across multiple resources and regions systematically.
 
-- *Integration with Azure Security Center:* Azure Policy integrates seamlessly with Azure Security Center, enhancing your ability to manage security policies and ensuring your servers adhere to best practices. This integration provides additional insights and recommendations, further strengthening your security posture.
+- *Integration with Azure Security Center:* Azure Policy integrates seamlessly with Azure Security Center, enhancing your ability to manage security policies and ensuring your servers adhere to best practices. This integration provides more insights and recommendations, further strengthening your security posture.
 
 Before you begin, it's a good idea to read the conceptual overview information at the page
 [Azure Policy][01].
