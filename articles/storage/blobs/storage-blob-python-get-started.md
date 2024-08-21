@@ -68,7 +68,7 @@ Follow these steps to use the asynchronous APIs in your project:
     from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
     ```
 
-    The `import asyncio` statement is only required if you're using the library in your code. It's added here for clarity, as the examples in the [developer guide articles](#build-your-application) use the `asyncio` library.
+    The `import asyncio` statement is only required if you're using the library in your code. It's added here for clarity, as the examples in the [developer guide articles](#build-your-app) use the `asyncio` library.
 
 - Create a client object using `async with` to begin working with data resources. Only the top level client needs to use `async with`, as other clients created from it share the same connection pool. In this example, we create a `BlobServiceClient` object using `async with`, and then create a `ContainerClient` object:
 
@@ -85,7 +85,7 @@ Blob async client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
+To connect an app to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
 To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
@@ -95,9 +95,9 @@ You can authorize a `BlobServiceClient` object by using a Microsoft Entra author
 
 ## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
-To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your app runs. Use the following table as a guide:
 
-| Where the application runs | Security principal | Guidance |
+| Where the app runs | Security principal | Guidance |
 | --- | --- | --- |
 | Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
 | Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
@@ -183,11 +183,11 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ---
 
-## Build your application
+## Build your app
 
-As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
+As you build apps to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for Python:
+The following guides show you how to access data and perform specific actions using the Azure Storage client library for Python:
 
 | Guide | Description |
 |--|---|
