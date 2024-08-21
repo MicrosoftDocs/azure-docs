@@ -15,7 +15,7 @@ When you work with text payloads, Azure Logic Apps infers the text is encoded in
 
 To work with text that has other character encoding, apply base64ToBinary encoding to the non-Unicode payload. This step prevents Azure Logic Apps from assuming the text is in UTF-8 format. You can then convert any .NET-supported encoding to UTF-8 using Azure Functions. 
 
-This solution works with both *multi-tenant* and *single-tenant* workflows. You can also [use this solution with the AS2 connector](#convert-payloads-for-as2).
+This solution works with both *multitenant* and *single-tenant* workflows. You can also [use this solution with the AS2 connector](#convert-payloads-for-as2).
 
 ## Convert payload encoding
 
