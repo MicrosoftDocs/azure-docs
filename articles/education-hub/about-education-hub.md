@@ -18,7 +18,7 @@ You can easily adjust the amount of allocated credit within each subscription or
 
 ## Prerequisites
 
-To access the Education Hub, you must first receive an email notification that confirms your approval for an academic grant and contains your approved credit amount.
+To access the Education Hub, you must first receive an email notification that confirms your approval for an academic sponsorship and contains your approved credit amount.
 
 ## Related content
 
