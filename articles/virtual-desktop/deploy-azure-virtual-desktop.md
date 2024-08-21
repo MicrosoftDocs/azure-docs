@@ -690,87 +690,87 @@ Here's how to assign users or user groups to an application group by using the A
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to assign users or user groups to an application group by using the [Az.Resources](/powershell/module/az.resources) Azure PowerShell module:
+Here's how to assign users or user groups to an application group by using the [Az.Resources](/powershell/module/az.resources) Azure PowerShell module.
 
-- In the same PowerShell session, use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group:
+In the same PowerShell session, use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group:
 
-  - To assign users to the application group, run the following commands:
+- To assign users to the application group, run the following commands:
 
-     ```azurepowershell
-     $parameters = @{
-         SignInName = '<UserPrincipalName>'
-         ResourceName = '<ApplicationGroupName>'
-         ResourceGroupName = '<ResourceGroupName>'
-         RoleDefinitionName = 'Desktop Virtualization User'
-         ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
-     }
+  ```azurepowershell
+  $parameters = @{
+      SignInName = '<UserPrincipalName>'
+      ResourceName = '<ApplicationGroupName>'
+      ResourceGroupName = '<ResourceGroupName>'
+      RoleDefinitionName = 'Desktop Virtualization User'
+      ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
+  }
       
-     New-AzRoleAssignment @parameters
-     ```
+  New-AzRoleAssignment @parameters
+  ```
 
-  - To assign user groups to the application group, run the following commands:
+- To assign user groups to the application group, run the following commands:
 
-     ```azurepowershell
-     # Get the object ID of the user group that you want to assign to the application group
-     $userGroupId = (Get-AzADGroup -DisplayName "<UserGroupName>").Id
+  ```azurepowershell
+  # Get the object ID of the user group that you want to assign to the application group
+  $userGroupId = (Get-AzADGroup -DisplayName "<UserGroupName>").Id
 
-     # Assign users to the application group
-     $parameters = @{
-         ObjectId = $userGroupId
-         ResourceName = '<ApplicationGroupName>'
-         ResourceGroupName = '<ResourceGroupName>'
-         RoleDefinitionName = 'Desktop Virtualization User'
-         ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
-     }
+  # Assign users to the application group
+  $parameters = @{
+      ObjectId = $userGroupId
+      ResourceName = '<ApplicationGroupName>'
+      ResourceGroupName = '<ResourceGroupName>'
+      RoleDefinitionName = 'Desktop Virtualization User'
+      ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
+  }
       
-     New-AzRoleAssignment @parameters
-     ```
+  New-AzRoleAssignment @parameters
+  ```
 
 # [Azure CLI](#tab/cli)
 
-Here's how to assign users or user groups to an application group by using the [role](/cli/azure/role/assignment) extension for the Azure CLI:
+Here's how to assign users or user groups to an application group by using the [role](/cli/azure/role/assignment) extension for the Azure CLI.
 
-- In the same CLI session, use the `az role assignment create` command with the following examples to assign users or user groups to an application group:
+In the same CLI session, use the `az role assignment create` command with the following examples to assign users or user groups to an application group:
 
-  - To assign users to the application group, run the following commands:
+- To assign users to the application group, run the following commands:
 
-     ```azurecli
-     # Get the resource ID of the application group that you want to add to the workspace
-     appGroupPath=$(az desktopvirtualization applicationgroup show \
-         --name <Name> \
-         --resource-group <ResourceGroupName> \
-         --query [id] \
-         --output tsv)
+  ```azurecli
+  # Get the resource ID of the application group that you want to add to the workspace
+  appGroupPath=$(az desktopvirtualization applicationgroup show \
+      --name <Name> \
+      --resource-group <ResourceGroupName> \
+      --query [id] \
+      --output tsv)
 
-     # Assign users to the application group
-     az role assignment create \
-         --assignee '<UserPrincipalName>' \
-         --role 'Desktop Virtualization User' \
-         --scope $appGroupPath
-     ```
+  # Assign users to the application group
+  az role assignment create \
+      --assignee '<UserPrincipalName>' \
+      --role 'Desktop Virtualization User' \
+      --scope $appGroupPath
+  ```
 
-  - To assign user groups to the application group, run the following commands:
+- To assign user groups to the application group, run the following commands:
 
-     ```azurecli
-     # Get the resource ID of the application group that you want to add to the workspace
-     appGroupPath=$(az desktopvirtualization applicationgroup show \
-         --name <Name> \
-         --resource-group <ResourceGroupName> \
-         --query [id] \
-         --output tsv)
+  ```azurecli
+  # Get the resource ID of the application group that you want to add to the workspace
+  appGroupPath=$(az desktopvirtualization applicationgroup show \
+      --name <Name> \
+      --resource-group <ResourceGroupName> \
+      --query [id] \
+      --output tsv)
 
-     # Get the object ID of the user group that you want to assign to the application group
-     userGroupId=$(az ad group show \
-         --group <UserGroupName> \
-         --query [id] \
-         --output tsv)
+  # Get the object ID of the user group that you want to assign to the application group
+  userGroupId=$(az ad group show \
+      --group <UserGroupName> \
+      --query [id] \
+      --output tsv)
 
-     # Assign users to the application group
-     az role assignment create \
-         --assignee $userGroupId \
-         --role 'Desktop Virtualization User' \
-         --scope $appGroupPath
-     ```
+  # Assign users to the application group
+  az role assignment create \
+      --assignee $userGroupId \
+      --role 'Desktop Virtualization User' \
+      --scope $appGroupPath
+  ```
 
 ---
 
