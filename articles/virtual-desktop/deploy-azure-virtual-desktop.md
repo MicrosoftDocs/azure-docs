@@ -676,7 +676,7 @@ Finally, to assign users or user groups to an application group, select the rele
 
 # [Portal](#tab/portal)
 
-Here's how to assign users or user groups to an application group for a workspace by using the Azure portal:
+Here's how to assign users or user groups to an application group by using the Azure portal:
 
 1. On the Azure Virtual Desktop overview, select **Application groups**.
 
