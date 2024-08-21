@@ -129,7 +129,7 @@ However, you may experience small CPU, memory, and I/O overhead associated with 
 
    The minidump is first written to disk and the amount of disk spaced is roughly the same as the working set of the original process. Writing the minidump can induce page faults as memory is read. 
 
-   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is be proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
+   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
 
 **When `TrackException` is called:**
 
