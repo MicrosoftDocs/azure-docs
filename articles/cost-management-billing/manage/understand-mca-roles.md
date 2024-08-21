@@ -199,14 +199,14 @@ To assign billing roles, you might need to use a specific navigation path in the
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
-   :::image type="content" border="true" source="./media/understand-mca-roles/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search.":::
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search." lightbox="./media/understand-mca-roles/billing-search-cost-management-billing.png:::
 3. Select **Access control (IAM)** at a scope such as billing account, billing profile, invoice section, or subscription where you want to give access.
 4. The Access control (IAM) page lists users and groups that are assigned to each role for that scope.  
-   :::image type="content" border="true" source="./media/understand-mca-roles/billing-list-admins.png" alt-text="Screenshot that shows list of admins for billing account.":::
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-list-admins.png" alt-text="Screenshot that shows list of admins for billing account." lightbox="./media/understand-mca-roles/billing-list-admins.png:::
 5. To give access to a user, Select **+ Add** at the top of the page. On the Add role assignment page, select a role. Search for the user, group, or app to whom you want to give access. Select **Add** to assign the role.  
-   :::image type="content" border="true" source="./media/understand-mca-roles/billing-add-admin.png" alt-text="Screenshot that shows adding an admin to a billing account.":::
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-add-admin.png" alt-text="Screenshot that shows adding an admin to a billing account." lightbox="./media/understand-mca-roles/billing-add-admin.png:::
 6. To remove access for a user, select the user with the role assignment you want to remove. At the top of the page, select **Remove**.  
-   :::image type="content" border="true" source="./media/understand-mca-roles/billing-remove-admin.png" alt-text="Screenshot that shows removing an admin from a billing account.":::
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-remove-admin.png" alt-text="Screenshot that shows removing an admin from a billing account." lightbox="./media/understand-mca-roles/billing-remove-admin.png:::
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
