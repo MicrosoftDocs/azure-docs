@@ -103,9 +103,9 @@ Trained machine learning models are deployed as web services in the cloud or loc
 When you use a model as a web service, provide the following items:
 
 - The models that are used to score data submitted to the service or device.
-- An entry script. This script accepts requests, uses the models to score the data, and return a response.
-- An Azure Machine Learning environment that describes the Pip and Conda dependencies that the models require an entry script.
-- Any other assets such as text or data that the models require and entry script.
+- An entry script. This script accepts requests, uses the models to score the data, and returns a response.
+- An Azure Machine Learning environment that describes the Pip and Conda dependencies that the models and entry script require.
+- Any other assets, such as text or data, that the models and entry script require.
 
 You also provide the configuration of the target deployment platform. For example, the virtual machine family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
 
