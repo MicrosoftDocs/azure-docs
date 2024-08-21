@@ -41,7 +41,9 @@ public static IActionResult Negotiate(
 }
 ```
 
-### Configuration
+### Attribute
+
+The attribute for input binding is `[SocketIONegotiation]`.
 
 | Attribute property | Description |
 |---------|---------|
@@ -90,10 +92,322 @@ app.http('negotiate', {
 ## Trigger Binding
 
 Azure Function uses trigger binding to trigger a function to process the events from the Web PubSub for Socket.IO.
-Due to the The trigger endpoint pattern would be like below which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
+Due to the The trigger endpoint pattern would be like below which should be set in the service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **socketio_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
 
 ```
-<Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
+<Function_App_Url>/runtime/webhooks/socketio?code=<API_KEY>
 ```
 
+# [C#](#tab/csharp)
 
+Function triggers for socket connect event.
+
+```cs
+[FunctionName("SocketIOTriggerConnect")]
+public static async Task<SocketIOEventHandlerResponse> Connect(
+    [SocketIOTrigger("hub", "connect")] SocketIOConnectRequest request)
+{
+    return new SocketIOConnectResponse();
+}
+```
+
+Function triggers for socket connected event.
+
+```cs
+[FunctionName("SocketIOTriggerConnected")]
+public static async Task Connected(
+    [SocketIOTrigger("hub", "connected")] SocketIOConnectedRequest request)
+{
+}
+```
+
+Function triggers for socket disconnect event.
+
+```cs
+[FunctionName("SocketIOTriggerDisconnected")]
+public static async Task Disconnected(
+    [SocketIOTrigger("hub", "disconnected")] SocketIODisconnectedRequest request)
+{
+}
+```
+
+Function triggers for normal messages from clients.
+
+```cs
+[FunctionName("SocketIOTriggerMessage")]
+public static async Task NewMessage(
+    [SocketIOTrigger("hub", "new message")] SocketIOMessageRequest request,
+    [SocketIOParameter] string arg)
+{
+}
+```
+
+### Attributes
+
+The attribute for trigger binding is `[SocketIOTrigger]`.
+
+| Attribute property | Description |
+|---------|---------|
+| Hub | The hub name that a client needs to connect to. |
+| Namespace | The namespace of the socket. Default: "/" |
+| EventName | The event name that the function triggers for. Some event name are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are feel to defined by user and it need to match the event name sent by client side. |
+| ParameterNames | The parameter name list of the event. The length of list should be consitent with event sent from client. And the name will use the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by the same-name function parameter. |
+
+#### SocketIOAttribute
+
+`SocketIOAttribute` is a alternative of `ParameterNames`, which simplify the function definition. For example, the following two definitions have the same effection:
+
+```cs
+[FunctionName("SocketIOTriggerMessage")]
+public static async Task NewMessage(
+    [SocketIOTrigger("hub", "new message")] SocketIOMessageRequest request,
+    [SocketIOParameter] string arg)
+{
+}
+```
+
+```cs
+[FunctionName("SocketIOTriggerMessage")]
+public static async Task NewMessage(
+    [SocketIOTrigger("hub", "new message", ParameterNames = new[] {"arg"})] SocketIOMessageRequest request,
+    string arg)
+{
+}
+```
+
+Note that `ParameterNames` and `[SocketIOParameter]` can not be used together.
+
+# [JavaScript Model v4](#tab/javascript-v4)
+
+Function triggers for socket connect event.
+
+```js
+import { app, InvocationContext, input, trigger } from "@azure/functions";
+
+
+export async function connect(request: any, context: InvocationContext): Promise<any> {
+    return {};
+}
+
+// Trigger for connect
+app.generic('connect', {
+  trigger: trigger.generic({
+    type: 'socketiotrigger',
+    hub: 'hub',
+    eventName: 'connect'
+  }),
+  handler: connect
+});
+```
+
+Function triggers for socket connected event.
+
+```js
+import { app, InvocationContext, trigger } from "@azure/functions";
+
+export async function connected(request: any, context: InvocationContext): Promise<void> {
+}
+
+// Trigger for connected
+app.generic('connected', {
+    trigger: trigger.generic({
+        type: 'socketiotrigger',
+        hub: 'hub',
+        eventName: 'connected'
+    }),
+    handler: connected
+});
+```
+
+Function triggers for socket disconnected event.
+
+```js
+import { app, InvocationContext, trigger } from "@azure/functions";
+
+export async function disconnected(request: any, context: InvocationContext): Promise<void> {
+}
+
+// Trigger for connected
+app.generic('disconnected', {
+    trigger: trigger.generic({
+        type: 'socketiotrigger',
+        hub: 'hub',
+        eventName: 'disconnected'
+    }),
+    handler: disconnected
+});
+```
+
+Function triggers for normal messages from clients.
+
+```js
+import { app, InvocationContext, trigger, output } from "@azure/functions";
+
+export async function newMessage(request: any, context: InvocationContext): Promise<void> {
+}
+
+// Trigger for new message
+app.generic('newMessage', {
+    trigger: trigger.generic({
+        type: 'socketiotrigger',
+        hub: 'hub',
+        eventName: 'new message'
+    }),
+    handler: newMessage
+});
+```
+
+### Configuration
+
+| Property | Description |
+|---------|---------|
+| type | Must be `socketiotrigger` |
+| hub | The hub name that a client needs to connect to. |
+| namespace | The namespace of the socket. Default: "/" |
+| eventName | The event name that the function triggers for. Some event name are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are feel to defined by user and it need to match the event name sent by client side. |
+| ParameterNames | The parameter name list of the event. The length of list should be consitent with event sent from client. And the name will use the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by `context.bindings.<name>`. |
+
+---
+
+## Output Binding
+
+The output binding currently support the following functionality:
+
+- Add a socket to room
+- Remove a socket from room
+- Send messages to a socket
+- Send messages to a room
+- Send messages to a namepsace
+- Disconnect sockets
+
+# [C#](#tab/csharp)
+
+```cs
+[FunctionName("SocketIOOutput")]
+public static async Task<IActionResult> SocketIOOutput(
+    [SocketIOTrigger("hub", "new message")] SocketIOMessageRequest request,
+    [SocketIO(Hub = "hub")] IAsyncCollector<SocketIOAction> collector)
+{
+    await collector.AddAsync(SocketIOAction.CreateSendToNamespaceAction("new message", new[] { "arguments" }));
+}
+```
+
+### Attribute
+
+The attribute for input binding is `[SocketIO]`.
+
+| Attribute property | Description |
+|---------|---------|
+| Hub | The hub name that a client needs to connect to. |
+| Connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+
+# [JavaScript Model v4](#tab/javascript-v4)
+
+```js
+import { app, InvocationContext, trigger, output } from "@azure/functions";
+
+const socketio = output.generic({
+  type: 'socketio',
+  hub: 'hub',
+})
+
+export async function newMessage(request: any, context: InvocationContext): Promise<void> {
+    context.extraOutputs.set(socketio, {
+      actionName: 'sendToNamespace',
+      namespace: '/',
+      eventName: 'new message',
+      parameters: [
+        "argument"
+      ]
+    });
+}
+
+// Trigger for new message
+app.generic('newMessage', {
+    trigger: trigger.generic({
+        type: 'socketiotrigger',
+        hub: 'hub',
+        eventName: 'new message'
+    }),
+    extraOutputs: [socketio],
+    handler: newMessage
+});
+```
+
+### Configuration
+
+| Attribute property | Description |
+|---------|---------|
+| type | Must be `socketio` |
+| hub | The hub name that a client needs to connect to. |
+| connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+
+---
+
+### Actions
+
+Output binding uses actions to perform operations. Currently, we support the following actions:
+
+#### AddSocketToRoomAction
+
+```json
+{
+    "type": "AddSocketToRoom",
+    "socketId": "",
+    "room": ""
+}
+```
+
+#### RemoveSocketFromRoomAction
+
+```json
+{
+    "type": "RemoveSocketFromRoom",
+    "socketId": "",
+    "room": ""
+}
+```
+
+#### SendToNamespaceAction
+
+```json
+{
+    "type": "SendToNamespace",
+    "eventName": "",
+    "parameters": [],
+    "exceptRooms": []
+}
+```
+
+#### SendToRoomsAction
+
+```json
+{
+    "type": "SendToRoom",
+    "eventName": "",
+    "parameters": [],
+    "rooms": [],
+    "exceptRooms": []
+}
+```
+
+#### SendToSocketAction
+
+```json
+{
+    "type": "SendToSocket",
+    "eventName": "",
+    "parameters": [],
+    "socketId": ""
+}
+```
+
+#### DisconnectSocketsAction
+
+```json
+{
+    "type": "DisconnectSockets",
+    "rooms": [],
+    "closeUnderlyingConnection": false
+}
+```
