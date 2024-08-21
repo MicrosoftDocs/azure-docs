@@ -140,9 +140,7 @@ following policies enable change tracking on VMs:
 - Configure Windows Virtual Machines to be associated with a Data Collection Rule
 for ChangeTracking and Inventory
 
-### ChangeTracking and Inventory
-
-The above are configurable using the following Policy initiatives:
+The above Azure policies are configurable in bulk using the following Policy initiatives:
 
 - [Preview]: Enable ChangeTracking and Inventory for virtual machine scale sets
 - [Preview]: Enable ChangeTracking and Inventory for virtual machines
