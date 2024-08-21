@@ -99,7 +99,7 @@ There are four types of availability tests:
 
 1. [Create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following consideration:
 
-    * **If you don't have an Application Insights resource yet for your timer-triggered function,** it is created *by default* when you create an Azure Functions app.
+    * **If you don't have an Application Insights resource yet for your timer-triggered function,** it's created *by default* when you create an Azure Functions app.
 
     * **If you already have an Application Insights resource,** go to the **Monitoring** tab while creating the Azure Functions app, and select or enter the name of your existing resource in the Application Insights dropdown:
 
@@ -150,7 +150,7 @@ To create a new file, right-click under your timer trigger function (for example
 
 1. Define the `REGION_NAME` environment variable as a valid Azure availability location.
 
-    Run the following command in [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions:
+    To list available regions, run the following command in [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true):
 
     ```azurecli
     az account list-locations -o table
@@ -356,7 +356,7 @@ Start by reviewing the graph in the **Availability** experience in the Azure por
 
 ---
 
-By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green dotsor red marks to see the test, test name, and location.
+By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green dots or red marks to see the test, test name, and location.
 
 :::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience." lightbox="media/availability/scatter-plot.png":::
 
@@ -383,7 +383,7 @@ Select a red cross on the Scatter Plot to open the End-to-end transaction detail
 
 Here you can:
 
-* Review the **Troubleshooting Report** to determine what might have caused your test to fail.
+* Review the **Troubleshooting Report** to determine what potentially caused your test to fail.
 * Inspect the response received from your server.
 * Diagnose failure with correlated server-side telemetry collected while processing the failed availability test.
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug contains a link to the event in the Azure portal.
@@ -546,7 +546,7 @@ To provide best-in-class encryption, all availability tests use Transport Layer 
 ### Deprecating TLS configuration
 
 > [!WARNING]
-> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/), TLS 1.0/1.1 protocol versions and the below  listed TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests.
+> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/), TLS 1.0/1.1 protocol versions and the listed TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests.
 
 #### TLS 1.0 and TLS 1.1
 
@@ -617,7 +617,7 @@ There are two more tabs next to the **Overview** page:
 
 * **Log Analytics:** The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
 
-* **Access and sharing:** The report can be shared with your teams and leadership or pinned to a dashboard for further use. The user needs to have read permissions and access to the Application Insights resource where the actual workbook is stored.
+* **Access and sharing:** The report can be shared with your teams and leadership or pinned to a dashboard for further use. The user needs read permissions and access to the Application Insights resource where the actual workbook is stored.
 
 ## Frequently asked questions
 
