@@ -106,7 +106,7 @@ the same capabilities as Automanage:
 - Assign Built-In User-Assigned Managed Identity to Virtual Machines
 - Configure Linux virtual machines to run Azure Monitor Agent with user-assigned
 managed identity-based authentication
-- Configure Windows virtual machines to run Azure Monitor Agent with userassigned managed identity-based authentication
+- Configure Windows virtual machines to run Azure Monitor Agent with user-assigned managed identity-based authentication
 - Deploy Dependency agent to be enabled on Windows virtual machines with
 Azure Monitoring Agent settings
 - Deploy Dependency agent for Linux virtual machines with Azure Monitoring
@@ -130,8 +130,8 @@ Cloud File Integrity Monitoring (FIM) to enhance security and operational insigh
 following policies enable change tracking on VMs:
 
 - Assign Built-In User-Assigned Managed Identity to Virtual Machines
-- Configure Windows VMs to install AMA for ChangeTracking and Inventory with userassigned managed identity
-- Configure Linux VMs to install AMA for ChangeTracking and Inventory with userassigned managed identity
+- Configure Windows VMs to install AMA for ChangeTracking and Inventory with user-assigned managed identity
+- Configure Linux VMs to install AMA for ChangeTracking and Inventory with user-assigned managed identity
 - Configure ChangeTracking Extension for Windows virtual machines
 - Configure ChangeTracking Extension for Linux virtual machines
 - Configure Windows Virtual Machines to be associated with a Data Collection Rule
