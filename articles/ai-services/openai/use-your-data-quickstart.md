@@ -9,7 +9,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 03/04/2024
+ms.date: 08/21/2024
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
