@@ -11,7 +11,7 @@ author: ankitaduttaMSFT
 
 # Upgrade Mobility Service and Appliance components (Modernized)
 
-From this modernized mobility service and appliance components, you do not need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades would occur automatically.
+From this modernized mobility service and appliance components, you don't need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades would occur automatically.
 
 
 ## Update mobility agent automatically
@@ -21,7 +21,7 @@ By default, automatic updates are enabled on a vault. Automatic updates are trig
 > [!NOTE]
 > If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh Azure Site Recovery replication appliance.
 
-To avail the latest features, enhancements, and fixes, we recommend you choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
+To avail the latest features, enhancements, and fixes, we recommend you choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings**. Automatic updates don't require a reboot or affect ongoing replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
 ![Automatic updates on for Mobility agent](./media/upgrade-mobility-service-modernized/automatic-updates-on.png)
 
@@ -48,7 +48,7 @@ To manually update mobility agent on multiple protected items, follow these step
 2. Choose the source machines to update and then select **OK**.
 
    >[!NOTE]
-   >If prerequisites to upgrade Mobility service are not met, then the virtual machine cannot be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
+   >If prerequisites to upgrade Mobility service aren't met, then the virtual machine can't be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
 
 
 4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation, and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
@@ -89,7 +89,7 @@ When you enable private endpoints, automatic updates won't be available. To upda
 
 To update mobility agent on Windows machines, follow these steps:
 
-1.	Open command prompt and navigate to the folder where the update package has been placed.
+1.	Open command prompt and navigate to the folder where the update package was placed.
 
     `cd C:\Azure Site Recovery\Agent`
 
@@ -101,7 +101,7 @@ To update mobility agent on Windows machines, follow these steps:
 
     `UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
 
-4.	Registration are triggered automatically after the agent has been updated. To manually check the status of registration, run the following command:
+4.	Registration is triggered automatically after the agent has been updated. To manually check the status of registration, run the following command:
 
     `"C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime`
 
@@ -112,7 +112,7 @@ To update mobility agent on Windows machines, follow these steps:
 |Syntax|	`.\UnifiedAgent.exe /Role "MS" /Platform vmware /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Azure Site Recovery\Agent"`|
 |`/Role`|Mandatory update parameter. </br>Specifies that the Mobility service (MS) is updated.|
 |`/InstallLocation`|Optional. </br>Specifies the Mobility service installation location.|
-|`/Platform`|Mandatory. </br>Specifies the platform on which the Mobility service is updated:</br>VMware for VMware virtual machines/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure virtual machines as physical machines, specify VMware.|
+|`/Platform`|Mandatory. </br>Specifies the platform on which the Mobility service is updated: </br> VMware for VMware virtual machines/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure virtual machines as physical machines, specify VMware.|
 |`/Silent`|Optional. </br>Specifies whether to run the installer in silent mode.|
 |`/CSType`|Mandatory. </br>Defines modernized or legacy architecture. (Use CSPrime)|
 
@@ -169,7 +169,7 @@ After Mobility agent is updated to the latest version or has been updated automa
 
 ### Resolve blocking issues for agent upgrade
 
-If prerequisites to upgrade the mobility agent are not met, then virtual machine cannot be updated. Resolve these to proceed with the upgrade.
+If prerequisites to upgrade the mobility agent aren't met, then virtual machine can't be updated. Resolve these to proceed with the upgrade.
 
 The prerequisite includes, but not limited to:
 
@@ -179,7 +179,7 @@ The prerequisite includes, but not limited to:
 
 - If the replication appliance components –  Proxy server or Process server is unable to communicate with Azure services.
 
-- If mobility agent on the protected machine is not able to communicate with the replication appliance.
+- If mobility agent on the protected machine isn't able to communicate with the replication appliance.
 
 In case any of the above issues are applicable, the status is updated as **Cannot update to latest version**. Select the status to view the reasons blocking the update and recommended actions to fix the issue.
 
@@ -190,7 +190,7 @@ In case any of the above issues are applicable, the status is updated as **Canno
 
 In case mobility agent upgrade operation fails (manually triggered or automatic upgrade operation), the job is updated with the reason for failure. Resolve the errors and then retry the operation.
 
-To view the failure errors, you can either navigate to Site Recovery jobs and select a specific job to fetch the resolution of errors or you can use the steps following:
+To view the failure errors, you can either navigate to Site Recovery jobs and select a specific job to fetch the resolution of errors, or you can use the steps following:
 
 1. Navigate to replicated items section and select a specific virtual machine.
 
@@ -247,7 +247,7 @@ When you enable private endpoints, automatic updates won't be available. To upda
 
 1.	To update the process server, download the latest version [here](./site-recovery-whats-new.md#supported-updates). 
 2.	Download the update package to the Azure Site Recovery replication appliance. 
-3.	Open command prompt and navigate to the folder where the update package has been placed.
+3.	Open command prompt and navigate to the folder where the update package was placed.
     
     `cd C:\Downloads`
 
@@ -260,7 +260,7 @@ When you enable private endpoints, automatic updates won't be available. To upda
 To update the Recovery Service agent, download the latest version [here](./site-recovery-whats-new.md#supported-updates).
 
 1.	Download the update package to the Azure Site Recovery replication appliance. 
-2.	Open command prompt and navigate to the folder where the update package has been placed.
+2.	Open command prompt and navigate to the folder where the update package was placed.
     
     `cd C:\Downloads`
 
@@ -271,12 +271,12 @@ To update the Recovery Service agent, download the latest version [here](./site-
 #### Update remaining components of appliance
 
 1.	To update the remaining components of the Azure Site Recovery replication appliance, download the latest version  [here](./site-recovery-whats-new.md#supported-updates).
-2.	Open the downloaded `.msi` file which triggers the update automatically.
+2.	Open the downloaded `.msi` file which, triggers the update automatically.
 3.	Check the latest version in Windows settings > **Add or remove program**.
 
 ### Resolve issues with component upgrade
 
-If prerequisites to upgrade any of the components are not met, then it cannot be updated. The reasons/prerequisites include, but not limited to,
+If prerequisites to upgrade any of the components aren't met, then it can't be updated. The reasons/prerequisites include, but not limited to,
 
 - If one of the components of the replication appliance is on an incompatible version.
 
