@@ -2,7 +2,7 @@
 title: Resiliency and disaster recovery in Azure SignalR Service
 description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp

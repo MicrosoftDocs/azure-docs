@@ -3,7 +3,7 @@ title: Manage the Mobility agent for VMware/physical servers with Azure Site Rec
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom:
 ms.topic: conceptual
 ms.author: ankitadutta

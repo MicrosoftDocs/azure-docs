@@ -2,7 +2,7 @@
 title: Tenable One-Click Nessus Extension for Azure VMs  
 description: Deploy the Tenable One-Click Nessus Agent to a virtual machine using the Tenable One-Click Nessus VM Extension.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT

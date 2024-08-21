@@ -16,9 +16,6 @@ ms.custom: passwordless-js, devex-track-javascript
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://nodejs.org/" target="_blank">Node.js LTS with TypeScript or ESM support.</a>
 - [Azure CLI](/cli/azure/install-azure-cli) used for passwordless authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
 - An Azure OpenAI resource with a [compatible model in a supported region](../concepts/models.md#assistants-preview).
@@ -61,15 +58,11 @@ Go to your resource in the Azure portal. The **Keys and Endpoint** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
 
 Add additional environment variables for the deployment name and API version: 
 * `AZURE_OPENAI_DEPLOYMENT_NAME`: Your deployment name as shown in the Azure portal.
 * `OPENAI_API_VERSION`: Learn more about [API Versions](/azure/ai-services/openai/concepts/model-versions).
-
-Create and assign persistent environment variables for your key and endpoint.
 
 # [Command Line](#tab/command-line)
 
@@ -121,7 +114,7 @@ To use the service key for authentication, you can create and run an assistant w
 
 #### [JavaScript](#tab/javascript)
 
-Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless Javascript module (index.mjs):
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless JavaScript module (index.mjs):
 
 :::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
 
@@ -151,7 +144,7 @@ It is important to remember that while the code interpreter gives the model the 
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Sample code

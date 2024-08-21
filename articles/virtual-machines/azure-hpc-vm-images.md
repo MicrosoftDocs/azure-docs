@@ -1,11 +1,11 @@
 ---
 title: Azure HPC VM images
 description: HPC VM images to be used on InfiniBand enabled H-series and GPU enabled N-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 07/25/2024
 ms.reviewer: padmalathas
 ms.author: litan2
 author: litan2

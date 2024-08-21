@@ -4,7 +4,7 @@ description: Learn how to enable termination notification for Azure Virtual Mach
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual 
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: terminate-notification
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

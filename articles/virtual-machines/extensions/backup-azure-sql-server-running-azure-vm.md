@@ -2,7 +2,7 @@
 title: Azure Backup for SQL Server running in Azure VM
 description: In this article, learn how to register Azure Backup in SQL Server running in an Azure virtual machine.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 ms.reviewer: jushiman

@@ -4,7 +4,7 @@ description: Learn to use the Azure SDK for Go to create an Azure Managed CCF re
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-go
 ---

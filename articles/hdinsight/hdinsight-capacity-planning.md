@@ -1,7 +1,7 @@
 ---
 title: Cluster capacity planning in Azure HDInsight 
 description: Identify key questions for capacity and performance planning of an Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2023

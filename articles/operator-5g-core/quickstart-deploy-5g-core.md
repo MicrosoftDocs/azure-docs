@@ -41,7 +41,7 @@ After you complete the prerequisite steps and create a cluster, you must enable 
 
 ## ARC-enable the cluster
 
-ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Refer to [Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)](../aks/control-kubeconfig-access.md) for information.
+ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Refer to [Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)](/azure/aks/control-kubeconfig-access) for information.
 
 ### ARC-enable the cluster for Azure Kubernetes Services
 

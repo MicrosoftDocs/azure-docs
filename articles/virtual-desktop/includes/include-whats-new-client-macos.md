@@ -1,8 +1,8 @@
 ---
-author: dknappettmsft
-ms.author: daknappe
+author: sipastak
+ms.author: sipastak
 ms.topic: include
-ms.date: 06/20/2024
+ms.date: 08/02/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.8         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.8         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.9         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.9         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.9
+
+*Published: July 22, 2024*
+
+In this release, we made the following changes:
+
+- Applied a workaround to fix a screen sharing bug when using Teams optimizations. 
+- Fixed a protocol sequencing issue that broke smart card redirection.
 
 ## Updates for version 10.9.8
 

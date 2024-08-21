@@ -2,7 +2,7 @@
 title: Accelerated connections network performance optimization on NVAs and VMs
 description: Learn how Accelerated Connections improves networking performance for NVAs and VMs.
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 02/01/2023
 ms.author: steveesp

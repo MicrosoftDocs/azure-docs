@@ -6,7 +6,7 @@ ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
 ms.custom: mode-ui, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Quickstart: Create a connected registry using the Azure portal

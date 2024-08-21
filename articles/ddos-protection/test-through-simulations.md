@@ -3,9 +3,9 @@ title: 'Tutorial: Azure DDoS Protection simulation testing'
 description: Learn about how to test Azure DDoS Protection through simulations.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 04/11/2024
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
@@ -13,7 +13,20 @@ ms.author: abell
 
 It’s a good practice to test your assumptions about how your services respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during non-peak hours to minimize the impact to the production environment.
 
+For this tutorial, you'll create a test environment that includes:
+
+- A DDoS protection plan
+- A virtual network
+- An Azure Bastion host 
+- A load balancer 
+- Two virtual machines
+
+You'll then configure diagnostic logs and alerts to monitor for attacks and traffic patterns. Finally, you'll configure a DDoS attack simulation using one of our approved testing partners.
+
+:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture." lightbox="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png":::
+
 Simulations help you:
+
 - Validate how Azure DDoS Protection helps protect your Azure resources from DDoS attacks.
 - Optimize your incident response process while under DDoS attack.
 - Document DDoS compliance.
@@ -32,17 +45,6 @@ Our testing partners' simulation environments are built within Azure. You can on
 
 > [!NOTE]
 > BreakingPoint Cloud and Red Button are only available for the Public cloud.
-
-For this tutorial, you'll create a test environment that includes:
-- A DDoS protection plan
-- A virtual network
-- An Azure Bastion host 
-- A load balancer 
-- Two virtual machines
-
-You'll then configure diagnostic logs and alerts to monitor for attacks and traffic patterns. Finally, you'll configure a DDoS attack simulation using one of our approved testing partners.
-
-:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture." lightbox="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png":::
 
 ## Prerequisites
 
@@ -72,7 +74,7 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 
 1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information, then select **Save**.
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-public-ip-diagnostic-setting.png" alt-text="Screenshot of DDoS diagnostic settings.":::
+    :::image type="content" source="./media/ddos-attack-simulation/ddos-public-ip-diagnostic-setting.png" alt-text="Screenshot of DDoS diagnostic settings in Azure.":::
 
     | Setting | Value |
     |--|--|
@@ -92,7 +94,7 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 
 1. Select **+ Create** on the navigation bar, then select **Alert rule**.
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-page.png":::
+    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts in Azure." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-page.png":::
 
 1. On the **Create an alert rule** page, select **+ Select scope**, then select the following information in the **Select a resource** page.
 
@@ -216,7 +218,7 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
 
    - **Attack Vectors**: Unique cloud attacks designed by RedWolf. For more information about RedWolf attack vectors, see [Technical Details](https://www.redwolfsecurity.com/redwolf-technical-details/).
    - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
-   - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
+   - **Self Service**: Leverage RedWolf to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
 ## MazeBolt
 

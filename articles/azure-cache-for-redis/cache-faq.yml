@@ -3,9 +3,9 @@ metadata:
   title: Azure Cache for Redis FAQ
   titleSuffix: Azure Cache for Redis
   description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
-  author: flang-msft
-  ms.author: franlanglois
-  ms.service: cache
+  
+  
+  
   ms.topic: faq
   ms.date: 10/17/2023
 

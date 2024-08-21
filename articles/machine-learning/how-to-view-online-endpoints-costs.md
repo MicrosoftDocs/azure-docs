@@ -3,7 +3,7 @@ title: View costs for managed online endpoints
 titleSuffix: Azure Machine Learning
 description: 'Learn to how view costs for a managed online endpoint in Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan

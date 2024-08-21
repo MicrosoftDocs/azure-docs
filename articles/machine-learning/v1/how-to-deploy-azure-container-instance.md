@@ -3,7 +3,7 @@ title: How to deploy models to Azure Container Instances with CLI (v1)
 titleSuffix: Azure Machine Learning
 description: 'Use CLI (v1) to deploy your Azure Machine Learning models as a web service using Azure Container Instances.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1

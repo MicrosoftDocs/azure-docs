@@ -26,7 +26,7 @@ For Azure Stack Edge service, the integration with key vault provides the follow
 
 - Stores customer secrets. One of the secrets used for the Azure Stack Edge service is Channel Integrity Key (CIK). This key allows you to encrypt your secrets and is securely stored in the key vault. Device secrets such as BitLocker recovery key and Baseboard Management Controller (BMC) user password are also stored in the key vault. 
 
-    For more information, see [Securely store secrets and keys](../key-vault/general/overview.md#securely-store-secrets-and-keys).
+    For more information, see [Securely store secrets and keys](/azure/key-vault/general/overview#securely-store-secrets-and-keys).
 - Passes encrypted customer secrets to the device.
 - Displays device secrets for easy access if the device is down.
 
@@ -59,7 +59,7 @@ When you generate an activation key, the following events occur:
     - The key vault details are stored in the service. This key vault is used for secret management and persists for as long as the Azure Stack Edge resource exists. 
 
         ![Key Vault created during activation key generation](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
-- A resource lock is enabled on the key vault to prevent accidental deletion. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md).
+- A resource lock is enabled on the key vault to prevent accidental deletion. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 - A system-assigned managed identity that was created when you created the Azure Stack Edge resource, is now enabled.
 - A channel integrity key (CIK) is generated and placed in the key vault. The CIK details are displayed in the service.
 - A Zone redundant storage account (ZRS) is also created in the same scope as the Azure Stack Edge resource and a lock is placed on the account. 

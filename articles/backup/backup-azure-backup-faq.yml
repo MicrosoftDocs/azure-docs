@@ -3,10 +3,11 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: faq
-  ms.service: backup
-  ms.date: 07/20/2023
+  ms.service: azure-backup
+  ms.date: 08/09/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
+  ms.custom: engagement-fy24
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -103,6 +104,11 @@ sections:
           | --- | --- |
           | Supported datasources: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - Azure Files <br> - SAP HANA in Azure VM <br> - Azure Backup Server <br> - Azure Backup agent <br> - DPM    |   Supported datasources: <br><br> - Azure Disks <br> - Azure Blobs <br> - Azure Database for PostgreSQL server <br> - Kubernetes services (preview) |
 
+      - question: |
+          Can I copy restore points created by the Azure Backup service portal from one region to another?
+        answer: |
+          No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](../virtual-machines/manage-restore-points.md#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
+
   - name: Azure Backup agent
     questions:
       - question: |
@@ -118,9 +124,9 @@ sections:
         answer: |
           Yes.
           
-          - You can back up Windows Server or Windows machines up to three times a day using MARS backup. You can set the scheduling policy to daily or weekly schedules.
+          - You can back up Windows Server or Windows machines up to three times a day by MARS backup. You can set the scheduling policy to daily or weekly schedules.
           - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
-          - You can back up Azure VMs once a day using Standard backup policy.
+          - You can back up Azure VMs once a day by Standard backup policy.
           
       - question: |
           What operating systems are supported for backup?

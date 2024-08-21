@@ -3,7 +3,7 @@ title: How to deploy Jamba models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning studio
 description: How to deploy Jamba models with Azure Machine Learning studio
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: how-to
 ms.date: 06/19/2024
 ms.author: ssalgado

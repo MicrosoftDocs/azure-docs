@@ -58,7 +58,7 @@ Set the threshold score as a property of the [GenerateAnswer API JSON body](../h
 From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
+To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](/rest/api/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
 
 
 ## Similar confidence scores

@@ -3,7 +3,7 @@ title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
 description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota and limit increases.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 author: Blackmist
 ms.author: larryfr
@@ -183,7 +183,7 @@ For example, consider a subscription with a US East total VM core limit of 30, a
 
 You can't raise limits for virtual machines above the values shown in the following table.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Container Instances
 

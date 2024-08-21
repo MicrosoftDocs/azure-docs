@@ -3,7 +3,7 @@ title: Mobile Control Point in Azure Communications Gateway for Teams Phone Mobi
 description: Azure Communication Gateway optionally contains Mobile Control Point for anchoring Teams Phone Mobile calls in the Microsoft Cloud
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 04/17/2023
 ms.custom: template-concept

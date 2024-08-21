@@ -4,7 +4,7 @@ description: In this quickstart, you use the Azure portal to quickly deploy a co
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 07/26/2022
 ms.custom: mvc, mode-ui

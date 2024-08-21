@@ -3,7 +3,7 @@ metadata:
   title: Azure SignalR Service frequently asked questions
   description: Get answers to frequently asked questions about Azure SignalR Service, including troubleshooting and typical usage scenarios.
   author: vicancy
-  ms.service: signalr
+  ms.service: azure-signalr-service
   ms.topic: faq
   ms.custom:
   ms.date: 03/21/2023

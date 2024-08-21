@@ -3,7 +3,7 @@ title: 'Resize a gateway SKU'
 titleSuffix: Azure VPN Gateway
 description: Learn how to resize a gateway SKU.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/29/2023
 ms.author: cherylmc

@@ -3,7 +3,7 @@ title: Configure settings for the Eureka Server for Spring component in Azure Co
 description: Learn to configure the Eureka Server for Spring component in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 03/15/2024
 ms.author: cshoe

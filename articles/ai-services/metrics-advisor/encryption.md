@@ -96,4 +96,4 @@ By completing all the above steps, you've successfully created a Metrics Advisor
 
 ## Next steps
 
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+* [Learn more about Azure Key Vault](/azure/key-vault/general/overview)

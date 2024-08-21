@@ -3,7 +3,7 @@ title:  "Apply Transformation: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Apply Transformation component in Azure Machine Learning to modify an input dataset based on a previously computed transformation. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

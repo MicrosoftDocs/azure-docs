@@ -10,14 +10,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 07/22/2024
 ---
 
 # Debug an Azure AI Search skillset in Azure portal
 
-Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure AI Search service.
+Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to an existing skillset in your Azure AI Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. When you're finished debugging, you can save your changes to the skillset. 
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test skillset changes interactively. When you're finished debugging, you can save your changes to the skillset. 
 
 For background on how a debug session works, see [Debug sessions in Azure AI Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
@@ -35,7 +35,7 @@ For background on how a debug session works, see [Debug sessions in Azure AI Sea
 
 ## Limitations
 
-Debug sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
+Debug sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources, with the following exceptions:
 
 + Azure Cosmos DB for MongoDB is currently not supported.
 
@@ -51,7 +51,7 @@ The portal doesn't support customer-managed key encryption (CMK), which means th
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
-1. In the left navigation page, select **Debug sessions**.
+1. In the left menu, select **Search management** > **Debug sessions**.
 
 1. In the action bar at the top, select **Add debug session**.
 
@@ -59,7 +59,7 @@ The portal doesn't support customer-managed key encryption (CMK), which means th
 
 1. In **Debug session name**, provide a name that will help you remember which skillset, indexer, and data source the debug session is about.
 
-1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. A helpful container name might be "cognitive-search-debug-sessions".
+1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You're prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. An obvious container name might be "debug-sessions".
 
 1. In **Managed identity authentication**, choose **None** if the connection to Azure Storage doesn't use a managed identity. Otherwise, choose the managed identity to which you've granted **Storage Blob Data Contributor** permissions.
 
@@ -77,7 +77,7 @@ The portal doesn't support customer-managed key encryption (CMK), which means th
 
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
-The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata created will be visible and available in the session.
+The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata are visible and available in the session.
 
 A debug session can be canceled while it's executing using the **Cancel** button. If you hit the **Cancel** button you should be able to analyze partial results.
 

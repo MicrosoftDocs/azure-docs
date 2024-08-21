@@ -5,7 +5,6 @@ description: Build resilient Data Flows in Azure Data Factory and Synapse Analyt
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

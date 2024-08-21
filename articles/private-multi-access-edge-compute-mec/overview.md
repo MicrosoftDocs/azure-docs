@@ -3,7 +3,7 @@ title: 'Azure private multi-access edge compute'
 description: Learn about the Azure private multi-access edge compute (MEC) solution that brings together a portfolio of Microsoft compute, networking and application services managed from the cloud.
 
 author: niravi-msft
-ms.service: private-multi-access-edge-compute-mec
+ms.service: azure-private-multiaccess-edge-compute
 ms.topic: overview
 ms.date: 04/26/2024
 ms.author: kumud

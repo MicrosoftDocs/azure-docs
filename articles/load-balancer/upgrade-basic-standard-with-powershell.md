@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a load balancer from basic to standard SKU for Virtual Machine or Virtual Machine Scale Sets backends using a PowerShell module.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/03/2023
 ms.author: mbender
@@ -54,7 +54,7 @@ The PowerShell module performs the following functions:
 ### Unsupported Scenarios
 
 - Basic Load Balancers with IPv6 frontend IP configurations
-- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](../aks/load-balancer-standard.md#moving-from-a-basic-sku-load-balancer-to-standard-sku)
+- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
@@ -151,7 +151,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: migrate multiple, related Load Balancers

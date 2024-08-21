@@ -6,23 +6,21 @@ items:
   items:
   - name: What are Azure AI services?
     href: what-are-ai-services.md
-    displayName: applied, cognitive, form recognizer
+    displayName: applied, cognitive, form
   - name: Language support
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
 - name: Quickstarts
   items:
-  - name: Create a multi-service resource
+  - name: Create an Azure AI services resource
     href: multi-service-resource.md
-    displayName: cognitive
-  - name: Create a new resource using Bicep
-    displayName: Resource Manager, ARM, Template
+    displayName: applied, cognitive, form
+  - name: Create an Azure AI services resource using Bicep
     href: create-account-bicep.md
-  - name: Create a new resource using an ARM template
-    displayName: Resource Manager
+  - name: Create an Azure AI services resource using an ARM template
     href: create-account-resource-manager-template.md  
-  - name: Create a new resource using Terraform
+  - name: Create an Azure AI services resource using Terraform
     href: create-account-terraform.md
 - name: Concepts
   items:
@@ -69,7 +67,7 @@ items:
       - name: Azure Container Registry
         href: ../container-registry/container-registry-get-started-azure-cli.md
       - name: Azure Kubernetes Service (AKS)
-        href: ../aks/tutorial-kubernetes-prepare-app.md
+        href: /azure/aks/tutorial-kubernetes-prepare-app
   - name: Security
     items:
     - name: Security features
@@ -78,6 +76,8 @@ items:
       href: authentication.md
     - name: Disable local authentication
       href: disable-local-auth.md
+    - name: Use Azure key vault
+      href: use-key-vault.md
     - name: Rotate keys
       href: rotate-keys.md
     - name: Use environment variables
@@ -86,8 +86,6 @@ items:
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
-    - name: Use Azure key vault
-      href: use-key-vault.md
     - name: Configure data loss prevention
       href: cognitive-services-data-loss-prevention.md
     - name: Security baseline

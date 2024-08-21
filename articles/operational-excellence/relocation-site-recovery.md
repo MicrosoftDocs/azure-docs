@@ -3,7 +3,7 @@ title: Relocate Azure Recovery Vault and Site Recovery to another region
 description: Learn how to relocate an Azure Recovery Vault and Site Recovery to a new region
 services: site-recovery
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 06/25/2024
 ms.author: ankitadutta
@@ -13,8 +13,6 @@ ms.custom:
 
 # Relocate Azure Recovery Vault and Site Recovery to another region
 
-
-[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 This article shows you how to relocate [Azure Recovery Vault and Site Recovery](../site-recovery/site-recovery-overview.md) when moving your workload to another region.
 

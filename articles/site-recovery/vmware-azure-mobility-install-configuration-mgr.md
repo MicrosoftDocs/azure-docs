@@ -4,7 +4,7 @@ description: How to automatically install the Mobility Service for VMware /physi
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
 ms.date: 05/02/2022

@@ -5,7 +5,7 @@ services: virtual-machines
 author: mgoedtel
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article

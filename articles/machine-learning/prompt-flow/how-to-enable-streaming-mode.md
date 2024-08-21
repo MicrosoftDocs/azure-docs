@@ -3,7 +3,7 @@ title: How to use streaming endpoints deployed from prompt Flow
 titleSuffix: Azure Machine Learning
 description: Learn how use streaming when you consume the endpoints in Azure Machine Learning prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - devx-track-python

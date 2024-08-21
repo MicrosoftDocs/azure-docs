@@ -2,7 +2,7 @@
 title: CentOS end-of-life (EOL) guidance
 description: Understand your options for moving CentOS workloads
 author: fossygirl
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: vm-linux-setup-configuration
 ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
@@ -96,8 +96,6 @@ OpenLogic by Perforce Azure Marketplace offers:
 - [CentOS-based](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos?tab=Overview)
 
 - [CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview)
-
-- [CentOS-based LVM](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-lvm?tab=Overview)
 
 These are the official / endorsed CentOS images in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 

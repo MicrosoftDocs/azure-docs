@@ -3,7 +3,7 @@ title: Create and run ML pipelines
 titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.reviewer: None
 author: lgayhardt

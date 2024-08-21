@@ -4,7 +4,7 @@ description: In this article, learn how to troubleshoot errors encountered with 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 09/20/2023
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -370,6 +370,9 @@ If after restore, you notice the disks are offline then:
 
 * Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+
+### Folder is missing when a Linux VM is recovered as a new VM
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](../virtual-machines/linux/attach-disk-portal.yml).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 

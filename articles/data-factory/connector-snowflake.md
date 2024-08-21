@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/24/2024
+ms.date: 07/25/2024
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -674,6 +673,16 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
+
+To determine the version of the Snowflake connector used in your existing Snowflake linked service, check the ```type``` property. The legacy version is identified by ```"type": "Snowflake"```, while the latest V2 version is identified by ```"type": "SnowflakeV2"```.
+
+The V2 version offers several enhancements over the legacy version, including:
+
+Autoscaling: Automatically adjusts resources based on traffic load.<br/>
+
+Multi-Availability Zone Operation: Provides resilience by operating across multiple availability zones.<br/>
+
+Static IP Support: Enhances security by allowing the use of static IP addresses.
 
 ## Related content
 

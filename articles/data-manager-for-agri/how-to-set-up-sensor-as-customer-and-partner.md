@@ -3,7 +3,7 @@ title: Push and consume sensor data in Data Manager for Agriculture
 description: Learn how to push sensor data as a provider and egress it as a customer
 author: lbpudi
 ms.author: lbethapudi
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 06/19/2023
 ms.custom: template-how-to

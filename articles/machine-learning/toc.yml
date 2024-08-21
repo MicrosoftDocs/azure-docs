@@ -594,8 +594,16 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to deploy Phi-3 models
-      href: how-to-deploy-models-phi-3.md
+    - name: Phi-3 family models
+      items:
+        - name: Phi-3 family chat models
+          href: how-to-deploy-models-phi-3.md
+        - name: Phi-3.5 MoE chat model
+          href: how-to-deploy-models-phi-3-5-moe.md
+        - name: Phi-3 chat model with vision
+          href: how-to-deploy-models-phi-3-vision.md
+        - name: Phi-3.5 chat model with vision
+          href: how-to-deploy-models-phi-3-5-vision.md
     - name: How to deploy TimeGEN-1 model
       href: how-to-deploy-models-timegen-1.md
     - name: How to deploy Mistral family models
@@ -606,6 +614,8 @@
           href: how-to-deploy-models-cohere-command.md
         - name: How to deploy Cohere Embed models
           href: how-to-deploy-models-cohere-embed.md
+        - name: How to deploy Cohere Rerank models
+          href: how-to-deploy-models-cohere-rerank.md
     - name: Deploy Meta Llama models
       items:
         - name: How to deploy Meta Llama family models
@@ -911,6 +921,8 @@
       items:
         - name: Online endpoints
           href: concept-endpoints-online.md
+        - name: Model specification for online deployment
+          href: concept-online-deployment-model-specification.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
         - name: Deploy models with safe rollout strategy
@@ -1036,8 +1048,6 @@
           href: ./v1/how-to-deploy-inferencing-gpus.md
         - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: ./v1/how-to-deploy-fpga-web-service.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: ./v1/how-to-tune-hyperparameters.md
@@ -1403,7 +1413,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor
+    - name: Monitor Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure code
       displayName: security threat
@@ -1444,8 +1454,6 @@
           - name: Troubleshoot pipelines
             displayName: designer
             href: ./v1/how-to-debug-pipelines.md
-          - name: Log pipeline data to Application Insights
-            href: ./v1/how-to-log-pipelines-application-insights.md
           - name: Troubleshoot the ParallelRunStep
             displayName: debug_batch consume pipeline parallelrunstep inference
             href: ./v1/how-to-debug-parallel-run-step.md

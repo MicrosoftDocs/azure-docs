@@ -3,7 +3,7 @@ title: NCv3 and NC24rs Retirement
 description: Migration guide for NC24rs_v3 sizes
 author: sherrywangms
 ms.author: sherrywang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 03/19/2024
 ms.subservice: sizes

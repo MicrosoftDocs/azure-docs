@@ -3,7 +3,7 @@ title: Use Apache Spark in a machine learning pipeline (deprecated)
 titleSuffix: Azure Machine Learning
 description: Link your Azure Synapse Analytics workspace to your Azure Machine Learning pipeline, to use Apache Spark for data manipulation.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.author: zhanxia
 author: xiaoharper

@@ -5,7 +5,7 @@ services: service-fabric
 ms.custom: devx-track-azurepowershell
 author: athinanthny
 ms.author: atsenthi
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 03/19/2018
 ---

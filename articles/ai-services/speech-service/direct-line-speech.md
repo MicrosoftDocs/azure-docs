@@ -17,7 +17,7 @@ Direct Line Speech is a robust, end-to-end solution for creating a flexible, ext
 
 [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech to text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text to speech](text-to-speech.md).
 
-Direct Line Speech offers the highest levels of customization and sophistication for voice assistants. It's designed for conversational scenarios that are open-ended, natural, or hybrids of the two with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity. Consider [Custom Commands](custom-commands.md) for scenarios that are scoped to well-defined tasks using natural language input.
+Direct Line Speech offers the highest levels of customization and sophistication for voice assistants. It's designed for conversational scenarios that are open-ended, natural, or hybrids of the two with task completion or command-and-control use. 
 
 Direct Line Speech supports these locales: `ar-eg`, `ar-sa`, `ca-es`, `da-dk`, `de-de`, `en-au`, `en-ca`, `en-gb`, `en-in`, `en-nz`, `en-us`, `es-es`, `es-mx`, `fi-fi`, `fr-ca`, `fr-fr`, `gu-in`, `hi-in`, `hu-hu`, `it-it`, `ja-jp`, `ko-kr`, `mr-in`, `nb-no`, `nl-nl`, `pl-pl`, `pt-br`, `pt-pt`, `ru-ru`, `sv-se`, `ta-in`, `te-in`, `th-th`, `tr-tr`, `zh-cn`, `zh-hk`, and `zh-tw`.
 

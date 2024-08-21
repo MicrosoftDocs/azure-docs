@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 1/3/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 # Create event routes and filters in Azure Digital Twins
 
-This article walks you through the process of creating *event routes* using the [Azure portal](https://portal.azure.com), [Azure CLI az dt route commands](/cli/azure/dt/route), [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes), and the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme).
+This article walks you through the process of creating *event routes* using the [Azure portal](https://portal.azure.com), [Azure CLI az dt route commands](/cli/azure/dt/route), [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/event-routes), and the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme).
 
 Routing [event notifications](concepts-event-notifications.md) from Azure Digital Twins to downstream services or connected compute resources is a two-step process: create endpoints, then create event routes to send data to those endpoints. This article covers the second step, setting up routes to control which events are delivered to which Azure Digital Twin endpoints. To proceed with this article, you should have [endpoints](how-to-create-endpoints.md) already created.
 
@@ -60,7 +60,7 @@ If there's no route name, no messages are routed outside of Azure Digital Twins.
 If there's a route name and the filter is `true`, all messages are routed to the endpoint. 
 If there's a route name and a different filter is added, messages will be filtered based on the filter.
 
-Event routes can be created with the [Azure portal](https://portal.azure.com), [EventRoutes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes), or [az dt route CLI commands](/cli/azure/dt/route). The rest of this section walks through the creation process.
+Event routes can be created with the [Azure portal](https://portal.azure.com), [EventRoutes data plane APIs](/rest/api/digital-twins/dataplane/event-routes), or [az dt route CLI commands](/cli/azure/dt/route). The rest of this section walks through the creation process.
 
 # [Portal](#tab/portal2)
 
@@ -143,7 +143,7 @@ To create an event route with advanced filter options, toggle the switch for the
 
 # [API](#tab/api)
 
-You can use the [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes) to write custom filters. To add a filter, you can use a PUT request to `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` with the following body:
+You can use the [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/event-routes) to write custom filters. To add a filter, you can use a PUT request to `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 

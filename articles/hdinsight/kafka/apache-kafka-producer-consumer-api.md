@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Apache Kafka Producer & Consumer APIs - Azure HDInsight'
 description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 05/10/2024

@@ -1,6 +1,6 @@
 ---
 author: ilayrn
-ms.service: data-explorer
+ms.service: azure-data-explorer
 ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr

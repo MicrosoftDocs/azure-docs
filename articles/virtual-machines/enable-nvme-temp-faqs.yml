@@ -2,7 +2,7 @@
 metadata:
   title: NVMe - Temp NVMe Disks FAQ
   description: Get answers to common questions about working with temporary NVMe disks on virtual machines.
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.topic: faq
   ms.custom: references_regions
 title: FAQ for temp NVMe disks

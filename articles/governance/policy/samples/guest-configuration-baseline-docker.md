@@ -20,7 +20,7 @@ implementations:
   Security Center
 
 For more information, see [Understand the guest configuration feature of Azure Policy](../../machine-configuration/overview.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
 
 ## General security controls
 

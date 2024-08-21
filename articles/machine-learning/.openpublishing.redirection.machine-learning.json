@@ -172,7 +172,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-fpga-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -2977,13 +2977,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-debug-pipelines-application-insights.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-log-pipelines-application-insights",
+        "redirect_url": "/azure/machine-learning/v1/how-to-debug-pipelines",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-log-pipelines-application-insights.md",
-        "redirect_url": "/azure/machine-learning/how-to-log-pipelines-application-insights",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-debug-batch-predictions.md",

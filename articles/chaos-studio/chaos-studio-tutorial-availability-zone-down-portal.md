@@ -4,7 +4,7 @@ description: Use the Azure portal to create an experiment from the Availability 
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 09/27/2023
 ms.custom: template-how-to
