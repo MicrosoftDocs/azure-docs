@@ -8,7 +8,7 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: msakande
 ms.author: mopeakande
-ms.date: 07/31/2024
+ms.date: 08/21/2024
 ms.reviewer: cacrest
 ms.custom:
   - devplatv2
@@ -271,8 +271,6 @@ Content-Type: application/json
 
 ---
 
-<a name="understanding-inputs-and-outputs"></a>
-
 ## Understand inputs and outputs
 
 Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to specify the inputs and outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. 
@@ -295,8 +293,6 @@ The following table summarizes the inputs and outputs for batch deployments:
 
 > [!TIP]
 > Inputs and outputs are always named. The names serve as keys to identify the data and pass the actual value during invocation. Because model deployments always require one input and output, the name is ignored during invocation. You can assign the name that best describes your use case, such as "sales_estimation."
-
-<a name="data-inputs"></a>
 
 ### Explore data inputs
 
