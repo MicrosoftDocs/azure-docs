@@ -191,19 +191,21 @@ The following guides show you how to access data and perform specific actions us
 
 | Guide | Description |
 | --- | --- |
-| [Create a container](storage-blob-container-create-python.md) | Create containers. |
-| [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list-python.md) | List containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-python.md) | Get and set properties and metadata for containers. |
-| [Create and manage container leases](storage-blob-container-lease-python.md) | Establish and manage a lock on a container. |
-| [Create and manage blob leases](storage-blob-lease-python.md) | Establish and manage a lock on a blob. |
-| [Upload blobs](storage-blob-upload-python.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download-python.md) | Download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
-| [List blobs](storage-blobs-list-python.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags, and use tags to find blobs. |
-| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
-| [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |
 | [Configure a retry policy](storage-retry-policy-python.md) | Implement retry policies for client operations. |
+| [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
+| [Create a container](storage-blob-container-create-python.md) | Create blob containers. |
+| [Create a user delegation SAS (blobs)](storage-blob-user-delegation-sas-create-python.md) | Create a user delegation SAS for a blob. |
+| [Create a user delegation SAS (containers))](storage-blob-container-user-delegation-sas-create-python.md) | Create a user delegation SAS for a container. |
+| [Create and manage blob leases](storage-blob-lease-python.md) | Establish and manage a lock on a blob. |
+| [Create and manage container leases](storage-blob-container-lease-python.md) | Establish and manage a lock on a container. |
+| [Delete and restore](storage-blob-delete-python.md) | Delete blobs and restore soft-deleted blobs.  |
+| [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers and restore soft-deleted containers.  |
+| [Download blobs](storage-blob-download-python.md) | Download blobs by using strings, streams, and file paths. |
+| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags, and use tags to find blobs. |
+| [List blobs](storage-blobs-list-python.md) | List blobs in different ways. |
+| [List containers](storage-blob-containers-list-python.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
+| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-python.md) | Get and set properties and metadata for containers. |
 | [Performance tuning for data transfers](storage-blobs-tune-upload-download-python.md) | Optimize performance for data transfer operations. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |
+| [Upload blobs](storage-blob-upload-python.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
