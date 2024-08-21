@@ -39,7 +39,9 @@ See:
 
 ### Use secure key stores
 
-Leveraging secure key stores ensures that your secrets are stored in a secure, encrypted location. Services like Azure Key Vault provide robust security features, including access control, logging, and automatic rotation. For even greater security, particularly for highly sensitive or critical secrets, consider using Hardware Security Modules (HSMs), which offer enhanced protection compared to software-based secret stores. This approach centralizes the management of your secrets and reduces the risk of unauthorized access.
+Leveraging secure key stores ensures that your secrets are stored in a secure, encrypted location. Services like [Azure Key Vault](/azure/key-vault) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access.
+
+For even greater security, particularly for highly sensitive or critical secrets, consider using Hardware Security Modules (HSMs), which offer enhanced protection compared to software-based secret stores. [Azure Managed HSM](/azure/key-vault/managed-hsm) provides a fully managed, FIPS 140-2 Level 3 validated HSM service that can help protect your most sensitive secrets.
 
 See:
 
@@ -49,7 +51,7 @@ See:
 
 ### Implement secret scanning tools
 
-Regularly scanning your codebase for embedded secrets can prevent accidental exposure. Tools like Azure DevOps Credential Scanner and GitHub's native secret scanning feature can automatically detect and alert you to any secrets found in your repositories. Integrating these tools into your CI/CD pipeline ensures continuous monitoring. It is crucial to treat any secret found by these scanning tools as compromised, which means it should be immediately revoked and replaced to maintain the integrity of your security posture.
+Regularly scanning your codebase for embedded secrets can prevent accidental exposure. Tools like [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning?view=azure-devops) and [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) feature can automatically detect and alert you to any secrets found in your repositories. Integrating these tools into your CI/CD pipeline ensures continuous monitoring. It is crucial to treat any secret found by these scanning tools as compromised, which means it should be immediately revoked and replaced to maintain the integrity of your security posture.
 
 See:
 
@@ -83,7 +85,7 @@ See:
 
 ### Monitor and log access
 
-Enable logging and monitoring for your secret management system to track access and usage. Use services like Azure Monitor and Azure Event Grid to monitor all activities related to your secrets. This provides visibility into who accessed your secrets and helps detect any suspicious behavior or potential security incidents. Maintaining detailed audit trails is critical for inspecting and validating access to secrets, which can help prevent identity theft, avoid repudiation, and reduce unnecessary exposure.
+Enable logging and monitoring for your secret management system to track access and usage. Use services like [Azure Monitor](/azure/azure-monitor/overview) and [Azure Event Grid](/azure/event-grid/overview) to monitor all activities related to your secrets. This provides visibility into who accessed your secrets and helps detect any suspicious behavior or potential security incidents. Maintaining detailed audit trails is critical for inspecting and validating access to secrets, which can help prevent identity theft, avoid repudiation, and reduce unnecessary exposure.
 
 See:
 
