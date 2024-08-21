@@ -8,7 +8,7 @@ ms.date: 08/20/2024
 
 # Resource declaration in Bicep
 
-This article describes the syntax you use to add a resource to your Bicep file. You are limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+This article describes the syntax you use to add a resource to your Bicep file. You're limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define resources
 
@@ -66,23 +66,10 @@ Decorators are written in the format `@expression` and are placed above resource
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string | Provide descriptions for the resource. |
 | [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
+| [description](#description) | string | Provide descriptions for the resource. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
-
-### Description
-
-To add explaination, add a description to resource declarations. For example:
-
-```bicep
-@description('Create a number of storage accounts')
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
-  ...
-}]
-```
-
-Markdown-formatted text can be used for the description text.
 
 ### BatchSize
 
@@ -98,6 +85,19 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' 
 ```
 
 For more information, see [Deploy in batches](loops.md#deploy-in-batches).
+
+### Description
+
+To add explanation, add a description to resource declarations. For example:
+
+```bicep
+@description('Create a number of storage accounts')
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+Markdown-formatted text can be used for the description text.
 
 ## Resource name
 

@@ -21,7 +21,7 @@ You can use the `type` statement to create user-defined data types. In addition,
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-The [`@allowed`](./parameters.md#use-decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
+The [`@allowed`](./parameters.md#use-decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types).
 
 The valid type expressions include:
 
@@ -82,7 +82,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators can be used on properties. `*` can be used to make all values require a constraint. Additional properties can still be defined when using `*`. This example creates an object that requires a key of type `int` named _id_, and that all other entries in the object must be a string value at least 10 characters long.
+  Decorators can be used on properties. `*` can be used to make all values require a constraint. Additional properties can still be defined when using `*`. This example creates an object that requires a key of type `int` named *id*, and that all other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
@@ -236,7 +236,7 @@ Decorators are written in the format `@expression` and are placed above the decl
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the user-defined data type. |
 | [discriminator](#discriminator) | string | Use this decorator to ensure the correct subclass is identified and managed. |
-| [export](#export) | none | Indicates that the user-defined data type can be imported by another file. |
+| [export](#export) | none | Indicates that the user-defined data type is available for import by another Bicep file. |
 | [sealed](#sealed) | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
@@ -247,7 +247,7 @@ See [Tagged union data type](#tagged-union-data-type).
 
 ### Description
 
-To add explaination, add a description to the user-defined data type. For example:
+To add explanation, add a description to the user-defined data type. For example:
 
 ```bicep
 type obj = {
@@ -262,10 +262,9 @@ type obj = {
 
 Markdown-formatted text can be used for the description text.
 
-
 ### Export
 
-Use `@export()` to share the user-define data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+Use `@export()` to share the user-defined data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
 ### Sealed
 
@@ -287,7 +286,7 @@ param aParameter anObject = {
 }
 ```
 
-The warning informs you that the _anObject_ type doesn't include a property named _otionalProperty_. While no errors occur during deployment, the Bicep compiler assumes _otionalProperty_ is a typo, that you intended to use _optionalProperty_ but misspelled it, and alert you to the inconsistency.
+The warning informs you that the *anObject* type doesn't include a property named *otionalProperty*. While no errors occur during deployment, the Bicep compiler assumes *otionalProperty* is a typo, that you intended to use *optionalProperty* but misspelled it, and alert you to the inconsistency.
 
 To escalate these warnings to errors, apply the `@sealed()` decorator to the object type:
 

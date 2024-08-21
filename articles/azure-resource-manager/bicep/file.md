@@ -104,31 +104,32 @@ The allowed values are:
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
-## Decorator
+## Decorators
 
 You can add one or more decorators for each of the following elements:
 
-* [Parameter](#parameters)
-* [Variable](#variables)
-* [Resource](#resources)
-* [Module](#modules)
-* [Output](#outputs)
-* [Type](#types)
+* [param](#parameters)
+* [var](#variables)
+* [resource](#resources)
+* [module](#modules)
+* [output](#outputs)
+* [func](#functions)
+* [type](#types)
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| allowed | [parameter](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
+| allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | batchSize |[resource](./resource-declaration.md#batchsize), [module](./modules.md#batchsize)| N/A | integer | Set up instances to deploy sequentially. |
-| description | [parameter](./parameters.md#description), [variable](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [type](./user-defined-data-types.md#description), [function](./user-defined-functions.md#description) | all | string | Text that explains how to use the element. |
-| discriminator | [parameter](./parameters.md#discriminator, [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
-| export | [variable](./variables.md#export), [type](./user-defined-data-types.md#export), [function](./user-defined-functions.md#export) | all | none| Indicates that the element can be imported by another Bicep file. |
-| maxLength | [parameter](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The maximum length for string and array elemenets. The value is inclusive. |
-| maxValue | [parameter](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The maximum value for the integer elements. This value is inclusive. |
-| metadata | [parameter](./parameters.md#metadata), [output](./outputs.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that is equivalent to the description decorator. |
-| minLength | [parameter](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
-| minValue | [parameter](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
-| sealed | [parameter](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
-| secure | [parameter](./parameters.md#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+| description | [param](./parameters.md#description), [var](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [type](./user-defined-data-types.md#description), [func](./user-defined-functions.md#description) | all | string | Text that explains how to use the element. |
+| discriminator | [param](./parameters.md#discriminator), [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| export | [var](./variables.md#export), [type](./user-defined-data-types.md#export), [func](./user-defined-functions.md#export) | all | none| Indicates that the element can be imported by another Bicep file. |
+| maxLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The maximum length for string and array elements. The value is inclusive. |
+| maxValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The maximum value for the integer elements. This value is inclusive. |
+| metadata | [param](./parameters.md#metadata), [output](./outputs.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that is equivalent to the description decorator. |
+| minLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
+| minValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
+| sealed | [param](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+| secure | [param](./parameters.md#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 ## Parameters
 
@@ -435,7 +436,7 @@ The preceding example is equivalent to the following JSON.
 
 ## Multiple-line declarations
 
-You can now use multiple lines in function, array and object declarations. This feature requires [Bicep CLI version 0.7.X or higher](./install.md).
+You can now use multiple lines in function, array, and object declarations. This feature requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 In the following example, the `resourceGroup()` definition is broken into multiple lines.
 
@@ -450,7 +451,7 @@ See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md#objects) for 
 ## Known limitations
 
 * No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
-* User-defined functions are not supported at the moment. However, an experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
+* User-defined functions aren't supported at the moment. However, an experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
 * Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available when all of the required updates have been deployed to global Azure. If you're using a different environment, such as Azure Stack, there may be a delay in the availability of the feature. The Bicep feature is only available when the intermediate language has also been updated in that environment.
 
 ## Next steps

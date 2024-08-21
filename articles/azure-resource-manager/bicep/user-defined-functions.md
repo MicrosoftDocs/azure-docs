@@ -109,13 +109,13 @@ Decorators are written in the format `@expression` and are placed above function
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the function. |
-| [export](#export) | none | Indicates that the function can be imported by another file. |
+| [export](#export) | none | Indicates that the function is available for import by another Bicep file. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
 ### Description
 
-To add explaination, add a description to function declaration. For example:
+To add explanation, add a description to function declaration. For example:
 
 ```bicep
 @description('The say hello function.')

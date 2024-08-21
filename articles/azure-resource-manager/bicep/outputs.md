@@ -8,7 +8,7 @@ ms.date: 08/20/2024
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You're limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define outputs
 
@@ -58,7 +58,7 @@ For more information, see [User-defined data types](./user-defined-data-types.md
 
 ## Use decorators
 
-Decorators are written in the format `@expression` and are placed above ouput declarations. The following table shows the available decorators for outputs.
+Decorators are written in the format `@expression` and are placed above output declarations. The following table shows the available decorators for outputs.
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
@@ -82,7 +82,7 @@ param description string
 
 ### Description
 
-To add explaination, add a description to output declarations. For example:
+To add explanation, add a description to output declarations. For example:
 
 ```bicep
 @description('Conditionally output the endpoint.')

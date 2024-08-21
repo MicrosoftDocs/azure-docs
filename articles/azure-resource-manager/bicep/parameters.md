@@ -60,7 +60,7 @@ param storageAccountConfig {
 }
 ```
 
-For more information, see [User-defined data types](./user-defined-data-types.md#syntax).
+For more information, see [User-defined data types](./user-defined-data-types.md#define-types).
 
 ## Set default values
 

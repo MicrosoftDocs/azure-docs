@@ -12,7 +12,7 @@ This article describes how to define and use variables in your Bicep file. You u
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
 
-You are limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You're limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define variables
 
@@ -122,13 +122,13 @@ Decorators are written in the format `@expression` and are placed above variable
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the variable. |
-| [export](#export) | none | Indicates that the variable can be imported by another file. |
+| [export](#export) | none | Indicates that the variable is available for import by another Bicep file.. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
 ### Description
 
-To add explaination, add a description to variable declaration. For example:
+To add explanation, add a description to variable declaration. For example:
 
 ```bicep
 @description('Create a unique storage account name.')

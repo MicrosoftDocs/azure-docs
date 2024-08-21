@@ -8,7 +8,7 @@ ms.date: 08/20/2024
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensions.
+This article describes the syntax you use to export and import shared functionality, and namespaces for Bicep extensions.
 
 ## Export variables, types, and functions
 

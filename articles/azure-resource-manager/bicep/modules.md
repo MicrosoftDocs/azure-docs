@@ -132,7 +132,7 @@ module <symbolic-name> '<path-to-file>' = {
 
 ## Path to module
 
-The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. 
+The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry.
 
 ### Local file
 
@@ -156,7 +156,7 @@ module stgModule '../storageAccount.bicep' = {
 > [!NOTE]
 > Non-AVM (Azure Verified Modules) modules are retired from the public module registry.
 
-[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created and owned by Microsoft employees, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations whilst also aligning to best practices; such as the Well-Architected Framework.
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created and owned by Microsoft employees, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations while also aligning to best practices; such as the Well-Architected Framework.
 
 Browse to the [Azure Verified Modules Bicep Index](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)to see the list of modules available, select the highlighted numbers in the following screenshot to be taken directly to that filtered view.
 
@@ -275,26 +275,10 @@ Decorators are written in the format `@expression` and are placed above module d
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string |Provide descriptions for the module.|
 | [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
+| [description](#description) | string |Provide descriptions for the module.|
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
-
-### Description
-
-To add explaination, add a description to module declarations. For example:
-
-```bicep
-@description('Create storage accounts referencing an AVM.')
-module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
-  name: 'myStorage'
-  params: {
-    name: 'store${resourceGroup().name}'
-  }
-}
-```
-
-Markdown-formatted text can be used for the description text.
 
 ### BatchSize
 
@@ -313,6 +297,22 @@ module storage 'br/public:avm/res/storage/storage-account:0.11.1' = [for storage
 ```
 
 For more information, see [Deploy in batches](loops.md#deploy-in-batches).
+
+### Description
+
+To add explanation, add a description to module declarations. For example:
+
+```bicep
+@description('Create storage accounts referencing an AVM.')
+module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+  name: 'myStorage'
+  params: {
+    name: 'store${resourceGroup().name}'
+  }
+}
+```
+
+Markdown-formatted text can be used for the description text.
 
 ## Parameters
 

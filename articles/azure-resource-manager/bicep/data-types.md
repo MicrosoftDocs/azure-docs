@@ -319,7 +319,7 @@ is ${blocked}'''
 
 ## Union types
 
-In Bicep, a union type allows the creation of a combined type consisting of a set of sub-types. An assignment is valid if any of the individual sub-type assignments are permitted. The `|` character separates individual sub-types using an _or_ condition. For example, the syntax _'a' | 'b'_ means that a valid assignment could be either _'a'_ or _'b'_. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
+In Bicep, a union type allows the creation of a combined type consisting of a set of subtypes. An assignment is valid if any of the individual subtype assignments are permitted. The `|` character separates individual subtypes using an _or_ condition. For example, the syntax _'a' | 'b'_ means that a valid assignment could be either _'a'_ or _'b'_. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
 
 ```bicep
 type color = 'Red' | 'Blue' | 'White'
@@ -335,7 +335,7 @@ Type unions must be reducible to a single ARM type, such as 'string', 'int', or 
 type foo = 'a' | 1
 ```
 
-Any type expression can be used as a sub-type in a union type declaration (between `|` characters). For example, the following examples are all valid:
+Any type expression can be used as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
 
 ```bicep
 type foo = 1 | 2
@@ -379,7 +379,7 @@ There are some limitations with union type.
   ```
 
 * Only literals are permitted as members.
-* All literals must be of the same primitive data type (e.g., all strings or all integers).
+* All literals must be of the same primitive data type (for example, all strings or all integers).
 
 The union type syntax can be used in [user-defined data types](./user-defined-data-types.md).
 
