@@ -18,7 +18,7 @@ ms.custom: devplatv2, update-code, devx-track-azurecli
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-Batch model deployments can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this article, you learn how to deploy a model that classifies images according to the ImageNet taxonomy.
+You can use batch model deployments for processing tabular data, but also any other file types, like images. Those deployments are supported in both MLflow and custom models. In this article, you learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The model that this article works with was built using TensorFlow along with the
 - It works with images of size 244x244 (tensors of `(224, 224, 3)`).
 - It requires inputs to be scaled to the range `[0,1]`.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo. Change directories to `cli/endpoints/batch/deploy-models/imagenet-classifier` if you're using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/imagenet-classifier` if you're using the SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo. Change directories to *cli/endpoints/batch/deploy-models/imagenet-classifier* if you're using the Azure CLI or *sdk/python/endpoints/batch/deploy-models/imagenet-classifier* if you're using the SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -51,7 +51,7 @@ Create the endpoint that hosts the model:
 
 # [Azure CLI](#tab/cli)
 
-1. Decide on the name of the endpoint:
+1. Specify the name of the endpoint.
 
    ```azurecli
    ENDPOINT_NAME="imagenet-classifier-batch"
@@ -61,19 +61,19 @@ Create the endpoint that hosts the model:
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/endpoint.yml":::
 
-   To create the endpoint, run the following code.
+   To create the endpoint, run the following code:
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_endpoint" :::
 
 # [Python](#tab/python)
 
-1. Decide on the name of the endpoint:
+1. Specify the name of the endpoint.
 
    ```python
    endpoint_name="imagenet-classifier-batch"
    ```
 
-1. Configure the endpoint:
+1. Configure the endpoint.
 
    ```python
    endpoint = BatchEndpoint(
@@ -94,7 +94,7 @@ Create the endpoint that hosts the model:
 
 Model deployments can only deploy registered models. You need to register the model. You can skip this step if the model you're trying to deploy is already registered.
 
-1. Download a copy of the model:
+1. Download a copy of the model.
 
    # [Azure CLI](#tab/cli)
 
@@ -114,7 +114,7 @@ Model deployments can only deploy registered models. You need to register the mo
      model_path = zip.extractall(path="imagenet-classifier")
    ```
 
-1. Register the model:
+1. Register the model.
 
    # [Azure CLI](#tab/cli)
 
@@ -134,25 +134,27 @@ Model deployments can only deploy registered models. You need to register the mo
 
 ### Create a scoring script
 
-Create a scoring script that can read the images provided by the batch deployment and return the scores of the model. The following script:
+Create a scoring script that can read the images provided by the batch deployment and return the scores of the model.
 
 > [!div class="checklist"]
-> - Indicates an `init` function that load the model using `keras` module in `tensorflow`.
-> - Indicates a `run` function that is executed for each mini-batch the batch deployment provides.
-> - The `run` function read one image of the file at a time
+> - The `init` method loads the model using the `keras` module in `tensorflow`.
+> - The `run` method runs for each mini-batch the batch deployment provides.
+> - The `run` method reads one image of the file at a time.
 > - The `run` method resizes the images to the expected sizes for the model.
 > - The `run` method rescales the images to the range `[0,1]` domain, which is what the model expects.
-> - It returns the classes and the probabilities associated with the predictions.
+> - The script returns the classes and the probabilities associated with the predictions.
 
-**code/score-by-file/batch_driver.py**:
+This code is the *code/score-by-file/batch_driver.py* file:
 
 :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-file/batch_driver.py" :::
 
 > [!TIP]
-> Although images are provided in mini-batches by the deployment, this scoring script processes one image at a time. This is a common pattern because trying to load the entire batch and send it to the model at once might result in high-memory pressure on the batch executor (OOM exceptions). However, there are certain cases where doing so enables high throughput in the scoring task. This is the case for batch deployments over GPU hardware where you want to achieve high GPU utilization. For an example of a scoring script that takes advantage of this approach, see [High throughput deployments](#high-throughput-deployments).
+> Although images are provided in mini-batches by the deployment, this scoring script processes one image at a time. This is a common pattern because trying to load the entire batch and send it to the model at once might result in high-memory pressure on the batch executor (OOM exceptions).
+>
+> There are certain cases where doing so enables high throughput in the scoring task. This is the case for batch deployments over GPU hardware where you want to achieve high GPU utilization. For a scoring script that takes advantage of this approach, see [High throughput deployments](#high-throughput-deployments).
 
 > [!NOTE]
-> If you are trying to deploy a generative model, which generates files, read how to author a scoring script as explained at [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
+> If you want to deploy a generative model, which generates files, learn how to author a scoring script: [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
 
 ### Creating the deployment
 
@@ -160,7 +162,7 @@ After you create the scoring script, create a batch deployment for it. Use the f
 
 1. Ensure that you have a compute cluster created where you can create the deployment. In this example, use a compute cluster named `gpu-cluster`. Although not required, using GPUs speeds up the processing.
 
-1. Indicate over which environment to run the deployment. In this example, the model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so you can reuse this environment. You need to add a couple of dependencies in a `conda.yml` file.
+1. Indicate over which environment to run the deployment. In this example, the model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so you can reuse this environment. You need to add a couple of dependencies in a *conda.yml* file.
 
    # [Azure CLI](#tab/cli)
 
@@ -170,7 +172,7 @@ After you create the scoring script, create a batch deployment for it. Use the f
 
    # [Python](#tab/python)
 
-   Get a reference to the environment:
+   Get a reference to the environment.
 
    ```python
    environment = Environment(
@@ -180,15 +182,15 @@ After you create the scoring script, create a batch deployment for it. Use the f
    )
    ```
 
-1. Create the deployment:
+1. Create the deployment.
 
    # [Azure CLI](#tab/cli)
 
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following example. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following example. For other properties, see the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md).
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml":::
   
-   Then, create the deployment with the following command:
+   Create the deployment with the following command:
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_deployment" :::
 
@@ -224,7 +226,9 @@ After you create the scoring script, create a batch deployment for it. Use the f
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
 
-1. Although you can invoke a specific deployment inside of an endpoint, you usually want to invoke the endpoint itself, and let the endpoint decide which deployment to use. Such deployment is named the *default* deployment. This approach gives you the possibility of changing the default deployment - and hence changing the model serving the deployment - without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+1. Although you can invoke a specific deployment inside of an endpoint, you usually want to invoke the endpoint itself, and let the endpoint decide which deployment to use. Such deployment is called the *default* deployment.
+
+   This approach lets you change the default deployment and change the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following code to update the default deployment:
 
    # [Azure Machine Learning CLI](#tab/cli)
 
@@ -243,16 +247,19 @@ Your batch endpoint is ready to be used.
 
 ## Test the deployment
 
-For testing the endpoint, use a sample of 1,000 images from the original ImageNet dataset. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. Upload it to an Azure Machine Learning data store. Create a data asset that can be used to invoke the endpoint for scoring. However, batch endpoints accept data that can be placed in multiple type of locations.
+For testing the endpoint, use a sample of 1,000 images from the original ImageNet dataset. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. Upload it to an Azure Machine Learning data store. Create a data asset that can be used to invoke the endpoint for scoring.
 
-1. Download the associated sample data:
+> [!NOTE]
+> Batch endpoints accept data that can be placed in multiple types of locations.
+
+1. Download the associated sample data.
 
    # [Azure CLI](#tab/cli)
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_sample_data" :::
 
    > [!NOTE]
-   > If you don't have `wget` installed locally, install it or use a browser to get the .*zip* file.
+   > If you don't have `wget` installed locally, install it or use a browser to get the *.zip* file.
 
    # [Python](#tab/python)
 
@@ -267,41 +274,41 @@ For testing the endpoint, use a sample of 1,000 images from the original ImageNe
 
    1. Create a data asset definition in a `YAML` file called *imagenet-sample-unlabeled.yml*:
 
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/imagenet-sample-unlabeled.yml":::
+      :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/imagenet-sample-unlabeled.yml":::
 
-   1. Create the data asset:
+   1. Create the data asset.
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_sample_data_asset" :::
+      :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_sample_data_asset" :::
 
    # [Python](#tab/python)
 
    1. Specify these values:
 
-   ```python
-   data_path = "data"
-   dataset_name = "imagenet-sample-unlabeled"
+      ```python
+      data_path = "data"
+      dataset_name = "imagenet-sample-unlabeled"
 
-   imagenet_sample = Data(
-       path=data_path,
-       type=AssetTypes.URI_FOLDER,
-       description="A sample of 1000 images from the original ImageNet dataset",
-       name=dataset_name,
-   )
-   ```
+      imagenet_sample = Data(
+          path=data_path,
+          type=AssetTypes.URI_FOLDER,
+          description="A sample of 1000 images from the original ImageNet dataset",
+          name=dataset_name,
+      )
+      ```
 
    1. Create the data asset.
 
-   ```python
-   ml_client.data.create_or_update(imagenet_sample)
-   ```
+      ```python
+      ml_client.data.create_or_update(imagenet_sample)
+      ```
 
-   To get the newly created data asset, use this code:
+      To get the newly created data asset, use this code:
 
-   ```python
-   imagenet_sample = ml_client.data.get(dataset_name, label="latest")
-   ```
+      ```python
+      imagenet_sample = ml_client.data.get(dataset_name, label="latest")
+      ```
 
-1. When the data is uploaded and ready to be used, invoke the endpoint:
+1. When the data is uploaded and ready to be used, invoke the endpoint.
 
    # [Azure CLI](#tab/cli)
 
@@ -326,9 +333,9 @@ For testing the endpoint, use a sample of 1,000 images from the original ImageNe
    ---
 
    > [!TIP]
-   > You don't indicate the deployment name in the invoke operation. That's because the endpoint automatically routes the job to the default deployment. Since the endpoint only has one deployment, that one is the default one. You can target an specific deployment by indicating the argument/parameter `deployment_name`.
+   > You don't indicate the deployment name in the invoke operation. That's because the endpoint automatically routes the job to the default deployment. Since the endpoint only has one deployment, that one is the default. You can target an specific deployment by indicating the argument/parameter `deployment_name`.
 
-1. A batch job starts as soon as the command returns. You can monitor the status of the job until it finishes:
+1. A batch job starts as soon as the command returns. You can monitor the status of the job until it finishes.
 
    # [Azure CLI](#tab/cli)
 
@@ -340,7 +347,7 @@ For testing the endpoint, use a sample of 1,000 images from the original ImageNe
    ml_client.jobs.get(job.name)
    ```
 
-1. After the deployment finishes, download the predictions:
+1. After the deployment finishes, download the predictions.
 
    # [Azure CLI](#tab/cli)
 
@@ -380,12 +387,12 @@ On those cases, you might want to do inference on the entire batch of data. That
 > [!WARNING]
 > Some models have a non-linear relationship with the size of the inputs in terms of the memory consumption. To avoid out-of-memory exceptions, batch again (as done in this example) or decrease the size of the batches created by the batch deployment.
 
-1. Creating the scoring script. *code/score-by-batch/batch_driver.py*:
+1. Create the scoring script *code/score-by-batch/batch_driver.py*:
 
    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-batch/batch_driver.py" :::
 
-   - This script is constructing a tensor dataset from the mini-batch sent by the batch deployment. This dataset is preprocessed to obtain the expected tensors for the model using the `map` operation with the function `decode_img`.
-   - The dataset is batched again (16) send the data to the model. Use this parameter to control how much information you can load into memory and send to the model at once. If running on a GPU, you need to carefully tune this parameter to achieve the maximum usage of the GPU just before getting an OOM exception.
+   - This script constructs a tensor dataset from the mini-batch sent by the batch deployment. This dataset is preprocessed to obtain the expected tensors for the model using the `map` operation with the function `decode_img`.
+   - The dataset is batched again (16) to send the data to the model. Use this parameter to control how much information you can load into memory and send to the model at once. If running on a GPU, you need to carefully tune this parameter to achieve the maximum usage of the GPU just before getting an OOM exception.
    - After predictions are computed, the tensors are converted to `numpy.ndarray`.
 
 1. Create the deployment.
@@ -440,8 +447,8 @@ On those cases, you might want to do inference on the entire batch of data. That
 MLflow models in Batch Endpoints support reading images as input data. Since MLflow deployments don't require a scoring script, have the following considerations when using them:
 
 > [!div class="checklist"]
-> - Image files supported includes: *.png*, *.jpg*, *.jpeg*, *.tiff*, *.bmp* and *.gif*.
-> - MLflow models should expect to recieve a `np.ndarray` as input that matches the dimensions of the input image. In order to support multiple image sizes on each batch, the batch executor invokes the MLflow model once per image file.
+> - Image files supported include: *.png*, *.jpg*, *.jpeg*, *.tiff*, *.bmp*, and *.gif*.
+> - MLflow models should expect to receive a `np.ndarray` as input that matches the dimensions of the input image. In order to support multiple image sizes on each batch, the batch executor invokes the MLflow model once per image file.
 > - MLflow models are highly encouraged to include a signature. If they do, it must be of type `TensorSpec`. Inputs are reshaped to match tensor's shape if available. If no signature is available, tensors of type `np.uint8` are inferred.
 > - For models that include a signature and are expected to handle variable size of images, include a signature that can guarantee it. For instance, the following signature example allows batches of 3 channeled images.
 

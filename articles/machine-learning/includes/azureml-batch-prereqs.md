@@ -17,29 +17,29 @@ Before following the steps in this article, make sure you have the following pre
 
 - You need to install the following software to work with Azure Machine Learning:
 
-# [Azure CLI](#tab/cli)
+  # [Azure CLI](#tab/cli)
 
-Add the [Azure CLI](/cli/azure/) `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md).
+  Add the [Azure CLI](/cli/azure/) `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md).
 
-```azurecli
-az extension add -n ml
-```
+  ```azurecli
+  az extension add -n ml
+  ```
 
-> [!NOTE]
-> Pipeline component deployments for Batch Endpoints were introduced in version 2.7 of the `ml` extension for Azure CLI. Use `az extension update --name ml` to get the last version of it.
+  > [!NOTE]
+  > Pipeline component deployments for Batch Endpoints were introduced in version 2.7 of the `ml` extension for Azure CLI. Use `az extension update --name ml` to get the last version of it.
 
-# [Python](#tab/python)
+  # [Python](#tab/python)
 
-Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+  Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
-```python
-pip install azure-ai-ml
-```
+  ```python
+  pip install azure-ai-ml
+  ```
 
-> [!NOTE]
-> Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK. Use `pip install -U azure-ai-ml` to get the last version of it.
+  > [!NOTE]
+  > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK. Use `pip install -U azure-ai-ml` to get the last version of it.
 
----
+  ---
 
 ### Connect to your workspace
 
