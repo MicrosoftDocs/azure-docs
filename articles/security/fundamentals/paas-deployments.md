@@ -63,7 +63,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/general/overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](/azure/key-vault/general/overview) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don't put credentials and other secrets in source code or GitHub.
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -108,7 +108,7 @@ Following are best practices for using App Service.
 **Detail**: Restricting access is imperative for organizations that want to enforce security policies for data access. You can use Azure RBAC to assign permissions to users, groups, and applications at a certain scope. To learn more about granting users access to applications, see [Get started with access management](../../role-based-access-control/overview.md).
 
 **Best practice**: Protect your keys.
-**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](../../key-vault/general/overview.md) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
+**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](/azure/key-vault/general/overview) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.
 **Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).

@@ -3,7 +3,7 @@ title: Create workspaces by using Terraform
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning workspaces with public or private connectivity by using Terraform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: devx-track-terraform
 ms.author: larryfr

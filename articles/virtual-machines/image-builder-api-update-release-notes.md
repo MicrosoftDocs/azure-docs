@@ -2,7 +2,7 @@
 title: What's new in Azure VM Image Builder
 description: This article offers the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 02/13/2024
 ms.reviewer: mattmcinnes

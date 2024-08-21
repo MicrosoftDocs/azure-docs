@@ -1,7 +1,7 @@
 ---
 title: ImmuneCODE database
 description: Learn how to use the ImmuneCODE database in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 11/09/2023
 ---

@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 08/28/2023
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Configure runbook output and message streams

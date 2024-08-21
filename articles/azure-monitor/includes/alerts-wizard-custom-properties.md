@@ -17,7 +17,6 @@ Use the format of the [common alert schema](../alerts/alerts-common-schema.md) t
 > [!NOTE]
 > - The common alert schema overwrites custom configurations. You can't use both custom properties and the common schema.
 > - Custom properties are added to the payload of the alert, but they don't appear in the email template or in the alert details in the Azure portal.
-> - Azure Service Health alerts don't support custom properties.
 
 :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows custom properties for creating a new alert rule.":::
 
@@ -26,13 +25,13 @@ The following examples use values in **Custom properties** to utilize data from 
 This example creates an **Additional Details** tag with data regarding the window start time and window end time:
 
 - Name: `Additional Details`
-- Value: `Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}`
+- Value: `Evaluation windowStartTime: ${data.alertContext.condition.windowStartTime}. windowEndTime: ${data.alertContext.condition.windowEndTime}`
 - Result: `AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z`
 
 This example adds data regarding the reason for resolving or firing the alert:
 
-- Name: `Alert \${data.essentials.monitorCondition} reason`
-- Value: `\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}`
+- Name: `Alert ${data.essentials.monitorCondition} reason`
+- Value: `${data.alertContext.condition.allOf[0].metricName} ${data.alertContext.condition.allOf[0].operator} ${data.alertContext.condition.allOf[0].threshold} ${data.essentials.monitorCondition}. The value is ${data.alertContext.condition.allOf[0].metricValue}`
 - Potential results:
     - `Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585`
     - `Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585`

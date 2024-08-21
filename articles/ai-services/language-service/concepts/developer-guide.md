@@ -159,9 +159,8 @@ The question answering APIs enables you to use the [question answering](../quest
 
 As you use this API in your application, see the following reference documentation for additional information.
 
-* [Prebuilt API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) - Use the prebuilt runtime API to answer specified question using text provided by users.
-* [Custom authoring API](/rest/api/cognitiveservices/questionanswering/question-answering-projects) - Create a knowledge base to answer questions.
-* [Custom runtime API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) - Query and knowledge base to generate an answer.
+* [Prebuilt API](/azure/ai-services/language-service/question-answering/how-to/prebuilt) - Use the prebuilt runtime API to answer specified question using text provided by users.
+* [Custom authoring API](/azure/ai-services/language-service/question-answering/how-to/authoring) - Create a knowledge base to answer questions.
 
 
 ---

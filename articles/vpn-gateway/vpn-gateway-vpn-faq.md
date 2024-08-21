@@ -2,7 +2,7 @@
 title: Azure VPN Gateway FAQ
 description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 07/10/2024
 ms.author: cherylmc
@@ -148,7 +148,7 @@ For non-zone-redundant and non-zonal gateways that were previously created (gate
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we will provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
@@ -191,7 +191,7 @@ A virtual network gateway is fundamentally a multihomed device. One network adap
 
 ### <a name="vpn-basic"></a>Can I create a VPN gateway by using the Basic SKU in the portal?
 
-No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or Azure PowerShell.
+No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or the [Azure PowerShell](create-gateway-basic-sku-powershell.md) steps.
 
 ### Where can I find information about gateway types, requirements, and throughput?
 

@@ -21,7 +21,7 @@ To get started, make sure you have the following prerequisites:
 
 - **Azure subscription:** [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 - **Speech resource:** <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a speech resource</a> in the Azure portal. Select "Standard S0" pricing tier if you want to create speech resource to access avatar. 
-- **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](/azure/ai-services/multi-service-resource?pivots=azportal&tabs=windows#get-the-keys-for-your-resource).
+- **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. 
 
 ## Set up environment
 

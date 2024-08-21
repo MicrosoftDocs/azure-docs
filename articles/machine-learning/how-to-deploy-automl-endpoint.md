@@ -3,7 +3,7 @@ title: Deploy an AutoML model with an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 author: msakande
 ms.author: mopeakande

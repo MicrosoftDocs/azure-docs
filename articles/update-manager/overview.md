@@ -16,7 +16,7 @@ ms.topic: overview
 > For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement). You can [sign up](https://developer.microsoft.com/reactor/?search=Azure+Update+Manager&page=1) for monthly live sessions on migration including Q&A sessions.
 
 
-Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your machines in Azure and on-premises/on other cloud platforms (connected by [Azure Arc](https://learn.microsoft.com/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
+Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your machines in Azure and on-premises/on other cloud platforms (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
 You can use Update Manager in Azure to:
 
@@ -24,13 +24,14 @@ You can use Update Manager in Azure to:
 - Enable [periodic assessment](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours.
 - Use flexible patching options such as:
     - [Customer-defined maintenance schedules](https://aka.ms/umc-scheduled-patching) for both Azure and Arc-connected machines.
-    - [Automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](https://learn.microsoft.com/azure/automanage/automanage-hotpatch) for Azure VMs.
+    - [Automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
 - Build custom reporting dashboards for reporting update status and [configure alerts](https://aka.ms/aum-alerts) on certain conditions.
-- Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](https://learn.microsoft.com/azure/azure-arc/) through a single pane. The different types of machines that can be managed are:
-    - [Hybrid machines](https://learn.microsoft.com/azure/azure-arc/servers/)
-    - [VMWare machines](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/)
-    - [SCVMM machines](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/)
-    - [Azure Stack HCI VMs](https://learn.microsoft.com/azure-stack/hci/)
+- Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](/azure/azure-arc/) through a single pane. The different types of machines that can be managed are:
+- 
+    - [Hybrid machines](/azure/azure-arc/servers/)
+    - [VMWare machines](/azure/azure-arc/vmware-vsphere/)
+    - [SCVMM machines](/azure/azure-arc/system-center-virtual-machine-manager/)
+    - [Azure Stack HCI VMs](/azure-stack/hci/)
 
 ## Key benefits
 
@@ -47,7 +48,7 @@ Update Manager offers many new features and provides enhanced and native functio
   - Offers enhanced flexibility
     - Take immediate action either by [installing updates immediately](https://aka.ms/on-demand-patching) or [scheduling them for a later date](https://aka.ms/umc-scheduled-patching).
     - [Check updates automatically](https://aka.ms/aum-policy-support) or [on demand](https://aka.ms/on-demand-assessment).
-    - Secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](https://learn.microsoft.com/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
+    - Secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
     - Sync patch cycles in relation to **patch Tuesday** the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month. 
 - Reporting and alerting
     - Build custom reporting dashboards through [Azure Workbooks](manage-workbooks.md) to monitor the update compliance of your infrastructure. 

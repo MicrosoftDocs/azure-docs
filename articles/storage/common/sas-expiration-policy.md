@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 07/29/2024
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
@@ -15,17 +15,20 @@ ms.custom: engagement-fy23
 
 # Configure an expiration policy for shared access signatures
 
-You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it's compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS.
+You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it's compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a user delegation SAS, a service SAS, or an account SAS.
 
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
+> [!IMPORTANT]
+> For scenarios where shared access signatures are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key, which provides superior security.
+
 ## About SAS expiration policies
 
-You can configure a SAS expiration policy on the storage account. The SAS expiration policy specifies the recommended upper limit for the signed expiry field on a service SAS or an account SAS. The recommended upper limit is specified as a date/time value that is a combined number of days, hours, minutes, and seconds.
+You can configure a SAS expiration policy on the storage account. The SAS expiration policy specifies the recommended upper limit for the signed expiry field on a user delegation SAS, a service SAS, or an account SAS. The recommended upper limit is specified as a date/time value that is a combined number of days, hours, minutes, and seconds.
 
 The validity interval for the SAS is calculated by subtracting the date/time value of the signed start field from the date/time value of the signed expiry field. If the resulting value is less than or equal to the recommended upper limit, then the SAS is in compliance with the SAS expiration policy.
 
-After you configure the SAS expiration policy, any user who creates a service SAS or account SAS with an interval that exceeds the recommended upper limit will see a warning.
+After you configure the SAS expiration policy, any user who creates a SAS with an interval that exceeds the recommended upper limit will see a warning.
 
 A SAS expiration policy doesn't prevent a user from creating a SAS with an expiration that exceeds the limit recommended by the policy. When a user creates a SAS that violates the policy, they see a warning, along with the recommended maximum interval. If you've configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval.
 
@@ -33,11 +36,16 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 
 ## Configure a SAS expiration policy
 
-When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key or with a user delegation key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
+When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS: user delegation SAS, service SAS, and account SAS. Service SAS and account SAS types are signed with the account key, while user delegation SAS is signed with Microsoft Entra credentials.
+
+> [!NOTE]
+> A user delegation SAS is signed with a user delegation key, which is obtained using Microsoft Entra credentials. The user delegation key has its own expiry interval which isn't subject to the SAS expiration policy. The SAS expiration policy applies only to the user delegation SAS, not the user delegation key it's signed with.
+>
+> A user delegation SAS has a maximum expiry interval of 7 days, regardless of the SAS expiration policy. If the SAS expiration policy is set to a value greater than 7 days, then the policy has no effect for a user delegation SAS. If the user delegation key expires, then any user delegation SAS signed with that key is invalid and any attempt to use the SAS returns an error.
 
 ### Do I need to rotate the account access keys first?
 
-Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys (key1 and key2), you'll need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated first, the operation fails.
+This section applies to service SAS and account SAS types, which are signed with the account key. Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys (key1 and key2), you'll need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated first, the operation fails.
 
 ### How to configure a SAS expiration policy
 

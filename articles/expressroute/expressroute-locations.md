@@ -3,9 +3,9 @@ title: Connectivity providers and locations for Azure ExpressRoute
 description: This article provides a detailed overview of peering locations served by each ExpressRoute connectivity provider to connect to Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 04/21/2024
+ms.date: 07/31/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -88,7 +88,7 @@ The following table shows locations by service provider. If you want to view ava
 | **du datamena** |Supported |Supported | Dubai2 |
 | **[eir evo](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |Supported |Supported | Dublin |
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** | Supported | Supported | Hong Kong2<br/>London2<br/>Singapore<br/>Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>London2<br/>Los Angeles*<br/>Los Angeles2<br/>Madrid2<br/>Melbourne<br/>Miami<br/>Milan<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Quebec City<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Washington DC<br/>Warsaw<br/>Zurich</br>Zurich2</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>London2<br/>Los Angeles*<br/>Los Angeles2<br/>Madrid2<br/>Melbourne<br/>Miami<br/>Milan<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Quebec City<br/>Queretaro (Mexico)<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Washington DC<br/>Warsaw<br/>Zurich</br>Zurich2</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
 | **Etisalat UAE** |Supported |Supported | Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>London<br/>Paris |
 | **Exatel** |Supported |Supported | Warsaw |
@@ -126,7 +126,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Liquid Intelligent Technologies](https://liquidcloud.africa/connect/)** | Supported | Supported | Cape Town<br/>Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |Supported |Supported | Seoul |
 | **[MCM Telecom](https://www.mcmtelecom.com/alianza-microsoft)** | Supported | Supported | Dallas<br/>Queretaro (Mexico)|
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Auckland<br/>Chicago<br/>Dallas<br/>Denver<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Melbourne<br/>Miami<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Paris<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro (Mexico)<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Auckland<br/>Chicago<br/>Dallas<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Melbourne<br/>Miami<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Paris<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro (Mexico)<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
 | **[Momentum Telecom](https://gomomentum.com/)** | Supported | Supported | Atlanta<br/>Chicago<br/>Dallas<br/>Miami<br/>New York<br/>Silicon Valley<br/>Washington DC2 |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Supported | Supported | London |
 | **MTN Global Connect** | Supported | Supported | Cape Town<br/>Johannesburg|
@@ -160,7 +160,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Supported | Supported | Milan |
 | **RISQ** |Supported | Supported | Quebec City<br/>Montreal |
 | **SCSK** |Supported | Supported | Tokyo3 |
-| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** | Supported | Supported | Seoul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/)** | Supported | Supported | Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported | Supported | London2<br/>Washington DC |
 | **[SIFY](https://sifytechnologies.com/)** | Supported | Supported | Chennai<br/>Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported | Hong Kong2<br/>Singapore<br/>Singapore2 |
@@ -327,7 +327,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | Provider | Exchange |
 | --- | --- |
 | **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport<br/>PacketFabric |
-| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport<br/>PacketFabric |
+| **[Cyxtera](https://centersquaredc.com/products)** | Megaport<br/>PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
@@ -377,7 +377,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Orange Networks** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
-| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
+| **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 

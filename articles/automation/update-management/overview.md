@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.custom: linux-related-content
 ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Update Management overview

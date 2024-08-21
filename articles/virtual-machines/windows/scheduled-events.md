@@ -2,7 +2,7 @@
 title: Scheduled Events for Windows VMs in Azure
 description: Scheduled events using the Azure Metadata Service for your Windows virtual machines.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: scheduled-events
 ms.collection: windows
 ms.topic: how-to
@@ -58,10 +58,12 @@ Scheduled events are delivered to and can be acknowledged by:
 - All the VMs in an availability set.
 - All the VMs in a scale set placement group. 
 
-> [!NOTE]
-> Scheduled Events for all virtual machines (VMs) in an entire Availability Set or a Placement Group for a Virtual Machine Scale Set are delivered to all other VMs in the same group or set regardless of Availability Zone usage.
+Scheduled Events for all virtual machines (VMs) in an entire Availability Set or a Placement Group for a Virtual Machine Scale Set are delivered to all other VMs in the same group or set regardless of Availability Zone usage.
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
+
+> [!NOTE]
+> GPU accelerated Virtual Machines in a scale set using 1 fault domain (FD = 1) will only receive scheduled events for the impacted resource. Events will not be broadcasted to all VMs in the same placement group.
 
 ### Endpoint discovery
 For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 

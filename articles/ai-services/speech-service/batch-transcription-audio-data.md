@@ -43,7 +43,7 @@ The batch transcription API (and [fast transcription API](./fast-transcription-c
 
 
 > [!NOTE]
-> Batch transcription service integrates GStreamer and might accept more formats and codecs without returning errors. We suggest to use lossless formats such as WAV (PCM encoding) and FLAC to ensure best transcription quality.
+> Batch transcription service integrates [GStreamer](./how-to-use-codec-compressed-audio-input-streams.md) and might accept more formats and codecs without returning errors. We suggest to use lossless formats such as WAV (PCM encoding) and FLAC to ensure best transcription quality.
 
 ## Azure Blob Storage upload
 

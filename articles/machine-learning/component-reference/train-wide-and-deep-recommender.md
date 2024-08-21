@@ -3,7 +3,7 @@ title: Use the Train Wide & Deep Recommender component
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Wide & Deep Recommender component in Azure Machine Learning designer to train a recommendation model.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

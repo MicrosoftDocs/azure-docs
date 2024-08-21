@@ -38,7 +38,7 @@ The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you h
 
 ### Elastic SAN volumes
 
-The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increase by 750 per GiB, up to a maximum of 80,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 107 GiB to be capable of using 80,000 IOPS. A volume needs at least 22 GiB in order to be capable of using the maximum 1,280 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
+The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increase by 750 per GiB, up to a maximum of 80,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,280 MB/s. A volume needs at least 107 GiB to be capable of using 80,000 IOPS. A volume needs at least 22 GiB in order to be capable of using the maximum 1,280 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
 
 ## Example configuration
 

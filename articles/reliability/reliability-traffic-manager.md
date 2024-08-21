@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: overview
 ms.custom: subject-reliability, references-regions
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.date: 02/06/2024
 ---
 

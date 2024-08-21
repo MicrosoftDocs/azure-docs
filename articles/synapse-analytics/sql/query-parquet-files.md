@@ -3,7 +3,7 @@ title: Query Parquet files using serverless SQL pool
 description: In this article, you'll learn how to query Parquet files using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 02/15/2023

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: quickstart
 ms.date: 05/30/2024
 ms.author: greglin

@@ -1,7 +1,7 @@
 ---
 title: Find and use marketplace purchase plan information using PowerShell
 description: Use Azure PowerShell to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.date: 03/17/2021
@@ -10,9 +10,6 @@ ms.author: edewebolton
 ms.custom: devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -47,14 +44,13 @@ $domainNameLabel = "d" + $rgname
 $securePassword = <Password> | ConvertTo-SecureString -AsPlainText -Force
 $username = <Username>
 $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
-New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -image CentOS85Gen285Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
+New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -image Ubuntu2204 -Credential $credential -DomainNameLabel $domainNameLabel
 ```
 
 The Linux image alias names and their details are:
 ```output
 Alias                     Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Version
 -----------------------   --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ ---------
-CentOS85Gen2              x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                               latest
 Debian11                  x64             Debian-11                     Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                      latest
 FlatcarLinuxFreeGen2      x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                             latest
 OpenSuseLeap154Gen2       x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                            latest

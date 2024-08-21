@@ -3,7 +3,7 @@ title: Use managed identities to access Azure Cosmos DB from an Azure Stream A
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Cosmos DB output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.custom: subject-rbac-steps
@@ -44,7 +44,7 @@ For the Stream Analytics job to access your Azure Cosmos DB using managed identi
 | Cosmos DB Built-in Data Contributor|
 
 > [!IMPORTANT]
-> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Microsoft Entra ID for your Azure Cosmos DB account, please see [configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account documentation.](../cosmos-db/how-to-setup-rbac.md)
+> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Microsoft Entra ID for your Azure Cosmos DB account, please see [configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account documentation.](/azure/cosmos-db/how-to-setup-rbac)
 
 The following command can be used to authenticate your ASA job with Azure Cosmos DB. The `$accountName` and `$resourceGroupName` are for your Azure Cosmos DB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your Azure Cosmos DB account for this command to work properly.
 

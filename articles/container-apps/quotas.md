@@ -3,7 +3,7 @@ title: Quotas for Azure Container Apps
 description: Learn about quotas for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual

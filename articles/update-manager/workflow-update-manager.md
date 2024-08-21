@@ -58,7 +58,7 @@ Azure Update Manager honors the update source settings on the machine and will f
 
 #### [Windows](#tab/update-win)
 
-If the [Windows Update Agent (WUA)](https://learn.microsoft.com/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM will honor these settings. For more information, see how to [configure Windows Update client](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
+If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM will honor these settings. For more information, see how to [configure Windows Update client](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
 
 #### [Linux](#tab/update-lin)
 
@@ -77,7 +77,7 @@ AUM performs the following steps:
 
 ## Updates data stored in Azure Resource Graph
 
-Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) where data is retained for below time periods:
+Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](/azure/governance/resource-graph/overview) where data is retained for below time periods:
 
 |Data              | Retention period in Azure Resource graph                                       |
 |------------------|---------------------------------------------------|

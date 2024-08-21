@@ -3,7 +3,7 @@ title: Import data (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

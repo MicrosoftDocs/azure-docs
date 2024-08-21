@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
-services: iot-hub, event-grid
 author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial

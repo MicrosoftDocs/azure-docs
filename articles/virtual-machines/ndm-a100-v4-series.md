@@ -3,7 +3,7 @@ title: NDm A100 v4-series
 description: Specifications for the NDm A100 v4-series VMs.
 author: sherrywangms
 ms.author: sherrywang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/13/2023

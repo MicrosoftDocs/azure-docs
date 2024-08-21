@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for UK OFFICIAL and UK NHS
 description: Details of the UK OFFICIAL and UK NHS Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/15/2024
+ms.date: 08/16/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in UK OFFICIAL and UK
 For more information about this compliance standard, see
 [UK OFFICIAL and UK NHS](https://www.gov.uk/government/publications/government-security-classifications). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **UK OFFICIAL and UK NHS** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete

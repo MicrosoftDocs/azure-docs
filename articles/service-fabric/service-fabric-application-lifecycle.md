@@ -2,7 +2,7 @@
 title: Application lifecycle in Service Fabric
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
 service: service-fabric
-ms.service: service-fabric
+ms.service: azure-service-fabric
 author: tomvcassidy
 ms.author: tomcassidy
 ms.topic: conceptual

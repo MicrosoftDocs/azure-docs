@@ -3,7 +3,7 @@ title: Troubleshooting in Azure Container Apps
 description: Learn to troubleshoot an Azure Container Apps application.
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/14/2024
 ms.author: v-wellsjason

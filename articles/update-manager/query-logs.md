@@ -4,7 +4,7 @@ description: This article provides details on how Access Azure Update Manager op
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/23/2024
+ms.date: 08/02/2024
 ms.topic: conceptual
 ---
 
@@ -36,7 +36,7 @@ The table `patchassessmentresources` includes resources related to machine patch
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource. |
+| `TAGS` | Intentionally left blank for future use. |
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
@@ -88,7 +88,7 @@ The table `patchinstallationresources` includes resources related to machine pat
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource.	|
+| `TAGS` | Intentionally left blank for future use.	|
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
@@ -148,7 +148,7 @@ The table `maintenanceresources` includes resources related to maintenance confi
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource.	|
+| `TAGS` | Intentionally left blank for future use.	|
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |

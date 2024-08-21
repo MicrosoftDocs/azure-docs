@@ -2,7 +2,7 @@
 title: Apply the Key Vault VM extension in Azure Cloud Services (extended support) 
 description: Learn about the Key Vault VM extension for Windows and how to enable it in Azure Cloud Services.
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
@@ -31,7 +31,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 
 ### Enable the Azure Key Vault VM extension
 
-1. [Generate a certificate](../key-vault/certificates/create-certificate-signing-request.md) in your vault and download the .cer file for that certificate.
+1. [Generate a certificate](/azure/key-vault/certificates/create-certificate-signing-request) in your vault and download the .cer file for that certificate.
 
 2. In the [Azure portal](https://portal.azure.com), go to **App registrations**.
     
@@ -51,7 +51,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 6. Grant the Microsoft Entra app secret permissions in Key Vault:
    
     - If you're using a role-based access control (RBAC) preview, search for the name of the Microsoft Entra app that you created and assign it to the Key Vault Secrets User (preview) role.
-    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](../key-vault/general/assign-access-policy-portal.md).
+    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](/azure/key-vault/general/assign-access-policy-portal).
 
 7. Install the Key Vault VM extension by using the Azure Resource Manager template snippet for the `cloudService` resource:
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of common error codes and corresponding mitigation methods for Azure Instance Metadata Service (IMDS) when retrieving load balancer information.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender

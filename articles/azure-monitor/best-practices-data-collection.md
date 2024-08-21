@@ -4,7 +4,7 @@ description: Guidance and recommendations for configuring data collection in Azu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/31/2023
+ms.date: 07/26/2024
 ms.reviewer: bwren
 
 ---
@@ -81,7 +81,7 @@ Virtual machines generate similar data as other Azure resources, but they requir
 
 ## Monitor containers
 
-Containers generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
+Containers generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](/azure/aks/monitor-aks?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
 
 ## Monitor applications
 

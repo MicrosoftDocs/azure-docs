@@ -1,7 +1,7 @@
 ---
 title: An introduction to Apache Kafka on HDInsight - Azure 
 description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 05/09/2024

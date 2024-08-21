@@ -4,7 +4,7 @@ description: Understand what faults and actions are in Azure Chaos Studio. What 
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.custom: template-concept

@@ -58,15 +58,11 @@ Go to your resource in the Azure portal. The **Keys and Endpoint** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
 
 Add additional environment variables for the deployment name and API version: 
 * `AZURE_OPENAI_DEPLOYMENT_NAME`: Your deployment name as shown in the Azure portal.
 * `OPENAI_API_VERSION`: Learn more about [API Versions](/azure/ai-services/openai/concepts/model-versions).
-
-Create and assign persistent environment variables for your key and endpoint.
 
 # [Command Line](#tab/command-line)
 
@@ -118,7 +114,7 @@ To use the service key for authentication, you can create and run an assistant w
 
 #### [JavaScript](#tab/javascript)
 
-Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless Javascript module (index.mjs):
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless JavaScript module (index.mjs):
 
 :::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
 
@@ -148,7 +144,7 @@ It is important to remember that while the code interpreter gives the model the 
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Sample code

@@ -1,7 +1,7 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 author: johnjrayborn
 manager: edprice
@@ -79,7 +79,7 @@ Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azur
 
 Azure offers commitment-based service-level agreements (SLAs). Multiple-nines availability is the default, and SLAs can be optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
+With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ### Scalability
 

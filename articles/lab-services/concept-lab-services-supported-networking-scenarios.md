@@ -3,7 +3,7 @@ title: Supported networking scenarios
 titleSuffix: Azure Lab Services
 description: Learn about the supported networking scenarios and architectures for lab plans in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual

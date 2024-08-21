@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to add a dual stack network to an existing virtual machine using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 07/24/2024
@@ -229,23 +229,21 @@ New-AzPublicIpAddress @ip6
 
 # [Azure portal](#tab/azureportal)
 
-The virtual machine must be stopped to add the IPv6 configuration to the existing virtual machine. You stop the virtual machine and add the IPv6 configuration to the existing virtual machine's network interface.
+In this section, you will configure your virtual machine’s network interface to include both a private and a public IPv6 address.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM** or your existing virtual machine name.
 
-3. Stop **myVM**.
+3. Select **Networking** in **Settings**.
 
-4. Select **Networking** in **Settings**.
+4. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
 
-5. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
+5. Select **IP configurations** in **Settings** of the network interface.
 
-6. Select **IP configurations** in **Settings** of the network interface.
+6. In **IP configurations**, select **+ Add**.
 
-7. In **IP configurations**, select **+ Add**.
-
-8. Enter or select the following information in **Add IP configuration**.
+7. Enter or select the following information in **Add IP configuration**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -257,8 +255,6 @@ The virtual machine must be stopped to add the IPv6 configuration to the existin
     | Public IP address | Select **myPublic-IPv6**. |
 
 9. Select **OK**.
-
-10. Start **myVM**.
 
 # [Azure CLI](#tab/azurecli/)
 

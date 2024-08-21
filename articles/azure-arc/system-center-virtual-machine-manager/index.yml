@@ -18,10 +18,8 @@ landingContent:
         links:
           - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
             url: overview.md
-      - linkListType: concept
-        links:
-          - text: Azure Arc agent
-            url: agent-overview-scvmm.md  
+          - text: Plan for deployment
+            url: support-matrix-for-system-center-virtual-machine-manager.md
                 
   - title: Get started with Arc-enabled SCVMM
     linkLists:
@@ -33,24 +31,34 @@ landingContent:
         links:
           - text: Create a VM on SCVMM using Azure Arc
             url: create-virtual-machine.md
-
+      
   - title: Use Azure to manage SCVMM VMs
     linkLists:
       - linkListType: how-to-guide
         links:  
           - text: Enable SCVMM inventory resources in Azure
             url: enable-scvmm-inventory-resources.md
+          - text: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
+            url: enable-virtual-hardware-scvmm.md
           - text: Set up and manage self-service access to SCVMM resources
             url: set-up-and-manage-self-service-access-scvmm.md
+          - text: Manage SCVMM VMs in Azure through Arc-enabled SCVMM
+            url: perform-vm-ops-on-scvmm-through-azure.md
           - text: Install Arc agent at scale for your SCVMM VMs
             url: enable-guest-management-at-scale.md
-          - text: Install Arc agent using a script for SCVMM VMs
+          - text: Install Arc agent at scale for your SCVMM VMs
             url: install-arc-agents-using-script.md
-          
+          - text: Deliver ESUs for SCVMM VMs through Arc
+            url: deliver-esus-for-system-center-virtual-machine-manager-vms.md
+          - text: Perform ongoing administration for Arc-enabled SCVMM
+            url: administer-arc-scvmm.md
+
   - title: Reference
     linkLists:
       - linkListType: reference
         links:  
           - text: Azure CLI
             url: /cli/azure/scvmm
+          - text: REST API
+            url: /rest/api/azure-arc-scvmm/operation-groups
   

@@ -3,8 +3,8 @@ title: Authorize requests to Azure SignalR Service resources with Microsoft Entr
 description: This article provides information about authorizing requests to Azure SignalR Service resources by using Microsoft Entra managed identities.
 author: vicancy
 ms.author: lianwei
-ms.date: 03/28/2023
-ms.service: signalr
+ms.date: 07/28/2024
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: subject-rbac-steps
@@ -76,9 +76,18 @@ To learn more about how to assign and manage Azure roles, see these articles:
 
 #### Use a system-assigned identity
 
-You can use either [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) or [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) to configure your Azure SignalR Service endpoints. The best practice is to use `ManagedIdentityCredential` directly.
+Azure SignalR SDK supports identity based connection string. If the configuration is set in App Server's environment variables, you don't need to redeploy App Server but simply a configuration change to migrate from Access Key to MSI. For example, update your App Server's environment variable `Azure__SignalR__ConnectionString` to `Endpoint=https://<resource1>.service.signalr.net;AuthType=azure.msi;Version=1.0;`. Or set in DI code.
 
-The system-assigned managed identity is used by default, but *make sure that you don't configure any environment variables* that [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) preserved if you use `DefaultAzureCredential`. Otherwise, Azure SignalR Service falls back to use `EnvironmentCredential` to make the request, which usually results in an `Unauthorized` response.
+```C#
+services.AddSignalR().AddAzureSignalR("Endpoint=https://<resource1>.service.signalr.net;AuthType=azure.msi;Version=1.0;");
+```
+
+Besides, you can use either [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) or [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) to configure your Azure SignalR Service endpoints. The best practice is to use `ManagedIdentityCredential` directly.
+
+Notice that system-assigned managed identity is used by default, but *make sure that you don't configure any environment variables* that [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) preserved if you use `DefaultAzureCredential`. Otherwise, Azure SignalR Service falls back to use `EnvironmentCredential` to make the request, which usually results in an `Unauthorized` response. 
+
+> [!IMPORTANT]
+> Remove `Azure__SignalR__ConnectionString` if there was from environment variables in this way. `Azure__SignalR__ConnectionString` will be used to build default `ServiceEndpoint` with first priority and may leads your App Server use Access Key unexpectedly.
 
 ```C#
 services.AddSignalR().AddAzureSignalR(option =>
@@ -97,15 +106,25 @@ Provide `ClientId` while creating the `ManagedIdentityCredential` object.
 > [!IMPORTANT]
 > Use the client ID, not the object (principal) ID, even if they're both GUIDs.
 
+Use identity based connection string.
+
+```C#
+services.AddSignalR().AddAzureSignalR("Endpoint=https://<resource1>.service.signalr.net;AuthType=azure.msi;ClientId=<your-user-identity-client-id>;Version=1.0;");
+```
+
+Or build `ServiceEndpoint` with `ManagedIdentityCredential`.
+
 ```C#
 services.AddSignalR().AddAzureSignalR(option =>
 {
     option.Endpoints = new ServiceEndpoint[]
     {
-        var clientId = "<your identity client id>";
+        var clientId = "<your-user-identity-client-id>";
         new ServiceEndpoint(new Uri("https://<resource1>.service.signalr.net"), new ManagedIdentityCredential(clientId)),
     };
+});
 ```
+
 
 ### Azure SignalR Service bindings in Azure Functions
 

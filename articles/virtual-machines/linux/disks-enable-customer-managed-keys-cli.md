@@ -23,7 +23,7 @@ For now, customer-managed keys have the following restrictions:
 
 ## Create resources
 
-Once the feature is enabled, you'll need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
+Once the feature is enabled, you'll need to set up a DiskEncryptionSet and either an [Azure Key Vault](/azure/key-vault/general/overview) or an [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview).
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 

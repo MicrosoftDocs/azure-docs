@@ -7,14 +7,12 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devdivchpfy22, engagement
-ms.date: 11/17/2023
+ms.date: 08/14/2024
 ---
 
 # Debug exceptions in .NET applications using Snapshot Debugger
 
-With Snapshot Debugger, you can automatically collect a debug snapshot when an exception occurs in your live .NET application. Debug snapshots collected show the state of source code and variables at the moment the exception was thrown.
-
-The Snapshot Debugger in [Application Insights](../app/app-insights-overview.md):
+When enabled, Snapshot Debugger automatically collects a debug snapshot of the source code and variables when an exception occurs in your live .NET application. The Snapshot Debugger in [Application Insights](../app/app-insights-overview.md):
 
 - Monitors system-generated logs from your web app.
 - Collects snapshots on your top-throwing exceptions.
@@ -37,12 +35,12 @@ Snapshot collection is available for:
 
 The following environments are supported:
 
-* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Functions](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
-* [Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
-* [Azure Virtual Machines and Azure Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
-* [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later or Windows 8.1 or later
+- [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
+- [Azure Functions](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
+- [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
+- [Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
+- [Azure Virtual Machines and Azure Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
+- [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later or Windows 8.1 or later
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms, or UWP) aren't supported.
@@ -67,7 +65,7 @@ The Snapshot Debugger is implemented as an [Application Insights telemetry proce
 
 ### Snapshot Debugger process
 
-The Snapshot Debugger process starts and ends with the `TrackException` method. A process snapshot is a suspended clone of the running process, so that your users experience little to no interruption.
+The Snapshot Debugger process starts and ends with the `TrackException` method. A process snapshot is a suspended clone of the running process, so that your users experience little to no interruption. In a typical scenario:
 
 1. Your application throws the [`TrackException`](../app/asp-net-exceptions.md#exceptions).
 
@@ -96,7 +94,7 @@ The Snapshot Debugger process starts and ends with the `TrackException` method. 
 
 ### Snapshot Uploader process
 
-While the Snapshot Debugger process continues to run and serve traffic to users with little interruption, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader:
+While the Snapshot Debugger process continues to run and serve traffic to users with little interruption, the snapshot is handed off to the Snapshot Uploader process. In a typical scenario, the Snapshot Uploader:
 
 1. Creates a minidump.  
 
@@ -106,6 +104,12 @@ While the Snapshot Debugger process continues to run and serve traffic to users 
 > No more than 50 snapshots per day can be uploaded.
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
+
+## Upgrading Snapshot Debugger
+
+Snapshot Debugger auto-upgrades via the built-in, preinstalled Application Insights site extension. 
+
+Manually adding an Application Insights site extension to keep Snapshot Debugger up-to-date is deprecated.  
 
 ## Overhead
 

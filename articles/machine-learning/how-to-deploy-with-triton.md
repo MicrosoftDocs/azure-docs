@@ -3,7 +3,7 @@ title: High-performance model serving with Triton
 titleSuffix: Azure Machine Learning
 description: 'Learn to deploy your model with NVIDIA Triton Inference Server in Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.date: 11/09/2023
 ms.topic: how-to

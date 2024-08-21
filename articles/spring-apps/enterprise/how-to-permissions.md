@@ -3,7 +3,7 @@ title: "Use permissions in Azure Spring Apps"
 description: This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-jenkins

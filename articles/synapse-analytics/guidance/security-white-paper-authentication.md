@@ -4,7 +4,7 @@ description: Implement authentication mechanisms with Azure Synapse Analytics.
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---

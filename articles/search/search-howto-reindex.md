@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 08/14/2024
 ---
 
 # Update or rebuild an index in Azure AI Search
@@ -43,9 +43,11 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + [Indexers automate incremental indexing](search-indexer-overview.md). If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, or overwrite searchable content so that it's synchronized to your external data.
 
-+ If you're making index calls directly, use `mergeOrUpload` as the search action.
++ If you're making index calls directly through the [push API](search-what-is-data-import.md#pushing-data-to-an-index), use `mergeOrUpload` as the search action.
 
 + The payload must include the keys or identifiers of every document you want to add, update, or delete.
+
++ If your index includes vector fields and you set the [`stored` property to false](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage), make sure you provide the vector in your partial document update, even if the value is unchanged. A side effect of setting `stored` to false is that vectors are dropped on a reindexing operation. Providing the vector in the documents payload prevents this from happening.
 
 + To update the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
@@ -55,12 +57,12 @@ Here's a [REST API example](search-get-started-rest.md) demonstrating these tips
 
 ```rest
 ### Get Secret Point Hotel by ID
-GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-01  HTTP/1.1
+GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 
 ### Change the description, city, and tags for Secret Point Hotel
-POST {{baseUrl}}/indexes/hotels-vector-quickstart/docs/search.index?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes/hotels-vector-quickstart/docs/search.index?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -79,7 +81,7 @@ POST {{baseUrl}}/indexes/hotels-vector-quickstart/docs/search.index?api-version=
     }
        
 ### Retrieve the same document, confirm the overwrites and retention of all other values
-GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-01  HTTP/1.1
+GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```
@@ -169,17 +171,17 @@ Deleting a document doesn't immediately free up space in the index. Every few mi
 1. [Look up the document](/rest/api/searchservice/documents/get) to verify the value of the document ID and to review its content before deleting it. Specify the key or document ID in the request. The following examples illustrate a simple string for the [Hotels sample index](search-get-started-portal.md) and a base-64 encoded string for the metadata_storage_path key of the [cog-search-demo index](cognitive-search-tutorial-blob.md).
 
     ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2023-11-01
+    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2024-07-01
     ```
 
     ```http
-    GET https://[service name].search.windows.net/indexes/cog-search-demo/docs/aHR0cHM6Ly9oZWlkaWJsb2JzdG9yYWdlMi5ibG9iLmNvcmUud2luZG93cy5uZXQvY29nLXNlYXJjaC1kZW1vL2d1dGhyaWUuanBn0?api-version=2023-11-01
+    GET https://[service name].search.windows.net/indexes/cog-search-demo/docs/aHR0cHM6Ly9oZWlkaWJsb2JzdG9yYWdlMi5ibG9iLmNvcmUud2luZG93cy5uZXQvY29nLXNlYXJjaC1kZW1vL2d1dGhyaWUuanBn0?api-version=2024-07-01
     ```
 
 1. [Delete the document](/rest/api/searchservice/documents) using a delete `@search.action` to remove it from the search index.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2024-07-01
     Content-Type: application/json   
     api-key: [admin key] 
     {  

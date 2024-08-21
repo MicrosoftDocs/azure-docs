@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
 ms.author: jburchel
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ---
 
 # Azure Synapse Analytics monitoring data reference

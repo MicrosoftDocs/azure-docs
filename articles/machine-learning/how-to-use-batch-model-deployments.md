@@ -3,7 +3,7 @@ title: 'Deploy models for scoring in batch endpoints'
 titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint to continuously batch score large data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

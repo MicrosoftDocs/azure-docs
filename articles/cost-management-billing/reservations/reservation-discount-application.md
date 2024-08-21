@@ -58,7 +58,7 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)
-- [Database for PostgreSQL](../../postgresql/single-server/concept-reserved-pricing.md)
+- [Database for PostgreSQL](/azure/postgresql/single-server/concept-reserved-pricing)
 - [Databricks](reservation-discount-databricks.md)
 - [Data Explorer](understand-azure-data-explorer-reservation-charges.md)
 - [Dedicated Hosts](billing-understand-dedicated-hosts-reservation-charges.md)

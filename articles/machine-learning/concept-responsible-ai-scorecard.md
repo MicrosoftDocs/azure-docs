@@ -3,8 +3,8 @@ title: Share Responsible AI insights and make data-driven decisions with Azure M
 titleSuffix: Azure Machine Learning
 description: Learn about how to use the Responsible AI scorecard to share responsible AI insights from your machine learning models and make data-driven decisions with non-technical and technical stakeholders.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  conceptual
 ms.author: lagayhar
 author: lgayhardt

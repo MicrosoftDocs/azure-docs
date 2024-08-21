@@ -3,7 +3,7 @@ title: Limitations with Azure Virtual Network Manager
 description: Learn about current limitations when you're using Azure Virtual Network Manager to manage virtual networks.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.custom: template-concept

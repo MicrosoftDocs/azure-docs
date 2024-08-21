@@ -2,7 +2,7 @@
 title: Override SKU information over CSCFG/CSDEF for Azure Cloud Services (extended support)
 description: This article describes how to override SKU information in .cscfg and .csdef files for Azure Cloud Services (extended support).
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw

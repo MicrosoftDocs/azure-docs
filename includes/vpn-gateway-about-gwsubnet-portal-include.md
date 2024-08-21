@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 07/08/2024
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 

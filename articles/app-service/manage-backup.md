@@ -33,7 +33,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 | Pricing tiers | **Basic**, **Standard**, **Premium**, **Isolated**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
+| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
@@ -324,8 +324,8 @@ When [backing up over an Azure Virtual Network](#back-up-and-restore-over-azure-
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
 
-* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you get backup failures.
-* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you get backup failures.
+* Backups of [TLS enabled Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
+* Backups of [TLS enabled Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
 
 #### What happens if the backup size exceeds the allowable maximum?

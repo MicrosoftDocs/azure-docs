@@ -2,7 +2,7 @@
 title: Compare Azure Migrate and Site Recovery for migration to Azure
 description: Summarizes the advantages of using Azure Migrate for migration instead of Site Recovery.
 services: site-recovery
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 10/31/2023
 ms.author: ankitadutta

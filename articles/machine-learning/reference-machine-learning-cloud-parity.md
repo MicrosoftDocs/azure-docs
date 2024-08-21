@@ -3,7 +3,7 @@ title: Feature availability across cloud regions
 titleSuffix: Azure Machine Learning
 description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure operated by 21Vianet regions.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

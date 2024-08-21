@@ -4,7 +4,7 @@ description: Learn how to ensure application reliability in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
 ms.date: 10/23/2023

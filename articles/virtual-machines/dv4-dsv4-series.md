@@ -3,7 +3,7 @@ title: Dv4 and Dsv4-series - Azure Virtual Machines
 description: Specifications for the Dv4 and Dsv4-series VMs.
 author: andysports8
 ms.author: shuji
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/19/2022

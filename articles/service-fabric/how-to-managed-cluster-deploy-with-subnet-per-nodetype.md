@@ -1,10 +1,10 @@
 ---
 title: Deploy a Service Fabric managed cluster with a subnet per NodeType
-description: This article provides the configuration necessary to deploy a Service Fabric managed cluster with different subnets per secondary NodeType.
+description: This article provides the configuration necessary to deploy a Service Fabric managed cluster with different subnets per NodeType.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 05/17/2024
@@ -12,7 +12,9 @@ ms.date: 05/17/2024
 
 # Deploy a Service Fabric managed cluster with a subnet per NodeType
 
-Service Fabric managed clusters now supports different subnets per secondary NodeType in a [Bring-Your-Own-Virtual-Network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network). With different subnets per NodeType, customers can have specific applications deployed to specific subnets and utilize traffic management via Network Security Group (NSG) rules. Customers can expect increased network isolation for their deployments through this configuration.
+Service Fabric managed clusters now supports different subnets per NodeType in a [Bring-Your-Own-Virtual-Network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network). With different subnets per NodeType, customers can have specific applications deployed to specific subnets and utilize traffic management via Network Security Group (NSG) rules. Customers can expect increased network isolation for their deployments through this configuration. This feature works on both primary and secondary NodeTypes.
+
+
 
 ## Prerequisites
 
@@ -40,7 +42,6 @@ Subnet per NodeType only works for Service Fabric API version `2022-10-01 previe
 
 ## Considerations and limitations
 
-* **Only secondary NodeTypes** can support subnet per NodeType.
 * For existing clusters in a Bring-Your-Own-Virtual-Network configuration with a `subnetId` specified, enabling subnet per NodeType overrides the existing value for the current NodeType.
 * For new clusters, customers need to specify `useCustomVNet : true` at the cluster level. This setting indicates that the cluster uses Bring-Your-Own-Virtual-Network but that the subnet is specified at the NodeType level. For such clusters, a virtual network isn't created in the managed resource group. For such clusters, the `subnetId` property is required for NodeTypes.
 

@@ -57,9 +57,9 @@ Text and image models support Drugs as an additional classification. This catego
 
 
 
-[!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
+[!INCLUDE [severity-levels text, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
-[!INCLUDE [image severity-levels](../../content-safety/includes/severity-levels-image.md)]
+[!INCLUDE [severity-levels image](../../content-safety/includes/severity-levels-image.md)]
 
 ## Prompt shield content
 

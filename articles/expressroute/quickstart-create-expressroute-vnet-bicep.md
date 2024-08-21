@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 06/30/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 

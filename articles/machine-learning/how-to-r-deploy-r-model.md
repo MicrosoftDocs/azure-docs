@@ -2,7 +2,7 @@
 title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to

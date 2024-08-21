@@ -58,7 +58,7 @@ The neural text to speech avatar models are trained using deep neural networks b
 
 The custom text to speech avatar can work with a prebuilt neural voice or custom neural voice as the avatar's voice. For more information, see [Avatar voice and language](./what-is-text-to-speech-avatar.md#avatar-voice-and-language).
 
-[Custom neural voice](../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
+[Custom neural voice](../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you choose to use them together, you need to apply for [custom neural voice](https://aka.ms/customneural) and [custom text to speech avatar](https://aka.ms/customneural) separately, and you will be charged separately for custom neural voice and custom text to speech avatar. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Additionally, if you plan to use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations). 
 
 ## Next steps
 

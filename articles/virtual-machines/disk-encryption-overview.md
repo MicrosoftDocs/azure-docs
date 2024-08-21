@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.date: 07/17/2024
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.custom: references_regions
 ---

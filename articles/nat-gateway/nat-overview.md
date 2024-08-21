@@ -6,7 +6,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: asudbring
 ms.service: nat-gateway
 ms.topic: conceptual
-ms.date: 04/29/2024
+ms.date: 08/12/2024
 ms.author: allensu
 ms.custom: FY23 content-maintenance
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
@@ -18,7 +18,7 @@ Azure NAT Gateway is a fully managed and highly resilient Network Address Transl
 
 NAT Gateway provides dynamic SNAT port functionality to automatically scale outbound connectivity and reduce the risk of SNAT port exhaustion. 
 
-:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address.":::
+:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address." lightbox="./media/nat-overview/flow-map.png":::
 
 *Figure: Azure NAT Gateway*
 

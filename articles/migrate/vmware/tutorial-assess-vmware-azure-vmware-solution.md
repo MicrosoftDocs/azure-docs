@@ -71,7 +71,7 @@ Run an assessment as follows:
    | --- | --- | ---
    Target settings | **Target location** | The Azure region to which you want to migrate. Size and cost recommendations are based on the location that you specify.
    Target settings | **Storage type** | Defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
-   Target settings | **Reserved instance** | Specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs. If you decide to use a reserved instance, you can't specify **Discount (%)**. [Learn more](https://learn.microsoft.com/azure/azure-vmware/reserved-instance) about reserved instances.
+   Target settings | **Reserved instance** | Specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs. If you decide to use a reserved instance, you can't specify **Discount (%)**. [Learn more](/azure/azure-vmware/reserved-instance) about reserved instances.
    VM size | **Node type** | Defaulted to **AV36**. Azure Migrate recommends the node needed to migrate the servers to AVS.
    VM size | **FTT setting, RAID level** | Select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
    VM size | **CPU Oversubscription** | Specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.

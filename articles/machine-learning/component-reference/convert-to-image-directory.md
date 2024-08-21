@@ -3,7 +3,7 @@ title: "Convert to Image Directory"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Convert to Image Directory component to Convert dataset to image directory format.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

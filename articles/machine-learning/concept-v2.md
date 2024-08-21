@@ -3,7 +3,7 @@ title: 'Azure Machine Learning CLI & SDK v2'
 titleSuffix: Azure Machine Learning
 description: This article explains the difference between the v1 and v2 versions of Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley

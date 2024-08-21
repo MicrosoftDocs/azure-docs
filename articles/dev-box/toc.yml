@@ -29,6 +29,9 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Azure role-based access control
+      displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
+      href: concept-dev-box-role-based-access-control.md
 - name: Plan
   expanded: true
   items:
@@ -72,14 +75,15 @@ items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
-    href: /windows-app/get-started-connect-devices-desktops-apps?pivots=dev-box&tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc?context=/azure/dev-box/context/context
-  - name: Connect with Remote Desktop App
+    displayName: connect, access dev box, RDP, iPad 
+    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Connect with Remote Desktop
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Troubleshoot dev box connectivity issues
-    href: how-to-troubleshoot-repair-dev-box.md
+  - name: Access a dev box with Task view
+    href: how-to-access-dev-box-task-view.md
 - name: Security
   items:
   - name: Provide access to project admins
@@ -108,6 +112,10 @@ items:
     href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
+- name: Troubleshooting
+  items: 
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-repair-dev-box.md
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension

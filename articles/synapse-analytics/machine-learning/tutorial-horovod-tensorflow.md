@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Distributed training with Horovod and TensorFlow (deprecated)'
 description: Tutorial on how to run distributed training with the Horovod Runner and TensorFlow
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 05/02/2024

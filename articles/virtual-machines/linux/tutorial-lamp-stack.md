@@ -3,7 +3,7 @@ title: Tutorial - Deploy LAMP and WordPress on a VM
 description: In this tutorial, you learn how to install the LAMP stack, and WordPress, on a Linux virtual machine in Azure.
 author: ju-shim
 ms.collection: linux
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.devlang: azurecli
 ms.custom: linux-related-content
 ms.topic: tutorial

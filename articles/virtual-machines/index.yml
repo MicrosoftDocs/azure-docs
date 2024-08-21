@@ -6,7 +6,7 @@ summary: Documentation for creating and managing virtual machines in Azure. # < 
 metadata:
   title: Virtual machines in Azure
   description: Documentation for creating and managing Linux virtual machines in Azure.
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman

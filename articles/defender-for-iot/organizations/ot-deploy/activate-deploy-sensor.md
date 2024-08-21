@@ -179,7 +179,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
     When prompted to confirm your password, enter your new password again. For more information, see [Default privileged users](../manage-users-sensor.md#default-privileged-users).
 
-    <does this happen immediately? unclear-->The `Package configuration` Linux configuration wizard opens. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
+    The `Package configuration` Linux configuration wizard opens. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
 
 1. In the wizard's `Select monitor interfaces` screen, select any of the interfaces you want to monitor with this sensor.
 

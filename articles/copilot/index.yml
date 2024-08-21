@@ -68,7 +68,7 @@ conceptualContent:
               text: Build infrastructure and deploy workloads
             - url: ./use-guided-deployments.md
               itemType: get-started
-              text: Create resources with guided deployments
+              text: Create resources with interactive deployments
             - url: ./work-aks-clusters.md
               itemType: get-started
               text: Work with AKS clusters efficiently
@@ -90,6 +90,9 @@ conceptualContent:
             - url: ./generate-powershell-scripts.md
               itemType: get-started
               text: Generate PowerShell scripts
+            - url: ./generate-terraform-configurations.md
+              itemType: get-started
+              text: Generate Terraform configurations
             - url: ./generate-kubernetes-yaml.md
               itemType: get-started
               text: Generate Kubernetes YAML files

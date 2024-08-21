@@ -2,9 +2,9 @@
 title: 'About gateway SKUs'
 description: Learn about VPN Gateway SKUs.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 08/15/2024
 ms.author: cherylmc 
 
 ---
@@ -46,42 +46,42 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 | ---    | ---         |
 |**Basic** (**)   | **Route-based VPN**: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1): 1 S2S/connection tunnel; no P2S|
 | **All Generation1 and Generation2 SKUs except Basic** | **Route-based VPN**: up to 100 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence |
-|        |             |
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+(\*\*) The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 ## <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test workloads
 
 Due to the differences in SLAs and feature sets, we recommend the following SKUs for production vs. dev-test:
 
-| **Workload**                       | **SKUs**               |
-| ---                                | ---                    |
+| **Workload**     | **SKUs**       |
+| ---         | ---             |
 | **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
 | **Dev-test or proof of concept**   | Basic (**)             |
-|                                    |                        |
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+
+(\*\*) The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 If you're using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md).
 
 ## About legacy SKUs
 
-For information about working with the legacy gateway SKUs (Basic, Standard, and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
+For information about working with the legacy gateway SKUs (Standard and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Specify a SKU
 
 You specify the gateway SKU when you create your VPN Gateway. See the following article for steps:
 
 * [Azure portal](tutorial-create-gateway-portal.md)
+* [PowerShell - Basic SKU](create-gateway-basic-sku-powershell.md)
 * [PowerShell](create-gateway-powershell.md)
 * [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 ## <a name="resizechange"></a>Change or resize a SKU
 
 > [!NOTE]
-> If you're working with a legacy gateway SKU (Basic, Standard, and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
+> If you're working with a legacy gateway SKU (Standard and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 [!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Create pre and post events (preview) using a webhook with Automation runbooks.
+title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
 ms.date: 07/24/2024
@@ -9,7 +9,7 @@ ms.author: sudhirsneha
 #Customer intent: As an IT admin, I want  create pre and post events using a webhook with Automation runbooks.
 ---
 
-# Tutorial: Create pre and post events (preview) using a webhook with Automation
+# Tutorial: Create pre and post events using a webhook with Automation
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
@@ -358,10 +358,10 @@ Invoke-AzRestMethod `
     1. Keep the schema as **Event Grid Schema**.
     1. In the **Event Types** section, **Filter to Event Types**. 
         1. Select **Pre Maintenance Event** for a pre-event.
-           - In the **Endpoint details** section, select the **Webhook** endpoint and select **Configure and Endpoint**.
+           - In the **Endpoint details** section, select the **Webhook** endpoint and select **Configure an Endpoint**.
            - Provide the appropriate details such as pre-event webhook **URL** to trigger the event.
         1. Select **Post Maintenance Event** for a post-event.
-            - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure and Endpoint**.
+            - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure an Endpoint**.
             - Provide the appropriate details such as post-event webhook **URL** to trigger the event.
     :::image type="content" source="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png" alt-text="Screenshot that shows the options to create the events subscriptions." lightbox="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png":::
 

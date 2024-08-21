@@ -3,7 +3,7 @@ title: TLS termination using CLI - Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin

@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 ms.author: aashishb
 author: aashishb
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ---
 

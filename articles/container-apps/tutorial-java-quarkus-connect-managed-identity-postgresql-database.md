@@ -5,16 +5,16 @@ ms.devlang: java
 author: KarlErickson
 ms.topic: tutorial
 ms.author: karler
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.date: 06/04/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
 
-[Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
+[Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
 
-This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](../postgresql/index.yml) database with a managed identity running on [Container Apps](overview.md).
+This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](/azure/postgresql/) database with a managed identity running on [Container Apps](overview.md).
 
 What you will learn:
 
@@ -57,7 +57,7 @@ az acr create \
 
 ## 3. Clone the sample app and prepare the container image
 
-This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](../postgresql/index.yml). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
+This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](/azure/postgresql/). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 

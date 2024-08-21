@@ -2,7 +2,7 @@
 title: Assign variables with Synapse SQL
 description: In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 author: azaricstefan 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020 

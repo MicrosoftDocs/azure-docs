@@ -3,9 +3,9 @@ title: Locations and connectivity providers for Azure ExpressRoute
 description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 08/19/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -73,7 +73,7 @@ The following table shows connectivity locations and the service providers for e
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | Supported | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | DE-CIX<br/>du datamena<br/>Equinix<br/>GBI<br/>Lightstorm<br/>Megaport<br/>Orange<br/>Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | Supported | CenturyLink Cloud Connect<br/>Colt<br/>eir<br/>Equinix<br/>GEANT<br/>euNetworks<br/>Interxion (Digital Realty)<br/>Megaport<br/>Zayo |
-| **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | InterCloud<br/>Interxion (Digital Realty)<br/>KPN<br/>Orange<br/>NL-IX |
+| **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | InterCloud<br/>Interxion (Digital Realty)<br/>KPN<br/><br/>Megaport<br/>NL-IX<br/>Orange |
 | **Frankfurt** | [Interxion FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt) | 1 | Germany West Central | Supported | AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>China Unicom Global<br/>Colt<br/>DE-CIX<br/>Equinix<br/>euNetworks<br/>GBI<br/>GEANT<br/>InterCloud<br/>Interxion (Digital Realty)<br/>Megaport<br/>NTT Global DataCenters EMEA<br/>Orange<br/>Telia Carrier<br/>T-Systems<br/>Verizon<br/>Zayo |
 | **Frankfurt2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germany West Central | Supported | DE-CIX<br/>Deutsche Telekom AG<br/>Equinix<br/>InterCloud<br/>Telefonica |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | Supported | Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>Swisscom |
@@ -111,7 +111,7 @@ The following table shows connectivity locations and the service providers for e
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | Supported |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | Supported | Airtel<br/>Lightstorm<br/>Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | Supported | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |
-| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | n/a | Supported | Cirion Technologies<br/>MCM Telecom<br/>Megaport<br/>Transtelco |
+| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | n/a | Supported | Cirion Technologies<br/>Equinix<br/>MCM Telecom<br/>Megaport<br/>Transtelco |
 | **Quincy** | Sabey Datacenter - Building A | 1 | West US 2 | Supported |  |
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | Supported | Cirion Technologies<br/>Equinix |
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | South Central US | Supported | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |

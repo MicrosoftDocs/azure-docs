@@ -4,7 +4,7 @@ description: Learn how to migrate deployments and resources to Virtual Machine S
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: flexible-scale-sets
 ms.date: 06/14/2024
 ms.reviewer: jushiman

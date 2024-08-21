@@ -2,7 +2,7 @@
 title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
 author: RicksterCDN
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.custom: linux-related-content
 ms.topic: conceptual
@@ -54,7 +54,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
     Names must use only 0-9, a-z, and '-', and they can't start or end with a '-'. See RFC 3696 Section 2.
 * DNS query traffic is throttled for each virtual machine. Throttling shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more information, see [Getting the most from name resolution that Azure provides](#getting-the-most-from-name-resolution-that-azure-provides).
 
-### Getting the most from name resolution that Azure provides\
+### Getting the most from name resolution that Azure provides
 
 **Client-side caching:**
 

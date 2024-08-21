@@ -1,12 +1,12 @@
 ---
 title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you create an app that converts text to speech. Learn about supported audio formats and custom configuration options.
+description: Learn how to create an app that converts text to speech, and explore supported audio formats and custom configuration options.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 01/29/2024
+ms.date: 08/07/2024
 ms.author: eur
 ms.devlang: cpp
 # ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python

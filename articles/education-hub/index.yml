@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: tfosmark 
   ms.author: rymend 
-  ms.date: 07/14/2020 
+  ms.date: 08/15/2024 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -22,12 +22,14 @@ landingContent:
         links:
           - text: What is Azure Dev Tools for Teaching?
             url: ./azure-dev-tools-teaching/about-program.md
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
           - text: Enroll in Azure Dev Tools for Teaching
             url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
           - text: Set up access
             url: ./azure-dev-tools-teaching/set-up-access.md
+      - linkListType: how-to-guide
+        links:
           - text: Manage students
             url: ./azure-dev-tools-teaching/manage-students.md
           - text: Download software
@@ -55,7 +57,13 @@ landingContent:
 
   - title: Azure Classroom
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with the Azure Education Hub
+            url: get-started-education-hub.md
       - linkListType: how-to-guide
         links:
+          - text: Manage your academic grant
+            url: hub-overview-page.md
           - text: Find IDs
             url: find-ids.md

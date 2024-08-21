@@ -3,7 +3,7 @@ title: 'Upgrade compute management to v2'
 titleSuffix: Azure Machine Learning
 description: Upgrade compute management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
 author: fbsolo-ms1

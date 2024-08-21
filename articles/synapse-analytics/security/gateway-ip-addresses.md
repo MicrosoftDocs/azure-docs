@@ -1,7 +1,7 @@
 ---
 title: Gateway IP addresses
 description: An article that teaches you what are the IP addresses used in different regions. 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security 
 ms.date: 03/23/2023 

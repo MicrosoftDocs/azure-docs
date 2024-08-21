@@ -6,7 +6,7 @@ author: kunaal
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 11/16/2023
+ms.date: 07/16/2024
 ms.author: kpunjabi
 ms.custom: public_preview
 services: azure-communication-services
@@ -354,5 +354,136 @@ if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionStopped") {
 ```python
 if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
     app.logger.info("Tone stoped: context=%s", event.data["operationContext"])
+```
+-----
+
+### Hold
+The hold action allows developers to temporarily pause a conversation between a participant and a system or agent. This can be useful in scenarios where the participant needs to be transferred to another agent or department or when the agent needs to consult a supervisor in the background before continuing the conversation. During this time you can choose to play audio to the participant that is on hold. 
+
+### [csharp](#tab/csharp)
+```csharp
+// Option 1: Hold without additional options
+await callAutomationClient.GetCallConnection(callConnectionId)
+    .GetCallMedia().HoldAsync(c2Target);
+
+/*
+// Option 2: Hold with play source
+PlaySource playSource = /* initialize playSource */;
+await callAutomationClient.GetCallConnection(callConnectionId)
+    .GetCallMedia().HoldAsync(c2Target, playSource);
+
+// Option 3: Hold with options
+var holdOptions = new HoldOptions(target) 
+{ 
+    OperationCallbackUri = new Uri(""),
+    OperationContext = "holdcontext"
+};
+await callMedia.HoldAsync(holdOptions);
+*/
+```
+
+### [java](#tab/java)
+```java
+// Option 1: Hold with options
+PlaySource playSource = /* initialize playSource */;
+HoldOptions holdOptions = new HoldOptions(target)
+    .setOperationCallbackUrl(appConfig.getBasecallbackuri())
+    .setPlaySource(playSource)
+    .setOperationContext("holdPstnParticipant");
+
+client.getCallConnection(callConnectionId).getCallMedia().holdWithResponse(holdOptions, Context.NONE);
+
+/*
+// Option 2: Hold without additional options
+client.getCallConnection(callConnectionId).getCallMedia().hold(target);
+*/
+```
+
+### [JavaScript](#tab/javascript)
+```javascript
+// Option 1: Hold with options
+const options = {
+    playSource: playSource,
+    operationContext: "holdUserContext",
+    operationCallbackUrl: "URL" // replace with actual callback URL
+};
+await callMedia.hold(targetuser, options);
+
+/*
+// Option 2: Hold without additional options
+await callMedia.hold(targetuser);
+*/
+```
+
+### [Python](#tab/python)
+```python
+# Option 1: Hold without additional options
+call_connection_client.hold(target_participant=PhoneNumberIdentifier(TARGET_PHONE_NUMBER))
+
+'''
+# Option 2: Hold with options
+call_connection_client.hold(
+    target_participant=PhoneNumberIdentifier(TARGET_PHONE_NUMBER),
+    play_source=play_source,
+    operation_context="holdUserContext",
+    operation_callback_url="URL" # replace with actual callback URL
+)
+'''
+```
+-----
+### Unhold
+The unhold action allows developers to resume a conversation between a participant and a system or agent that was previously paused. When the participant is taken off hold they will be able to hear the system or agent again. 
+
+### [csharp](#tab/csharp)
+``` csharp
+var unHoldOptions = new UnholdOptions(target) 
+{ 
+    OperationContext = "UnHoldPstnParticipant" 
+}; 
+
+// Option 1
+var UnHoldParticipant = await callMedia.UnholdAsync(unHoldOptions);
+
+/* 
+// Option 2
+var UnHoldParticipant = await callMedia.UnholdAsync(target);
+*/
+```
+
+### [java](#tab/java)
+``` java
+// Option 1
+client.getCallConnection(callConnectionId).getCallMedia().unholdWithResponse(target, "unholdPstnParticipant", Context.NONE);
+
+/* 
+// Option 2
+client.getCallConnection(callConnectionId).getCallMedia().unhold(target);
+*/
+```
+
+### [JavaScript](#tab/javascript)
+```javascript
+const unholdOptions = { 
+    operationContext: "unholdUserContext" 
+}; 
+
+// Option 1
+await callMedia.unhold(target);
+
+/* 
+// Option 2
+await callMedia.unhold(target, unholdOptions);
+*/
+```
+
+### [Python](#tab/python)
+```python
+# Option 1
+call_connection_client.unhold(target_participant=PhoneNumberIdentifier(TARGET_PHONE_NUMBER)) 
+
+'''
+# Option 2
+call_connection_client.unhold(target_participant=PhoneNumberIdentifier(TARGET_PHONE_NUMBER), operation_context="holdUserContext") 
+'''
 ```
 -----

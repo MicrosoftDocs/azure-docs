@@ -28,7 +28,7 @@ You must have:
 - An [Azure AI Search service connection](../../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. If you don't have an Azure AI Search service, you can create one from the [Azure portal](https://portal.azure.com/) or see the instructions [here](../../../search/search-create-service-portal.md).
 - Models for embedding:
     - You can use an ada-002 embedding model from Azure OpenAI. The instructions to deploy can be found [here](../deploy-models-openai.md).
-    - OR you can use any another embedding model deployed in your AI studio project. In this example we use Cohere multi-lingual embedding. The instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md).
+    - OR you can use any another embedding model deployed in your AI Studio project. In this example we use Cohere multi-lingual embedding. The instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md).
 
 ## Build and consume an index locally
 
@@ -88,9 +88,9 @@ local_index_aoai=build_index(
 
 The above code builds an index locally. It uses environment variables to get the AI Search service and also to connect to the Azure OpenAI embedding model. 
 
-### Build an index locally using other embedding models deployed in your AI studio project
+### Build an index locally using other embedding models deployed in your AI Studio project
 
-To create an index that uses an embedding model deployed in your AI studio project, we configure the connection to the model using a `ConnectionConfig` as shown below. The `subscription`, `resource_group` and `workspace` refers to the project where the embedding model is installed. The `connection_name` refers to the connection name for the model, which can be found in the AI Studio project settings page.
+To create an index that uses an embedding model deployed in your AI Studio project, we configure the connection to the model using a `ConnectionConfig` as shown below. The `subscription`, `resource_group` and `workspace` refers to the project where the embedding model is installed. The `connection_name` refers to the connection name for the model, which can be found in the AI Studio project settings page.
 
 ```python
 from promptflow.rag.config import ConnectionConfig
@@ -245,7 +245,7 @@ embeddings_model_config = IndexModelConfiguration.from_connection(
     deployment_name="text-embedding-ada-002")
 ```
 
-You can connect to embedding model deployed in your AI studio project (non Azure OpenAI models) using the serverless connection. 
+You can connect to embedding model deployed in your AI Studio project (non Azure OpenAI models) using the serverless connection. 
 
 ```python
 from azure.ai.ml.entities import IndexModelConfiguration

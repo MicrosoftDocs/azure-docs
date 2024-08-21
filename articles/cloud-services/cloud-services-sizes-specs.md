@@ -2,8 +2,8 @@
 title: Virtual machine sizes for Azure Cloud services (classic) | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 ms.topic: article
-ms.service: cloud-services
-ms.subservice: deployment-files
+ms.service: azure-cloud-services-classic
+ms.subservice: config-package-files
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

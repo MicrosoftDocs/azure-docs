@@ -3,7 +3,7 @@ title: Dplsv6-series specs include
 description: Include file containing specifications of Dplsv6-series VM sizes.
 author: tomvcassidy
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 07/22/2024
 ms.author: tomcassidy
@@ -12,7 +12,7 @@ ms.custom: include file, build-2024
 ---
 | Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor    | 2 - 96  vCores      | Azure Cobalt 100 [ARM-64]                      |
+| Processor    | 2 - 96  vCPUs      | Azure Cobalt 100 [Arm64]                     |
 | Memory       | 4 - 192  GiB          |                         |
 | Local Storage  | None                |                       |
 | Remote Storage   | 8 - 64 Disks     | 3750 - 199987 IOPS <br>106 - 5850 MBps     |

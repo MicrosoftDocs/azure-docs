@@ -4,7 +4,7 @@ description: How to use Visual Studio subscription benefits to deploy Windows 7,
 author: ebolton-cyber
 ms.author: edewebolton
 ms.subservice: imaging
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 12/15/2017
 ---

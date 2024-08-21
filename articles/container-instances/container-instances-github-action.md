@@ -4,7 +4,7 @@ description: Configure a GitHub Action that automates steps to build, push, and 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/07/2024
 ms.custom: github-actions-azure, devx-track-azurecli

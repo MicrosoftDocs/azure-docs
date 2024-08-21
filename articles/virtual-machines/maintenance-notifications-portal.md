@@ -1,7 +1,7 @@
 ---
 title: Use the portal for maintenance notifications
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the portal.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.date: 11/14/2022
@@ -59,6 +59,8 @@ Once you start maintenance, your virtual machine will be maintained and the main
 
 If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure.
 
+> [!NOTE]
+> In most cases, scheduled maintenance cannot be delayed. If you need a scheduled maintenance to be delayed, contact support and Azure will make a best-effort to postpone. 
 
 ## Next steps
 

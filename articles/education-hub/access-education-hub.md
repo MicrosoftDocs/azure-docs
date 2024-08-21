@@ -5,7 +5,7 @@ author: tfosmark
 ms.author: rymend
 ms.topic: quickstart
 ms.service: azure-education
-ms.date: 10/19/2022
+ms.date: 08/07/2024
 ms.custom: mode-other
 ---
 
@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 The email that you received to confirm your approval for an academic grant includes a [link to the Azure Education Hub](https://aka.ms/startedu) and an approved credit amount. Most sponsored academic offers include a Developer tier of Azure support for free.
 
-To use your academic grant, you must create a course in the Education Hub and use subscriptions within the course that will access your Azure credit. Start by signing in to the [Azure portal](https://portal.azure.com) so you can access the Education Hub.
+To use your academic grant, you must create a lab in the Education Hub and use subscriptions within the lab that will access your Azure credit. Start by signing in to the [Azure portal](https://portal.azure.com) so you can access the Education Hub.
 
 ## Authenticate through the Azure portal
 

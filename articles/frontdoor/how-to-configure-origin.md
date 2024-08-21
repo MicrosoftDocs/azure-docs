@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article explains how to configure origins in an origin group to use with your Azure Front Door profile.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/16/2024
 ms.author: duau

@@ -600,7 +600,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitoring options
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -629,7 +629,7 @@
               href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
               href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
-            - name: Authenticate with Twitter
+            - name: Authenticate with X
               href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
@@ -733,7 +733,7 @@
           href: functions-recover-storage-account.md
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
-          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
+          href: /azure/cosmos-db/troubleshoot-changefeed-functions?toc=/azure/azure-functions/toc.json
           displayName: troubleshoot
         - name: Node.js
           href: functions-node-troubleshoot.md
@@ -1117,8 +1117,8 @@
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-functions
-    - name: Twitter
-      href: https://twitter.com/azurefunctions
+    - name: X
+      href: https://x.com/azurefunctions
     - name: Provide product feedback
       href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository

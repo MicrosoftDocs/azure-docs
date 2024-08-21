@@ -3,7 +3,7 @@ title: "Run batch endpoints from Azure Data Factory"
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

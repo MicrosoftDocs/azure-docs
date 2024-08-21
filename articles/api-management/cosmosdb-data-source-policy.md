@@ -4,7 +4,7 @@ description: Reference for the cosmosdb-data-source resolver policy available fo
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 03/18/2024
@@ -15,7 +15,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](../cosmos-db/introduction.md) data source. The schema must be imported to API Management as a GraphQL API. 
+The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](/azure/cosmos-db/introduction) data source. The schema must be imported to API Management as a GraphQL API. 
 
 Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
 
@@ -111,8 +111,8 @@ Use the policy to configure a single query request, read request, delete request
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | [connection-info](#connection-info-elements)  |  Specifies connection to container in Cosmos DB database.    |   Yes     |
-| [query-request](#query-request-attributes)    |   Specifies settings for a [query request](../cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`      |
-| [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`   |
+| [query-request](#query-request-attributes)    |   Specifies settings for a [query request](/azure/cosmos-db/nosql/how-to-dotnet-query-items) to Cosmos DB container.    |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`      |
+| [read-request](#read-request-elements)    |  Specifies settings for a [read request](/azure/cosmos-db/nosql/how-to-dotnet-read-item) to Cosmos DB container.    |    Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`   |
 | [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`     |
 | [write-request](#write-request-attributes) | Specifies settings for a write request to Cosmos DB container.  |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request` |
 | [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response. If not specified, the response is returned from Cosmos DB as JSON. |    No |
@@ -145,8 +145,8 @@ Use the policy to configure a single query request, read request, delete request
 |----------|-----------------|--------------|
 |  sql-statement     |    A SQL statement for the query request.    |   No      |
 |  parameters     |   A list of query parameters, in [parameter](#parameter-attributes) subelements, for the query request.      |     No    |
-|  [partition-key](#partition-key-attributes)     |  A Cosmos DB [partition key](../cosmos-db/resource-model.md#azure-cosmos-db-containers) to route the query to the location in the container.       |     No    |
-|  [paging](#paging-elements)     |   Specifies  settings to split query results into multiple [pages](../cosmos-db/nosql/query/pagination.md).   |      No   |
+|  [partition-key](#partition-key-attributes)     |  A Cosmos DB [partition key](/azure/cosmos-db/resource-model#azure-cosmos-db-containers) to route the query to the location in the container.       |     No    |
+|  [paging](#paging-elements)     |   Specifies  settings to split query results into multiple [pages](/azure/cosmos-db/nosql/query/pagination).   |      No   |
 
 #### parameter attributes
 
@@ -158,8 +158,8 @@ Use the policy to configure a single query request, read request, delete request
 
 | Name|Description|Required|
 |----------|-----------------|--------------|
-|  [max-item-count](#max-item-count-attribute)     |    Specifies the [maximum number of items](../cosmos-db/nosql/query/pagination.md) returned by the query. Set to -1 if you don't want to place a limit on the number of results per query execution.   |   Yes      |
-| [continuation-token](#continuation-token-attribute) | Specifies the [continuation token](../cosmos-db/nosql/query/pagination.md#continuation-tokens) to attach to the query to get the next set of results.  | Yes |
+|  [max-item-count](#max-item-count-attribute)     |    Specifies the [maximum number of items](/azure/cosmos-db/nosql/query/pagination) returned by the query. Set to -1 if you don't want to place a limit on the number of results per query execution.   |   Yes      |
+| [continuation-token](#continuation-token-attribute) | Specifies the [continuation token](/azure/cosmos-db/nosql/query/pagination#continuation-tokens) to attach to the query to get the next set of results.  | Yes |
 
 #### max-item-count attribute
 
@@ -184,9 +184,9 @@ Use the policy to configure a single query request, read request, delete request
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| consistency-level | String. Sets the Cosmos DB [consistency level](../cosmos-db/consistency-levels.md) of the delete request. | No  | N/A   |
-| pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
-| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
+| consistency-level | String. Sets the Cosmos DB [consistency level](/azure/cosmos-db/consistency-levels) of the delete request. | No  | N/A   |
+| pre-trigger | String. Identifier of a [pre-trigger](/azure/cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
+| post-trigger | String. Identifier of a [post-trigger](/azure/cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
 
 ### delete-request elements
 
@@ -194,24 +194,24 @@ Use the policy to configure a single query request, read request, delete request
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item to delete in the container.      |  Yes          |
 | [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container.    |      No      |    
-| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](../cosmos-db/nosql/database-transactions-optimistic-concurrency.md#implementing-optimistic-concurrency-control-using-etag-and-http-headers).     |   No  |
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency#implementing-optimistic-concurrency-control-using-etag-and-http-headers).     |   No  |
 
 #### write-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | type | The type of write request: `insert`, `replace`, or `upsert`. | No  | `upsert`   |
-| consistency-level | String. Sets the Cosmos DB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
-| indexing-directive | The [indexing policy](../cosmos-db/index-policy.md) that determines how the container's items should be indexed.  | No  | `default`   |
-| pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
-| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
+| consistency-level | String. Sets the Cosmos DB [consistency level](/azure/cosmos-db/consistency-levels) of the write request.  | No  | N/A   |
+| indexing-directive | The [indexing policy](/azure/cosmos-db/index-policy) that determines how the container's items should be indexed.  | No  | `default`   |
+| pre-trigger | String. Identifier of a [pre-trigger](/azure/cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
+| post-trigger | String. Identifier of a [post-trigger](/azure/cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
 
 ### write-request elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item in the container.      |  Yes when `type` is `replace`.       |
-| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](../cosmos-db/nosql/database-transactions-optimistic-concurrency.md#implementing-optimistic-concurrency-control-using-etag-and-http-headers).      |   No  |
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency#implementing-optimistic-concurrency-control-using-etag-and-http-headers).      |   No  |
 | [set-body](set-body-policy.md)  |  Sets the body in the write request. If not provided, the request payload will map arguments into JSON format.| No  |
 
 ### response elements
@@ -413,7 +413,7 @@ documents.azure.com:443/;
 
 ### Construct parameter input for Cosmos DB query
 
-The following examples show ways to construct Cosmos DB [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md) using policy expressions. Choose a method based on the form of your parameter input.
+The following examples show ways to construct Cosmos DB [parameterized queries](/azure/cosmos-db/nosql/query/parameterized-queries) using policy expressions. Choose a method based on the form of your parameter input.
 
 The examples are based on the following sample GraphQL schema, and generate the corresponding Cosmos DB parameterized query.
 

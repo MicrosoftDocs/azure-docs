@@ -3,7 +3,7 @@ title: Use custom DNS server
 titleSuffix: Azure Machine Learning
 description: How to configure a custom DNS server to work with an Azure Machine Learning workspace and private endpoint.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: meerakurup 
 ms.author: larryfr
@@ -265,9 +265,6 @@ $workspaceDns.CustomDnsConfigs | format-table
 1. A list of the fully qualified domain names (FQDN) and IP addresses for the workspace private endpoint are at the bottom of the page.
 
     :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="List of FQDNs in the portal":::
-
-    > [!TIP]
-    > If the DNS settings do not appear at the bottom of the page, use the __DNS configuration__ link from the left side of the page to view the FQDNs.
 
 ---
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to deploy a container group with mu
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli, devx-track-arm-template

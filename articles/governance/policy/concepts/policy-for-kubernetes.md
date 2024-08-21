@@ -15,7 +15,7 @@ Azure Policy makes it possible to manage and report on the compliance state of y
 
 Azure Policy for Kubernetes supports the following cluster environments:
 
-- [Azure Kubernetes Service (AKS)](../../../aks/what-is-aks.md), through **Azure Policy's **Add-on** for AKS**
+- [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md), through **Azure Policy's **Extension** for Arc**
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
 1. You need the Azure CLI version 2.12.0 or later installed and configured. To find the version, run the `az --version` command. If you need to install or upgrade, see
    [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-1. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md). Use the following script to validate your AKS
+1. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive
@@ -741,7 +741,7 @@ aligns with how the add-on was installed:
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
--  [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](../../../aks/use-azure-policy.md).
+-  [AKS Pod security policy](/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](/azure/aks/use-azure-policy).
 -  Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.
 
 ## Frequently asked questions
@@ -789,8 +789,8 @@ collected:
 
 ### What are general best practices to keep in mind when installing the Azure Policy Add-on?
 
-  - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more information, see [Using system node pools](../../../aks/use-system-pools.md#system-and-user-node-pools).
-  - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](../../../aks/limit-egress-traffic.md) for cluster nodes.
+  - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more information, see [Using system node pools](/azure/aks/use-system-pools#system-and-user-node-pools).
+  - Secure outbound traffic from your AKS clusters. For more information, see [Control egress traffic](/azure/aks/limit-egress-traffic) for cluster nodes.
   - If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes' iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use `aad-pod-identity`.
   - AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` that any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with kubernetes.azure.com/managedby: aks label in kube-system namespace should be excluded in `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception). To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 

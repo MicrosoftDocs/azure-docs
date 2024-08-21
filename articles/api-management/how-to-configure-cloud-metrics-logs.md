@@ -4,7 +4,7 @@ description: Learn how to configure cloud metrics and logs for Azure API Managem
 services: api-management
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: danlep

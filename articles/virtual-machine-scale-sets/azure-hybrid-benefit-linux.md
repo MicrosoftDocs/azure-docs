@@ -4,7 +4,7 @@ description: Learn how Azure Hybrid Benefit can apply to Virtual Machine Scale S
 services: virtual-machine-scale-sets
 author: mathapli
 manager: rochakm
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
 ms.topic: conceptual

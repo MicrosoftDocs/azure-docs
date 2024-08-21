@@ -20,4 +20,4 @@ For example, systems can be configured so that keys are only released once code 
 
 CVMs rely on virtual Trusted Platform Modules (vTPM) you can read more about this in [Virtual TPMs in Azure](virtual-tpms-in-azure-confidential-vm.md)
 
-The [Azure Managed HSM](../key-vault/managed-hsm/overview.md) offering is [built on Confidential Computing technologies](../key-vault/managed-hsm/managed-hsm-technical-details.md) and can be used to enhance access control of secrets & keys for an application.
+The [Azure Managed HSM](/azure/key-vault/managed-hsm/overview) offering is [built on Confidential Computing technologies](/azure/key-vault/managed-hsm/managed-hsm-technical-details) and can be used to enhance access control of secrets & keys for an application.

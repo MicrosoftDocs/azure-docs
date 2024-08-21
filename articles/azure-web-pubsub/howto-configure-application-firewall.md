@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/10/2024
 ms.author: biqian
 ---
-# Application Firewall for Azure Web PubSub Service
+# Application Firewall (Preview) for Azure Web PubSub Service
 
 The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 
