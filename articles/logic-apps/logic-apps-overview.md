@@ -114,9 +114,9 @@ Some patterns and processes are easy to describe but hard to implement in code. 
 
 ### Create and deploy to different environments
 
-Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
+Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
 
-The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, integration service environment (ISE), single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -146,11 +146,11 @@ If no suitable connector is available to run the code you want, you can create a
 
 ### Direct access to resources in Azure virtual networks
 
-Logic app workflows can access secured resources such as virtual machines, other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use either [Azure Logic Apps (Standard)](single-tenant-overview-compare.md) or an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). Both Azure Logic Apps (Standard) and an ISE are instances of Azure Logic Apps that use dedicated resources and run separately from global multitenant Azure Logic Apps.
+Logic app workflows can access secured resources such as virtual machines, other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use [Azure Logic Apps (Standard)](single-tenant-overview-compare.md). Azure Logic Apps (Standard) is a single-tenant instance Azure Logic Apps that uses dedicated resources and runs separately from global, multitenant Azure Logic Apps.
 
 Hosting and running logic app workflows in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Azure Logic Apps (Standard) and an ISE also provide the following benefits:
+Azure Logic Apps (Standard) provides the following benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that logic apps share in multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
 
@@ -184,7 +184,7 @@ You can visually create workflows using the Azure Logic Apps workflow designer i
 
 ## Pricing options
 
-Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3), integration service environment), has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
+Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3)) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
 
 ## Get started
 

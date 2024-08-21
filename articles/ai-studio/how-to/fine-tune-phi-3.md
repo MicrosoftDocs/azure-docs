@@ -41,7 +41,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 ## [Phi-3-mini](#tab/phi-3-mini)
 
-The following models are available in Azure AI studio for Phi 3 when fine-tuning as a service with pay-as-you-go:
+The following models are available in Azure AI Studio for Phi 3 when fine-tuning as a service with pay-as-you-go:
 
 - `Phi-3-mini-4k-instruct` (preview)
 - `Phi-3-mini-128k-instruct` (preview)
@@ -50,7 +50,7 @@ Fine-tuning of Phi-3 models is currently supported in projects located in East U
 
 ## [Phi-3-medium](#tab/phi-3-medium)
 
-The following models are available in Azure AI studio for Phi 3 when fine-tuning as a service with pay-as-you-go:
+The following models are available in Azure AI Studio for Phi 3 when fine-tuning as a service with pay-as-you-go:
 
 - `Phi-3-medium-4k-instruct` (preview)
 - `Phi-3-medium-128k-instruct` (preview)
@@ -78,7 +78,7 @@ Verify the subscription is registered to the `Microsoft.Network` resource provid
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions** from the left menu.
 1. Select the subscription you want to use.
-1. Select **AI project settings** > **Resource providers** from the left menu.
+1. Select **Settings** > **Resource providers** from the left menu.
 1. Confirm that **Microsoft.Network** is in the list of resource providers. Otherwise add it.
 
 
@@ -117,13 +117,13 @@ To fine-tune a Phi-3 model:
 1. On the model's **Details** page, select **fine-tune**.
 
 1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **East US 2** region.
-1. On the fine-tune wizard, select the link to **Azure AI studio Terms** to learn more about the terms of use. You can also select the **Azure AI studio offer details** tab to learn about pricing for the selected model.
-1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Phi-3-mini-128k-instruct) from Azure AI studio. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure AI studio offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
+1. On the fine-tune wizard, select the link to **Azure AI Studio Terms** to learn more about the terms of use. You can also select the **Azure AI Studio offer details** tab to learn about pricing for the selected model.
+1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Phi-3-mini-128k-instruct) from Azure AI Studio. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure AI Studio offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
 
     > [!NOTE]
-    > Subscribing a project to a particular Azure AI studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+    > Subscribing a project to a particular Azure AI Studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
-1. Once you sign up the project for the particular Azure AI studio offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
+1. Once you sign up the project for the particular Azure AI Studio offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
 
 1. Enter a name for your fine-tuned model and the optional tags and description.
 1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.
@@ -154,13 +154,13 @@ To fine-tune a Phi-3 model:
 1. On the model's **Details** page, select **fine-tune**.
 
 1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **East US 2** region.
-1. On the fine-tune wizard, select the link to **Azure AI studio Terms** to learn more about the terms of use. You can also select the **Azure AI studio offer details** tab to learn about pricing for the selected model.
-1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Phi-3-medium-128k-instruct) from Azure AI studio. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure AI studio offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
+1. On the fine-tune wizard, select the link to **Azure AI Studio Terms** to learn more about the terms of use. You can also select the **Azure AI Studio offer details** tab to learn about pricing for the selected model.
+1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Phi-3-medium-128k-instruct) from Azure AI Studio. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure AI Studio offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
 
     > [!NOTE]
-    > Subscribing a project to a particular Azure AI studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+    > Subscribing a project to a particular Azure AI Studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
-1. Once you sign up the project for the particular Azure AI studio offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
+1. Once you sign up the project for the particular Azure AI Studio offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
 
 1. Enter a name for your fine-tuned model and the optional tags and description.
 1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.

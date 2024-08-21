@@ -15,6 +15,8 @@ ms.author: pafarley
 
 Follow this guide to use Azure AI Content Safety Groundedness detection to check whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users.
 
+For more information on Groundedness detection, see the [Groundedness detection concept page](./concepts/groundedness.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -339,9 +341,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
 - [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
-## Next steps
+## Related content
 
-Combine Groundedness detection with other LLM safety features like Prompt Shields.
+* [Groundedness detection concepts](./concepts/groundedness.md)
+* Combine Groundedness detection with other LLM safety features like [Prompt Shields](./quickstart-jailbreak.md).
 
-> [!div class="nextstepaction"]
-> [Prompt Shields quickstart](./quickstart-jailbreak.md)

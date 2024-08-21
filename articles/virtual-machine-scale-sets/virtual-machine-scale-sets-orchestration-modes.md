@@ -95,7 +95,7 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 
 ### Monitor application health
 
-Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
+Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. When configuring application monitoring, you must install and configure the Application Health Extension if using Flexible Orchestration. For Uniform scale set instances, you can use either the Application Health Extension, or Health Probes.
 
 ### List scale sets VM API changes
 

@@ -22,9 +22,9 @@ Content filtering software can help your app comply with regulations or maintain
 
 This documentation contains the following article types:  
 
+* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 * **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
 * **[How-to guides](./how-to/use-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
-* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 
 ## Where it's used
 
@@ -41,19 +41,19 @@ The following are a few scenarios in which a software developer or team would re
 > [!IMPORTANT]
 > You cannot use Azure AI Content Safety to detect illegal child exploitation images.
 
-## Product types
+## Product features
 
 There are different types of analysis available from this service. The following table describes the currently available APIs.
 
-| Type                        | Functionality           |
-| :-------------------------- | :---------------------- |
-| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
-| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
-| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for [known text content](./concepts/protected-material.md) (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
-| Custom categories API (preview)    | Lets you create and train your own [custom content categories](./concepts/custom-categories.md) and scan text for matches. [Quickstart](./quickstart-custom-categories.md) |
-| Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
-| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Feature                        | Functionality           | Concepts guide | Get started |
+| :-------------------------- | :---------------------- | --| --| 
+| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a User input attack on a Large Language Model. | [Prompt Shields concepts](/azure/ai-services/content-safety/concepts/jailbreak-detection)|[Quickstart](./quickstart-jailbreak.md) |
+| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. | [Groundedness detection concepts](/azure/ai-services/content-safety/concepts/groundedness)|[Quickstart](./quickstart-groundedness.md) |
+| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). | [Protected material concepts](/azure/ai-services/content-safety/concepts/protected-material)|[Quickstart](./quickstart-protected-material.md)|
+| Custom categories API (preview)    | Lets you create and train your own custom content categories and scan text for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)|[Quickstart](./quickstart-custom-categories.md) |
+| Custom categories (rapid) API (preview) | Lets you define emerging harmful content patterns and scan text and images for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)| [How-to guide](./how-to/custom-categories-rapid.md) |
+| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| [Quickstart](/azure/ai-services/content-safety/quickstart-text) |
+| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| [Quickstart](/azure/ai-services/content-safety/quickstart-image) |
 
 
 ## Content Safety Studio
@@ -130,7 +130,7 @@ See the following list for the input requirements for each feature.
 
 ### Language support
 
-Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+Content Safety models have been specifically trained and tested in the following languages: English, German, Spanish, Japanese, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 Custom Categories currently only works well in English. You can try to use other languages with your own dataset, but the quality might vary across languages.
 

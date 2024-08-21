@@ -164,7 +164,7 @@ To indicate the input data that you want to send to the deployment job, this tut
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Region** | Yes | **West US** | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <br><br>**Note**: If your subscription is associated with an integration service environment, this list includes those environments. |
+   | **Region** | Yes | **West US** | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. |
    | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. Change this option only when you want to enable diagnostic logging. For this tutorial, keep the default selection. |
 
 1. When you're done, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.

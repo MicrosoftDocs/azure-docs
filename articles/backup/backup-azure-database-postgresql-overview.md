@@ -18,7 +18,7 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - Backups are stored in separate security and fault domains. If the source server or subscription is compromised in any circumstances, the backups remain safe in the [Backup vault](./backup-vault-overview.md) (in Azure Backup managed storage accounts).
 - Use of **pg_dump** allows a greater flexibility in restores. This helps you restore across database versions 
 
-You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](../postgresql/concepts-backup.md) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
+You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](/azure/postgresql/concepts-backup) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
 
 ## Backup process
 

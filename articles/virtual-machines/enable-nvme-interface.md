@@ -26,6 +26,7 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     Almalinux 8.x (currently 8.7)    |   almalinux: almalinux:8-gen2: latest                            |
 |     Almalinux 9.x (currently 9.1)    |   almalinux: almalinux:9-gen2: latest                            |
 |     Debian 11                        |   Debian: debian-11:11-gen2: latest                              |
+|     Debian 12                        |   Debian: debian-12:12-gen2: latest
 |     RHEL 7.9                         |   RedHat: RHEL:79-gen2: latest                                   |
 |     RHEL 8.6                         |   RedHat: RHEL:86-gen2: latest                                   |
 |     RHEL 8.7                         |   RedHat: RHEL:87-gen2: latest                                   |

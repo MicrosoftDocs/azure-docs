@@ -22,7 +22,7 @@ Currently only available in the following regions:
 - France Central (Three availability zones)
 - Germany West Central (Three availability zones)
 - Israel Central (Three availability zones)
-- Italy North (Two availability zone)
+- Italy North (Three availability zone)
 - Japan East (Three availability zones)
 - Korea Central (Three availability zones)
 - North Europe (Three availability zones)
