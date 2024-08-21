@@ -5,7 +5,7 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
--ms.date: 12/07/2023
+ms.date: 01/01/2024
 ms.custom: template-concept, references_regions
 ---
 
@@ -21,7 +21,7 @@ We created this page to keep you updated on new features, blog posts, and other 
 
 Developers can now create chat threads with a retention policy between 30 and 90 days. This feature is in public preview.
 
-This policy is optional – developers can choose to create a chat thread with infinite retention (as always) or set a retention policy between 30 and 90 days. If the thread needs to be kept for longer than 90 days, you can extend the time using the update chat thread property API.  The policy is geared for data management in organizations that need to move data into their archives for historical purposes or delete the data within a given period.
+This policy is optional – developers can choose to create a chat thread with infinite retention (as always) or set a retention policy between 30 and 90 days. If the thread needs to be kept for longer than 90 days, you can extend the time using the update chat thread property API. The policy is geared for data management in organizations that need to move data into their archives for historical purposes or delete the data within a given period.
 
 Existing chat threads aren't affected by the policy.
 
@@ -32,9 +32,9 @@ For more information, see:
 
 ### PowerPoint Live
 
-Now in general availability, PPT Live gives both the presenter and audience an inclusive and engaging experience, combining the best parts of presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
+Now in general availability, PPT Live gives both the presenter and audience an inclusive and engaging experience. PPT Live combines the best parts of presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
 
-![PowerPoint Live present and collaborate in Microsoft Teams meetings.](media/whats-new-images/powerpoint-live.png)
+:::image type="content" source="media/whats-new-images/powerpoint-live.png" alt-text="A screen capture of PowerPoint Live presentation and collaboration in a Microsoft Teams meeting." lightbox="media/whats-new-images/powerpoint-live.png":::
 
 Meeting participants can now view PowerPoint Live sessions initiated by a Teams client using the Azure Communication Services Web UI Library. Participants can follow along with a presentation and view presenter annotations. Developers can use this function via our composites including `CallComposite` and `CallWithChatComposite`, and through components such as `VideoGallery`.
 
@@ -44,9 +44,9 @@ For more information, see [Introducing PowerPoint Live in Microsoft Teams](https
 
 During live calls, participants can react with emojis: like, love, applause, laugh, and surprise.
 
-![Live call reactions: thumbs up, like, heart, clapping, laughing, surprise.](media/whats-new-images/live-reactions.png)
+:::image type="content" source="media/whats-new-images/live-reactions.png" alt-text="A screen capture of live call reactions: thumbs up, like, heart, clapping, laughing, surprise." lightbox="media/whats-new-images/live-reactions.png":::
 
-Now generally available, the updated UI library composites and components now include call reactions. The UI Library supports the following list of live call reactions: :thumbs_up: like reaction, :heart: heart reaction, :clapping_hands: applause reaction, :face_with_tears_of_joy: laughter reaction, :open_mouth: surprise reaction.
+Now generally available, the updated UI library composites and components include call reactions. The UI Library supports the following list of live call reactions: &#128077; like reaction, &#129505; heart reaction, &#128079; applause reaction, &#128514; laughter reaction, &#128558; surprise reaction.
 
 Call reactions are associated with the participant sending it and are visible to all types of participants (in-tenant, guest, federated, anonymous). Call reactions are supported in all types of calls such as Rooms, groups, and meetings (scheduled, private, channel) of all sizes (small, large, extra-large).
 
@@ -61,7 +61,7 @@ For more information, see [Reactions](./how-tos/calling-sdk/reactions.md).
 
 Promote accessibility by displaying text of the audio in video calls. Already available for app-to-Teams calls, this general availability release adds support for closed captions in all app-to-app calls.
 
-![Closed caption for all app-to-app calls and Teams interop.](media/whats-new-images/closed-caption-teams-interop.png)
+:::image type="content" source="media/whats-new-images/closed-caption-teams-interop.png" alt-text="A screen capture of closed captions for app-to-app calls and Teams interop." lightbox="media/whats-new-images/closed-caption-teams-interop.png":::
 
 For more information, see [Closed Captions overview](./concepts/voice-video-calling/closed-captions.md).
 
@@ -76,7 +76,7 @@ AI can help app developers across every step of the development lifecycle: desig
 - How do I fix common causes of poor media streams in Azure Communication calls?
 - How can I fix the subcode 41048, which caused the video part of my call to fail?
 
-![Copliot for call diagnostics screen capture.](media/whats-new-images/copilot-call-diagnostics.png)
+:::image type="content" source="media/whats-new-images/copilot-call-diagnostics.png" alt-text="A screen capture of Microsoft Copilot for Azure call diagnostics." lightbox="media/whats-new-images/copilot-call-diagnostics.png":::
 
 Developers can use Call Diagnostics to understand call quality and reliability across the organization to deliver a great customer calling experience. Many issues can affect the quality of your calls, such as poor internet connectivity, software compatibility issues, and technical difficulties with devices.
 
@@ -96,9 +96,9 @@ Developers can use [Call Automation APIs](./concepts/call-automation/call-automa
 
 - **Teams as an extension of agent desktop**: Connect your CCaaS solution to Teams and enable your agents to handle customer calls on Teams. Having Teams as the single-pane-of-glass solution for both internal and B2C communication increases agent productivity and empowers them to deliver first-class service to customers.
 
-- **Expert Consultation**: Using Teams, businesses can invite subject matter experts into their customer service workflows for expedient issue resolution and improve first call resolution rate.
+- **Expert Consultation**: Businesses can use Teams to invite subject matter experts into their customer service workflows for expedient issue resolution and improve first call resolution rate.
 
-![Business-to-consumer extensibility with Microsoft Teams for Calling.](media/whats-new-images/b2c-extensibility.png)
+:::image type="content" source="media/whats-new-images/b2c-extensibility.png" alt-text="A diagram showing Business-to-consumer extensibility with Microsoft Teams for Calling." lightbox="media/whats-new-images/b2c-extensibility.png":::
 
 Azure Communication Services B2C extensibility with Microsoft Teams makes it easy for customers to reach sales and support teams and for businesses to deliver effective customer experiences.
 
@@ -110,7 +110,7 @@ Microsoft Teams users can now share images with Azure Communication Services use
 
 Image sharing is helpful in many scenarios, such as a business sharing photos showcasing their work or doctors sharing images with patients for after care instructions.
 
-![Image sharing setup and example for Microsoft Teams meetings](media/whats-new-images/image-sharing-setup.png)
+:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="A screen capture showing image sharing setup and example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
 
 Try out this feature using either our UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java:
 
@@ -121,7 +121,7 @@ Try out this feature using either our UI Library or the Chat SDK. The SDK is ava
 
 Deep noise suppression is currently in public preview. Noise suppression improves VoIP and video calls by eliminating background noise, making it easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can significantly improve the calling experience by eliminating the background noise from the shop.
 
-For more information, see [Add audio quality enhancements to your audio calling experience]().
+For more information, see [Add audio quality enhancements to your audio calling experience](./tutorials/audio-quality-enhancements/add-noise-supression.md).
 
 ### Calling native SDKs for Android, iOS, and Windows
 
@@ -137,7 +137,7 @@ We updated the Calling native SDKs to improve the customer experience. This rele
 
 Custom background for video calls is generally available. This feature enables customers to remove distractions behind them. The custom image backgrounds feature enables customers to upload their own personalized images for use as background.
 
-![Custom background for video calls.](media/whats-new-images/custom-background-video-calls.jpeg)
+:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="A screen capture showing custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
 
 For example, business owners can use the Calling SDK to show custom backgrounds in place of the actual background. You can, for example, upload an image of a modern and spacious office and set it as its background for video calls. Anyone who joins the call sees the customized background, which looks realistic and natural. You can also use custom branding images as background to show a fresh image to your customers.
 
@@ -218,7 +218,7 @@ With this capability, customers can switch from on-premises SMTP solutions or li
 - High volume sending support for B2C communications using SMTP and REST APIs.
 - The security and compliance to honor and respect data handling and privacy requirements that Azure promises to our customers.
 
-![Email SMTP command flowchart.](media/whats-new-images/email-smtp-flow.png)
+:::image type="content" source="media/whats-new-images/email-smtp-flow.png" alt-text="A diagram showing the Email SMTP command flowchart." lightbox="media/whats-new-images/email-smtp-flow.png":::
 
 Learn more about [SMTP as a Service](./concepts/email/email-smtp-overview.md).
 
@@ -226,7 +226,7 @@ Learn more about [SMTP as a Service](./concepts/email/email-smtp-overview.md).
 
 Email opt-out management, now in public preview, offers a powerful platform with a centralized managed unsubscribe list and opt-out preferences saved to our data store. This feature helps developers meet guidelines of email providers who often require one-click list-unsubscribe implementation in the emails sent from their platforms. Opt-out Management helps you identify and avoid significant delivery problems. You can maintain compliance by adding suppression list features to help improve reputation and enable customers to easily manage opt-outs.
 
-![Email suppression list flowchart.](media/whats-new-images/email-suppression-list-flow.png)
+:::image type="content" source="media/whats-new-images/email-suppression-list-flow.png" alt-text="A diagram showing the Email suppression list flowchart." lightbox="media/whats-new-images/email-suppression-list-flow.png":::
 
 Get started with [Manage email opt-out capabilities](./concepts/email/email-optout-management.md).
 
@@ -278,7 +278,7 @@ For more information, see [Identity model](./concepts/identity-model.md).
 
 Try Phone Calling, now in public preview, is a tool in Azure portal that helps customers confirm the setup of a telephony connection by making a phone call. It applies to both Voice Calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
 
-![alt text](concepts/media/try-phone-calling.png)
+:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="A screen capture of the try phone calling tool being used in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
 
 Learn more about [Try Phone Calling](./concepts/telephony/try-phone-calling.md).
 
@@ -345,11 +345,11 @@ For more information, see [Manage call recording on the client](./how-tos/callin
 
 ### Closed Captions in Virtual Rooms
 
-Closed Captions is the conversion of a voice or video call audio track into written words that appear in real time. Closed captions are also a useful tool for participants who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where participants might be in noisy environments or have audio equipment problems.
+Closed captions is the conversion of a voice or video call audio track into written words that appear in real time. Closed captions are also a useful tool for participants who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where participants might be in noisy environments or have audio equipment problems.
 
-Closed Captions are never saved and are only visible to the user that enabled it.
+Closed captions are never saved and are only visible to the user that enabled it.
 
-![Closed captions used in virtual rooms example.](media/whats-new-images/closed-captions-virtual-rooms.png)
+:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="A screen capture of closed captions used in a virtual rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
 
 For more information, see [Closed Captions overview](./concepts/voice-video-calling/closed-captions.md).
 
@@ -393,4 +393,4 @@ Get started with [Quickstart: Add Data Channel messaging to your calling app](./
 
 ## Related articles
 
-Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub. For more blog posts, as they're released, visit the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)
+For a complete list of new features and bug fixes, see the [releases page](https://github.com/Azure/Communication/releases) on GitHub. For more blog posts, see the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog).
