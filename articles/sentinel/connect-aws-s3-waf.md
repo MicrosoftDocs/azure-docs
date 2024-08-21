@@ -1,10 +1,15 @@
 ---
 title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs
-description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
+description: Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connector to ingest AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/18/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent: As a security operator, I want to ingest web application firewall (WAF) from my Amazon Web Services S3 bucket to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs
@@ -14,7 +19,9 @@ Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connec
 This connector features the debut of a new *AWS CloudFormation*-based onboarding script, to streamline the creation of the AWS resources used by the connector.
 
 > [!IMPORTANT]
-> The **Amazon Web Services S3 WAF** data connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
+> - The **Amazon Web Services S3 WAF** data connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - [!INCLUDE [unified-soc-preview-no-alert](includes/unified-soc-preview-without-alert.md)]
 
 ## Overview
 
