@@ -257,7 +257,7 @@ Alerts are automatically enabled by default, but to fully configure an alert, yo
 
 ### Location population tags
 
-You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm.md#create-a-new-alert-rule-using-an-arm-template).
+You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm#create-a-new-alert-rule-using-an-arm-template).
 
 | Provider                                 | Display name                           | Population name     |
 |------------------------------------------|----------------------------------------|---------------------|
