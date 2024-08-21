@@ -22,7 +22,7 @@ When enabled, Snapshot Debugger automatically collects a debug snapshot of the s
 
 ## Supported applications and environments
 
-This section lists the applications and environments that are [supported](../app/).
+This section lists the applications and environments that are supported.
 
 ### Applications
 
