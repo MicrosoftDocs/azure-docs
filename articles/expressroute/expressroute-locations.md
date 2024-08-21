@@ -132,7 +132,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | &check; | &check; | Auckland<br/>Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | &check; | &check; | Amsterdam<br/>Dublin2|
 | **[KT](https://cloud.kt.com/)** | &check; | &check; | Seoul<br/>Seoul2 |
-| **[Level 3 Communications](https://www.lumen.com/en-us/hybrid-it-cloud/cloud-connect.html)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport (Wales)<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
+| **[Level 3 Communications](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport (Wales)<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
 | **LG CNS** | &check; | &check; | Busan<br/>Seoul |
 | **Lightpath** | &check; | &check; | New York<br/>Washington DC |
 | **[Lightstorm](https://polarin.lightstorm.net/)** | &check; | &check; | Chennai<br/>Dubai2<br/>Mumbai<br/>Pune<br/>Singapore2 |
@@ -241,7 +241,7 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |&check; |&check; |New York<br/>Phoenix<br/>San Antonio<br/>Washington DC |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |&check; |&check; |Atlanta<br/>Chicago<br/>Dallas<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
 | **[Internet2](https://internet2.edu/services/microsoft-azure-expressroute/)** |&check; |&check; |Dallas |
-| **[Level 3 Communications](https://www.lumen.com/en-us/hybrid-it-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
+| **[Level 3 Communications](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
