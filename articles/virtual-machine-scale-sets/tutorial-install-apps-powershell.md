@@ -4,9 +4,9 @@ description: Learn how to use Azure PowerShell to install applications into Virt
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -31,6 +31,13 @@ The Custom Script extension integrates with Azure Resource Manager templates. It
 To see the Custom Script Extension in action, create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
 ## Create a scale set
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name myResourceGroup -Location "East US"
+```
+
 Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80. It also allows remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
@@ -39,6 +46,7 @@ New-AzVmss `
   -VMScaleSetName "myScaleSet" `
   -OrchestrationMode "Flexible" `
   -Location "EastUS" `
+  -UpgradePolicyMode "Manual" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
@@ -57,7 +65,7 @@ $customConfig = @{
 }
 ```
 
-Now, apply the Custom Script Extension with [Add-AzVmssExtension](/powershell/module/az.Compute/Add-azVmssExtension). The configuration object previously defined is passed to the extension. Update and run the extension on the VM instances with [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+Now, apply the Custom Script Extension with [Add-AzVmssExtension](/powershell/module/az.Compute/Add-azVmssExtension). The configuration object previously defined is passed to the extension. Update the extension on the scale set profile instances with [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -74,11 +82,19 @@ $vmss = Add-AzVmssExtension `
   -TypeHandlerVersion 1.9 `
   -Setting $customConfig
 
-# Update the scale set and apply the Custom Script Extension to the VM instances
+# Update the scale set
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
+
+```
+
+## Add the extension to the existing scale set instances
+Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
+
+```azurepowershell-interactive
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
@@ -134,8 +150,21 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 
 Leave the web browser open so that you can see an updated version in the next step.
 
+## Change the upgrade policy
+In the previous section, in order to apply the updated application to all the scale set instances, a manual upgrade was needed. To enable updates to be applied automatically to all existing scale set instances, update the upgrade policy from manual to automatic. For more information on upgrade policies, see [Upgrade policies for Virtual Machine Scale Sets](virtual-machine-scale-sets-upgrade-policy.md).
+
+```azurepowershell-interactive
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Update-Azvmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -UpgradePolicyMode "Automatic" `
+    -VirtualMachineScaleSet $vmss
+```
+
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `-UpgradePolicyMode` was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set.
 
 Create a new config definition named *customConfigv2*. This definition runs an updated *v2* version of the application install script:
 
@@ -146,7 +175,7 @@ $customConfigv2 = @{
 }
 ```
 
-Update the Custom Script Extension configuration to the VM instances in your scale set. The *customConfigv2* definition is used to apply the updated version of the application:
+Update the Custom Script Extension configuration to the VM instances in your scale set. The *customConfigv2* definition is used to apply the updated version of the application to the scale set:
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss `
@@ -161,7 +190,7 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-All VM instances in the scale set are automatically updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
+Because the scale set is now using an automatic upgrade policy, the updated application will automatically be applied to existing scale set instances. Refresh your web browser to see the updated application. To see the updated version, refresh the web site in your browser:
 
 ![Updated web page in IIS](media/tutorial-install-apps-powershell/running-iis-updated.png)
 

@@ -3,9 +3,9 @@ title: Delete or update a standby pool for Virtual Machine Scale Sets
 description: Learn how to delete or update a standby pool for Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/14/2024
 ms.reviewer: ju-shim
 ---
 

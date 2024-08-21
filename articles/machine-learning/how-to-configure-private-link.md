@@ -3,13 +3,13 @@ title: Configure a private endpoint
 titleSuffix: Azure Machine Learning
 description: 'Use a private endpoint to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/02/2024
 ---
 
@@ -334,7 +334,7 @@ The following restrictions apply to IP address ranges:
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
-- When this feature is enabled, you can test public endpoints using any client tool such as Postman or others, but the Endpoint Test tool in the portal is not supported.
+- When this feature is enabled, you can test public endpoints using any client tool such as Curl, but the Endpoint Test tool in the portal is not supported.
 
 ## Securely connect to your workspace
 
@@ -391,7 +391,7 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 
 :::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagram of isolated AKS VNet":::
 
-## Next steps
+## Next step
 
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 

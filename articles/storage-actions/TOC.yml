@@ -17,6 +17,8 @@ items:
     href: storage-tasks/storage-task-properties-operators-operations.md
   - name: Storage task authorization
     href: storage-tasks/storage-task-authorization-roles.md
+  - name: Reliability in Azure Storage Actions
+    href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
   expanded: true
 - name: How-to
   items: 

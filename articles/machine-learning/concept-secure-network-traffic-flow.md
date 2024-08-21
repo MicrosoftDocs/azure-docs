@@ -3,12 +3,12 @@ title: Secure network traffic flow
 titleSuffix: Azure Machine Learning
 description: Learn how network traffic flows between components when your Azure Machine Learning workspace is in a secured virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---

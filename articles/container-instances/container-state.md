@@ -1,10 +1,12 @@
 ---
 title: Azure Container Instances states
 description: Learn about the states of Azure Container Instances provisioning operations, containers, and container groups.
-ms.author: nickoman
-author: nickomang
-ms.topic: article
-ms.date: 03/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.topic: how-to
+ms.service: azure-container-instances
+services: container-instances
+ms.date: 07/02/2024
 ---
 
 # Azure Container Instances states
@@ -13,7 +15,7 @@ Azure Container Instances displays several independent state values. This articl
 
 ## Where to find state values
 
-In the Azure portal, state is shown in various locations. All state values are accessible via the JSON definition of the resource. This value can be found under Essentials in the Overview blade, shown below.
+In the Azure portal, state is shown in various locations. All state values are accessible via the JSON definition of the resource. This value can be found under Essentials in the Overview blade, shown in the following image.
 
 :::image type="content" source="./media/container-state/provisioning-state.png" alt-text="The Overview blade in the Azure portal is shown. The link 'JSON view' is highlighted.":::
 
@@ -32,15 +34,15 @@ This value is the state of the deployed container group on the backend.
 
 :::image type="content" source="./media/container-state/container-group-state.png" alt-text="The overview blade for the resource in the Azure portal is shown in a web browser. The text 'Status: Running' is highlighted.":::
 
-- **Running**: The container group is running and will continue to try to run until a user action or a stop caused by the restart policy occurs.
+- **Running**: The container group is running and continues to run until a user action or a stop caused by the restart policy occurs.
 
-- **Stopped**: The container group has been stopped and will not be scheduled to run without user action.
+- **Stopped**: The container group is stopped and won't run without user action.
 
 - **Pending**: The container group is waiting to initialize (finish running init containers, mount Azure file volumes if applicable). The container continues to attempt to get to the **Running** state unless a user action (stop/delete) happens.
 
-- **Succeeded**: The container group has run to completion successfully. Only applicable for *Never* and *On Failure* restart policies.
+- **Succeeded**: The container group ran to completion successfully. Only applicable for *Never* and *On Failure* restart policies.
 
-- **Failed**: The container group failed to run to completion. Only applicable with a *Never* restart policy. This state indicates either an infrastructure failure (example: incorrect Azure file share credentials) or user application failure (example: application references an environment variable that does not exist).
+- **Failed**: The container group failed to run to completion. Only applicable with a *Never* restart policy. This state indicates either an infrastructure failure (example: incorrect Azure file share credentials) or user application failure (example: application references an environment variable that doesn't exist).
 
 The following table shows what states are applicable to a container group based on the designated restart policy:
 
@@ -54,7 +56,7 @@ The following table shows what states are applicable to a container group based 
 
 ## Containers
 
-There are two state values for containers- a current state and a previous state. In the Azure portal, shown below, only current state is displayed. All state values are applicable for any given container regardless of the container group's restart policy.
+There are two state values for containers- a current state and a previous state. In the Azure portal, shown in the following image, only current state is displayed. All state values are applicable for any given container regardless of the container group's restart policy.
 
 > [!NOTE]
 > The JSON values of `currentState` and `previousState` contain additional information, such as an exit code or a reason, that is not shown elsewhere in the Azure portal.
@@ -65,7 +67,7 @@ There are two state values for containers- a current state and a previous state.
 
 - **Waiting**: The container is waiting to run. This state indicates either init containers are still running, or the container is backing off due to a crash loop.
 
-- **Terminated**: The container has terminated, accompanied with an exit code value.
+- **Terminated**: The container terminated, accompanied with an exit code value.
 
 ## Provisioning
 
@@ -74,7 +76,7 @@ This value is the state of the last operation performed on a container group. Ge
 > [!IMPORTANT]
 > Additionally, users should not create dependencies on non-terminal provisioning states. Dependencies on **Succeeded** and **Failed** states are acceptable.
 
-In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#response).
+In addition to the JSON view, provisioning state can also be found in the [response body of the HTTP call](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#response).
 
 ### Create, start, and restart operations
 

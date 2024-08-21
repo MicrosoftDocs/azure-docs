@@ -2,11 +2,11 @@
 title: Known issues
 titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
-author: charithdilshan
+author: charithcaldera
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
 ms.date: 04/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---
@@ -34,6 +34,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
+|Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
 
 
 
@@ -117,6 +118,25 @@ The error message displayed is `Action failed - Error: Orchestrate failed - Synt
 - **Replace escape characters with Forward Slashes:** Replace the escape characters (`\`) with forward slashes (`/`). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
 
 After applying either of these workarounds and successfully deploying, manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
+
+### No 'GET' API operation dedicated to the "Microsoft.Synapse/workspaces/trustedServiceBypassEnabled" setting
+
+**Issue Summary:** In Azure Synapse Analytics, there is no dedicated 'GET' API operation for retrieving the state of the "trustedServiceBypassEnabled" setting at the resource scope "Microsoft.Synapse/workspaces/trustedServiceBypassEnabled". While users can set this configuration, they cannot directly retrieve its state via this specific resource scope.
+
+**Impact:** This limitation impacts Azure Policy definitions, as they cannot enforce a specific state for the "trustedServiceBypassEnabled" setting. Customers are unable to use Azure Policy to deny or manage this configuration.
+
+**Workaround:** There is no workaround available in Azure Policy to enforce the desired configuration state for this property. However, users can use the 'GET' workspace operation to audit the configuration state for reporting purposes.\
+This 'GET' workspace operation maps to the 'Microsoft.Synapse/workspaces/trustedServiceBypassEnabled' Azure Policy Alias.
+
+The Azure Policy Alias can be used for managing this property with a Deny Azure Policy Effect if the operation is a PUT request against the Microsoft.Synapse/workspace resource, but it will only function for Audit purposes if the PUT request is being sent directly to the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource. The parent resource has a property [properties.trustedServiceBypassEnabled] that maps the configuration from the child resource and this is why it can still be audited through the parent resource’s Azure Policy Alias.
+
+Since the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource has no GET operation available, Azure Policy cannot manage these requests, and Azure Policy cannot generate an Azure Policy Alias for it.
+
+**Parent Resource:** Microsoft.Synapse/workspaces
+
+**Child Resource:** Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration
+
+The Azure portal makes the PUT request directly to the PUT API for the child resource and therefore the Azure portal, along with any other API requests made outside of the parent Microsoft.Synapse/workspaces APIs, cannot be managed by Azure Policy through a Deny or other actionable Azure Policy Effect.
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 

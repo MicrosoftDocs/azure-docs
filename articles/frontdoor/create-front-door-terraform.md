@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.date: 8/11/2023
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 In this article, you learn how to:
 

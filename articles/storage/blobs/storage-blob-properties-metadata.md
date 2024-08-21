@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp

@@ -1,42 +1,69 @@
 ---
 title: How to configure event handler
 description: Guidance about event handler concepts and integration introduction when develop with Azure Web PubSub service.
-author: JialinXin
-ms.author: jixin
+author: vicancy
+ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 08/01/2024
 ---
 
-# Event handler in Azure Web PubSub service
+# Configure event handler in Azure Web PubSub service
 
 The event handler handles the incoming client events. Event handlers are registered and configured in the service through the Azure portal or Azure CLI. When a client event is triggered, the service can send the event to the appropriate event handler. The Web PubSub service now supports the event handler as the server-side, which exposes the publicly accessible endpoint for the service to invoke when the event is triggered. In other words, it acts as a **webhook**.
 
-The Web PubSub service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
-
-For every event, the service formulates an HTTP POST request to the registered upstream endpoint and expects an HTTP response.
-
-The data sending from the service to the server is always in CloudEvents `binary` format.
+The Web PubSub service delivers client events to the configured upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md), with [CloudEvents extension for Azure Web PubSub event handler](reference-cloud-events.md).
 
 :::image type="content" source="media/howto-develop-eventhandler/event-trigger.png" alt-text="Screenshot of Web PubSub service event trigger.":::
 
-## Upstream and Validation
+## Event handler settings
 
-When you configure the webhook endpoint, the URL can include the `{event}` parameter to define a URL template. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. The `{event}` parameter can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream endpoints. The `{event}` parameter isn't allowed in the URL domain name.
+A client always connects to a hub, and you could configure multiple event handler settings for the hub. The order of the event handler settings matters and the former one has the higher priority. When a client connects and an event is triggered, Web PubSub goes through the configured event handlers in the priority order and the first matching one wins. When configuring the event handler, the below properties should be set.
 
-When setting up the event handler webhook through Azure portal or CLI, the service follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated by this mechanism. The `WebHook-Request-Origin` request header is set to the service domain name `xxx.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`.
+|Property name | Description |
+|--|--|
+| Url template | Defines the template Web PubSub uses to evaluate your upstream webhook URL. |
+| User events | Defines the user events that current event handler setting cares about. |
+| System events | Defines the system events that current event handler setting cares about. |
+| Authentication | Defines the authentication method between the Web PubSub service and your upstream server. |
 
-When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service will try to **OPTIONS** a request to `http://host.com/api/validate`. And only when the response is valid, the configuration can be set successfully.
+### Events
 
-For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
+The events include user events and system events. System events are predefined events that are triggered during the lifetime of a client, and user events are the events triggered when the client sends data, the user event name can be customized using client protocols, [here contains the detailed explanation](concept-service-internals.md#client-protocol).
 
-## Authentication between service and webhook
+Event type | Supported values |
+|--|--|
+System events | `connect`, `connected` and `disconnected` |
+User events | `message`, or custom event name following client protocols |
+
+### URL template
+
+URL template supports several parameters that can be evaluated during runtime. With this feature, it is easy to route different hubs or events into different upstream servers with a single setting. KeyVault reference syntax is also support so that data could be stored in Azure Key Vault securely.
+
+Note URL domain name should not contain parameter syntax, for example, `http://{hub}.com` is not a valid URL template.
+
+| Supported parameters | Syntax | Description | Samples |
+|--|--|--|--|
+| Hub parameter | `{hub}` | The value is the hub that the client connects to. | When a client connects to `client/hubs/chat`, a URL template `http://host.com/api/{hub}` evaluates to `http://host.com/api/chat` because for this client, hub is `chat`. |
+| Event parameter | `{event}` | The value of the triggered event. `event` values are listed [here](#events).The event value for abuse protection requests is `validate` as explained [here](#upstream-and-validation). | If there is a URL template `http://host.com/api/{hub}/{event}` configured for event `connect`, When a client connects to `client/hubs/chat`, Web PubSub initiates a POST request to the evaluated URL `http://host.com/api/chat/connect` when the client is connecting, since for this client event, hub is `chat` and the event triggering this event handler setting is `connect`.  |
+| KeyVault reference parameter | `{@Microsoft.KeyVault(SecretUri=<secretUri>)}` | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`. When using KeyVault reference, you also need to configure the authentication between your Web PubSub service and your KeyVault service, check [here](howto-use-managed-identity.md#use-a-managed-identity-for-key-vault-reference) for detailed steps. | `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)` |
+
+### Authentication between service and webhook
 
 You can use any of these methods to authenticate between the service and webhook.
 
 - Anonymous mode
 - Simple authentication with `?code=<code>` is provided through the configured Webhook URL as query parameter.
 - Microsoft Entra authorization. For more information, see [Use a managed identity in client events](howto-use-managed-identity.md#use-a-managed-identity-in-client-events-scenarios).
+
+## Upstream and Validation
+
+When setting up the event handler webhook through Azure portal or CLI, the service follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL is validated by this mechanism. The `WebHook-Request-Origin` request header is set to the service domain name `xxx.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`.
+
+When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service tries to **OPTIONS** a request to `http://host.com/api/validate`. And only when the response is valid, the configuration can be set successfully.
+
+For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
+
 
 ## Configure event handler
 

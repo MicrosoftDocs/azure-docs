@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy Azure Bastion automatically - Basic SKU'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 04/25/2024
 ms.author: cherylmc

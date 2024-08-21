@@ -32,7 +32,7 @@ If this has happened to your organization, you are in a race against the attacke
 
 - **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment.
 
-    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](../../key-vault/keys/hsm-protected-keys.md), the attack includes access to that trusted SAML token-signing certificate.
+    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate.
 
 - **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without requiring access to account credentials, and without leaving any traces.
 
@@ -312,7 +312,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
 |**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Microsoft Entra ID.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
-|**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
+|**Limit administrative access**     |    Implement [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management (PAM)](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
 
 ### On-premises remediation activities

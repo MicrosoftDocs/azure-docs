@@ -70,9 +70,9 @@ The virtual network integration feature supports two virtual interfaces per work
 
 Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each App Service plan instance. If you scale your app to four instances, then four addresses are used.
 
-When you scale up/down in instance size, the amount of IP addresses used by the App Service plan is temporarily doubled while the scale operation completes. The new instances need to be fully operational before the existing instances are deprovisioned. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released. In rare cases, this operation can be up to 12 hours.
+When you scale up/down in instance size, the amount of IP addresses used by the App Service plan is temporarily doubled while the scale operation completes. The new instances need to be fully operational before the existing instances are deprovisioned. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released. In rare cases, this operation can be up to 12 hours and if you rapidly scale in/out or up/down, you need more IPs than the maximum scale.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, we recommand allocating double the IPs of your planned maximum scale. A `/26` with 64 addresses cover the maximum scale of a single multitenant App Service plan. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
@@ -142,9 +142,7 @@ When you're using virtual network integration, you can configure how parts of th
 
 #### Content share
 
-Bringing your own storage for content in often used in Functions where [content share](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
-
-To route content share traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure content share routing](./configure-vnet-integration-routing.md#content-share). 
+By default, Azure Functions uses a [content share](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) as the deployment source when scaling function apps in a Premium plan. You must configure an extra setting to guarantee traffic is routed to this content share through the virtual network integration. For more information, see [how to configure content share routing](./configure-vnet-integration-routing.md#content-share). 
 
 In addition to configuring the routing, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
@@ -174,7 +172,7 @@ App settings also exist for some configuration routing options. These app settin
 
 ### Network routing
 
-You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that you apply to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
+You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group (NSG)](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. An NSG that you apply to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
 Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes don't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app. Virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the [access restrictions](./overview-access-restrictions.md) feature or [private endpoints](./networking/private-endpoint.md).
 

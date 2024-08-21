@@ -32,20 +32,18 @@
       href: /azure/cosmos-db/postgresql/resources-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure OpenAI
+      href: azure-openai.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
-    - name: Database for MariaDB
-      href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
     - name: Databricks
       href: reservation-discount-databricks.md
     - name: Data Explorer
-      href: understand-azure-data-explorer-reservation-charges.md
+      href: /azure/data-explorer/pricing-reservation-discount?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dedicated Hosts
       href: billing-understand-dedicated-hosts-reservation-charges.md
-    - name: Defender for Cloud - Prepurchase
-      href: /azure/defender-for-cloud/prepurchase-plan
       maintainContext: true
     - name: Disk Storage
       href: understand-disk-reservations.md
@@ -100,8 +98,6 @@
       href: /azure/azure-cache-for-redis/cache-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Data Factory
       href: /azure/data-factory/data-flow-reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Database for MariaDB
-      href: /azure/mariadb/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for MySQL
       href: /azure/mysql/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
@@ -110,6 +106,8 @@
       href: /azure/storage/blobs/storage-blob-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
       href: /azure/storage/files/files-reserve-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure OpenAI
+      href: azure-openai.md#buy-a-microsoft-azure-openai-reservation
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -122,6 +120,8 @@
       href: /azure/data-explorer/pricing-reserved-capacity
     - name: Dedicated Host
       href: /azure/virtual-machines/prepay-dedicated-hosts-reserved-instances?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Defender for Cloud - Prepurchase
+      href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Microsoft Fabric

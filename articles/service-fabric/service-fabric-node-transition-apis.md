@@ -4,7 +4,7 @@ description: Learn how to use fault injection to test a Service Fabric applicati
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

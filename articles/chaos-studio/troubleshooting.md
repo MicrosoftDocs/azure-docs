@@ -2,7 +2,7 @@
 title: Troubleshoot common Azure Chaos Studio problems
 description: Learn to troubleshoot common problems when you use Azure Chaos Studio.
 author: c-ashton
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
 ms.topic: troubleshooting
@@ -126,6 +126,12 @@ From the **Experiments** list in the Azure portal, select the experiment name to
 
 ![Screenshot that shows experiment history.](images/run-experiment-history.png)
 
+Alternatively, use the REST API to obtain the experiment's execution details. Learn more in the [REST API sample article](chaos-studio-samples-rest-api.md).
+
+```azurecli
+az rest --method post --url "https://management.azure.com/{experimentId}/executions/{executionDetailsId}/getExecutionDetails?api-version={apiVersion}" 
+```
+
 ### My agent-based fault failed with the error "Verify that the target is correctly added and proper read permissions are provided to the experiment msi"
 
 This error might happen if you added the agent by using the Azure portal, which has a known issue. Enabling an agent-based target doesn't assign the user-assigned managed identity to the VM or virtual machine scale set.
@@ -135,6 +141,12 @@ To resolve this problem, go to the VM or virtual machine scale set in the Azure 
 ### My agent-based fault failed with the error "Agent is already performing another task"
 
 This error will happen if you try to run multiple agent faults at the same time. Today the agent only supports running a single agent-fault at a time, and will fail if you define an experiment that runs multiple agent faults at the same time.
+
+### The experiment didn't start or failed immediately
+
+After starting an experiment, you might see an error message like: `The long-running operation has failed. InternalServerError. The target resource(s) could not be resolved. Error Code: OperationFailedException`. Usually, this indicates that the experiment's identity doesn't have the necessary permissions.
+
+To resolve this error, ensure that the experiment's system-assigned or user-assigned managed identity has permission to all resources in the experiment. Learn more about permissions here: [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md). For example, if the experiment targets a virtual machine, navigate to the virtual machine's identity page and assign the "Virtual Machine Contributor" role to the experiment's managed identity. 
 
 ## Problems when setting up a managed identity
 

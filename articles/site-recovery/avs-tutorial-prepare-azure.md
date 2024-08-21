@@ -4,7 +4,7 @@ description: Learn how to prepare Azure resources for disaster recovery of Azure
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 02/19/2024
 ms.author: ankitadutta

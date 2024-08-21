@@ -46,7 +46,7 @@ For information about pricing, see [Linux Virtual Machines Pricing](https://azur
 
 ### Reservation prices
 
-If you’ve negotiated reduced reservation prices, currently the only way to view the discounted prices is in the purchase reservation purchase experience.
+If you’ve negotiated reduced reservation prices, you can view the discounted prices in the purchase reservation purchase experience, Retail Prices API or the price sheet.
 
 The prices for reservations aren't necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
 

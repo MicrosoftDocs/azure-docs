@@ -3,10 +3,10 @@ title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to manage training and deployment compute resources (compute targets) for machine learning.
 services: machine-learning
-author: vijetajo
-ms.author: vijetaj
-ms.reviewer: sgilley
-ms.service: machine-learning
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: vijetaj
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.date: 03/04/2024
 ms.topic: how-to

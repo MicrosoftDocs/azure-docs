@@ -1,5 +1,5 @@
 ---
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: include
 ms.date: 07/07/2022
 author: asudbring

@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # DevOps deployment for single-tenant Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 With the trend towards distributed and native cloud apps, organizations are dealing with more distributed components across more environments. To maintain control and consistency, you can automate your environments and deploy more components faster and more confidently by using DevOps tools and processes.
 
@@ -96,6 +96,21 @@ In Visual Studio Code, when you use the designer to develop or make changes to y
 ### Service provider connections
 
 When you use a built-in operation for a service such as Azure Service Bus or Azure Event Hubs in single-tenant Azure Logic Apps, you create a service provider connection that runs in the same process as your workflow. This connection infrastructure is hosted and managed as part of your logic app resource, and your app settings store the connection strings for any service provider-based built-in operation that your workflows use.
+
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, Microsoft recommends that 
+> you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when support is available, and assign a role that has the least required privilege.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 In your logic app project, each workflow has a workflow.json file that contains the workflow's underlying JSON definition. This workflow definition then references the necessary connection strings in your project's connections.json file.
 

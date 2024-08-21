@@ -20,7 +20,7 @@ For brevity, this article refers to "Event Grid on Kubernetes extension" as "Eve
 ## Supported Kubernetes distributions
 Following are the supported Kubernetes distributions to which Event Grid can be deployed and run.
 
-1. Azure AKS [supported Kubernetes distributions](../../aks/supported-kubernetes-versions.md).
+1. Azure AKS [supported Kubernetes distributions](/azure/aks/supported-kubernetes-versions).
 1. RedHat [OpenShift Container Platform](https://www.openshift.com/products/container-platform).
 
 
@@ -90,7 +90,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
     1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. The default is **eventgrid-system**. If the namespace provided doesn't exist, it's created for you.
     1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
-    1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
+    1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](/azure/aks/concepts-storage#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
     1. **Storage size**. Default is 1 GiB. Consider the ingestion rate when determining the size of your storage. Ingestion rate in MiB/second measured as the size of your events times the publishing rate (events per second) across all topics on the Event Grid broker is a key factor when allocating storage. Events are transient in nature and once they're delivered, there's no storage consumption for those events. While ingestion rate is a main driver for storage use, it isn't the only one. Metadata holding topic and event subscription configuration also consumes storage space, but that normally requires a lower amount of storage space than the events ingested and being delivered by Event Grid.
     1. **Memory limit**. Default is 1 GiB. 
     1. **Memory request**. Default is 200 MiB. This field isn't editable.
@@ -169,7 +169,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     > [!IMPORTANT]
     > You may not change the values for ``ServiceAccount`` and ``serviceType``. During the preview version, the only Kubernetes service type supported is ``ClusterIP``.
 
-    For ``storageClassName`` provide the storage class that you want to use for the broker and that is supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile        `, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
+    For ``storageClassName`` provide the storage class that you want to use for the broker and that is supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile        `, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](/azure/aks/concepts-storage#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
 
     Set ``reporterType`` to ``prometheus`` to enable metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).  
 

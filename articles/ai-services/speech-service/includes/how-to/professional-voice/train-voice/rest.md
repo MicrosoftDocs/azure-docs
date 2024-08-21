@@ -40,7 +40,7 @@ The language of the training data must be one of the [languages that are support
 
 # [Neural](#tab/neural)
 
-To create a neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
+To create a neural voice, use the [Models_Create](/rest/api/aiservices/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
@@ -49,7 +49,7 @@ To create a neural voice, use the [Models_Create](/rest/api/speechapi/models/cre
 - Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/aiservices/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -64,7 +64,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type:
   "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -93,7 +93,7 @@ You should receive a response body in the following format:
 
 # [Neural - cross lingual](#tab/crosslingual)
 
-To create a cross lingual neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
+To create a cross lingual neural voice, use the [Models_Create](/rest/api/aiservices/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
@@ -103,7 +103,7 @@ To create a cross lingual neural voice, use the [Models_Create](/rest/api/speech
 - Set the required `locale` property for the language that your voice speaks. The voice speaks a different language from your training data. You can specify only one target language for a voice model.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/aiservices/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -119,7 +119,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type:
   "consentId": "JessicaConsentId",
   "trainingSetId": "Jessica-en-US-TrainingSetId",
   "locale": "fr-FR"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -146,7 +146,7 @@ You should receive a response body in the following format:
 
 # [Neural - multi style](#tab/multistyle)
 
-To create a multi-style neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
+To create a multi-style neural voice, use the [Models_Create](/rest/api/aiservices/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
@@ -161,7 +161,7 @@ To create a multi-style neural voice, use the [Models_Create](/rest/api/speechap
     - For each dictionary value, specify the ID of a training set that you [already created](../../../../professional-voice-create-training-set.md#add-a-professional-voice-training-dataset) for the same voice model. The training set must contain at least 100 utterances for each style.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/aiservices/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -187,7 +187,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type:
       "myStyle2": "JessicaStyle2TrainingSetId"
     }
   }
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -243,15 +243,15 @@ The following table summarizes the different preset styles according to differen
 
 ## Get training status
 
-To get the training status of a voice model, use the [Models_Get](/rest/api/speechapi/models/get) operation of the custom voice API. Construct the request URI according to the following instructions:
+To get the training status of a voice model, use the [Models_Get](/rest/api/aiservices/speechapi/models/get) operation of the custom voice API. Construct the request URI according to the following instructions:
 
-Make an HTTP GET request using the URI as shown in the following [Models_Get](/rest/api/speechapi/models/get) example. 
+Make an HTTP GET request using the URI as shown in the following [Models_Get](/rest/api/aiservices/speechapi/models/get) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` if you specified a different model ID in the previous step.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview" -H "Ocp-Apim-Subscription-Key: YourResourceKey"
+curl -v -X GET "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2024-02-01-preview" -H "Ocp-Apim-Subscription-Key: YourResourceKey"
 ```
 
 You should receive a response body in the following format. 

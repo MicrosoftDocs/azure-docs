@@ -1,20 +1,17 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Create a dataset using a GeoJson package (Preview)
 
 Azure Maps Creator enables users to import their indoor map data in GeoJSON format with [Facility Ontology 2.0], which can then be used to create a [dataset].
-
-> [!NOTE]
-> This article explains how to create a dataset from a GeoJSON package. For information on additional steps required to complete an indoor map, see [Next steps].
 
 ## Prerequisites
 
@@ -73,8 +70,6 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
     > `https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2023-03-01-preview`
 
-See [Next steps] for links to articles to help you complete your indoor map.
-
 ## Add data to an existing dataset
 
 Data can be added to an existing dataset by providing the `datasetId` parameter to the [Dataset Create API] along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
@@ -89,9 +84,9 @@ If your original dataset was created from a GoeJSON source and you wish to add a
 https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
 ```
 
-| Identifier   | Description                                                       |
-|--------------|-------------------------------------------------------------------|
-| conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package]. |
+| Identifier   | Description                                                                        |
+|--------------|------------------------------------------------------------------------------------|
+| conversionId | The ID returned when converting your drawing package.                              |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package. |
 
 ## Geojson zip package requirements
@@ -124,18 +119,11 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
     - Openings can't intersect with other openings on the same level.
     - Every `opening` must be associated with at least one `verticalPenetration` or `unit`.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Create a tileset]
-
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [area]: creator-facility-ontology.md?pivots=facility-ontology-v2#areaelement
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
-[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Create a dataset]: #create-a-dataset
-[Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
 [Dataset Create API]: /rest/api/maps-creator/dataset/create?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
@@ -147,7 +135,6 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [How to create data registry]: how-to-create-data-registries.md
 [level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
 [line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
-[Next steps]: #next-steps
 [openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
 [point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html

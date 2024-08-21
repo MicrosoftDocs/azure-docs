@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -35,7 +35,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 Document Intelligence uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
+Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -51,10 +51,10 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
-> Starting with version 4.0 — 2024-02-29-preview API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
+> Starting with version 4.0 (2024-02-29-preview) API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
 >
 
-The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support extracting key data fields from structured, semi-structured, and unstructured documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
 ### Custom template model
 
@@ -76,7 +76,7 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx)|
+    |Model | PDF |Image: </br>`jpeg/jpg`, `png`, `bmp`, `tiff`, `heif` | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx)|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, and later)  |
@@ -103,13 +103,35 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
+### Optimal training data
+
+Training input data is the foundation of any machine learning model. It determines the quality, accuracy, and performance of the model. Therefore, it's crucial to create the best training input data possible for your Document Intelligence project. When you use the Document Intelligence custom model, you provide your own training data. Here are a few tips to help train your models effectively:
+
+* Use text-based instead of image-based PDFs when possible. One way to identify an image*based PDF is to try selecting specific text in the document. If you can select only the entire image of the text, the document is image based, not text based.
+
+* Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
+
+* Use forms that have all of the available fields completed.
+
+* Use forms with differing values in each field.
+
+* Use a larger dataset (more than five training documents) if your images are low quality.
+
+* Determine if you need to use a single model or multiple models composed into a single model.
+
+* Consider segmenting your dataset into folders, where each folder is a unique template. Train one model per folder, and compose the resulting models into a single endpoint. Model accuracy can decrease when you have different formats analyzed with a single model.
+
+* Consider segmenting your dataset to train multiple models if your form has variations with formats and page breaks. Custom forms rely on a consistent visual template.
+
+* Ensure that you have a balanced dataset by accounting for formats, document types, and structure.
+
 ### Build mode
 
-The build custom model operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
+The `build custom model` operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 * Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 
-* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies. Neural models currently only support English text.
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies.
 
 This table provides links to the build mode programming language SDK references and code samples on GitHub:
 
@@ -131,7 +153,7 @@ The following table compares custom template and custom neural features:
 |Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks, and tables|
 |Overlapping fields | Not supported | Supported |
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
-|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian, and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
+|Language support | [**Language support custom template**](language-support-custom.md#custom-template)  | [**Language support custom neural**](language-support-custom.md#custom-neural) |
 
 ### Custom classification model
 
@@ -148,6 +170,10 @@ Document Intelligence v3.1 and later models support the following tools, applica
 | Feature | Resources | Model ID|
 |---|---|:---|
 |Custom model| &bullet; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</br>&bullet; [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet; [C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet; [Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|***custom-model-id***|
+
+## Custom model life cycle
+
+The life cycle of a custom model depends on the API version that is used to train it. If the API version is a general availability (GA) version, the custom model has the same life cycle as that version. The custom model isn't available for inference when the API version is deprecated. If the API version is a preview version, the custom model has the same life cycle as the preview version of the API.
 
 :::moniker-end
 

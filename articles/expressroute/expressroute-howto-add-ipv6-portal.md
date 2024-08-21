@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Add IPv6 support using the Azure portal'
 description: Learn how to add IPv6 support to connect to Azure deployments using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: duau

@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 02/27/2024
+ms.date: 07/05/2024
 ms.custom: vmware-scenario-422, engagement-fy24
 zone_pivot_groups: vmware-discovery-requirements
 ---
@@ -14,7 +14,7 @@ zone_pivot_groups: vmware-discovery-requirements
 # Support matrix for VMware discovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to discover and assess servers in a VMware environment for migration to Azure.
 
@@ -313,7 +313,7 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, and Red Hat Enterprise Linux 5/6/7.
+Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Protocol | WinRM port 5985 (HTTP) | SSH port 22 (TCP)
 Required privileges | Local admin. | Root or sudo user.
@@ -333,8 +333,8 @@ Required privileges | Local admin. | Root or sudo user.
 Support | Details
 --- | ---
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple vCenter Servers) discovered per appliance.
-Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
-Linux servers | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x <br /> CentOS 5.1, 5.9, 5.11, 6.x, 7.x, 8.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
+Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
+Linux servers | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.<br /><br /> WMI should be enabled and available on Windows servers.
 vCenter Server account | The read-only account used by Azure Migrate and Modernize for assessment must have privileges for guest operations on VMware VMs.
 Windows server access |  A user account (local or domain) with administrator permissions on servers.
@@ -355,7 +355,7 @@ Requirement | Details
 Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](../create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](../how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](../how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 Supported servers | Supported for all servers in your on-premises environment.
 Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
-Required agents | On each server that you want to analyze, install the following agents:<br />- [Microsoft Monitoring Agent (MMA)](../../azure-monitor/agents/agent-windows.md)<br />- [Dependency agent](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the [MMA](../how-to-create-group-machine-dependencies.md#install-the-mma).
+Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
 Log Analytics workspace | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> You can't modify the workspace for a project after you add the workspace.
 Cost | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day you associate the Log Analytics workspace with the project.<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
 Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../../azure-monitor/logs/manage-access.md).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.

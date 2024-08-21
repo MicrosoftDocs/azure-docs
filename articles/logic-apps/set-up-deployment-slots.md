@@ -12,7 +12,7 @@ ms.date: 04/26/2024
 
 # Set up deployment slots to enable zero downtime deployment in Azure Logic Apps (preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the 

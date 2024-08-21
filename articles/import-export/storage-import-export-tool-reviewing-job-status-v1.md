@@ -14,7 +14,7 @@ ms.author: alkohli
 
 When the Microsoft Azure Import/Export service processes the drives for an import or export job, the service writes copy logs and verbose logs to the storage account that you used. Both logs are saved for each drive.
 
-[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](~/reusable-content/ce-skilling/azure/includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
+[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
 
 ## Locate the logs
 
@@ -57,7 +57,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 #### Sample verbose log: import
 
-[!INCLUDE [data-box-disk-sample-verbose-log.md](~/reusable-content/ce-skilling/azure/includes/data-box-disk-sample-verbose-log.md)]
+[!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
 ### Copy log
 
@@ -82,7 +82,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 #### Sample copy log: import
 
-[!INCLUDE [data-box-disk-sample-copy-log.md](~/reusable-content/ce-skilling/azure/includes/data-box-disk-sample-copy-log.md)]
+[!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
 ## Review export logs
 

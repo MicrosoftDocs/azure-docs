@@ -3,25 +3,25 @@ title: Integrate Azure DNS with your Azure resources - Azure DNS
 description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 07/22/2024
 ms.author: greglin
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS provides naming resolution for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). For example, you have an Azure web app you want your users to access using `contoso.com` or `www.contoso.com` as the FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
+Azure DNS provides name resolution for any of your Azure resources that support custom domains, or that have a fully qualified domain name (FQDN). For example, you might have an Azure web app you want your users to access using `contoso.com` or `www.contoso.com` as the FQDN. This article walks you through configuring Azure DNS to access your Azure service with custom domains.
+
+You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN
 
 ## Prerequisites
 
 To use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you now can configure your DNS records needed.
 
-You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN.
-
 ## Azure Function App
 
-To configure a custom domain for Azure function apps, a CNAME record is created and configured on the function app itself.
+To configure a custom domain for Azure function apps, a [CNAME record](dns-zones-records.md#cname-records) is created and configured on the function app itself. A CNAME record maps a domain name to another domain or subdomain. In this case, you create a CNAME in your public domain and provision the CNAME alias to be the FQDN of your custom domain.
  
 1. Navigate to **Function App** and select your function app. Select **Custom domains** under *Settings*. Note the **current url** under *assigned custom domains*, this address is used as the alias for the DNS record created.
 
@@ -49,7 +49,7 @@ To configure a custom domain for Azure function apps, a CNAME record is created 
 
 ## Public IP address
 
-To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used. An A record (address record) maps a domain name to an IP address. In this case, you create a new A record in your public domain and configure it to have an IP address corresponding to the public IP address of your Azure service. 
 
 1. Navigate to the Public IP resource and select **Configuration**. Note the IP address shown.
 

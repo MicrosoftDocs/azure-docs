@@ -1,7 +1,7 @@
 ---
 author: LittleBoxOfSunshine
 manager: KumariSupriya
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: monitoring
 ms.topic: include
 ms.date: 01/04/2021

@@ -3,9 +3,9 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: reference
-ms.date: 07/10/2023
+ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23
 ---
@@ -15,10 +15,10 @@ ms.custom: template-reference, engagement-fy23
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
-Azure Load Balancer has three SKUs.
+Azure Load Balancer has three stock-keeping units (SKUs).
 
 ## <a name="skus"></a> SKU comparison
-Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
+Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
 To compare and understand the differences between Basic and Standard SKU, see the following table. 
 

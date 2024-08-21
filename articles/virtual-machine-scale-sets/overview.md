@@ -4,9 +4,9 @@ description: Learn about Azure Virtual Machine Scale Sets and how to automatical
 author: ju-shim
 ms.author: jushiman
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice:
-ms.date: 03/09/2023
+ms.date: 08/16/2024
 ms.reviewer: mimckitt
 
 ---
@@ -45,7 +45,7 @@ Azure Virtual Machine Scale Sets provide the management capabilities for applica
 
 - **Provides high availability and application resiliency**
     - Scale sets are used to run multiple instances of your application. If one of these VM instances has a problem, customers continue to access your application through one of the other VM instances with minimal interruption.
-    - For more availability, you can use [Availability Zones](../availability-zones/az-overview.md) to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters.
+    - For more availability, you can use [Availability Zones](../availability-zones/az-overview.md) to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters. Deploying VMs across Availability Zones can protect you against data center failure. Note that a scale set can't protect you against data center failures.
 
 - **Allows your application to automatically scale as resource demand changes**
     - Customer demand for your application may change throughout the day or week. To match customer demand, scale sets can automatically increase the number of VM instances as application demand increases, then reduce the number of VM instances as demand decreases.

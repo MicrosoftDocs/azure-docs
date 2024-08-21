@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 06/12/2024
 ---
 
 # How to shape results in Azure AI Search
@@ -35,7 +35,7 @@ You can choose which fields are in search results. While a search document might
 Pick fields that offer contrast and differentiation among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01 
+POST /indexes/hotels-sample-index/docs/search?api-version=2024-07-01 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -67,6 +67,8 @@ Count won't be affected by routine maintenance or other workloads on the search 
 ## Paging results
 
 By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
+
+The upper limit is 1,000 documents returned per page of search results, so you can set top to return up to 1000 document in the first result. In newer preview APIs, if you're using a hybrid query, you can [specify maxTextRecallSize](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) to return up to 10,000 documents.
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the GET query request, or `top` and `skip` to the POST query request. The following list explains the logic.
 
@@ -110,7 +112,7 @@ In this workaround, sort and filter are applied to a document ID field or anothe
 1. Issue a query to return a full page of sorted results.
 
     ```http
-    POST /indexes/good-books/docs/search?api-version=2023-11-01
+    POST /indexes/good-books/docs/search?api-version=2024-07-01
         {  
           "search": "divine secrets",
           "top": 50,
@@ -129,7 +131,7 @@ In this workaround, sort and filter are applied to a document ID field or anothe
 1. Use that "id" value in a range query to fetch the next page of results. This "id" field should have unique values, otherwise pagination may include duplicate results.
 
     ```http
-    POST /indexes/good-books/docs/search?api-version=2023-11-01
+    POST /indexes/good-books/docs/search?api-version=2024-07-01
         {  
           "search": "divine secrets",
           "top": 50,
@@ -207,7 +209,7 @@ To return highlighted terms, include the "highlight" parameter in the query requ
 By default, the format mark up is `<em>`, but you can override the tag using `highlightPreTag` and `highlightPostTag` parameters. Your client code handles the response (for example, applying a bold font or a yellow background).
 
 ```http
-POST /indexes/good-books/docs/search?api-version=2023-11-01
+POST /indexes/good-books/docs/search?api-version=2024-07-01
     {  
       "search": "divine secrets",  
       "highlight": "title, original_title",
@@ -280,7 +282,7 @@ Within a highlighted field, formatting is applied to whole terms. For example, o
 Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine secrets" is submitted as a quotation-enclosed phrase (some REST clients require that you escape the interior quotation marks with a backslash `\"`):
 
 ```http
-POST /indexes/good-books/docs/search?api-version=2023-11-01 
+POST /indexes/good-books/docs/search?api-version=2024-07-01 
     {  
       "search": "\"divine secrets\"",
       "select": "title,original_title",

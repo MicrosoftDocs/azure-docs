@@ -91,7 +91,7 @@ The resource providers for container services are:
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
-| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
+| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 
 ## Core resource providers
@@ -118,14 +118,14 @@ The resource providers for database services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AzureData | SQL Server registry |
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
-| Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
-| Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
-| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
+| Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
+| Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
+| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
+| Microsoft.DocumentDB | [Azure Cosmos DB](/azure/cosmos-db/) |
 | Microsoft.Sql | [Azure SQL Database](/azure/azure-sql/database/index)<br /> [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
+| Microsoft.AzureData | [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview) |
 
 ## Developer tools resource providers
 
@@ -134,6 +134,7 @@ The resource providers for developer tools services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
+| Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
@@ -153,7 +154,7 @@ The resource providers for hybrid services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AzureArcData | Azure Arc-enabled data services |
+| Microsoft.AzureArcData | [Azure Arc-enabled data services](/azure/azure-arc/data/overview) |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
 | Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
@@ -252,7 +253,7 @@ The resource providers for migration services are:
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
 | Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
-| Microsoft.DataMigration | [Azure Database Migration Service](../../dms/index.yml) |
+| Microsoft.DataMigration | [Azure Database Migration Service](/azure/dms/) |
 | Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 
@@ -288,11 +289,11 @@ The resource providers for security services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Attestation | [Azure Attestation Service](../../attestation/overview.md) |
+| Microsoft.Attestation | [Azure Attestation Service](/azure/attestation/overview) |
 | Microsoft.CustomerLockbox | [Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.DataProtection | Data Protection |
-| Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
-| Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
+| Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](/azure/dedicated-hsm/) |
+| Microsoft.KeyVault | [Key Vault](/azure/key-vault/) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Microsoft Sentinel](../../sentinel/index.yml) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |

@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to create a private endpoint with an application security group (ASG) or apply an ASG to an existing private endpoint.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: how-to 
 ms.date: 06/14/2022
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli

@@ -35,8 +35,8 @@ This article contains a reference and a detailed description of the quotas and l
 | **Pricing tier** | **Limit value** |
 | --- | --- |
 |Free (F0)| 1 resource|
-| Standard (S0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>10 resources in other regions.</li></ul> |
-| Enterprise (E0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>15 resources in other regions.</li></ul> |
+| Standard (S0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar Central.</li><li>10 resources in other regions.</li></ul> |
+| Enterprise (E0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar Central.</li><li>10 resources in other regions.</li></ul> |
 
 
 ### How to request an increase to the default limits 

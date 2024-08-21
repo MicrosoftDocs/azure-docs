@@ -87,7 +87,7 @@ You don't get charged for using the App Service features that are available to y
 
 Want to optimize and save on your cloud spending?
 
-[!INCLUDE [cost-management-horizontal](~/reusable-content/ce-skilling/azure/includes/cost-management-horizontal.md)]
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## What if my app needs more capabilities or features?
 

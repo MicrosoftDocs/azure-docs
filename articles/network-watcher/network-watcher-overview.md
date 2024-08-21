@@ -3,7 +3,7 @@ title: Azure Network Watcher overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: overview
 ms.date: 06/12/2024
 
@@ -109,7 +109,7 @@ The **Usage + quotas** capability of Network Watcher provides a summary of your 
 
 Network Watcher has the following limits:
 
-[!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
+[!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
 
 ## Pricing
 

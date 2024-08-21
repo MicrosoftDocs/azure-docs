@@ -1,34 +1,34 @@
 ---
-title: What is a Connected Registry?
-description: Overview and scenarios of the Connected Registry feature of Azure Container Registry, including its benefits and use cases.
+title: What is a connected registry?
+description: Overview and scenarios of the connected registry feature of Azure Container Registry, including its benefits and use cases.
 ms.author: jeburke
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: overview
 ms.date: 10/31/2023
 ms.custom: references_regions
-#customer intent: As a reader, I want to understand the overview and scenarios of the Connected registry feature of Azure Container Registry so that I can utilize it effectively.
+#customer intent: As a reader, I want to understand the overview and scenarios of the connected registry feature of Azure Container Registry so that I can utilize it effectively.
 ---
 
-# What is a Connected Registry? 
+# What is a connected registry? 
 
 In this article, you learn about the *connected registry* feature of [Azure Container Registry](container-registry-intro.md). A connected registry is an on-premises or remote replica that synchronizes container images with your cloud-based Azure container registry. Use a connected registry to help speed-up access to registry artifacts on-premises or remote.
 
 ## Billing and Support
 
-The Connected registry is a preview feature of the **Premium** container registry service tier, and subject to [limitations](#limitations). For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+The connected registry is a preview feature of the **Premium** container registry service tier, and subject to [limitations](#limitations). For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 >[!IMPORTANT]
-> Please note that there are **Important upcoming changes** to the Connected registry Deployment Model Support and Billing starting from January 1st, 2025. For any inquiries or assistance with the transition, please reach out to the customer support team.
+> Please note that there are **Important upcoming changes** to the connected registry Deployment Model Support and Billing starting from January 1st, 2025. For any inquiries or assistance with the transition, please reach out to the customer support team.
 
 ### Billing
-- The Connected registry incurs no charges until it reaches general availability (GA).
+- The connected registry incurs no charges until it reaches general availability (GA).
 - Post-GA, a monthly price of $10 will apply for each connected registry deployed.
 - This price represents Microsoft's commitment to deliver high-quality services and product support.
 - The price is applied to the Azure subscription associated with the parent registry.
 
 ### Support
-- Microsoft will end support for the Connected registry deployment on IoT Edge devices on September 30, 2024.
-- After September 30, 2024, Connected registry will solely support Arc-enabled Kubernetes clusters as the deployment model.
+- Microsoft will end support for the connected registry deployment on IoT Edge devices on January 1st, 2025.
+- After January 1st, 2025 connected registry will solely support Arc-enabled Kubernetes clusters as the deployment model.
 - Microsoft advises users to begin planning their transition to Arc-enabled Kubernetes clusters as the deployment model.
 
 ## Available regions
@@ -67,17 +67,17 @@ Scenarios for a connected registry include:
 * Point-of-sale retail locations
 * Shipping, oil-drilling, mining, and other occasionally connected environments
 
-## How does the Connected registry work?
+## How does the connected registry work?
 
 The connected registry is deployed on a server or device on-premises, or an environment that supports container workloads on-premises such as Azure IoT Edge and Azure Arc-enabled Kubernetes. The connected registry synchronizes container images and other OCI artifacts with a cloud-based Azure container registry.
 
 The following image shows a typical deployment model for the connected registry using IoT Edge. 
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-edge.png" alt-text="Diagram of Connected registry overview using IoT Edge":::
+:::image type="content" source="media/intro-connected-registry/connected-registry-edge.png" alt-text="Diagram of connected registry overview using IoT Edge":::
 
 The following image shows a typical deployment model for the connected registry using Azure Arc-enabled Kubernetes. 
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-azure-arc.png" alt-text="Diagram of Connected registry overview using Arc-enabled Kubernetes":::
+:::image type="content" source="media/intro-connected-registry/connected-registry-azure-arc.png" alt-text="Diagram of connected registry overview using Arc-enabled Kubernetes":::
 
 ### Deployment
 
@@ -102,9 +102,9 @@ It can also be configured to synchronize a subset of the repositories from the c
 
 A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
-- **ReadOnly mode** - The **Default mode**, when the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate. This default mode aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
+**ReadOnly mode** - The Default mode, when the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate. This default mode aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
 
-- **ReadWrite mode** - The mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+**ReadWrite mode** - The mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
 ### Registry hierarchy
 
@@ -124,12 +124,12 @@ For more information, see [Manage access to a connected registry][overview-conne
 
 - Number of tokens and scope maps is [limited](container-registry-skus.md) to 20,000 each for a single container registry. This indirectly limits the number of connected registries for a cloud registry, because every Connected registry needs a sync and client token.
 - Number of repository permissions in a scope map is limited to 500.
-- Number of clients for the Connected registry is currently limited to 20.
+- Number of clients for the connected registry is currently limited to 20.
 - [Image locking](container-registry-image-lock.md) through repository/manifest/tag metadata isn't currently supported for connected registries.
-- [Repository delete](container-registry-delete.md) isn't supported on the Connected registry using ReadOnly mode.
+- [Repository delete](container-registry-delete.md) isn't supported on the connected registry using ReadOnly mode.
 - [Resource logs](monitor-service-reference.md#resource-logs) for connected registries are currently not supported.
 - Connected registry is coupled with the registry's home region data endpoint. Automatic migration for [geo-replication](container-registry-geo-replication.md) isn't supported.
-- Deletion of a Connected registry needs manual removal of the containers on-premises and removal of the respective scope map or tokens in the cloud.
+- Deletion of a connected registry needs manual removal of the containers on-premises and removal of the respective scope map or tokens in the cloud.
 - Connected registry sync limitations are as follows:
   - For continuous sync:
     - `minMessageTtl` is one day

@@ -3,7 +3,7 @@ title: Deploy and configure Azure Firewall in a hybrid network by using the Azur
 description: In this article, you learn how to deploy and configure Azure Firewall by using the Azure portal.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: victorh

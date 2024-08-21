@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource)
+> * [Create a Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## Add sample code

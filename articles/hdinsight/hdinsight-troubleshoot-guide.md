@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight troubleshooting guides
 description: Troubleshoot Azure HDInsight. Step-by-step documentation shows you how to use HDInsight to solve common problems with Apache Hive, Apache Spark, Apache YARN, Apache HBase, and HDFS.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 09/19/2023
 ---

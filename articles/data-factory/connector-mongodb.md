@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from MongoDB to supported sink data stores, or from supported source data stores to MongoDB, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -33,8 +32,7 @@ This MongoDB connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
-Specifically, this MongoDB connector supports **versions up to 4.2**.
-
+Specifically, this MongoDB connector supports **versions up to 4.2**. If your work requires versions newer than 4.2, consider using MongoDB Atlas with the [MongoDB Atlas connector](connector-mongodb-atlas.md), which provides more comprehensive support and features.
 
 ## Prerequisites
 

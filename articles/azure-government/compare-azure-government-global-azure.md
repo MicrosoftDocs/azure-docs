@@ -7,7 +7,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 06/08/2023
+ms.date: 07/12/2024
 ---
 
 # Compare Azure Government and global Azure
@@ -189,14 +189,17 @@ The following features of Azure OpenAI are available in Azure Government:
 
 |Feature|Azure OpenAI|
 |--------|--------|
-|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
-|Virtual network support & private link support|Yes, unless using [Azure OpenAI on your data](../ai-services/openai/concepts/use-your-data.md)|
+|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4o (2024-05-13)&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4o (2024-05-13)&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more about the different capabilities of each model in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
+|Virtual network support & private link support| Yes. |
+| Connect your data | Available in US Gov Virginia and Arizona. Virtual network and private links are supported. Deployment to a web app or a copilot in Copilot Studio is not supported. |
 |Managed Identity|Yes, via Microsoft Entra ID|
 |UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
+|Abuse Monitoring|Not all features of Abuse Monitoring are enabled for AOAI in Azure Government. You will be responsible for implementing reasonable technical and operational measures to detect and mitigate any use of the service in violation of the Product Terms. [Automated Content Classification and Filtering](../ai-services/openai/concepts/content-filter.md) remains enabled by default for Azure Government.|
+|Data Storage|In AOAI, customer data is only stored at rest as part of our Finetuning solution. Since Finetuning is not enabled within Azure Gov, there is no customer data stored at rest in Azure Gov associated with AOAI. However, Customer Managed Keys (CMK) can still be enabled in Azure Gov to support use of the same policies in Azure Gov as in Public cloud. Note also that if Finetuning is enabled in Azure Gov in the future, any existing CMK deployment would be applied to that data at that time.|
 
 **Next steps**
-* Get started by requesting access to Azure OpenAI Service in Azure Government at [https://aka.ms/AOAIgovaccess](https://aka.ms/AOAIgovaccess)
-* Request quota increases for the pay-as-you-go consumption model, please fill out a separate form at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
+* To request quota increases for the pay-as-you-go consumption model, apply at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
+* If modified content filters are required, apply at [https://aka.ms/AOAIGovModifyContentFilter](https://aka.ms/AOAIGovModifyContentFilter)
 
 
 ### [Azure AI services: Translator](../ai-services/translator/index.yml)
@@ -233,19 +236,19 @@ To learn how to embed analytical content within your business process applicatio
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Database for MySQL](../mysql/index.yml)
+### [Azure Database for MySQL](/azure/mysql/)
 
 The following Azure Database for MySQL **features aren't currently available** in Azure Government:
 
 - Advanced Threat Protection
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml)
+### [Azure Database for PostgreSQL](/azure/postgresql/)
 
-For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/resources-regions).
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
@@ -403,7 +406,7 @@ Azure Front Door (AFD) Standard and Premium tiers are available in general avail
 
 ### [Traffic Manager](../traffic-manager/index.yml)
 
-Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://www.microsoft.com/en-us/download/details.aspx?id=57063) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Security
 
@@ -421,7 +424,7 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 

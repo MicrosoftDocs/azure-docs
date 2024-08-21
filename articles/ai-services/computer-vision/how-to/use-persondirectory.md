@@ -382,8 +382,7 @@ HttpResponseMessage response;
 var body = new Dictionary<string, object>();
 body.Add("faceId", "{guid1}");
 body.Add("personId", "{guid1}");
-var jsSerializer = new JavaScriptSerializer();
-byte[] byteData = Encoding.UTF8.GetBytes(jsSerializer.Serialize(body));
+byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))
 {

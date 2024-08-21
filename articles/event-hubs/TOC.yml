@@ -150,9 +150,13 @@
           href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
         - name: Acquire events from Azure Service Bus
           href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
-    - name: Geo-disaster recovery
+    - name: Reliability
       items:
-        - name: Geo-disaster recovery and Geo-replication
+        - name: Availability zones and disaster recovery
+          href: ../reliability/reliability-event-hubs.md?toc=/azure/event-hubs/toc.json
+        - name: Geo-replication
+          href: geo-replication.md
+        - name: Metadata only geo-disaster recovery
           href: event-hubs-geo-dr.md
     - name: Security
       items:
@@ -306,9 +310,12 @@
           href: event-hubs-auto-inflate.md
         - name: Event Hubs management libraries
           href: event-hubs-management-libraries.md
+        - name: Use geo-replication
+          href: use-geo-replication.md
+
     - name: Monitor
       items:
-        - name: Monitor Azure Event Hubs
+        - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
@@ -354,7 +361,7 @@
         href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
-    - name: Monitor data Reference
+    - name: Monitor data reference
       href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md

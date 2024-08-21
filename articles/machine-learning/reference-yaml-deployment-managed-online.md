@@ -3,14 +3,14 @@ title: 'CLI (v2) managed online deployment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) managed online deployment YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2, build-2023
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 10/19/2023
-ms.reviewer: mopeakande
+ms.reviewer: sehan
 ---
 
 # CLI (v2) managed online deployment YAML schema

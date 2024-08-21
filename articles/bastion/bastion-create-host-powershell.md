@@ -3,7 +3,7 @@ title: 'Deploy Bastion:PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc
@@ -36,9 +36,9 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ### PowerShell
 
-[!INCLUDE [cloudshell powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [cloudshell powershell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-[!INCLUDE [powershell locally](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-powershell-locally.md)]
+[!INCLUDE [powershell locally](../../includes/vpn-gateway-powershell-locally.md)]
 
 ### Example values
 

@@ -224,7 +224,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2023-03-11/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "dataCollectionRuleName": {
@@ -244,12 +244,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "metadata": {
                     "description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
                 }
-            },
-            "endpointResourceId": {
-                "type": "string",
-                "metadata": {
-                    "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
-                }
             }
         },
         "resources": [
@@ -257,9 +251,9 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "type": "Microsoft.Insights/dataCollectionRules",
                 "name": "[parameters('dataCollectionRuleName')]",
                 "location": "[parameters('location')]",
-                "apiVersion": "2021-09-01-preview",
+                "apiVersion": "2023-03-11",
+                "kind": "Direct",
                 "properties": {
-                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [
@@ -329,7 +323,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2023-03-11/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "dataCollectionRuleName": {
@@ -349,6 +343,12 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "metadata": {
                     "description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
                 }
+            },
+            "endpointResourceId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
+                }
             }
         },
         "resources": [
@@ -356,8 +356,10 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "type": "Microsoft.Insights/dataCollectionRules",
                 "name": "[parameters('dataCollectionRuleName')]",
                 "location": "[parameters('location')]",
-                "apiVersion": "2021-09-01-preview",
+                "apiVersion": "2023-03-11",
+                "kind": "Direct",
                 "properties": {
+                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [

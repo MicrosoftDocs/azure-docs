@@ -2,7 +2,7 @@
 title: Dasv5-series summary include
 description: Include file containing a summary of the Dasv5-series size family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/11/2024

@@ -19,7 +19,7 @@ Azure Monitor custom metrics are currently in public preview.
 Custom metrics can be sent to Azure Monitor via several methods:
 
 - Use Azure Application Insights SDK to instrument your application by sending custom telemetry to Azure Monitor.
-- Install the [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) on your Windows or Linux Azure virtual machine or virtual machine scale set and use a [data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) to send performance counters to Azure Monitor metrics.
+- Install the [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) on your Windows or Linux Azure virtual machine or virtual machine scale set and use a [data collection rule](../agents/azure-monitor-agent-data-collection.md) to send performance counters to Azure Monitor metrics.
 - Install the Azure Diagnostics extension on your [Azure VM](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), [Virtual Machine Scale Set](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](../essentials/collect-custom-metrics-guestos-vm-classic.md), or [classic cloud service](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md). Then send performance counters to Azure Monitor.
 - Install the [InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](./metrics-store-custom-rest-api.md).
@@ -31,7 +31,7 @@ In general, there's no cost to ingest standard metrics (platform metrics) into a
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
 > [!NOTE]
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../cost-usage.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> To provide a better experience, custom metrics sent to Azure Monitor from the Application Insights Classic API (SDKs) are always stored in both Log Analytics and the Metrics Store. Your cost to store these metrics is only based on the volume ingested by Log Analytics. There is no additional cost for data stored in the Metrics Store.
 
 ## Custom metric definitions
 

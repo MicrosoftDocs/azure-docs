@@ -3,12 +3,12 @@ title:  Use Azure Machine Learning pipelines with no code to construct RAG pipel
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning pipelines to run Prompt Flow models (preview)
 services: machine-learning
-ms.author: balapv
-author: balapv
-ms.reviewer: ssalgado
-ms.service: machine-learning
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: balapv
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.date: 06/30/2023
+ms.date: 06/20/2024
 ms.topic: how-to
 ms.custom: prompt
 ---
@@ -16,7 +16,7 @@ ms.custom: prompt
 
 # Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview)
 
-This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. Azure Machine Learning provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in Azure Machine Learning in LangChain. 
+This article offers you examples on how to create an RAG pipeline. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. Azure Machine Learning provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in Azure Machine Learning in LangChain. 
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 

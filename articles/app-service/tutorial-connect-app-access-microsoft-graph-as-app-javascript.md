@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 03/14/2023
 ms.author: ryanwi
@@ -26,9 +26,6 @@ Your web app now has the required permissions and also adds Microsoft Graph's cl
 
 The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
-To see this code as part of a sample application, see the: 
-* [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
-
 > [!NOTE]
 > The [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
 > 
@@ -43,8 +40,6 @@ npm install @azure/identity @microsoft/microsoft-graph-client
 ```
 
 ### Configure authentication information
-
-Create an object to hold the [authentication settings](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/3-WebApp-graphapi-managed-identity/app.js):
 
 ```javascript
 // partial code in app.js
@@ -63,7 +58,7 @@ const appSettings = {
 
 ### Call Microsoft Graph on behalf of the app
 
-The following code shows how to call [Microsoft Graph controller](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/controllers/graphController.js) as the app and get some user information.
+The following code shows how to call Microsoft Graph controller as the app and get some user information.
 
 ```javascript
 // graphController.js
@@ -94,7 +89,7 @@ exports.getUsersPage = async(req, res, next) => {
 }
 ```
 
-The previous code relies on the following [getAuthenticatedClient](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/3-WebApp-graphapi-managed-identity/utils/graphHelper.js) function to return Microsoft Graph client.
+The previous code relies on the following getAuthenticatedClient function to return Microsoft Graph client.
 
 ```javascript
 // utils/graphHelper.js

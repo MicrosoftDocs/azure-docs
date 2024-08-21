@@ -2,8 +2,7 @@
 title: Create an Azure confidential VM in the Azure portal
 description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
@@ -57,6 +56,9 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
+    > [!NOTE]
+    > For NCCH100v5 series, only the **Ubuntu Server 22.04 LTS (Confidential VM)** image is currently supported. 
+
     i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
 
@@ -86,7 +88,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 
-    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys and enable purge protection. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
+    1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) using the **Premium** pricing tier that includes support for HSM-backed keys. It's also important to enable purge protection for added security measures. Additionally, for the access configuration, use the "Vault access policy" under "Access configuration" tab. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/quick-create-cli).
 
     1. In the Azure portal, search for and select **Disk Encryption Sets**.
 
@@ -123,7 +125,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     q. Go to the disk encryption set resource in the Azure portal.
 
-    r. Select the pink banner to grant permissions to Azure Key Vault.
+    r. When you see a blue info banner, please follow the instructions provided to grant access. On encountering a pink banner, simply select it to grant the necessary permissions to Azure Key Vault.
 
    > [!IMPORTANT]
    > You must perform this step to successfully create the confidential VM.

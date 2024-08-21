@@ -42,8 +42,6 @@
     items:
     - name: Manage your academic grant
       href: hub-overview-page.md
-    - name: Set up a custom tenant
-      href: custom-tenant-set-up-classroom.md
     - name: Create an assignment and allocate credit
       href: create-assignment-allocate-credit.md
     - name: Get support
@@ -58,12 +56,12 @@
       href: delete-lab-education-hub-apis.md
     - name: Find IDs for calling Azure Education Hub APIs
       href: find-ids.md
-    - name: Manage students
-      href: azure-dev-tools-teaching/manage-students.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Download software
       href: azure-dev-tools-teaching/download-software.md
+    - name: Manage students
+      href: azure-dev-tools-teaching/manage-students.md
   - name: Azure for Students
     items:
     - name: Track usage and create budgets

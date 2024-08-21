@@ -97,7 +97,7 @@ Response < AnswerCallResult > answerCallResult = callAutomationClient
 
 ## Call the recognize action
 
-When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
+When your application answers the call, you can provide information about recognizing participant input and playing a prompt. The recognize action also supports playing multiple prompts within the same request. 
 
 ### DTMF
 ``` java

@@ -3,15 +3,15 @@ title: Custom tool package creation and usage in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to develop your own tool package in prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 09/12/2023
 ---
 

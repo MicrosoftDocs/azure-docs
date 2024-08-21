@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 08/21/2023
+ms.date: 05/15/2024
 ms.author: phjensen
 ---
 
@@ -13,21 +13,93 @@ ms.author: phjensen
 
 This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
 
-The preview features provided with AzAcSnap 9 are:
+The preview features provided with AzAcSnap 10 are:
 
+- Microsoft SQL Server
 - Azure NetApp Files backup
 - Azure managed disks
 
 > [!NOTE]
-> Previews are provided "as is," "with all faults," and "as available." They're excluded from the service-level agreements and limited warranty. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Previews are provided "as is," "with all faults," and "as available," and are excluded from the service-level agreements and may not be covered by customer support.
+> Previews are subject to the supplemental terms of use for Microsoft Azure Previews found at https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
+## Using AzAcSnap preview features
+
+AzAcSnap preview features are offered together with generally available features. Using the preview features requires the use of the `--preview` command-line option. To set up and install AzAcSnap, see [Get started with the Azure Application Consistent Snapshot tool](azacsnap-get-started.md).
 
 ## Providing feedback
 
 You can provide feedback on AzAcSnap, including this preview, [online](https://aka.ms/azacsnap-feedback).
 
-## Using AzAcSnap preview features
+## Microsoft SQL Server
 
-AzAcSnap preview features are offered together with generally available features. Using the preview features requires the use of the `--preview` command-line option. To set up and install AzAcSnap, see [Get started with the Azure Application Consistent Snapshot tool](azacsnap-get-started.md).
+### Supported platforms and operating systems
+
+> [!NOTE]
+> Support for Microsoft SQL Server is Preview feature.  
+> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) page.
+
+New database platforms and operating systems supported with this preview release.
+
+- **Databases**
+  - Microsoft SQL Server 2022 (or later) on Windows Server 2019 (or later) only is in preview.
+
+
+### Enable communication with database
+
+> [!NOTE]
+> Support for Microsoft SQL Server is Preview feature.  
+> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) page.
+This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
+
+# [Microsoft SQL Server](#tab/mssql)
+
+The snapshot tools issue commands to the Microsoft SQL Server database directly to enable and disable backup mode.  
+
+AzAcSnap connects directly to Microsoft SQL Server using the provided connect-string to issue SQL commands, such as `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = ON` or `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = OFF`.  The connect-string will determine if the installation is on the database server or a centralized "backup" server.  Typical installations of AzAcSnap would be onto the database server to ensure features such as flushing file buffers can  work as expected.  If AzAcSnap has been installed onto the database server, then be sure the user running azacsnap has the required permissions.
+
+##### `azacsnap` user permissions
+
+Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+The `azacsnap` user should have permissions to put Microsoft SQL Server into backup mode, and have permissions to flush I/O buffers to the volumes configured.
+
+Configure (`.\azacsnap.exe -c configure`) with the correct values for Microsoft SQL Server and test (`.\azacsnap.exe -c test --test mssql`) azacsnap database connectivity.
+Run the `azacsnap` test command
+```shell
+.\azacsnap.exe -c test --test mssql
+```
+
+```output
+BEGIN : Test process started for 'mssql'
+BEGIN : Database tests
+PASSED: Successful connectivity to MSSQL version 16.00.1115
+END   : Test process complete for 'mssql'
+```
+---
+### Configuring the database
+This section explains how to configure the data base.
+# [Microsoft SQL Server](#tab/mssql)
+No special database configuration is required for Microsoft SQL Server as we are using the User's local operating system environment.
+
+---
+
+### Configuring AzAcSnap
+
+This section explains how to configure AzAcSnap for the specified database.
+
+> [!NOTE]
+> Support for Microsoft SQL Server is Preview feature.  
+> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
+### Details of required values
+The following sections provide detailed guidance on the various values required for the configuration file.
+# [Microsoft SQL Server](#tab/mssql)
+#### Microsoft SQL Server Database values for configuration
+When adding a Microsoft SQL Server database to the configuration, the following values are required:
+- **connectionString** = The Connection String used to connect to the database.  For a typical AzAcSnap installation on to the system running Microsoft SQL Server where the Database Instance is MSSQL2022 the connection string = "Trusted_Connection=True;Persist Security Info=True;Data Source=MSSQL2022;TrustServerCertificate=true".
+- **instanceName** = The database instance name.
+- **metaDataFileLocation** = The location where Microsoft SQL Server will write out the backup meta-data file (for example, "C:\\MSSQL_BKP\\").
+
+---
 
 ## Azure NetApp Files backup
 
@@ -52,71 +124,18 @@ For more information about this feature, see [Configure the Azure Application Co
 
 Microsoft provides many storage options for deploying databases such as SAP HANA. For details about some of these options, see [Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md). There's also a [cost-conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#cost-conscious-solution-with-azure-premium-storage).
 
-AzAcSnap can take application-consistent database snapshots when you deploy it on this type of architecture (that is, a virtual machine [VM] with managed disks). But the setup for this platform is slightly more complicated because in this scenario, you need to block I/O to the mount point (by using `xfs_freeze`) before you take a snapshot of the managed disks in the mounted logical volumes.
+AzAcSnap can take application-consistent database snapshots when you deploy it on this type of architecture (that is, a virtual machine [VM] with managed disks). But the setup for this platform is slightly more complicated because in this scenario AzAcSnap takes an additional step to try and flush all I/O buffers and ensure they are written out to persistent storage.  On Linux AzAcSnap will call the `sync` command to flush file buffers, on Windows it uses the kernel call to FlushFileBuffers, before it takes a snapshot of the managed disks in the mounted logical volumes.
 
 > [!IMPORTANT]
-> The Linux system must have `xfs_freeze` available to block disk I/O.
-
-Take extra care to configure AzAcSnap with the correct mount points (file systems), because `xfs_freeze` blocks I/O to the device that the Azure managed disk's mount point specifies. This behavior could inadvertently block a running application until `azacsnap` finishes running.
+> AzAcSnap will need appropriate operating system permissions for the volume so it can perform the flush.
 
 Here's the architecture at a high level:
 
 1. Attach Azure managed disks to the VM by using the Azure portal.
 1. Create a logical volume from these managed disks.
 1. Mount the logical volume to a Linux directory.
-1. Create the service principal in the same way as for Azure NetApp Files in the [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
+1. Enable communication in the same way as for Azure NetApp Files in the [AzAcSnap installation](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage).
 1. Install and configure AzAcSnap.
-
-   The configurator has a new option to define the mount point for the logical volume. After you put the database into backup mode and after the I/O cache is flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`), this parameter is passed to `xfs_freeze` to block the I/O.
-1. Install and configure `xfs_freeze` to be run as a non-privileged user:
-
-   1. Create an executable file called `$HOME/bin/xfs_freeze` with the following content:
-
-      ```bash
-      #!/bin/sh
-      /usr/bin/sudo /usr/sbin/xfs_freeze $1 $2
-      ```
-
-   1. Create a sudoers file called `/etc/sudoers.d/azacsnap` to allow the `azacsnap` user to run `xfs_freeze` with the following content:
-
-      ```bash
-      #
-      # What: azacsnap
-      # Why: Allow the azacsnap user to run "specific" commands with elevated privileges.
-      #
-      # User_Alias = SAP HANA Backup administrator user.
-      User_Alias      AZACSNAP = azacsnap
-      #
-      AZACSNAP ALL=(ALL) NOPASSWD: /usr/sbin/xfs_freeze
-      ```
-
-   1. Test that the `azacsnap` user can freeze and unfreeze I/O to the target mount point by running the following code as the `azacsnap` user.
-
-      This example runs each command twice to show that it worked the first time, because there's no command to confirm if `xfs_freeze` has frozen I/O.
-  
-      Freeze I/O:
-  
-      ```bash
-      su - azacsnap
-      xfs_freeze -f /hana/data
-      xfs_freeze -f /hana/data
-      ```
-
-      ```output
-      xfs_freeze: cannot freeze filesystem at /hana/data: Device or resource busy
-      ```
-  
-      Unfreeze I/O:
-
-      ```bash
-      su - azacsnap
-      xfs_freeze -u /hana/data
-      xfs_freeze -u /hana/data
-      ```
-  
-      ```output
-      xfs_freeze: cannot unfreeze filesystem mounted at /hana/data: Invalid argument
-      ```
 
 For more information about using Azure managed disks as a storage back end, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
 
@@ -139,30 +158,27 @@ Here's an example configuration file. Note the hierarchy for `dataVolume`, `moun
         "hdbUserStoreName": "AZACSNAP",
         "savePointAbortWaitSeconds": 600,
         "autoDisableEnableBackint": false,
-        "hliStorage": [],
-        "anfStorage": [],
-        "amdStorage": [
+        "storage": [
           {
-            "dataVolume": [
+            "dataVolumes": [
               {
                 "mountPoint": "/hana/data",
+                "aliStorageResources": [
                 "azureManagedDisks": [
                   {
                     "resourceId": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Compute/disks/<disk01>",
-                    "authFile": "azureauth.json"
+                    "authFile": ""
                   },
                   {
                     "resourceId": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Compute/disks/<disk02>",
-                    "authFile": "azureauth.json"
+                    "authFile": ""
                   }
                 ]
               }
-            ],
-            "otherVolume": []
+            ]
           }
         ]
-      },
-      "oracle": null
+      }
     }
   ]
 }

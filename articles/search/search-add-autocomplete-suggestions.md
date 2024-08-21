@@ -32,7 +32,7 @@ The remainder of this article is focused on queries and client code. It uses Jav
 Elements of a request include one of the search-as-you-type APIs, a partial query, and a suggester. The following script illustrates components of a request, using the Autocomplete REST API as an example.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2024-07-01
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -84,7 +84,7 @@ Although you could write this code natively, it's easier to use functions from e
 
 + [XDSoft Autocomplete plug-in](https://xdsoft.net/jqplugins/autocomplete/) appears in the Autocomplete code snippet.
 
-+ [suggestions](https://www.npmjs.com/package/suggestions) appears in the [JavaScript tutorial](tutorial-javascript-overview.md) and code sample.
++ [suggestions](https://www.npmjs.com/package/suggestions) appears in the [Add search to web sites tutorial](tutorial-csharp-overview.md) and code sample.
 
 Use these libraries in the client to create a search box supporting both suggestions and autocomplete. Inputs collected in the search box can then be paired with suggestions and autocomplete actions on the search service.
 
@@ -249,4 +249,4 @@ The Autocomplete function takes the search term input. The method creates an [Au
 The following tutorial demonstrates a search-as-you-type experience.
 
 > [!div class="nextstepaction"]
-> [Add search to a web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) 
+> [Add search to a web site (C#)](tutorial-csharp-overview.md)

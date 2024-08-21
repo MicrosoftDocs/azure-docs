@@ -4,8 +4,6 @@ description: Copy, transform, and share data using Azure Data Factory and Azure 
 author: dcstwh
 ms.author: weetok
 ms.date: 11/14/2023
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ---
 

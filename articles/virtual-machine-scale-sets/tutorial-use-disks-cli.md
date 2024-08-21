@@ -4,9 +4,9 @@ description: Learn how to use the Azure CLI to create and use Managed Disks with
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 

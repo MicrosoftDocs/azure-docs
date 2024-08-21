@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 10/26/2023
 

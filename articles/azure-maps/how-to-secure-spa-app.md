@@ -2,12 +2,12 @@
 title: How to secure a single-page web application with non-interactive sign-in in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: How to configure a single-page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ms.custom: subject-rbac-steps
 ---
 
@@ -61,7 +61,7 @@ To create a secured web service application that's responsible for authenticatio
 6. Configure security for the Azure function HttpTrigger:
 
    1. [Create a function access key]
-   1. [Secure HTTP endpoint](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure function in production.
+   1. [Secure HTTP endpoint](../azure-functions/security-concepts.md#secure-http-endpoints) for the Azure function in production.
 
 7. Configure a web application Azure Maps Web SDK.
 
@@ -117,4 +117,4 @@ Explore other samples that show how to integrate Microsoft Entra ID with Azure M
 [Add a system-assigned identity]: ../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity
 [Grant role-based access]: #grant-role-based-access-for-users-to-azure-maps
 [Obtain tokens for Azure resources]: ../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity
-[Create a function access key]: ../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys
+[Create a function access key]: ../azure-functions/function-keys-how-to.md#renew-or-create-access-keys

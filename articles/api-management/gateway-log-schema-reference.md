@@ -4,7 +4,7 @@ description: Schema reference for the Azure API Management GatewayLogs log. Entr
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2024

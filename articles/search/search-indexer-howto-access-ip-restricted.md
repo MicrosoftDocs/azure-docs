@@ -145,5 +145,5 @@ If you don't need key-based authentication, we recommend that you disable API ke
 ## Next Steps
 
 - [Configure Azure Storage firewalls](../storage/common/storage-network-security.md)
-- [Configure an IP firewall for Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
+- [Configure an IP firewall for Azure Cosmos DB](/azure/cosmos-db/how-to-configure-firewall)
 - [Configure IP firewall for Azure SQL Server](/azure/azure-sql/database/firewall-configure)

@@ -5,7 +5,6 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
-ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Service Bus Messaging

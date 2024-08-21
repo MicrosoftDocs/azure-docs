@@ -4,7 +4,7 @@ description: Learn how to mount a gitRepo volume to clone a Git repository into 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 04/24/2024

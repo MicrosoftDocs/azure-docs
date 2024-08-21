@@ -2,10 +2,10 @@
 title: Tutorial - Use a custom VM image in a scale set with Azure CLI
 description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a Virtual Machine Scale Set
 author: ju-shim
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli
@@ -28,7 +28,7 @@ When you create a scale set, you specify an image to be used when the VM instanc
 - This article requires version 2.4.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Overview
-A [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations.
+An [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations.
 
 The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with.
 

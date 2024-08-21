@@ -3,11 +3,11 @@ title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.reviewer: mopeakande
+ms.reviewer: fasantia
 ms.date: 07/01/2022
 ms.topic: how-to
 ms.custom: sdkv2
@@ -322,7 +322,7 @@ pyfunc_udf = mlflow.pyfunc.spark_udf(spark, model_uri)
 ```
 
 > [!TIP]
-> Check [Loading models from registry](how-to-manage-models-mlflow.md#loading-models-from-registry) for more ways to reference models from the registry. 
+> Check [Loading models from registry](how-to-manage-models-mlflow.md#load-models-from-registry) for more ways to reference models from the registry. 
 
 Once the model is loaded, you can use to score new data:
 

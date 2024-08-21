@@ -2,7 +2,7 @@
 title: Quickstart - Deploy event-driven application to Azure Spring Apps
 description: Learn how to deploy an event-driven application to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/07/2023
 ms.author: rujche

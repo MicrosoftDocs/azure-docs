@@ -3,7 +3,7 @@
  description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 03/11/2020
  ms.author: cherylmc

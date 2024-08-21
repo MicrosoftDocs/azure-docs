@@ -3,7 +3,7 @@ title: What is Azure Web Application Firewall on Azure Front Door?
 description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
 services: web-application-firewall
 author: sowmyam2019
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 10/04/2023
 ms.author: victorh
@@ -19,7 +19,7 @@ A WAF prevents malicious attacks close to the attack sources before they enter y
 
 ![Screenshot that shows Azure Web Application Firewall.](../media/overview/wafoverview.png)
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../../includes/ddos-waf-recommendation.md)]
 
 Azure Front Door has [two tiers](../../frontdoor/standard-premium/overview.md):
 

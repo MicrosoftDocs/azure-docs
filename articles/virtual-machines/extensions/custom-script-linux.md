@@ -2,7 +2,7 @@
 title: Run Custom Script Extension on Linux VMs in Azure
 description: Learn how to automate Linux virtual machine configuration tasks in Azure by using the Custom Script Extension Version 2.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 ms.custom: GGAL-freshness822, devx-track-azurecli, linux-related-content
@@ -11,9 +11,6 @@ ms.collection: linux
 ms.date: 03/31/2023
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
 
@@ -35,7 +32,6 @@ Use Version 2 for new and existing deployments. The new version is a drop-in rep
 | Distribution | x64 | ARM64 |
 |:-----|:------|:------|
 | Alma Linux | 9.x+ | 9.x+ |
-| CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
 | Azure Linux | 2.x | 2.x |

@@ -3,7 +3,7 @@ title: Dv5 and Dsv5-series - Azure Virtual Machines
 description: Specifications for the Dv5 and Dsv5-series VMs.
 author: andysports8
 ms.author: shuji
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021

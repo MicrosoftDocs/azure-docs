@@ -4,7 +4,7 @@ description: Learn how to create a virtual machine with a static private IP addr
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli, engagement-fy23

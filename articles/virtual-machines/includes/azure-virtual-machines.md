@@ -1,5 +1,6 @@
 ---
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/07/2022
 author: ju-shim

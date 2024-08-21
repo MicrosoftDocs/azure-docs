@@ -50,8 +50,10 @@
         href: concepts-nexus-kubernetes-cluster.md
       - name: Resource Placement
         href: concepts-nexus-kubernetes-placement.md
-      - name: Nexus Workload Network
-        href: concepts-nexus-network.md
+      - name: Networking
+        href: concepts-nexus-networking.md
+      - name: Workload Network Types
+        href: concepts-nexus-workload-network-types.md
     - name: Observability
       expanded: false
       items:
@@ -148,8 +150,6 @@
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
-                - name: Service Principal Rotation
-                  href: howto-service-principal-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -181,6 +181,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to replace network devices in Azure Operator Nexus Network Fabric
+              href: howto-replace-network-devices.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
             - name: How to upgrade Network Fabric
@@ -210,8 +212,14 @@
           href: how-to-customize-kubernetes-cluster-dns.md
         - name: Customize worker nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Collect debug logs for support ticket
+          href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
+        - name: Install Microsoft Defender for Containers on a Nexus Kubernetes Cluster
+          href: howto-kubernetes-cluster-install-microsoft-defender.md
+        - name: Kubernetes cluster features
+          href: howto-kubernetes-cluster-features.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -243,6 +251,12 @@
           href: howto-use-mde-runtime-protection.md
         - name: Configure Network Access Control Lists for SSH Access on Management VPN
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
+        - name: Service Principal Best Practices
+          href: howto-service-principal.md
+          expanded: false
+          items:
+            - name: Service Principal Rotation
+              href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -278,6 +292,11 @@
           href: howto-baremetal-run-data-extract.md
     - name: Troubleshoot Control Plane Quorum
       href: troubleshoot-control-plane-quorum.md
+    - name: Troubleshoot Bare Metal Machine Provisioning
+      href: troubleshoot-bare-metal-machine-provisioning.md
+    - name: Troubleshoot Nexus Kubernetes Cluster pods
+      href: troubleshoot-nexus-kubernetes-cluster-pods.md
+
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
@@ -297,6 +316,8 @@
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md
+    - name: List of logs available for streaming
+      href: list-logs-available.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles

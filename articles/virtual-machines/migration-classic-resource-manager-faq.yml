@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions about migrating from classic to Azure Resource Manager.
   author: tanmaygore
   manager: vashan
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.subservice: classic-to-arm-migration
   ms.topic: faq
   ms.date: 03/08/2023

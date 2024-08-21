@@ -4,9 +4,9 @@ description: Using Virtual Machine Scale Sets with the Azure Desired State Confi
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 

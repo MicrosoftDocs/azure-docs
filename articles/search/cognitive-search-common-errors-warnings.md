@@ -406,7 +406,7 @@ To work around this warning, determine what the text encoding for this blob is a
 
 ## `Warning: Azure Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost`
 
-Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
+Collections with [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
 
 ## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
 

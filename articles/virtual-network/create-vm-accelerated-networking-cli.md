@@ -2,7 +2,7 @@
 title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 

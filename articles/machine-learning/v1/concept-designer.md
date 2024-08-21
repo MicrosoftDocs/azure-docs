@@ -3,7 +3,7 @@ title: What is Designer (v1)?
 titleSuffix: Azure Machine Learning
 description: Learn about how the drag-and-drop Designer (v1) UI in Azure Machine Learning studio enables model training and deployment tasks.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
@@ -20,7 +20,7 @@ The Azure Machine Learning designer is a drag-and-drop interface used to train a
 > [!IMPORTANT]
 > Designer in Azure Machine Learning supports two types of pipelines that use classic prebuilt (v1) or custom (v2) components. The two component types aren't compatible within pipelines, and designer v1 isn't compatible with CLI v2 and SDK v2. **This article applies to pipelines that use classic prebuilt (v1) components.**
 > 
-> - **Classic prebuilt components (v1)** include typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added.
+> - **Classic prebuilt components (v1)** include typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. Also, deployment of classic prebuilt (v1) components doesn't support managed online endpoints (v2). 
 > 
 > - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates. For more information about custom components and Designer (v2), see [Azure Machine Learning designer (v2)](../concept-designer.md?view=azureml-api-2&preserve-view=true).
 

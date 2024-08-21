@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 06/17/2024
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -67,6 +67,7 @@ This section provides references for solutions for Linux OSS applications and da
 
 ### Mainframe refactor
 
+* [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/deploy-ibm-power-workloads)
 * [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
 * [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
 * [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
@@ -229,7 +230,7 @@ This section provides solutions for Azure platform services.
 ### Azure Kubernetes Services and Kubernetes
 
 * [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
-* [Integrate Azure NetApp Files with Azure Kubernetes Service](../aks/azure-netapp-files.md)
+* [Integrate Azure NetApp Files with Azure Kubernetes Service](/azure/aks/azure-netapp-files)
 * [Azure NetApp Files SMB volumes for Azure Kubernetes Services with Astra Trident on Windows](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900)
 * [Application data protection for AKS workloads on Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
 * [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)

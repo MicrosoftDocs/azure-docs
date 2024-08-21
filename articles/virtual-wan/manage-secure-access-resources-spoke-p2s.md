@@ -5,7 +5,7 @@ description: This article helps you use Azure Virtual WAN and Azure Firewall rul
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
@@ -17,7 +17,7 @@ This article shows you how to use Virtual WAN and Azure Firewall rules and filte
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
-:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub.":::
+:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub." lightbox="./media/manage-secure-access-resources-spoke-p2s/diagram.png":::
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ The steps in this article help you create the architecture in the following diag
 
 ## Create a virtual WAN
 
-[!INCLUDE [Create virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name= "p2s-config"></a>Define P2S configuration parameters
 
@@ -59,7 +59,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ### Basics page
 
-[!INCLUDE [Create hub basics page](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
 
 ### Point to site page
 

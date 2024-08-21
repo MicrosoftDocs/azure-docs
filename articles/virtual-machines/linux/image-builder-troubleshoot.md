@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 11/27/2023
 ms.topic: troubleshooting
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurecli, linux-related-content
 ---
@@ -265,7 +265,7 @@ For [Step 3: Select the appropriate role](../../role-based-access-control/role-a
 
 For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.yml#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder”
 
-Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.yml#step-6-assign-role) to assign the role.
+Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.yml#step-7-assign-role) to assign the role.
 
 ## Troubleshoot build failures
 

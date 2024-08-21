@@ -2,7 +2,7 @@
 title: Overview of cloud-init support for Linux VMs in Azure
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: linux-related-content
 ms.collection: linux
@@ -12,14 +12,11 @@ ms.author: srijangupta
 ---
 # cloud-init support for virtual machines in Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly.
-> 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or Virtual Machine Scale Sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
 
-VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, and password, and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
+VM Provisioning is the process where Azure passes down your VM Create parameter values, such as hostname, username, and password, and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
 
 Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedocs.io), and the [Azure Linux Agent (WALA)](../extensions/agent-linux.md).
 
@@ -50,16 +47,7 @@ There are two stages to making cloud-init available to the supported Linux distr
 |RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |yes | yes |
 |RedHat 9 |RHEL |9_0, 9_1 |latest |yes | yes |
 
-* All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. Cloud-init is not supported on RHEL 6. 
-
-
-### CentOS
- Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
-|:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7 |CentOS |7.7, 7.8, 7.9 |latest |yes | yes |
-|OpenLogic 8 |CentOS |8.1, 8.2, 8.3 |latest |yes | yes |
-
-* All other CentOS SKUs starting from CentOS 7 (version 7.7) and CentOS 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. CentOS 6.10, 7.4, 7.5, and 7.6 images don't support cloud-init. 
+* All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. Cloud-init isn't supported on RHEL 6. 
 
 ### Oracle
 
@@ -70,14 +58,12 @@ There are two stages to making cloud-init available to the supported Linux distr
 
 * All other Oracle SKUs starting from Oracle 7 (version 7.7) and Oracle 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init.
 
-
 ### SUSE SLES
 
  Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2, sp3 |latest |yes | yes |
 |SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |yes | yes |
-
 
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
@@ -86,25 +72,24 @@ There are two stages to making cloud-init available to the supported Linux distr
 | debian-10 |Debian |10-cloudinit-gen2 |Debian:debian-10:10-cloudinit-gen2:0.0.991 |yes |yes
 | debian-10 |Debian |10-cloudinit-gen2 |Debian:debian-10:10-cloudinit-gen2:0.0.999 |yes |yes
 
-
-Currently Azure Stack will support the provisioning of cloud-init enabled images.
+Currently, Azure Stack supports the provisioning of cloud-init enabled images.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](../extensions/features-linux.md). 
 
 We're enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts, or new customers to take advantage of the rich cloud-init configuration functionality. If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable cloud-init process them. 
 
-cloud-init cannot process Azure extensions, so WALA is still required in the image to process extensions, but will need to have its provisioning code disabled, for endorsed Linux distros images that are being converted to provision by cloud-init, they will have WALA installed, and setup correctly.
+cloud-init can't process Azure extensions, so WALA is still required in the image to process extensions but needs to have its provisioning code disabled. For endorsed Linux distros images that are being converted to provision by cloud-init, they have WALA installed, and setup correctly.
 
 When creating a VM, if you don't include the Azure CLI `--custom-data` switch at provisioning time, cloud-init or WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init configuration with the `--custom-data` switch, whatever is contained in your custom data will be available to cloud-init when the VM boots.
 
-cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. This isn't true for WALA, if you change the WALA defaults to process custom-data, it can't exceed the total VM provisioning time allowance of 40 minutes, if so, the VM Create will fail.
+cloud-init configurations applied to VMs don't have time constraints and won't cause a deployment to fail by timing out. This isn't true for WALA, if you change the WALA defaults to process custom-data, it can't exceed the total VM provisioning time allowance of 40 minutes, if so, the VM Create will fail.
 
 ## cloud-init VM provisioning without a UDF driver  
 Beginning with cloud-init 21.2, you can use cloud-init to provision a VM in Azure without a UDF driver. If a UDF driver isn't available in the image, cloud-init uses the metadata that's available in the Azure Instance Metadata Service to provision the VM. This option works only for SSH key and [user data](../user-data.md). To pass in a password or custom data to a VM during provisioning, you must use a UDF driver.
 
 ## Deploying a cloud-init enabled Virtual Machine
-Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you've confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
+Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment. Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you confirm the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
 The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
@@ -128,33 +113,33 @@ Exit the file and save the file according to the editor. Verify file name on exi
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named `centos74` and creates SSH keys if they don't already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
+The following example creates a VM named `ubuntu2204` and creates SSH keys if they don't already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroup \
-  --name centos74 \
-  --image OpenLogic:CentOS-CI:7-CI:latest \
+  --name ubuntu2204 \
+  --image Canonical:UbuntuServer:22_04-lts:latest \
   --custom-data cloud-init.txt \
   --generate-ssh-keys 
 ```
 
-When the VM has been created, the Azure CLI shows information specific to your deployment. Take note of the `publicIpAddress`. This address is used to access the VM.  It takes some time for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. You can SSH into the VM and use the steps outlined in the Troubleshooting section to view the cloud-init logs. 
+When the VM is created, the Azure CLI shows information specific to your deployment. Take note of the `publicIpAddress`. This address is used to access the VM.  It takes some time for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. You can SSH into the VM and use the steps outlined in the Troubleshooting section to view the cloud-init logs. 
 
 You can also deploy a cloud-init enabled VM by passing the [parameters in ARM template](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## Troubleshooting cloud-init
-Once the VM has been provisioned, cloud-init will run through all the modules and script defined in `--custom-data` in order to configure the VM.  If you need to troubleshoot any errors or omissions from the configuration, you need to search for the module name (`disk_setup` or `runcmd` for example) in the cloud-init log - located in **/var/log/cloud-init.log**.
+Once the VM has been provisioned, cloud-init runs through all the modules and script defined in `--custom-data` in order to configure the VM.  If you need to troubleshoot any errors or omissions from the configuration, you need to search for the module name (`disk_setup` or `runcmd` for example) in the cloud-init log - located in **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the `runcmd` module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
 
-For more details of cloud-init logging, see the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html)
+For more information of cloud-init logging, see the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html)
 
 ## Telemetry
 cloud-init collects usage data and sends it to Microsoft to help improve our products and services. Telemetry is only collected during the provisioning process (first boot of the VM). The data collected helps us investigate provisioning failures and monitor performance and reliability. Data collected doesn't include any identifiers (personal identifiers). Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. Some examples of telemetry being collected are (this isn't an exhaustive list): OS-related information (cloud-init version, distro version, kernel version), performance metrics of essential VM provisioning actions (time to obtain DHCP lease, time to retrieve metadata necessary to configure the VM, etc.), cloud-init log, and dmesg log.
 
-Telemetry collection is currently enabled for most of our marketplace images that use cloud-init. It is enabled by specifying KVP telemetry reporter for cloud-init. In most Azure Marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation will disable telemetry collection for any VM created from this image. 
+Telemetry collection is currently enabled for most of our marketplace images that use cloud-init. It's enabled by specifying KVP telemetry reporter for cloud-init. In most Azure Marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation disables telemetry collection for any VM created from this image. 
 
 Sample content of 10-azure-kvp.cfg
 ```

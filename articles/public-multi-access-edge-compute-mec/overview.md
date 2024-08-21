@@ -3,7 +3,7 @@ title: What is Azure public MEC?
 description: Learn about the benefits of Azure public multi-access edge compute (MEC) and how it works.
 author: reemas-new
 ms.author: reemas
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: overview
 ms.date: 11/22/2022
 ms.custom: template-overview

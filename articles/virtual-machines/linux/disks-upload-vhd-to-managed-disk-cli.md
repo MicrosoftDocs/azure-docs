@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 10/17/2023
+ms.date: 08/15/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, linux-related-content
@@ -29,7 +29,7 @@ If you're using [Microsoft Entra ID](../../active-directory/fundamentals/active-
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Restrictions
-[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../includes/disks-azure-ad-upload-download-restrictions.md)]
 
 ### Assign RBAC role
 
@@ -54,11 +54,11 @@ If you'd prefer to upload disks through a GUI, you can do so using Azure Storage
 - If you intend to upload a VHD from on-premises: A fixed size VHD that [has been prepared for Azure](../windows/prepare-for-upload-vhd-image.md), stored locally.
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
-To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
+To upload your VHD to Azure, you need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
+- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature (SAS)](../../storage/common/storage-sas-overview.md) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]
@@ -66,7 +66,7 @@ This kind of managed disk has two unique states:
 
 ## Create an empty managed disk
 
-Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
+Before you can create an empty standard HDD for uploading, you need the file size of the VHD you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
 
 Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
@@ -90,7 +90,7 @@ If you would like to upload a different disk type, replace **standard_lrs** with
 
 ### (Optional) Grant access to the disk
 
-If you're using Microsoft Entra ID to secure uploads, you'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-cli.md) to grant access to the disk and generate a writeable SAS.
+If you're using Microsoft Entra ID to secure uploads, you need to [assign RBAC permissions](../../role-based-access-control/role-assignments-cli.md) to grant access to the disk and generate a writeable SAS.
 
 ```azurecli
 az role assignment create --assignee "{assignee}" \
@@ -100,9 +100,11 @@ az role assignment create --assignee "{assignee}" \
 
 ### Generate writeable SAS
 
-Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
+Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you need a writeable SAS, so that you can reference it as the destination for your upload.
 
-To generate a writable SAS of your empty managed disk, replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following command:
+[!INCLUDE [disks-sas-change](../includes/disks-sas-change.md)]
+
+To generate a writable SAS of your empty managed disk, replace `<yourdiskname>` and `<yourresourcegroupname>`, then use the following command:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -122,13 +124,13 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you'll have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you'll have a throughput of up to 500 MiB/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
+After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS changes the state of the managed disk and allow you to attach the disk to a VM.
 
 Replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following command to make the disk usable:
 
@@ -140,7 +142,7 @@ az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 
 Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or cross-region (to another region).
 
-The following script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
+The following script does this for you. The process is similar to the steps described earlier, with some differences since you're working with an existing disk.
 
 > [!IMPORTANT]
 > You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you don't do this. The following script already does this for you.
@@ -178,4 +180,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM.
 
-If you've additional questions, see the [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) section in the FAQ.
+If you've more questions, see the [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) section in the FAQ.

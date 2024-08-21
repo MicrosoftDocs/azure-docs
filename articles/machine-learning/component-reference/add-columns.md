@@ -3,7 +3,7 @@ title:  "Add Columns: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Add Columns component in the drag-and-drop Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

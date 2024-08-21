@@ -31,6 +31,16 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 | Consumer Group | Consumer Group |
 | Offset | Offset|
 
+## Apache Kafka features supported on Azure Event Hubs
+
+### Compression
+
+The Kafka compression for Event Hubs is only supported in Premium and Dedicated tiers currently.
+
+The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature in Apache Kafka clients conserves compute resources and bandwidth by compressing a batch of multiple messages into a single message on the producer side and decompressing the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
+
+Kafka producer application developers can enable message compression by setting the compression.type property. Azure Event Hubs currently supports `gzip` compression.
+
 ## Key differences between Apache Kafka and Azure Event Hubs
 
 While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
@@ -124,16 +134,6 @@ As explained [above](#is-apache-kafka-the-right-solution-for-your-workload), the
 ### Transactions
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) has robust transaction support that allows receiving and settling messages and sessions while sending outbound messages resulting from message processing to multiple target entities under the consistency protection of a transaction. The feature set not only allows for exactly once processing of each message in a sequence, but also avoids the risk of another consumer inadvertently reprocessing the same messages as it would be the case with Apache Kafka. Service Bus is the recommended service for transactional message workloads.
-
-### Compression
-
-The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature of Apache Kafka compresses a batch of multiple messages into a single message on the producer side and decompresses the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
-
-Kafka producer application developers can enable message compression by setting the compression.type property. In the public preview, the only compression algorithm supported is gzip. 
-
-`Compression.type = none | gzip` 
-
-The feature is currently only supported for Apache Kafka traffic producer and consumer traffic. AMQP consumer can consume compressed Kafka traffic as decompressed messages. The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
 
 ### Kafka Streams
 

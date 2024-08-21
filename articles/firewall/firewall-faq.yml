@@ -4,9 +4,9 @@ metadata:
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
   author: vhorne
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/29/2024
   ms.author: victorh
 title: Azure Firewall FAQ
@@ -192,7 +192,11 @@ sections:
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
       - question: Are there any firewall resource group restrictions?
-        answer: Yes. The firewall, VNet, and the public IP address all must be in the same resource group.
+        answer: |
+          Yes. 
+          - The firewall and VNet must be in the same resource group.
+          - The public IP address can be in any resource group.
+          - The firewall, VNet, and the public IP address all must be in the same subscription.
 
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |

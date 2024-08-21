@@ -6,17 +6,16 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 05/15/2024
+ms.date: 06/11/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Support matrix for VMware vSphere migration
 
-
 This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Migration options
 
@@ -45,12 +44,12 @@ The VMware vSphere hypervisor requirements are:
     **Privilege Name in the vSphere Client** | **The purpose for the privilege** | **Required On** | **Privilege Name in the API**
     --- | --- | --- | --- 
     **Browse datastore** | Allow browsing of VM log files to troubleshoot snapshot creation and deletion. | Data stores | Datastore.Browse
-    **Low level file operations** | Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion. | Data stores | Datastore.FileManagement
-    **Change Configuration** - Toggle disk change tracking | Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots. | Virtual machines | VirtualMachine.Config.ChangeTracking
-    **Change Configuration** - Acquire disk lease | Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK). | Virtual machines | VirtualMachine.Config.DiskLease
-    **Provisioning** - Allow read-only disk access | Allow read-only disk access: Allow opening a disk on a VM, to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomRead
-    **Provisioning** - Allow disk access | Allow opening a disk on a VM, to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomAccess
-    **Provisioning** - Allow virtual machine download | Allow virtual machine download: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs. | Root host or vCenter Server | VirtualMachine.Provisioning.GetVmFiles
+    **Low level file operations** | Allow read/write/delete/rename operations in the datastore browser to troubleshoot snapshot creation and deletion. | Data stores | Datastore.FileManagement
+    **Change Configuration** - Toggle disk change tracking | Allow enable or disable change tracking of VM disks to pull changed blocks of data between snapshots. | Virtual machines | VirtualMachine.Config.ChangeTracking
+    **Change Configuration** - Acquire disk lease | Allow disk lease operations for a VM to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK). | Virtual machines | VirtualMachine.Config.DiskLease
+    **Provisioning** - Allow read-only disk access | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomRead
+    **Provisioning** - Allow disk access | Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomAccess
+    **Provisioning** - Allow virtual machine download | Allow virtual machine download: Allows read operations on files associated with a VM to download the logs and troubleshoot if failure occurs. | Root host or vCenter Server | VirtualMachine.Provisioning.GetVmFiles
     **Snapshot management** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
     **Guest operations** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*
     **Interaction Power Off** | Allow the VM to be powered off during migration to Azure. | Virtual machines | VirtualMachine.Interact.PowerOff
@@ -63,11 +62,11 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 --- | ---
 **Supported operating systems** | Windows Server 2003 and later versions. [Learn more](/troubleshoot/azure/virtual-machines/server-software-support). <br/><br/> You can migrate all the Linux operating systems supported by Azure listed [here](/troubleshoot/azure/cloud-services/support-linux-open-source-technology).
 **Windows VMs in Azure** | You might need to [make some changes](../prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - CentOS  9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 11, 10, 9, 8, 7<br> - Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> For other operating systems, you make the [required changes](../prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 11, 10, 9, 8, 7<br> - Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> For other operating systems, you make the [required changes](../prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
-**UEFI boot** | UEFI-based virtual machines will be migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
+**UEFI boot** | UEFI-based virtual machines are migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
 **Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.
-**Dynamic disk** | - An OS disk as a dynamic disk isn't supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. Note that you'll need help from OS support for conversion of dynamic to basic disk type.
+**Dynamic disk** | - An OS disk as a dynamic disk isn't supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. You'll need help from OS support for conversion of dynamic to basic disk type.
 **Ultra disk** | Ultra disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -82,7 +81,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **IPv6** | Not supported.
 **Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](../how-to-scale-out-for-migration.md) is deployed.
-**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/>- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x<br/>- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
+**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
@@ -116,7 +115,7 @@ Agentless migration uses the [Azure Migrate appliance](../migrate-appliance.md).
 
 - Learn about [appliance requirements](../migrate-appliance.md#appliance---vmware) for VMware vSphere.
 - Learn about URLs that the appliance needs to access in [public](../migrate-appliance.md#public-cloud-urls) and [government](../migrate-appliance.md#government-cloud-urls) clouds.
-- In Azure Government, you must deploy the appliance [using the script](../deploy-appliance-script-government.md).
+- In Azure Government, you must deploy the appliance [using the script](../deploy-appliance-script-government.md).s
 
 ### Port requirements (agentless)
 
