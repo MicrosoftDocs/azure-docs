@@ -39,7 +39,7 @@ New-AzResourceGroup -Name gridResourceGroup -Location westus2
 
 ## Create a custom topic
 
-An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's part of the Domain Name System (DNS) entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

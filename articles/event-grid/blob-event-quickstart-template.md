@@ -26,15 +26,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Create a message endpoint
 
-Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
     [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
-1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to:
+1. The deployment can take a few minutes to complete. After the deployment succeeds, view your web app to make sure it's running. In a web browser, navigate to:
 `https://<your-site-name>.azurewebsites.net`
 
-1. You see the site but no events have been posted to it yet.
+1. You see the site but no events are posted to it yet.
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
@@ -72,7 +72,7 @@ View your web app again, and notice that a subscription validation event has bee
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint.
 
-You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
+You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The article assumes you have a file named testfile.txt, but you can use any file.
 
 When you upload the file to the Azure Blob storage, Event Grid sends a message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a blob created event was received.
 
@@ -88,5 +88,5 @@ For more information about Azure Resource Manager templates, see the following a
 
 * [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Define resources in Azure Resource Manager templates](/azure/templates/)
-* [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
+* [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
