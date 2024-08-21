@@ -4,20 +4,20 @@ description: This article provides process and technical guidance for customers 
 ms.date: 08/21/2024
 ms.topic: how-to
 ---
-
+ 
 # Azure Automation state configuration to machine configuration migration planning
 
 Azure Policy is a more robust cloud resource governance, enforcement and compliance offering with full parity with the Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This
 article provides guidance on developing a migration strategy from Azure Automation to machine
 configuration. Azure Policy implements a robust array of features including:
 
-- Granular Control and Flexibility: Azure Policy allows for highly granular control over resources. You can create custom policies tailored to your specific regulatory and organizational compliance needs, ensuring that every aspect of your infrastructure meets the required standards. This level of customization may not be as easily achievable with the predefined configurations in Automanage.
+- *Granular Control and Flexibility:* Azure Policy allows for highly granular control over resources. You can create custom policies tailored to your specific regulatory and organizational compliance needs, ensuring that every aspect of your infrastructure meets the required standards. This level of customization may not be as easily achievable with the predefined configurations in Automanage.
 
-- Comprehensive Compliance Management: Azure Policy offers comprehensive compliance management by continuously assessing and auditing your resources. It provides detailed reports and dashboards to track compliance status, helping you to quickly detect and rectify non-compliance issues across your environment.
+- *Comprehensive Compliance Management:* Azure Policy offers comprehensive compliance management by continuously assessing and auditing your resources. It provides detailed reports and dashboards to track compliance status, helping you to quickly detect and rectify non-compliance issues across your environment.
 
-- Scalability: Azure Policy is built to manage large-scale environments efficiently. It allows you to apply policies at different scopes (e.g., Management Group, Subscription, Resource Group levels), making it easier to enforce compliance across multiple resources and regions systematically.
+- *Scalability:* Azure Policy is built to manage large-scale environments efficiently. It allows you to apply policies at different scopes (e.g., Management Group, Subscription, Resource Group levels), making it easier to enforce compliance across multiple resources and regions systematically.
 
-- Integration with Azure Security Center: Azure Policy integrates seamlessly with Azure Security Center, enhancing your ability to manage security policies and ensuring your servers adhere to best practices. This integration provides additional insights and recommendations, further strengthening your security posture.
+- *Integration with Azure Security Center:* Azure Policy integrates seamlessly with Azure Security Center, enhancing your ability to manage security policies and ensuring your servers adhere to best practices. This integration provides additional insights and recommendations, further strengthening your security posture.
 
 Before you begin, it's a good idea to read the conceptual overview information at the page
 [Azure Policy][01].
@@ -29,7 +29,10 @@ Services to ensure compliance with Azure’s best practices. This was achieved b
 creation of a configuration profile, a reusable template of management, monitoring,
 security and resiliency services that customers could opt into. The profile is then assigned
 to a set of VMs that will be onboarded to those services and receive reports on the state of
-their machines. This functionality is available in Azure policy today as an Azure
+their machines. 
+
+
+This functionality is available in Azure policy today as an Azure
 Policy Initiative with a wider variety of configurable parameters, Azure services, regional
 availability, compliance states and remediation actions. Configuration Profiles are the main onboarding vehicle for Automanage customers. Just like Azure Policy Initiatives, Automanage configuration profiles are applicable to VMs at the
 subscription and resource group level and enables further specification of the zone of
@@ -69,7 +72,7 @@ services vault in the same location
 - Azure Backup should be enabled for Virtual Machines
 
 To configure backup time and duration, you can create a custom Azure policy based on the
-properties of the Azure backup policy resource or by a REST API call. Learn more [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy?tabs=azure-vm)
+properties of the Azure backup policy resource or by a REST API call. Learn more [here][02].
 
 ### Azure Antimalware
 
@@ -89,8 +92,7 @@ protection signatures
 To configure excluded files, locations, file extensions and processes, enable real-time
 protection and schedule scan and scan type, day and time, you can create a custom Azure
 policy based on the properties of the Azure IaaSAntimalware policy resource or by an ARM
-Template. Learn more here: Microsoft Antimalware Extension for Windows VMs on Azure -
-Azure Virtual Machines | Microsoft Learn
+Template. Learn more [here][03]
 
 ### Azure Insights and Analytics
 
@@ -207,8 +209,7 @@ and is enforced by the “Boot Diagnostics should be enabled on virtual machines
 Azure Boot Diagnostics is a debugging feature for Azure virtual machines (VM) that allows
 diagnosis of VM boot failures by collecting serial log information and screenshots during
 the boot process. It is configurable either through an ARM template or a custom Azure
-Policy. Learn more here: Manage a Windows Server VM using Windows Admin Center in
-Azure | Microsoft Learn
+Policy. Learn more [here][04]
 
 ### Log Analytics Workspace
 
@@ -218,7 +219,7 @@ cloud and on-premises environments. With Azure Log Analytics, you can search, an
 and visualize data to identify trends, troubleshoot issues, and monitor your systems. On 31
 August 2024, both Automation Update Management and the Log Analytics agent it uses
 will be retired. Migrate to Azure Update Manager before that. Refer to guidance on
-migrating to Azure Update Manager here. We advise you to migrate now as this feature will
+migrating to Azure Update Manager [here][05]. We advise you to migrate [now][06] as this feature will
 nolonger be supported in Automanage.
 
 ## Next steps
@@ -226,13 +227,17 @@ nolonger be supported in Automanage.
 Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
 next steps:
 
-- [Review the policy definition structure](./concepts/definition-structure.md).
-- [Assign a policy definition using the portal](./assign-policy-portal.md).
+- [Review the policy definition structure][07].
+- [Assign a policy definition using the portal][08].
 
 <!-- Reference link definitions -->
 [01]: /articles/governance/policy/overview.md
-[02]: /powershell/dsc/getting-started/wingettingstarted
-[03]: /powershell/dsc/getting-started/lnxgettingstarted
-[04]: /powershell/gallery/how-to/working-with-local-psrepositories
-[05]: ../how-to/develop-custom-package/2-create-package.md
+[02]: /articles/backup/backup-azure-arm-userestapi-createorupdatepolicy.md
+[03]: /articles/virtual-machines/extensions/iaas-antimalware-windows.md
+[04]: /articles/windows-server/manage/windows-admin-center/azure/manage-vm.md
+[05]: /articles//update-manager/migration-overview.md
+[06]: https://ms.portal.azure.com/
+[07]: ./concepts/definition-structure.md
+[08]: ./assign-policy-portal.md
+
 
