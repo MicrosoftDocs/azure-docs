@@ -1,6 +1,6 @@
 ---
 title: Azure API Management - stv1 platform retirement - Azure Government, Azure in China (February 2025)
-description: In Azure Government and Azure operated by 21Vianet, API Management will retire stv1 platform effective 28 February 2025. Instances must be migrated to stv2 platform.
+description: In Azure Government and Azure operated by 21Vianet, API Management will retire the stv1 platform effective 24 February 2025. Instances must be migrated to the stv2 platform.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. **The infrastructure associated with the API Management `stv1` compute platform version will be retired effective 28 February 2025 in Microsoft Azure Government and in Microsoft Azure operated by 21 Vianet (Azure in China).** A more current compute platform version (`stv2`) is already available, and provides enhanced service capabilities.
+As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. **The infrastructure associated with the API Management `stv1` compute platform version will be retired effective 24 February 2025 in Microsoft Azure Government and in Microsoft Azure operated by 21 Vianet (Azure in China).** A more current compute platform version (`stv2`) is already available, and provides enhanced service capabilities.
 
 > [!NOTE]
 > For API Management instances deployed in global Microsoft Azure, the retirement date for the `stv1` platform is 31 August 2024. [Learn more](stv1-platform-retirement-august-2024.md)
@@ -36,13 +36,23 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 
 ## What is the deadline for the change?
 
-In Azure Government and Azure operated by 21Vianet, support for API Management instances hosted on the `stv1` platform will be retired by 28 February 2025.
+In Azure Government and Azure operated by 21Vianet, support for API Management instances hosted on the `stv1` platform will be retired by 24 February 2025.
+
+Also, as of 1 September 2024, API Management will no longer back API Management instances running on the `stv1` compute platform with an SLA.
 
 ## What do I need to do?
 
-**Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 28 February 2025.**  
+**Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 24 February 2025.**  
 
 If you have existing instances hosted on the `stv1` platform, follow our **[migration guide](../migrate-stv1-to-stv2.md)** to ensure a successful migration. 
+
+## End of SLA coverage for `stv1` instances - 1 September 2024
+
+As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the
+API Management `stv1` platform. 
+
+Through continued use of an instance hosted on the `stv1` platform beyond 1 September 2024, you acknowledge that Azure does not commit to the SLA of 99.95%.
+
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
