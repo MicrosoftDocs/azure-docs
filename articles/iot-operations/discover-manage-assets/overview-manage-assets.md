@@ -40,7 +40,6 @@ The following diagram shows the high-level architecture of Azure IoT Operations.
 
 - The **operations experience** is a web UI that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets and is the recommended service to manage assets.
 - **Azure Device Registry Preview** is a service that projects assets defined in your edge environment as Azure resources in the cloud. Device Registry lets you manage your assets in the cloud as Azure resources contained in a single unified registry.
-- **Akri services** automatically discover assets at the edge. The services can detect assets in the address space of an OPC UA server.
 - The **connector for OPC UA** is a data ingress and protocol translation service that enables Azure IoT Operations to ingress data from your assets. The broker receives telemetry and events from your assets and publishes the data to topics in the MQTT broker. The broker is based on the widely used OPC UA standard.
 
 ## Create and manage assets remotely
@@ -89,14 +88,6 @@ The following features are supported in Azure Device Registry:
 | Asset resource management by using operations experience | ✅ |
 | Asset synchronization to Kubernetes cluster running Azure IoT Operations | ✅ |
 | Asset as Azure resource (with capabilities such as Azure resource groups and tags) | ✅ |
-
-## Discover edge assets
-
-A common task in complex edge solutions is to discover assets and automatically add them to your Kubernetes cluster. The Akri services provide this capability. For administrators who attach or remove assets from the cluster, the Akri services reduce the amount of coordination and manual configuration.
-
-The Akri services include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers.
-
-The Akri services are installed as part of Azure IoT Operations and you can configure them alongside the OPC UA simulation PLC server. The OPC UA discovery handler starts automatically and inspects the OPC UA simulation PLC server's address space. The discovery handler reports assets back to the Akri services and triggers deployment of the `AssetEndpointProfile` and `Asset` custom resources into the cluster.
 
 ## Use a common data exchange standard for your edge solution
 

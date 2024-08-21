@@ -48,9 +48,16 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
-The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
+The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 
-The [Akri services](discover-manage-assets/overview-akri.md) help you discover and connect to other types of devices and assets.
+## Automatic asset discovery
+
+Automatic asset discovery using Akri services is not available in the current version of Azure IoT Operations. To learn more, see the [Release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
+
+> [!NOTE]
+> Some Akri services are still deployed as part of the current Azure IoT Operations release, but they don't support any user configurable scenarios.
+
+If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the previous versions site.
 
 ## Publish and subscribe with MQTT
 
