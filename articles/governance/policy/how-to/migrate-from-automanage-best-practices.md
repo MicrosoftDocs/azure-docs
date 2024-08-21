@@ -4,11 +4,11 @@ description: This article provides process and technical guidance for customers 
 ms.date: 08/21/2024
 ms.topic: how-to
 ---
+ 
+# Overview
 
 > [!CAUTION]
 > On 30th September, 2024, the Automanage Best Practices product will be retired. Migrate to Azure Policy before that. [Migrate Now](https://ms.portal.azure.com/).
- 
-# Overview
 
 Azure Policy is a more robust cloud resource governance, enforcement and compliance offering with full parity with the Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This
 article provides guidance on developing a migration strategy from Azure Automation to machine
@@ -241,11 +241,11 @@ next steps:
 [01]: ../overview.md
 [02]: ../../../backup/backup-azure-arm-userestapi-createorupdatepolicy.md
 [03]: ../../../virtual-machines/extensions/iaas-antimalware-windows.md
-[04]: https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/manage-vm
+[04]: https://learn.microsoft.com/windows-server/manage/windows-admin-center/azure/manage-vm
 [05]: ../../../update-manager/migration-overview.md
 [06]: https://ms.portal.azure.com/
 [07]: ../concepts/definition-structure-basics.md
 [08]: ../assign-policy-portal.md
-[09]: https://azure.microsoft.com/en-us/pricing/details/azure-automanage/
+[09]: https://azure.microsoft.com/pricing/details/azure-automanage/
 
 
