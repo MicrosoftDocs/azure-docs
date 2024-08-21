@@ -47,7 +47,10 @@ The table below describes information that will help developers convert the audi
 - Packet stream rate: 20 ms rate
 - Data packet: 64 Kbytes
 - Audio metric: 16-bit PCM mono at 16000 hz
-- Public string data is a base64 string that should be converted into a byte array to create raw PCM file.
+- Public string data is a base64 string that should be converted into a byte array to create raw PCM file.\
+
+## Billing
+See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how audio streaming is billed.  Prices can be found in the calling category under audio streaming.
 
 ## Next Steps
 Check out the [audio streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md) to learn more.
