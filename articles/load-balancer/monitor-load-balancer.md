@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Load Balancer
 description: Start here to learn how to monitor Azure Load Balancer by using Azure Monitor and Azure Monitor Insights.
-ms.date: 07/28/2024
+ms.date: 08/21/2024
 ms.custom: horz-monitor, template-how-to, subject-monitoring, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 author: mbender-ms
@@ -52,7 +52,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 ## Creating a diagnostic setting
 
-Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
+Resource logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
 
 To use the Azure portal and for general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md). To use PowerShell or the Azure CLI, see the following sections.
 
