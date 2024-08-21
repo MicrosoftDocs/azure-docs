@@ -190,7 +190,7 @@ As you build apps to work with data resources in Azure Blob Storage, your code p
 The following guides show you how to access data and perform specific actions using the Azure Storage client library for Python:
 
 | Guide | Description |
-|--|---|
+| --- | --- |
 | [Create a container](storage-blob-container-create-python.md) | Create containers. |
 | [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
 | [List containers](storage-blob-containers-list-python.md) | List containers in an account and the various options available to customize a listing. |
@@ -205,3 +205,5 @@ The following guides show you how to access data and perform specific actions us
 | [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
 | [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |
+| [Configure a retry policy](storage-retry-policy-python.md) | Implement retry policies for client operations. |
+| [Performance tuning for data transfers](storage-blobs-tune-upload-download-python.md) | Optimize performance for data transfer operations. |

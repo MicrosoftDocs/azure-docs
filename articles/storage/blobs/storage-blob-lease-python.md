@@ -143,3 +143,5 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 ### See also
 
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

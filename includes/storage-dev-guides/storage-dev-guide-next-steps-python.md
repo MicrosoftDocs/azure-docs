@@ -10,6 +10,6 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-## Next steps
+## Next step
 
-- This article is part of the Blob Storage developer guide for Python. To learn more about other articles in the series, see [Build your app](storage-blob-python-get-started.md#build-your-application).
+- This article is part of the Blob Storage developer guide for Python. To find other articles in the series, see [Build your app](../../articles/storage/blobs/storage-blob-python-get-started.md#build-your-application).
