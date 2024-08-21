@@ -211,8 +211,6 @@ The messages say to check the 'outputFieldMappings' property of your indexer, so
 
 1. If there's no problem with the index, the next step is to check skill outputs. As before, select the **Enriched data structure**, and scroll the nodes to find "locations" and "organizations". Notice that the parent is "content" instead of "merged_content". The context is wrong.
 
-   :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-wrong-parent.png" alt-text="Screenshot of enriched data structure with wrong context." :::
-
 1. Switch back to Skills detail pane for the entity recognition skill.
 
 1. In **Skill Settings**, change `context` to `document/merged_content`. At this point, you should have three modifications to the skill definition altogether.
