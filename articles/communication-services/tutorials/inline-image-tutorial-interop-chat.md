@@ -73,7 +73,7 @@ export type CallWithChatExampleProps = {
 };
 
 ```
-There no specific setup needed to enable receiving inline images. However, to be able to send inline images, `richTextEditor` function need to be enabled through the `CallWithChatExampleProps` mentioned above. Here's a code snippet on how to enable it:
+There no specific setup needed to enable receiving inline images. However, to be able to send inline images, `richTextEditor` function need to be enabled through the `CallWithChatExampleProps`. Here's a code snippet on how to enable it:
 ```js
 <CallWithChatExperience
   // ...any other call with chat props
@@ -115,7 +115,7 @@ When sending inline images is enabled, you should see something like the followi
 
 * The UI library might not support certain GIF images at this time. The user might receive a static image instead.
 * The Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.
-* For certain Android devices, pasting of a single image is only supported by long pressing on the rich text editor and choosing
+* For certain Android devices, pasting of a single image is only supported when long pressing on the rich text editor and choosing
 paste. Selecting from the clipboard view from keyboard may not be supported.
 
 
