@@ -34,7 +34,7 @@ For more information, see:
 
 Now in general availability, PPT Live gives both the presenter and audience an inclusive and engaging experience. PPT Live combines the best parts of presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
 
-:::image type="content" source="media/whats-new-images/powerpoint-live.png" alt-text="A screen capture of PowerPoint Live presentation and collaboration in a Microsoft Teams meeting." lightbox="media/whats-new-images/powerpoint-live.png":::
+:::image type="content" source="media/whats-new-images/powerpoint-live.png" alt-text="A screenshot of PowerPoint Live presentation and collaboration in a Microsoft Teams meeting." lightbox="media/whats-new-images/powerpoint-live.png":::
 
 Meeting participants can now view PowerPoint Live sessions initiated by a Teams client using the Azure Communication Services Web UI Library. Participants can follow along with a presentation and view presenter annotations. Developers can use this function via our composites including `CallComposite` and `CallWithChatComposite`, and through components such as `VideoGallery`.
 
@@ -44,7 +44,7 @@ For more information, see [Introducing PowerPoint Live in Microsoft Teams](https
 
 During live calls, participants can react with emojis: like, love, applause, laugh, and surprise.
 
-:::image type="content" source="media/whats-new-images/live-reactions.png" alt-text="A screen capture of live call reactions: thumbs up, like, heart, clapping, laughing, surprise." lightbox="media/whats-new-images/live-reactions.png":::
+:::image type="content" source="media/whats-new-images/live-reactions.png" alt-text="A screenshot of live call reactions: thumbs up, like, heart, clapping, laughing, surprise." lightbox="media/whats-new-images/live-reactions.png":::
 
 Now generally available, the updated UI library composites and components include call reactions. The UI Library supports the following list of live call reactions: &#128077; like reaction, &#129505; heart reaction, &#128079; applause reaction, &#128514; laughter reaction, &#128558; surprise reaction.
 
@@ -61,7 +61,7 @@ For more information, see [Reactions](./how-tos/calling-sdk/reactions.md).
 
 Promote accessibility by displaying text of the audio in video calls. Already available for app-to-Teams calls, this general availability release adds support for closed captions in all app-to-app calls.
 
-:::image type="content" source="media/whats-new-images/closed-caption-teams-interop.png" alt-text="A screen capture of closed captions for app-to-app calls and Teams interop." lightbox="media/whats-new-images/closed-caption-teams-interop.png":::
+:::image type="content" source="media/whats-new-images/closed-caption-teams-interop.png" alt-text="A screenshot of closed captions for app-to-app calls and Teams interop." lightbox="media/whats-new-images/closed-caption-teams-interop.png":::
 
 For more information, see [Closed Captions overview](./concepts/voice-video-calling/closed-captions.md).
 
@@ -76,7 +76,7 @@ AI can help app developers across every step of the development lifecycle: desig
 - How do I fix common causes of poor media streams in Azure Communication calls?
 - How can I fix the subcode 41048, which caused the video part of my call to fail?
 
-:::image type="content" source="media/whats-new-images/copilot-call-diagnostics.png" alt-text="A screen capture of Microsoft Copilot for Azure call diagnostics." lightbox="media/whats-new-images/copilot-call-diagnostics.png":::
+:::image type="content" source="media/whats-new-images/copilot-call-diagnostics.png" alt-text="A screenshot of Microsoft Copilot for Azure call diagnostics." lightbox="media/whats-new-images/copilot-call-diagnostics.png":::
 
 Developers can use Call Diagnostics to understand call quality and reliability across the organization to deliver a great customer calling experience. Many issues can affect the quality of your calls, such as poor internet connectivity, software compatibility issues, and technical difficulties with devices.
 
@@ -110,7 +110,7 @@ Microsoft Teams users can now share images with Azure Communication Services use
 
 Image sharing is helpful in many scenarios, such as a business sharing photos showcasing their work or doctors sharing images with patients for after care instructions.
 
-:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="A screen capture showing image sharing setup and example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
+:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="A screenshot showing image sharing setup and example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
 
 Try out this feature using either our UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java:
 
@@ -137,7 +137,7 @@ We updated the Calling native SDKs to improve the customer experience. This rele
 
 Custom background for video calls is generally available. This feature enables customers to remove distractions behind them. The custom image backgrounds feature enables customers to upload their own personalized images for use as background.
 
-:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="A screen capture showing custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
+:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="A screenshot showing custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
 
 For example, business owners can use the Calling SDK to show custom backgrounds in place of the actual background. You can, for example, upload an image of a modern and spacious office and set it as its background for video calls. Anyone who joins the call sees the customized background, which looks realistic and natural. You can also use custom branding images as background to show a fresh image to your customers.
 
@@ -278,7 +278,7 @@ For more information, see [Identity model](./concepts/identity-model.md).
 
 Try Phone Calling, now in public preview, is a tool in Azure portal that helps customers confirm the setup of a telephony connection by making a phone call. It applies to both Voice Calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
 
-:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="A screen capture of the try phone calling tool being used in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
+:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="A screenshot of the try phone calling tool being used in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
 
 Learn more about [Try Phone Calling](./concepts/telephony/try-phone-calling.md).
 
@@ -349,7 +349,7 @@ Closed captions is the conversion of a voice or video call audio track into writ
 
 Closed captions are never saved and are only visible to the user that enabled it.
 
-:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="A screen capture of closed captions used in a virtual rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
+:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="A screenshot of closed captions used in a virtual rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
 
 For more information, see [Closed Captions overview](./concepts/voice-video-calling/closed-captions.md).
 
