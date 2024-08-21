@@ -41,8 +41,12 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 0 | 0 | Call ended successfully by local participant. | Success | |
 | 0 | 487 | Call ended successfully as caller canceled the call. | Success | |
 | 0 | 603 | Call ended successfully as it was declined from callee. | Success | |
+| 3100 | 410 | Call setup failed due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
+| 3101 | 410 | Call dropped due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | |
+| 3112 | 410 |  Call setup failed due to network configuration problem on the client side, please check client's network configuration, and retry. | ExpectedError | |
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
 | 4507 | 495 | Call ended as application didn't provide valid Azure Communication Services token. | UnexpectedClientError | Ensure that your application implements token refresh mechanism correctly. |
+| 4521 | 0 | Call ended because user disconnected from the call abruptly. This might be caused by a user closing the application that hosted the call, such as a user terminated the application by closing the browser tab without proper hang-up. | ExpectedError | |
 | 5000 | 0 | Call ended for this participant. Participant removed from the conversation by another participant. | Success | |
 | 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
 | 5300 | 0 | Call ended for this participant. Participant removed from the conversation by another participant. | Success | |
@@ -50,6 +54,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 10003 | 487 | Call was accepted elsewhere, by another endpoint of this user. | Success | |
 | 10004 | 487 | Call was canceled on timeout, no callee endpoint accepted on time. Ensure that user saw the notification and try to initiate that call again. | ExpectedError | |
 | 10024 | 487 | Call ended successfully. Call declined by all callee endpoints. | Success | - Try to place the call again. |
+| 10057 | 408 | Call failed, callee failed to finalize call setup, most likely callee lost network or terminated the application abruptly. Ensure clients are connected and available. | ExpectedError | |
 | 301005 | 410 | Participant removed from the call by the Azure Communication Services infrastructure due to loss of media connectivity with the same infrastructure. This usually happens if participant leaves the call abruptly or loses network connectivity. If the participant wants to continue the call, they can reconnect. | UnexpectedClientError | Ensure that you're using the latest SDK in a supported environment. |
 | 510403 | 403 | Call ended, previously marked as a spam and now blocked. | ExpectedError | - Ensure that your Communication Services token is valid and not expired. <br />  - Ensure to pass in `AlternateId` in the call options. |
 | 540487 | 487 | Call ended successfully as caller canceled the call. | Success | |

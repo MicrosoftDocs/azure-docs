@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 6/12/2024
+ms.date: 8/20/2024
 ---
 
 # What's new in Azure VMware Solution
@@ -13,7 +13,11 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## August 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version. [Learn more](/azure/azure-vmware/architecture-private-clouds)
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Azure VMware Solution in Microsoft Azure Government**
+
+Azure VMware Solution has achieved Department of Defense (DoD) Impact Level 4 (IL4) authorization in Microsoft Azure Government.
 
 ## May 2024
 
