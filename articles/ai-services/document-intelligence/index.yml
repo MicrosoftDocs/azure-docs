@@ -35,7 +35,7 @@ landingContent:
   #Card 2
    - title: Document Intelligence models
      linkLists:
-     - linkListType: architecture
+     - linkListType: learn
        links:
          - text: Read
            url: concept-read.md
@@ -78,11 +78,25 @@ landingContent:
                url:  concept-batch-analysis.md
              - text: Accuracy and confidence scores
                url: concept-accuracy-confidence.md
-             - text: Use the `analyze document` response
+             - text: Use the analyzeDocument response
                url: concept-analyze-document-response.md
              - text: Custom model overview
                url: concept-custom.md
-  #Card 5
+  # Card 5
+   - title: Responsible AI
+     linkLists:
+      - linkListType: reference
+        links:
+           - text: Transparency notes
+             url: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Characteristics and limitations
+             url:  /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Guidance for integration and responsible use
+             url: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Data privacy, compliance, and security
+             url: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json#Card 5
+   
+   # Card 6
    - title: How-to-guides
      linkLists:
       - linkListType: how-to-guide
@@ -102,16 +116,4 @@ landingContent:
           - text: Install and run Document Intelligence containers
             url: containers/install-run.md
 
- # Card 6
-   - title: Responsible AI
-     linkLists:
-      - linkListType: reference
-        links:
-           - text: Transparency notes
-             url: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-           - text: Characteristics and limitations
-             url:  /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-           - text: Guidance for integration and responsible use
-             url: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-           - text: Data privacy, compliance, and security
-             url: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+ 
