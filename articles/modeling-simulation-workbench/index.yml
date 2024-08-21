@@ -66,15 +66,6 @@ landingContent:
             url: ./shared-storage.md
           - text: Disaster recovery
             url: ./disaster-recovery.md  
-  # Card: Resources
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshoot
-            url: ./resources-troubleshoot.md
-          - text: Get support
-            url: ./resources-get-support.md
   # Card: Reference
 #  - title: Reference
 #    linkLists:

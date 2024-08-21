@@ -31,7 +31,7 @@ items:
       href: ./concept-license-service.md
     - name: Shared storage
       href: ./shared-storage.md
-    - name: Business Continuity
+    - name: Business continuity
       items:
         - name: Disaster recovery
           href: ./disaster-recovery.md      
