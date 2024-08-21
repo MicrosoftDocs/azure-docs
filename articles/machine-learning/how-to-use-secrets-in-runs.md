@@ -1,7 +1,7 @@
 ---
 title: Authentication secrets
 titleSuffix: Azure Machine Learning
-description: Learn how to pass secrets to training jobs in secure fashion using Azure Key Vault.
+description: Learn how to securely get secrets from Azure Key Vault in your training jobs by using the Key Vault Secrets client library.
 services: machine-learning
 author: Blackmist
 ms.author: larryfr
@@ -9,8 +9,9 @@ ms.reviewer: roastala
 ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 08/20/2024
-ms.topic: how-to
+ms.topic: concept-article
 ms.custom: sdkv2
+# Customer intent: As a data scientist, I want to securely access secrets from Azure Key Vault in my training jobs so that I can use them in my training scripts.
 ---
 
 # Use authentication credential secrets in Azure Machine Learning jobs
@@ -52,7 +53,7 @@ Before following the steps in this article, make sure you have the following pre
     > [!TIP]
     > The quickstart link is to the steps for using the Azure Key Vault Python SDK. In the table of contents in the left navigation area are links to other ways to set a key.
 
-## Getting secrets
+## Get secrets
 
 There are two ways to get secrets during training:
 
@@ -127,6 +128,6 @@ There are two ways to get secrets during training:
 
 ---
 
-## Next steps
+## Related content
 
 For an example of submitting a training job using the Azure Machine Learning Python SDK v2, see [Train models with the Python SDK v2](how-to-train-sdk.md).
