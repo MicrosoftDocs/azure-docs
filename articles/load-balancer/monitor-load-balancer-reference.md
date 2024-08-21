@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ---
 
 # Azure Load Balancer monitoring data reference

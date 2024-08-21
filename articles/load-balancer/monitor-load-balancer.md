@@ -6,7 +6,7 @@ ms.custom: horz-monitor, template-how-to, subject-monitoring, engagement-fy23, d
 ms.topic: conceptual
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ---
 
 # Monitor Azure Load Balancer
