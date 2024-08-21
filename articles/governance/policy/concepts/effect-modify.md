@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # Azure Policy definitions modify effect
 
-The `modify` effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. Existing non-compliant resources can also be remediated with a [remediation task](../how-to/remediate-resources.md). Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. A common example using `modify` effect is updating tags on resources such as costCenter. 
+The `modify` effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. Existing non-compliant resources can also be remediated with a [remediation task](../how-to/remediate-resources.md). Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. A common example using `modify` effect is updating tags on resources such as 'costCenter'. 
 
-There are some nuances in modification behavior for resource properties, including contingency on properties being included in the update payload. This can be dependent on client used, such as Azure Portal, and other factors like Resource Provider. Learn more about scenarios when modification is [skipped](#skipped-modification).
+There are some nuances in modification behavior for resource properties, including contingency on properties being included in the update payload. This behavior can be dependent on client used, such as Azure portal, and other factors like resource provider. Learn more about scenarios when modification is [skipped](#skipped-modification).
 
 A single `modify` rule can have any number of operations. Supported operations are:
 
@@ -45,13 +45,13 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 There are some cases when modify operations are skipped during evaluation:
 - **Existing resources:** When a policy definition using the `modify` effect is run as part of an evaluation cycle, it doesn't make changes to resources that already exist. Instead, it marks any resource that meets the `if` condition as non-compliant, so they can be remediated through a remediation task.
 - **Not applicable:** When the condition of an operation in the `operations` array is evaluated to _false_, that particular operation is skipped.
-- **Property not modifiable:** If an alias specified for an operation isn't modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request is blocked. If the conflict effect is set to _audit_, the request is allowed through but the modify operation is skipped.
-- **Property not present:** If a property is not present in the resource payload of the request, then the modification may be skipped. In some cases, modifiable properties are nested within other properties and have an alias like `Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled`. If the "parent" property, in this case `deleteRetentionPolicy`, isn't present in the request, modification is skipped because that property is assumed to be omitted intentionally. See a practical [example](#example-of-property-not-present) of this below.
+- **Property not modifiable:** If an alias specified for an operation isn't modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request is blocked. If the conflict effect is set to _audit_, the request is allowed through but the `modify` operation is skipped.
+- **Property not present:** If a property is not present in the resource payload of the request, then the modification may be skipped. In some cases, modifiable properties are nested within other properties and have an alias like `Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled`. If the "parent" property, in this case `deleteRetentionPolicy`, isn't present in the request, modification is skipped because that property is assumed to be omitted intentionally. For a practical example, go to section [Example of property not present](#example-of-property-not-present).
 - **Non VM or VMSS identity operation:** When a modify operation attempts to add or replace the `identity.type` field on a resource other than a Virtual Machine or Virtual Machine Scale Set, policy evaluation is skipped altogether so the modification isn't performed. In this case, the resource is considered not [applicable](../concepts/policy-applicability.md) to the policy.
 
 #### Example of property not present
 
-Modification of resource properties depends on the API request and the updated resource payload. Let's compare modify behavior of tags with modify behavior of properties.
+Modification of resource properties depends on the API request and the updated resource payload. Let's compare `modify` behavior of tags with modify behavior of properties.
 
 Imagine you apply a policy that modifies tags on a virtual machine (VM). Every time the VM is updated, such as during resizing or disk changes, the tags are updated accordingly regardless of the contents of the VM payload. This is because tags are independent of the VM properties.
 
