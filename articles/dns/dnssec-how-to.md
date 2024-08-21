@@ -35,19 +35,8 @@ Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Mi
 Use the following steps to enroll into the public preview for DNSSEC zone signing via the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the search box, enter _subscriptions_ and select **Subscriptions**.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
-
-3. Select the link for your subscription's name.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
-
-4. From the left menu, under **Settings** select **Preview features**.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
-
-5. You see a list of available preview features and your current registration status.
+2. In the search box, enter preview and select **Preview features**.
+3. You see a list of available preview features and your current registration status.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
