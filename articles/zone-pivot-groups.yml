@@ -3441,11 +3441,11 @@ groups:
   - id: existing-mc
     title: Existing Maintenance Configuration
 # Owner: v-gjeronika
-- id: vmware-azureportal-bicep-terraform
+- id: vmware-portal-bicep-terraform
   title: Create a virtual machine on VMware vCenter using Azure Arc
   prompt: Choose a method
   pivots:
-  - id: azureportal
+  - id: portal
     title: Azure Portal
   - id: bicep
     title: Bicep
