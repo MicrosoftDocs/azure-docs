@@ -120,7 +120,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
-## See also
+### See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 
