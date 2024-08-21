@@ -26,7 +26,7 @@ To identify the resources that are currently not protected, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center** > **Protection inventory** > **Protectable resources**.
 
-   :::image type="content" source="./media/quick-view-protectable-resources/select-protectable-resources.png" alt-text="Screenshot shows the selection of Protectable resources." lightbox="./media/quick-view-protectable-resources/select-protectable-resources.png":::
+   :::image type="content" source="./media/quick-understand-protection-estate/select-protectable-resources.png" alt-text="Screenshot shows the selection of Protectable resources." lightbox="./media/quick-understand-protection-estate/select-protectable-resources.png":::
 
    A list of resources appears that  aren't protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view the details of each resource, select a *resource name*, *subscription*, or *resource group* from the list.
  
@@ -37,13 +37,13 @@ To identify the resources that are currently not protected, follow these steps:
 
    Alternatively, you can check for the protectable Azure resources using Azure Resource Group (ARG). To do so, use the *sample query* provided in the Azure portal by selecting *Open query*.
  
-   :::image type="content" source="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png" alt-text="Screenshot shows how to open sample query to find protectable resources." lightbox="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png":::
+   :::image type="content" source="./media/quick-understand-protection-estate/sample-query-to-find-protectable-resources.png" alt-text="Screenshot shows how to open sample query to find protectable resources." lightbox="./media/quick-understand-protection-estate/sample-query-to-find-protectable-resources.png":::
 
 ## Identify protected items
 
 To view the protected items, go to **Business Continuity Center** > **Protection inventory** > **Protected items**.
 
-:::image type="content" source="./media/quick-view-protectable-resources/view-protected-items.png" alt-text="Screenshot shows how to view protected items." lightbox="./media/quick-view-protectable-resources/view-protected-items.png":::
+:::image type="content" source="./media/quick-understand-protection-estate/view-protected-items.png" alt-text="Screenshot shows how to view protected items." lightbox="./media/quick-understand-protection-estate/view-protected-items.png":::
 
 The list of all the protected items across the supported solution, subscription, resource groups, location, type, and so on, appears along with their protection status.
 
