@@ -728,7 +728,7 @@ Here's how to assign users or user groups to an application group by using the [
 
 # [Azure CLI](#tab/cli)
 
-Here's how to assign users or user groups to an application group for a workspace by using the [role](/cli/azure/role/assignment) extension for the Azure CLI:
+Here's how to assign users or user groups to an application group by using the [role](/cli/azure/role/assignment) extension for the Azure CLI:
 
 - In the same CLI session, use the `az role assignment create` command with the following examples to assign users or user groups to an application group:
 
