@@ -92,7 +92,7 @@ Next, create a function in the new function app.
 
 1. Under **Select a template**, scroll down and choose the **HTTP trigger** template.
 
-1. In **Template details**, use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
+1. In **Template details**, use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#http-auth)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 ::: zone-end  

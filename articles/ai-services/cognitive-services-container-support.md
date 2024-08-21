@@ -26,7 +26,7 @@ Containerization is an approach to software distribution in which an application
 - **Immutable infrastructure**: Enable DevOps teams to leverage a consistent and reliable set of known system parameters, while being able to adapt to change. Containers provide the flexibility to pivot within a predictable ecosystem and avoid configuration drift.
 - **Control over data**: Choose where your data gets processed by Azure AI services. This can be essential if you can't send data to the cloud but need access to Azure AI services APIs. Support consistency in hybrid environments – across data, management, identity, and security.
 - **Control over model updates**: Flexibility in versioning and updating of models deployed in their solutions.
-- **Portable architecture**: Enables the creation of a portable application architecture that can be deployed on Azure, on-premises and the edge. Containers can be deployed directly to [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Portable architecture**: Enables the creation of a portable application architecture that can be deployed on Azure, on-premises and the edge. Containers can be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Azure AI services to run physically close to their application logic and data. Containers don't cap transactions per second (TPS) and can be made to scale both up and out to handle demand if you provide the necessary hardware resources.
 - **Scalability**: With the ever growing popularity of containerization and container orchestration software, such as Kubernetes; scalability is at the forefront of technological advancements. Building on a scalable cluster foundation, application development caters to high availability.
 
@@ -74,11 +74,7 @@ Azure AI containers provide the following set of Docker containers, each of whic
 | [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/about)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/spatial-analysis/about)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
 
-<!--
-|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
--->
-
-Additionally, some containers are supported in the Azure AI services [multi-service resource](multi-service-resource.md?pivots=azportal) offering. You can create one single Azure AI services All-In-One resource and use the same billing key across supported services for the following services:
+Additionally, some containers are supported in the [Azure AI services multi-service resource](multi-service-resource.md?pivots=azportal) offering. You can create one single Azure AI services resource and use the same billing key across supported services for the following services:
 
 * Azure AI Vision
 * LUIS
@@ -88,7 +84,7 @@ Additionally, some containers are supported in the Azure AI services [multi-serv
 
 You must satisfy the following prerequisites before using Azure AI containers:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../aks/index.yml) or [Azure Container Instances](../container-instances/index.yml).
+**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/) or [Azure Container Instances](../container-instances/index.yml).
 
 Docker must be configured to allow the containers to connect with and send billing data to Azure.
 
@@ -116,9 +112,6 @@ Install and explore the functionality provided by containers in Azure AI service
 * [Speech Service API containers][sp-containers]
 * [Language service containers][ta-containers]
 * [Translator containers][tr-containers]
-
-<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
--->
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

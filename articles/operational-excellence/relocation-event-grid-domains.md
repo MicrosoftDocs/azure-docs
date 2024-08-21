@@ -4,7 +4,7 @@ description: This article shows you how to move Azure Event Grid domains to anot
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
-ms.service: event-grid
+ms.service: azure-event-grid
 ms.topic: how-to
 ms.custom:
   - subject-relocation

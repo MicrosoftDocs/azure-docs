@@ -35,7 +35,6 @@ Follow these steps to define an incident with a few examples of text content and
   * [cURL](https://curl.haxx.se/) for REST API calls.
   * [Python 3.x](https://www.python.org/) installed
 
-<!--tbd env vars-->
 
 ## Test the text custom categories (rapid) API
 
@@ -53,10 +52,7 @@ The following command creates an incident with a name and definition.
 curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>?api-version=2024-02-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
---data '{
-  "incidentName": "<text-incident-name>",
-  "incidentDefinition": "string"
-}'
+--data '{ \"incidentName\": \"<test-incident>\", \"incidentDefinition\": \"<string>\"}'
 ```
 
 #### [Python](#tab/python)
@@ -116,9 +112,9 @@ curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "IncidentSamples": [
-    { "text":    "<text-example-1>"},
-    { "text":    "<text-example-2>"},
+  \"IncidentSamples\": [
+    { \"text\":    \"<text-example-1>\"},
+    { \"text\":    \"<text-example-2>\"},
     ...
   ]
 }'
@@ -199,9 +195,9 @@ curl --location 'https://<endpoint>/contentsafety/text:detectIncidents?api-versi
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "text":  "<test-text>",
-  "incidentNames": [
-    "<text-incident-name>"
+  \"text\":  \"<test-text>\",
+  \"incidentNames\": [
+    \"<text-incident-name>\"
   ]
 }'
 ```
@@ -249,7 +245,7 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incident
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "incidentName": "<image-incident-name>"
+  \"incidentName\": \"<image-incident-name>\"
 }'
 ```
 
@@ -310,11 +306,11 @@ curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-inciden
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "IncidentSamples": [
+  \"IncidentSamples\": [
     {
-      "image": {
-        "content": "<base64-data>",
-        "bloburl": "<your-blob-storage-url>.png"
+      \"image\": {
+        \"content\": \"<base64-data>\",
+        \"bloburl\": \"<your-blob-storage-url>.png\"
       }
     }
   ]
@@ -395,12 +391,12 @@ curl --location 'https://<endpoint>/contentsafety/image:detectIncidents?api-vers
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-    "image": {
-      "url": "<your-blob-storage-url>/image.png",
+    \"image\": {
+      \"url\": \"<your-blob-storage-url>/image.png\",
       "content": "<base64-data>"
     },
-    "incidentNames": [
-      "<image-incident-name>"
+    \"incidentNames\": [
+      \"<image-incident-name>\"
     ]
   }
 }'
@@ -589,8 +585,8 @@ curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "IncidentSampleIds": [
-    "<your-incident-sample-id>"
+  \"IncidentSampleIds\": [
+    \"<your-incident-sample-id>\"
   ]
 }'
 ```
@@ -770,8 +766,8 @@ curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-inciden
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "IncidentSampleIds": [
-    "<your-incident-sample-id>"
+  \"IncidentSampleIds\": [
+    \"<your-incident-sample-id>\"
   ]
 }'
 ```
@@ -801,5 +797,5 @@ print(response.text)
 
 ## Related content
 
-- [Custom categories (rapid) concepts](../concepts/custom-categories-rapid.md)
+- [Custom categories concepts](../concepts/custom-categories.md)
 - [What is Azure AI Content Safety?](../overview.md)

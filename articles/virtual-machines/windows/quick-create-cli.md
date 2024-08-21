@@ -2,7 +2,7 @@
 title: Quickstart - Create a Windows VM using the Azure CLI
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 02/23/2023
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2019. To see your VM in action, you then RDP to the VM and install the IIS web server.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2022. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

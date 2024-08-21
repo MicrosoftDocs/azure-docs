@@ -3,7 +3,7 @@ title: Azure Write Accelerator
 description: Documentation on how to enable and use Write Accelerator
 author: raiye
 manager: markkie
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.author: raiye

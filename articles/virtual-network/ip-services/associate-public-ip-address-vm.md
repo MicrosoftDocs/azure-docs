@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to associate a public IP address to a virtual machine (VM) by using the Azure portal, the Azure CLI, or Azure PowerShell.
 services: virtual-network
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2023

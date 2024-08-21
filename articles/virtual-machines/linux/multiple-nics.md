@@ -2,7 +2,7 @@
 title: Create a Linux VM in Azure with multiple NICs
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.custom: devx-track-azurecli, linux-related-content

@@ -1,6 +1,6 @@
 ---
 author: shohei1029
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 16/12/2022
 ms.author: shnagata

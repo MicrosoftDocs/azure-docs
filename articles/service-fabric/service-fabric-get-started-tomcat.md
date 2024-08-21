@@ -4,7 +4,7 @@ description: Create Linux container to expose an application running on Apache T
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/14/2022

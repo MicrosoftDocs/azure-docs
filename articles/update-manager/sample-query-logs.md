@@ -5,11 +5,11 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/13/2024
+ms.date: 07/29/2024
 ms.topic: conceptual
 ---
 
-# Sample queries
+# Sample Azure Resource Graph queries to access Azure Update Manager operations data
 
 The following are some sample queries to help you get started querying the update assessment and deployment information collected from your managed machines. For more information on logs created from operations such as update assessments and installations, see [overview of query logs](query-logs.md).
  

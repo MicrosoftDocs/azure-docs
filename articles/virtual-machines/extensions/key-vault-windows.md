@@ -3,7 +3,7 @@ title: Azure Key Vault VM extension for Windows
 description: Learn how to deploy an agent for automatic refresh of Azure Key Vault secrets on virtual machines with a virtual machine extension.
 services: virtual-machines
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article

@@ -3,7 +3,7 @@ title: Azure AI Model Inference Chat Completions
 titleSuffix: Azure Machine Learning
 description: Reference for Azure AI Model Inference Chat Completions API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024

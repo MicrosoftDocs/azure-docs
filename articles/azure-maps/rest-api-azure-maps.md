@@ -2,12 +2,12 @@
 title: Links to the Azure Maps Rest API
 titleSuffix: Microsoft Azure Maps
 description: Links to the Azure Maps Rest API.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 02/05/2024
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: rest-api
 ---
 
 # Azure Maps Rest API

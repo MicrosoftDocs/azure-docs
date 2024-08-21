@@ -2,7 +2,7 @@
 title: Overview of virtual machines in Azure
 description: Overview of virtual machines in Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: overview
 ms.date: 07/01/2024

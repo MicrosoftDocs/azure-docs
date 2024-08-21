@@ -2,7 +2,7 @@
 title: Retired Azure VM size series 
 description: A list containing all retired and soon to be retired VM size series and their replacement series.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/02/2024

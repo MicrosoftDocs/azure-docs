@@ -27,7 +27,7 @@ Bicep provides the following advantages:
   param location string = resourceGroup().location
   param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
 
-  resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+  resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
     name: storageAccountName
     location: location
     sku: {
@@ -59,7 +59,7 @@ Bicep provides the following advantages:
     "resources": [
       {
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2021-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[parameters('storageAccountName')]",
         "location": "[parameters('location')]",
         "sku": {

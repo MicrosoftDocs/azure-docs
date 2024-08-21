@@ -3,7 +3,7 @@ title: Deploy an Azure Container Instances (ACI) container group with DNS name r
 description: Set the DNS name reuse policy for your container groups to avoid subdomain takeover when you release your DNS names.
 author: tomvcassidy
 ms.topic: how-to
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/25/2022

@@ -3,7 +3,7 @@ title: Configure static outbound IP
 description: Configure Azure firewall and user-defined routes for Azure Container Instances workloads that use the firewall's public IP address for ingress and egress
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to

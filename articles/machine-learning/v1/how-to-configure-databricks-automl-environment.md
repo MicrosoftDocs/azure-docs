@@ -6,7 +6,7 @@ services: machine-learning
 author: manashgoswami 
 ms.author: manashg
 ms.reviewer: ssalgado
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to

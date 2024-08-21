@@ -15,7 +15,7 @@ You can configure Prometheus running on your Kubernetes cluster to remote-write 
 
 Azure Monitor also provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets.
 
-We recommend configuring remote-write directly in your self-managed Prometheus config running in your environment. The Azure Monitor side car container can be used in case your preferred authentication is not supported through directly configuration. We plan to add those authentication options to the direct configuration and deprecate the side-car container.
+We recommend configuring remote-write directly in your self-managed Prometheus config running in your environment. The Azure Monitor side car container can be used in case your preferred authentication is not supported through directly configuration.
 
 
 ## Supported versions

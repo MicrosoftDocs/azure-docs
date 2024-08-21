@@ -1,7 +1,7 @@
 ---
 title: 1000 Genomes
 description: Learn how to use the 1000 Genomes dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.reviewer: fsolomon
 ms.date: 07/10/2024

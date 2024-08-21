@@ -9,7 +9,7 @@ metadata:
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
-  ms.author: azfundocs
+  ms.author: glenga
   ms.date: 12/27/2021
 landingContent:
   - title: About Azure Functions

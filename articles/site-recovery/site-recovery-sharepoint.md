@@ -3,7 +3,7 @@ title: Disaster recovery for a multi-tier SharePoint app using Azure Site Recove
 description: This article describes how to set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery capabilities.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: ankitadutta

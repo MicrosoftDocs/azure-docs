@@ -2,7 +2,7 @@
 title: Azure Disk Encryption sample scripts
 description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: linux
 ms.topic: how-to

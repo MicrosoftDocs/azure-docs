@@ -34,9 +34,9 @@ The deployment phase is typically performed by a SOC analyst or related roles.
 | --------- | ------- |
 | [**1. Enable Microsoft Sentinel, health and audit, and content**](enable-sentinel-features-content.md) | Enable Microsoft Sentinel, enable the health and audit feature, and enable the solutions and content you've identified according to your organization's needs. </br></br> To onboard to Microsoft Sentinel by using the API, see the latest supported version of [Sentinel Onboarding States](/rest/api/securityinsights/sentinel-onboarding-states). |
 | [**2. Configure content**](configure-content.md) | Configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems: Data connectors, analytics rules, automation rules, playbooks, workbooks, and watchlists. |
-| [**3. Set up a cross-workspace architecture**](use-multiple-workspaces.md) |If your environment requires multiple workspaces, you can now set them up as part of your deployment. In this article, you learn how to set up Microsoft Sentinel to extend across multiple workspaces and tenants. |
+| [**3. Set up a cross-workspace architecture**](use-multiple-workspaces.md) | If your environment requires multiple workspaces, you can now set them up as part of your deployment. In this article, you learn how to set up Microsoft Sentinel to extend across multiple workspaces and tenants. |
 | [**4. Enable User and Entity Behavior Analytics (UEBA)**](enable-entity-behavior-analytics.md) | Enable and use the UEBA feature to streamline the analysis process.  |
-| [**5. Set up data retention and archive**](configure-data-retention-archive.md) |Set up data retention and archive, to make sure your organization retains the data that's important in the long term.  |
+| [**5. Set up interactive and long-term data retention**](configure-data-retention-archive.md) | Set up interactive and long-term data retention, to make sure your organization retains the data that's important in the long term. |
 
 ## Fine tune and review: Checklist for post-deployment
 

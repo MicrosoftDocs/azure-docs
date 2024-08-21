@@ -84,6 +84,8 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Troubleshoot autoscale
       href: virtual-machine-scale-sets-troubleshoot.md 
+  - name: Instance Mix (Preview)
+    href: virtual-machine-scale-sets-instance-mix.md
   - name: Scaling Profile
     href: virtual-machine-scale-sets-scaling-profile.md
   - name: Scale-In Policy
@@ -151,6 +153,8 @@
       href: virtual-machine-scale-sets-change-upgrade-policy.md
     - name: Configure rolling upgrade policy
       href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
+    - name: Rolling upgrades with MaxSurge
+      href: virtual-machine-scale-sets-maxsurge.md
     - name: Performing manual upgrades
       href: virtual-machine-scale-sets-perform-manual-upgrades.md
     - name: Reimage a virtual machine

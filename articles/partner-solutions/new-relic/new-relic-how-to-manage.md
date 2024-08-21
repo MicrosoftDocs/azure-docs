@@ -3,7 +3,7 @@ title: Manage Azure Native New Relic Service
 description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
 
-ms.date: 04/04/2023
+ms.date: 06/11/2024
 
 ---
 
@@ -76,6 +76,42 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 - **Agent not configured**: Virtual machines or app services without the New Relic agent installed don't send logs to New Relic.
 
 The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
+
+## Monitor multiple subscriptions
+
+You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. Your experience is simplified because you don't have to set up a New Relic resource in every subscription that you intend to monitor. You can monitor multiple subscriptions by linking them to a single New Relic resource that is tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
+
+To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **New Relic New Relic organization configurations** section of the Resource menu.
+
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
+
+From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any New Relic resource created in those subscriptions that is already linked to the same New Relic organization as the current resource.
+
+If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
+
+Select the subscriptions you want to monitor through the New Relic resource and select **Add**.
+
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
+
+If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
+
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
+
+The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
+
+If you have existing New Relic resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant New Relic resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommended to consolidate subscriptions into the same New Relic resource where possible.
+
+The tag rules and logs that you defined for the New Relic resource are applied to all the subscriptions that you select to be monitored. If you would like to reconfigure the tag rules, you can follow the steps described here.  
+
+For more information about the following capabilities, see  [Monitor Virtual Machines  using the New Relic agent](#monitor-virtual-machines-by-using-the-new-relic-agent) and [Monitor App Services using the New Relic agent](#monitor-app-services-by-using-the-new-relic-agent).
+
+## Connected New Relic resources
+
+To access all New Relic resources and deployments you created using the Azure or New Relic portal experience, go to the **Connected New Relic resources** tab in any of your Azure New Relic resources.
+
+:::image type="content" source="media/new-relic-how-to-manage/connected-new-relic-resources.png" alt-text="Screenshot showing Connected New Relic resources selected in the Resource menu.":::
+
+You can easily manage the corresponding New Relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
 ## Monitor virtual machines by using the New Relic agent
 

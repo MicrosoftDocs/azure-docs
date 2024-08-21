@@ -4,7 +4,7 @@ description: Include file containing specifications of Eav4 and Easv4-series VM 
 services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 04/18/2024
 ms.author: mattmcinnes

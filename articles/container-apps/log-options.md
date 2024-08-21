@@ -3,7 +3,7 @@ title: Log storage and monitoring options in Azure Container Apps
 description: Description of logging options in Azure Container Apps
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/29/2022

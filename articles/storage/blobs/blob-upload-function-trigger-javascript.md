@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/06/2023
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-azurecli, engagement
+# As a JavaScript developer, I want to know how to upload files to blob storage within an application, so that I can adopt this functionality into my own solution.
 ---
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
@@ -17,12 +18,11 @@ In this tutorial, you'll learn how to upload an image to Azure Blob Storage and 
 Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md). 
 
 > [!WARNING]
-> This tutorial uses publicly accessible storage to simplify the process to finish this tutorial. Anonymous public access presents a security risk. [Learn how to remediate this risk.](/azure/storage/blobs/anonymous-read-access-overview)
+> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-considerations).
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. 
 
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
-
 
 In this tutorial, learn how to:
 
@@ -563,12 +563,19 @@ If you're not going to continue to use this application, you can delete the reso
 1. Find and right-click the `msdocs-storage-function` resource group from the list.
 1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
 
+## Security considerations
+
+This solution, as a beginner tutorial, doesn't demonstrate secure-by-default practices. This is intentional to allow you to be successful in deploying the solution. The next step after that successful deployment is to secure the resources. This solution uses three Azure services, each has its own security features and considerations for secure-by-default configuration:
+
+* Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
+* Azure Storage - [Security recommendations for Blob storage](security-recommendations.md)
+* Azure Cognitive services - [Azure AI services security features](/azure/ai-services/security-features)
 
 ## Sample code
 
 * [Azure Functions sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4)
 
-## Next steps
+## Related content
 
 * [Create a function app that connects to Azure services using identities instead of secrets](/azure/azure-functions/functions-identity-based-connections-tutorial)
 * [Remediating anonymous public read access for blob data](/azure/storage/blobs/anonymous-read-access-overview)

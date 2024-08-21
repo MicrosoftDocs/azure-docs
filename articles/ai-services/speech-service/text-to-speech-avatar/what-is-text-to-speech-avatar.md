@@ -12,9 +12,7 @@ author: eric-urban
 ms.custom: references_regions
 ---
 
-# Text to speech avatar overview (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# Text to speech avatar overview
 
 Text to speech avatar converts text into a digital video of a photorealistic human (either a prebuilt avatar or a [custom text to speech avatar](#custom-text-to-speech-avatar)) speaking with a natural-sounding voice. The text to speech avatar video can be synthesized asynchronously or in real time. Developers can build applications integrated with text to speech avatar through an API, or use a content creation tool on Speech Studio to create video content without coding.
 
@@ -44,7 +42,7 @@ The voice in the synthetic video could be a prebuilt neural voice available on A
 
 Both batch synthesis and real-time synthesis resolution are 1920 x 1080, and the frames per second (FPS) are 25. Batch synthesis codec can be h264 or h265 if the format is mp4 and can set codec as vp9 if the format is `webm`; only `webm` can contain an alpha channel. Real-time synthesis codec is h264. Video bitrate can be configured for both batch synthesis and real-time synthesis in the request; the default value is 2000000; more detailed configurations can be found in the sample code.
 
-|                  | Batch synthesis  | Real-Time synthesis |
+|                  | Batch synthesis  | Real-time synthesis |
 |------------------|------------------|----------------------|
 | **Resolution**   | 1920 x 1080      | 1920 x 1080          |
 | **FPS**          | 25               | 25                   |
@@ -67,9 +65,9 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 
 ## Pricing
 
-- When utilizing the text-to-speech avatar feature, charges will be incurred based on the minutes of video output. However, with the real-time avatar, charges are based on the minutes of avatar activation, irrespective of whether the avatar is actively speaking or remaining silent. To optimize costs for real-time avatar usage, refer to the provided tips in the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample) (search "Use Local Video for Idle").
 - Throughout an avatar real-time session or batch content creation, the text-to-speech, speech-to-text, Azure OpenAI, or other Azure services are charged separately.
-- For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2.
+- Refer to [text to speech avatar pricing note](../text-to-speech.md#text-to-speech-avatar) to learn how billing works for the text-to-speech avatar feature.
+- For the detailed pricing, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2.
 
 ## Available locations
 

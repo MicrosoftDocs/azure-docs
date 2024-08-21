@@ -41,7 +41,7 @@ ForescoutEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**ForescoutEvent**](https://aka.ms/sentinel-forescout-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected [**ForescoutEvent**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Forescout%20(Legacy)/Parsers/ForescoutEvent.yaml) which is deployed with the Microsoft Sentinel Solution.
 
 
 > [!NOTE]

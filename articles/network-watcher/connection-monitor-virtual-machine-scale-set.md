@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 05/31/2024
 

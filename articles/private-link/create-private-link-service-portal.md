@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to create a Private Link service using the Azure portal in this quickstart.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 08/29/2023
 ms.author: abell

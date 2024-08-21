@@ -4,7 +4,7 @@ description: This article provides an overview of the ways you can integrate wit
 ms.author: abbyweisberg
 ms.reviewer: nolavime
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 07/30/2024
 ---
 
 # IT Service Management integration

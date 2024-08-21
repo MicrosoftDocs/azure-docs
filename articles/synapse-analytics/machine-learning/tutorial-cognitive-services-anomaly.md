@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Anomaly detection with Azure AI services'
 description: Learn how to use Azure AI Anomaly Detector for anomaly detection in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust

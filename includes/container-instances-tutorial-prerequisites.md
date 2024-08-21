@@ -4,7 +4,7 @@ description: include file
 services: container-instances
 author: tomvcassidy
 
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.topic: include
 ms.date: 06/14/2022
 ms.author: tomcassidy
@@ -25,8 +25,8 @@ You must satisfy the following requirements to complete this tutorial:
 <!-- LINKS - External -->
 [docker-get-started]: https://docs.docker.com/engine/docker-overview/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
+[docker-mac]: https://docs.docker.com/desktop/install/mac-install/
+[docker-windows]: https://docs.docker.com/desktop/install/windows-install/
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

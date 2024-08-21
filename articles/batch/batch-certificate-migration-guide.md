@@ -1,7 +1,7 @@
 ---
 title: Migrate Batch account certificates to Azure Key Vault
 description: Learn how to migrate Batch account certificates to Azure Key Vault and plan for feature end of support.
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 12/05/2023
 ---
@@ -16,7 +16,7 @@ Certificates are often required in various scenarios such as decrypting a secret
 
 ## Feature end of support
 
-[Azure Key Vault](../key-vault/general/overview.md) is the standard, recommended mechanism for storing and accessing secrets and certificates across Azure securely. Therefore, on February 29, 2024, we'll retire the Batch account certificates feature in Azure Batch. The alternative is to use the Azure Key Vault VM Extension and a user-assigned managed identity on the pool to securely access and install certificates on your Batch pools.
+[Azure Key Vault](/azure/key-vault/general/overview) is the standard, recommended mechanism for storing and accessing secrets and certificates across Azure securely. Therefore, on February 29, 2024, we'll retire the Batch account certificates feature in Azure Batch. The alternative is to use the Azure Key Vault VM Extension and a user-assigned managed identity on the pool to securely access and install certificates on your Batch pools.
 
 After the certificates feature in Azure Batch is retired on February 29, 2024, a certificate in Batch won't work as expected. After that date, you'll no longer be able to add certificates to a Batch account or link these certificates to Batch pools. Pools that continue to use this feature after this date may not behave as expected such as updating certificate references or the ability to install existing certificate references.
 
@@ -50,7 +50,7 @@ For a complete guide on how to enable Azure Key Vault VM Extension with Pool Use
 
 - How do I install `.cer` files that don't contain private keys?
 
-  Key Vault doesn't consider these files to be privileged as they don't contain private key information. You can install `.cer` files using either of the following methods. Use Key Vault [secrets](../key-vault/secrets/about-secrets.md) with appropriate access privileges for the associated User-assigned Managed Identity and fetch the `.cer` file as part of your start task to install. Alternatively, store the `.cer` file as an Azure Storage Blob and reference as a Batch [resource file](resource-files.md) in your start task to install.
+  Key Vault doesn't consider these files to be privileged as they don't contain private key information. You can install `.cer` files using either of the following methods. Use Key Vault [secrets](/azure/key-vault/secrets/about-secrets) with appropriate access privileges for the associated User-assigned Managed Identity and fetch the `.cer` file as part of your start task to install. Alternatively, store the `.cer` file as an Azure Storage Blob and reference as a Batch [resource file](resource-files.md) in your start task to install.
 
 - How do I access Key Vault extension installed certificates for task-level nonadmin autouser pool identities?
 
@@ -58,8 +58,8 @@ For a complete guide on how to enable Azure Key Vault VM Extension with Pool Use
 
 - Where can I find best practices for using Azure Key Vault?
 
-  See [Azure Key Vault best practices](../key-vault/general/best-practices.md).
+  See [Azure Key Vault best practices](/azure/key-vault/general/best-practices).
 
 ## Next steps
 
-For more information, see [Key Vault certificate access control](../key-vault/certificates/certificate-access-control.md). For more information about Batch functionality related to this migration, see [Azure Batch Pool extensions](create-pool-extensions.md) and [Azure Batch Pool Managed Identity](managed-identity-pools.md).
+For more information, see [Key Vault certificate access control](/azure/key-vault/certificates/certificate-access-control). For more information about Batch functionality related to this migration, see [Azure Batch Pool extensions](create-pool-extensions.md) and [Azure Batch Pool Managed Identity](managed-identity-pools.md).

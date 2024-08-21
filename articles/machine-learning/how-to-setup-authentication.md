@@ -6,7 +6,7 @@ services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: meyetman
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 01/05/2024
 ms.topic: how-to

@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 08/10/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -76,7 +76,7 @@ Key properties of virtual network flow logs include:
 Virtual network flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
-- `flowLogVersion`: Version of the flow log schema.
+- `flowLogVersion`: Version of the flow log.
 - `flowLogGUID`: Resource GUID of the `FlowLog` resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
@@ -218,6 +218,22 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Supported scenarios
+
+The following table outlines the support scope of flow logs.
+
+| Scope | Network security group flow logs | Virtual network flow logs |
+| --- | --- | --- |
+| Bytes and packets in stateless flows | Not supported | Supported |
+| Identification of virtual network encryption  | Not supported | Supported |
+| Azure API management  | Not supported | Supported |
+| Azure Application Gateway | Not supported | Supported |
+| Azure Bastion | Supported | Supported |
+| Azure Virtual Network Manager | Not supported | Supported |
+| ExpressRoute gateway | Not supported | Supported |
+| Virtual machine scale sets | Supported | Supported |
+| VPN gateway | Not supported | Supported |
 
 ## Availability
 

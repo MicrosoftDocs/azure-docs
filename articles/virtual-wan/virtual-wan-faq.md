@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: faq
 ms.date: 03/27/2024
@@ -140,6 +140,10 @@ For example, let's say the user chooses 1 scale unit. Each scale unit would impl
 For gateways with scale units greater than 20, additional highly available pairs of gateway instances are deployed to provide additional capacity for connecting users. Each pair of instances supports up to 10,000 additional users. For example, if you deploy a Gateway with 100 scale units, 5 gateway pairs (10 total instances) are deployed, and up to 50,000 (10,000 users x 5 gateway pairs) concurrent users can connect.
 
 Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit, or change the point-to-site configuration on the VPN gateway.
+
+### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
+
+Yes, [Microsoft-registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -335,6 +339,10 @@ When an ExpressRoute circuit is connected to a virtual hub, the Microsoft Edge r
 
 For any reason, if the VPN connection becomes the primary medium for the virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN), unless the VPN site has a longer AS Path length, the virtual hub will continue to share VPN learned routes with the ExpressRoute gateway. This causes the Microsoft Edge routers to prefer VPN routes over on-premises routes.
 
+### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
+
+When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com with your Virtual WAN hub resource ID. 
+
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this isn't encouraged in a Virtual WAN setup. To resolve this, you can do one of two things:
@@ -470,7 +478,13 @@ Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However
 The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100.
 ### Can you change the VNet address space in a spoke VNet connected to the hub? 
 
-Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
+Yes, this can be done automatically with no update or reset required on the peering connection. Please note the following: 
+* You do not need to click the ["Sync" button](../virtual-network/update-virtual-network-peering-address-space.yml#modify-the-address-range-prefix-of-an-existing-address-range) under the Peering blade. Once the VNet's address space is changed, the VNet peering will automatically sync with the virtual hub's VNet. 
+* Please ensure the updated address space does not overlap with the address space for any existing spoke VNets in your Virtual WAN. 
+
+You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
+
+
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 

@@ -4,7 +4,7 @@ description: Learn about the core concepts and major areas of Azure Service Fabr
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -171,7 +171,7 @@ Service Fabric provides multiple ways to [view health reports](service-fabric-vi
 
 [Check this page for a training video that describes the Service Fabric health model and how it's used:](/shows/building-microservices-applications-on-azure-service-fabric/service-fabric-health-system)
 ## Monitoring and diagnostics
-[Monitoring and diagnostics](service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
+[Monitoring and diagnostics](monitor-service-fabric.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
 
 The main goals of monitoring and diagnostics are to:
 
@@ -187,7 +187,7 @@ The overall workflow of monitoring and diagnostics consists of three steps:
 2. Event aggregation: generated events need to be collected and aggregated before they can be displayed
 3. Analysis: events need to be visualized and accessible in some format, to allow for analysis and display as needed
 
-Multiple products are available that cover these three areas, and you are free to choose different technologies for each. For more information, read [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
+Multiple products are available that cover these three areas, and you are free to choose different technologies for each. For more information, read [Monitoring and diagnostics for Azure Service Fabric](monitor-service-fabric.md).
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).

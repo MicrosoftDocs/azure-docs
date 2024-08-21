@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Build machine learning applications using Synapse Machine Learning'
 description: Learn how to use Synapse Machine Learning to create machine learning applications in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 03/08/2021

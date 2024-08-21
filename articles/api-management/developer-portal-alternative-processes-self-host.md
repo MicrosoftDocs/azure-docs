@@ -5,7 +5,7 @@ description: Learn about alternative approaches you can use when you self-host a
 author: dlepow
 ms.author: danlep
 ms.date: 03/25/2021
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 

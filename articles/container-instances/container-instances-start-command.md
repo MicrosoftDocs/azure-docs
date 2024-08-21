@@ -4,7 +4,7 @@ description: Set a command line to override the entrypoint in a container image 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
@@ -59,9 +59,9 @@ The command line syntax varies depending on the Azure API or tool used to create
 
 ## Azure CLI example
 
-As an example, modify the behavior of the [microsoft/aci-wordcount][aci-wordcount] container image, which analyzes text in Shakespeare's *Hamlet* to find the most frequently occurring words. Instead of analyzing *Hamlet*, you could set a command line that points to a different text source.
+As an example, modify the behavior of the microsoft/aci-wordcount container image, which analyzes text in Shakespeare's *Hamlet* to find the most frequently occurring words. Instead of analyzing *Hamlet*, you could set a command line that points to a different text source.
 
-To see the output of the [microsoft/aci-wordcount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] command. No start command line is specified, so the default container command runs. For illustration purposes, this example sets [environment variables](container-instances-environment-variables.md) to find the top 3 words that are at least five letters long:
+To see the output of the microsoft/aci-wordcount container when it analyzes the default text, run it with the following [az container create][az-container-create] command. No start command line is specified, so the default container command runs. For illustration purposes, this example sets [environment variables](container-instances-environment-variables.md) to find the top 3 words that are at least five letters long:
 
 ```azurecli-interactive
 az container create \

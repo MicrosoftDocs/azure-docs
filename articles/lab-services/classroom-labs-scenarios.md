@@ -3,7 +3,7 @@ title: Organizational role concepts for trainings
 titleSuffix: Azure Lab Services
 description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
@@ -12,6 +12,8 @@ ms.date: 03/07/2024
 ---
 
 # Organizational role concepts for trainings in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, training specialists, trainers, and teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
 

@@ -3,7 +3,7 @@ title: 'Deploy Bastion: CLI'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc

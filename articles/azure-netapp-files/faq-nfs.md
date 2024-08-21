@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/15/2023
+ms.date: 05/21/2024
 ---
 # NFS FAQs for Azure NetApp Files
 

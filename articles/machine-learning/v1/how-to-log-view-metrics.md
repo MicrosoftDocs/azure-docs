@@ -6,7 +6,7 @@ services: machine-learning
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: shwinne
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: UpdateFrequency5, devx-track-python
 ms.date: 10/26/2022

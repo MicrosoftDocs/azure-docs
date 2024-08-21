@@ -2,7 +2,7 @@
 title: Azure Firewall IDPS signature rule categories
 description: Learn about Azure Firewall IDPS signature rule categories and their descriptions.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: overview
 ms.date: 12/15/2021

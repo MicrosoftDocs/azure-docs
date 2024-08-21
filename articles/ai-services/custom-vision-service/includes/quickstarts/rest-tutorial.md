@@ -42,7 +42,7 @@ Copy the command to a text editor and make the following changes:
 * Replace `{endpoint}` with the endpoint that corresponds to your key.
    [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 * Replace `{name}` with the name of your project.
-* Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](/rest/api/customvision/training/projects/create?view=rest-customvision-training-v3.3&tabs=HTTP) for options.
+* Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](/rest/api/customvision/create-project) for options.
 
 You'll receive a JSON response like the following. Save the `"id"` value of your project to a temporary location.
 
@@ -99,7 +99,7 @@ You'll get a JSON response like the following. Save the `"id"` value of each tag
 
 Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
 
-Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](/rest/api/customvision/training/images/create-from-data?view=rest-customvision-training-v3.3&tabs=HTTP) API for more options.
+Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](/rest/api/customvision/create-images-from-data) API for more options.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="uploadimages":::
 
@@ -118,7 +118,7 @@ This method trains the model on the tagged images you've uploaded and returns an
 * Replace `{projectId}` with your own project ID.
 * Replace `{tagArray}` with the ID of a tag.
 * Then, populate the body of the request with the binary data of the images you want to tag.
-* Optionally use other URL parameters. See the [Train Project](/rest/api/customvision/training/projects/train?view=rest-customvision-training-v3.3&tabs=HTTP) API for options.
+* Optionally use other URL parameters. See the [Train Project](/rest/api/customvision/train-project) API for options.
 
 > [!TIP]
 > Train with selected tags
@@ -168,7 +168,7 @@ This method makes the current iteration of the model available for querying. You
 * Replace `{iterationId}` with the ID returned in the previous step.
 * Replace `{publishedName}` with the name you'd like to assign to your prediction model.
 * Replace `{predictionId}` with your own prediction resource ID. You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
-* Optionally use other URL parameters. See the [Publish Iteration](/rest/api/customvision/training/iterations/publish?view=rest-customvision-training-v3.3&tabs=HTTP) API.
+* Optionally use other URL parameters. See the [Publish Iteration](/rest/api/customvision/publish-iteration) API.
 
 ## Test the prediction endpoint
 
@@ -180,7 +180,7 @@ Finally, use this command to test your trained model by uploading a new image fo
 * Replace `{projectId}` with your own project ID.
 * Replace `{publishedName}` with the name you used in the previous step.
 * Add the binary data of your local image to the request body.
-* Optionally use other URL parameters. See the [Classify Image](/rest/api/customvision/prediction/image-classifier/classify-image?view=rest-customvision-prediction-v3.1&tabs=HTTP) API.
+* Optionally use other URL parameters. See the [Classify Image](/rest/api/customvision/train-project/train-project) API.
 
 The returned JSON response will list each of the tags that the model applied to your image, along with probability scores for each tag. 
 
@@ -218,4 +218,4 @@ Now you've done every step of the image classification process using the REST AP
 
 * [What is Custom Vision?](../../overview.md)
 * [API reference documentation (training)](/dotnet/api/overview/azure/custom-vision)
-* [API reference documentation (prediction)](/rest/api/customvision/prediction/operation-groups?view=rest-customvision-prediction-v3.1)
+* [API reference documentation (prediction)](/rest/api/customvision/predictions)

@@ -3,7 +3,7 @@ title: Execute Python Script in the designer
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute Python Script model in Azure Machine Learning designer to run custom operations written in Python.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 author: lgayhardt
 ms.author: lagayhar

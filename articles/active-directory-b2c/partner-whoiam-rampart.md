@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 07/31/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C

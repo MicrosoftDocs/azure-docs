@@ -12,8 +12,6 @@ ms.date: 08/28/2023
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-  Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://aka.ms/installpowershell" target="_blank">You can use either the latest version, PowerShell 7, or Windows PowerShell 5.1.</a>
 - An Azure OpenAI Service resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -34,9 +32,11 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
+### Environment variables
+
 Create and assign persistent environment variables for your key and endpoint.
 
-### Environment variables
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 # [PowerShell](#tab/powershell)
 
@@ -144,7 +144,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure PowerShell](../../multi-service-resource.md?pivots=azpowershell#clean-up-resources)
 
 ## Next steps

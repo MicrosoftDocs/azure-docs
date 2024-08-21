@@ -3,7 +3,7 @@ title: NC A100 v4-series
 description: Specifications for the NC A100 v4-series Azure VMs. These VMs include Linux, Windows, Flexible scale sets, and uniform scale sets.```
 author: sherrywangms
 ms.author: sherrywang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom: linux-related-content
 ms.topic: conceptual

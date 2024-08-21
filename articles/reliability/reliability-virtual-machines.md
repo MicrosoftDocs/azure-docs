@@ -5,7 +5,7 @@ author: ericd-mst-github
 ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.date: 07/18/2023
 ---
 

@@ -3,7 +3,7 @@ title: Content Safety (Text) tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: The Content Safety (Text) tool is a wrapper for the Azure AI Content Safety Text API, which you can use to detect text content and get moderation results.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023

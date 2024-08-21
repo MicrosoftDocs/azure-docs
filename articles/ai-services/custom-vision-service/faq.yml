@@ -78,7 +78,7 @@ sections:
       - question: | 
           Can training images be exported with the tags that were added in the Custom Vision portal?
         answer: |
-          Yes, you can use the [GetImages API](/rest/api/customvision/training/images/list?view=rest-customvision-training-v3.3&tabs=HTTP) to export with tags.
+          Yes, you can use the [GetImages API](/rest/api/customvision/get-images) to export with tags.
 
       - question: |
           How can I write logs on this service?

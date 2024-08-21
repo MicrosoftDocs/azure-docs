@@ -1,6 +1,6 @@
 ---
 ms.author: tomcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.topic: include
 ms.date: 06/17/2022
 ---

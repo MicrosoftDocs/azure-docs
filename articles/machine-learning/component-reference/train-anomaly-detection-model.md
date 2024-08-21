@@ -3,7 +3,7 @@ title: "Train Anomaly Detection Model: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Anomaly Detection Model component to create a trained anomaly detection model.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

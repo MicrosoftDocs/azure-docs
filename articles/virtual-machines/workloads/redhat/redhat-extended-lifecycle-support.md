@@ -2,7 +2,7 @@
 title: Red Hat Enterprise Linux Extended Life Cycle Support
 description: Learn about adding Red Hat Enterprise Extended Life Cycle Support Add-on
 author: arukum
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content, references_regions
 ms.collection: linux

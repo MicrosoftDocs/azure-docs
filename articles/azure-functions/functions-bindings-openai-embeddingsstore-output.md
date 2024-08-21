@@ -2,7 +2,14 @@
 title: Azure OpenAI embeddings store output binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -45,7 +52,7 @@ This example writes an HTTP input stream to a semantic document store at the pro
 ::: zone pivot="programming-language-typescript"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="7-38":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-38":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

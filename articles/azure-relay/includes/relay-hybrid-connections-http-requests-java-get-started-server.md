@@ -1,6 +1,6 @@
 ---
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 01/04/2024
 ms.author: samurp
@@ -212,3 +212,4 @@ Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project
         }
     }
     ```
+

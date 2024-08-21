@@ -2,7 +2,7 @@
 title: Credential manager in Azure API Management - process flows
 description: Learn about the management and runtime process flows for managing OAuth 2.0 connections using credential manager in Azure API Management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: danlep

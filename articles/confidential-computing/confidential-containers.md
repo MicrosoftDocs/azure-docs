@@ -6,8 +6,8 @@ author: angarg05
 ms.topic: article
 ms.date: 9/12/2023
 ms.author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ---
 
 # Confidential containers on Azure
@@ -46,6 +46,6 @@ If you have questions about container offerings, please reach out to <acconaks@m
 
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 - [Deploy Confidential container group with Azure Container Instances](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
-- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Microsoft Azure Attestation](/azure/attestation/overview)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

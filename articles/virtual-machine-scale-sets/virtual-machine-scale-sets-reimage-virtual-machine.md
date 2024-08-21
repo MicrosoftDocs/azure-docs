@@ -4,7 +4,7 @@ description: Learn how to reimage a virtual machine in a scale set.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 02/06/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy

@@ -17,7 +17,7 @@ ms.date: 01/10/2024
 
 This article lists and defines some of the key terms associated with Azure IoT Operations. The article includes usage guidance to help you use the terms correctly if you're talking or writing about Azure IoT Operations.
 
-## Service and component names
+## Service and feature names
 
 This section lists the names of the services and components that make up Azure IoT Operations.
 
@@ -27,17 +27,13 @@ A unified data plane for the edge. It's a collection of modular, scalable, and h
 
 On first mention in an article, use _Azure IoT Operations Preview - enabled by Azure Arc_. On subsequent mentions, you can use _Azure IoT Operations_. Never use an acronym.
 
-### Azure IoT Akri Preview
+### Akri services
 
 This component helps you discover and connect to devices and assets.
 
-On first mention in an article, use _Azure IoT Akri Preview_. On subsequent mentions, you can use _Azure IoT Akri_. Never use an acronym.
+### Data processor
 
-### Azure IoT Data Processor Preview
-
-This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
-
-On first mention in an article, use _Azure IoT Data Processor Preview_. On subsequent mentions, you can use _Data Processor_. Never use an acronym.
+This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The data processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
 
 ### Azure IoT Layered Network Management Preview
 
@@ -45,29 +41,17 @@ This component lets you secure communication between devices and the cloud throu
 
 On first mention in an article, use _Azure IoT Layered Network Management Preview_. On subsequent mentions, you can use _Layered Network Management_. Never use an acronym.
 
-### Azure IoT MQ Preview
+### MQTT broker
 
-An MQTT broker that runs on the edge. The component lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
+An MQTT broker that runs on the edge. The component lets you publish and subscribe to MQTT topics. You can use the MQTT broker to build event-driven architectures that connect your devices and assets to the cloud.
 
-On first mention in an article, use _Azure IoT MQ Preview_. On subsequent mentions, you can use _MQ_.
+### Connector for OPC UA
 
-### Azure IoT OPC UA Broker Preview
+This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
 
-This component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
+### Operations experience
 
-On first mention in an article, use _Azure IoT OPC UA Broker Preview_. On subsequent mentions, you can use _OPC UA Broker_. Never use an acronym.
-
-### Azure IoT Orchestrator Preview
-
-This component manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
-
-On first mention in an article, use _Azure IoT Orchestrator Preview_. On subsequent mentions, you can use _Orchestrator_. Never use an acronym.
-
-### Azure IoT Operations (preview) portal
-
-This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
-
-On first mention in an article, use _Azure IoT Operations (preview) portal_. On subsequent mentions, you can use _Operations portal_. Never use an acronym.
+This web UI provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment.
 
 ### Azure Device Registry Preview
 
@@ -77,6 +61,6 @@ On first mention in an article, use _Azure Device Registry Preview_. On subseque
 
 ## Related content
 
-- [What is Azure IoT Operations Preview?](../get-started/overview-iot-operations.md)
-- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md)
-- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [What is Azure IoT Operations Preview?](../overview-iot-operations.md)
+- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../discover-manage-assets/overview-opcua-broker.md)
+- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)

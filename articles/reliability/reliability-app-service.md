@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: app-service
+ms.service: azure-app-service
 ms.date: 09/26/2023
 ---
 
@@ -22,67 +22,7 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 
 To explore how Azure App Service can bolster the reliability and resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
 
-## Reliability recommendations
 
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
- 
-### Reliability recommendations summary
-
-| Category | Priority |Recommendation |  
-|---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [ASP-1 - Deploy zone-redundant App Service plans](#-asp-1---deploy-zone-redundant-app-service-plans) |
-|[**Resiliency**](#resiliency)|:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-2 -Use an App Service plan that supports availability zones](#-asp-2--use-an-app-service-plan-that-supports-availability-zones) | 
-||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[ASP-4 - Create separate App Service plans for production and test](#-asp-4---create-separate-app-service-plans-for-production-and-test) | 
-|[**Scalability**](#scalability)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-3 - Avoid frequently scaling up or down](#-asp-3---avoid-frequently-scaling-up-or-down) | 
-||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#-asp-5---enable-autoscaleautomatic-scaling-to-ensure-that-adequate-resources-are-available-to-service-requests) | 
-
-
-### High availability
- 
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy zone-redundant App Service plans** 
-To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](../spring-apps/enterprise/concepts-blue-green-deployment-strategies.md) approach to failover to the new site.
-
-By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
-
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-1/asp-1.kql":::
-
-----
-
-### Resiliency
- 
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-2 -Use an App Service plan that supports availability zones**
-
-Availability zone support is only available on certain App Service plans. To see which plan you need in order to use availability zones, see [Availability zone prerequisites](#prerequisites).
-
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-2/asp-2.kql":::
-
-----
-
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-4 - Create separate App Service plans for production and test** 
-
-To enhance the resiliency and reliability of your business-critical workloads, you should migrate your existing App Service plans and App Service Environments to availability zone support. By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
-
-
-### Scalability
- 
-#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **ASP-3 - Avoid frequently scaling up or down** 
-
-It's recommended that you avoid frequently scaling up or down your Azure App Service instances. Instead, choose an appropriate tier and instance size that can handle your typical workload, and scale out the instances to accommodate changes in traffic volume. Scaling up or down can potentially trigger an application restart, which may result in service disruptions.
-
-
-#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **ASP-5 - Enable Autoscale/Automatic scaling to ensure that adequate resources are available to service requests** 
-
-It's recommended that you enable autoscale/automatic scaling for your Azure App Service to ensure that sufficient resources are available to handle incoming requests. Autoscaling is rule based scaling, while automatic scaling performs automatic in and out scaling based on HTTP traffic. For more information see, [automatic scaling in Azure App Service](/azure/app-service/manage-automatic-scaling) or [get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
-
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-5/asp-5.kql":::
-
-----
 
 ## Availability zone support
 
@@ -138,8 +78,11 @@ The current requirements/limitations for enabling availability zones are:
     - East US 2
     - France Central
     - Germany West Central
+    - Israel Central
+    - Italy North
     - Japan East
     - Korea Central
+    - Mexico Central
     - North Europe
     - Norway East
     - Poland Central
@@ -147,6 +90,7 @@ The current requirements/limitations for enabling availability zones are:
     - South Africa North
     - South Central US
     - Southeast Asia
+    - Spain Central
     - Sweden Central
     - Switzerland North
     - UAE North

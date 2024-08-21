@@ -3,7 +3,7 @@ title: 'Partner solutions available in Public MEC'
 description: This article lists all the Partner solutions that can be deployed in Public MEC.
 services: Public MEC
 author: anzaman
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: conceptual
 ms.date: 11/22/2022
 ms.author: alzam
@@ -24,7 +24,7 @@ The table in this article provides information on Partner solutions that can be 
 | **Vendor** | **Product(s) Name** | **Market Place** |
 | --- | --- | --- |
 | **Checkpoint** | [CloudGuard Network Security](https://www.checkpoint.com/cloudguard/cloud-network-security/) | [CloudGuard Network Security](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec?tab=Overview) |
-| **Citrix** | [Application Delivery Controller](https://www.citrix.com/products/citrix-adc/) | [Citrix ADC](https://azuremarketplace.microsoft.com/marketplace/apps/citrix.netscalervpx-130?tab=Overview) |
+| **Citrix** | [Application Delivery Controller](https://www.citrix.com/products/citrix-adc/) | [Citrix ADC](https://azuremarketplace.microsoft.com/marketplace/apps/citrix.netscalervpx-1vm-3nic?tab=Overview) |
 | **Couchbase** | [Server](https://www.couchbase.com/products/server), [Sync-Gateway](https://www.couchbase.com/products/sync-gateway) | [Couchbase Server Enterprise](https://azuremarketplace.microsoft.com/en/marketplace/apps/couchbase.couchbase-enterprise?tab=Overview) [Couchbase Sync Gateway Enterprise](https://azuremarketplace.microsoft.com/en/marketplace/apps/couchbase.couchbase-sync-gateway-enterprise?tab=Overview) |
 | **Fortinet** | [FortiGate](https://www.fortinet.com/products/private-cloud-security/fortigate-virtual-appliances) |[FortiGate](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate?tab=Overview) |
 | **Fortinet** | [FortiWeb](https://www.fortinet.com/products/web-application-firewall/fortiweb?tab=saas) | [FortiWeb](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet_waas?tab=Overview) |

@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-ai-document-intelligence
   ms.custom: references_regions
   ms.topic: faq
-  ms.date: 07/09/2024
+  ms.date: 08/08/2024
   ms.author: lajanuar
 title: Frequently asked questions
 summary: |
@@ -52,22 +52,23 @@ sections:
         answer: |
           **Yes.**
 
-          You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data.
+          Document Intelligence now includes [custom generative](concept-custom.md) a new type of extraction model that uses Generative AI and large language models (LLMs) to extract fields from documents. In the past, you used a RAG (retrieval augmented generation) pattern to extract fields. The new model provides high quality results with a single API call.
+          You can also use a document generative AI solution to chat with your documents (RAG), generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
-          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
+          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural language. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
 
-          - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+          - You can find more details on the [retrieval augmented generation pattern here](concept-retrieval-augmented-generation.md).
 
       - question: |
          Can Document Intelligence help with semantic chunking within documents for retrieval-augmented generation?
         answer: |
           **Yes.**
           
-          Document Intelligence can provide the building blocks to enable semantic chunking. Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
+          Document Intelligence can provide the building blocks to enable semantic chunking. Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure context dense chunks and relevance improvement.
 
-          - Document Intelligence provides a layout model that segments documents into coherent units based on their semantic content.
+          - Document Intelligence provides a layout model that provides a visual decomposition of the document into lines, paragraphs, sections, headers, and footers.
 
-          - You can then export the obtained information to Markdown format, so that you can customize your semantic segmentation strategy based on the available building blocks.
+          - You can then choose to retrieve the results in markdown format, to further chunk the document on section or paragraph boundaries.
 
           For more information, see [overview of RAG in Document Intelligence](concept-retrieval-augmented-generation.md)
 
@@ -84,7 +85,7 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource to use Document Intelligence Studio.
 
           - Advanced
 
@@ -94,7 +95,7 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train a custom model or analyze with trained models.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource to train a custom model or analyze with trained models.
 
             - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
 
@@ -218,7 +219,7 @@ sections:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
-           - Your project is highly dependent on [Document Intelligence v2.1](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true), and you want to keep using the v2.1 APIs.
+           - Your project is highly dependent on Document Intelligence V2.1 and you want to keep using the v2.1 APIs.
 
       - question: |
          Are there best practices to mitigate throttling?
@@ -255,7 +256,7 @@ sections:
 
         - For signature and region labeling, don't include the surrounding text.
 
-        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy).
+        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md).
 
     - question: |
         Can I retrain a custom model?
@@ -286,6 +287,19 @@ sections:
         You can use the [Copy API](disaster-recovery.md#copy-api-overview) to copy custom models from one Document Intelligence account into others that exist in any supported geographical region. For detailed instructions, see [Disaster recovery](disaster-recovery.md).
 
         The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
+
+    - question: |
+        Am I charged when training a custom models?
+      answer: |
+        **Yes.**
+
+        Training is free for all custom generative and custom template models. However, creating the training dataset for all models requires running the Layout model on the training documents. Customers are responsible for this cost. 
+        
+        Custom generative models also rely on the auto label feature to speed up the generation of the labeled dataset. There's a cost associated with this action. While the build operation for template and generative models is free, creating the labeled dataset can result in some minimal costs.
+
+        For `v4.0 2024-07-31-preview`, custom neural models can be trained for free for a **maximum of 10 hours**. Whether you are training a single model for the 10 hours, or training multiple models for the total of 10 hours, you won't be charged for the first 10 hours. After using up the free 10 hours, you will be **automatically charged by the extra training hour**. For details on the prices, refer to the [pricing page](https://azure.microsoft.com/pricing/details/ai-document-intelligence/). This new paid training feature enables training models for an extended duration to process larger documents. For more information on this paid training feature, check [custom neural model billing section](concept-custom-neural.md#billing).
+        
+        For `v3.0 2022-08-31` or `v3.1 2023-07-31`, custom neural models can be trained for free for a maximum of 20 training sessions, with each session capped at 30 minutes of training duration. Once you use up all of the 20 training sessions, you can submit Azure support ticket to increase the training session limit. For increasing the limit, 2 training sessions will be considered as 1 training hour, and you will be charged per 2 sessions / 1 training hour. For details on the prices, refer to the [pricing page]. For more information on ways to increase the limit, check [custom neural model billing section](concept-custom-neural.md#billing). **Note that for `v3.0` and `v3.1`, paid training feature is unavailable. Paid training feature for custom neural model is only available on `v4.0`.**
 
   - name: Storage account
     questions:

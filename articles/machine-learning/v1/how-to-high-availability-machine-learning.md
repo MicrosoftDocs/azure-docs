@@ -3,7 +3,7 @@ title: Failover & disaster recovery
 titleSuffix: Azure Machine Learning
 description: Learn how to plan for disaster recovery and maintain business continuity for Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: UpdateFrequency5
 ms.topic: how-to
@@ -89,7 +89,7 @@ Azure Machine Learning builds on top of other services. Some services can be con
 | ----- | ----- | ----- |
 | Machine Learning workspace | You | Create a workspace in the selected regions. |
 | Machine Learning compute | You | Create the compute resources in the selected regions. For compute resources that can dynamically scale, make sure that both regions provide sufficient compute quota for your needs. |
-| Key Vault | Microsoft | Use the same Key Vault instance with the Azure Machine Learning workspace and resources in both regions. Key Vault automatically fails over to a secondary region. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).|
+| Key Vault | Microsoft | Use the same Key Vault instance with the Azure Machine Learning workspace and resources in both regions. Key Vault automatically fails over to a secondary region. For more information, see [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance).|
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure Machine Learning. Use the same instance for both workspace instances. For more information, see [Geo-replication in Azure Container Registry](../../container-registry/container-registry-geo-replication.md). |
 | Storage Account | You | Azure Machine Learning does not support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Create a separate storage account for the default storage of each workspace. </br>Create separate storage accounts or services for other data storage. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md). |
 | Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept). |
@@ -108,7 +108,7 @@ Depending on your needs, you may have more compute or data services that are use
 
 __Compute resources__
 
-* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](../../aks/availability-zones.md). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
+* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-multi-region) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
 * **Azure Databricks**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 * **Container Instances**: An orchestrator is responsible for failover. See [Azure Container Instances and container orchestrators](../../container-instances/container-instances-orchestrator-relationship.md).
 * **HDInsight**: See [High availability services supported by Azure HDInsight](../../hdinsight/hdinsight-high-availability-components.md).
@@ -118,12 +118,12 @@ __Data services__
 * **Azure Blob container / Azure Files / Data Lake Storage Gen2**: See [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
 * **Data Lake Storage Gen1**: See [High availability and disaster recovery guidance for Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 * **SQL Database**: See [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla).
-* **Azure Database for PostgreSQL**: See [High availability concepts in Azure Database for PostgreSQL - Single Server](../../postgresql/concepts-high-availability.md).
-* **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](../../mysql/concepts-business-continuity.md).
+* **Azure Database for PostgreSQL**: See [High availability concepts in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-high-availability).
+* **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](/azure/mysql/concepts-business-continuity).
 * **Azure Databricks File System**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 
 > [!TIP]
-> If you provide your own customer-managed key to deploy an Azure Machine Learning workspace, Azure Cosmos DB is also provisioned within your subscription. In that case, you're responsible for configuring its high-availability settings. See [High availability with Azure Cosmos DB](../../cosmos-db/high-availability.md).
+> If you provide your own customer-managed key to deploy an Azure Machine Learning workspace, Azure Cosmos DB is also provisioned within your subscription. In that case, you're responsible for configuring its high-availability settings. See [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 
 ## Design for high availability
 

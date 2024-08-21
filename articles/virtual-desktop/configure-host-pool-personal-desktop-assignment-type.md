@@ -1,11 +1,11 @@
 ---
 title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 01/31/2024
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Configure personal desktop assignment
 
