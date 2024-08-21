@@ -21,13 +21,23 @@ This article shows how to use blob index tags to manage and find data using the 
 
 To learn about setting blob index tags using asynchronous APIs, see [Set blob index tags asynchronously](#set-blob-index-tags-asynchronously).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob index tags. To learn more, see the authorization guidance for the following REST API operations:
-    - [Get Blob Tags](/rest/api/storageservices/get-blob-tags#authorization)
-    - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
-    - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with blob index tags. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Owner** or higher. To learn more, see the authorization guidance for [Get Blob Tags (REST API)](/rest/api/storageservices/get-blob-tags#authorization), [Set Blob Tags (REST API)](/rest/api/storageservices/set-blob-tags#authorization), or [Find Blobs by Tags (REST API)](/rest/api/storageservices/find-blobs-by-tags#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 [!INCLUDE [storage-dev-guide-about-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-tags.md)]
 
