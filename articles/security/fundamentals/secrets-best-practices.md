@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 # Best practices for protecting secrets
 
-This article provides guidance on protecting your secrets and reducing the risk of unauthorized access. Follow this guidance to help ensure you do not store sensitive information such as credentials in code, GitHub repositories, logs, continuous integration/continuous deployment (CI/CD) pipelines, and so forth. The guidance in this article is compiled from recommendations of individual services, as well as from the [Microsoft Cloud Security Benchmark](/security/benchmark/overview) (MCSB).
+This article provides guidance on protecting your secrets and reducing the risk of unauthorized access. Follow this guidance to help ensure you do not store sensitive information such as credentials in code, GitHub repositories, logs, continuous integration/continuous deployment (CI/CD) pipelines, and so forth. The guidance in this article is compiled from recommendations of individual services, as well as from the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB).
 
 ## General best practices
 
@@ -53,7 +53,7 @@ Regularly scanning your codebase for embedded secrets can prevent accidental exp
 
 See:
 
-- [Azure DevOps Credential Scanner](/azure/devops/repos/git/secret-scanning)
+- [Azure DevOps Credential Scanner](../../devops/repos/security/github-advanced-security-secret-scanning.md?view=azure-devops)
 - [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning)
 
 ### Leverage managed identities
@@ -79,7 +79,7 @@ Secrets are susceptible to leakage or exposure over time. Regularly rotating you
 
 See:
 
-- [Rotate secrets in Azure Key Vault](/azure/key-vault/secrets/rotate)
+- [Rotate secrets in Azure Key Vault](/azure/key-vault/secrets//tutorial-rotation)
 
 ### Monitor and log access
 
@@ -97,7 +97,7 @@ Reduce the exposure of your secrets by implementing network isolation. Configure
 
 See:
 
-- [Isolation in the Azure Public Cloud](isolation-choice.md)
+- [Isolation in the Azure Public Cloud](isolation-choices.md)
 
 ### Encrypt secrets at rest and in transit
 
@@ -105,7 +105,7 @@ Ensure that your secrets are encrypted both at rest and in transit. Azure Key Va
 
 See:
 
-- [Encryption at rest and in transit](encryption.md)
+- [Encryption at rest and in transit](encryption-atrest.md)
 
 ### Safe Distribution of Secrets
 
@@ -116,7 +116,7 @@ When distributing secrets, ensure they are shared securely within and outside th
 These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 - Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets)
-- Azure Key Vault: [Centralize storage of application secrets](../../key-vault/general/overview.md)
+- Azure Key Vault: [Centralize storage of application secrets](/azure/key-vault/general/overview)
 - Azure Communications Service: [Create and manage access tokens](../../communication-services/quickstarts/identity/access-tokens.md)
 - Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](../../service-bus-messaging/authenticate-application.md)
 - Azure App Service: [Learn to configure common settings for an App Service application](../../app-service/configure-common.md)
