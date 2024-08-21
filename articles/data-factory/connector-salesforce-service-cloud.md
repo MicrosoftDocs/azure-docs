@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/01/2024
+ms.date: 08/21/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -344,7 +344,7 @@ The Salesforce Service Cloud connector offers new functionalities and is compati
 |Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses are not supported. <br>• Aggregate Functions such as COUNT() are not supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses are not supported, but they are supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields are not supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries are not supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-|Objects that contain binary fields are not supported.| Objects that contain binary fields are supported, like Attachment object.|
+| Objects that contain binary fields are not supported. You can use the latest Self-hosted integration runtime or Azure integration runtime to support them.| Objects that contain binary fields are supported, like Attachment object.|
 |Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
