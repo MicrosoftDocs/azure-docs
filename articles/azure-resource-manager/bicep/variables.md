@@ -122,7 +122,7 @@ Decorators are written in the format `@expression` and are placed above variable
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the variable. |
-| [export](#export) | none | Indicates that the variable is available for import by another Bicep file.. |
+| [export](#export) | none | Indicates that the variable is available for import by another Bicep file. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
