@@ -54,6 +54,16 @@ landingContent:
   # Card
   - title: "Build AI solutions"
     linkLists:
+      - linkListType: quickstart
+        links:   
+        - text: "Get started with Azure Machine Learning Designer"       
+          url: quickstart-azure-machine-learning-designer.md
+        - text: "Get started with Azure Machine Learning Visual Interface"       
+          url: quickstart-azure-machine-learning-visual-interface.md
+        - text: "Get started with Azure Machine Learning CLI"       
+          url: quickstart-azure-machine-learning-cli.md
+        - text: "Get started with Azure Machine Learning SDK"       
+          url: quickstart-azure-machine-learning-sdk.md
       - links:
           - text: "What is Azure Machine Learning prompt flow?"       
             url: prompt-flow/overview-what-is-prompt-flow.md
