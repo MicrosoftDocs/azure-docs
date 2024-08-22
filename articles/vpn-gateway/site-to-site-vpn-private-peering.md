@@ -64,7 +64,7 @@ The same requirement applies to the traffic from Azure to on-premises networks. 
 In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN connection rather than directly over ExpressRoute without VPN protection.
 
 > [!WARNING]
-> If you advertise the same prefixes over both ExpressRoute and VPN connections, >Azure will use the ExpressRoute path directly without VPN protection.
+> If you advertise the same prefixes over both ExpressRoute and VPN connections, Azure will use the ExpressRoute path directly without VPN protection.
 
 ## <a name="portal"></a>Portal steps
 
