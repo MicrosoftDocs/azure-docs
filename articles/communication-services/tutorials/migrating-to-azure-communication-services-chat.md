@@ -18,20 +18,21 @@ zone_pivot_groups: acs-js-swift-android-
 
 This article describes how to migrate an existing Twilio Conversations implementation to the [Azure Communication Services Chat SDK](../concepts/chat/sdk-features.md). Both Twilio Conversations s and Azure Communication Services Chat SDK are cloud-based platforms that enable developers to add chat features to their web applications.
 
-However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In Twilio chat is embedded into a conversation which is a multichannel instance. Azure Communication Services Chat SDK is a single channel for chat. In this article, we compare the main features and functions of both platforms and provide some guidance on how to migrate an existing Twilio Conversations chat implementation to Azure Communication Services Chat SDK.
+However, there are some key differences between them that might affect your choice of platform or require some changes to your existing code if you decide to migrate. In Twilio, chat is embedded into a conversation which is a multichannel instance. Azure Communication Services Chat SDK is a single channel for chat. In this article, we compare the main features and functions of both platforms and provide some guidance on how to migrate an existing Twilio Conversations chat implementation to Azure Communication Services Chat SDK.
 
-This article doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../identity/access-tokens.md) for more information about access tokens.
-
+This article doesn't cover creating a service tier to manage tokens for your chat application. For more information about chat architecture, see [chat concepts](../concepts/chat/concepts.md). For more information about access tokens, see [user access tokens](../quickstarts/identity/access-tokens.md).
+ 
 ## Key considerations
 ### Authentication and Security
-ACS integrates deeply with Azure Active Directory (AAD) for identity management, while Twilio uses its own identity system. You may need to rework how you handle user authentication.
+Azure Communication Services integrates deeply with Microsoft Entra ID for identity management. Twilio uses its own identity system. You might need to rework how you handle user authentication.
 
 ### Event Handling
-Twilio’s webhook-based approach may require a different architecture compared to ACS’s event-driven model.
+Twilio’s webhook-based approach might require a different architecture compared to ACS’s event-driven model.
 
-### Additional Services
-If your application relies on other Twilio services (like SMS, Voice, etc.), you’ll need to find equivalent Azure services or maintain hybrid solutions.
-Migrating may involve not just replacing API calls but also rethinking how your application interacts with these communication services within the broader context of your application's architecture.
+### Other Services
+If your application relies on other Twilio services (like SMS, Voice, and so on.), you need to find equivalent Azure services or maintain hybrid solutions.
+
+Migrating might involve not just replacing API calls but also rethinking how your application interacts with these communication services within the broader context of your application's architecture.
 
 ## Key features available in Azure Communication Services Chat SDK
 
