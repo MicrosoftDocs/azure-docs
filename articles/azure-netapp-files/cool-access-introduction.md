@@ -337,3 +337,4 @@ Your first twelve-month savings:
 
 * [Manage Azure NetApp Files storage with cool access](manage-cool-access.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
+* [Performance considerations for Azure NetApp Files storage with cool access](performance-considerations-cool-access.md)

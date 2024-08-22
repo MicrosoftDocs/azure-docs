@@ -206,3 +206,4 @@ Based on the client read/write patterns, you can modify the cool access configur
 
 ## Next steps
 * [Azure NetApp Files storage with cool access](cool-access-introduction.md)
+* [Performance considerations for Azure NetApp Files storage with cool access](performance-considerations-cool-access.md)
