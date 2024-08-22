@@ -1,7 +1,7 @@
 ---
 title: Scaling up and out in Azure Stream Analytics jobs
 description: This article describes how to scale a Stream Analytics job by partitioning input data, tune the query, and set job streaming units.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.topic: conceptual

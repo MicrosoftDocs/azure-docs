@@ -3,10 +3,10 @@ title: Azure Automation State Configuration overview
 description: This article provides an overview of Azure Automation State Configuration.
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
-ms.service: automation
-ms.subservice: dsc
-ms.date: 05/20/2024
-ms.topic: conceptual
+ms.service: azure-automation
+ms.subservice: desired-state-config
+ms.date: 08/20/2024
+ms.topic: overview
 ---
 
 # Azure Automation State Configuration overview

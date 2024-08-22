@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: tomvcassidy
 ms.author: tomcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ---
 
 # Container Instances monitoring data reference

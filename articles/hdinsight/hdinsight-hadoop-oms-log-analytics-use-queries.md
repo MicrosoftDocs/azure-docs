@@ -1,7 +1,7 @@
 ---
 title: Query Azure Monitor logs to monitor Azure HDInsight clusters 
 description: Learn how to run queries on Azure Monitor logs to monitor jobs running in an HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 09/15/2023
@@ -14,7 +14,7 @@ Learn some basic scenarios on how to use Azure Monitor logs to monitor Azure HDI
 * [Analyze HDInsight cluster metrics](#analyze-hdinsight-cluster-metrics)
 * [Create event alerts](#create-alerts-for-tracking-events)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 

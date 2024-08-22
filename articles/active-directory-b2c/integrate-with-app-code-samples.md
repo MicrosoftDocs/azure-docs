@@ -35,10 +35,8 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [ms-identity-javascript-angular-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | An Angular single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL Angular. This sample uses the authorization code flow with PKCE. |
 | [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | A React single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL React. This sample uses the authorization code flow with PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A VanillaJS single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | A VanillaJS single page application (SPA) calling Microsoft Graph to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE.|
 
 ## Mobile and desktop apps
 
@@ -55,7 +53,6 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2) | A Node.js and express console daemon application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL Node. This sample uses the authorization code flow.|
 | [dotnetcore-b2c-account-management](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) | A .NET Core console application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.NET. This sample uses the authorization code flow.|
 
 ## SAML test application

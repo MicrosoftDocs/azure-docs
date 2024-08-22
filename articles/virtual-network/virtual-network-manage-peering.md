@@ -2,9 +2,9 @@
 title: Create, change, or delete an Azure virtual network peering
 description: Learn how to create, change, or delete a virtual network peering. With virtual network peering, you connect virtual networks in the same region and across regions.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 06/27/2024
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -246,16 +246,20 @@ deselect the **Allow traffic to remote virtual network** setting if you want to 
 
     :::image type="content" source="./media/virtual-network-manage-peering/select-peering.png" alt-text="Screenshot of select a peering to delete from the virtual network.":::
 
-1. On the right side of the peering you want to delete, select the **...** and then select **Delete**.
+1. Select the box next to the peering you want to delete, and then select **Delete**.
 
     :::image type="content" source="./media/virtual-network-manage-peering/delete-peering.png" alt-text="Screenshot of deleting a peering from the virtual network.":::
 
-1.  Select **Yes** to confirm that you want to delete the peering and the corresponding peer.
+1.  In **Delete Peerings**, enter **delete** in the confirmation box, and then select **Delete**.
 
-    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation.":::
+    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation entry box.":::
 
     > [!NOTE]
-    > When you delete a virtual network peering from a virtual network, the peering from the remote virtual network will also be deleted. 
+    > When you delete a virtual network peering from a virtual network, the peering from the remote virtual network will also be deleted.
+
+1. Select **Delete** to confirm the deletion in **Delete confirmation**.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion-2.png" alt-text="Screenshot of peering delete confirmation.":::
 
 # [**PowerShell**](#tab/peering-powershell)
 
@@ -302,6 +306,8 @@ az network vnet peering delete \
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as **Global Virtual Network Peering**.
 
 - When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a virtual network in Azure public cloud can't be peered to a virtual network in Microsoft Azure operated by 21Vianet cloud.
+  
+- When part of a peering, a virtual network cannot be moved. If you need to move a virtual network to a different resource group or subscription, you must delete the peering, move the virtual network, and then recreate the peering.
 
 - Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network. Support for basic load balancer only exists within the same region. Support for standard load balancer exists for both, Virtual Network Peering and Global Virtual Network Peering. Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global Virtual Network Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 

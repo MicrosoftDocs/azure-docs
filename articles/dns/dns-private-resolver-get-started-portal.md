@@ -4,9 +4,9 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 04/05/2024
+ms.date: 08/21/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: mode-ui, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
@@ -60,14 +60,14 @@ Next, add a virtual network to the resource group that you created, and configur
 
 1. Select the resource group you created, select **Create**, select **Networking** from the list of categories, and then next to **Virtual network**, select **Create**.
 2. On the **Basics** tab, enter a name for the new virtual network and select the **Region** that is the same as your resource group.
-3. On the **IP Addresses** tab, modify the **IPv4 address space** to be 10.0.0.0/8.
+3. On the **IP Addresses** tab, modify the **IPv4 address space** to be 10.0.0.0/16.
 4. Select **Add subnet** and enter the subnet name and address range:
     - Subnet name: snet-inbound
     - Subnet address range: 10.0.0.0/28
     - Select **Add** to add the new subnet.
 5. Select **Add subnet** and configure the outbound endpoint subnet:
     - Subnet name: snet-outbound
-    - Subnet address range: 10.1.1.0/28
+    - Subnet address range: 10.0.1.0/28
     - Select **Add** to add this subnet.
 6. Select **Review + create** and then select **Create**.
 
@@ -90,7 +90,7 @@ Next, add a virtual network to the resource group that you created, and configur
 3. Select the **Inbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myinboundendpoint).
 4. Next to **Subnet**, select the inbound endpoint subnet you created (ex: snet-inbound, 10.0.0.0/28) and then select **Save**.
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
-6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
+6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.0.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:
     - Ruleset name: Enter a name for your ruleset (ex: **myruleset**).
     - Endpoints: Select the outbound endpoint that you created (ex: myoutboundendpoint). 
@@ -98,8 +98,8 @@ Next, add a virtual network to the resource group that you created, and configur
     - Rule name: Enter a rule name (ex: contosocom).
     - Domain Name: Enter a domain name with a trailing dot (ex: contoso.com.).
     - Rule State: Choose **Enabled** or **Disabled**. The default is enabled.
-    - Select **Add a destination** and enter a desired destination IPv4 address (ex: 11.0.1.4).
-    - If desired, select **Add a destination** again to add another destination IPv4 address (ex: 11.0.1.5).  
+    - Select **Add a destination** and enter a desired destination IPv4 address (ex: 203.0.113.10).
+    - If desired, select **Add a destination** again to add another destination IPv4 address (ex: 203.0.113.11).  
     - When you're finished adding destination IP addresses, select **Add**.
 9. Select **Review and Create**, and then select **Create**.
 
@@ -121,10 +121,10 @@ Create a second virtual network to simulate an on-premises or other environment.
 2. Select **Create**, and then on the **Basics** tab select your subscription and choose the same resource group that you have been using in this guide (ex: myresourcegroup).
 3. Next to **Name**, enter a name for the new virtual network (ex: myvnet2).
 4. Verify that the **Region** selected is the same region used previously in this guide (ex: West Central US).
-5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-premises address space (ex: 12.0.0.0/8). 
+5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-premises address space (ex: 10.1.0.0/16). 
 6. Select **Add subnet** and enter the following:
     - Subnet name: backendsubnet
-    - Subnet address range: 12.2.0.0/24
+    - Subnet address range: 10.1.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
     ![Screenshot showing creation of a second vnet.](./media/dns-resolver-getstarted-portal/vnet-create.png)

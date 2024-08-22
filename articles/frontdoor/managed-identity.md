@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article shows you how to set up managed identities with Azure Front Door to access certificates in an Azure Key Vault.
 services: networking
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 12/13/2023
 ms.author: duau
@@ -79,7 +79,7 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 * [Role-based access control](#role-based-access-control-rbac) - Grant Azure Front Door access to your Azure Key Vault with fine-grained access control with Azure Resource Manager.
 * [Access policy](#access-policy) - Native Azure Key Vault access control to grant Azure Front Door access to your Azure Key Vault.
 
-For more information, see [Azure role-based access control (Azure RBAC) vs. access policy](../key-vault/general/rbac-access-policy.md).
+For more information, see [Azure role-based access control (Azure RBAC) vs. access policy](/azure/key-vault/general/rbac-access-policy).
 
 ### Role-based access control (RBAC)
 

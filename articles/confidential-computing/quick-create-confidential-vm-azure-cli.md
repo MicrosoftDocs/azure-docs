@@ -2,7 +2,7 @@
 title: Create a confidential VM with the Azure CLI for Azure confidential computing
 description: Learn how to use the Azure CLI to create a confidential virtual machine for use with Azure confidential computing.
 author: simranparkhe
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
@@ -80,7 +80,7 @@ Make a note of the `publicIpAddress` to use later.
 
 ## Create Confidential virtual machine using a Customer Managed Key
 
-To create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md), you have two options: Using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. However, it is important to note that the standard SKU is not supported. The following example uses Azure Key Vault Premium.
+To create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md), you have two options: Using [Azure Key Vault](/azure/key-vault/general/quick-create-cli) or [Azure Key Vault managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/quick-create-cli). Based on your security and compliance needs you can choose either option. However, it is important to note that the standard SKU is not supported. The following example uses Azure Key Vault Premium.
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant.
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
@@ -90,7 +90,7 @@ For this step you need to be a Global Admin or you need to have the User Access 
   ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
-  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
+  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true --enable-rbac-authorization false
   ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
   ```Powershell

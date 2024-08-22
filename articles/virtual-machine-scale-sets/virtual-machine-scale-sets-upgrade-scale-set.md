@@ -4,11 +4,10 @@ description: Learn how to modify and update an Azure Virtual Machine Scale Set w
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/14/2024
 ms.reviewer: ju-shim
-ms.custom: upgradepolicy
-
+ms.custom: upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Modify a Virtual Machine Scale Set
 

@@ -1,7 +1,7 @@
 ---
 title: How to use Hive metastore in Apache Spark™
 description: Learn how to use Hive metastore in Apache Spark™
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
@@ -34,7 +34,7 @@ While you create the cluster, HDInsight service needs to connect to the external
 1. Create an Azure Key Vault.
 
     The purpose of the Key Vault is to allow you to store the SQL Server admin password set during SQL database creation. HDInsight on AKS platform doesn’t deal with the credential directly. Hence, it's necessary to store your important credentials in Azure Key Vault. 
-    Learn the steps to create an [Azure Key Vault](../../key-vault/general/quick-create-portal.md).
+    Learn the steps to create an [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 1. Post the creation of Azure Key Vault assign the following roles
 
     |Object	|Role|Remarks|
@@ -45,7 +45,7 @@ While you create the cluster, HDInsight service needs to connect to the external
     > [!NOTE]
     > Without this role, user can't create a secret.
 
-1. [Create a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+1. [Create a secret](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
 
     This step allows you to keep your SQL server admin password as a secret in Azure Key Vault. Add your password(same password as provided in the SQL DB for admin) in the “Value” field while adding a secret.
 

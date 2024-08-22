@@ -6,7 +6,7 @@ author: vhorne
 ms.author: victorh
 ms.date: 08/28/2020
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 

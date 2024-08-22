@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
 ms.date: 01/10/2024
 ms.author: cshoe
@@ -27,6 +27,7 @@ In the *Basics* tab, do the following actions.
     | Subscription | Select your Azure subscription. |
     | Resource group | Select **Create new** and enter **my-container-apps**. |
     | Container app name |  Enter **my-container-app**. |
+    | Deployment source | Select **Container image**. |
 
 #### Create an environment
 
@@ -44,7 +45,7 @@ Next, create an environment for your container app.
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
-    | Environment type | Select **Consumption only**. |
+    | Environment type | Select **Workload profiles**. |
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.

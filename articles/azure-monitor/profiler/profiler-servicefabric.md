@@ -1,21 +1,21 @@
 ---
 title: Enable Profiler for Azure Service Fabric applications
 description: Profile live Azure Service Fabric apps with Application Insights.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
-ms.date: 09/22/2023
+ms.date: 08/16/2024
 ---
 
 # Enable Profiler for Azure Service Fabric applications
 
 Application Insights Profiler is included with Azure Diagnostics. You can install the Azure Diagnostics extension by using an Azure Resource Manager template (ARM template) for your Azure Service Fabric cluster. Get a [template that installs Azure Diagnostics on a Service Fabric cluster](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
 
-In this article, you:
-
-- Add the Application Insights Profiler property to your ARM template.
-- Deploy your Service Fabric cluster with the Application Insights Profiler instrumentation key.
-- Enable Application Insights on your Service Fabric application.
-- Redeploy your Service Fabric cluster to enable Profiler.
+In this guide, you learn how to:
+> [!div class="checklist"]
+> - Add the Application Insights Profiler property to your ARM template.
+> - Deploy your Service Fabric cluster with the Application Insights Profiler instrumentation key.
+> - Enable Application Insights on your Service Fabric application.
+> - Redeploy your Service Fabric cluster to enable Profiler.
 
 ## Prerequisites
 
@@ -75,4 +75,4 @@ After you enable Application Insights, redeploy your application.
 > [!div class="nextstepaction"]
 > [Generate load and view Profiler traces](./profiler-data.md)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]

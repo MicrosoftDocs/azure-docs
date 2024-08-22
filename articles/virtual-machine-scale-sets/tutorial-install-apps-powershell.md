@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerShell to install applications into Virt
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
@@ -21,7 +21,7 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
@@ -32,7 +32,7 @@ To see the Custom Script Extension in action, create a scale set that installs t
 
 ## Create a scale set
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location "East US"

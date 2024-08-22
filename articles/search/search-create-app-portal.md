@@ -45,7 +45,7 @@ When the index is ready to use, move on to the next step.
 
 1. Choose *realestate-us-sample-index* from the list of existing indexes.
 
-1. On the index page, at the top, select **Create demo app (preview)** to start the wizard.
+1. On the index page, at the top, select **Create demo app** to start the wizard.
 
 1. On the first wizard page, select **Enable Cross Origin Resource Sharing (CORS)** to add CORS support to your index definition. This step is optional, but your local web app won't connect to the remote index without it.
 

@@ -4,7 +4,7 @@ description: Learn how to containerize an existing .NET application using Visual
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell, devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create an Azure container registry
 > * Deploy a Service Fabric application to Azure
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

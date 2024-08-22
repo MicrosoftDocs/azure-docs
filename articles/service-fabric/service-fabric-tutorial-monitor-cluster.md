@@ -4,14 +4,14 @@ description: In this tutorial, you learn how to monitor a cluster by viewing Ser
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
 
 # Tutorial: Monitor a Service Fabric cluster in Azure
 
-Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. This tutorial is part two of a series, and shows you how to monitor and diagnose a Service Fabric cluster using events, performance counters, and health reports.   For more information, read the overview about [cluster monitoring](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) and [infrastructure monitoring](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
+Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. This tutorial is part two of a series, and shows you how to monitor and diagnose a Service Fabric cluster using events, performance counters, and health reports.   For more information, read the overview about [cluster monitoring](monitor-service-fabric.md#platform-cluster-monitoring) and [infrastructure monitoring](monitor-service-fabric.md#infrastructure-performance-monitoring).
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial series you learn how to:
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Before you begin this tutorial:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
-* Setup [diagnostics collection](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) for the cluster
+* Set up [diagnostics collection](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) for the cluster
 * Enable the [EventStore service](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) in the cluster
 * Configure [Azure Monitor logs and the Log Analytics agent](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) for the cluster
 
@@ -51,7 +51,7 @@ To access the Service Fabric Analytics solution, go to the [Azure portal](https:
 
 Select the resource **ServiceFabric(mysfomsworkspace)**.
 
-In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
+In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Select the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
 ![Screenshot that shows the Service Fabric graph.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
@@ -70,7 +70,7 @@ The following image shows the home page of the Service Fabric Analytics solution
 
 ### View Service Fabric Events, including actions on nodes
 
-On the Service Fabric Analytics page, click on the graph for **Cluster Events**.  The logs for all the system events that have been collected appear. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
+On the Service Fabric Analytics page, click on the graph for **Cluster Events**. The logs for all the system events that have been collected appear. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
     
 ![Query Operational Channel](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -121,7 +121,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ``` 
 
-Returns Health Reports with HealthState == 3 (Error) and extract additional properties from the EventMessage field:
+Returns Health Reports with HealthState == 3 (Error) and extract more properties from the EventMessage field:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -179,7 +179,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### View Service Fabric application events
 
-You can view events for the reliable services and reliable actors applications deployed on the cluster.  On the Service Fabric Analytics page, click the graph for **Application Events**.
+You can view events for the reliable services and reliable actors applications deployed on the cluster. On the Service Fabric Analytics page, select the graph for **Application Events**.
 
 Run the following query to view events from your reliable services applications:
 ```kusto
@@ -225,13 +225,13 @@ To view performance counters, go to the [Azure portal](https://portal.azure.com)
 
 Select the resource **ServiceFabric(mysfomsworkspace)**, then **Log Analytics Workspace**, and then **Advanced Settings**.
 
-Click **Data**, then click **Windows Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Click **Save**, then click **OK**.
+Select **Data**, then choose **Windows Performance Counters**. There's a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](monitor-service-fabric-reference.md#performance-metrics) to collect. The proper format is referenced in this [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Click **Save**, then select **OK**.
 
-Close the Advanced Settings blade and select **Workspace summary** under the **General** heading. For each of the solutions enabled there is a graphical tile, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
+Close the Advanced Settings blade and select **Workspace summary** under the **General** heading. For each of the solutions enabled there's a graphical tile, including one for Service Fabric. Select the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-There are graphical tiles for operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under **Node Metrics**. 
+There are graphical tiles for operational channel and reliable services events. The graphical representation of the data flowing in for the counters you selected appear under **Node Metrics**. 
 
-Select the **Container Metric** graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
+Select the **Container Metric** graph to see more details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
 
 ## Query the EventStore service
 The [EventStore service](service-fabric-diagnostics-eventstore.md) provides a way to understand the state of your cluster or workloads at a given point in time. The EventStore is a stateful Service Fabric service that maintains events from the cluster. The events are exposed through the [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST, and APIs. EventStore queries the cluster directly to get diagnostics data on any entity in your cluster

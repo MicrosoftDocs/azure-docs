@@ -3,7 +3,7 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/25/2024
+ms.date: 07/09/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -224,18 +224,19 @@ The following example creates a budget using Azure CLI. Make sure to replace all
 ```azurecli
 # Sign into Azure CLI with your account
 az login
-
+ 
 # Select a subscription to monitor with a budget
 az account set --subscription "Your Subscription"
-
+ 
 # Create an action group email receiver and corresponding action group
 email1=$(az monitor action-group receiver email create --email-address test@test.com --name EmailReceiver1 --resource-group YourResourceGroup --query id -o tsv)
 ActionGroupId=$(az monitor action-group create --resource-group YourResourceGroup --name TestAG --short-name TestAG --receiver $email1 --query id -o tsv)
-
+ 
 # Create a monthly budget that sends an email and triggers an Action Group to send a second email.
 # Make sure the StartDate for your monthly budget is set to the first day of the current month.
 # Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
-az consumption budget create --amount 100 --name TestCLIBudget --category Cost --start-date "2020-02-01" --time-grain Monthly --end-date "2022-12-31" --contact-email test@test.com --notification-key Key1 --notification-threshold 0.8 --notification-enabled --contact-group $ActionGroupId
+ 
+az consumption budget create-with-rg --amount 100 --budget-name TestCLIBudget -g $rg --category Cost --time-grain Monthly --time-period '{"start-date":"2024-06-01","end-date":"2025-12-31"}' --notifications "{\"Key1\":{\"enabled\":\"true\", \"operator\":\"GreaterThanOrEqualTo\", \"contact-emails\":[],  \"threshold\":80.0, \"contact-groups\":[\"$ActionGroupId\"]}}"
 ```
 
 ### [Terraform](#tab/tfbudget)

@@ -3,9 +3,10 @@ title: Enable Azure Automation Update Management from the Azure portal
 description: This article tells how to enable Update Management from the Azure portal.
 services: automation
 ms.subservice: update-management
-ms.date: 01/07/2021
+ms.date: 07/15/2024
 ms.topic: conceptual
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management from the Azure portal

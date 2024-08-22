@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 06/25/2024
 ---
 
 # Knowledge store in Azure AI Search
@@ -75,7 +75,7 @@ The type of projection you specify in this structure determines the type of stor
 
 To create knowledge store, use the portal or an API. 
 
-You'll need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you'll also need to provide an index definition.
+You need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you also need to provide an index definition.
 
 Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
@@ -97,10 +97,8 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 [**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store).
 
-REST API version `2020-06-30` and higher can be used to create a knowledge store through additions to a skillset.
-
-+ [Create Skillset](/rest/api/searchservice/create-skillset)
-+ [Update Skillset](/rest/api/searchservice/update-skillset)
++ [Create Skillset](/rest/api/searchservice/skillsets/create)
++ [Create or Update Skillset](/rest/api/searchservice/indexers/create-or-update)
 
 Within the skillset:
 
@@ -120,7 +118,7 @@ For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.doc
 
 Once enriched content exists in storage, any tool or technology that connects to Azure Storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
-+ [Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) or Storage browser (preview) in Azure portal to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
++ [Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) or Storage browser  in the Azure portal to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 

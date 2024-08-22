@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 06/25/2024
 ---
 
 # Index data from Azure Blob Storage
@@ -103,7 +103,7 @@ Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
+1. [Create or update a data source](/rest/api/searchservice/data-sources/create-or-update) to set its definition: 
 
     ```json
     {
@@ -155,10 +155,10 @@ Indexers can connect to a blob container using the following connections.
 
 In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure blobs.
 
-1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
+1. [Create or update an index](/rest/api/searchservice/indexes/create-or-update) to define search fields that will store blob content and metadata:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
     {
         "name" : "my-search-index",
         "fields": [
@@ -191,10 +191,10 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. You can also specify which parts of a blob to index.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
+1. [Create or update an indexer](/rest/api/searchservice/indexers/create-or-update) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     {
       "name" : "my-blob-indexer",
       "dataSourceName" : "my-blob-datasource",
@@ -239,7 +239,7 @@ Once the index and data source have been created, you're ready to create the ind
 
    In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
-1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties. For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties. For the full list of parameter descriptions, see [REST API](/rest/api/searchservice/indexers/create).
 
 An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
@@ -252,7 +252,7 @@ To illustrate, let's consider an example of two indexers, pulling data from two 
 First indexer definition example:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 {
   "name" : "my-blob-indexer1",
   "dataSourceName" : "my-blob-datasource1",
@@ -276,7 +276,7 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 Second indexer definition that runs in parallel example:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 {
   "name" : "my-blob-indexer2",
   "dataSourceName" : "my-blob-datasource2",
@@ -300,10 +300,10 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 
 ## Check indexer status
 
-To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/indexers/get-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -355,7 +355,7 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 

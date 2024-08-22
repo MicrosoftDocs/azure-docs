@@ -2,7 +2,7 @@
 title: How to upgrade Azure Disk Encryption on a disk
 description: This article provides instructions on upgrading Azure Disk Encryption on a disk
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin

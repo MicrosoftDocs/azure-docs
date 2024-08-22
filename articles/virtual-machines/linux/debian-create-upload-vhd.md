@@ -2,11 +2,11 @@
 title: Prepare a Debian Linux VHD 
 description: Learn how to create Debian VHD images for virtual machine deployments in Azure.
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 06/27/2024
 ms.author: maries
 ms.reviewer: mattmcinnes
 ---
@@ -29,7 +29,7 @@ This section assumes that you've already installed a Debian Linux operating syst
 
 ## Prepare a Debian image for Azure
 
-You can create the base Azure Debian cloud image with the [fully automatic installation (FAI) cloud image builder](https://salsa.debian.org/cloud-team/debian-cloud-images).
+You can create the base Azure Debian cloud image with the [fully automatic installation (FAI) cloud image builder](https://salsa.debian.org/cloud-team/debian-cloud-images). To prepare an image without FAI, check out the [generic steps article](./create-upload-generic.md).
 
 The following git clone and apt installation commands were pulled from the Debian cloud images repo. Start by cloning the repo and installing dependencies:
 

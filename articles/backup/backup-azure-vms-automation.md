@@ -4,7 +4,7 @@ description: Describes how to back up and recover Azure VMs using Azure Backup w
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -33,7 +33,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 ## Set up and register
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To begin:
 

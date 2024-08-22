@@ -2,7 +2,7 @@
 title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
 author: RicksterCDN
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.custom: linux-related-content
 ms.topic: conceptual
@@ -11,9 +11,6 @@ ms.author: rclaus
 ms.collection: linux
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
@@ -36,7 +33,7 @@ The following table illustrates scenarios and corresponding name resolution solu
 
 ## Name resolution that Azure provides
 
-Along with resolution of public DNS names, Azure provides internal name resolution for virtual machines and role instances that are in the same virtual network. In virtual networks that are based on Azure Resource Manager, the DNS suffix is consistent across the virtual network; the FQDN is not needed. DNS names can be assigned to both network interface cards (NICs) and virtual machines. Although the name resolution that Azure provides does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the preceding table.
+Along with resolution of public DNS names, Azure provides internal name resolution for virtual machines and role instances that are in the same virtual network. In virtual networks that are based on Azure Resource Manager, the DNS suffix is consistent across the virtual network; the FQDN isn't needed. DNS names can be assigned to both network interface cards (NICs) and virtual machines. Although the name resolution that Azure provides does not require any configuration, it isn't the appropriate choice for all deployment scenarios, as seen on the preceding table.
 
 ### Features and considerations
 
@@ -50,20 +47,20 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 
 **Considerations:**
 
-* The DNS suffix that Azure creates cannot be modified.
-* You cannot manually register your own records.
-* WINS and NetBIOS are not supported.
+* The DNS suffix that Azure creates can't be modified.
+* You can't manually register your own records.
+* WINS and NetBIOS aren't supported.
 * Hostnames must be DNS-compatible.
-    Names must use only 0-9, a-z, and '-', and they cannot start or end with a '-'. See RFC 3696 Section 2.
+    Names must use only 0-9, a-z, and '-', and they can't start or end with a '-'. See RFC 3696 Section 2.
 * DNS query traffic is throttled for each virtual machine. Throttling shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more information, see [Getting the most from name resolution that Azure provides](#getting-the-most-from-name-resolution-that-azure-provides).
 
-### Getting the most from name resolution that Azure provides\
+### Getting the most from name resolution that Azure provides
 
 **Client-side caching:**
 
-Some DNS queries are not sent across the network. Client-side caching helps reduce latency and improve resilience to network inconsistencies by resolving recurring DNS queries from a local cache. DNS records contain a Time-To-Live (TTL), which enables the cache to store the record for as long as possible without impacting record freshness. As a result, client-side caching is suitable for most situations.
+Some DNS queries aren't sent across the network. Client-side caching helps reduce latency and improve resilience to network inconsistencies by resolving recurring DNS queries from a local cache. DNS records contain a Time-To-Live (TTL), which enables the cache to store the record for as long as possible without impacting record freshness. As a result, client-side caching is suitable for most situations.
 
-Some Linux distributions do not include caching by default. We recommend that you add a cache to each Linux virtual machine after you check that there isn't a local cache already.
+Some Linux distributions don't include caching by default. We recommend that you add a cache to each Linux virtual machine after you check that there isn't a local cache already.
 
 Several different DNS caching packages, such as dnsmasq, are available. Here are the steps to install dnsmasq on the most common distributions:
 
@@ -114,7 +111,7 @@ sudo systemctl start dnsmasq.service
 sudo netconfig update
 ```
 
-# [CentOS/RHEL](#tab/rhel)
+# [RHEL](#tab/rhel)
 
 1. Install the dnsmasq package:
 
@@ -168,7 +165,7 @@ sudo cat /etc/resolv.conf
 options timeout:1 attempts:5
 ```
 
-The `/etc/resolv.conf` file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
+The `/etc/resolv.conf` file is auto-generated and shouldn't be edited. The specific steps that add the 'options' line vary by distribution:
 
 **Ubuntu** (uses resolvconf)
 
@@ -180,11 +177,6 @@ The `/etc/resolv.conf` file is auto-generated and should not be edited. The spec
 1. Add `timeout:1 attempts:5` to the `NETCONFIG_DNS_RESOLVER_OPTIONS=""` parameter in `/etc/sysconfig/network/config`.
 2. Run `sudo netconfig update` to update.
 
-**CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-
-1. Add `RES_OPTIONS="timeout:1 attempts:5"` to `/etc/sysconfig/network`.
-2. Run `systemctl restart NetworkManager` to update.
-
 ## Name resolution using your own DNS server
 
 Your name resolution needs may go beyond the features that Azure provides. For example, you might require DNS resolution between virtual networks. To cover this scenario, you can use your own DNS servers.
@@ -195,13 +187,13 @@ DNS forwarding also enables DNS resolution between virtual networks and enables 
 
 ![DNS resolution between virtual networks](./media/azure-dns/inter-vnet-dns.png)
 
-When you use name resolution that Azure provides, the internal DNS suffix is provided to each virtual machine by using DHCP. When you use your own name resolution solution, this suffix is not supplied to virtual machines because the suffix interferes with other DNS architectures. To refer to machines by FQDN or to configure the suffix on your virtual machines, you can use PowerShell or the API to determine the suffix:
+When you use name resolution that Azure provides, the internal DNS suffix is provided to each virtual machine by using DHCP. When you use your own name resolution solution, this suffix isn't supplied to virtual machines because the suffix interferes with other DNS architectures. To refer to machines by FQDN or to configure the suffix on your virtual machines, you can use PowerShell or the API to determine the suffix:
 
 * For virtual networks that are managed by Azure Resource Manager, the suffix is available via the [network interface card](/rest/api/virtualnetwork/networkinterfaces) resource. You can also run the `azure network public-ip show <resource group> <pip name>` command to display the details of your public IP, which includes the FQDN of the NIC.
 
 If forwarding queries to Azure doesn't suit your needs, you need to provide your own DNS solution.  Your DNS solution needs to:
 
-* Provide appropriate hostname resolution, for example via [DDNS](../../virtual-network/virtual-networks-name-resolution-ddns.md). If you use DDNS, you might need to disable DNS record scavenging. DHCP leases of Azure are very long and scavenging may remove DNS records prematurely.
+* Provide appropriate hostname resolution, for example via [DDNS](../../virtual-network/virtual-networks-name-resolution-ddns.md). If you use DDNS, you might need to disable DNS record scavenging. DHCP leases of Azure are long and scavenging may remove DNS records prematurely.
 * Provide appropriate recursive resolution to allow resolution of external domain names.
 * Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the Internet.
 * Be secured against access from the Internet to mitigate threats posed by external agents.

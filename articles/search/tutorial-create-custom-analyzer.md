@@ -66,7 +66,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
     ```http
     ### Create a new index
-    POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
 
@@ -100,7 +100,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
     ```http
     ### Load documents
-    POST {{baseUrl}}/indexes/phone-numbers-index/docs/index?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes/phone-numbers-index/docs/index?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
     
@@ -154,7 +154,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
     ```http  
     ### Search for a phone number
-    GET {{baseUrl}}/indexes/phone-numbers-index/docs/search?api-version=2023-11-01&search=(425) 555-0100  HTTP/1.1
+    GET {{baseUrl}}/indexes/phone-numbers-index/docs/search?api-version=2024-07-01&search=(425) 555-0100  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
     ```
@@ -192,7 +192,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
    ```http  
     ### Search for a phone number
-    GET {{baseUrl}}/indexes/phone-numbers-index/docs/search?api-version=2023-11-01&search=4255550100  HTTP/1.1
+    GET {{baseUrl}}/indexes/phone-numbers-index/docs/search?api-version=2024-07-01&search=4255550100  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
     ```
@@ -254,7 +254,7 @@ Azure AI Search provides an [Analyze API](/rest/api/searchservice/indexes/analyz
 The Analyze API is called using the following request:
 
 ```http
-POST {{baseUrl}}/indexes/phone-numbers-index/analyze?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes/phone-numbers-index/analyze?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -439,7 +439,7 @@ All of the tokens in the output column exist in the index. If our query includes
 
    ```http
     ### Delete the index
-    DELETE {{baseUrl}}/indexes/phone-numbers-index?api-version=2023-11-01 HTTP/1.1
+    DELETE {{baseUrl}}/indexes/phone-numbers-index?api-version=2024-07-01 HTTP/1.1
         api-key: {{apiKey}}
     ```
 
@@ -447,7 +447,7 @@ All of the tokens in the output column exist in the index. If our query includes
 
     ```http
     ### Create a new index
-    POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
     
@@ -516,7 +516,7 @@ All of the tokens in the output column exist in the index. If our query includes
 After recreating the index, you can now test out the analyzer using the following request:
 
 ```http
-POST {{baseUrl}}/indexes/tutorial-first-analyzer/analyze?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes/tutorial-first-analyzer/analyze?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}} 
 

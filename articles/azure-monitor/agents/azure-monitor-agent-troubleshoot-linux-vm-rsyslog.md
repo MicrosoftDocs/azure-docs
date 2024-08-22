@@ -11,7 +11,7 @@ ms.reviewer: shseth
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC standards:
 
@@ -22,7 +22,7 @@ Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC st
   > Before Azure Monitor Agent version 1.28, it used a Unix domain socket instead of TCP port to receive events from rsyslog. `omfwd` output module in `rsyslog` offers spooling and retry mechanisms for improved reliability.
 - The Syslog daemon uses queues when Azure Monitor Agent ingestion is delayed or when Azure Monitor Agent isn't reachable.
 - Azure Monitor Agent ingests Syslog events via the previously mentioned socket and filters them based on facility or severity combination from data collection rule (DCR) configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` or `severity` not present in the DCR is dropped.
-- Azure Monitor Agent attempts to parse events in accordance with **RFC3164** and **RFC5424**. It also knows how to parse the message formats listed on [this website](./azure-monitor-agent-overview.md#data-sources-and-destinations).
+- Azure Monitor Agent attempts to parse events in accordance with **RFC3164** and **RFC5424**. It also knows how to parse the message formats listed in [this website](./azure-monitor-agent-overview.md#supported-services-and-features).
 - Azure Monitor Agent identifies the destination endpoint for Syslog events from the DCR configuration and attempts to upload the events.
   > [!NOTE]
   > Azure Monitor Agent uses local persistency by default. All events received from `rsyslog` or `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
@@ -109,8 +109,3 @@ If you're sending a high log volume through rsyslog and your system is set up to
 
 1. `sudo systemctl restart rsyslog`
 
-### Azure Monitor Agent for Linux event buffer is filling a disk
-
-If you observe the `/var/opt/microsoft/azuremonitor/events` directory growing unbounded (10 GB or higher) and not reducing in size, [file a ticket](#file-a-ticket). For **Summary**, enter **Azure Monitor Agent Event Buffer is filling disk**. For **Problem type**, enter **I need help configuring data collection from a VM**.
-
-[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]

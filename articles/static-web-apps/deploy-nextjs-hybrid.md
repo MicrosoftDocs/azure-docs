@@ -3,7 +3,7 @@ title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js hybrid sites with Azure Static Web Apps."
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 04/25/2024
 ms.author: aapowell
@@ -90,7 +90,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Leave the _App artifact location_ box empty.
+1. Leave the _Output location_ box empty.
 
 Select **Review + create**.
 
@@ -121,6 +121,12 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 1. Open the project in Visual Studio Code or your preferred code editor.
 
 ## Set up server side rendering
+
+A managed backed is automatically available for every hybrid Next.js deployment in all plans. However, you can fine- tune performance and take more control of the backend by assigning a custom backend to your site. If  you switch between a managed backend to a linked backend, your site experiences no downtime.
+
+### Bring your own backend
+
+You can improve performance and gain more control over the Next.js server side rendering when you bring your backend. Use the following steps to set up a custom backend for your site. 
 
 [!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
 
@@ -282,7 +288,7 @@ Next.js uses environment variables at build time and at request time, to support
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           app_location: "/" 
           api_location: ""

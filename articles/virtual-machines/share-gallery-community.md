@@ -2,7 +2,7 @@
 title: Share Azure Compute Gallery resources with a community gallery
 description: Learn how to use a community gallery to share VM images stored in an Azure Compute Gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 09/20/2023
@@ -46,6 +46,7 @@ There are some limitations for sharing your gallery to the community:
 - You can't convert an existing private gallery(RBAC enabled gallery) to Community gallery.
 - You can't use a third party image from Marketplace and publish it to the community. For a list of approved operating system base images, please see: [approved base images](https://go.microsoft.com/fwlink/?linkid=2245050).
 - Encrypted images are not supported
+- Not available in Government clouds
 - Image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available.
 - You can't share [VM Applications](vm-applications.md) to the community yet.
 

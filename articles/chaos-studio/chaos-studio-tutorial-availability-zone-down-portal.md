@@ -4,7 +4,7 @@ description: Use the Azure portal to create an experiment from the Availability 
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 09/27/2023
 ms.custom: template-how-to
@@ -16,7 +16,7 @@ You can use a chaos experiment to verify that your application is resilient to f
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A Virtual Machine Scale Sets instance.
 - An Autoscale Settings instance.
 

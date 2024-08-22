@@ -117,7 +117,7 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 
 ### Use synonyms
 
-While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
 
 ### Use distinct words to differentiate questions
 QnA Maker's ranking algorithm, that matches a user query with a question in the knowledge base, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.

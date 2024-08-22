@@ -3,7 +3,7 @@ title:  "Clip Values"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Clip Values component in Azure Machine Learning to detect outliers and clip or replace their values.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

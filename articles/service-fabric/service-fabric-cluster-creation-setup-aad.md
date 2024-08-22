@@ -4,7 +4,7 @@ description: Learn how to set up Microsoft Entra ID to authenticate clients for 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 08/29/2022
 ---

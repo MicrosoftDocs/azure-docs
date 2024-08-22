@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Update the RDP username and passwo
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 Each [node type](../service-fabric-cluster-nodetypes.md) in a Service Fabric cluster is a virtual machine scale set. This sample script updates the admin username and password for the cluster virtual machines in a specific node type.  Add the VMAccessAgent extension to the scale set, because the admin password is not a modifiable scale set property.  The username and password changes apply to all nodes in the scale set. Customize the parameters as needed.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/). 
 

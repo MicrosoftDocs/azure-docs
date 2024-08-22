@@ -4,7 +4,7 @@ description: Learn more about Guidance for mitigating silicon based micro-archit
 services: virtual-machines
 author: ju-shim
 keywords: spectre,meltdown,specter
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/26/2024
@@ -15,4 +15,4 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-[!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]
+[!INCLUDE [virtual-machines-common-mitigate-se](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-mitigate-se.md)]

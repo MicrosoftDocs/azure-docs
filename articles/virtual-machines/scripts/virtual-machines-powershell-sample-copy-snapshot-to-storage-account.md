@@ -1,14 +1,12 @@
 ---
 title: PowerShell Sample - Export/Copy snapshot as VHD to a storage account in different region
 description: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in same different region
-author: ramankumarlive
-manager: kavithag
-ms.service: virtual-machines
-ms.subservice: disks
+author: roygara
+ms.service: azure-disk-storage
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.date: 06/05/2017
-ms.author: ramankum
+ms.author: rogarana
 ---
 
 # Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell
@@ -17,7 +15,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
  
 

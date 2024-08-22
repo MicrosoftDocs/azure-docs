@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/29/2024
+ms.date: 08/14/2024
 ms.author: lajanuar
 ---
 
@@ -90,7 +90,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request can't exceed 10,000 characters including spaces.
+* The entire text included in the request can't exceed 50,000 characters including spaces.
 
 ## Response body
 
@@ -380,13 +380,13 @@ This feature works the same way with `textType=text` or with `textType=html`. Th
 
 ## Request limits
 
-Each translate request is limited to 10,000 characters, across all the target languages you're translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. We recommended sending shorter requests.
+Each translate request is limited to 50,000 characters, across all the target languages you're translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. We recommended sending shorter requests.
 
 The following table lists array element and character limits for the Translator **translation** operation.
 
 | Operation | Maximum size of array element | Maximum number of array elements | Maximum request size (characters) |
 |:----|:----|:----|:----|
-| translate | 10,000 | 100 | 10,000 |
+| translate | 10,000 | 100 | 50,000 |
 
 ## Use docker compose: Translator with supporting containers
 

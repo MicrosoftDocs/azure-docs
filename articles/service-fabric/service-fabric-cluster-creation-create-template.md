@@ -4,7 +4,7 @@ description: Learn how to create a Resource Manager template for a Service Fabri
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: has-azure-ad-ps-ref
 services: service-fabric
 ms.date: 07/14/2022
@@ -19,7 +19,7 @@ Cluster security is configured when the cluster is first set up and cannot be ch
 Before deploying a production cluster to run production workloads, be sure to first read the [Production readiness checklist](service-fabric-production-readiness-checklist.md).
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Create the Resource Manager template
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.

@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 06/27/2024
 ms.author: mbullwin
 ---
 
@@ -34,7 +34,7 @@ For dynamic quota, consider scenarios such as:
 
 ### When does dynamic quota come into effect?
 
-The Azure OpenAI backend decides if, when, and how much extra dynamic quota is added or removed from different deployments. It isn't forecasted or announced in advance, and isn't predictable. Azure OpenAI lets your application know there's more quota available by responding with an HTTP 429 and not letting more API calls through. To take advantage of dynamic quota, your application code must be able to issue more requests as HTTP 429 responses become infrequent.
+The Azure OpenAI backend decides if, when, and how much extra dynamic quota is added or removed from different deployments. It isn't forecasted or announced in advance, and isn't predictable. To take advantage of dynamic quota, your application code must be able to issue more requests as HTTP 429 responses become infrequent. Azure OpenAI lets your application know when you've hit your quota limit by responding with an HTTP 429 and not letting more API calls through.
 
 ### How does dynamic quota change costs?
 

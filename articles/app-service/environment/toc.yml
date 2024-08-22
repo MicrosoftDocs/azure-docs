@@ -4,7 +4,7 @@
   items:
   - name: About App Service Environment
     href: overview.md
-  - name: App Service offering comparison
+  - name: Compare with App Service
     href: ase-multi-tenant-comparison.md
   - name: Version comparison
     href: version-comparison.md

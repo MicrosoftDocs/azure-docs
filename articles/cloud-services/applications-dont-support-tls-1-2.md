@@ -6,31 +6,31 @@ author: hirenshah1
 ms.author: hirshah
 ms.custom: compute-evergreen 
 tag: top-support-issue 
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 ---
 
 # Troubleshooting applications that don't support TLS 1.2
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles.
+This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1). It also covers the application of legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles.
 
-We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article.
+We understand that while we're taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites in the meantime. While we don't recommend re-enabling these legacy values, we're providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article.
 
 > [!NOTE]
 > Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.For more information on Guest OS families see [Guest OS release news](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites
 
-In support of our commitment to use best-in-class encryption, Microsoft announced plans to start migration away from TLS 1.0 and 1.1 in June of 2017.   Since that initial announcement, Microsoft announced our intent to disable Transport Layer Security (TLS) 1.0 and 1.1 by default in supported versions of Microsoft Edge and Internet Explorer 11 in the first half of 2020.  Similar announcements from Apple, Google, and Mozilla indicate the direction in which the industry is headed.
+In support of our commitment to use best-in-class encryption, Microsoft announced plans to start migration away from TLS 1.0 and 1.1 in June of 2017. Microsoft announced our intent to disable Transport Layer Security (TLS) 1.0 and 1.1 by default in supported versions of Microsoft Edge and Internet Explorer 11 in the first half of 2020. Similar announcements from Apple, Google, and Mozilla indicate the direction in which the industry is headed.
 
 For more information, see [Preparing for TLS 1.2 in Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
 ## TLS configuration
 
-The Windows Server 2019 cloud server image is configured with TLS 1.0 and TLS 1.1 disabled at the registry level. This means applications deployed to this version of Windows AND using the Windows stack for TLS negotiation will not allow TLS 1.0 and TLS 1.1 communication.
+The Windows Server 2019 cloud server image is configured with TLS 1.0 and TLS 1.1 disabled at the registry level. This means applications deployed to this version of Windows AND using the Windows stack for TLS negotiation won't allow TLS 1.0 and TLS 1.1 communication.
 
 The server also comes with a limited set of cipher suites:
 
@@ -47,7 +47,7 @@ The server also comes with a limited set of cipher suites:
 
 ## Step 1: Create the PowerShell script to enable TLS 1.0 and TLS 1.1
 
-Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script will be named: **TLSsettings.ps1**. Store this script on your local desktop for easy access in later steps.
+Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script is named: **TLSsettings.ps1**. Store this script on your local desktop for easy access in later steps.
 
 ```powershell
 # You can use the -SetCipherOrder (or -sco) option to also set the TLS cipher 
@@ -268,7 +268,7 @@ If ($reboot) {
 
 ## Step 2: Create a command file
 
-Create a CMD file named **RunTLSSettings.cmd** using the below. Store this script on your local desktop for easy access in later steps.
+Create a CMD file named **RunTLSSettings.cmd** using the following script. Store this script on your local desktop for easy access in later steps.
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -303,7 +303,7 @@ Add the following snippet to your existing service definition file.
 	</Startup> 
 ```
 
-Here is an example that shows both the worker role and web role.
+Here's an example that shows both the worker role and web role.
 
 ```
 <?xmlversion="1.0" encoding="utf-8"?> 
@@ -352,6 +352,6 @@ To ensure the scripts are uploaded with every update pushed from Visual Studio, 
 
 ## Step 6: Publish & Validate
 
-Now that the above steps have been complete, publish the update to your existing Cloud Service.
+Now that you completed the previous steps, publish the update to your existing Cloud Service.
 
 You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints

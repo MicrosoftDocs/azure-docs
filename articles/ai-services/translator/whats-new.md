@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: overview
-ms.date: 05/15/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -21,6 +21,10 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## May 2024
+
+A [single API](document-translation/reference/rest-api-guide.md) is now available for both [asynchronous batch](document-translation/overview.md#asynchronous-batch-translation) and [synchronous single document](document-translation/overview.md#synchronous-translation) translation operations.
 
 ## February 2024
 
@@ -56,8 +60,6 @@ The Document translation API now supports two translation operations:
 |Lower Sorbian|`dsb`|✔|Currently, not supported in containers |A West Slavic language spoken primarily in eastern Germany. It has approximately 7,000 speakers.|
 
 ## July 2023
-
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 * Document Translation REST API v1.1 is now Generally Available (GA).
 
@@ -233,7 +235,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official Aboriginal languages in the Northwest Territories.
 
 ## November 2020
 

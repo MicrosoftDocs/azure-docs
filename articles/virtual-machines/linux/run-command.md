@@ -2,7 +2,7 @@
 title: Run scripts in a Linux VM in Azure using action Run Commands
 description: This article describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 author: nikhilpatel909
 ms.author: jushiman
@@ -13,9 +13,6 @@ ms.custom: devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 # Run scripts in your Linux VM by using action Run Commands
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -33,7 +30,6 @@ This capability is useful in all scenarios where you want to run a script within
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
 | Alma Linux |	9.x+ |	9.x+ |
-| CentOS |	7.x+,  8.x+ |	7.x+ |
 | Debian |	10+ |	11.x+ |
 | Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
 | Azure Linux | 2.x | 2.x |

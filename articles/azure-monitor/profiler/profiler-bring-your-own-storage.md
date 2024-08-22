@@ -5,8 +5,8 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
-ms.topic: conceptual
-ms.date: 09/22/2023
+ms.topic: how-to
+ms.date: 08/19/2024
 ms.custom: devdivchpfy22, devx-track-azurepowershell, engagement
 ---
 
@@ -17,7 +17,7 @@ When you use [Application Insights Profiler](./profiler-overview.md) or [Snapsho
 - Processing and analysis.
 - Encryption-at-rest and lifetime management policies.
 
-Meanwhile, when you configure your own storage account (BYOS), artifacts are uploaded into a storage account that only you control and cover the cost for:
+Meanwhile, when you "bring your own storage" (BYOS), artifacts are uploaded into a storage account that only you control and cover the cost for:
 
 - The encryption-at-rest policy and the Lifetime management policy.
 - Network access.
@@ -36,8 +36,8 @@ In this guide, you learn how to:
 
 ## Prerequisites
 
-- Verify you've created your storage account in the same location as your Application Insights resource.
-- If you've enabled [Private Link](../logs/private-link-security.md), allow connection to our Trusted Microsoft Service from your virtual network.
+- Verify you created your storage account in the same location as your Application Insights resource.
+- If you enabled [Private Link](../logs/private-link-security.md), allow connection to our Trusted Microsoft Service from your virtual network.
 
 ## Grant Diagnostic Services access to your storage account
 
@@ -55,7 +55,7 @@ A BYOS storage account is linked to an Application Insights resource. Start by g
     | Assign access to | User, group, or service principal |
     | Members | Diagnostic Services Trusted Storage Access |
 
-    :::image type="content" source="media/profiler-bring-your-own-storage/add-role-assignment-page.png" alt-text="Screenshot that shows the Add role assignment page in the Azure portal.":::
+    :::image type="content" source="media/profiler-bring-your-own-storage/add-role-assignment-page.png" alt-text="Screenshot that shows the role assignment page in the Azure portal.":::
     
    Once assigned, you can see the role under the **Role assignments** section.
        :::image type="content" source="media/profiler-bring-your-own-storage/figure-11.png" alt-text="Screenshot that shows the IAM screen after Role assignments.":::
@@ -242,14 +242,14 @@ Before you begin, [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Troubleshooting
 
-This section offers troubleshooting tips for common issues in configuring BYOS. 
+Troubleshoot common issues in configuring BYOS. 
 
 - For general Profiler troubleshooting, see the [Profiler troubleshooting documentation](profiler-troubleshooting.md).
 - For general Snapshot Debugger troubleshooting, see the [Snapshot Debugger troubleshooting documentation](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
 ### Scenario: Template schema '{schema_uri}' isn't supported
 
-You've received an error similar to the following example:
+You received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Message=Deployment template validation failed: 'Template schema
@@ -268,7 +268,7 @@ New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Messa
     
 ### Scenario: No registered resource provider found for location '{location}'
 
-You've received an error similar to the following example:
+You received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 6:18:03 PM - Resource microsoft.insights/components 'byos-test-westus2-ai' failed with message '{
@@ -289,7 +289,7 @@ australiasoutheast'."
     
 ### Scenario: Storage account location should match Application Insights component location
 
-You've received an error similar to the following example:
+You received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 1:01:12 PM - Resource microsoft.insights/components/linkedStorageAccounts 'byos-test-centralus-ai/serviceprofiler' failed with message '{
@@ -313,7 +313,7 @@ Make sure that the location of the Application Insights resource is the same as 
 
 This section provides answers to common questions about configuring BYOS for Profiler and Snapshot Debugger.
 
-### If I've enabled Profiler/Snapshot Debugger and BYOS, is my data migrated into my storage account?
+### If I enabled Profiler/Snapshot Debugger and BYOS, is my data migrated into my storage account?
 
   No, it won't.
 
@@ -329,7 +329,7 @@ This section provides answers to common questions about configuring BYOS for Pro
   
   Yes, it's possible.
 
-### If I've enabled BYOS, can I go back to using Diagnostic Services storage accounts to store my collected data?
+### If I enabled BYOS, can I go back to using Diagnostic Services storage accounts to store my collected data?
   
   Yes, you can, but we don't currently support data migration from your BYOS.
 

@@ -5,7 +5,7 @@ author: tejaswikolli-web
 ms.topic: how-to # Don't change
 ms.date: 01/24/2024
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 #customer intent: As a developer, I want a comprehensive guide on using Azure Container Registry to manage OCI and supply chain artifacts so that I can effectively store and retrieve them.
 ---
 

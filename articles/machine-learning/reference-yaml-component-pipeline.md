@@ -3,14 +3,14 @@ title: 'CLI (v2) pipeline component YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) pipeline component YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
-author: cloga
-ms.author: lochen
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 04/12/2023
-ms.reviewer: lagayhar
+ms.reviewer: lochen
 ---
 
 # CLI (v2) pipeline component YAML schema

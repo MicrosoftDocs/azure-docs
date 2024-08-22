@@ -6,14 +6,14 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 12/07/2023
-ms.cutom: engagement-fy24
+ms.date: 08/08/2024
+ms.cutom: engagement-fy25
 ---
 
 # Support matrix for Hyper-V assessment
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes prerequisites and support requirements when you discover and assess on-premises servers running in a Hyper-V environment for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate servers running on Hyper-V to Azure, see the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
 
@@ -295,7 +295,7 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, and Red Hat Enterprise Linux 5/6/7.
+Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Required privileges | Local admin. | Root or sudo user.
 
@@ -334,4 +334,4 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 
-Prepare for [assessment of servers running on Hyper-V](./tutorial-discover-hyper-v.md).
+Prepare for [discovery of servers running on Hyper-V](./tutorial-discover-hyper-v.md).

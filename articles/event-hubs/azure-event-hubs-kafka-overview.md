@@ -74,7 +74,7 @@ Azure Event Hubs supports Kafka transactions. More details regarding the support
 ### Compression
 
 > [!NOTE]
-> Compression is available in Premium, and Dedicated tier only.
+> The Kafka compression for Event Hubs is only supported in Premium and Dedicated tiers currently.
 >
 
 The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature in Apache Kafka clients conserves compute resources and bandwidth by compressing a batch of multiple messages into a single message on the producer side and decompressing the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.

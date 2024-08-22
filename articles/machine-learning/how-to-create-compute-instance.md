@@ -3,14 +3,14 @@ title: Create a compute instance
 titleSuffix: Azure Machine Learning
 description: Learn how to create an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: jesscioffi
-ms.author: jcioffi
-ms.reviewer: sgilley
-ms.date: 05/03/2024
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
+ms.date: 06/10/2024
 ---
 
 # Create an Azure Machine Learning compute instance
@@ -40,11 +40,14 @@ Choose the tab for the environment you're using for other prerequisites.
 
 * To use the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-  [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
+[!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 # [Azure CLI](#tab/azure-cli)
 
-* To use the CLI, install the [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* If you're working on a compute instance, the CLI is already installed.  If working on a different computer, install the [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install).
+
+[!INCLUDE [set-up-cli](includes/set-up-cli.md)]
+
 
 # [Studio](#tab/azure-studio)
 
@@ -123,7 +126,6 @@ Where the file *create-instance.yml* is:
         * If you're using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network. You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
 
         * If you're using an Azure Machine Learning __managed virtual network__, the compute instance is created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md).
-    * Allow root access. (preview)
 
 1. Select **Applications** if you want to add custom applications to use on your compute instance, such as RStudio or Posit Workbench.  See [Add custom applications such as RStudio or Posit Workbench](#add-custom-applications-such-as-rstudio-or-posit-workbench).
 1. Select **Tags** if you want to add additional information to categorize the compute instance.
@@ -247,17 +249,6 @@ from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStart
 from azure.ai.ml.constants import TimeZone
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
-
-# authenticate
-credential = DefaultAzureCredential()
-
-# Get a handle to the workspace
-ml_client = MLClient(
-    credential=credential,
-    subscription_id="<SUBSCRIPTION_ID>",
-    resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>",
-)
 
 ci_minimal_name = "ci-name"
 ci_start_time = "2023-06-21T11:47:00" #specify your start time in the format yyyy-mm-ddThh:mm:ss
@@ -433,9 +424,26 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
-* Studio, using the [Security settings](?tabs=azure-studio-preview#security-settings)
+* Studio, using the security settings in this article.
 
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Microsoft Entra admin center.
+
+To further enhance security, when you create a compute instance on behalf of a data scientist and assign the instance to them, single sign-on (SSO) will be disabled during creation if the compute instance has a setup script or custom app.
+
+The assigned to user needs to enable SSO on compute instance themselves after the compute is assigned to them by updating the SSO setting on the compute instance.
+Assigned to user needs to have the following permission/action in their role *MachineLearningServices/workspaces/computes/enableSso/action*. 
+Assigned to user does not need compute write (create) permission to enable SSO.
+
+Here are the steps assigned to user needs to take. Please note creator of compute instance is not allowed to enable SSO on that compute instance due to security reasons.
+
+1. Click on compute in left navigation pane in Azure Machine Learning Studio.
+1. Click on the name of compute instance where you need to enable SSO.
+1. Edit the Single sign-on details section.
+
+    :::image type="content" source="media/how-to-create-compute-instance/pobo-sso-update.png" alt-text="Screenshot shows SSO can be updated on compute instance details page by the assigned to user.":::
+   
+1. Enable single sign-on toggle.
+1. Save. Updating will take some time.
 
 ## Assign managed identity
 
@@ -453,8 +461,7 @@ from azure.ai.ml import MLClient
 from azure.identity import ManagedIdentityCredential
 client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
 credential = ManagedIdentityCredential(client_id=client_id)
-ml_client = MLClient(credential, sub_id, rg_name, ws_name)
-data = ml_client.data.get(name=data_name, version="1")
+ml_client = MLClient(credential, subscription_id, resource_group, workspace)
 ```
 
 You can also use SDK V1:
@@ -464,7 +471,7 @@ from azureml.core.authentication import MsiAuthentication
 from azureml.core import Workspace
 client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
 auth = MsiAuthentication(identity_config={"client_id": client_id})
-workspace = Workspace.get("chrjia-eastus", auth=auth, subscription_id="381b38e9-9840-4719-a5a0-61d9585e1e91", resource_group="chrjia-rg", location="East US")
+workspace = Workspace.get("chrjia-eastus", auth=auth, subscription_id=subscription_id, resource_group=resource_group, location="East US")
 ```
 
 # [Azure CLI](#tab/azure-cli)

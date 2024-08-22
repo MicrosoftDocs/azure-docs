@@ -2,11 +2,11 @@
 metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.service: virtual-desktop
   ms.date: 10/23/2023
-  ms.author: helohr 
+  ms.author: daknappe
+  ms.custom: docs_inherited 
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
@@ -197,4 +197,4 @@ sections:
 
       - question: Can I do an in-place upgrade of a session host's operating system?
         answer: |
-          Yes. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).
+          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).

@@ -5,7 +5,7 @@ description: Learn about how you can configure routing preference for your resou
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
 ms.topic: conceptual

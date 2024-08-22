@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 08/05/2024
 ---
 
 # Create a hybrid query in Azure AI Search
@@ -18,11 +18,11 @@ ms.date: 06/12/2024
 
 In many cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-To improve relevance:
+To improve relevance, use these parameters:
 
-+ New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. 
++ [vector.queries.weight](vector-search-how-to-query.md#vector-weighting) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. This feature is generally available.
 
-+ New [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
++ [hybridsearch.maxTextRecallSize and countAndFacetMode (preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. This feature requires a preview API version.
 
 ## Prerequisites
 
@@ -30,26 +30,23 @@ To improve relevance:
 
 + (Optional) If you want [semantic ranking](semantic-how-to-configure.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
++ (Optional) If you want text-to-vector conversion of a query string, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
 
 ## Choose an API or tool
 
-+ [**2023-11-01**](/rest/api/searchservice/documents/search-post) stable version
-+ [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), adds integrated vectorization to the vector side of a hybrid query
-+ [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), adds narrow data types and scalar quantization to the vector side of a hybrid query
-+ [**2024-05-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds `maxTextRecallSize` and `countAndFacetMode` specifially for hybrid search
++ [**2024-07-01**](/rest/api/searchservice/documents/search-post) stable version or a recent preview API version if you're using [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview).
 + Search Explorer in the Azure portal (targets 2024-05-01-preview behaviors)
 + Newer stable or beta packages of the Azure SDKs (see change logs for SDK feature support)
 
 ## Run a hybrid query in Search Explorer
 
-1. In [Search Explorer](search-explorer.md), make sure the API version is **2023-10-01-preview** or later.
+1. In [Search Explorer](search-explorer.md), make sure the API version is **2024-07-01** or newer preview API versions.
 
 1. Under **View**, select **JSON view**. 
 
 1. Replace the default query template with a hybrid query, such as the one starting on line 539 for the [vector quickstart example](vector-search-how-to-configure-vectorizer.md#try-a-vectorizer-with-sample-data). For brevity, the vector is truncated in this article. 
 
-   A hybrid query has a text query specified in `search`, and a vectory query specified under `vectorQueries.vector`.
+   A hybrid query has a text query specified in `search`, and a vector query specified under `vectorQueries.vector`.
 
    The text query and vector query should be equivalent or at least not conflict. If the queries are different, you don't get the benefit of hybrid.
 
@@ -82,7 +79,7 @@ Results are returned in plain text, including vectors in fields marked as `retri
 The following example shows a hybrid query configuration.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -135,7 +132,7 @@ api-key: {{admin-api-key}}
 This example adds a filter, which is applied to the `filterable` nonvector fields of the search index.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -173,7 +170,7 @@ api-key: {{admin-api-key}}
 Assuming that you [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search and keyword search, with semantic ranking over the merged result set. Optionally, you can add captions and answers. 
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -203,7 +200,7 @@ api-key: {{admin-api-key}}
 
 **Key points:**
 
-+ Semantic ranking accepts up to 50 results from the merged response. Set "k" and "top" to 50 for equal representation of both queries.
++ Semantic ranking accepts up to 50 results from the merged response.
 
 + "queryType" and "semanticConfiguration" are required.
 
@@ -214,7 +211,7 @@ api-key: {{admin-api-key}}
 Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -254,10 +251,12 @@ api-key: {{admin-api-key}}
 
 ## Set maxTextRecallSize and countAndFacetMode (preview)
 
-This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results that flow to the hybrid ranking model. Controlling over the BM25-ranked input gives you more options for relevance tuning in hybrid scenarios. 
+This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results that flow to the hybrid ranking model. Controlling over the BM25-ranked input gives you more options for relevance tuning in hybrid scenarios.
+
+We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 > [!TIP]
-> Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting-preview), which increases the importance of vector queries in the request.
+> Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting), which increases the importance of vector queries in the request.
 
 1. Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in 2024-05-01-preview to specify these parameters.
 
@@ -267,7 +266,7 @@ This section explains how to adjust the inputs to a hybrid query by controlling 
 
    + `countAndFacetMode` reports the counts for the BM25-ranked results (and for facets if you're using them). The default is all documents that match the query. Optionally, you can scope "count" to the `maxTextRecallSize`.
 
-1. Reduce `maxTextRecallSize` if vector similarity search is generally outperforming the text-side of the the hybrid query.
+1. Reduce `maxTextRecallSize` if vector similarity search is generally outperforming the text-side of the hybrid query.
 
 1. Raise `maxTextRecallSize` if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
 
@@ -338,14 +337,28 @@ The examples in this article used a "select" statement to specify text (nonvecto
 
 ### Number of results
 
-A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
+A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the *overall response*:
 
++ `"top": n` results for keyword-only queries (no vector)
 + `"k": n` results for vector-only queries
-+ `"top": n` results for hybrid queries that include a "search" parameter
++ `"top": n` results for hybrid queries (with or without semantic) that include a "search" parameter
 
 Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
 
-If you're using semantic ranking, it's a best practice to set both "k" and "top" to at least 50. The semantic ranker can take up to 50 results. By specifying 50 for each query, you get equal representation from both search subsystems.
+> [!NOTE]
+> If you're using hybrid search in 2024-05-01-preview API, you can control the number of results from the keyword query using [maxTextRecallSize](#set-maxtextrecallsize-and-countandfacetmode-preview). Combine this with a setting for "k" to control the representation from each search subsystem (keyword and vector).
+
+#### Semantic ranker results
+
+> [!NOTE]
+> The semantic ranker can take up to 50 results. 
+
+If you're using semantic ranking in 2024-05-01-preview API, it's a best practice to set "k" and "maxTextRecallSize" to sum to at least 50 total.  You can then restrict the results returned to the user with the "top" parameter. 
+
+If you're using semantic ranking in previous APIs do the following:
+
++ if doing keyword-only search (no vector) set "top" to 50
++ if doing hybrid search set "k" to 50, to ensure that the semantic ranker gets at least 50 results. 
 
 ### Ranking
 

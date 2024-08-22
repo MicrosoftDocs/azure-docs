@@ -3,9 +3,9 @@ title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager'
 description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: tutorial
-ms.date: 09/26/2023
+ms.date: 07/24/2024
 ms.author: victorh
 ---
 
@@ -23,7 +23,7 @@ For this tutorial, you create three virtual networks:
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected using either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
-![Hybrid network](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
+:::image type="content" source="media/tutorial-hybrid-portal/hybrid-network-firewall.png" alt-text="Diagram of an Azure Firewall Manager hub hybrid network." lightbox="media/tutorial-hybrid-portal/hybrid-network-firewall.png":::
 
 In this tutorial, you learn how to:
 
@@ -42,11 +42,6 @@ In this tutorial, you learn how to:
 
 A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premises networks. The hub-and-spoke architecture has the following requirements:
 
-- Set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network.
-
-   Additionally, routes to the gateway-connected virtual networks or on-premises networks are automatically propagated to the routing tables for the peered virtual networks using the gateway transit. For more information, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
-
-- Set **UseRemoteGateways** when you peer VNet-Spoke to VNet-Hub. If **UseRemoteGateways** is set and **AllowGatewayTransit** on remote peering is also set, the spoke virtual network uses gateways of the remote virtual network for transit.
 - To route the spoke subnet traffic through the hub firewall, you need a User Defined route (UDR) that points to the firewall with the **Virtual network gateway route propagation** setting disabled. This option prevents route distribution to the spoke subnets. This prevents learned routes from conflicting with your UDR.
 - Configure a UDR on the hub gateway subnet that points to the firewall IP address as the next hop to the spoke networks. No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 
@@ -66,7 +61,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
-3. On the Azure Firewall Manager page, under **Security**, select **Azure firewall policies**.
+3. On the Azure Firewall Manager page, under **Security**, select **Azure Firewall Policies**.
 
    :::image type="content" source="media/secure-hybrid-network/firewall-manager-policy.png" alt-text="Screenshot showing Firewall Manager main page."lightbox="media/secure-hybrid-network/firewall-manager-policy.png":::
 
@@ -118,13 +113,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. For **IPv4 address space**, type **10.5.0.0/16**.
 1. Under **Subnets**, select **default**.
-1. For Subnet template, select **Azure Firewall**.
+1. For **Subnet purpose**, select **Azure Firewall**.
 1. For **Starting address**, type **10.5.0.0/26**.
 1. Accept the other default settings, and then select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
 
-Add another subnet named **GatewaySubnet** with an address space of 10.5.1.0/27. This subnet is used for the VPN gateway. 
+Add another subnet with a subnet purpose set to **Virtual Network Gateway** with a starting address of **10.5.1.0/27**. This subnet is used for the VPN gateway. 
 
 ## Create the spoke virtual network
 
@@ -165,7 +160,7 @@ Add another subnet named **GatewaySubnet** with an address space of 10.5.1.0/27.
 1. For **Starting address**, type **192.168.1.0/24**.
 1. Accept the other default settings, and then select **Save**.
 2. Select **Add a subnet**.
-1. For **Subnet template**, select **Virtual Network Gateway**.
+1. For **Subnet purpose**, select **Virtual Network Gateway**.
 1. For **Starting address** type **192.168.2.0/27**.
 1. Select **Add**.
 1. Select **Review + create**.
@@ -192,7 +187,7 @@ Convert the **VNet-Hub** virtual network into a *hub virtual network* and secure
 
    This takes a few minutes to deploy.
 7. After deployment completes, go to the **FW-Hybrid-Test** resource group, and select the firewall.
-9. Note the **Firewall private IP** address on the **Overview** page. You use it later when you create the default route.
+9. Note the firewall **Private IP** address on the **Overview** page. You use it later when you create the default route.
 
 ## Create and connect the VPN gateways
 
@@ -208,7 +203,6 @@ Now create the VPN gateway for the hub virtual network. Network-to-network confi
 4. For **Name**, type **GW-hub**.
 5. For **Region**, select **(US) East US**.
 6. For **Gateway type**, select **VPN**.
-7. For **VPN type**, select **Route-based**.
 8. For **SKU**, select **VpnGw2**.
 1. For **Generation**, select **Generation2**.
 1. For **Virtual network**, select **VNet-hub**.
@@ -227,7 +221,6 @@ Now create the VPN gateway for the on-premises virtual network. Network-to-netwo
 4. For **Name**, type **GW-Onprem**.
 5. For **Region**, select **(US) East US**.
 6. For **Gateway type**, select **VPN**.
-7. For **VPN type**, select **Route-based**.
 8. For **SKU**, select **VpnGw2**.
 1. For **Generation**, select **Generation2**.
 1. For **Virtual network**, select **VNet-Onprem**.
@@ -243,7 +236,7 @@ Now you can create the VPN connections between the hub and on-premises gateways.
 In this step, you create the connection from the hub virtual network to the on-premises virtual network. A shared key is referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. It takes some time to create the connection.
 
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
-2. Select **Connections** in the left column.
+2. In the left column, under **Settings**, select **Connections**.
 3. Select **Add**.
 4. For the connection name, type **Hub-to-Onprem**.
 5. Select **VNet-to-VNet** for **Connection type**.
@@ -261,16 +254,18 @@ Create the on-premises to hub virtual network connection. This step is similar t
 3. Select **Add**.
 4. For the connection name, type **Onprem-to-Hub**.
 5. Select **VNet-to-VNet** for **Connection type**.
-6. For the **Second virtual network gateway**, select **GW-hub**.
-7. For **Shared key (PSK)**, type **AzureA1b2C3**.
-8. Select **OK**.
+1. Select **Next : Settings**.
+1. For the **First virtual network gateway**, select **GW-Onprem**.
+1. For the **Second virtual network gateway**, select **GW-hub**.
+1. For **Shared key (PSK)**, type **AzureA1b2C3**.
+1. Select **OK**.
 
 
 #### Verify the connection
 
-After about five minutes or so, the status of both connections should be **Connected**.
+After about five minutes or so after the second network connection is deployed, the status of both connections should be **Connected**.
 
-:::image type="content" source="media/secure-hybrid-network/gateway-connections.png" alt-text="Screenshot showing the vpn gateway connections.":::
+:::image type="content" source="media/secure-hybrid-network/gateway-connections.png" lightbox="media/secure-hybrid-network/gateway-connections.png" alt-text="Screenshot showing the vpn gateway connections.":::
 
 ## Peer the hub and spoke virtual networks
 
@@ -279,31 +274,34 @@ Now peer the hub and spoke virtual networks.
 1. Open the **FW-Hybrid-Test** resource group and select the **VNet-hub** virtual network.
 2. In the left column, select **Peerings**.
 3. Select **Add**.
-4. Under **This virtual network**:
-
-
-   |Setting name  |Value  |
-   |---------|---------|
-   |Peering link name| HubtoSpoke|
-   |Allow traffic to remote virtual network|  selected      |
-   |Allow traffic forwarded from the remote virtual network (allow gateway transit)    |   selected      |
-   |Use remote Virtual network gateway or route server    |  not selected       |
-
-5. Under **Remote virtual network**:
+1. Under **Remote virtual network summary**:
 
    |Setting name  |Value  |
    |---------|---------|
    |Peering link name | SpoketoHub|
    |Virtual network deployment model| Resource Manager|
    |Subscription|\<your subscription\>|
-   |Virtual network| VNet-Spoke
-   |Allow traffic to current virtual network     |   selected     |
-   |Allow traffic forwarded from current virtual network (allow gateway transit)    |   selected      |
-   |Use current virtual network gateway or route server    |  selected       |
+   |Virtual network| VNet-Spoke|
+   |Allow 'VNet-Spoke' to access 'VNet-hub'|selected|
+   |Allow 'VNet-Spoke' to receive forwarded traffic from 'VNet-Hub'|selected|
+   |Allow gateway or route server in 'VNet-Spoke' to forward traffic to 'VNet-Hub'| not selected|
+   |Enable 'VNet-Spoke' to use 'VNet-hub's' remote gateway or route server|selected|
+
+1. Under **Local virtual network summary**:
+
+
+   |Setting name  |Value  |
+   |---------|---------|
+   |Peering link name| HubtoSpoke|
+   |Allow 'VNet-hub' to access 'VNet-Spoke'|selected|
+   |Allow 'VNet-hub' to receive forwarded traffic from 'VNet-Spoke'|selected|
+   |Allow gateway or route server in 'VNet-Hub' to forward traffic to 'VNet-Spoke'|selected|
+   |Enable 'VNet-hub' to use 'VNet-Spoke's' remote gateway or route server| not selected|
+
 
 5. Select **Add**.
 
-   :::image type="content" source="media/secure-hybrid-network/firewall-peering.png" alt-text="Screenshot showing Vnet peering.":::
+   :::image type="content" source="media/secure-hybrid-network/firewall-peering.png" lightbox="media/secure-hybrid-network/firewall-peering.png" alt-text="Screenshot showing Vnet peering.":::
 
 ## Create the routes
 
@@ -452,7 +450,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
    Your connection should succeed, and you should be able to sign in.
 
-So now you've verified that the firewall rules are working:
+So now you verified that the firewall rules are working:
 
 <!---- You can ping the server on the spoke VNet.--->
 - You can browse web server on the spoke virtual network.

@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Service Fa
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 02/06/2024
 ---

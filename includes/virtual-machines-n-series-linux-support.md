@@ -12,9 +12,6 @@ ms.custom: include file, linux-related-content
 
 ## Supported distributions and drivers
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
 ### NVIDIA CUDA drivers
 
 For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest supported CUDA drivers for your distribution. 
@@ -26,7 +23,7 @@ For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](
 >The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. The vGPU driver for the A10 SKU is a unified driver that supports both graphics and compute workloads.
 
 > [!TIP]
-> As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
+> As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM edition for Ubuntu 16.04 LTS pre-installs NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
 
 ### NVIDIA GRID drivers

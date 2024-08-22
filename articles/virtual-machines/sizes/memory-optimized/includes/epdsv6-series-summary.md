@@ -3,7 +3,7 @@ title: Epdsv6UC-series summary include file
 description: Include file for Epdsv6UC-series summary
 author: tomvcassidy
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 05/09/2024
 ms.author: tomcassidy

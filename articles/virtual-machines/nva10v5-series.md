@@ -2,7 +2,7 @@
 title: NV A10 v5-series 
 description: Specifications for the NV A10 v5-series VMs.
 author: vikancha-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/01/2022

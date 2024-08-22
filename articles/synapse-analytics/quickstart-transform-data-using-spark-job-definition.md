@@ -4,7 +4,7 @@ description:  This tutorial provides step-by-step instructions for using Azure S
 author: juluczni
 ms.author: juluczni
 ms.reviewer: makromer
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.date: 02/15/2022

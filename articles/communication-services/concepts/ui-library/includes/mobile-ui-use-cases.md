@@ -14,10 +14,16 @@ You can use the call composite in Communication Services to create these use cas
 
 | Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Call types                                                                                | Join a Microsoft Teams meeting                                     |
-|                                                                                                 | Join a call by using a group ID   |
+| Call types                                                                                      | Join a Microsoft Teams meeting                                     |
+|                                                                                                 | Join a Microsoft Teams meeting using Meeting ID and Passcode      |
+|                                                                                                 | Join a call by using a group ID                                  |
+|                                                                                                 | Join a call by using a room  ID                                  |
+|                                                                                                 | Make and Receive 1:1 Calls                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
+|                                                                                                 | Admit/Reject lobby participants                                 |
+| Closed Captions                                                                                 | Teams interoperability                                      |
+|                                                                                                 | Group call, Rooms call, and 1:1 call                                       |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
@@ -29,10 +35,12 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
 |                                                                                                 | Enable end call confirmation dialogue                 |
+|                                                                                                 | Skip setup screen                 |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
+|                                                                                                 | CallKit and TelecomManager Support                 |
 
 ### Teams interoperability
 
@@ -43,6 +51,36 @@ For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI L
 The following figure shows an example of the user experience before a caller is added to a Teams meeting:
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
+
+### Rooms integration
+
+Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+
+A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../../rooms/room-concept.md).
+
+A user is invited to a room using the Rooms API as 1 of 3 following roles:
+
+- Presenter(default)
+- Attendee
+- Consumer
+
+The distinction between each role lies in the capabilities they possess during a room call when utilizing the `CallComposite`. The specific capabilities associated with each role are detailed [here](../../rooms/room-concept.md#predefined-participant-roles-and-permissions).
+
+:::image type="content" source="../../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
+
+> [!NOTE]
+> The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. It is important to note that the Rooms API is a back-end service that is separate from the UI Library.
+
+### Closed captions
+
+Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services Group calls, Rooms calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, **enhancing accessibility** and user experience. However, it's important to note that users need to manually select the language for captions using the UI Library out of the box, as the system doesn't automatically detect the spoken language.
+
+:::image type="content" source="mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
+
+> [!NOTE]
+>Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
+
+If you're looking more detailed information about closed captions, feel free to visit [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. Additionally, if you want to jump directly into the configuration of closed captions directly within the UI Library, you can follow our [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
 ### View shared content
 
@@ -97,6 +135,10 @@ UI Library supports picture in picture mode for call screen. While being in the 
 ### CallKit support
 
 UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
+
+### TelecomManager support
+
+The UI Library now supports integration with the TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecommanager.md)
 
 ### One-to-one call and PUSH notification support
 

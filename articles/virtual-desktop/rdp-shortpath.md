@@ -1,35 +1,37 @@
 ---
 title: RDP Shortpath - Azure Virtual Desktop
-description: Learn about RDP Shortpath for Azure Virtual Desktop, which establishes a UDP-based transport between a Remote Desktop client and session host.
-author: dknappettmsft
-ms.topic: conceptual
-ms.date: 02/02/2023
-ms.author: daknappe
+description: Learn about RDP Shortpath, which establishes a UDP-based transport between a local device and session host in Azure Virtual Desktop.
+ms.topic: concept-article
 ms.custom: references_regions
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 06/17/2024
 ---
+
 # RDP Shortpath for Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Using RDP Shortpath for public networks with TURN for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+RDP Shortpath establishes a direct UDP-based transport between a local device Windows App or the Remote Desktop app on supported platforms and session host in Azure Virtual Desktop.
 
-Connections to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP). RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. By default, Remote Desktop Protocol (RDP) tries to establish connection using UDP and uses a TCP-based reverse connect transport as a fallback connection mechanism. TCP-based reverse connect transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. UDP-based transport offers better connection reliability and more consistent latency.
+By default, the Remote Desktop Protocol (RDP) tries to establish a remote session using UDP and uses a TCP-based reverse connect transport as a fallback connection mechanism. UDP-based transport offers better connection reliability and more consistent latency. TCP-based reverse connect transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections.
 
 RDP Shortpath can be used in two ways:
 
-1. **Managed networks**, where direct connectivity is established between the client and the session host when using a private connection, such as a virtual private network (VPN).
+1. **Managed networks**, where direct connectivity is established between the client and the session host when using a private connection, such as a virtual private network (VPN). A connection using a managed network is established in one of the following ways:
+
+   1. A *direct* UDP connection between the client device and session host, where you need to enable the RDP Shortpath listener and allow an inbound port on each session host to accept connections.
+   
+   1. A *direct* UDP connection between the client device and session host, using the Simple Traversal Underneath NAT (STUN) protocol between a client and session host. Inbound ports on the session host aren't required to be allowed.
 
 1. **Public networks**, where direct connectivity is established between the client and the session host when using a public connection. There are two connection types when using a public connection, which are listed here in order of preference:
 
    1. A *direct* UDP connection using the Simple Traversal Underneath NAT (STUN) protocol between a client and session host.
    
-   1. An *indirect* UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host. This is in preview.
+   1. An *indirect* UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host. 
 
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
->
-> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
+> RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ## Key benefits
 
@@ -156,7 +158,7 @@ If your environment uses Symmetric NAT, which is the mapping of a single private
 
 Where users have RDP Shortpath for both managed network and public networks is available to them, then the first algorithm found will be used. The user will use whichever connection gets established first for that session. For more information, see [Example scenarios](#example-scenarios).
 
-#### TURN availability (preview)
+#### TURN availability
 
 TURN is available in the following Azure regions:
 
@@ -199,7 +201,7 @@ TURN is available in the following Azure regions:
 
 ### Teredo support
 
-While not required for RDP Shortpath, Teredo adds extra NAT traversal candidates and increases the chance of the successful RDP Shortpath connection in IPv4-only networks. To learn how to enable Teredo on session hosts and clients, see [Teredo support](configure-rdp-shortpath.md#teredo-support).
+While not required for RDP Shortpath, Teredo adds extra NAT traversal candidates and increases the chance of the successful RDP Shortpath connection in IPv4-only networks. To learn how to enable Teredo on session hosts and clients, see [Enable Teredo support](configure-rdp-shortpath.md#optional-enable-teredo-support).
 
 ### UPnP support
 

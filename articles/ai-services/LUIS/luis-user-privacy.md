@@ -21,9 +21,9 @@ ms.date: 01/19/2024
 Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​
-Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true).
+Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [Azure portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](/rest/api/luis/operation-groups).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Customer content is stored encrypted in Microsoft regional Azure storage and includes:
 
@@ -38,7 +38,7 @@ LUIS users have full control to delete any user content, either through the LUIS
 | | **User Account** | **Application** | **Example Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](how-to/sign-in.md) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Active learning utterances](how-to/improve-application.md)<br>[Logged Utterances](luis-concept-data-storage.md#disable-logging-utterances) |
-| **APIs** | [Link](/rest/api/cognitiveservices-luis/authoring/azure-accounts/remove-from-app?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/apps/delete?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/examples/delete?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/versions/delete-unlabelled-utterance?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) |
+| **APIs** | [Link](/rest/api/luis/azure-accounts/remove-from-app) | [Link](/rest/api/luis/apps/delete) | [Link](/rest/api/luis/examples/delete) | [Link](/rest/api/luis/versions/delete-unlabelled-utterance) |
 
 
 ## Exporting customer data
@@ -46,7 +46,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 | | **User Account** | **Application** | **Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
-| **APIs** | [Link](/rest/api/cognitiveservices-luis/authoring/azure-accounts/list-user-luis-accounts?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/versions/export?view=rest-cognitiveservices-luis-authoring-v2.0&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/examples/list?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) | [Link](/rest/api/cognitiveservices-luis/authoring/apps/download-query-logs?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) |
+| **APIs** | [Link](/rest/api/luis/azure-accounts/list-user-luis-accounts) | [Link](/rest/api/luis/versions/export) | [Link](/rest/api/luis/examples/list) | [Link](/rest/api/luis/apps/download-query-logs) |
 
 ## Location of active learning
 

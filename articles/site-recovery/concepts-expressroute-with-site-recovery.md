@@ -4,7 +4,7 @@ description: Describes how to use Azure ExpressRoute with the Azure Site Recover
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: ankitadutta

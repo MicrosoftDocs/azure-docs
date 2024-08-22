@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - Azure PowerShell'
 description: In this quickstart, you learn how to create a private endpoint using Azure PowerShell.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 02/26/2024
 ms.author: abell
@@ -89,7 +89,7 @@ New-AzResourceGroup @rg
 Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
 
 >[!NOTE]
->[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named **AzureBastionSubnet**.
 
@@ -334,7 +334,7 @@ New-AzVM -ResourceGroupName 'test-rg' -Location 'eastus2' -VM $vmConfig
 >[!NOTE]
 >Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test connectivity to the private endpoint
 

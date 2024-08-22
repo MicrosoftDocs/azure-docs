@@ -3,7 +3,7 @@ title: States and billing status
 description: Learn about the provisioning and power states that a virtual machine can enter. Provisioning and power states affect billing. 
 services: virtual-machines
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/31/2023

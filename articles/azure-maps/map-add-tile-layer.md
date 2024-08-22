@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/08/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a tile layer to a map

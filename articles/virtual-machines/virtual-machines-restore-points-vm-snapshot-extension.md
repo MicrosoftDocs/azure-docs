@@ -3,7 +3,7 @@ title: VM Snapshot extension using VM restore points
 description: VM Snapshot extension using VM restore points
 author: aarthiv
 ms.author: aarthiv
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
 ms.date: 11/2/2023

@@ -1,13 +1,10 @@
 ---
  title: include file
- description: include file
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/08/2022
  ms.author: spelluru
- ms.custom: include file
 ---
 
 ## Available event types

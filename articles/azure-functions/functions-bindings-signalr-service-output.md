@@ -496,7 +496,7 @@ The following example adds a user to a group.
 
 ```javascript
 module.exports = async function (context, req) {
-  context.bindings.signalRGroupActions = [{
+  context.bindings.signalROutput = [{
     "userId": req.query.userId,
     "groupName": "myGroup",
     "action": "add"
@@ -508,7 +508,7 @@ The following example removes a user from a group.
 
 ```javascript
 module.exports = async function (context, req) {
-  context.bindings.signalRGroupActions = [{
+  context.bindings.signalROutput = [{
     "userId": req.query.userId,
     "groupName": "myGroup",
     "action": "remove"

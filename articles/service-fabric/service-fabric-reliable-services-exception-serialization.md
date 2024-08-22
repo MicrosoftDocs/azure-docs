@@ -4,7 +4,7 @@ description: Enable data contract serialization for remoting exceptions in Azure
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

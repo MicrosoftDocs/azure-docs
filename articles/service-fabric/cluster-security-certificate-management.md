@@ -4,7 +4,7 @@ description: Learn about managing certificates in a Service Fabric cluster that'
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -102,11 +102,11 @@ Certificate issuance and provisioning flow are illustrated in the following diag
 
 ### Certificate enrollment
 
-The topic of certificate enrollment is covered in detail in the [Key Vault documentation](../key-vault/certificates/create-certificate.md). A synopsis is included here for continuity and easier reference. 
+The topic of certificate enrollment is covered in detail in the [Key Vault documentation](/azure/key-vault/certificates/create-certificate). A synopsis is included here for continuity and easier reference. 
 
 Continuing with Azure as the context, and using Key Vault as the secret-management service, an authorized certificate requester must have at least certificate management permissions on the key vault, granted by the key vault owner. The requester then enrolls into a certificate as follows:
 
-- The requester creates a certificate policy in Key Vault, which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage, and more. For more information, see [Certificates in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md). 
+- The requester creates a certificate policy in Key Vault, which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage, and more. For more information, see [Certificates in Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios). 
 
 - The requester creates a certificate in the same vault with the policy that's specified in the preceding step. This, in turn, generates a key pair as vault objects and a certificate signing request that's signed with the private key, which is then forwarded to the designated issuer for signing.
 

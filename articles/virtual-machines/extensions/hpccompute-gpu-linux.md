@@ -3,20 +3,17 @@ title: NVIDIA GPU Driver Extension - Azure Linux VMs
 description: Microsoft Azure extension for installing NVIDIA GPU drivers on N-series compute VMs running Linux.
 services: virtual-machines
 manager: gwallace
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.date: 07/28/2023
+ms.date: 07/25/2024
 ms.author: jushiman
 author: ju-shim
 ---
 # NVIDIA GPU Driver Extension for Linux
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This extension installs NVIDIA GPU drivers on Linux N-series virtual machines (VMs). Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers by using this extension, you're accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/). During the installation process, the VM might reboot to complete the driver setup.
 
@@ -39,7 +36,6 @@ This extension supports the following OS distros, depending on driver support fo
 |---|---|
 | Linux: Ubuntu | 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.9 |
-| Linux: CentOS | 7 |
 
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.

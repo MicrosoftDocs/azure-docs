@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Azure Monitor customer-managed key 
 
-Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor give you greater flexibility to manage access controls to logs. Once configure, new data ingested to linked workspaces gets encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md), or [Azure Key Vault Managed "HSM"](../../key-vault/managed-hsm/overview.md). 
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor give you greater flexibility to manage access controls to logs. Once configure, new data ingested to linked workspaces gets encrypted with your key stored in [Azure Key Vault](/azure/key-vault/general/overview), or [Azure Key Vault Managed "HSM"](/azure/key-vault/managed-hsm/overview). 
 
 Review [limitations and constraints](#limitationsandconstraints) before configuration.
 
@@ -18,7 +18,7 @@ Review [limitations and constraints](#limitationsandconstraints) before configur
 
 [Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage encryption at rest, while you have various options to closely manage encryption and encryption keys.
 
-Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You can encrypt data using your own key in [Azure Key Vault](../../key-vault/general/overview.md), for control over the key lifecycle, and ability to revoke access to your data. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You can encrypt data using your own key in [Azure Key Vault](/azure/key-vault/general/overview), for control over the key lifecycle, and ability to revoke access to your data. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
 
 Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data is encrypted in storage twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different [encryption algorithms](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. Dedicated cluster also lets you protect data with [Lockbox](#customer-lockbox).
 
@@ -75,7 +75,7 @@ Customer-managed key configuration isn't supported in Azure portal currently and
 
 ## Storing encryption key ("KEK")
 
-A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-control-data.md#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
+A [portfolio of Azure Key Management products](/azure/key-vault/managed-hsm/mhsm-control-data#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
 
 Create or use an existing Azure Key Vault in the region that the cluster is planed. In your Key vault, generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both **Soft delete** and **Purge protection** should be enabled.
 <!-- convertborder later -->
@@ -83,8 +83,8 @@ Create or use an existing Azure Key Vault in the region that the cluster is plan
 
 These settings can be updated in Key Vault via CLI and PowerShell:
 
-- [Soft Delete](../../key-vault/general/soft-delete-overview.md)
-- [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) guards against force deletion of the secret, vault even after soft delete
+- [Soft Delete](/azure/key-vault/general/soft-delete-overview)
+- [Purge protection](/azure/key-vault/general/soft-delete-overview#purge-protection) guards against force deletion of the secret, vault even after soft delete
 
 ## Create cluster
 
@@ -439,8 +439,8 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
 - Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
 - The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
-  - [Soft Delete](../../key-vault/general/soft-delete-overview.md).
-  - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) should be turned on to guard against force deletion of the secret, vault even after soft delete.
+  - [Soft Delete](/azure/key-vault/general/soft-delete-overview).
+  - [Purge protection](/azure/key-vault/general/soft-delete-overview#purge-protection) should be turned on to guard against force deletion of the secret, vault even after soft delete.
 
 - Your Azure Key Vault, cluster and workspaces must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions.
 
@@ -479,7 +479,7 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
   -  400 — Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
   -  400 — KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
   -  400 — Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and Access Policy](#grant-key-vault-permissions) in Key Vault.
-  -  400 — Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
+  -  400 — Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](/azure/key-vault/general/soft-delete-overview)
   -  400 — Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 — Cluster is in deleting state. Wait for the Async operation to complete and try again.
 

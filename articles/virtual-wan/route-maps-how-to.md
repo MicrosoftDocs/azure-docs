@@ -3,7 +3,7 @@ title: 'Configure Route-maps for virtual hubs'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Route-maps for Virtual WAN virtual hubs.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/04/2024
 ms.author: cherylmc

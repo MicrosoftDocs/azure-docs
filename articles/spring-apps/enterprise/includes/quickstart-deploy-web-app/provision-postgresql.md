@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: xiada
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 08/31/2023
 ---

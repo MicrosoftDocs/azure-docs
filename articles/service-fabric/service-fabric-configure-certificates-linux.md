@@ -4,7 +4,7 @@ description: Configure certificates for your app with the Service Fabric runtime
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
