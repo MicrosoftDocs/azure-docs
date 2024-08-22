@@ -18,7 +18,7 @@ You can easily adjust the amount of allocated credit within each subscription or
 
 ## Prerequisites
 
-To access Azure Classroom, you must first receive an email notification that confirms your approval for an academic sponsorship and contains your approved credit amount. After you have signed in, you can navigate to the Education Hub in the Azure Portal.
+To access Azure Classroom, you must first receive an email notification that confirms your approval for an academic sponsorship and contains your approved credit amount. After you have signed in, you can navigate to the Education Hub in the Azure portal.
 
 ## Related content
 
