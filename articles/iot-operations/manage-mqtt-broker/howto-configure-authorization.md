@@ -143,6 +143,8 @@ To set up authorization for clients that use the DSS, provide the following perm
 - Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
 - Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
 
+For more information about DSS authorization, see [state store keys](https://github.com/Azure/iotedge-broker/blob/main/docs/authorization/readme.md#state-store-keys).
+
 ## Update authorization
 
 Broker authorization resources can be updated at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
