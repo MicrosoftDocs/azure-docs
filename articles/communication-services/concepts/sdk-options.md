@@ -85,7 +85,7 @@ The Android ecosystem is extensive, encompassing various versions and specialize
 > [!NOTE]
 > We offer full support for **audio-only** calls across various platforms and devices, with comprehensive support available for phones and tablets. For **video calls**, support is more limited and may depend on the specific platform or device, with video resolutions capped at 360p in some cases. If your use case involves a device or platform outside of standard phones and tablets (e.g., smart glasses, custom IoT devices), we recommend connecting with us early in your development process so we can guide you on the best integration approach and any potential workarounds.
 
-In case that you found issues during your implementation we encourage you to vist [the troubleshooting guide](./troubleshooting-info.md/#accessing-support-files-in-the-calling-sdk).
+In case that you found issues during your implementation we encourage you to vist [the troubleshooting guide](./troubleshooting-info.md?#accessing-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 
