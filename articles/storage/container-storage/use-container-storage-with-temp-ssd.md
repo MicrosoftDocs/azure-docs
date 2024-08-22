@@ -27,7 +27,7 @@ Due to the ephemeral nature of these disks, Azure Container Storage supports the
 
 ## Choose a VM type that supports temp SSD
 
-Ephemeral Disk is only available in certain types of VMs. Make sure you choose a VM type with temp SSD, such as a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md).
+Ephemeral Disk is only available in certain types of VMs. Make sure you choose a VM type with temp SSD, such as a [Ev3 and Esv3-series VM](/azure/virtual-machines/ev3-esv3-series).
 
 You can run the following command to get the VM type that's used with your node pool.
 
