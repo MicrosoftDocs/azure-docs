@@ -1,66 +1,60 @@
 ---
 title: Managed API linting and analysis - Azure API Center
-description: Configure managed linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
+description: Enable managed linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 08/21/2024
 ms.author: danlep
 author: dlepow
 ms.custom: 
-# Customer intent: As an API developer or API program manager, I want to lint the API definitions in my organization's API center and analyze whether my APIs comply with my organization's API style guide.
+# Customer intent: As an API developer or API program manager, I want to analyze the API definitions in my organization's API center for compliance with my organization's API style guide.
 ---
 
-# Enable managed linting and analysis for API governance in your API center
+# Enable API analysis in your API center - Microsoft managed
 
-This article explains how to enable a managed linting capability (preview) to analyze API definitions in your organization's [API center](overview.md). Linting checks your APIs against your organization's style rules and generates both individual and summary reports. Use this tool to find and fix common errors and inconsistencies in your API definitions.
+This article explains how to enable API analysis in [Azure API Center](overview.md) without having to manage it yourself (preview). API analysis offers linting capabilities to analyze API definitions within your organization's API center. Linting ensures your API definitions adhere to organizational style rules, generating both individual and summary reports. Use API analysis to identify and correct common errors and inconsistencies in your API definitions.
 
 > [!NOTE]
-> With managed linting and analysis, API Center sets up a linting engine and any required dependencies and triggers. You can also configure linting and analysis [manually](enable-api-analysis-linting.md). Currently, managed linting in API Center is in preview.
+> With managed linting and analysis, API Center sets up a linting engine and any required dependencies and triggers. You can also enable linting and analysis [manually](enable-api-analysis-linting.md). 
 
 In this scenario:
 
 1. Add a linting ruleset (API style guide) in your API center using the Visual Studio Code extension for Azure API Center.
-1. Linting automatically runs on existing, new, or updated API definitions, and when a linting ruleset is added or updated.
+1. Linting automatically runs when you add or update an API definition. It's also triggered for all API definitions when you deploy a ruleset to your API center.
 1. Review API analysis reports in the Azure portal to see how your API definitions conform to the style guide.
 
 ## Limitations
 
-* Linting currently supports only JSON or YAML specification files, such as OpenAPI or AsyncAPI specification documents.
-* Currently, only a single ruleset can be configured, and it's applied to all APIs in your API center.
-* By default, API linting and analysis are configured using the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To extend the ruleset or create custom API style guides, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md).
+* Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
+* By default, you enable analysis with the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To extend the ruleset or create custom API style guides, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md).
+* Currently, you configure a single ruleset, and it's applied to all APIs in your API center.
 
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
-* One or more APIs in your API center. If you haven't registered an API yet, see [Tutorial: Register APIs in your API inventory](register-apis.md).
 * [Visual Studio Code](https://code.visualstudio.com/) 
 
 * The following Visual Studio Code extensions:
     * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
-    
+    * [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
+
     > [!NOTE]
-    > Currently, managed API analysis and linting are only available in the extension's pre-release version. When installing the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview), you can choose to install the release version or a pre-release version. Switch between the release and pre-release versions at any time by using the extension's **Manage** button context menu in the Extensions view.
+    > Enable managed API analysis using the API Center extension's pre-release version. Install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview) and choose the pre-release version. Switch between release and pre-release versions any time via the extension's **Manage** button in the Extensions view.
     
-    * [Spectral Linter for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
-    
-## Enable analysis of API definitions
+## Enable API analysis using Visual Studio Code
 
-To enable analysis of API definitions in your API center, first add a linting ruleset. The ruleset defines the API style guide that the linting engine uses to analyze API definitions. Currently, you use the Visual Studio Code extension for Azure API Center to add the ruleset.
-
-
-To enable analysis using the default linting ruleset:
+To enable API analysis using the default linting ruleset:
 
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
 1. In the Explorer pane, expand the API center resource in which to enable managed linting and analysis.
-1. Select **Rules** and select the message that appears.
+1. Right-click **Rules** and select **Enable API Analysis**.
 
 :::image type="content" source="media/enable-managed-api-analysis-linting/enable-analysis-visual-studio-code.png" alt-text="Screenshot of enabling API linting and analysis in Visual Studio Code.":::
 
-A message notifies you after API analysis is successfully enabled. The following are installed:
+A message notifies you after API analysis is successfully enabled. The following are installed locally in the `.api-center-rules` folder:
  
-* A `ruleset.yml` file that defines the default linting rules
+* A `ruleset.yml` file that defines the default API style guide used by the linting engine
 * A `functions` folder with an example custom function that you can use to extend the ruleset. 
-
 
 With analysis enabled, the linting engine analyzes API definitions in your API center based on the default ruleset and generates API analysis reports.
 
@@ -111,8 +105,4 @@ View the API analysis reports in the portal to see the results of linting with t
 
 ## Related content
 
-Learn more about Event Grid:
-
-* [System topics in Azure Event Grid](../event-grid/system-topics.md)
-* [Event Grid push delivery - concepts](../event-grid/concepts.md)
-* [Event Grid schema for Azure API Center](../event-grid/event-schema-api-center.md)
+* [Enable API analysis in your API center - self-managed](enable-api-analysis-linting.md)
