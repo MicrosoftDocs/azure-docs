@@ -180,15 +180,20 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The improved exports experience currently has the following limitations.
 
-- The new exports experience doesn't fully support the management group scope and it has feature limitations.
+- The new exports experience doesn't fully support the management group scope, and it has feature limitations.
+
 - Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
 ## FAQ
 
-Why is file partitioning enabled in exports? 
+#### Why is file partitioning enabled in exports? 
 
 The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file. 
+
+#### How does the enhanced export experience handle missing attributes like subscription IDs?
+
+In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
 
 ## Next steps
 

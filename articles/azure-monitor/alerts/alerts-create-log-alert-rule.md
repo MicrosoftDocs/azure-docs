@@ -199,7 +199,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab for creating a new log search alert rule.":::
 
-1. (Optional) In the **Advanced options** section, you can set several options:
+1. (Optional) In the <a name="advanced"></a>**Advanced options** section, you can set several options:
 
     |Field |Description |
     |---------|---------|

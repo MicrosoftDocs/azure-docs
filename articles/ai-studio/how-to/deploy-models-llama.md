@@ -16,6 +16,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Meta Llama chat models
 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 In this article, you learn about Meta Llama chat models and how to use them.
 Meta Llama 2 and 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF).
 

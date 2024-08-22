@@ -1,14 +1,14 @@
 ---
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2024
 ms.reviewer: ryankahng
 ---
 
 # Enable Profiler for Azure App Service apps
 
-[Application Insights Profiler](./profiler-overview.md) is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher. Follow these steps, even if you included the Application Insights SDK in your application at build time.
+[Application Insights Profiler](./profiler-overview.md) is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher.
 
 Codeless installation of Application Insights Profiler:
 - Follows [the .NET Core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
@@ -37,7 +37,9 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
 ## Enable Application Insights and Profiler
 
-The following sections show you how to enable Application Insights for the same subscription or different subscriptions.
+You can enable Profiler either when:
+- [Your Application Insights resource and App Service resource are in the same subscription](#for-application-insights-and-app-service-in-the-same-subscription), or
+- [Your Application Insights resource and App Service resource are in separate subscriptions.](#for-application-insights-and-app-service-in-different-subscriptions)
 
 ### For Application Insights and App Service in the same subscription
 
