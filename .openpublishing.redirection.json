@@ -1321,16 +1321,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/create-website.md",
-      "redirect_url": "/azure/cosmos-db/sql/create-website",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
-      "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/nat-gateway/nat-metrics.md",
       "redirect_url": "/azure/nat-gateway/monitor-nat-gateway",
       "redirect_document_id": true
