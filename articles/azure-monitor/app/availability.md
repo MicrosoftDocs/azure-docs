@@ -49,7 +49,7 @@ There are four types of availability tests:
 
 1. Go to your Application Insights resource and open the **Availability** experience.
 
-1. Select **Add Standard test**.
+1. Select **Add Standard test** from the top navigation bar.
 
     :::image type="content" source="media/availability/add-standard-test.png" alt-text="Screenshot that shows the Availability experience with the Add Standard test tab open." lightbox="media/availability/add-standard-test.png":::
 
@@ -377,8 +377,6 @@ To see the end-to-end transaction details, under **Drill into**, select **Succes
 
 To edit, temporarily disable, or delete a test, open the context menu (ellipsis) by the test, then select **Edit**. It might take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
-:::image type="content" source="media/availability/edit-test.png" alt-text="Screenshot that shows the context menu to Edit, Disable, and Delete web tests.":::
-
 > [!TIP]
 > You might want to disable availability tests or the alert rules associated with them while you're performing maintenance on your service.
 
@@ -585,7 +583,7 @@ The SLA workbook template can be accessed from your Application Insights resourc
 
 The parameters set in the workbook influence the rest of your report.
 
-:::image type="content" source="media/sla-report/parameters.png" alt-text=" Screenshot that shows parameters." lightbox= "media/sla-report/parameters.png":::
+:::image type="content" source="media/availability/workbook-parameters.png" alt-text=" Screenshot that shows parameters." lightbox= "media/sla-report/parameters.png":::
 
 * `Subscriptions`, `App Insights Resources`, and `Web Test`: These parameters determine your high-level resource options. They're based on Log Analytics queries and are used in every report query.
 * `Failure Threshold` and `Outage Window`: You can use these parameters to determine your own criteria for a service outage. An example is the criteria for an Application Insights availability alert based on a failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
@@ -600,11 +598,7 @@ The overview page contains high-level information about your:
 * End-to-end outage instances
 * Application downtime
 
-Outage instances are determined from the moment a test begins to fail until it successfully passes again, according to your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage.
-
-:::image type="content" source="media/sla-report/overview.png" alt-text="Screenshot that shows an overview page showing the Overview Table by Test." lightbox="media/sla-report/overview.png":::
-
-You can also investigate the longest outage that occurred over your reporting period.
+Outage instances are determined from the moment a test begins to fail until it successfully passes again, according to your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage. You can also investigate the longest outage that occurred over your reporting period.
 
 Some tests are linkable back to their Application Insights resource for further investigation. But that's only possible in the [workspace-based Application Insights resource](create-workspace-resource.md).
 
