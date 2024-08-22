@@ -368,9 +368,9 @@ sapcontrol -nr <instance number> -function StopSystem
 2. **[A]** Install the HANA system replication hooks. The hooks must be installed on both HANA database nodes.
 
    > [!TIP]
-   > The SAPHanaSR Python hook can be implemented only for HANA 2.0. The SAPHanaSR package must be at least version 0.153. 
-   > The SAPHanaSR-angi Python hook can be implemented only for HANA 2.0 SPS 05 and later. 
-   > The susChkSrv Python hook requires SAP HANA 2.0 SPS 05, and SAPHanaSR version 0.161.1_BF or later must be installed. 
+   > The SAPHanaSR Python hook can be implemented only for HANA 2.0. The SAPHanaSR package must be at least version 0.153.  
+   > The SAPHanaSR-angi Python hook can be implemented only for HANA 2.0 SPS 05 and later.  
+   > The susChkSrv Python hook requires SAP HANA 2.0 SPS 05, and SAPHanaSR version 0.161.1_BF or later must be installed.  
 
    #### [SAPHanaSR](#tab/saphanasr)
 
@@ -400,6 +400,7 @@ sapcontrol -nr <instance number> -function StopSystem
 
       Run the following command as root. Replace \<sid\> by lowercase SAP system ID, \<SID\> by uppercase SAP system ID and \<siteA/B\> with HANA site names chosen.
 
+      ```bash
       cat << EOF > /etc/sudoers.d/20-saphana
       # Needed for SAPHanaSR and susChkSrv Python hooks
       Cmnd_Alias SOK_SITEA      = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SOK   -t crm_config -s SAPHanaSR
@@ -452,7 +453,7 @@ sapcontrol -nr <instance number> -function StopSystem
       Cmnd_Alias SOK_SITEB    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SOK   -t crm_config -s SAPHanaSR
       Cmnd_Alias SFAIL_SITEB  = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SFAIL -t crm_config -s SAPHanaSR
       Cmnd_Alias HELPER_TAKEOVER  = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=checkTakeover
-      Cmnd_Alias HELPER_FENCE    = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=fenceMe
+      Cmnd_Alias HELPER_FENCE     = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=fenceMe
       
       <sid>adm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HELPER_TAKEOVER, HELPER_FENCE
       EOF
@@ -528,14 +529,18 @@ sudo crm configure clone cln_SAPHanaTopology_<HANA SID>_HDB<instance number> rsc
 ### [SAPHanaSR-angi](#tab/saphanasr-angi)
 
 Run the following commands on one of the Pacemaker cluster nodes:
+
 ```bash
 sudo crm configure property maintenance-mode=true
+
 # Replace <placeholders> with your instance number and HANA system ID
+
 sudo crm configure primitive rsc_SAPHanaTopology_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaTopology \
   op monitor interval="50" timeout="600" \
   op start interval="0" timeout="600" \
   op stop interval="0" timeout="300" \
   params SID="<HANA SID>" InstanceNumber="<instance number>"
+
 sudo crm configure clone cln_SAPHanaTopology_<HANA SID>_HDB<instance number> rsc_SAPHanaTopology_<HANA SID>_HDB<instance number> \
   meta clone-node-max="1" interleave="true"
 ```
@@ -589,14 +594,14 @@ sudo crm configure primitive rsc_SAPHanaCon_<HANA SID>_HDB<instance number> ocf:
   params SID="<HANA SID>" InstanceNumber="<instance number>" PREFER_SITE_TAKEOVER="true" \
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \
   meta priority=100
+
 sudo crm configure clone mst_SAPHanaCon_<HANA SID>_HDB<instance number> rsc_SAPHanaCon_<HANA SID>_HDB<instance number> \
   meta clone-node-max="1" interleave="true" promotable="true"
 ```
 
 SAPHanaSR-angi adds a new resource agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. OS static mounts the /hana/shared/SID filesystem with each host having entries in /etc/fstab. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA.
 
-> [!NOTE]
-> We recommend implementing SAPHanaFilesystem if using NFS for /hana/shared/SID location. When /hana/shared/SID is located on a block device, such as Azure managed disk, the use of  SAPHanaFilesystem is optional. 
+We recommend implementing SAPHanaFilesystem if using NFS for /hana/shared/SID location. When /hana/shared/SID is located on a block device, such as Azure managed disk, the use of  SAPHanaFilesystem is optional.
 
 ```bash
 # Replace <placeholders> with your instance number and HANA system ID. 
@@ -605,6 +610,7 @@ sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:
   op stop interval="0" timeout="20" \
   op monitor interval="120" timeout="120" \
   params SID="<HANA SID>" InstanceNumber="<instance number>" ON_FAIL_ACTION="fence"
+
 sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPHanaFil_<HANA SID>_HDB<instance number> \
   meta clone-node-max="1" interleave="true"
 ```
@@ -612,7 +618,7 @@ sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPH
 ---
 
 3. **[1]** Continue with cluster resources for virtual IPs, defaults, and constraints.
-1. 
+
 ### [SAPHanaSR](#tab/saphanasr)
 
 ```bash
@@ -650,6 +656,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
 ```bash
 # Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
+  meta target-role="Started" \
   op monitor interval="10s" timeout="20s" \
   params ip="<front-end IP address>"
 
@@ -871,6 +878,7 @@ Resource                      promotable
 -----------------------------------------
 mst_SAPHanaCon_HN1_HDB03      true
 cln_SAPHanaTopology_HN1_HDB03
+
 Site        lpt        lss mns      opMode    srHook srMode srPoll srr
 -----------------------------------------------------------------------
 SITE1       1722604101 4   hn1-db-0 logreplay PRIM   sync   PRIM   P
