@@ -412,7 +412,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 
 Use the `addParticipants` method to add participants to the thread.
 
-- `communicationIdentifier`, required, is the `CommunicationIdentifier` you created using `CommunicationIdentityClient` in the [User Access Token](../../quickstart/identity/access-tokens.md) quickstart.
+- `communicationIdentifier`, required, is the `CommunicationIdentifier` you created using `CommunicationIdentityClient` in the [User Access Token](../../quickstarts/identity/access-tokens.md) quickstart.
 - `displayName`, optional, is the display name for the thread participant.
 - `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 

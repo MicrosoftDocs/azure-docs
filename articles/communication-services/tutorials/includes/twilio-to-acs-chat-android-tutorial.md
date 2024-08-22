@@ -13,10 +13,10 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+1. Create an Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-3. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
-4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+3. Create an Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
+4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
@@ -54,7 +54,7 @@ The following classes handle some of the major features of the Azure Communicati
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| `ChatClient` | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| `ChatClient` | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get, and delete threads. |
 | `ChatThreadClient` | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get participants, send typing notifications and read receipts. |
 
 ## Create a chat client
@@ -95,7 +95,7 @@ var conversation = ConversationResource.Create(
 
 In Azure Communication Services, you create a thread, which is equivalent to a conversation in Twilio.
 
-Use the `createChatThread` method on the chatClient to create a chat thread
+To create a chat thread, use the `createChatThread` method on the chatClient:
 - Use `topic` to give a topic to this chat; you can update the `topic` after the chat thread is created using the `UpdateTopic` function.
 - Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. Initialize the `ChatParticipant` object with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you need to pass an Access ID created following the instructions to [Create a user](../../quickstarts/identity/access-tokens.md#create-an-identity).
 
@@ -214,13 +214,13 @@ var message = MessageResource.Create(
 
 #### Azure Communication Services
 
-Unlike Twilio, Azure Communication Services does not have a separate function to send text messages or media.
+Unlike Twilio, Azure Communication Services doesn't have a separate function to send text messages or media.
 
 Use `SendMessage` to send a message to a thread.
-- Use `content` to provide the content for the message, it's required.
+- Use `content`, required, to provide the content for the message.
 - Use `type` for the content type of the message such as `Text` or `Html`. If not specified, `Text` is the default.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string is the default.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message function and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in the metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include other data you want to send along with the message. This field provides a mechanism for developers to extend chat message function and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in the metadata so that recipient's application can parse that and display accordingly.
 
 ```csharp
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
@@ -268,7 +268,7 @@ The following code snippet shows how to receive a media file.
 
 #### Azure Communication Services
 
-Unlike Twilio, Azure Communication Services does not have a separate function to receive text messages or media.
+Unlike Twilio, Azure Communication Services doesn't have a separate function to receive text messages or media.
 
 Azure Communication Services Chat enables you to subscribe to events directly within the application.
 
@@ -282,11 +282,11 @@ await foreach (ChatMessage message in allMessages)
 }
 ```
 
-`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you receive messages that were received, updated, or deleted after it. Note that messages received before the offset time but edited or removed after it are also be returned.
+`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you receive messages that were received, updated, or deleted after it. Messages received before the offset time but edited or removed after it are also returned.
 
 `GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. You can access the original time of message creation using `chatMessage.CreatedOn`, and use it for ordering the messages.
 
-`GetMessages` returns different types of messages which can be identified by `chatMessage.Type`. These types are:
+`GetMessages` returns different types of messages, which you can identify by `chatMessage.Type`. These types are:
 
 - `Text`: Regular chat message sent by a thread member.
 
@@ -390,7 +390,7 @@ await foreach (ChatParticipant participant in allParticipants)
 ```
 
 #### Azure Communication Services 
-Use `SendReadReceipt` to notify other participants that the message is read by the user.
+Use `SendReadReceipt` to notify other participants that the user read the message.
 
 ```csharp
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);

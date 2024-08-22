@@ -301,7 +301,7 @@ console.log(`Message sent!, message id:${messageId}`);
 
 ### Receive chat messages from a chat thread
 
-Unlike Twilio, Azure Communication Services doesn't have separate functions to receive text messages or media. Azure Communication Services uses Azure Event Grid to handle events. For more information, see [Event Handling](/azure/event-grid/event-schema-communication-services.md).
+Unlike Twilio, Azure Communication Services doesn't have separate functions to receive text messages or media. Azure Communication Services uses Azure Event Grid to handle events. For more information, see [Event Handling](/azure/event-grid/event-schema-communication-services).
 
 #### Twilio
 

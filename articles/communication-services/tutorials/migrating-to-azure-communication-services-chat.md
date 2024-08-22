@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: chat
 ms.custom: template-how-to
-zone_pivot_groups: acs-js-swift-android-
+zone_pivot_groups: acs-migrate-twilio
 ---
 
 # Migrate from Twilio Conversations Chat to Azure Communication Services
@@ -37,6 +37,7 @@ Migrating might involve not just replacing API calls but also rethinking how you
 ## Key features available in Azure Communication Services Chat SDK
 
 | **Feature** | **JavaScript SDK** | **iOS SDK** | **Android SDK** | **.NET SDK** | **Java SDK** | **Python SDK** |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Install** | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | **Import** | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | **Auth** | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -89,8 +90,8 @@ Migrating might involve not just replacing API calls but also rethinking how you
 |                   | Send Unicode emojis as part of message content                                                   | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Add metadata to chat messages                                                                    | ❌   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Add display name to typing indicator notification                                                | ❌   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
-|Real-time notifications (enabled by proprietary signaling package**)|  Chat clients can subscribe to get real-time updates for incoming messages and other operations occurring in a chat thread. To see a list of supported updates for real-time notifications, see [Chat concepts](concepts.md#real-time-notifications)                                     | ❌   | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
-|Mobile push notifications with Notification Hub |  The Chat SDK provides APIs allowing clients to be notified for incoming messages and other operations occurring in a chat thread by connecting an Azure Notification Hub to your Communication Services resource. In situations where your mobile app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users, see [Chat concepts](concepts.md#push-notifications).                                     | ❌   | ❌   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
+|Real-time notifications (enabled by proprietary signaling package**)|  Chat clients can subscribe to get real-time updates for incoming messages and other operations occurring in a chat thread. To see a list of supported updates for real-time notifications, see [Chat concepts](../concepts.md#real-time-notifications)                                     | ❌   | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
+|Mobile push notifications with Notification Hub |  The Chat SDK provides APIs allowing clients to be notified for incoming messages and other operations occurring in a chat thread by connecting an Azure Notification Hub to your Communication Services resource. In situations where your mobile app is not running in the foreground, patterns are available to [fire pop-up notifications](../concepts/notifications.md) ("toasts") to inform end-users, see [Chat concepts](../concepts.md#push-notifications).                                    | ❌   | ❌   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
 | Reporting </br>(This info is available under Monitoring tab for your Communication Services resource on Azure portal)      | Understand API traffic from your chat app by monitoring the published metrics in Azure Metrics Explorer and set alerts to detect abnormalities     | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Monitor and debug your Communication Services solution by enabling diagnostic logging for your resource    | ✔️   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 
