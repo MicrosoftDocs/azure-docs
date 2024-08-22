@@ -14,276 +14,104 @@ ms.date: 08/20/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To get started with dataflows, you need to configure endpoints. An endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as [both sources and destinations](#endpoint-types-for-use-as-sources-and-destinations), while others are for [destinations only](#endpoint-type-for-destinations-only). A dataflow needs at least one source endpoint and one destination endpoint.
+To get started with dataflows, you need to configure endpoints. An endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
 
-## Endpoint types for use as sources and destinations
+Use the follow table to start configuring your dataflow endpoints:
 
-The following endpoint types are used as sources and destinations.
+| Endpoint type | Description | Can be used as a source | Can be used as a destination |
+|---------------|-------------|-------------------------|------------------------------|
+| [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes |
+| [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes |
+| [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
+| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
+| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Edge Storage Accelerator edge volumes. | No | Yes |
 
-### MQTT
+## Reuse endpoints
 
-MQTT endpoints are used for MQTT sources and destinations. You can configure the endpoint, Transport Layer Security (TLS), authentication, and other settings.
+Think of each dataflow endpoint as a bundle of configuration settings that contains where the data should come from or go to (the `host` value), how to authenticate with the endpoint, and other settings like TLS configuration or batching preference. So you just need to create it once and then you can reuse it in multiple dataflows where these settings would be the same.
 
-#### Azure IoT Operations built-in MQTT broker
+To make it easier to reuse endpoints, the MQTT or Kafka topic filter is not part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
 
-To configure an MQTT broker endpoint with default settings, you can omit the host field, along with other optional fields. This configuration allows you to connect to the default MQTT broker without any extra configuration in a durable way, no matter how the broker changes.
+For example, you only need to create a dataflow endpoint for the built-in MQTT broker once:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
   name: mq
+  namespace: azure-iot-operations
 spec:
   endpointType: Mqtt
   mqttSettings:
-    {}
+    authentication:
+      method: ServiceAccountToken
+      serviceAccountTokenSettings: {}
 ```
 
-This in turn creates a connection to the default MQTT broker with the following settings:
-
-- Host: `aio-mq-dmqtt-frontend:8883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
-- Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
-- TLS: Enabled
-- Trusted CA certificate: The default CA certificate `aio-ca-key-pair-test-only` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
-
-#### Event Grid
-
-To configure an Azure Event Grid MQTT broker endpoint, use managed identity for authentication.
+Then, in a dataflow configuration, you can use it for both the source and destination, with different topic filters:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
+kind: Dataflow
 metadata:
-  name: eventgrid
+  name: mq-to-mq
+  namespace: azure-iot-operations
 spec:
-  endpointType: Mqtt
-  mqttSettings:
-    host: example.westeurope-1.ts.eventgrid.azure.net:8883
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings:
-        {}
-    tls:
-      mode: Enabled
+  profileRef: profile
+  operations:
+    - operationType: Source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+        - example/topic/1
+    - operationType: Destination
+      destinationSettings:
+        endpointRef: mq
+        dataDestination: example/topic/2
 ```
 
-#### Other MQTT brokers
-
-For other MQTT brokers, you can configure the endpoint, TLS, authentication, and other settings as needed.
-
-```yaml
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    host: example.mqttbroker.com:8883
-    authentication:
-      ...
-    tls:
-      mode: Enabled
-      trustedCaCertificateConfigMap: <your CA certificate config map>
-```
-
-#### Available authentication methods for MQTT endpoints
-
-Under `mqttSettings.authentication`, you can configure the authentication method for the MQTT broker. Supported methods include X.509:
-
-```yaml
-mqttSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <your x509 secret name>
-```
-
-> [!IMPORTANT]
-> When you use X.509 authentication with an Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
-> 
-> - **Enable MQTT**: Select the checkbox.
-> - **Enable alternative client authentication name sources**: Select the checkbox.
-> - **Certificate Subject Name**: Select this option in the dropdown list.
-> - **Maximum client sessions per authentication name**: Set to **3** or more.
-> 
-> The alternative client authentication and maximum client sessions options allow dataflows to use client certificate subject name for authentication instead of `MQTT CONNECT Username`. This capability is important so that dataflows can spawn multiple instances and still be able to connect. To learn more, see [Event Grid MQTT client certificate authentication](../../event-grid/mqtt-client-certificate-authentication.md) and [Multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
-
-System-assigned managed identity:
-
-```yaml
-mqttSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      # Audience of the service to authenticate against
-      # Optional; defaults to the audience for Event Grid MQTT Broker
-      audience: https://eventgrid.azure.net
-```
-
-User-assigned managed identity:
-
-```yaml
-mqttSettings:
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
-```
-
-Kubernetes SAT:
-
-```yaml
-mqttSettings:
-  authentication:
-    method: ServiceAccountToken
-    serviceAccountTokenSettings:
-      audience: <your service account audience>
-```
-
-Anonymous:
-
-```yaml
-mqttSettings:
-  authentication:
-    method: Anonymous
-    anonymousSettings:
-      {}
-```
-
-#### Additional MQTT settings
-
-You can also configure QoS, MQTT version, client ID prefix, keep alive, clean session, session expiry, retain, and other settings.
-
-```yaml
-mqttSettings:
-  qos: 1
-  mqttVersion: v5
-  clientIdPrefix: dataflow
-  retain: Keep
-```
-
-### Kafka
-
-Kafka endpoints are used for Kafka sources and destinations. You can configure the endpoint, TLS, authentication, and other settings.
-
-#### Azure Event Hubs
-
-To configure an Azure Event Hubs Kafka, we recommend that you use managed identity for authentication.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for different topics.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
+kind: Dataflow
 metadata:
-  name: kafka
+  name: mq-to-kafka
+  namespace: azure-iot-operations
 spec:
-  endpointType: Kafka
-  kafkaSettings:
-    host: <NAMESPACE>.servicebus.windows.net:9093
-    authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
-    tls:
-      mode: Enabled
-    consumerGroupId: mqConnector
+  profileRef: profile
+  operations:
+    - operationType: Source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+        - example/topic/3
+    - operationType: Destination
+      destinationSettings:
+        endpointRef: example-kafka-endpoint
+        dataDestination: example/topic/4
 ```
 
-#### Other Kafka brokers
+Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables, and so on.
 
-For example, to configure a Kafka endpoint, set the host, TLS, authentication, and other settings as needed.
+## Manage dataflow endpoints
 
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: kafka
-spec:
-  endpointType: Kafka
-  kafkaSettings:
-    host: example.kafka.com:9093
-    authentication:
-      ...
-    tls:
-      mode: Enabled
-    consumerGroupId: mqConnector
-```
+You can manage dataflow endpoints in the Azure IoT Operations portal or by using the Kubernetes CLI.
 
-#### Available authentication methods for Kafka endpoints
+### View
 
-Under `kafkaSettings.authentication`, you can configure the authentication method for the Kafka broker. Supported methods include SASL, X.509, system-assigned managed identity, and user-assigned managed identity, and anonymous.
+You can view the health, metrics, configuration, and associated dataflows of an endpoint in the Azure IoT Operations portal.
 
-```yaml
-kafkaSettings:
-  host: example.kafka.com:9093
-  authentication:
-    method: Sasl
-    saslSettings:
-      saslType: PLAIN
-      secretRef: <your token secret name>
-  # OR
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <your x509 secret name>
-  # OR
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<your Event Hubs namespace>.servicebus.windows.net
-  # OR
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
-  # OR
-  authentication:
-    method: Anonymous
-    anonymousSettings:
-      {}
-```
+<!-- TODO: link to relevant observability docs -->
 
-#### Configure settings specific to source endpoints
+### Edit
 
-For Kafka endpoints, you can configure settings specific for using the endpoint as a source. These settings have no effect if the endpoint is used as a destination.
+You can edit an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
 
-```yaml
-spec:
-  kafkaSettings:
-    consumerGroupId: fromMq
-```
+### Delete
 
-#### Configure settings specific to destination endpoints
+You can delete an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
 
-For Kafka endpoints, you can configure settings specific for using the endpoint as a destination. These settings have no effect if the endpoint is used as a source.
-
-```yaml
-kafkaSettings:
-  compression: Gzip
-  batching:
-    latencyMs: 100
-    maxBytes: 1000000
-    maxMessages: 1000
-  partitionStrategy: Static
-  kafkaAcks: All
-  copyMqttProperties: Enabled
-```
-
-> [!IMPORTANT]
-> By default, dataflows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include `copyMqttProperties: enabled`.
-
-## Endpoint type for destinations only
-
-The following endpoint type is used for destinations only.
-
-### Local storage and Edge Storage Accelerator
-
-Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Edge Storage Accelerator edge volumes. In this case, the format must be Parquet.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: esa
-spec:
-  endpointType: localStorage
-  localStorageSettings:
-    persistentVolumeClaimName: <your PVC name>
+```bash
+kubectl delete dataflowendpoint my-endpoint
 ```

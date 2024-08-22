@@ -7,7 +7,7 @@ ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 08/20/2024
 
-#CustomerIntent: As an operator, I want to understand how to
+#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
 ---
 
 # Configure dataflow endpoints for Azure Data Lake Storage Gen2
@@ -71,7 +71,7 @@ If you need to override the system-assigned managed identity audience, see [syst
 
 ### Use the endpoint in a dataflow destination
 
-Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
 
 > [!NOTE]
 > Using the ADLSv2 endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.

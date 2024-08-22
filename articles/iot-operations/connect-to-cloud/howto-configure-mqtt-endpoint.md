@@ -40,7 +40,9 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
-    {}
+    authentication:
+      method: ServiceAccountToken
+      serviceAccountTokenSettings: {}
 ```
 
 This creates a connection to the default MQTT broker with the following settings:
@@ -122,7 +124,7 @@ spec:
 
 ### Use the endpoint in a dataflow source or destination
 
-Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
 
 To customize the MQTT endpoint settings, continue reading.
 

@@ -118,7 +118,7 @@ spec:
 
 ### Use the endpoint in a dataflow source or destination
 
-Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
 
 To customize the Kafka endpoint, you can configure additional settings such as TLS, authentication, and Kafka messaging settings. The following sections describe these settings in detail.
 
