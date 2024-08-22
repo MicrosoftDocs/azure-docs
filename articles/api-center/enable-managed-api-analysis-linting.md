@@ -74,7 +74,7 @@ To view the analysis report for an API definition in your API center:
 1. In the left menu, under **Details**, select **Definitions**.
 1. Select the API definition.
 1. Select the **Analysis** tab.
-    :::image type="content" source="media/enable-api-analysis-linting/analyze-api-definition.png" alt-text="Screenshot of Analysis tab for API definition in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-report.png":::
+    :::image type="content" source="media/enable-api-analysis-linting/analyze-api-definition.png" alt-text="Screenshot of Analysis tab for API definition in the portal." :::
 
 The **API Analysis Report** opens, and it displays the API definition and errors, warnings, and information based on the configured API style guide. The following screenshot shows an example of an API analysis report.
 
