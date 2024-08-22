@@ -4,7 +4,7 @@ description: Reference for the send-one-way-request policy available for use in 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep

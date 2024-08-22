@@ -1,7 +1,7 @@
 ---
 title: Parsing JSON and AVRO in Azure Stream Analytics
 description: This article describes how to operate on complex data types like arrays, JSON, CSV formatted data.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: conceptual

@@ -5,7 +5,7 @@ description: Create a virtual machine (VM) with a static public IP address using
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli 

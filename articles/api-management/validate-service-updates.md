@@ -2,7 +2,7 @@
 title: Validate Azure API Management service updates
 description: Apply the Azure safe deployment approach with your Azure API Management instances to validate service updates and avoid disruptions to your production environments.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/25/2022
 ms.author: danlep

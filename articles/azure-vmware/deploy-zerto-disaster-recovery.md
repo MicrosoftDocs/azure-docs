@@ -10,16 +10,6 @@ ms.custom: engagement-fy23
 # Deploy Zerto disaster recovery on Azure VMware Solution
 
 > [!IMPORTANT]
-> **Temporary pause on new onboarding for Zerto on Azure VMware Solution**
->
-> Due to ongoing security enhancements and ongoing development work on the Linux version for Azure VMware Solution Run Command and migration activities, we are currently not onboarding new customers for Zerto on Azure VMware Solution. These efforts include transitioning to Linux-based run command, meeting the security requirements to operate the Zerto Linux appliance, and migrating existing customers to latest Zerto version. This pause will be in effect until August 6, 2024.
->
->Please Note: Existing customers will continue to receive full support as usual. For further information regarding the timeline and future onboarding availability, please reach out to your Zerto account team.
->
->Thank you for your understanding and cooperation.
-
-
-> [!IMPORTANT]
 > AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
 
 
@@ -90,7 +80,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - Network connectivity, ExpressRoute based, from Azure VMware Solution to the virtual network used for disaster recovery.
 
-- Follow the [Zerto Virtual Replication Azure Quickstart Guide](https://help.zerto.com/bundle/QS.Azure.HTML.95/page/Zerto_Quick_Start_Azure_Environments.htm) for the rest of the prerequisites.
+- Follow the [Zerto Virtual Replication Azure Quickstart Guide](https://help.zerto.com/bundle/Install.MA.HTML.10.0_U1/page/Prerequisites_Requirements_Microsoft_Azure_Environments.htm) for the rest of the prerequisites.
 
 ## Install Zerto on Azure VMware Solution
 

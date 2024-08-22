@@ -2,7 +2,7 @@
 title: Linux VMs with the Microsoft Azure Network Adapter
 description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Linux VMs in Azure.
 author: mattmcinnes
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023

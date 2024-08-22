@@ -3,13 +3,13 @@ title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
 description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: tutorial
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: manashg
-ms.date: 08/08/2023
+ms.date: 08/09/2024
 ms.custom: automl, build-2023
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -76,20 +76,28 @@ You complete the following experiment set-up and run steps via the Azure Machine
 
    ![Get started page](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Select **+New automated ML job**. 
+1. Select **+New automated ML job**.
+
+1. Select **Train automatically**
+
+1. Select **Start configuring job**
+
+1. In the **Experiment name** section, select the option **Create new** and enter this experiment name: `my-1st-automl-experiment`
 
 ## Create and load a dataset as a data asset
 
+
 Before you configure your experiment, upload your data file to your workspace in the form of an Azure Machine Learning data asset. In the case of this tutorial, you can think of a data asset as your dataset for the AutoML job.  Doing so, allows you to ensure that your data is formatted appropriately for your experiment.
 
-1. Create a new data asset by selecting **From local files** from the  **+Create data asset** drop-down. 
+1. Select **Classfication** as your task type.
+
+1. Create a new data asset by selecting **Create**. 
 
     1. On the **Basic info** form, give your data asset a name and provide an optional description. The automated ML interface currently only supports TabularDatasets, so the dataset type should default to *Tabular*.
 
     1. Select **Next** on the bottom left
 
     1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is where you'll upload your data file to make it available to your workspace.
-
     1. Select **Upload files** from the **Upload** drop-down.
     
     1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
@@ -124,17 +132,30 @@ Before you configure your experiment, upload your data file to your workspace in
 
 After you load and configure your data, you can set up your experiment. This setup includes experiment design tasks such as, selecting the size of your compute environment and specifying what column you want to predict. 
 
-1. Select the **Create new** radio button.
-
 1. Populate the **Configure Job** form as follows:
-    1. Enter this experiment name: `my-1st-automl-experiment`
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
+    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
+
+        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
+        ------|---------|---
+        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
+        Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
+        Blocked algorithms | Algorithms you want to exclude from the training job| None
+        Additional&nbsp;classification settings | These settings help improve the accuracy of your model |Positive class label: None
+        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
+        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
+        
+    1. Select **Save**.
     
-    1. Select **compute cluster** as your compute type.
-    1.  A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, you can either try a cloud-based serverless compute (preview) or create your own cloud-based compute.
-        1. To use serverless compute, [enable the preview feature](./how-to-use-serverless-compute.md#how-to-use-serverless-compute), select **Serverless**, and skip the rest of this step.
-        1.  To create your own compute target, select **+New** to configure your compute target. 
+1. On the **[Optional] Validate and test** form, 
+    1. Select k-fold cross-validation as your **Validation type**.
+    1.  Select 2 as your **Number of cross validations**.
+1. Select **Next**
+1. Select **compute cluster** as your compute type.
+1.  A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, you can either try a cloud-based serverless compute (preview) or create your own cloud-based compute.
+      1. To use serverless compute, [enable the preview feature](./how-to-use-serverless-compute.md#how-to-use-serverless-compute), select **Serverless**, and skip the rest of this step.
+            1.  To create your own compute target, select **+New** to configure your compute target. 
             1. Populate the **Select virtual machine** form to set up your compute.
     
                 Field | Description | Value for tutorial
@@ -161,31 +182,12 @@ After you load and configure your data, you can set up your experiment. This set
     
             1. After creation, select your new compute target from the drop-down list.
 
-    1. Select **Next**.
+1. Select **Next**.
 
-1. On the **Select task and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
-    
-    1.  Select **Classification** as the machine learning task type.
 
-    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
 
-        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
-        ------|---------|---
-        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
-        Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
-        Blocked algorithms | Algorithms you want to exclude from the training job| None
-        Additional&nbsp;classification settings | These settings help improve the accuracy of your model |Positive class label: None
-        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
-        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
-        
-        Select **Save**.
-    1. Select **Next**.
-    
-1. On the **[Optional] Validate and test** form, 
-    1. Select k-fold cross-validation as your **Validation type**.
-    1.  Select 2 as your **Number of cross validations**.
 
-1. Select **Finish** to run the experiment. The **Job Detail**  screen opens with the **Job status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
+1. Select **Submit training job** to run the experiment. The **Job overview**  screen opens with the **Job status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.

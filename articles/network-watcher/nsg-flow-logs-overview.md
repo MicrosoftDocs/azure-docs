@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/15/2024
 
@@ -491,9 +491,9 @@ Currently, these Azure services don't support NSG flow logs:
 - [Azure Functions](../azure-functions/functions-overview.md)
 - [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
 - [App Service](../app-service/overview.md)
-- [Azure Database for MariaDB](../mariadb/overview.md)
-- [Azure Database for MySQL](../mysql/single-server/overview.md)
-- [Azure Database for PostgreSQL](../postgresql/single-server/overview.md)
+- [Azure Database for MariaDB](/azure/mariadb/overview)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).

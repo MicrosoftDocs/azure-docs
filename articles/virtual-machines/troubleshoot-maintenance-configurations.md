@@ -2,7 +2,7 @@
 title: Troubleshoot problems with Maintenance Configurations
 description: This article provides details on known and fixed issues and how to troubleshoot problems with Maintenance Configurations.
 author: ApnaLakshay
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.date: 10/13/2023
@@ -111,7 +111,7 @@ To create a dynamic scope, you must have the permission at the subscription leve
     1. The subscription/resource group at which the dynamic scope is being created.
     1. The maintenance configuration scope.
 
-For more information, see the [list of permissions list for various resources here](../update-manager/overview.md#permissions).
+For more information, see the [list of permissions list for various resources here](../update-manager/roles-permissions.md#permissions).
 
 ### An update is stuck and not progressing
 

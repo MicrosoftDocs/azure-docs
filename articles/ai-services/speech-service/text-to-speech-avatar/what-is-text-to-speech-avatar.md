@@ -12,9 +12,7 @@ author: eric-urban
 ms.custom: references_regions
 ---
 
-# Text to speech avatar overview (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# Text to speech avatar overview
 
 Text to speech avatar converts text into a digital video of a photorealistic human (either a prebuilt avatar or a [custom text to speech avatar](#custom-text-to-speech-avatar)) speaking with a natural-sounding voice. The text to speech avatar video can be synthesized asynchronously or in real time. Developers can build applications integrated with text to speech avatar through an API, or use a content creation tool on Speech Studio to create video content without coding.
 
@@ -44,7 +42,7 @@ The voice in the synthetic video could be a prebuilt neural voice available on A
 
 Both batch synthesis and real-time synthesis resolution are 1920 x 1080, and the frames per second (FPS) are 25. Batch synthesis codec can be h264 or h265 if the format is mp4 and can set codec as vp9 if the format is `webm`; only `webm` can contain an alpha channel. Real-time synthesis codec is h264. Video bitrate can be configured for both batch synthesis and real-time synthesis in the request; the default value is 2000000; more detailed configurations can be found in the sample code.
 
-|                  | Batch synthesis  | Real-Time synthesis |
+|                  | Batch synthesis  | Real-time synthesis |
 |------------------|------------------|----------------------|
 | **Resolution**   | 1920 x 1080      | 1920 x 1080          |
 | **FPS**          | 25               | 25                   |

@@ -2,7 +2,7 @@
 title: Azure Firewall Premium in the Azure portal
 description: Learn about Azure Firewall Premium in the Azure portal.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 07/15/2021

@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure hybrid connectivity documentation
   description: Azure hybrid connectivity services provide connectivity to your resources in Azure and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
@@ -163,3 +163,17 @@ conceptualContent:
             - url: /azure/architecture/networking/architecture/massive-scale-azure-architecture
               itemType: architecture
               text: Massive scale Virtual WAN architecture design
+
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network foundation
+          url: ../foundations/index.yml
+        - title: Load balancing and content delivery
+          url: ../load-balancer-content-delivery/index.yml
+        - title: Network security
+          url: ../security/index.yml
+        - title: Network monitoring and management
+          url: ../monitoring-management/index.yml 

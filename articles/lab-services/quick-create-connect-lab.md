@@ -3,7 +3,7 @@ title: 'Quickstart: Create and connect to a lab'
 titleSuffix: Azure Lab Services
 description: In this quickstart, you learn how to create a Windows-based lab in Azure Lab Services from an Azure Marketplace image, publish it, and connect to it.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart

@@ -2,8 +2,8 @@
 title: Update files in the DICOM service in Azure Health Data Services
 description: Learn how to use the bulk update API in Azure Health Data Services to modify DICOM attributes for multiple files in the DICOM service. This article explains the benefits, requirements, and steps of the bulk update operation.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 1/18/2024
 ms.author: mmitrik

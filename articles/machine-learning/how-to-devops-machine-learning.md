@@ -3,7 +3,7 @@ title: Azure DevOps for CI/CD
 titleSuffix: Azure Machine Learning
 description: Use Azure Pipelines for flexible MLOps automation
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: Blackmist
 ms.author: larryfr

@@ -38,7 +38,7 @@ The HPE ProLiant DL20 Gen11 is also available for the on-premises management con
 |Power|HPE 1,000 W Flex Slot Titanium Hot Plug Power Supply Kit |
 |Rack support|HPE 1U Short Friction Rail Kit |
 
-## DL20 Gen11 (4SFF) - Bill of Materials
+## DL20 Gen11 (4SFF) - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|

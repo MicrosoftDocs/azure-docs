@@ -4,7 +4,7 @@ description: Learn how to set up a secure Service Fabric cluster in Azure using 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
@@ -252,7 +252,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### Use a pointer to a secret uploaded into a key vault
 
-To use an existing key vault, the key vault must be [enabled for deployment](../key-vault/general/manage-with-cli2.md#setting-key-vault-advanced-access-policies) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
+To use an existing key vault, the key vault must be [enabled for deployment](/azure/key-vault/general/manage-with-cli2#setting-key-vault-advanced-access-policies) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
 
 Deploy the cluster using PowerShell:
 

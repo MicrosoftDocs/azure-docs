@@ -2,7 +2,7 @@
 title: Quickstart - Create a Linux VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create a Linux virtual machine
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 06/01/2022

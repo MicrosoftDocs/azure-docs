@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Turn your machine learning experimental notebooks into production-ready code using the MLOpsPython code template. You can then test, deploy, and automate that code.
 author: bjcmit
 ms.author: brysmith
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 10/21/2021

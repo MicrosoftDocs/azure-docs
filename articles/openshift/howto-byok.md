@@ -17,7 +17,7 @@ By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift c
 
 Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. 
 
-For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
+For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](/azure/key-vault/general/basic-concepts) in the Microsoft Azure documentation.
 
 With host-based encryption, the data stored on the VM host of your Azure Red Hat OpenShift agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. Host-base encryption means the temp disks are encrypted at rest with platform-managed keys. 
 

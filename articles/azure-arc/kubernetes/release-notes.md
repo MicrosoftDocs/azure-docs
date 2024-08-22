@@ -1,17 +1,31 @@
 ---
 title: "What's new with Azure Arc-enabled Kubernetes"
-ms.date: 04/18/2024
-ms.topic: overview
+ms.date: 07/23/2024
+ms.topic: conceptual
 description: "Learn about the latest releases of Arc-enabled Kubernetes."
 ---
 
 # What's new with Azure Arc-enabled Kubernetes
 
-Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases of the [Azure Arc-enabled Kubernetes agents](conceptual-agent-overview.md).
+Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about recent releases of the [Azure Arc-enabled Kubernetes agents](conceptual-agent-overview.md).
 
 When any of the Arc-enabled Kubernetes agents are updated, all of the agents in the `azure-arc` namespace are incremented with a new version number, so that the version numbers are consistent across agents. When a new version is released, all of the agents are upgraded together to the newest version (whether or not there are functionality changes in a given agent), unless you have [disabled automatic upgrades](agent-upgrade.md) for the cluster.
 
 We generally recommend using the most recent versions of the agents. The [version support policy](agent-upgrade.md#version-support-policy) covers the most recent version and the two previous versions (N-2).
+
+## Version 1.18.x (July 2024)
+
+- Fixed `logCollector` pod restarts
+- Updated to Microsoft Go v1.22.5
+- Other bug fixes
+
+## Version 1.17.x (June 2024)
+
+- Upgraded to use [Microsoft Go 1.22 to be FIPS compliant](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/fips/README.md#tls-with-fips-compliant-settings)
+
+## Version 1.16.x (May 2024)
+
+- Migrated to use Microsoft Go w/ OpenSSL and fixed some vulnerabilities
 
 ## Version 1.15.3 (March 2024)
 

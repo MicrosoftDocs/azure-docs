@@ -7,6 +7,7 @@ ms.date: 06/29/2024
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
+ms.service: azure-automation
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers

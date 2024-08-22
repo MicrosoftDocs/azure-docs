@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 04/12/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 # Learn PowerShell Workflow for Azure Automation
 

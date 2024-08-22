@@ -3,7 +3,7 @@ title: Migrate from job and pool lifetime statistics to logs in Azure Batch
 description: Learn how to migrate your Batch monitoring approach from using job and pool lifetime statistics API to using logs and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 10/06/2022
 ---

@@ -3,7 +3,7 @@ title: Guidance for virtual machine scale sets with Azure Standard Load Balancer
 description: Learn about working with virtual machine scale sets and Azure Standard Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: mbender

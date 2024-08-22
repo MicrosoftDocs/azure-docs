@@ -6,7 +6,7 @@ services: machine-learning
 ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: balapv
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - ignite-2023

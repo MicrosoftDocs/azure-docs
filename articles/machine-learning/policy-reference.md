@@ -6,7 +6,7 @@ ms.author: larryfr
 author: Blackmist
 ms.reviewer: larryfr
 ms.topic: reference
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: subject-policy-reference
 ---

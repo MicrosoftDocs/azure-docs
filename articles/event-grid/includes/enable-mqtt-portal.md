@@ -1,9 +1,8 @@
 ---
  title: Enable MQTT broker for Event Grid namespace - portal
  description: This article shows you how to enable MQTT for an Event Grid namespace in the Azure portal.
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 02/29/2024
  ms.author: spelluru

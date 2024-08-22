@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
@@ -16,12 +16,12 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This walkthrough is an example of deploying Azure IoT Operations Preview to a special environment that's different than the default [Azure IoT Operations scenario](../get-started/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
+This walkthrough is an example of deploying Azure IoT Operations Preview to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.
 > - [Deploy Azure IoT Layered Network Management to an AKS cluster](howto-deploy-aks-layered-network.md)
-> - [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md)
+> - [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 >
 > You can't migrate a previously deployed Azure IoT Operations from its original network to an isolated network. For this scenario, follow the steps to begin with creating new clusters.
 
@@ -64,7 +64,7 @@ When completing the steps, you need to:
 
 ### Verification
 
-Once the Azure Arc enablement of the level 3 cluster is complete, navigate to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
+Once the Azure Arc enablement of the level 3 cluster is complete, go to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
 
 1. Open the resource overview page. 
 1. Verify **status** of the cluster is **online**.
@@ -77,15 +77,15 @@ Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the c
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
 
-Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
+Follow the steps in [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
 
-- In earlier steps, you completed the [prerequisites](../get-started/quickstart-deploy.md#prerequisites) and [connected your cluster to Azure Arc](../get-started/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc) for Azure IoT Operations. You can review these steps to make sure nothing is missing. 
+- In earlier steps, you completed the [prerequisites](../get-started-end-to-end-sample/quickstart-deploy.md#prerequisites) and [connected your cluster to Azure Arc](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc) for Azure IoT Operations. You can review these steps to make sure nothing is missing. 
 
-- Start from the [Configure cluster and deploy Azure IoT Operations](../get-started/quickstart-deploy.md#deploy-azure-iot-operations-preview) and complete all the further steps.
+- Start from the [Run Azure IoT Operations in Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md#deploy-azure-iot-operations-preview) and complete all the further steps.
 
 ## Next steps
 
 Once IoT Operations is deployed, you can try the following quickstarts. The Azure IoT Operations in your level 3 cluster works as described in the quickstarts.
 
-- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](../get-started/quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](../get-started/quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](../get-started-end-to-end-sample/quickstart-add-assets.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)

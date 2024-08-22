@@ -3,7 +3,7 @@ title: Organizational role concepts for trainings
 titleSuffix: Azure Lab Services
 description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article

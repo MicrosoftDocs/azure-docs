@@ -7,7 +7,7 @@ ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 4/23/2024
+ms.date: 8/20/2024
 ms.reviewer: v-baolianzou
 ms.custom: references_regions
 #customer intent: As a user who implements text to speech, I want to understand the options and differences between available OpenAI text to speech voices in Azure AI services.
@@ -21,9 +21,6 @@ OpenAI text to speech voices are available via two model variants: `Neural` and 
 
 - `Neural`: Optimized for real-time use cases with the lowest latency, but lower quality than `NeuralHD`.
 - `NeuralHD`: Optimized for quality.
-
-For a demonstration of OpenAI voices in Azure OpenAI Studio and Speech Studio, view this [introductory video](https://youtu.be/Ic505XeV3gs).
-> [!VIDEO https://www.youtube.com/embed/Ic505XeV3gs]
 
 ## Available text to speech voices in Azure AI services
 

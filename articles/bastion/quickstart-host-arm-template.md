@@ -4,7 +4,7 @@ titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
 author: cherylmc
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart 
 ms.date: 12/04/2023
 ms.custom: template-quickstart, devx-track-arm-template

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Image data preparation for Azure Machine Learning automated ML to train computer vision models on classification, object detection,  and segmentation
 author: ssalgadodev
 ms.author: ssalgado
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: template-how-to, update-code, sdkv2, 

@@ -4,7 +4,7 @@ description: How to deploy applications in Azure Spring Apps with a custom conta
 author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.date: 06/27/2024
 ---
@@ -249,7 +249,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

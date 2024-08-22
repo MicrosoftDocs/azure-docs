@@ -3,7 +3,7 @@ title: Azure API Management - Direct management API retirement (March 2025)
 description: Azure API Management is retiring its direct management API as of March 2025. Use the Azure Resource Manager-based API instead.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-arm-template
 ms.topic: reference
 ms.date: 05/16/2024

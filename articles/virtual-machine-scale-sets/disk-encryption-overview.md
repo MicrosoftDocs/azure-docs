@@ -4,7 +4,7 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

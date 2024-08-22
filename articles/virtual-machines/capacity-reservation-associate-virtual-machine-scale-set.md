@@ -3,7 +3,7 @@ title: Associate a Virtual Machine Scale Set with uniform orchestration to a Cap
 description: Learn how to associate a new or existing virtual machine scale with uniform orchestration set to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman

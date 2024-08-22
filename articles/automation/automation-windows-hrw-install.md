@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/21/2024
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Deploy an agent-based Windows Hybrid Runbook Worker in Automation

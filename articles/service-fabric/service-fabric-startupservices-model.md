@@ -4,7 +4,7 @@ description: Learn how to use StartupServices.xml to separate service level conf
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 04/09/2024
 ---

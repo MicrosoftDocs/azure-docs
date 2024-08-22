@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Update the RDP username and passwo
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi

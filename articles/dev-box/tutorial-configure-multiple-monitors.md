@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/30/2024
+ms.date: 07/26/2024
 ms.topic: tutorial
 
 #Customer intent: As a dev box user, I want to use multiple monitors when connecting to my dev box so that I can have more screen real estate to work with.
@@ -30,6 +30,9 @@ To complete this tutorial, you must [install the Remote desktop app](tutorial-co
 ## Configure Remote Desktop to use multiple monitors
 
 When you connect to your cloud-hosted developer machine in Microsoft Dev Box by using a remote desktop app, you can take advantage of a multi-monitor setup. Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both support up to 16 monitors.
+
+> [!IMPORTANT]
+> The Windows Store version of Microsoft Remote Desktop doesn't support multiple monitors. For more information, see [Get started with the Microsoft Store client](/windows-server/remote/remote-desktop-services/clients/windows).
 
 Use the following steps to configure Remote Desktop to use multiple monitors.
 

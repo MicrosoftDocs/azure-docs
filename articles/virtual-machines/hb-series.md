@@ -1,11 +1,12 @@
 ---
 title: HB-series 
 description: Specifications for the HB-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
-ms.date: 12/7/2023
-ms.reviewer: jushiman
+ms.date: 07/25/2024
+ms.reviewer: cynthn
+ms.author: padmalathas
 ---
 
 # HB-series

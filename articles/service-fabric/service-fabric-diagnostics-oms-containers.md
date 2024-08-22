@@ -4,7 +4,7 @@ description: Use Azure Monitor logs for monitoring containers running on Azure S
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -14,8 +14,6 @@ ms.date: 07/14/2022
 This article covers the steps required to set up the Azure Monitor logs container monitoring solution to view container events. To set up your cluster to collect container events, see this [step-by-step tutorial](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)]
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Set up the container monitoring solution
 

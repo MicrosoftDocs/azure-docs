@@ -1,57 +1,52 @@
 ---
-title: Monitoring DPS data reference
-titleSuffix: Azure IoT Hub Device Provisioning Service
-description: Important reference material needed when you monitor Azure IoT Hub Device Provisioning Service using Azure Monitor
-author: kgremban
-
+title: Monitoring Device Provisioning Service data reference
+description: This article contains important reference material you need when you monitor Azure IoT Hub Device Provisioning Service.
+ms.date: 06/28/2024
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
+author: kgremban
 ms.author: kgremban
 ms.service: iot-dps
-ms.custom: subject-monitoring
-ms.date: 04/15/2022
 ---
 
-# Monitoring Azure IoT Hub Device Provisioning Service data reference
+# Azure IoT Hub Device Provisioning Service monitoring data reference
 
-See [Monitoring Iot Hub Device Provisioning Service](monitor-iot-dps.md) for details on collecting and analyzing monitoring data for Azure IoT Hub Device Provisioning Service (DPS).
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for details on the data you can collect for IoT Hub Device Provisioning Service and how to use it.
 
-This section lists all the automatically collected platform metrics collected for DPS.  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesprovisioningservices).
+### Supported metrics for Microsoft.Devices/provisioningServices
 
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|AttestationAttempts|Yes|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName, Status, Protocol|
-|DeviceAssignments|Yes|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
-|RegistrationAttempts|Yes|Registration attempts|Count|Total|Number of device registrations attempted|ProvisioningServiceName, IotHubName, Status|
+The following table lists the metrics available for the Microsoft.Devices/provisioningServices resource type.
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Devices/provisioningServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-devices-provisioningservices-metrics-include.md)]
 
-## Metric dimensions
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-DPS has the following dimensions associated with its metrics.
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| IotHubName | The name of the target IoT hub. |
-| Protocol | The device or service protocol used. |
-| ProvisioningServiceName | The name of the DPS instance. |
-| Status | The status of the operation. |
+| Dimension Name          | Description |
+|:------------------------|:-------------------------------------|
+| IotHubName              | The name of the target IoT hub.      |
+| Protocol                | The device or service protocol used. |
+| ProvisioningServiceName | The name of the DPS instance.        |
+| Status                  | The status of the operation.         |
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-## Resource logs
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-This section lists the types of resource logs you can collect for DPS.
+### Supported resource logs for Microsoft.Devices/provisioningServices
 
-Resource Provider and Type: [Microsoft.Devices/provisioningServices](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesprovisioningservices).
+[!INCLUDE [Microsoft.Devices/provisioningServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-devices-provisioningservices-logs-include.md)]
 
-| Category |  Description  |
-|:---------|------------------|
-| DeviceOperations   | Logs related to device attestation events. See device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
-| ServiceOperations   | Logs related to DPS service events. See DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing). |
+The following list provides additional information about the preceding logs:
+
+- DeviceOperations: Logs related to device attestation events. See device APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing).
+- ServiceOperations: Logs related to DPS service events. See DPS service APIs listed in [Billable service operations and pricing](about-iot-dps.md#billable-service-operations-and-pricing).
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
@@ -67,11 +62,11 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | Level | Int | The logging severity of the event. For example, Information or Error. |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
 | OperationVersion | String | The API Version used during the event. |
-| Resource | String | The name forOF the resource where the event took place. For example, "MYEXAMPLEDPS". |
+| Resource | String | The name forOF the resource where the event took place. For example, `MYEXAMPLEDPS`. |
 | ResourceGroup | String | The name of the resource group where the resource is located. |
 | ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceProvider | String | The resource provider for the event. For example, "MICROSOFT.DEVICES". |
-| ResourceType | String | The resource type for the event. For example, "PROVISIONINGSERVICES". |
+| ResourceProvider | String | The resource provider for the event. For example, `MICROSOFT.DEVICES`. |
+| ResourceType | String | The resource type for the event. For example, `PROVISIONINGSERVICES`. |
 | ResultDescription | String | Error details for the event if unsuccessful. |
 | ResultSignature | String | HTTP status code for the event if unsuccessful. |
 | ResultType | String | Outcome of the event: Success, Failure, ClientError, and so on. |
@@ -146,18 +141,19 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
   }
 ```
 
-## Azure Monitor Logs tables
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics. For a list of these tables and links to more information for the DPS resource type, see [Device Provisioning Services](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) in the Azure Monitor Logs table reference.
+### IoT Hub Device Provisioning Service Microsoft.Devices/ProvisioningServices
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
 
-## Activity log
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md).
+- [Microsoft.Devices resource provider operations](/azure/role-based-access-control/resource-provider-operations#internet-of-things)
 
-## See Also
+## Related content
 
-- See [Monitoring Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for a description of monitoring Azure IoT Hub Device Provisioning Service.
-
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for a description of monitoring IoT Hub Device Provisioning Service.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

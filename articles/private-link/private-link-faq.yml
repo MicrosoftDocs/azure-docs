@@ -4,7 +4,7 @@ metadata:
   description: Learn about Azure Private Link.
   services: private-link
   author: abell
-  ms.service: private-link
+  ms.service: azure-private-link
   ms.topic: faq
   ms.date: 03/18/2024
   ms.author: abell

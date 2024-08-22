@@ -3,7 +3,7 @@ title: Enterprise security and governance
 titleSuffix: Azure Machine Learning
 description: 'Securely use Azure Machine Learning: authentication, authorization, network security, data encryption, and monitoring.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: build-2023
 ms.topic: conceptual

@@ -4,7 +4,7 @@ description: In this article, learn how to recover files and folders from an Azu
 ms.topic: how-to
 ms.date: 04/12/2024
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

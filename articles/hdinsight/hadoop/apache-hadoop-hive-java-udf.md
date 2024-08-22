@@ -1,7 +1,7 @@
 ---
 title: Java user-defined function (UDF) with Apache Hive Azure HDInsight
 description: Learn how to create a Java-based user-defined function (UDF) that works with Apache Hive. This example UDF converts a table of text strings to lowercase.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-java, devx-track-extended-java
 ms.date: 07/12/2024

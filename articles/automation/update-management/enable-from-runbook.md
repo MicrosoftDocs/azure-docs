@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 07/15/2024
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management from a runbook

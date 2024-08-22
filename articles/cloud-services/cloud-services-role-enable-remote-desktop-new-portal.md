@@ -1,9 +1,9 @@
 ---
 title: Use the portal to enable Remote Desktop for a Role
-description: How to configure your azure cloud service application to allow remote desktop connections
+description: How to configure your Azure cloud service application to allow remote desktop connections through the Azure portal.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -19,15 +19,15 @@ ms.custom: compute-evergreen
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
+Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it runs.
 
-You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application.
+You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition. Alternatively, you can choose to enable Remote Desktop through the Remote Desktop extension. The preferred approach is to use the Remote Desktop extension, as you can enable Remote Desktop even after the application is deployed without having to redeploy your application.
 
 ## Configure Remote Desktop from the Azure portal
 
-The Azure portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Remote Desktop** settings for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.
+The Azure portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Remote Desktop** setting for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.
 
-1. Click **Cloud Services**, select the name of the cloud service, and then select **Remote Desktop**.
+1. Select **Cloud Services**, select the name of the cloud service, and then select **Remote Desktop**.
 
     ![image shows Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
@@ -42,23 +42,23 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
 
 4. In **Roles**, select the role you want to update or select **All** for all roles.
 
-5. When you finish your configuration updates, select **Save**. It will take a few moments before your role instances are ready to receive connections.
+5. When you finish your configuration updates, select **Save**. It takes a few moments before your role instances are ready to receive connections.
 
 ## Remote into role instances
 
 Once Remote Desktop is enabled on the roles, you can initiate a connection directly from the Azure portal:
 
-1. Click **Instances** to open the **Instances** settings.
-2. Select a role instance that has Remote Desktop configured.
-3. Click **Connect** to download an RDP file for the role instance.
+1. Select **Instances** to open the **Instances** settings.
+2. Choose a role instance that has Remote Desktop configured.
+3. Select **Connect** to download a Remote Desktop Protocol (RDP) file for the role instance.
 
     ![Cloud services remote desktop image](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
-4. Click **Open** and then **Connect** to start the Remote Desktop connection.
+4. Choose **Open** and then **Connect** to start the Remote Desktop connection.
 
 >[!NOTE]
 > If your cloud service is sitting behind an NSG, you may need to create rules that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000** is open, which may be blocked if you have an NSG.
 
-## Additional resources
+## Next steps
 
-[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
+* [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)

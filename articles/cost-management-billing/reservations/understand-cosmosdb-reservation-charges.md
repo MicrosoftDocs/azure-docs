@@ -22,7 +22,7 @@ Stopped resources are billed and continue to use reservation hours. To use your 
 
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Azure Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If your Azure Cosmos DB resources don't operate for the entire hour or don't align with the reservation attributes, you don't get the full benefit from the hourly reservation discount.
+A reservation discount is applied to [provisioned throughput](/azure/cosmos-db/request-units) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Azure Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If your Azure Cosmos DB resources don't operate for the entire hour or don't align with the reservation attributes, you don't get the full benefit from the hourly reservation discount.
 
 The discounts are tiered. Reservations with higher request units provide higher discounts.
 
@@ -118,7 +118,7 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
-* [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
+* [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](/azure/cosmos-db/cosmos-db-reserved-capacity)  
 * [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)  

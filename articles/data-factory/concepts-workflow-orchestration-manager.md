@@ -2,7 +2,6 @@
 title: What is Workflow Orchestration Manager?
 titleSuffix: Azure Data Factory
 description: Learn about when to use Workflow Orchestration Manager, basic concepts and supported regions.
-ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 02/28/2023
-ms.custom: engagement-fy23
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 # Discovery and dependency analysis - Common questions
@@ -92,4 +92,4 @@ You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](how-to-create-assessment.md) about creating an assessment.

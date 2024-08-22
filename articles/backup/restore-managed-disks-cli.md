@@ -1,9 +1,9 @@
 ---
 title: Restore Azure Managed Disks via Azure CLI
 description: Learn how to restore Azure Managed Disks using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/18/2021
+ms.date: 07/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,15 +15,9 @@ This article describes how to restore [Azure Managed Disks](../virtual-machines/
 > [!IMPORTANT]
 > Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
-Currently, the Original-Location Recovery (OLR) option of restoring by replacing the existing source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk in the same resource group of the source disk or in any other resource group. It's known as Alternate-Location Recovery (ALR).
+Currently, the Original-Location Recovery (OLR) option of restoring by replacing the existing source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk in the same resource group of the source disk or in any other resource group, which is called Alternate-Location Recovery (ALR).
 
-In this article, you'll learn how to:
-
-- Restore to create a new disk
-
-- Track the restore operation status
-
-We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+Here, let's use an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
 ## Restore to create a new disk
 
@@ -177,7 +171,7 @@ az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-
 ]
 ```
 
-For example, the below query returns the latest recovery point.
+For example, the following query returns the latest recovery point.
 
 ```azurecli-interactive
 az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 -g testBkpVaultRG --vault-name TestBkpVault --query "[0].id"

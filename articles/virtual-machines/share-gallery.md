@@ -2,7 +2,7 @@
 title: Share resources in an Azure Compute Gallery
 description: Learn how to share resources explicitly or to all Azure users using role-based access control.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/14/2023

@@ -3,7 +3,7 @@ title: Troubleshoot identity provider configuration for the FHIR service in Azur
 description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity providers for scoped access.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/15/2024

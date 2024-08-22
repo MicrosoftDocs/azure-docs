@@ -4,7 +4,7 @@ description: This article describes how to add and manage VMware vCenter for dis
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 05/27/2021

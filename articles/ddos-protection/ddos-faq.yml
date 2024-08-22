@@ -3,7 +3,7 @@ metadata:
   title: Azure DDoS Protection frequently asked questions
   description: Frequently asked questions about the Azure DDoS Protection, which helps provide defense against DDoS attacks.
   author: AbdullahBell
-  ms.service: ddos-protection
+  ms.service: azure-ddos-protection
   ms.topic: faq
   ms.date: 01/31/2024
   ms.author: abell

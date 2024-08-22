@@ -2,10 +2,11 @@
 title: Configure machines to a desired state in Azure Automation
 description: This article tells how to configure machines to a desired state using Azure Automation State Configuration.
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Configure machines to a desired state

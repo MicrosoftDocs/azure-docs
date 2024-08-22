@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Operator Service Manager?
     href: ./azure-operator-service-manager-overview.md
+  - name: Azure Operator Service Manager Release Notes
+    href: release-notes.md
 - name: Concepts
   expanded: false
   items:

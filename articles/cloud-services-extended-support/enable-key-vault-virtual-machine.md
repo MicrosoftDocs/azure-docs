@@ -2,14 +2,14 @@
 title: Apply the Key Vault VM extension in Azure Cloud Services (extended support) 
 description: Learn about the Key Vault VM extension for Windows and how to enable it in Azure Cloud Services.
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
-ms.date: 01/30/2024
+ms.date: 07/24/2024
 ---
 
-# Apply the Key Vault VM extension to Azure Cloud Services (extended support)
+# Apply the Key Vault Virtual Machine (VM) extension to Azure Cloud Services (extended support)
 
 This article provides basic information about the Azure Key Vault VM extension for Windows and shows you how to enable it in Azure Cloud Services.
 
@@ -20,7 +20,7 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 The Key Vault VM extension is now supported on the Azure Cloud Services (extended support) platform to enable the management of certificates end to end. The extension can now pull certificates from a configured key vault at a predefined polling interval and install them for the service to use. 
 
 ## How can I use the Key Vault VM extension?
-The following procedure will show you how to install the Key Vault VM extension on Azure Cloud Services by first creating a bootstrap certificate in your vault to get a token from Microsoft Entra ID. That token will help in the authentication of the extension with the vault. After the authentication process is set up and the extension is installed, all the latest certificates will be pulled down automatically at regular polling intervals. 
+The following procedure shows you how to install the Key Vault VM extension on Azure Cloud Services by first creating a bootstrap certificate in your vault to get a token from Microsoft Entra ID. That token helps in the authentication of the extension with the vault. After the authentication process is set up and the extension is installed, all the latest certificates will be pulled down automatically at regular polling intervals. 
 
 > [!NOTE]
 > The Key Vault VM extension downloads all the certificates in the Windows certificate store to the location provided by the `certificateStoreLocation` property in the VM extension settings. Currently, the Key Vault VM extension grants access to the private key of the certificate only to the local system admin account. 
@@ -31,7 +31,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 
 ### Enable the Azure Key Vault VM extension
 
-1. [Generate a certificate](../key-vault/certificates/create-certificate-signing-request.md) in your vault and download the .cer file for that certificate.
+1. [Generate a certificate](/azure/key-vault/certificates/create-certificate-signing-request) in your vault and download the .cer file for that certificate.
 
 2. In the [Azure portal](https://portal.azure.com), go to **App registrations**.
     
@@ -51,7 +51,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 6. Grant the Microsoft Entra app secret permissions in Key Vault:
    
     - If you're using a role-based access control (RBAC) preview, search for the name of the Microsoft Entra app that you created and assign it to the Key Vault Secrets User (preview) role.
-    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](../key-vault/general/assign-access-policy-portal.md).
+    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](/azure/key-vault/general/assign-access-policy-portal).
 
 7. Install the Key Vault VM extension by using the Azure Resource Manager template snippet for the `cloudService` resource:
 

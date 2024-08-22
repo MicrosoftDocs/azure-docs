@@ -3,7 +3,7 @@ title: Associate a virtual machine scale set with flexible orchestration to a Ca
 description: Learn how to associate a new virtual machine scale set with flexible orchestration mode to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
@@ -33,7 +33,7 @@ This content applies to the flexible orchestration mode. For uniform orchestrati
 
 **Step 1: Add to the Virtual Machine Scale Set** - For sample code, see [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md). 
 
-**Step 2: Add to the Virtual Machines deployed** - You must add the Capacity Reservation group to the Virtual Machines deployed using the Scale Set. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
+**Step 2: Add to the Virtual Machines deployed** - You must add the Capacity Reservation group to the Virtual Machines deployed using the Scale Set depending on the upgrade mode. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
 
 ## Next steps
 

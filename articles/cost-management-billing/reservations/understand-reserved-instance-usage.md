@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/20/2024
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ For the following sections, assume that you're running a Standard_DS1_v2 Windows
 
 | Field | Value |
 |---| :---: |
-|ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
+|ReservationId |aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb|
 |Quantity |1|
 |SKU | Standard_DS1_v2|
 |Region | eastus |
@@ -59,7 +59,7 @@ Assume that you're running a SQL Database Gen 4 in the east US region and your r
 
 | Field | Value |
 |---| --- |
-|ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
+|ReservationId |bbbbbbbb-1111-2222-3333-cccccccccccc|
 |Quantity |2|
 |Product| SQL Database Gen 4 (2 Core)|
 |Region | eastus |

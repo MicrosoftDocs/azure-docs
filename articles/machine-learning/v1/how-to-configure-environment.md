@@ -5,7 +5,7 @@ description: Set up Azure Machine Learning (v1) Python development environments 
 services: machine-learning
 author: Blackmist
 ms.author: larryfr
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.reviewer: roastala
 ms.date: 09/30/2022

@@ -4,7 +4,7 @@ description: In this tutorial, learn how to to configure monitoring and diagnost
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 05/17/2024
 ---
@@ -266,6 +266,6 @@ When you finish making these changes, select **Start** in the application so tha
 
 ## Related content
 
-* Learn more about [monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md).
+* Learn more about [monitoring and diagnostics in Service Fabric](monitor-service-fabric.md).
 * Review [Service Fabric event analysis by using Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 * Learn more about [Application Insights](/azure/application-insights/).

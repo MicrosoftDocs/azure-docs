@@ -3,7 +3,7 @@ title: Create Virtual Machine restore points
 description: Creating Virtual Machine Restore Points with API
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.date: 02/14/2022
 ms.topic: quickstart

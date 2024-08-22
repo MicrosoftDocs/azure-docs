@@ -1,7 +1,7 @@
 ---
 title: Run VMware VMs failover to Azure
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/29/2023
 ms.custom: MVC

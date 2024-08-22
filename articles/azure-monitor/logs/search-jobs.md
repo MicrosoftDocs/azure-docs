@@ -2,17 +2,21 @@
 title: Run search jobs in Azure Monitor
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 ms.topic: conceptual
-ms.date: 05/30/2024
+ms.date: 07/22/2024
 ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
-# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
+# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including data in long-term retention.
 ---
 
 # Run search jobs in Azure Monitor
 
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
+
+This video explains when and how to use search jobs:
+ 
+> [!VIDEO https://www.youtube.com/embed/5iShgXRu1sU?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Permissions required
 
@@ -20,23 +24,25 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 |:-------|:---------------------|
 | Run a search job | `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles). |
 
+> [!NOTE]
+> Cross-tenant search jobs are not currently supported, even when Entra ID tenants are managed through Azure Lighthouse.
+
 ## When to use search jobs
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.
 
-Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
+Search jobs also let you retrieve records from [long-term retention](data-retention-configure.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
 
-* [Restoring data from Archived Logs](restore.md) for a specific time range.<br/>
-    Use restore when you have a temporary need to run many queries on a large volume of data. 
+- [Restoring data from long-term retention](restore.md) for a specific time range. 
 
-* Querying Basic Logs directly and paying for each query.<br/>
-    To determine which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of running a search job and storing the search job results.
+- Querying Basic and Auxiliary tables directly and paying for each query.<br/>
+    To determine which alternative is more cost-effective, compare the cost of querying Basic and Auxiliary tables with the cost of running a search job and storing the search job results.
 
 ## What does a search job do?
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is an [Analytics table](../logs/basic-logs-configure.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
+The search job results table is an [Analytics table](../logs/logs-table-plans.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-configure.md) set for the workspace, but you can modify this value after the table is created.
 
 The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
@@ -310,6 +316,6 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Next steps
 
-- [Learn more about data retention and archiving data.](data-retention-archive.md)
-- [Learn about restoring data, which is another method for retrieving archived data.](restore.md)
-- [Learn about directly querying Basic Logs.](basic-logs-query.md)
+- [Learn more about data retention and archiving data.](data-retention-configure.md)
+- [Learn about restoring data, which is another method for retrieving data from long-term retention.](restore.md)
+- [Learn about directly querying Basic and Auxiliary tables.](basic-logs-query.md)

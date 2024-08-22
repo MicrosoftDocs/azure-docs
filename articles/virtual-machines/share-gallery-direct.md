@@ -2,7 +2,7 @@
 title: Share Azure Compute Gallery resources directly with subscriptions and tenants
 description: Learn how to share Azure Compute Gallery resources explicitly with subscriptions and tenants.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/14/2023
