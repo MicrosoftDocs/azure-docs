@@ -1,5 +1,5 @@
 ---
-title: Migrating from Twilio Conversations Chat to ACS Chat iOS
+title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat iOS
 description: Guide describes how to migrate iOS apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
 ms.date: 07/22/2024
@@ -28,9 +28,9 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 
 ### Install the libraries
 
-To start the migration from Twilio Conversations Chat, the first step is to install the Azure Communication Services Chat SDK for iOS to your project. You can configure these parameters using`Cocoapods`.
+To start the migration from Twilio Conversations Chat, the first step is to install the Azure Communication Services Chat SDK for iOS to your project. You can configure these parameters using `Cocoapods`.
 
-1. To create a Podfile for your application, open the terminal and navigate to the project folder and run:
+1. Create a Podfile for your application. Open the terminal, navigate to the project folder, and run:
 
  `pod init`
 
@@ -40,17 +40,17 @@ To start the migration from Twilio Conversations Chat, the first step is to inst
 pod 'AzureCommunicationChat', '~> 1.3.5'
 ```
 
-3. Set up the `.xcworkspace` project
+3. Set up the `.xcworkspace` project:
 
 ```shell
 pod install
 ```
 
-4. Open the `.xcworkspace` that was created by the pod install with Xcode.
+4. Open the `.xcworkspace` created by the pod install with Xcode.
 
 ### Authenticating to the SDK
 
-To be able to use the Azure Communication Services Chat SDK, you need to authenticate using an access token.
+To use the Azure Communication Services Chat SDK, you need to authenticate using an access token.
 
 #### Twilio
 
@@ -96,7 +96,8 @@ callClient.createCallAgent(userCredential: userCredential) { callAgent, error in
 
 #### Twilio
 
-The following code snippet helps to initialize chat client in Twilio.
+The following code snippet initializes the chat client in Twilio.
+
 ```swift
 func fetchAccessTokenAndInitializeClient() {
         let identity = "user_identity" // Replace with actual user identity
@@ -127,7 +128,8 @@ func fetchAccessTokenAndInitializeClient() {
 
 #### Azure Communication Services
 
-To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps.
+To create a chat client, use your Communication Services endpoint and the access token generated as part of the prerequisite steps.
+
 Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your Azure Communication Services resource. Replace `<ACCESS_TOKEN>` with a valid Communication Services access token.
 
 ```swift
@@ -151,14 +153,16 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ChatClient` | This class is needed for the chat functionality. You instantiate it with your subscription information, and use it to create, get, delete threads, and subscribe to chat events. |
-| `ChatThreadClient` | This class is needed for the chat thread functionality. You obtain an instance via `ChatClient`, and use it to send, receive, update, and delete messages. You can also use it to add, remove, and get users, send typing notifications and read receipts. |
+| `ChatClient` | This class is needed for the chat function. You instantiate it with your subscription information, and use it to create, get, delete threads, and subscribe to chat events. |
+| `ChatThreadClient` | This class is needed for the chat thread function. You get an instance via `ChatClient`, and use it to send, receive, update, and delete messages. You can also use it to add, remove, get users, and send typing notifications and read receipts. |
 
 
 ### Start a chat thread
 
 #### Twilio
-The following code snippet allow to create a new chat thread
+
+The following code snippet enables you to create a new chat thread.
+
 ```swift
     // the unique name of the conversation you create
     private let uniqueConversationName = "general"
@@ -191,10 +195,11 @@ The following code snippet allow to create a new chat thread
 ```
 
 #### Azure Communication Services
-`CreateChatThreadResult` is the response returned from creating a chat thread.
-It contains a `chatThread` property which is the `ChatThreadProperties` object. This object contains the threadId which can be used to get a `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
 
-Replace the comment `<CREATE A CHAT THREAD>` with the code snippet below:
+The response returned from creating a chat thread is `CreateChatThreadResult`.
+It contains a `chatThread` property, which is the `ChatThreadProperties` object. This object contains the `threadId`, which you can use to get a `ChatThreadClient` for performing operations on the created thread: add participants, send message, and so on.
+
+Replace the comment `<CREATE A CHAT THREAD>` with the following code snippet:
 
 ```swift
 let request = CreateChatThreadRequest(
@@ -223,14 +228,15 @@ semaphore.wait()
 
 Replace `<USER_ID>` with a valid Communication Services user ID.
 
-You're using a semaphore here to wait for the completion handler before continuing. In later steps, you'll use the `threadId` from the response returned to the completion handler.
+You're using a semaphore here to wait for the completion handler before continuing. In later steps, use the `threadId` from the response returned to the completion handler.
 
 
 ### Get a chat thread client
 
 #### Twilio
 
-The following code snippet showes how to get chat thread client in Twilio.
+The following code snippet shows how to get a chat thread client in Twilio.
+
 ```swift
 func conversationsClient(_ client: TwilioConversationsClient, synchronizationStatusUpdated status: TCHClientSynchronizationStatus) {
         guard status == .completed else {
@@ -252,7 +258,10 @@ func conversationsClient(_ client: TwilioConversationsClient, synchronizationSta
 ```
 
 #### Azure Communication Services
-The `createClient` method returns a `ChatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. threadId is the unique ID of the existing chat thread.
+
+The `createClient` method returns a `ChatThreadClient` for a thread that already exists. You can use it to perform operations on the created thread: add participants, send message, and so on.
+
+The `threadId` is the unique ID of the existing chat thread.
 
 Replace the comment `<GET A CHAT THREAD CLIENT>` with the following code:
 
@@ -261,10 +270,13 @@ let chatThreadClient = try chatClient.createClient(forThread: threadId!)
 ```
 
 ### Send a message to a chat thread
-Unlike Twilio ACS does not have separate function to send text message or media.
+
+Unlike Twilio, Azure Communication Services doesn't have separate function to send text message or media.
 
 #### Twilio
-Sending a regular text message in Twilio.
+
+Send a regular text message in Twilio.
+
 ```swift
     func sendMessage(_ messageText: String,
                      completion: @escaping (TCHResult, TCHMessage?) -> Void) {
@@ -277,7 +289,8 @@ Sending a regular text message in Twilio.
     }
 ```
 
-Sending media.
+Send media in Twilio:
+
 ```swift
 / The data for the image you would like to send
 let data = Data()
@@ -309,18 +322,19 @@ self.conversation.prepareMessage
 ```
 
 #### Azure Communication Services
-Use the `send` method to send a message to a thread identified by threadId.
 
-`SendChatMessageRequest` is used to describe the message request:
+Use the `send` method to send a message to a thread identified by `threadId`.
 
-- Use `content` to provide the chat message content
-- Use `senderDisplayName` to specify the display name of the sender
-- Use `type` to specify the message type, such as 'text' or 'html'
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+Use `SendChatMessageRequest` to describe the message request:
 
-`SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
+- Use `content` to provide the chat message content.
+- Use `senderDisplayName` to specify the display name of the sender.
+- Use `type` to specify the message type, such as `text` or `html`.
+- Use `metadata` optionally to include any information you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in metadata so that recipient's application can parse that and display accordingly.
 
-Replace the comment `<SEND A MESSAGE>` with the code snippet below:
+The response returned from sending a message is`SendChatMessageResult`. It contains an ID, which is the unique ID of the message.
+
+Replace the comment `<SEND A MESSAGE>` with the following code snippet:
 
 ```swift
 let message = SendChatMessageRequest(
@@ -349,10 +363,13 @@ semaphore.wait()
 ```
 
 ### Receive chat messages from a chat thread
-Unlike Twilio ACS does not have separate function to receive text message or media.
+
+Unlike Twilio, Azure Communication Services doesn't have a separate function to receive text message or media.
 
 #### Twilio
-Code snippet below shows how to receive text message in Twilio.
+
+The following code snippet shows how to receive a text message in Twilio.
+
 ```swift
 // Called whenever a conversation we've joined receives a new message
     func conversationsClient(_ client: TwilioConversationsClient, conversation: TCHConversation,
@@ -369,7 +386,8 @@ Code snippet below shows how to receive text message in Twilio.
     }
 ```
 
-Receive media
+Receive media in Twilio:
+
 ```swift
 conversationsClient.getTemporaryContentUrlsForMedia(message.attachedMedia) { result, mediaSidToUrlMap in
     guard result.isSuccessful else {
@@ -384,9 +402,10 @@ conversationsClient.getTemporaryContentUrlsForMedia(message.attachedMedia) { res
 ```
 
 #### Azure Communication Services
-With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
-Replace the comment `<RECEIVE MESSAGES>` with the code below. After enabling notifications, try sending new messages to see the ChatMessageReceivedEvents.
+With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../concepts/chat/concepts.md#real-time-notifications).
+
+Replace the comment `<RECEIVE MESSAGES>` with the following code. After enabling notifications, try sending new messages to see the `ChatMessageReceivedEvents`.
 
 ```swift
 chatClient.startRealTimeNotifications { result in
@@ -410,7 +429,7 @@ chatClient.register(event: .chatMessageReceived, handler: { response in
 })
 ```
 
-Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals. See the following code snippet for `listMessages`
+Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals. See the following code snippet for `listMessages`.
 
 ```swift
 chatThreadClient.listMessages { result, _ in
@@ -435,7 +454,9 @@ semaphore.wait()
 
 ### Push notifications
 
-Similar to Twilio Azure Communication Services support push notifications. Push notifications notify clients of incoming messages in a chat thread in situations where the mobile app is not running in the foreground.
-Currently sending chat push notifications with Notification Hub is supported for IOS SDK in version 1.3.0.
-Please refer to the article [Enable Push Notification in your chat app](../../../tutorials/add-chat-push-notifications.md) for details.
+Similar to Twilio, Azure Communication Services support push notifications. Push notifications notify clients of incoming messages in a chat thread if the mobile app isn't running in the foreground.
+
+Currently sending chat push notifications with Notification Hub is supported for iOS SDK in version 1.3.0.
+
+For more information, see [Enable Push Notification in your chat app](../../tutorials/add-chat-push-notifications.md).
 
