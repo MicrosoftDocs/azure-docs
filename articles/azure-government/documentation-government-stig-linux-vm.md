@@ -50,7 +50,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     a. Enter the *VM name*.
 
-    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
     c. Select the *Linux OS version*.
 
@@ -65,7 +65,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
     h. Confirm *Password* (*Public key* only needs to be input once).
 
     > [!NOTE]
-    > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
+    > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).**
 
     :::image type="content" source="./media/stig-linux-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
@@ -131,7 +131,7 @@ Site Recovery can manage replication for:
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
-To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
+To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](/azure/virtual-machines/backup-recovery).
 
 ## Clean up resources
 
@@ -162,7 +162,7 @@ For more information, see [Deploy Azure Virtual Machine (Linux) and apply STIG](
 
 This quickstart showed you how to deploy a STIG-compliant Linux virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
 
-- Azure, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+- Azure, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 - Azure Government, see [Tutorial: Create virtual machines](./documentation-government-quickstarts-vm.md).
 
 To learn more about Azure services, continue to the Azure documentation.

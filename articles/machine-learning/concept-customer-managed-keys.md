@@ -73,7 +73,7 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 :::moniker range="azureml-api-1"
 | Compute | Encryption |
 | ----- | ----- |
-| Azure Container Instances | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). |
+| Azure Container Instances | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). |
 | Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). |
 | Azure Machine Learning compute instance | The local scratch disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 | Azure Machine Learning compute cluster | The OS disk is encrypted in Azure Storage with Microsoft-managed keys. The temporary disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
