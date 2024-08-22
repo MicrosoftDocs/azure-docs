@@ -1,7 +1,7 @@
 ---
 title: View costs for managed online endpoints
 titleSuffix: Azure Machine Learning
-description: 'Learn to how view costs for a managed online endpoint in Azure Machine Learning in the Azure portal.'
+description: 'Learn to view costs for a managed online endpoint in Azure Machine Learning in the Azure portal.'
 services: machine-learning
 ms.service: azure-machine-learning
 author: msakande
@@ -16,7 +16,7 @@ ms.custom: how-to, deploy, devplatv2
 
 # View costs for an Azure Machine Learning managed online endpoint
 
-Learn how to view costs for a managed online endpoint. Costs for your endpoints accrue to the associated workspace. You can see costs for a specific endpoint using tags.
+Learn how to view costs for a managed online endpoint. Costs for your endpoints accrue to the associated workspace. You can see costs for a specific endpoint by using tags.
 
 > [!IMPORTANT]
 > This article only applies to viewing costs for Azure Machine Learning managed online endpoints. Managed online endpoints are different from other resources since they must use tags to track costs.
@@ -58,7 +58,7 @@ Create a tag filter to show your managed online endpoint and managed online depl
    :::image type="content" source="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png" lightbox="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png" alt-text="Screenshot of the Cost Analysis view showing a red box around the Tag buttons.":::
 
 > [!TIP]
-> Managed online endpoint uses VMs for the deployments. If you submitted a request to create an online deployment and it failed, it might have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigation for the failure, you can delete the failed deployments to save the cost.
+> Managed online endpoints use virtual machines (VMs) for the deployments. If you submitted a request to create an online deployment and it failed, it might have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigating the failure, you can delete the failed deployments to save the cost.
 
 ## Related content
 
