@@ -257,7 +257,7 @@ Alerts are automatically enabled by default, but to fully configure an alert, yo
 
 ### Location population tags
 
-You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm#create-a-new-alert-rule-using-an-arm-template).
+You can use the following population tags for the geo-location attribute when you deploy a Standard test or URL ping test [by using Azure Resource Manager](../alerts/alerts-create-rule-cli-powershell-arm.md#create-a-new-alert-rule-using-an-arm-template).
 
 | Provider                                 | Display name                           | Population name     |
 |------------------------------------------|----------------------------------------|---------------------|
@@ -295,23 +295,26 @@ You can use the following population tags for the geo-location attribute when yo
 > [!NOTE]
 > With the [new unified alerts](../alerts/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../alerts/action-groups.md) *must be* configured in the alerts experience. Without the following steps, you'll only receive in-portal notifications.
 
-1. After you save the availability test, open the context menu (ellipsis) by the test you made, then select **Open Rules (Alerts) page**.
+1. After you save the availability test, open the context menu by the test you made, then select **Open Rules (Alerts) page**.
 
     :::image type="content" source="media/availability/edit-alert.png" alt-text="Screenshot that shows the Availability experience for an Application Insights resource in the Azure portal and the Open Rules (Alerts) page menu option." lightbox="media/availability/edit-alert.png":::
 
-1. Set the severity level, rule description, and action group that have the notification preferences you want to use for this alert rule.
+1. On the **Alert rules** page, open your alert, then select **Edit** in the top navigation bar. Here you can set the severity level, rule description, and action group that have the notification preferences you want to use for this alert rule.
 
 ### Alert criteria
 
-Automatically enabled availability alerts trigger an email when the endpoint becomes unavailable and when it's available again. Availability alerts that are created through this experience are *state based*. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
+Automatically enabled availability alerts trigger one email when the endpoint becomes unavailable, and another email when it's available again. Availability alerts that are created through this experience are *state based*. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
 
 For example, suppose that your website is down for an hour and you set up an email alert with an evaluation frequency of 15 minutes. You only receive an email when the website goes down and another email when it's back online. You don't receive continuous alerts every 15 minutes to remind you that the website is still unavailable.
 
 #### Change the alert criteria
 
-You might not want to receive notifications when your website is down for only a short period of time, for example, during maintenance. You can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold so that it only triggers an alert if the website is down for a specific number of regions. For longer scheduled downtimes, temporarily deactivate the alert rule or create a custom rule. It gives you more options to account for the downtime.
+You might not want to receive notifications when your website is down for only a short period of time, for example, during maintenance. You can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold so that it only triggers an alert if the website is down for a specific number of regions.
 
-To make changes to the location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule to open the **Configure signal logic** window.
+> [TIP]
+> For longer scheduled downtimes, temporarily deactivate the alert rule or create a custom rule. It gives you more options to account for the downtime.
+
+To make changes to the location threshold, aggregation period, and test frequency, go to the **Edit alert rule** page (see step 2 under [Enable alerts](#enable-alerts)), then select the condition to open the **Configure signal logic** window.
 
 ### Create a custom alert rule
 
@@ -550,7 +553,7 @@ To provide best-in-class encryption, all availability tests use Transport Layer 
 
 #### TLS 1.0 and TLS 1.1
 
-All versions of TLS 1.0 and TLS 1.1 will be retired.
+TLS 1.0 and TLS 1.1 are being retired.
 
 #### TLS 1.2 and TLS 1.3
 
