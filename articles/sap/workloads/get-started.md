@@ -55,6 +55,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- August 22, 2024: Added documentation option for SAPHanaSR-angi as separate tab in [High availability for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [High availability of SAP HANA scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md).
 - July 29, 2024: Changes in [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](./high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-netapp-files.md), [Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md), [Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) with the instructions of managing SAP ASCS and ERS instances SAP startup framework when configured with systemd.
 - July 24, 2024: Release of SBD STONITH support using iSCSI target server or Azure shared disk in [Configuring Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md).
 - July 19, 2024: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a statement around clusters spanning Virtual networks(VNets)/subnets.
