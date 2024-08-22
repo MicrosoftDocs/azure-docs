@@ -5,8 +5,8 @@ items:
   items:
     - name: What is Azure Modeling and Simulation Workbench?
       href: modeling-simulation-workbench-overview.md
-- name: Quickstart
-  items:
+- name: Tutorials
+  items: 
     - name: Create an Azure Modeling and Simulation Workbench
       href: ./quickstart-create-portal.md
 #- name: Tutorials
