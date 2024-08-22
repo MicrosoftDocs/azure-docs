@@ -57,12 +57,6 @@
   - name: Advanced query samples
     displayName: samples, advanced
     href: ./samples/advanced.md
-  - name: Sample queries by category
-    displayName: samples, category
-    href: ./samples/samples-by-category.md
-  - name: Sample queries by table
-    displayName: samples, table
-    href: ./samples/samples-by-table.md
   - name: Alerts samples
     displayName: samples, alerts
     href: ./samples/alerts-samples.md
