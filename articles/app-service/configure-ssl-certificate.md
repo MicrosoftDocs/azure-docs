@@ -153,7 +153,7 @@ By default, the App Service resource provider doesn't have access to your key va
 
 1. Select **Select key vault certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/import-key-vault-cert.png" alt-text="Screenshot of app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Import from Key Vault' selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/import-key-vault-cert.png" alt-text="Screenshot of the app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Import from Key Vault' selected.":::
 
 1. To help you select the certificate, use the following table:
 
@@ -232,7 +232,7 @@ You're now ready upload the certificate to App Service.
 
 1. From your app's navigation menu, select **Certificates** > **Bring your own certificates (.pfx)** > **Upload Certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of  with 'Certificates', 'Bring your own certificates (.pfx)', 'Upload Certificate' selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of the app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Upload Certificate' selected.":::
 
 1. To help you upload the .pfx certificate, use the following table:
 
