@@ -70,7 +70,8 @@ az containerapp sessionpool create \
     --network-status EgressDisabled \
     --max-sessions 10 \
     --ready-sessions 5 \
-    --env-vars "key1=value1" "key2=value2"
+    --env-vars "key1=value1" "key2=value2" \
+    --location <LOCATION>
 ```
 
 This command creates a session pool with the following settings:
@@ -93,6 +94,7 @@ This command creates a session pool with the following settings:
 | `--max-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `--ready-sessions` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |
+| `--location` | `"Supported Location"` | The location of the session pool. |
 
 To update the session pool, use the `az containerapp sessionpool update` command.
 
