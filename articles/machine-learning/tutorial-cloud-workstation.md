@@ -103,8 +103,8 @@ In order for your script to run, you need to be working in an environment config
         conda activate workstation_env
         ```
 
-    > [!NOTE]
-    > If you see a CommandNotFoundError, follow instructions to run `conda init bash`, close the terminal, and open a new one. Then retry the `conda activate workstation_env` command.
+        > [!NOTE]
+        > If you see a CommandNotFoundError, follow instructions to run `conda init bash`, close the terminal, and open a new one. Then retry the `conda activate workstation_env` command.
 
     1. Validate the correct environment is active, again looking for the environment marked with a *.
 
@@ -127,15 +127,11 @@ You now have a new kernel. Next you'll open a notebook and use this kernel.
 1. On the top menu bar, select **File > New File**.
 1. Name your new file **develop-tutorial.ipynb** (or enter your preferred name). Make sure you use the **.ipynb** extension.
 
-    :::image type="content" source="media/tutorial-cloud-workstation/vs-code-new-file.gif" alt-text="Screenshot: Create new file.":::
-
 ## Set the kernel
 
 1. On the top right, select **Select kernel**.
 1. Select **Azure ML compute instance (computeinstance-name)**.
 1. Select the kernel you created, **Tutorial Workstation Env**. If you don't see it, select the **Refresh** tool at the top right.
-
-    :::image type="content" source="media/tutorial-cloud-workstation/select-kernel.gif" alt-text="Screenshot shows selecting the new kernel.":::
 
 ## Develop a training script
 
@@ -203,7 +199,7 @@ Now that you've tried two different models, use the results tracked by `MLFfow` 
 
 Now create a Python script from your notebook for model training.
 
-1. In your VS Code window, right click on the notebook filename and select **Import Notebook to Script**.
+1. In your VS Code window, right-click on the notebook filename and select **Import Notebook to Script**.
 
 1. Use the menu **File > Save** to save this new script file. Call it **train.py**.
 1. Look through this file and delete the code you don't want in the training script. For example, keep the code for the model you wish to use, and delete code for the model you don't want.
@@ -228,7 +224,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     :::image type="content" source="media/tutorial-cloud-workstation/run-python.png" alt-text="Screenshot shows the Run Python File tool at the top right of the screen.":::
 
 > [!NOTE]
-> You can ignore the mlflow warnings. You'll still get all the metric and images from autologging.
+> You can ignore the mlflow warnings. You'll still get all the metrics and images from autologging.
 
 ## Examine script results
 
