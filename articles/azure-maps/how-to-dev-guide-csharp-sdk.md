@@ -140,7 +140,10 @@ Call the `GetGeocoding` method to get the coordinate of an address.
 
 ```csharp
 using System;
+using Azure; 
+using Azure.Maps.Search; 
 using Azure.Maps.Search.Models;
+
 // Use Azure Maps subscription key authentication 
 var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
 var credential = new AzureKeyCredential(subscriptionKey);
@@ -158,9 +161,12 @@ This sample demonstrates how to perform batch search address.
 
 ```csharp
 using System;
+using Azure; 
+using Azure.Maps.Search; 
 using System.Collections.Generic;
 using Azure.Maps.Search.Models;
 using Azure.Maps.Search.Models.Queries;
+
 // Use Azure Maps subscription key authentication 
 var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
 var credential = new AzureKeyCredential(subscriptionKey);
@@ -170,7 +176,7 @@ List<GeocodingQuery> queries = new List<GeocodingQuery>
 {
     new GeocodingQuery()
     {
-        Locality ="Seattle"
+        Query ="15171 NE 24th St, Redmond, WA 98052, United States"
     },
     new GeocodingQuery()
     {
@@ -192,6 +198,8 @@ You can translate coordinates into human-readable street addresses. This process
 
 ```csharp
 using System;
+using Azure; 
+using Azure.Maps.Search; 
 using Azure.Core.GeoJson;
 using Azure.Maps.Search.Models;
 
@@ -216,6 +224,8 @@ Azure Maps Search also provides some batch query APIs. The Reverse Geocoding Bat
 
 ```csharp
 using System;
+using Azure; 
+using Azure.Maps.Search; 
 using System.Collections.Generic;
 using Azure.Core.GeoJson;
 using Azure.Maps.Search.Models;
@@ -230,11 +240,12 @@ List<ReverseGeocodingQuery> items = new List<ReverseGeocodingQuery>
 {
     new ReverseGeocodingQuery()
     {
-        Coordinates = new GeoPosition(-122.34255, 47.0)
+        Coordinates = new GeoPosition(-122.349309, 47.620498)
     },
     new ReverseGeocodingQuery()
     {
-        Coordinates = new GeoPosition(-122.34255, 47.0)
+        Coordinates = new GeoPosition(-122.138679, 47.630356)
+        ResultTypes = new List<ReverseGeocodingResultTypeEnum>(){ ReverseGeocodingResultTypeEnum.Address, ReverseGeocodingResultTypeEnum.Neighborhood}
     },
 };
 Response<GeocodingBatchResponse> result = client.GetReverseGeocodingBatch(items);
@@ -242,6 +253,7 @@ Response<GeocodingBatchResponse> result = client.GetReverseGeocodingBatch(items)
 for (var i = 0; i < result.Value.BatchItems.Count; i++)
 {
     Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.AddressLine);
+    Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.Neighborhood);
 }
 ```
 
@@ -251,6 +263,8 @@ This sample demonstrates how to search polygons.
 
 ```csharp
 using System;
+using Azure; 
+using Azure.Maps.Search; 
 using Azure.Core.GeoJson;
 using Azure.Maps.Search.Models;
 using Azure.Maps.Search.Models.Options;
