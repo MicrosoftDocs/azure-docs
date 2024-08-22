@@ -30,26 +30,9 @@ The following legacy connectors are deprecated, but new updated versions are ava
 - [ServiceNow](connector-servicenow.md)
 - [Snowflake](connector-snowflake-legacy.md)
 
-> [!NOTE]
-> The [MySQL](connector-mysql.md) connector is still supported, but to continue using it, you must upgrade its legacy driver version.
-
 ## Use the generic ODBC connector to replace deprecated connectors
 
 If legacy connectors are deprecated with no updated connectors available, you can still use the generic [ODBC Connector](connector-odbc.md), which enables you to continue using these data sources with their native ODBC drivers. This can enable you to continue using them indefinitely into the future.
-
-## Connectors to be deprecated on September 30, 2024
-
-The following connectors are scheduled for deprecation at the end of September 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
-
-- [HubSpot](connector-hubspot.md)
-- [Vertica](connector-vertica.md)
-
-## Connectors to be deprecated on November 30, 2024
-
-The following connectors are scheduled for deprecation at the end of November 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
-
-- [Square (Preview)](connector-square.md)
-- [Xero (Preview)](connector-xero.md)
 
 ## Connectors to be deprecated on December 31, 2024
 
@@ -58,22 +41,11 @@ The following connectors are scheduled for deprecation at the end of December 20
 - [Amazon Marketplace Web Service (MWS)](connector-amazon-marketplace-web-service.md)
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
-- [Couchbase (Preview)](connector-couchbase.md)
-- [Drill](connector-drill.md)
 - [Hbase](connector-hbase.md)
-- [Hive](connector-hive.md)
-- [Jira](connector-jira.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
-- [Oracle](connector-oracle.md)
-- [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)
-- [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md)
 - [Paypal (Preview)](connector-paypal.md)
 - [Phoenix (Preview)](connector-phoenix.md)
-- [Presto](connector-presto.md)
-- [Salesforce Marketing Cloud (Preview)](connector-salesforce-marketing-cloud.md)
-- [Spark](connector-spark.md)
-- [Teradata](connector-teradata.md)
 - [Zoho (Preview)](connector-zoho.md)
 
 ## Related content

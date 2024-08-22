@@ -62,7 +62,7 @@ The steps you'll use to create a managed identity will vary depending on where y
 
 - [Azure VMs](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
 - [App Service and Azure Functions](../app-service/overview-managed-identity.md)
-- [Azure Container Instances](../container-instances/container-instances-managed-identity.md)
+- [Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 - and more ...
 
 ### Application registration

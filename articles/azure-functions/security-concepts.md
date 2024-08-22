@@ -62,7 +62,7 @@ For the highest level of security, you can also secure the entire application ar
 
 ### Disable administrative endpoints
 
-Function apps can serve administrative endpoints under the `/admin` route that can be used for operations such as obtaining host status information and performing test invocations. When exposed, requests against these endpoints must include the app's master key. Administrative operations are also available through the [Azure Resource Manager `Microsoft.Web/sites` API](/rest/api/appservice/web-apps), which offers Azure RBAC. You can disable the `/admin` endpoints by setting the `functionsRuntimeAdminIsolationEnabled` site property to `true`.
+Function apps can serve administrative endpoints under the `/admin` route that can be used for operations such as obtaining host status information and performing test invocations. When exposed, requests against these endpoints must include the app's master key. Administrative operations are also available through the [Azure Resource Manager `Microsoft.Web/sites` API](/rest/api/appservice/web-apps), which offers Azure RBAC. You can disable the `/admin` endpoints by setting the `functionsRuntimeAdminIsolationEnabled` site property to `true`. This property cannot be set for apps running on the Linux Consumption SKU, and it cannot be set for apps running on version 1.x of Azure Functions. If you are using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md). 
 
 ### Enable App Service Authentication/Authorization
 

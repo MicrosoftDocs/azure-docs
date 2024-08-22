@@ -85,7 +85,7 @@ You pay for two things: the hourly compute costs for the virtual network gateway
 * If you're sending traffic between virtual networks in different regions, the pricing is based on the region.
 * If you're sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
 
-## <a name="new"></a>What's new?
+## <a name="new"></a>What's new in VPN Gateway?
 
 Azure VPN Gateway is updated regularly. To stay current with the latest announcements, see the [What's new?](whats-new.md) article. The article highlights the following points of interest:
 

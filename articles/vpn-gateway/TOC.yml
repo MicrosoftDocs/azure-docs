@@ -13,7 +13,7 @@
   expanded: true
 - name: Concepts
   items:
-  - name: What's new?
+  - name: What's new in VPN Gateway?
     href: whats-new.md
   - name: Work remotely
     items:
@@ -51,6 +51,8 @@
     href: about-site-to-site-tunneling.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
+  - name: Migrate classic gateways to Resource Manager
+    href: vpn-gateway-classic-resource-manager-migration.md
   - name: Security
     items:
     - name: Security baseline
