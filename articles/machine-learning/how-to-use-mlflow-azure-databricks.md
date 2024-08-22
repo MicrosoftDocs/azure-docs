@@ -44,11 +44,11 @@ To install libraries on your cluster:
 
 1. Navigate to the **Libraries** tab and select **Install New**.
 
-   :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/azure-databricks-cluster-libraries.png" alt-text="mlflow with azure databricks":::
+   :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/azure-databricks-cluster-libraries.png" alt-text="Screenshot showing mlflow with azure databricks.":::
 
 1. In the **Package** field, type *azureml-mlflow* and then select **Install**. Repeat this step as necessary to install other packages to your cluster for your experiment.
 
-   :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/install-libraries.png" alt-text="Azure DB install mlflow library":::
+   :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/install-libraries.png" alt-text="Screenshot showing Azure DB install mlflow library.":::
 
 ## Track Azure Databricks runs with MLflow
 
@@ -223,7 +223,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 > [!TIP]
 > When working with shared environments, like an Azure Databricks cluster, Azure Synapse Analytics cluster, or similar, you can set the environment variable `MLFLOW_TRACKING_URI` at the cluster level. This approach allows you to automatically configure the MLflow tracking URI to point to Azure Machine Learning for all the sessions that run in the cluster rather than to do it on a per-session basis.
 >
-> :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/env.png" alt-text="Screenshot shows Acvanced options where you can configure the environment variables in an Azure Databricks cluster.":::
+> :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/env.png" alt-text="Screenshot shows Advanced options where you can configure the environment variables in an Azure Databricks cluster.":::
 >
 > After you configure the environment variable, any experiment running in such cluster is tracked in Azure Machine Learning.
 
