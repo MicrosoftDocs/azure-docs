@@ -69,8 +69,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     ```Python
     import http.client
     import json
-    
-    conn = http.client.HTTPSConnection("<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview")
+
+    endpoint = "<your_custom_subdomain>.cognitiveservices.azure.com"
+    conn = http.client.HTTPSConnection(endpoint)
     payload = json.dumps({
       "domain": "Generic",
       "task": "QnA",
