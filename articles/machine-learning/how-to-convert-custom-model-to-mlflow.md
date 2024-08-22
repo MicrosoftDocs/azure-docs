@@ -90,7 +90,7 @@ conda_env = {
 }
 ```
 
-## Load the MLFlow formatted model and test predictions
+## Load the MLflow formatted model and test predictions
 
 After your environment is ready, pass the `SKlearnWrapper`, the Conda environment, and your newly created artifacts dictionary to the `mlflow.pyfunc.save_model()` method. Doing so saves the model to your disk.
 
