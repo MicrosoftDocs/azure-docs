@@ -94,7 +94,7 @@ with mlflow.start_run():
 ```
 
 > [!NOTE]
-> As opposed to tracking, model registries don't support registering models at the same time on both Azure Machine Learning and Azure Databricks. For more information, see [Register models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
+> As opposed to tracking, model registries don't support registering models at the same time on both Azure Machine Learning and Azure Databricks. For more information, see [Register models in the registry with MLflow](#register-models-in-the-registry-with-mlflow).
 
 ### Track exclusively on Azure Machine Learning workspace
 
