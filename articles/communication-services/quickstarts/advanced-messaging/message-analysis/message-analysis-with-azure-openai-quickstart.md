@@ -74,13 +74,9 @@ Azure Communication Services enables you to receive Message Analysis results usi
       
 4. **See Message Analysis in action**
 
-   Send a message from WhatsApp Customer to Contoso business phone number.
+   a. Send a message from WhatsApp Customer to Contoso business phone number.
    
-      :::image type="content" source="./media/get-started/send-a-message.png" lightbox="./media/get-started/send-a-message.png" alt-text="Screenshot that shows sending a message from Customer to Contoso.":::
-
-5. **Receive the Message Analysis event**
-
-   Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**. Details on the AdvancedMessageAnalysisCompleted event schema can be found at [Azure Communication Services - Advanced Messaging events](../../../../../articles/event-grid/communication-services-advanced-messaging-events.md#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)
+   b. Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**. Details on the AdvancedMessageAnalysisCompleted event schema can be found at [Azure Communication Services - Advanced Messaging events](../../../../../articles/event-grid/communication-services-advanced-messaging-events.md#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)
 
       :::image type="content" source="./media/get-started/event-grid-viewer.png" lightbox="./media/get-started/event-grid-viewer.png" alt-text="Screenshot that shows Message Analysis event being received at Event Grid Viewer.":::
 
