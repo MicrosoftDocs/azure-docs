@@ -29,7 +29,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md). See [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) for more details of GPU instances provided by Azure.
 
    > [!Warning]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -155,7 +155,7 @@ However, there are key differences:
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
 * If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires longer training times.
-   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../../virtual-machines/ncv3-series.md) series  or  [ND](../../virtual-machines/nd-series.md)  series.
+   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](/azure/virtual-machines/ncv3-series) series  or  [ND](/azure/virtual-machines/nd-series)  series.
    * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
 
