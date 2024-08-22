@@ -56,9 +56,9 @@ landingContent:
     linkLists:
       - links:
           - text: "What is Azure Machine Learning prompt flow?"       
-            url: overview-what-is-prompt-flow.md
+            url: prompt-flow/overview-what-is-prompt-flow.md
           - text: "Get started in prompt flow"
-            url: get-started-prompt-flow.md
+            url: prompt-flow/get-started-prompt-flow.md
 
   # Card
   - title: Work with data
