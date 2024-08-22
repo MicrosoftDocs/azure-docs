@@ -394,7 +394,8 @@
       href: enroll-per-user-access-pricing.md
     - name: Host pools
       items:
-      - name: Customize RDP properties
+      - name: Set custom RDP properties
+        displayName: customize
         href: customize-rdp-properties.md
       - name: Configure load balancing method
         displayName: load-balancing, lb

@@ -167,7 +167,7 @@ items:
     href: document-translation/faq.md
 - name: Containers
   items:
-  - name: What is Azure AI Translator container?
+  - name: What is an Azure AI Translator container?
     displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
     href: containers/overview.md
   - name: Install and run containers

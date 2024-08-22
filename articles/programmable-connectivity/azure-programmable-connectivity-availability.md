@@ -17,7 +17,7 @@ fail over or replicate data if there's a full regional outage. Customers must ta
 
 ## Enabling regional redundancy
 
-To enable regional redundancy, customers must manually create multiple APC gateways in the regions of their choice. The gateways must have similar sets of Network APIs enabled. Lastly, the calling code should be configured with the URLs of all provisioned gateways and invoke appropriate resiliency strategies.
+To enable regional redundancy, customers must manually create multiple APC gateways in the regions of their choice. Each gateway must be provisioned with the set of Network APIs for which regional redundancy is desired. Lastly, the calling code should be configured with the URLs of all provisioned gateways and invoke appropriate resiliency strategies.
 
 > [!IMPORTANT]
-> Curretnly, APC does not guarantee presence of all possible combinations of Network APIs and Operators in all regions.
+> APC does not guarantee presence of all possible combinations of Network APIs and Operators in all regions.
