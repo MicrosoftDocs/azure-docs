@@ -499,15 +499,15 @@ Ensure your internal website has a public Domain Name System (DNS) record. Avail
 
 Set custom headers in [standard availability tests](availability-standard-tests.md) to validate traffic.
 
-1. Create an alphanumeric string without spaces to identify this availability test (for example, "MyAppAvailabilityTest"). From here on we refer to this string as the *availability test string identifier*.
+1. Create an alphanumeric string without spaces to identify this availability test (for example, MyAppAvailabilityTest). From here on we refer to this string as the *availability test string identifier*.
 
-1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the **Standard test info** section when creating or updating your availability tests.
-
-1. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
+1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<your availability test string identifier>` under the **Standard test info** section when creating or updating your availability tests.\
 
     :::image type="content" source="media/availability/custom-validation-header.png" alt-text="Screenshot that shows custom validation header.":::
 
-Alternatively, set the availability test string identifier as a query parameter.
+1. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
+
+Alternatively, set the *availability test string identifier* as a query parameter.
 
 **Example:** ```https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your availability test string identifier>```
 
