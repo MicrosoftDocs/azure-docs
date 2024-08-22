@@ -60,14 +60,14 @@ There are two scenarios where you might be ineligible for auto-migration. The fi
 
 In some cases, you might be temporarily blocked from auto-migration, but you can resolve the blocking issue and enable auto-migration. For example, if you have a resource lock on your App Service Environment, you can remove the resource lock to enable auto-migration. An auto-migration that is blocked by a resource lock, Azure Policy, or networking configuration is automatically suspended. If you need to unsuspend your App Service Environment, open a support ticket.
 
-The following error messages might be displayed in the portal if you're ineligible for auto-migration:
+The following errors might be displayed in the portal if you're ineligible for auto-migration:
 
-|Error message      |Description  |Recommendation  |
-|---------|---------|----------|
-|TODO: error message   |The App Service Environment v1 is in a Classic virtual network. Classic virtual networks don't support App Service Environment v3.  |You must [migrate manually](migration-alternatives.md). |
-|TODO: error message  |There's a resource lock on the App Service Environment/virtual network/resource group/subscription that's preventing the migration.  |To enable auto-migration, remove the resource lock.  |
-|TODO: error message  |There's an [Azure Policy](../../governance/policy/overview.md) that's preventing the migration.  |To enable auto-migration, remove any Azure Policy that blocks resource modifications or deletions for the App Service Environment or the virtual network the environment is in.  |
-|TODO: error message   |The App Service Environment is in a region that doesn't support auto-migration.  |You must [migrate manually](migration-alternatives.md). |
+|Error      |Recommendation  |
+|---------|---------|
+|The App Service Environment v1 is in a Classic virtual network. Classic virtual networks don't support App Service Environment v3.  |You must [migrate manually](migration-alternatives.md). |
+|There's a resource lock on the App Service Environment/virtual network/resource group/subscription that's preventing the migration.  |To enable auto-migration, remove the resource lock.  |
+|There's an [Azure Policy](../../governance/policy/overview.md) that's preventing the migration.  |To enable auto-migration, remove any Azure Policy that blocks resource modifications or deletions for the App Service Environment or the virtual network the environment is in.  |
+|The App Service Environment is in a region that doesn't support auto-migration.  |You must [migrate manually](migration-alternatives.md). |
 
 ## Changes to the in-place migration feature
 
@@ -152,7 +152,8 @@ The following statement represents the Azure App Service Environment v1 and v2 s
 
 This support policy expires at the end of any extension or grace-period that you have been granted written approval by Microsoft to run the services past the scheduled retirement date. Failure to migrate by that date will result in all remaining Azure App Service Environments v1 and v2 being retired which may include but not be limited to deletion of the apps and data, automated in-place auto-migration, and other retirement procedures. 
 
-The extended support policy includes the following items:  
+The extended support policy includes the following items:
+  
 - As of September 1, 2024, the [Service Level Agreement (SLA)](https://aka.ms/postEOL/ASE/SLA) will no longer be applicable for App Service Environment v1 and v2. Through continued use of the product beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired environment.
 - We are committed to maintaining the platform and allowing you to complete your migrations. Therefore, Customer Support Services (CSS) and Product Group (PG) support channels will continue to handle support cases and Critical Response Incidents (CRIs) in a commercially reasonable manner. No new security and compliance investments will be made in App Service Environment v1 and v2. 
 - App Service will continue to patch the operating system and language runtimes in accordance with the platform’s update processes documented [here](../overview-patch-os-runtime.md).
