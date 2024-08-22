@@ -22,7 +22,7 @@ Students who have an active Azure for Students subscription and/or are part of t
 5. Select **Download**.
 6. Follow the on-screen instructions to download and install the software.
 
-[ ![Screenshot of software blade.](media/download-software.png)](media/download-software.png#lightbox)
+[ ![Screenshot of software blade in Education Hub where students can download various products.](media/download-software.png)](media/download-software.png#lightbox)
 
 ## Related content
 
