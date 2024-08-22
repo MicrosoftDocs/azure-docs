@@ -391,7 +391,7 @@ productDirectory:
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - compute
-      url: ./virtual-machines/dedicated-hosts.md
+      url: /azure/virtual-machines/dedicated-hosts
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
@@ -434,7 +434,7 @@ productDirectory:
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - compute
-      url: ./virtual-machines/spot-vms.md
+      url: /azure/virtual-machines/spot-vms
     # Card
     - title: Azure Spring Apps
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
@@ -478,7 +478,7 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: container-instances/index.yml
+      url: /azure/container-instances/
     # Card
     - title: Virtual Machines
       summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
@@ -486,7 +486,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: ./virtual-machines/index.yml
+      url: /azure/virtual-machines/
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
@@ -508,7 +508,7 @@ productDirectory:
       imageSrc: ./media/index/vm-scale-sets.svg
       azureCategories:
         - compute
-      url: virtual-machine-scale-sets/index.yml
+      url: /azure/virtual-machine-scale-sets/
     # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
@@ -516,7 +516,7 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: service-fabric/index.yml
+      url: /azure/service-fabric/
     # Card
     - title: Web Apps
       summary: Quickly create and deploy mission critical web apps at scale
@@ -548,7 +548,7 @@ productDirectory:
       imageSrc: ./media/index/openshift.svg
       azureCategories:
         - containers
-      url: virtual-machines/linux/openshift-get-started.md
+      url: /azure/virtual-machines/linux/openshift-get-started
     # Card
     - title: Container Registry
       summary: Store and manage container images across all types of Azure deployments
@@ -1409,7 +1409,7 @@ productDirectory:
       imageSrc: ./media/index/disk-storage.svg
       azureCategories:
         - storage
-      url: virtual-machines/managed-disks-overview.md
+      url: /azure/virtual-machines/managed-disks-overview
     # Card
     - title: Azure Files
       summary: Simple, secure and serverless enterprise-grade cloud file shares

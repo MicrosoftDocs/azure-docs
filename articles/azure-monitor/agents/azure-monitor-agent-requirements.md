@@ -15,7 +15,7 @@ This article provides requirements and prerequisites for the Azure Monitor agent
 
 ## Virtual machine extension details
 
-Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions. For version information, see [Azure Monitor agent extension versions](./azure-monitor-agent-extension-versions.md).
+Azure Monitor Agent is implemented as an [Azure VM extension](/azure/virtual-machines/extensions/overview) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions. For version information, see [Azure Monitor agent extension versions](./azure-monitor-agent-extension-versions.md).
 
 | Property | Windows | Linux |
 |:---|:---|:---|
