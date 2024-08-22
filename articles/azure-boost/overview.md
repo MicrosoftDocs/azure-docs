@@ -98,5 +98,5 @@ Azure Boost is currently available on several VM size families:
 
 ## Next Steps
 - Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-- Look into [Azure Dedicated Hosts](../virtual-machines/dedicated-hosts.md).
+- Look into [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts).
 - Learn more about [Azure Storage](../storage/common/storage-introduction.md).

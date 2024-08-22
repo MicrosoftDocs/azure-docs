@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/ai-studio/how-to/commitment-tier.md",
+      "redirect_url": "/azure/ai-services/commitment-tier.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/files-samples-dotnet-v11.md",
       "redirect_url": "/previous-versions/azure/storage/files/files-samples-dotnet-v11",
       "redirect_document_id": false
@@ -1263,46 +1268,6 @@
     {
       "source_path_from_root": "/articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/availability-zones.md",
-      "redirect_url": "/azure/reliability/reliability-containers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
-      "redirect_url": "/azure/jenkins/container-instances-jenkins",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-monitor.md",
-      "redirect_url": "/azure/container-instances/monitor-azure-container-instances",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-mounting-azure-files-volume.md",
-      "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quickstart-docker-cli.md",
-      "redirect_url": "/azure/container-instances/quickstart-docker-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-region-availability.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
-      "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
       "redirect_document_id": false
     },
     {
@@ -3691,36 +3656,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-rest-based-application-lifecycle-sample.md",
-      "redirect_url": "/rest/api/servicefabric/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/upgrade-managed-disks.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/service-health/alerts-activity-log-service-notifications.md",
       "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications-portal",
       "redirect_document_id": false
@@ -4568,6 +4503,16 @@
     {
       "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-cli.md",
       "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
       "redirect_document_id": false
     }
   ]

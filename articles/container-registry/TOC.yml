@@ -189,11 +189,11 @@
       expanded: false
       items:
         - name: Azure Container Instances
-          href: ../container-instances/container-instances-tutorial-prepare-app.md
+          href: /azure/container-instances/container-instances-tutorial-prepare-app
         - name: Azure Kubernetes Service (AKS)
           href: /azure/aks/tutorial-kubernetes-prepare-app
         - name: Service Fabric
-          href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+          href: /azure/service-fabric/service-fabric-tutorial-create-container-images
     - name: Monitor
       expanded: false
       items:
