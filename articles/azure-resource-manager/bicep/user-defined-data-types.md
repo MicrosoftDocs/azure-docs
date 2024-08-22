@@ -247,9 +247,10 @@ See [Tagged union data type](#tagged-union-data-type).
 
 ### Description
 
-To add explanation, add a description to the user-defined data type. For example:
+Add a description to the user-defined data type. Decorators can be used on properties. For example:
 
 ```bicep
+@description('Define a new object type.')
 type obj = {
   @description('The object ID')
   id: int
