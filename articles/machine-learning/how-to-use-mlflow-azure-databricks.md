@@ -1,7 +1,7 @@
 ---
-title: MLflow tracking for Azure Databricks ML experiments
+title: MLflow tracking for Azure Databricks machine learning experiments
 titleSuffix: Azure Machine Learning
-description: Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
+description: Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks machine learning experiments.
 services: machine-learning
 author: msakande
 ms.author: mopeakande
@@ -14,7 +14,7 @@ ms.custom: sdkv2
 #customer intent: As a data scientist, I want to integrate Azure Databricks with Azure Machine Learning to connect the products.
 ---
 
-# Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
+# Track Azure Databricks machine learning experiments with MLflow and Azure Machine Learning
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. You can use MLflow to integrate Azure Databricks with Azure Machine Learning to ensure you get the best from both of the products.
 
@@ -59,7 +59,7 @@ You can configure Azure Databricks to track experiments using MLflow in two ways
 
 By default, when you link your Azure Databricks workspace, dual-tracking is configured for you.
 
-### Dual-tracking on Azure Databricks and Azure Machine Learning
+### Dual-track on Azure Databricks and Azure Machine Learning
 
 Linking your Azure Databricks workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace and Azure Databricks workspace at the same time. This configuration is called *Dual-tracking*.
 
@@ -96,7 +96,7 @@ with mlflow.start_run():
 > [!NOTE]
 > As opposed to tracking, model registries don't support registering models at the same time on both Azure Machine Learning and Azure Databricks. For more information, see [Registering models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
 
-### Tracking exclusively on Azure Machine Learning workspace
+### Track exclusively on Azure Machine Learning workspace
 
 If you prefer to manage your tracked experiments in a centralized location, you can set MLflow tracking to *only* track in your Azure Machine Learning workspace. This configuration has the advantage of enabling easier path to deployment using Azure Machine Learning deployment options.
 
@@ -233,7 +233,7 @@ After you configure tracking, configure how to authenticate to the associated wo
 
 [!INCLUDE [configure-mlflow-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
-#### Experiment names in Azure Machine Learning
+#### Name experiment in Azure Machine Learning
 
 When you configure MLflow to exclusively track experiments in Azure Machine Learning workspace, the experiment naming convention has to follow the one used by Azure Machine Learning. In Azure Databricks, experiments are named with the path to where the experiment is saved, for instance `/Users/alice@contoso.com/iris-classifier`. However, in Azure Machine Learning, you provide the experiment name directly. The same experiment would be named `iris-classifier` directly.
 
@@ -241,11 +241,11 @@ When you configure MLflow to exclusively track experiments in Azure Machine Lear
 mlflow.set_experiment(experiment_name="experiment-name")
 ```
 
-#### Tracking parameters, metrics and artifacts
+#### Track parameters, metrics and artifacts
 
 After this configuration, you can use MLflow in Azure Databricks in the same way as you're used to. For more information, see [Log & view metrics and log files](how-to-log-view-metrics.md).
 
-## Logging models with MLflow
+## Log models with MLflow
 
 After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>` refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api).
 
@@ -262,7 +262,7 @@ Models are logged inside of the run being tracked. That fact means that models a
 > [!IMPORTANT]
 > The parameter `registered_model_name` has not been specified. For more information about this parameter and the registry, see [Registering models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
 
-## Registering models in the registry with MLflow
+## Register models in the registry with MLflow
 
 As opposed to tracking, model registries can't operate at the same time in Azure Databricks and Azure Machine Learning. They have to use either one or the other. By default, model registries use the Azure Databricks workspace. If you choose to [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace), the model registry is the Azure Machine Learning workspace.
 
@@ -276,7 +276,7 @@ mlflow.spark.log_model(model, artifact_path = "model",
 - If a registered model with the name doesn’t exist, the method registers a new model, creates version 1, and returns a `ModelVersion` MLflow object.
 - If a registered model with the name already exists, the method creates a new model version and returns the version object.
 
-### Using Azure Machine Learning Registry with MLflow
+### Use Azure Machine Learning registry with MLflow
 
 If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend that you [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This approach removes the ambiguity of where models are being registered and simplifies the configuration.
 
@@ -291,7 +291,7 @@ mlflow.set_registry_uri(azureml_mlflow_uri)
 
 For a complete example of this scenario, see [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb).
 
-## Deploying and consuming models registered in Azure Machine Learning
+## Deploy and consume models registered in Azure Machine Learning
 
 Models registered in Azure Machine Learning Service using MLflow can be consumed as:
 
