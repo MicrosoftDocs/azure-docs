@@ -10,7 +10,7 @@ ms.reviewer: cogoodson
 
 [Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness from various points around the world. These tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
 
-Availability tests don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality.
+Availability tests don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality. You can create up to 100 availability tests per Application Insights resource.
 
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
@@ -34,9 +34,6 @@ There are four types of availability tests:
 > * **URL ping tests:** On September 30, 2026, URL ping tests in Application Insights will be retired. Existing URL ping tests will be removed from your resources. Review the [pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) for standard tests and [transition](https://aka.ms/availabilitytestmigration) to using them before September 30, 2026 to ensure you can continue to run single-step availability tests in your Application Insights resources.
 
 ## Create an availability test
-
-> [!NOTE]
-> You can create up to 100 availability tests per Application Insights resource.
 
 ## [Standard test](#tab/standard)
 
@@ -90,10 +87,12 @@ There are four types of availability tests:
 
 ### Basic code sample
 
+This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test.
+
 > [!NOTE]
-> This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test.
+> To follow these instructions, you must use either the [App Service](../../azure-functions/dedicated-plan.md) plan or Functions Premium plan to allow editing code in App Service Editor.
 > 
-> By default, if you walk through this example, you'll be creating a basic availability HTTP GET test. To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
+> If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Functions Premium plan.
 
 #### Create a timer trigger function
 
@@ -104,11 +103,6 @@ There are four types of availability tests:
     * **If you already have an Application Insights resource,** go to the **Monitoring** tab while creating the Azure Functions app, and select or enter the name of your existing resource in the Application Insights dropdown:
 
         :::image type="content" source="media/availability/create-application-insights.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
-
-    > [!NOTE]
-    > You can host your Azure Functions app on a Consumption, Premium, or App Service plan. *If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan*.
-    > 
-    > Select your plan on the **Hosting** tab and ensure the latest .NET version is selected when you create the Azure Functions app.
 
 1. Follow the instructions to [create a timer triggered function](../../azure-functions/functions-create-scheduled-function.md#create-a-timer-triggered-function).
 
@@ -438,10 +432,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 1. Find the URL Ping Test you want to migrate and record its resource group and name.
 
-1. The following commands create a standard test with the same logic as the URL ping test.
-
-    > [!NOTE]
-    > The following commands work for both HTTP and HTTPS endpoints, which are used in your URL ping Tests.
+1. The following commands create a standard test with the same logic as the URL ping test, and work for both HTTP and HTTPS endpoints.
 
     ```shell
     $resourceGroup = "pingTestResourceGroup";
@@ -538,8 +529,7 @@ To manage access when your endpoints are outside Azure or when service tags aren
 
 To provide best-in-class encryption, all availability tests use Transport Layer Security (TLS) 1.2 and 1.3 as the encryption mechanisms of choice. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
 
-> [!NOTE]
-> TLS 1.3 is currently only available in the availability test regions NorthCentralUS, CentralUS, EastUS, SouthCentralUS, and WestUS.
+TLS 1.3 is currently only available in the availability test regions NorthCentralUS, CentralUS, EastUS, SouthCentralUS, and WestUS.
 
 | Version | Cipher suites | Elliptical curves |
 |---------|---------|---------|
@@ -548,7 +538,7 @@ To provide best-in-class encryption, all availability tests use Transport Layer 
 
 ### Deprecating TLS configuration
 
-> [!WARNING]
+> [!IMPORTANT]
 > On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/), TLS 1.0/1.1 protocol versions and the listed TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests.
 
 #### TLS 1.0 and TLS 1.1
