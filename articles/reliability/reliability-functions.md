@@ -163,9 +163,7 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 
 This section explains some of the strategies that you can use to deploy Functions to allow for disaster recovery.
 
->[!NOTE]
-
->For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
+For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
 
 ### Multi-region disaster recovery
 
