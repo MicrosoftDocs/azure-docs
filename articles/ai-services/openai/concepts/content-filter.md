@@ -102,7 +102,8 @@ Configurable content filters for inputs (prompts) and outputs (completions) are 
 
 * GPT model series
 * GPT-4 Turbo Vision GA<sup>*</sup> (turbo-2024-04-09)
-* GPT-4o 
+* GPT-4o
+* GPT-4o mini
 * DALL-E 2 and 3
 
 <sup>*</sup>Only available for GPT-4 Turbo Vision GA, does not apply to GPT-4 Turbo Vision preview 

@@ -40,7 +40,7 @@
   items:
   - name: Azure Classroom
     items:
-    - name: Manage your academic grant
+    - name: Manage your academic sponsorship
       href: hub-overview-page.md
     - name: Create an assignment and allocate credit
       href: create-assignment-allocate-credit.md
