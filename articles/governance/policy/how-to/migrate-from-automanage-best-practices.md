@@ -91,7 +91,7 @@ protection signatures
 To configure excluded files, locations, file extensions and processes, enable real-time
 protection and schedule scan and scan type, day and time, you can create a custom Azure
 policy based on the properties of the Azure IaaSAntimalware policy resource or by an ARM
-Template. Learn more [here][03]
+Template. Learn more [here][03].
 
 ### Azure Insights and Analytics
 
