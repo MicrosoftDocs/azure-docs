@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 08/09/2024
+ms.date: 08/22/2024
 ms.author: danlep
 ---
 
@@ -46,7 +46,7 @@ Also, as of 1 September 2024, API Management will no longer back API Management 
 
 If you have existing instances hosted on the `stv1` platform, follow our **[migration guide](../migrate-stv1-to-stv2.md)** to ensure a successful migration. 
 
-## End of SLA coverage for `stv1` instances - 1 September 2024
+## End of SLA support for `stv1` instances - 1 September 2024
 
 As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the API Management `stv1` platform. 
 

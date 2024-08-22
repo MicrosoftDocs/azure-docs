@@ -28,7 +28,7 @@ The following table summarizes the compute platforms currently used for instance
 
 **For continued support and to take advantage of upcoming features, customers must [migrate](../migrate-stv1-to-stv2.md) their Azure API Management instances from the `stv1` compute platform to the `stv2` compute platform.** The `stv2` compute platform comes with additional features and improvements such as support for Azure Private Link and other networking features. 
 
-New instances created in service tiers other than the Consumption tier are mostly hosted on the `stv2` platform already. Existing instances on the `stv1` compute platform will continue to work normally until the retirement date, but those instances won’t receive the latest features available to the `stv2` platform. Support for `stv1` instances will be retired by 31 August 2024.  
+New instances created in service tiers other than the Consumption tier are mostly hosted on the `stv2` platform already. Existing instances on the `stv1` compute platform will continue to work normally until the retirement date, but those instances won't receive the latest features available to the `stv2` platform. Support for `stv1` instances will be retired by 31 August 2024.  
 
 ## Is my service affected by this?
 
@@ -46,7 +46,7 @@ If you have existing instances hosted on the `stv1` platform, follow our **[migr
 
 ## What happens after 31 August 2024?
 
-### End of SLA coverage for `stv1` instances
+### End of SLA support for `stv1` instances
 
 As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the API Management `stv1` platform. 
 
