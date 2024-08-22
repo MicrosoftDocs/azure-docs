@@ -38,6 +38,9 @@ Azure AI Studio supports connections to non-Microsoft services, including the fo
 
 ## Connections to datastores
 
+> [!IMPORTANT]
+> Data connections cannot be shared across projects. They are created exclusively in the context of one project. 
+
 Creating a data connection allows you to access external data without copying it to your project. Instead, the connection provides a reference to the data source.
 
 A data connection offers these benefits:

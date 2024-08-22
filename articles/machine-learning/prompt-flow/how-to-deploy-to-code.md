@@ -213,10 +213,6 @@ environment:
 instance_type: Standard_E16s_v3
 instance_count: 1
 environment_variables:
-
-  # "compute" mode is the default mode, if you want to deploy to serving mode, you need to set this env variable to "serving"
-  PROMPTFLOW_RUN_MODE: serving
-
   # for pulling connections from workspace
   PRT_CONFIG_OVERRIDE: deployment.subscription_id=<subscription_id>,deployment.resource_group=<resource_group>,deployment.workspace_name=<workspace_name>,deployment.endpoint_name=<endpoint_name>,deployment.deployment_name=<deployment_name>
 
@@ -253,9 +249,6 @@ instance_type: <kubernetes custom instance type>
 instance_count: 1
 environment_variables:
 
-  # "compute" mode is the default mode, if you want to deploy to serving mode, you need to set this env variable to "serving"
-  PROMPTFLOW_RUN_MODE: serving
-
   # for pulling connections from workspace
   PRT_CONFIG_OVERRIDE: deployment.subscription_id=<subscription_id>,deployment.resource_group=<resource_group>,deployment.workspace_name=<workspace_name>,deployment.endpoint_name=<endpoint_name>,deployment.deployment_name=<deployment_name>
 
@@ -275,7 +268,7 @@ environment_variables:
 | Environment | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` . |
 | Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits for online endpoints](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). |
-| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. |
+| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. |
 
 > [!IMPORTANT]
 >

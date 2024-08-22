@@ -33,7 +33,7 @@ This article assumes you have the following resources:
 * An instance of Network Watcher in the region you want to create a packet capture
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine scale set extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
+> Packet capture requires a virtual machine scale set extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](network-watcher-agent-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](network-watcher-agent-linux.md).
 
 ## Install virtual machine scale set extension
 

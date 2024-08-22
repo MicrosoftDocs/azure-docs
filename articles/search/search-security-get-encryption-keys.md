@@ -102,10 +102,10 @@ Use the same pattern to return the encryptionKey property for other top-level ob
 
 ## Next steps
 
-We recommend that you [enable logging](../key-vault/general/logging.md) on Azure Key Vault so that you can monitor key usage.
+We recommend that you [enable logging](/azure/key-vault/general/logging) on Azure Key Vault so that you can monitor key usage.
 
 For more information about using Azure Key or configuring customer managed encryption:
 
-+ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md)
++ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
 
 + [Configure customer-managed keys for data encryption in Azure AI Search](search-security-manage-encryption-keys.md)

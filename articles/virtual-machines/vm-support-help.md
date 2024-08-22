@@ -3,7 +3,7 @@ title: Azure Virtual Machine support and help options
 description: How to obtain help and support for questions or problems when you create solutions using Azure Virtual Machines. 
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: troubleshooting
 ms.date: 05/30/2024
 ms.custom: support-help-page

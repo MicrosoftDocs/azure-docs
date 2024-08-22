@@ -264,7 +264,7 @@ A persistent volume claim is used to automatically provision storage based on a 
    metadata:
      name: ephemeralpvc
      annotations:
-       "acstor.azure.com/accept-ephemeral-storage=true"
+       acstor.azure.com/accept-ephemeral-storage: "true"
    spec:
      accessModes:
        - ReadWriteOnce

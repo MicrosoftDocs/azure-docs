@@ -75,3 +75,4 @@ To get started with language learning through chatting, follow these steps:
 
 - Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
 - Try [pronunciation assessment in the studio](pronunciation-assessment-tool.md).
+- Read our [pronunciation assessment blog](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/speech-pronunciation-assessment-is-generally-available/ba-p/3740894) to learn more speech scenarios.

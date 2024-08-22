@@ -3,7 +3,7 @@ title: Edsv6-series summary include file
 description: Include file for Edsv6-series summary
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 08/01/2024
 ms.author: mattmcinnes

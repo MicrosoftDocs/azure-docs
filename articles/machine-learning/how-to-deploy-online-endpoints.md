@@ -70,7 +70,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * Ensure that you have enough virtual machine (VM) quota allocated for deployment. Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. For example, if you request 10 instances in a deployment, you must have a quota for 12 for each number of cores for the VM SKU. Failure to account for the extra compute resources results in an error. There are some VM SKUs that are exempt from the extra quota reservation. For more information on quota allocation, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment).
 
-* Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time. Users can access quota from this pool to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access its shared quota pool for a short time so that you can perform testing. For more information on the shared quota pool, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+* Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time. [!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
 
 
 ## Prepare your system
@@ -762,7 +762,7 @@ For more information on creating an environment in the studio, see [Create an en
 
 ### Configure a deployment that uses registered assets
 
-Your deployment configuration uses the registered model that you wish to deploy and your registered environment..
+Your deployment configuration uses the registered model that you wish to deploy and your registered environment.
 
 # [Azure CLI](#tab/cli)
 

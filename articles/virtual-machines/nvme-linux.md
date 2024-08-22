@@ -3,7 +3,7 @@ author: MelissaHollingshed
 ms.author: mehollin
 ms.date: 07/31/2024
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 title: SCSI to NVMe for Linux VMs
 description: How to convert SCSI to NVMe using Linux
 ---

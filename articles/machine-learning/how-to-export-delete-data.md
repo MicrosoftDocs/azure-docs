@@ -45,7 +45,7 @@ To delete these resources, select them from the list, and choose **Delete**:
 > [!IMPORTANT]
 > If the resource is configured for soft delete, the data won't actually delete unless you optionally select to delete the resource permanently. For more information, visit these resources:
 > * [Azure log analytics workspace](../azure-monitor/logs/delete-workspace.md)
-> * [Azure Key Vault soft-delete](../key-vault/general/soft-delete-overview.md)
+> * [Azure Key Vault soft-delete](/azure/key-vault/general/soft-delete-overview)
 > * [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md)
 > * [Soft delete in Azure Container Registry](../container-registry/container-registry-soft-delete-policy.md)
 > * [Workspace soft-deletion](concept-soft-delete.md)

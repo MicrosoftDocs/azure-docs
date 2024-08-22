@@ -24,7 +24,7 @@ To create a service connection and store secrets in Key Vault with Service Conne
 * Basic knowledge of [using Service Connector](.\quickstart-portal-app-service-connection.md)
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
-* An Azure Key Vault. If you don't have one, [create an Azure Key Vault](../key-vault\general\quick-create-portal.md)
+* An Azure Key Vault. If you don't have one, [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal)
 * Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
 * Read and write access to the App Service, Key Vault and the target service.
 
@@ -38,7 +38,7 @@ To store your connection access keys and secrets into a key vault, start by conn
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Service type** | Key Vault | Target service type. If you don't have a Key Vault, [create one](../key-vault\general\quick-create-portal.md). |
+    | **Service type** | Key Vault | Target service type. If you don't have a Key Vault, [create one](/azure/key-vault/general/quick-create-portal). |
     | **Subscription** | One of your subscriptions. | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **Connection name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
     | **Key vault name** | Your Key Vault name | The target Key Vault you want to connect to. |
@@ -105,7 +105,7 @@ Now you can create a service connection to another target service and directly s
 1. Select **Secrets** in the Key Vault left ToC, and select the blob storage secret name.
 
     > [!TIP]
-    > Don't have permission to list secrets? Refer to [troubleshooting Azure Key Vault](../key-vault/general/troubleshooting-access-issues.md#im-not-able-to-list-or-get-secretskeyscertificate-im-seeing-a-something-went-wrong-error).
+    > Don't have permission to list secrets? Refer to [troubleshooting Azure Key Vault](/azure/key-vault/general/troubleshooting-access-issues#im-not-able-to-list-or-get-secretskeyscertificate-im-seeing-a-something-went-wrong-error).
 
 1. Select a version ID from the Current Version list.
 

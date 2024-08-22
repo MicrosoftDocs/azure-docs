@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Microsoft Cloud for Sovereignty Baseline Confidential Policies
 description: Details of the Microsoft Cloud for Sovereignty Baseline Confidential Policies Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/15/2024
+ms.date: 08/16/2024
 ms.topic: sample
 ms.custom: generated
 ---

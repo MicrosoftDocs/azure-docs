@@ -5,7 +5,7 @@ services: virtual-network
 ms.date: 07/25/2024
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ---
 

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 03/24/2023
+ms.date: 08/16/2024
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article describes how to troubleshoot common errors when deploying virtual machines on an Azure Stack Edge Pro GPU device. The article provides guidance for investigating the most common issues that cause VM provisioning timeouts and issues during network interface and VM creation.
 
-To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
+To diagnose any VM provisioning failure, review guest logs for the failed virtual machine. For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
 For guidance on issues that prevent successful upload of a VM image before your VM deployment, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
@@ -34,14 +34,14 @@ The following issues are the top causes of VM provisioning timeouts:
 - The VM image that you used to deploy the VM wasn't prepared correctly. [Learn more](#vm-image-not-prepared-correctly)
 - The default gateway and DNS server couldn't be reached from the guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
 - During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
-- For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
+- For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file aren't correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
 - Primary network interface attached to a SRIOV enabled virtual switch [Learn more](#primary-network-interface-attached-to-a-sriov-enabled-virtual-switch)
 
 ### IP assigned to the VM is already in use
 
 **Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed. This error happens when the IP address is in use in the subnet on which the VM is deployed. When you deploy a VM via the Azure portal, the process checks for an existing IP address within your device but can't check IP addresses of other services or virtual machines that might also be on your subnet. 
 
-**Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
+**Suggested solution:** Use a static IP address that isn't in use, or use a dynamic IP address provided by the DHCP server.
 
 To check for a duplicate IP address:
 
@@ -71,7 +71,7 @@ For an overview of requirements, see [Create custom VM images for an Azure Stack
 
 ### Gateway, DNS server couldn't be reached from guest VM
 
-**Error description:** If the default gateway and DNS server can't be reached during VM deployment, VM provisioning will time out, and the VM deployment will fail.
+**Error description:** If the default gateway and DNS server can't be reached during VM deployment, VM provisioning times out and the VM deployment fails.
 
 **Suggested solution:** Verify that the default gateway and DNS server can be reached from the VM. Then repeat VM deployment.
 
@@ -91,7 +91,7 @@ To verify that the default gateway and DNS server can be reached from the VM, do
 
 ### `cloud init` issues (Linux VMs)
 
-**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
+**Error description:** `cloud init` didn't run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
 
 **Suggested solutions:** To find issues that occurred when `cloud init` was run:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
@@ -107,7 +107,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    `cloud-init --version`
 
-   The command should return the cloud init version number. If the image is not `cloud init`-based, the command won't return version information.
+   The command should return the cloud init version number. If the image isn't `cloud init`-based, the command won't return version information.
 
    To get help with `cloud init` options, run the following command:
 
@@ -119,7 +119,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    ![Illustration of a cloud-init log entry for a VM image with the Data Source set to Azure. The identifying text is highlighted.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png)
 
-   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
+   If the data source isn't set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
 
 ### Provisioning flags set incorrectly (Linux VMs)
@@ -135,15 +135,15 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
 ### Primary network interface attached to a SRIOV enabled virtual switch
 
-**Error description:** The primary network interface attached to a single root I/O virtualization (SRIOV) interface-enabled virtual switch caused network traffic to bypass the hyper-v, so the host could not receive DHCP requests from the VM, resulting in a provisioning timeout.
+**Error description:** The primary network interface attached to a single root I/O virtualization (SRIOV) interface-enabled virtual switch caused network traffic to bypass the Hyper-V, so the host couldn't receive DHCP requests from the VM, resulting in a provisioning timeout.
 
 **Suggested solutions:**
 
 - Connect the VM primary network interface to a virtual switch without enabling accelerated networking.
 
-- On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, virtual switches will enable accelerated networking by default.
+- On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 don't enable accelerated networking. On Port 5 or Port 6, virtual switches enable accelerated networking by default.
 
-- On an Azure Stack Edge Pro 2 device, virtual switches created on Port 1 or Port 2 do not enable accelerated networking. On Port 3 or Port 4, virtual switches will enable accelerated networking by default.
+- On an Azure Stack Edge Pro 2 device, virtual switches created on Port 1 or Port 2 don't enable accelerated networking. On Port 3 or Port 4, virtual switches enable accelerated networking by default.
  
 ##	Network interface creation issues
 
@@ -158,7 +158,7 @@ To verify whether the network interface was created successfully, do these steps
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your device (go to **Edge Services** > **Virtual machines**). Then select **Deployments**, and navigate to the VM deployment. 
 
-1. If a network interface was not created successfully, you'll see the following error.
+1. If a network interface wasn't created successfully, you see the following error.
 
    ![Screenshot of the error displayed in the Azure portal when network interface creation fails during VM deployment on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
@@ -169,9 +169,61 @@ To verify whether the network interface was created successfully, do these steps
 
 This section covers common issues that occur during VM creation.
 
+### VM creation fails
+
+**Error description:** If you have a Marketplace image created with Azure Stack Edge earlier than 2403 and then create a VM from the existing Marketplace image, your VM creation fails because Azure Stack Edge 2407 changed the download path for the Marketplace image.
+
+**Suggested solution:** Use the following steps to delete the existing Marketplace image and then create a new Marketplace image from Azure portal.
+
+1. From Azure portal, delete the existing Marketplace image.
+
+   1. List the ingestion and the BlobDownload ingestion job for the Marketplace image. Use these steps to [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md?tabs=Az). 
+   
+      Run the following script to list ingestion jobs:
+    
+      Specify the subscription ID in the following Uri:
+      
+      $uri1 = "https://management.appliance name.DNS domain/subscriptions/sid/providers/Microsoft.AzureBridge/locations/DBELocal/ingestionJobs/?api-version=2022-03-01"
+
+      ```powershell
+      Function Get-AzCachedAccessToken() 
+      {
+      $ErrorActionPreference = 'Stop' 
+      $azureRmProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile 
+      $currentAzureContext = Get-AzContext 
+      $profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azureRmProfile) 
+      Write-Debug ("Getting access token for tenant" + $currentAzureContext.Subscription.TenantId) 
+      $token = $profileClient.AcquireAccessToken($currentAzureContext.Subscription.TenantId) 
+      $token.AccessToken 
+      } 
+
+      $token = Get-AzCachedAccessToken 
+      $headers = @{Authorization = "Bearer $token"; "Content-Type" = "application/json" } 
+      $v = Invoke-RestMethod -Method Get -Uri $uri1 -Headers $headers 
+      v.value
+      ```
+
+   1. Find the ingestion job name = `Marketplace image sku name` and kind = `BlobDownload`.
+
+      Example: ingestion job name = `Ubuntu-18-04` and kind = `BlobDownload`.
+
+      ![Screenshot of example syntax to find ingestion job name.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/ingestion-job-name.png)
+
+1. If the ingestion job is found in Step 1, use the following steps to delete the ingestion job and delete the image. For example, the ingestion job name in the example above is `ubuntu-18-04`. Additionally, `Subscription ID` and `Resource group` name can be found in the example.
+
+   ```powershell
+   $uri2 = "https://management.<appliance name>.<DNS domain>/subscriptions/sid/resourceGroups/rgname/providers/Microsoft.AzureBridge/locations/dbelocal/ingestionJobs/<ingestion job name>?api-version=2018-06-01" 
+   ```
+
+   ```powershell
+   Invoke-RestMethod -Method DELETE -Uri $uri2 -Headers $headers
+   ```
+
+1. Follow steps to [Create a new VM image from Azure Marketplace](azure-stack-edge-create-a-vm-from-azure-marketplace.md).
+
 ### Not enough memory to create the VM
 
-**Error description:** When VM creation fails because of insufficient memory, you'll see the following error.
+**Error description:** When VM creation fails because of insufficient memory, you see the following error.
  
 ![Screenshot of the error displayed in the Azure portal when VM creation fails on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
@@ -193,12 +245,12 @@ The memory available for the deployment of a VM is constrained by several factor
 
 ### Insufficient number of GPUs to create GPU VM
 
-If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
+If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs are available, and VM provisioning fails with the following error:
 
 ![Screenshot of the error displayed in the Azure portal when creation of a GPU VM fails because of no available GPUs on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **Possible causes:**
-If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
+If Kubernetes is enabled before the VM is created, Kubernetes uses all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
 
 **Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 

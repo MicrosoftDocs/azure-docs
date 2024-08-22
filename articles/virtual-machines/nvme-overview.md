@@ -2,7 +2,7 @@
 title: NVMe overview
 description: Learn about NVMe and how to enable it 
 author: MelissaHollingshed
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.date: 07/31/2024
 ms.author: mehollin
 ms.topic: article

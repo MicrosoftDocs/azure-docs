@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 08/02/2024
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -16,7 +16,7 @@ ms.custom: build-2023
 
 - Independent [scaling](scale-app.md), [versioning](application-lifecycle-management.md), and [upgrades](application-lifecycle-management.md)
 - [Service discovery](connect-apps.md)
-- Native [Dapr integration](./dapr-overview.md)
+- [Dapr integration](./dapr-overview.md)
 
 :::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Container apps are deployed as microservices.":::
 

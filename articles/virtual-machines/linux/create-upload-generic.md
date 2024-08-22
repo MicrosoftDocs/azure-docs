@@ -2,7 +2,7 @@
 title: Prepare Linux for imaging
 description: Learn how to prepare a Linux system to be used for an image in Azure.
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to

@@ -38,7 +38,7 @@ To create and work with data, you need:
 
 ## Create data
 
-When you create your data, you need to set the data type. AI Studio supports three data types:
+When you create your data, you need to set the data type. AI Studio supports these data types:
 
 |Type  |**Canonical Scenarios**|
 |---------|---------|

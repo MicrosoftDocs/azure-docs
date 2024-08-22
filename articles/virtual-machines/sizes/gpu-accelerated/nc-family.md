@@ -29,12 +29,20 @@ ms.author: mattmcinnes
 [!INCLUDE [nc-series-specs](./includes/nc-series-specs.md)]
 
 
-### NCads_-_H100_v5-series
-[!INCLUDE [ncads_-_h100_v5-series-summary](./includes/ncadsh100v5-series-summary.md)]
+### NCads_H100_v5-series
+[!INCLUDE [ncads_h100_v5-series-summary](./includes/ncadsh100v5-series-summary.md)]
 
-[View the full NCads_-_H100_v5-series page](./ncadsh100v5-series.md).
+[View the full NCads_H100_v5-series page](./ncadsh100v5-series.md).
 
-[!INCLUDE [ncads_-_h100_v5-series-specs](./includes/ncadsh100v5-series-specs.md)]
+[!INCLUDE [ncads_h100_v5-series-specs](./includes/ncadsh100v5-series-specs.md)]
+
+
+### NCCads_H100_v5-series
+[!INCLUDE [nccads_h100_v5-series-summary](./includes/nccadsh100v5-series-summary.md)]
+
+[View the full NCCads_H100_v5-series page](./nccadsh100v5-series.md).
+
+[!INCLUDE [nccads_h100_v5-series-specs](./includes/nccadsh100v5-series-specs.md)]
 
 
 ### NCv2-series

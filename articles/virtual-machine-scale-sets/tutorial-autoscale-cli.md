@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to automatically scale a Virtual Mac
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

@@ -3,7 +3,7 @@ title: Train regression model with Automated ML (SDK v1)
 titleSuffix: Azure Machine Learning
 description: Train a regression model to predict taxi fares with the Azure Machine Learning Python SDK by using the Azure Machine Learning Automated ML SDK (v1).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 author: manashgoswami

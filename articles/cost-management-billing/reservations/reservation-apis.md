@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -40,7 +40,7 @@ Request body:
  "location": "westus",
  "properties": {
     "reservedResourceType": "VirtualMachines",
-    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "billingScopeId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "term": "P1Y",
     "quantity": "1",
     "displayName": "TestReservationOrder",
@@ -57,7 +57,7 @@ You can also buy a reservation in the Azure portal. For more information, see th
 
 Service plans:
 - [Virtual machine](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure Cosmos DB](/azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 
 Software plans:

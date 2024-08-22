@@ -19,6 +19,8 @@ From the project directory, open the *Program.cs* file and replace its contents 
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
+using Azure.AI.OpenAI.Chat;
+using OpenAI.Chat;
 using System.Text.Json;
 using static System.Environment;
 
@@ -63,7 +65,7 @@ foreach (AzureChatCitation citation in onYourDataContext?.Citations ?? [])
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ```cmd
 dotnet run program.cs

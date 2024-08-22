@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Virtual Machines and Virtu
 ms.date: 03/27/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
 #customer intent: As a cloud administrator, I want to understand how to monitor Azure virtual machines so that I can ensure the health and performance of my virtual machines and applications.
 ---

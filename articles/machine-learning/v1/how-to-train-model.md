@@ -79,26 +79,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
     > 
     > Azure Machine Learning also requires the virtual machine to have a __public IP address__.
 
-1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the resource ID, user name, and password for the virtual machine. The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
- 
-   ```python
-   from azureml.core.compute import RemoteCompute, ComputeTarget
-
-   # Create the compute config 
-   compute_target_name = "attach-dsvm"
-   
-   attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
-                                                   ssh_port=22,
-                                                   username='<username>',
-                                                   password="<password>")
-
-   # Attach the compute
-   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
-
-   compute.wait_for_completion(show_output=True)
-   ```
-
-   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
+1. **Attach**: Attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -147,30 +128,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
     
     After the cluster is created, connect to it with the hostname \<clustername>-ssh.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. 
 
-1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the resource ID, user name, and password for the HDInsight cluster. The resource ID of the HDInsight cluster can be constructed using the subscription ID, resource group name, and HDInsight cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
-
-    ```python
-   from azureml.core.compute import ComputeTarget, HDInsightCompute
-   from azureml.exceptions import ComputeTargetException
-
-   try:
-    # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-
-    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-                                                          ssh_port=22, 
-                                                          username='<ssh-username>', 
-                                                          password='<ssh-pwd>')
-    hdi_compute = ComputeTarget.attach(workspace=ws, 
-                                       name='myhdi', 
-                                       attach_configuration=attach_config)
-
-   except ComputeTargetException as e:
-    print("Caught = {}".format(e.message))
-
-   hdi_compute.wait_for_completion(show_output=True)
-   ```
-
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
+1. **Attach**: Attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).

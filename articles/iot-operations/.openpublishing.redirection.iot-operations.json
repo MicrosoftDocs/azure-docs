@@ -12,37 +12,447 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/monitor/howto-configure-diagnostics",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-connect-event-grid.md",
-            "redirect_url": "/azure/iot-operations/connect-to-cloud/tutorial-connect-event-grid",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-event-driven-with-dapr.md",
-            "redirect_url": "/azure/iot-operations/develop/tutorial-event-driven-with-dapr",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/tutorial-event-driven-with-dapr",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
-            "redirect_url": "/azure/iot-operations/get-started/quickstart-upload-telemetry-to-cloud",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-deploy.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-add-assets.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-add-assets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-upload-telemetry-to-cloud.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-get-insights.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-get-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/overview-iot-operations.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-manifests.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-providers.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-helm.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-k8s.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-troubleshoot-deployment.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/overview-orchestrator.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker-certificates-management.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker-certificates-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-manage-assets.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-manage-assets-remotely.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-remotely",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-authentication-options.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-authentication-options",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opc-plc-simulator.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-plc-simulator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-akri-architecture",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/overview-iot-mq.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-test-connection.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-test-connection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-manage-secrets.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-manual.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-manual",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-auto.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-auto",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-brokerlistener.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-availability-scale.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-authorization.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-authorization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-authentication.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability-manual.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability-manual",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-clean-up-observability-resources.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-clean-up-observability-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-add-cluster.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-add-cluster",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-overall-equipment-effectiveness.md",
+            "redirect_url": "/azure/iot-operations/process-data/tutorial-overall-equipment-effectiveness",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-anomaly-detection.md",
+            "redirect_url": "/azure/iot-operations/process-data/tutorial-anomaly-detection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/concept-about-distributed-apps.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/edge-apps-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/concept-about-state-store-protocol.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/concept-about-state-store-protocol",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/howto-deploy-dapr.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/howto-deploy-dapr",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/howto-develop-dapr-apps.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/howto-develop-dapr-apps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/howto-develop-mqttnet-apps.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/howto-develop-mqttnet-apps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop/tutorial-event-driven-with-dapr.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/tutorial-event-driven-with-dapr",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",
             "redirect_url": "/azure/iot-operations/process-data/overview-data-processor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-fabric.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-data-explorer.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-data-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-configuration-patterns.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-configuration-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-contextualization.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-contextualization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-jq-expression.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-jq-expression",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-jq-path.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-jq-path",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-jq.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-jq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-message-structure.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-message-structure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-partitioning.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-partitioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/concept-supported-formats.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/concept-supported-formats",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-aggregate-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-aggregate-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-datasource-http.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-datasource-http",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-datasource-influxdb.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-datasource-influxdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-datasource-mq.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-datasource-mq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-datasource-sql.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-datasource-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-data-explorer.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-data-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-fabric.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-grpc.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-grpc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-http.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-http",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-mq-broker.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-mq-broker",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-destination-reference-store.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-destination-reference-store",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-enrich-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-enrich-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-filter-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-filter-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-grpc-callout-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-grpc-callout-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-http-callout-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-http-callout-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-lkv-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-lkv-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-reference.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-configure-transform-stage.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-configure-transform-stage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/howto-edit-pipelines.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/howto-edit-pipelines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/overview-data-processor.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/overview-data-processor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/tutorial-anomaly-detection.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/tutorial-anomaly-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/process-data/tutorial-overall-equipment-effectiveness.md",
+            "redirect_url": "/previous-versions/azure/iot-operations/process-data/tutorial-overall-equipment-effectiveness",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-kafka.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-mqtt-bridge.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/tutorial-connect-event-grid.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
         }
     ]

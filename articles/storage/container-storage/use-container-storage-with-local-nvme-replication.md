@@ -268,7 +268,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    metadata:
      name: ephemeralpvc
      annotations:
-       "acstor.azure.com/accept-ephemeral-storage=true"
+       acstor.azure.com/accept-ephemeral-storage: "true"
    spec:
      accessModes:
        - ReadWriteOnce

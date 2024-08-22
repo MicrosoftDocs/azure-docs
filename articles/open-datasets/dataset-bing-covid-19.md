@@ -14,7 +14,7 @@ Bing COVID-19 data includes confirmed, fatal, and recovered cases from all regio
 Bing collects data from multiple trusted, reliable sources, including:
 
 - [BNO News](https://bnonews.com/index.php/2020/04/the-latest-coronavirus-cases/)
-- [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/coronavirus/2019-ncov/index.html)
+- [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/covid/index.html)
 - National/regional and state public health departments
 - [Wikipedia](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic)
 - The [World Health Organization (WHO)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019)

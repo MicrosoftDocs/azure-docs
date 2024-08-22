@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: mvc
 ---
 
