@@ -6,7 +6,7 @@ services: machine-learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: nivmishra
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv1

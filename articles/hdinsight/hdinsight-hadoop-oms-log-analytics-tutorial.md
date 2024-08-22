@@ -160,6 +160,9 @@ For the log table mappings from the classic Azure Monitor integration to the new
 
 #### [Classic Azure Monitor experience](#tab/previous)
 
+> [!Important]
+> On 31 August 2024, Azure is retiring the Classic Azure Monitor experience on HDInsight.
+
 ## Prerequisites
 
 * A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).

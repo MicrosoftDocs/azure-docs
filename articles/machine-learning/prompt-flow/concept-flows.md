@@ -3,7 +3,7 @@ title: What are flows in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how a flow in prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - ignite-2023

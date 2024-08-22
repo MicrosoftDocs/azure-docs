@@ -1,12 +1,12 @@
 ---
-title: How to use Role-Based Access Control in Azure API Management | Microsoft Docs
+title: How to use role-based access control in Azure API Management | Microsoft Docs
 description: Learn how to use the built-in roles and create custom roles in Azure API Management
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 02/15/2023
+ms.date: 07/10/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
@@ -40,8 +40,7 @@ The following table provides brief descriptions of the built-in roles. You can a
 
 API Management provides the following built-in roles for collaborators in [workspaces](workspaces-overview.md) in an API Management instance. 
 
-A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role.
-
+A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role. 
 
 |Role  |Scope  |Description  |
 |---------|---------|---------|
@@ -52,6 +51,13 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 | API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
 |  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
 
+Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
+
+## Built-in developer portal roles
+
+|Role  |Scope  |Description  |
+|---------|---------|---------|
+|API Management Developer Portal Content Editor     |  service       | Can customize the developer portal, edit its content, and publish it using Azure Resource Manager APIs.      |
  
 ## Custom roles
 

@@ -11,18 +11,18 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: conceptual
-ms.date: 07/19/2024
+ms.date: 08/05/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
 
 Use this article to migrate data plane calls to newer versions of the [**Search REST APIs**](/rest/api/searchservice/).
 
-+ [`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
++ [`2024-07-01`](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the most recent stable version.
 
 + [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) is the most recent preview API version. 
 
-Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
+Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about new features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
 We recommend upgrading API versions in succession, working through each version until you get to the newest one.
 
@@ -43,9 +43,15 @@ Azure AI Search breaks backward compatibility as a last resort. Upgrade is neces
 
 ## How to upgrade
 
-The `api-version` parameter is specified in the request header. In your application code that makes direct calls to the REST APIs, search for all instances of the existing version and then replace it with the new version. For more information about structuring a REST call, see [Quickstart: using REST](search-get-started-rest.md#set-up-visual-studio-code).
+1. Review the [release notes](/rest/api/searchservice/search-service-api-versions) for each API version.
 
-If you're using an Azure SDK, those packages target specific versions of the REST API. Package updates might coincide with a REST API update, but each SDK is on it's own release schedule that ships independently of Azure AI Search REST API versions. Check the change log of your SDK package to determine whether a package release targets the latest REST API version.
+1. Update the `api-version` parameter, specified in the request header, to a newer version. 
+
+   In your application code that makes direct calls to the REST APIs, search for all instances of the existing version and then replace it with the new version. For more information about structuring a REST call, see [Quickstart: using REST](search-get-started-rest.md#set-up-visual-studio-code).
+
+   If you're using an Azure SDK, those packages target specific versions of the REST API. Package updates might coincide with a REST API update, but each SDK is on its own release schedule that ships independently of Azure AI Search REST API versions. Check the change log of your SDK package to determine whether a package release targets the latest REST API version.
+
+1. Review the breaking changes documented in this article and implement the workarounds. Start with the version used by your code and resolve any breaking change for each newer API version until you get to the newest stable or preview release.
 
 ## Breaking change for client code that reads connection information
 
@@ -55,7 +61,7 @@ Effective March 29, 2024 and applicable to all [supported REST APIs](/rest/api/s
 
 + If you need to retrieve admin or query API keys for your search service, use the [Management REST APIs](search-security-api-keys.md?tabs=rest-find#find-existing-keys).
 
-+ If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information.
++ If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information. 
 
 ## Breaking change for semantic ranking
 
@@ -66,6 +72,14 @@ Effective March 29, 2024 and applicable to all [supported REST APIs](/rest/api/s
 + For all API versions, updates on July 14, 2023 to the Microsoft-hosted semantic models made semantic ranking language-agnostic, effectively decommissioning the `queryLanguage` property. There's no "breaking change" in code, but the property is ignored.
 
 See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) to transition your code to use `semanticConfiguration`.
+
+## Upgrade to 2024-07-01
+
+[`2024-07-01`](/rest/api/searchservice/search-service-api-versions#2024-07-01) is a general release. The former preview features are now generally available: integrated chunking and vectorization (Text Split skill, AzureOpenAIEmbedding skill), query vectorizer based on AzureOpenAIEmbedding, vector compression (scalar quantization, binary quantization, stored property, narrow data types).
+
+There are no breaking changes if you upgrade from `2024-05-01-preview` to stable. To use the new stable release, change the API version and test your code.
+
+There are breaking changes if you upgrade directly from `2023-11-01`. Follow the steps outlined for each newer preview to migrate from `2023-11-01` to `2024-07-01`.
 
 ## Upgrade to 2024-05-01-preview
 
@@ -85,7 +99,15 @@ If you're upgrading from `2023-10-01-preview`, there are no breaking changes. Ho
 
 1. Search your codebase for `vectorFilterMode` references.
 
-1. If the property is explicitly set, no action is required. If you used the default, be aware that the new default behavior is to filter before query execution. If you want post-query filtering, explicitly set `vectorFilterMode` to postfilter to retain the old behavior. 
+1. If the property is explicitly set, no action is required. If you used the default, be aware that the new default behavior is to filter before query execution. If you want post-query filtering, explicitly set `vectorFilterMode` to postfilter to retain the old behavior.
+
+## Upgrade to 2023-11-01
+
+[`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is a general release. The former preview features are now generally available: semantic ranking, vector index and query support.
+
+There are no breaking changes from `2023-10-01-preview`, but there are multiple breaking changes from `2023-07-01-preview` to `2023-11-01`. For more information, see [Upgrade from 2023-07-01-preview](#upgrade-from-2023-07-01-preview).
+
+To use the new stable release, change the API version and test your code.
 
 ## Upgrade to 2023-10-01-preview
 

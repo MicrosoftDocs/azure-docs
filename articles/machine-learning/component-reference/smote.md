@@ -3,7 +3,7 @@ title: "SMOTE"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the SMOTE component in Azure Machine Learning to increase the number of low-incidence examples in a dataset by using oversampling.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

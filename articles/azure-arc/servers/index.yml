@@ -106,4 +106,4 @@ landingContent:
           - text: Microsoft Sentinel
             url: scenario-onboard-azure-sentinel.md
           - text: Microsoft Defender for Cloud
-            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json
+            url: /azure/defender-for-cloud/quickstart-onboard-machines?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

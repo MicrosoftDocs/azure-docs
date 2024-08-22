@@ -55,7 +55,7 @@ Before using Route-maps, take into consideration the following limitations:
 * During Preview, hubs that are using Route-maps must be deployed in their own virtual WANs.
 * The Route-maps feature is only available for virtual hubs running on the Virtual Machine Scale Sets infrastructure. For more information, see the [FAQ](virtual-wan-faq.md).
 * When using Route-maps to summarize a set of routes, the hub router strips the *BGP Community* and *AS-PATH* attributes from those routes. This applies to both inbound and outbound routes.
-* When adding ASNs to the AS-PAT, only use the Private ASN range 64512 - 65535, but don't use ASN's Reseverd by Azure:
+* When adding ASNs to the AS-PATH, only use the Private ASN range 64512 - 65535, but don't use ASN's Reseverd by Azure:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
 * When using Route-maps, do not remove the Azure BGP communities:

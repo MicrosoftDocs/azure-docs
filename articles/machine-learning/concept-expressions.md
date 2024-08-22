@@ -3,7 +3,7 @@ title: 'SDK and CLI v2 expressions'
 titleSuffix: Azure Machine Learning
 description: SDK and CLI v2 use expressions when a value may not be known when authoring a job or component.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr

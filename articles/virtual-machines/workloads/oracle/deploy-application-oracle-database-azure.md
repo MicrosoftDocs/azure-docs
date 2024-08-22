@@ -34,7 +34,7 @@ The provided network settings for Oracle Applications on Azure cover various asp
 - More considerations:
   - Data Encryption: Ensure that data at rest and in transit is encrypted. Azure provides tools like Azure Disk Encryption and SSL/TLS for this purpose.
   - Patch Management: Regularly update and patch your EBS environment to protect against known vulnerabilities.
-  - Monitoring and Logging: Implement [Azure Monitor](../../../azure-monitor/overview.md) and [Azure Defender](../../../defender-for-cloud/defender-for-cloud-introduction.md) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
+  - Monitoring and Logging: Implement [Azure Monitor](../../../azure-monitor/overview.md) and [Azure Defender](/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
 
   
 - In summary, these network and security settings aim to provide a robust and secure environment for hosting Oracle applications on Azure IaaS. They incorporate best practices for authentication, access control, and network security, both for internal and external users. They also consider the need for SSH access to Application servers. These recommendations can help you set up a mature security posture for your Oracle applications deployment on Azure IaaS.

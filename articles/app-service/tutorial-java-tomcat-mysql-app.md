@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
 
-This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](../mysql/index.yml)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Tomcat application storing data in MySQL.":::
 

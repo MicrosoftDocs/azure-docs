@@ -1,6 +1,6 @@
 ---
 author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: jushiman

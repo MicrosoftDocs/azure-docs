@@ -1,7 +1,7 @@
 ---
 title: Project Flash - Use Azure Event Grid to monitor Azure Virtual Machine availability
 description: This article covers important concepts for monitoring Azure virtual machine availability using Azure Event Grid system topics.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.author: tomcassidy
 author: tomvcassidy
 ms.custom: subject-monitoring

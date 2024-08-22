@@ -1,6 +1,6 @@
 ---
 author: blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 07/21/2021
 ms.author: larryfr

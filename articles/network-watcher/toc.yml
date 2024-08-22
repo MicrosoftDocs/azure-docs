@@ -88,11 +88,11 @@
   - name: Network Watcher Agent
     items:
     - name: Windows
-      href: ../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
+      href: network-watcher-agent-windows.md
     - name: Linux
-      href: ../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
+      href: network-watcher-agent-linux.md
     - name: Update to latest version
-      href: ../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
+      href: network-watcher-agent-update.md
   - name: View topology
     href: network-insights-topology.md
   - name: Create a connection monitor

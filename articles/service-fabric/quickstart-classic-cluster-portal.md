@@ -3,7 +3,7 @@ title: Deploy a Service Fabric cluster using the Azure portal
 description: Learn how to create a Service Fabric cluster using the Azure portal
 author: tomvcassidy
 ms.topic: quickstart
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.author: tomcassidy
 ms.date: 07/11/2022

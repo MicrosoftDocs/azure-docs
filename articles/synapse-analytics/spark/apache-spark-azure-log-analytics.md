@@ -45,7 +45,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### Option 2: Configure with Azure Key Vault
 
 > [!NOTE]
-> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
+> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
 
 To configure Azure Key Vault to store the workspace key, follow these steps:
 
@@ -75,7 +75,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### Option 3. Configure with a linked service
 
 > [!NOTE]
-> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
+> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
 To configure a Key Vault linked service in Synapse Studio to store the workspace key, follow these steps:
 

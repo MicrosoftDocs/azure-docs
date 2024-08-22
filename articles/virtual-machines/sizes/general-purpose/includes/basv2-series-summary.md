@@ -3,7 +3,7 @@ title: Basv2-series summary include file
 description: Include file for Basv2-series summary
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 07/29/2024
 ms.author: mattmcinnes

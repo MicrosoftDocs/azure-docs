@@ -3,7 +3,7 @@ title: Associate a virtual machine scale set with flexible orchestration to a Ca
 description: Learn how to associate a new virtual machine scale set with flexible orchestration mode to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman

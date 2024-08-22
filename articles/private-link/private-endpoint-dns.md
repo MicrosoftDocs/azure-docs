@@ -270,6 +270,9 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {instanceName}.{dnsPrefix}.database.usgovcloudapi.net |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.us | cassandra.cosmos.azure.us |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.us | gremlin.cosmos.azure.us |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.us | table.cosmos.azure.us |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 >| Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |

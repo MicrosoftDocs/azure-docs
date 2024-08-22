@@ -5,7 +5,7 @@ description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to o
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 08/08/2024
 ms.author: cherylmc
 
 ---
@@ -17,15 +17,14 @@ A point-to-site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above).
+* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 12.x and above).
 
 * **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
->[!NOTE]
->IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model. The Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the Basic SKU, you will have to delete and recreate a production SKU virtual network gateway.
->
+> [!NOTE]
+> IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model. The Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the Basic SKU, you will have to delete and recreate a production SKU virtual network gateway.
 
 ## <a name="migrate"></a>Migrating from SSTP to IKEv2 or OpenVPN
 
@@ -43,9 +42,8 @@ To add IKEv2 to an existing gateway, go to the "point-to-site configuration" tab
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with the Tunnel type drop-down open, and IKEv2 and SSTP(SSL) selected." lightbox="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png":::
 
->[!NOTE]
+> [!NOTE]
 > When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128, even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the point-to-site address range CIDR, but the two sub-range CIDRs.
->
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway
 
@@ -63,9 +61,8 @@ If you're using Windows 10 or later, you can also use the [Azure VPN Client](poi
 
 ### What are the client configuration requirements?
 
->[!NOTE]
->For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
->
+> [!NOTE]
+> For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
 
 Users use the native VPN clients on Windows and Mac devices for P2S. Azure provides a VPN client configuration zip file that contains settings required by these native clients to connect to Azure.
 
@@ -74,9 +71,8 @@ Users use the native VPN clients on Windows and Mac devices for P2S. Azure provi
 
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
->[!NOTE]
->[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
->
+> [!NOTE]
+> [!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
@@ -85,8 +81,7 @@ The following table shows gateway SKUs by tunnel, connection, and throughput. Fo
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 > [!NOTE]
-> The Basic SKU has limitations and does not support IKEv2, or RADIUS authentication. See the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article for more information.
->
+> The Basic SKU has limitations and does not support IKEv2, or RADIUS authentication.
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 
@@ -129,22 +124,8 @@ The following table shows gateway SKUs by tunnel, connection, and throughput. Fo
 | AES256 | SHA1 | GROUP_NONE |
 
 ### <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
-**TLS**
 
-|**Policies** |
-|---| 
-|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
-|TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
-|TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
-|TLS_RSA_WITH_AES_128_GCM_SHA256 |
-|TLS_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_RSA_WITH_AES_256_CBC_SHA256 |
+[!INCLUDE [TLS policies table](../../includes/vpn-gateway-tls-policies.md)]
 
 ### <a name="configure"></a>How do I configure a P2S connection?
 

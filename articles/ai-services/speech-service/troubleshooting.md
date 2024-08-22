@@ -6,11 +6,11 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: troubleshooting
-ms.date: 1/22/2024
+ms.date: 8/11/2024
 ms.author: eur
 ---
 
-# Troubleshoot the Speech SDK
+# How to troubleshoot Speech SDK issues
 
 This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 
@@ -20,8 +20,8 @@ You might observe one of several authentication errors, depending on the program
 - Did you set the speech resource key and region values? 
 - AuthenticationFailure
 - HTTP 403 Forbidden or HTTP 401 Unauthorized. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
-- ValueError: can't construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting environment variables. You might also see it when you set the environment variables to something invalid such as your key or region. 
-- Exception with an error code: 0x5. This access denied error could be observed, for example, when you run one of the Speech SDK for C# quickstarts without setting environment variables.
+- ValueError: can't construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting valid credentials. 
+- Exception with an error code: 0x5. This access denied error could be observed, for example, when you run one of the Speech SDK for C# quickstarts without setting valid credentials.
 
 For baseline authentication troubleshooting tips, see [validate your resource key](#validate-your-resource-key) and [validate an authorization token](#validate-an-authorization-token). 
 

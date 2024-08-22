@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java, devx-track-extended-java
 ---

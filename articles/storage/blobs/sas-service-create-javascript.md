@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: javascript

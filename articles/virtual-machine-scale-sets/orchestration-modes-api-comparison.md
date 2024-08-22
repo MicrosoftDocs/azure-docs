@@ -4,7 +4,7 @@ description: Learn about the API differences between the Uniform and Flexible or
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, vmss-flex

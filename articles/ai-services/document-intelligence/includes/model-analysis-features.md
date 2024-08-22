@@ -4,14 +4,14 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 03/04/2024
+ms.date: 08/08/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD041 -->
 
-|Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓| | | | | |O|O| |O|O|O||
+|Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|Searchable PDF
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|prebuilt-read|✓| | | | | |O|O| |O|O|O||✓|
 |prebuilt-layout|✓|✓|✓|✓|✓|✓| |O|O| |O|O|O|
 |prebuilt-document|✓|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
 |prebuilt-businessCard|✓|✓| | | | | | | |✓| | | |
@@ -22,9 +22,15 @@ ms.author: lajanuar
 |prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
 |prebuilt-marriageCertificate.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-creditCard | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-check.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-payStub.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-bankStatement | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1003 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1004 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1005 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1008 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.closingDisclosure | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-tax.us|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|

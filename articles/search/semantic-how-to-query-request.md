@@ -15,7 +15,7 @@ ms.date: 07/24/2024
 
 # Add semantic ranking to queries in Azure AI Search
 
-This article explains how to invoke the semantic ranker on queries. You can apply semantic ranking to text queries, hybrid queries, and vector queries if your search documents contain string fields and the [vector query has a text representation](vector-search-how-to-query.md#query-with-integrated-vectorization-preview).
+This article explains how to invoke the semantic ranker on queries. You can apply semantic ranking to text queries, hybrid queries, and vector queries if your search documents contain string fields and the [vector query has a text representation](vector-search-how-to-query.md#query-with-integrated-vectorization).
 
 Semantic ranking iterates over an initial result set, applying an L2 ranking methodology that promotes the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
@@ -98,7 +98,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 1. Paste the following request into a web client as a template. Replace the service name and index name with valid values.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01      
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2024-07-01      
     {
         "queryType": "semantic",
         "search": "newer hotel near the water with a great restaurant",

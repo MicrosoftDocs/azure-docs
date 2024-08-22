@@ -4,7 +4,7 @@ description: Learn now to setup group Managed Service Accounts (gMSA) for a cont
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

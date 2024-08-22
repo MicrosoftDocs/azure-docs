@@ -1,5 +1,5 @@
 ---
-title: Create the pre and post (preview) maintenance configuration events in Azure Update Manager
+title: Create the pre and post maintenance configuration events in Azure Update Manager
 description: The article provides the steps to create the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 07/24/2024
@@ -9,7 +9,7 @@ author: SnehaSudhirG
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
 ---
 
-# Create pre and post events (preview)
+# Create pre and post events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 

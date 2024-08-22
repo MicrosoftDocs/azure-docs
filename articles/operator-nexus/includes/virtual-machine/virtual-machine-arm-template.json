@@ -62,7 +62,7 @@
             "type": "int",
             "defaultValue": 4,
             "metadata": {
-                "description": "The memory size of the virtual machine in GB (max 224 GB)"
+                "description": "The memory size of the virtual machine in GiB (max 224 GiB)"
             }
         },
         "networkAttachments": {

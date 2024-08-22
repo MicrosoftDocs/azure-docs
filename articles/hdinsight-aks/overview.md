@@ -2,7 +2,7 @@
 title: What is Azure HDInsight on AKS? (Preview)
 description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: overview
 ms.date: 05/28/2024
 ---

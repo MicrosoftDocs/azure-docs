@@ -230,12 +230,12 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 ### List key vaults
 
-When you create a key vault, it is automatically tied to the default Microsoft Entra tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
+When you create a key vault, it is automatically tied to the default Microsoft Entra tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](/azure/key-vault/general/move-subscription).
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
-- If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
+- If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-cli).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -360,7 +360,7 @@ In this step, you transfer the subscription from the source directory to the tar
 
 ### Update key vaults
 
-This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
+This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](/azure/key-vault/general/move-subscription).
 
 1. Update the tenant ID associated with all existing key vaults in the subscription to the target directory.
 

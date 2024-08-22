@@ -14,7 +14,7 @@ This article provides background information about updates to an application's b
 
 ## What are base images?
 
-Dockerfiles defining most container images specify a parent image from which the image is based, often referred to as its *base image*. Base images typically contain the operating system, for example [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], on which the rest of the container's layers are applied. They might also include application frameworks such as [Node.js][base-node] or [.NET Core][base-dotnet]. These base images are themselves typically based on public upstream images. Several of your application images might share a common base image.
+Dockerfiles defining most container images specify a parent image from which the image is based, often referred to as its *base image*. Base images typically contain the operating system, for example [Alpine Linux][base-alpine] or Windows Nano Server, on which the rest of the container's layers are applied. They might also include application frameworks such as [Node.js][base-node] or [.NET Core][base-dotnet]. These base images are themselves typically based on public upstream images. Several of your application images might share a common base image.
 
 A base image is often updated by the image maintainer to include new features or improvements to the OS or framework in the image. Security patches are another common cause for a base image update. When these upstream updates occur, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 

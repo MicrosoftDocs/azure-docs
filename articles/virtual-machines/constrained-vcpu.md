@@ -2,7 +2,7 @@
 title: Constrained vCPU sizes 
 description: Lists the Vm sizes that are capable of having a constrained vCPU count. Useful for per-core licensed database workloads.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 08/31/2023

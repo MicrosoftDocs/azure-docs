@@ -1,5 +1,21 @@
 # Codeowners file
 # Each line is a file pattern followed by one or more owners.
 
-# Specify owners for the aks folder
+# Folder paths in this list have been migrated to new repositories and content can no longer be created for these services in this repo.
 /articles/aks @tynevi @thomps23
+/articles/defender-for-cloud  @tynevi @thomps23
+/articles/attestation  @tynevi @thomps23
+/articles/confidential-ledger  @tynevi @thomps23
+/articles/dedicated-hsm  @tynevi @thomps23
+/articles/key-vault  @tynevi @thomps23
+/articles/payment-hsm  @tynevi @thomps23
+/articles/postgresql @tynevi @thomps23
+/articles/cosmos-db @tynevi @thomps23
+/articles/dms @tynevi @thomps23
+/articles/mariadb @tynevi @thomps23
+/articles/mysql @tynevi @thomps23
+/articles/managed-instance-apache-cassandra @tynevi @thomps23
+/articles/virtual-machines @jasonwhowell @thomps23
+/articles/virtual-machines-scale-sets @jasonwhowell @thomps23
+/articles/container-instances @jasonwhowell @thomps23
+/articles/service-fabric @jasonwhowell @thomps23

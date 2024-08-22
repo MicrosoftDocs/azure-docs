@@ -48,7 +48,7 @@ Alternatively, you can initiate deployment by starting from your project in AI S
 
 1. Go to your project in AI Studio.
 1. Select **Components** > **Deployments**.
-1. Select **+ Create deployment**.
+1. Select **+ Deploy model**.
 1. In the **Collections** filter, select **Azure OpenAI**.
 1. Select a model such as `gpt-4` from the Azure OpenAI collection.
 1. Select **Confirm** to open the deployment window.

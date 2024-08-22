@@ -6,7 +6,7 @@ ms.topic: sample
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: larryfr
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: subject-policy-compliancecontrols
 ---

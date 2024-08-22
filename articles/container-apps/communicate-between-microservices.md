@@ -3,7 +3,7 @@ title: 'Tutorial: Communication between microservices in Azure Container Apps'
 description: Learn how to communicate between microservices deployed in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/13/2022

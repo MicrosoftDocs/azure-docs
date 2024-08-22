@@ -1,14 +1,14 @@
 ---
 title: Contract data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate tax document data extraction with Document Intelligence's tax document models.
+description: Automate contract data extraction with Document Intelligence's contract models.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -20,7 +20,7 @@ monikerRange: '>=doc-intel-3.0.0'
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
-**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=true)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -37,11 +37,11 @@ Automated contract processing is the process of extracting key contract fields f
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Contract model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-contract**|
+|**Contract model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-contract**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -78,7 +78,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **Tax Documents**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Tax Documents**.
 
 1. You can analyze the sample tax documents or upload your own files.
 
@@ -103,8 +103,10 @@ The following are the fields extracted from a contract in the JSON output respon
 | ContractId | String | Contract title| AB12956 |
 | Parties | Array |List of legal parties| |
 | ExecutionDate | Date |Date when the agreement was fully signed and agreed upon by all parties|`On this twenty-third day of February two thousand and twenty two` |
-| ExpirationDate | Date |Date when the contract ends to be in effect| One year |
+| ExpirationDate | Date |Date when the contract ends| One year |
+| EffectiveDate  | Date |Date when the contract is in effect| immediately |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
+| ContractDuration | String | Contract terms | 5 years |
 | Jurisdictions | Array | List of jurisdictions| |
 
 The contract key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
