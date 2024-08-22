@@ -351,7 +351,24 @@ If the phase is not `COMPLETE`, the data isn't downloaded from your App Configur
 kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 ```   
 
-Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure associated managed identity is assigned proper permission.
+Use the logs for further troubleshooting. Refer to the [FAQ](#faq) section for common issues.
+
+## FAQ
+
+#### Why isn’t the ConfigMap or Secret being generated?
+
+You can follow the steps in the [Troubleshooting](#troubleshooting) guide to collect logs for detailed error information. Here are some common causes.
+
+- **RESPONSE 403: 403 Forbidden**: The configured identity lacks the necessary permissions to access the App Configuration store. Refer to the [Authentication](./reference-kubernetes-provider.md#authentication) section for examples that match the identity you are using.
+- **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: One or more Key Vault references are included in the selected key-values, but the authentication information for Key Vaults is not provided. To maintain the integrity of the configuration, the entire configuration fails to load. Configure the `spec.secret` section to provide the necessary authentication information. For examples and more information, see [Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) .
+
+#### Why does the generated ConfigMap not contain the expected data?
+
+Ensure that you specify the correct key-value selectors to match the expected data. If no selectors are specified, all key-values without a label will be downloaded from your App Configuration store. When using a key filter, verify that it matches the prefix of your expected key-values. If your key-values have labels, make sure to specify the label filter in the selectors. For more examples, refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) documentation.
+
+#### How can I customize the installation of the Azure App Configuration Kubernetes Provider?
+
+You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
 
 ## Clean up resources
 

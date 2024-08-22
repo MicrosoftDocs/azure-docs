@@ -5,7 +5,7 @@ description: Learn how to parameterize linked services in Azure Data Factory and
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 08/06/2024
 author: kromerm
 ms.author: makromer
 ---
@@ -78,6 +78,7 @@ All the linked service types are supported for parameterization.
 - SAP CDC
 - SAP HANA
 - SAP Table
+- ServiceNow (not supported in ServiceNow legacy)
 - SFTP
 - SharePoint Online List
 - Snowflake

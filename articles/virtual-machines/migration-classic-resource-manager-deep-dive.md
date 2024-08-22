@@ -3,7 +3,7 @@ title: Platform-supported migration tool.
 description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager.
 author: oriwolman
 manager: vashan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
 ms.date: 1/25/2023

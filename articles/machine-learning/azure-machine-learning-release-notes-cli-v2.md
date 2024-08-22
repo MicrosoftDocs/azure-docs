@@ -3,7 +3,7 @@ title: CLI (v2) release notes
 titleSuffix: Azure Machine Learning
 description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: engagement-fy23
 ms.topic: reference

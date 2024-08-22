@@ -24,7 +24,7 @@ Navigate to Apache Ambari UI to find more information about the alert from **Dis
 
 ### KV/AAD outage
 
-Look at [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md) and Azure status page for more details https://azure.status.microsoft/
+Look at [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) and Azure status page for more details https://azure.status.microsoft/
 
 ### KV accidental deletion
 

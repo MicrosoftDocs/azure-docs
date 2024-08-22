@@ -156,7 +156,7 @@ Recall that projections are exclusive to knowledge stores, and aren't used to st
 
 1. While in Azure Storage, familiarize yourself with existing content in containers and tables so that you choose nonconflicting names for the projections. A knowledge store is a loose collection of tables and containers. Consider adopting a naming convention to keep track of related objects.
 
-1. In Azure AI Search, [enable enrichment caching (preview)](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves aren't modified).
+1. In Azure AI Search, [enable enrichment caching (preview)](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. This is a preview feature, so be sure to use the preview REST API  on the indexer request. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves aren't modified).
 
 1. In your code, all projections are defined solely in a skillset. There are no indexer properties (such as field mappings or output field mappings) that apply to projections. Within a skillset definition, you'll focus on two areas: knowledgeStore property and skills array.
 

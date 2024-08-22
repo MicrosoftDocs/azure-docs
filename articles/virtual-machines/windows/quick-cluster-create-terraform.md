@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Windows VM cluster in Azure using Terraform'
 description: In this article, you learn how to create a Windows VM cluster in Azure using Terraform
 author: tomarchermsft
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 07/24/2023

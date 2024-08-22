@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 12/12/2022
+ms.date: 08/07/2024
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
@@ -68,7 +68,7 @@ If your application is using client-side encryption with an earlier version of t
 
 The Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
 ### Encryption and decryption via the envelope technique
 
@@ -154,7 +154,8 @@ BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncry
 // and from container clients to blob clients.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
-BlobClient blob = new BlobServiceClient(connectionString, options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
+BlobClient blob = new BlobServiceClient
+(new Uri($"https://{accountName}.blob.core.windows.net"), new DefaultAzureCredential(), options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
 
 // Upload the encrypted contents to the blob.
 blob.Upload(stream);
@@ -235,4 +236,4 @@ Keep in mind that encrypting your storage data results in additional performance
 
 - [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Azure Key Vault documentation](../../key-vault/general/overview.md)
+- [Azure Key Vault documentation](/azure/key-vault/general/overview)

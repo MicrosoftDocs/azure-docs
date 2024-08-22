@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 07/11/2024
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: concept-article
 ms.custom:
   - subject-relocation

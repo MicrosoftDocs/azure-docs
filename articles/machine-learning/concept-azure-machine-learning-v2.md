@@ -3,14 +3,14 @@ title: 'How Azure Machine Learning works (v2)'
 titleSuffix: Azure Machine Learning
 description: This article gives you a high-level understanding of the resources and assets that make up Azure Machine Learning (v2).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: balapv
-ms.date: 02/27/2024
+ms.date: 08/21/2024
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
@@ -125,6 +125,8 @@ Create a workspace in the studio welcome page by selecting **Create workspace**.
 
 ---
 
+For more detailed information about creating a workspace, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](how-to-manage-workspace.md).
+
 ## Compute
 
 A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine Learning supports the following types of compute:
@@ -179,6 +181,11 @@ For the content of the file, see [compute YAML examples](https://github.com/Azur
 1. Select **New** to create the new compute.
 
 ---
+
+For more detailed information about creating compute, see:
+
+* [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md)
+* [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
 
 ## Datastore
 
@@ -291,6 +298,8 @@ For more information, see [environment YAML schema](reference-yaml-environment.m
 
 ---
 
+For more detailed information about environments, see [Create and manage environments in Azure Machine Learning](how-to-manage-environments-v2.md).
+
 ## Data
 
 Azure Machine Learning allows you to work with different types of data:
@@ -313,7 +322,7 @@ For most scenarios, you'll use URIs (`uri_folder` and `uri_file`) - a location i
 
 An Azure Machine Learning [component](concept-component.md) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines. Components can do tasks such as data processing, model training, model scoring, and so on. A component is analogous to a function - it has a name, parameters, expects input, and returns output. 
 
-## Next steps
+## Related content
 
 * [How to upgrade from v1 to v2](how-to-migrate-from-v1.md)
 * [Train models with the v2 CLI and SDK](how-to-train-model.md)

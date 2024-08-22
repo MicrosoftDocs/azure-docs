@@ -54,7 +54,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
 #### Create a secret in Azure Key Vault
 
-1. [Add the secret value to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
+1. [Add the secret value to your key vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if you haven't already done so.
 
     > [!IMPORTANT]
     > If you restricted access to your Azure key vault by a firewall or virtual networking, follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).

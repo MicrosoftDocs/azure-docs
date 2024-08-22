@@ -91,7 +91,7 @@ additionalContent:
           links:
           - url: ./tables/table-storage-overview.md
             text: Store structured NoSQL data in the cloud (Table Storage and Azure Cosmos DB)
-          - url: ../cosmos-db/table-support.md
+          - url: /azure/cosmos-db/table-support
             text: Compare Table Storage and Azure Cosmos DB for Table
           - url: ./tables/index.yml
             text: All Table Storage documentation >

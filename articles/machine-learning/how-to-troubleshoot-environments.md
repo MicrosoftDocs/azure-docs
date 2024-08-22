@@ -76,9 +76,9 @@ There are some ways to decrease the impact of vulnerabilities:
 
 ### Scan for Vulnerabilities 
 
-You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
+You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure) to help scan images for vulnerabilities. 
 
-To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.yml).
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](/azure/defender-for-cloud/workflow-automation).
 
 ### Vulnerabilities vs Reproducibility
 

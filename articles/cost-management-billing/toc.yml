@@ -99,6 +99,8 @@
         href: manage/markup-china.md
     - name: Administer subscriptions
       items:
+      - name: Prepare for classic administrator roles retirement
+        href: manage/classic-administrator-retire.md
       - name: Assign access to cost management data
         href: costs/assign-access-acm-data.md
       - name: Subscription states

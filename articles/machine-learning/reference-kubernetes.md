@@ -6,7 +6,7 @@ services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: jinzhong
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: devx-track-arm-template
 ms.topic: reference

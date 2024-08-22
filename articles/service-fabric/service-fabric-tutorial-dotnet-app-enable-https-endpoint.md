@@ -4,7 +4,7 @@ description: Learn how to add an HTTPS endpoint to an ASP.NET Core front-end web
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell, devx-track-dotnet
 services: service-fabric
 ms.date: 05/17/2024

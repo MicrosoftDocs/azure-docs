@@ -86,7 +86,7 @@ This shield aims to safeguard against attacks that use information not directly 
 
 ### Language availability
 
-Prompt Shields have been specifically trained and tested on the following languages: Chinese, English, French, German, Italian, Japanese, Portuguese. However, the feature can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+Prompt Shields have been specifically trained and tested on the following languages: Chinese, English, French, German, Spanish, Italian, Japanese, Portuguese. However, the feature can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 ### Text length limitations
 

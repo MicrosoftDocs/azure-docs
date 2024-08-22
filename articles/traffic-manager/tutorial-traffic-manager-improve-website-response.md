@@ -3,9 +3,9 @@ title: 'Tutorial: Improve website response with Azure Traffic Manager'
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.date: 03/06/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-tutorial
 # Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.

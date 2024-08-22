@@ -3,7 +3,7 @@ title: Deploy and run MLflow models in Spark jobs
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model in Spark jobs to perform inference.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 author: msakande
 ms.author: mopeakande

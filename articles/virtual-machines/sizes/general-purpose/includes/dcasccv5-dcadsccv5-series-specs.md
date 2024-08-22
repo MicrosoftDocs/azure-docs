@@ -4,7 +4,7 @@ description: Include file containing specifications of DCas_cc_v5 and DCads_cc_v
 services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 04/11/2024
 ms.author: mattmcinnes

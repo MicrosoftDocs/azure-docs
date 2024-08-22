@@ -22,8 +22,6 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../ai-services/openai/how-to/create-resource.md).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
@@ -31,7 +29,11 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 
 ## Option 1. Import API from Azure OpenAI Service
 
-You can import an Azure OpenAI API directly to API Management from the Azure OpenAI Service. When you import the API, API Management automatically configures:
+You can import an Azure OpenAI API directly from Azure OpenAI Service to API Management. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+When you import the API, API Management automatically configures:
 
 * Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.

@@ -3,7 +3,7 @@ title: Azure network round-trip latency statistics
 description: Learn about round-trip latency statistics between Azure regions.
 services: networking
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: article
 ms.date: 06/20/2024
 ms.author: mbender

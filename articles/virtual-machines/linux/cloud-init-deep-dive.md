@@ -2,7 +2,7 @@
 title: Understanding cloud-init
 description: Deep dive for understanding provisioning an Azure VM using cloud-init.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: mattmcinnes

@@ -29,7 +29,10 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 
 ### <a name="network-requirements"></a>Network requirements 
 
-Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (less than 10 ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
+For predictable Active Directory Domain Services operations with Azure NetApp Files volumes, reliable and low-latency network connectivity (equal to or less than 10 ms RTT) to AD DS domain controllers is highly recommended. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
+
+>[!NOTE]
+>The 10ms recommendation adheres to guidance in [Creating a Site Design: Deciding which locations will become sites](/windows-server/identity/ad-ds/plan/creating-a-site-design#deciding-which-locations-will-become-sites).
 
 Ensure that you meet the following requirements about network topology and configurations:
 
@@ -37,7 +40,7 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Peered virtual network topologies with AD DS domain controllers must have peering configured correctly to support Azure NetApp Files to AD DS domain controller network connectivity.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
-* Ensure that the network latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
+* For optimal experience, ensure the network latency is equal to or less than 10ms RTT between Azure NetApp Files and AD DS domain controllers. Any RTT higher than 10ms can lead to degraded application or user experience in latency-sensitive applications/environments. In case RTT is too high for desirable user experience, consider deploying replica domain controllers in your Azure NetApp Files environment. Also see [Active Directory Domain Services considerations](#active-directory-domain-services-considerations).
 
 For more information on Microsoft Active Directory requirements for network latency over a WAN, see
 [Creating a Site Design](/windows-server/identity/ad-ds/plan/creating-a-site-design).
@@ -83,7 +86,7 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 * You don’t need Microsoft Entra Domain Services integration with a Microsoft Entra tenant in your subscription, or Microsoft Entra Domain Services is incompatible with your technical requirements.
 
 > [!NOTE]
-> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
+> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). Writeable domain controllers are supported and are required for authentication with Azure NetApp Files volumes. For more information, see [Active Directory Replication Concepts](/windows-server/identity/ad-ds/get-started/replication/active-directory-replication-concepts).
 
 If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/azure/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
 
@@ -165,7 +168,7 @@ If Azure NetApp Files is not able to reach any domain controllers assigned to th
 You must update the AD DS Site configuration whenever new domain controllers are deployed into a subnet assigned to the AD DS site that is used by the Azure NetApp Files AD Connection. Ensure that the DNS SRV records for the site reflect any changes to the domain controllers assigned to the AD DS Site used by Azure NetApp Files. You can check the validity of the DNS (SRV) resource record by using the `nslookup` utility.
 
 > [!NOTE]
-> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** field of the AD connections with an RODC.
+> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** field of the AD connections with an RODC. Writeable domain controllers are supported and are required for authentication with Azure NetApp Files volumes. For more information, see [Active Directory Replication Concepts](/windows-server/identity/ad-ds/get-started/replication/active-directory-replication-concepts).
 
 ### Sample AD DS site topology configuration for Azure NetApp Files
 

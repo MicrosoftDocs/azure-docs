@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 04/29/2024
+ms.date: 08/02/2024
 ---
 
 # Dapr components in Azure Container Apps

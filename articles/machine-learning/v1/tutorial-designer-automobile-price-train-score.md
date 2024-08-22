@@ -6,7 +6,7 @@ author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: keli19
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/10/2022

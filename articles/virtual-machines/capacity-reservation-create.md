@@ -3,7 +3,7 @@ title: Create a Capacity Reservation in Azure
 description: Learn how to reserve Compute capacity in an Azure region or an Availability Zone by creating a Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.reviewer: cynthn, jushiman, mattmcinnes

@@ -23,7 +23,7 @@ procedureSection:
   - title: |
       Authentication
     summary: |
-      We recommend using environment variables. If you haven't done this before, our [Python quickstarts](../quickstart.md) walks you through this configuration.
+      We recommend using Microsoft Entra ID or Azure Key Vault. You can use environment variables for testing outside of your production environment. If you haven't done this before, our [Python quickstarts](../quickstart.md) walks you through this configuration.
     
       ### API key
     code: |

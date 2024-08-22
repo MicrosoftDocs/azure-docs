@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/26/2024
+ms.date: 08/08/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy25
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
 
@@ -195,3 +195,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Migrate [physical servers](tutorial-migrate-physical-virtual-machines.md).

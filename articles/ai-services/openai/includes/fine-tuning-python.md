@@ -32,6 +32,7 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
 - `gpt-4` (0613)**<sup>*</sup>**
+- `gpt-4o-mini` (2024-07-18)**<sup>*</sup>**
 
 **<sup>*</sup>** Fine-tuning for this model is currently in public preview.
 
@@ -392,10 +393,10 @@ Unlike the previous SDK commands, deployment must be done using the control plan
 
 |variable      | Definition|
 |--------------|-----------|
-| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
-| subscription | The subscription ID for the associated Azure OpenAI resource |
-| resource_group | The resource group name for your Azure OpenAI resource |
-| resource_name | The Azure OpenAI resource name |
+| token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account#az-account-get-access-token()). You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable. |
+| subscription | The subscription ID for the associated Azure OpenAI resource. |
+| resource_group | The resource group name for your Azure OpenAI resource. |
+| resource_name | The Azure OpenAI resource name. |
 | model_deployment_name | The custom name for your new fine-tuned model deployment. This is the name that will be referenced in your code when making chat completion calls. |
 | fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You will need to add that value to the deploy_data json. Alternatively you can also deploy a checkpoint, by passing the checkpoint ID which will appear in the format `ftchkpt-e559c011ecc04fc68eaa339d8227d02d` |
 

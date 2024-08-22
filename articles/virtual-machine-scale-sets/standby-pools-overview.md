@@ -3,7 +3,7 @@ title: Standby pools for Virtual Machine Scale Sets
 description: Learn how to utilize standby pools to reduce scale-out latency with Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.reviewer: ju-shim

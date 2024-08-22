@@ -24,7 +24,7 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Synthesize to speaker output
+## Create the application
 
 Follow these steps to synthesize speech in a macOS application.
 
@@ -75,7 +75,7 @@ Follow these steps to synthesize speech in a macOS application.
 
 1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is *I'm excited to try text to speech* and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. To make the debug output visible, select **View** > **Debug Area** > **Activate Console**.
 1. To build and run the example code, select **Product** > **Run** from the menu or select the **Play** button.

@@ -3,7 +3,7 @@ title: 'Work in VS Code remotely connected to a compute instance (preview)'
 titleSuffix: Azure Machine Learning
 description: Details for working with Jupyter notebooks and services from a VS Code remote connection to an Azure Machine Learning compute instance.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Overview of Azure Boost
 description: Learn more about how Azure Boost can Learn more about how Azure Boost can improve security and performance of your virtual machines.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.custom:
   - ignite-2023

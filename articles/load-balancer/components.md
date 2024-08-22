@@ -95,7 +95,7 @@ An inbound NAT rule forwards incoming traffic sent to frontend IP address and po
 
 *Figure: Inbound NAT rules*
 
-Inbound NAT rules in the context of Virtual Machine Scale Sets are inbound NAT pools. Learn more about [Load Balancer components and virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+
 
 ## Outbound rules
 

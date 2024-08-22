@@ -4,7 +4,7 @@ description: Learn how to diagnose a virtual machine routing problem by viewing 
 services: virtual-network
 author: asudbring
 
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 05/30/2018
 ms.author: allensu

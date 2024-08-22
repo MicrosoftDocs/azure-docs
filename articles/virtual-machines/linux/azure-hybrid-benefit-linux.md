@@ -4,7 +4,7 @@ description: Learn how Azure Hybrid Benefit can save you money on Linux virtual 
 services: virtual-machines
 author: vvarshney06
 manager: gachandw
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual

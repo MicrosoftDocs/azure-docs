@@ -2,7 +2,7 @@
 title: Microsoft Azure Network Adapter (MANA) and DPDK on Linux
 description: Learn about MANA and DPDK for Linux Azure VMs.
 author: mcgov
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023

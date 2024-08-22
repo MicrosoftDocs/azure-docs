@@ -3,7 +3,7 @@ title: DCesv5 series specs include
 description: Include file containing specifications of DCesv5-series VM sizes.
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 07/31/2024
 ms.author: mattmcinnes

@@ -2,7 +2,7 @@
 title: Run scripts in a Linux VM in Azure using action Run Commands
 description: This article describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 author: nikhilpatel909
 ms.author: jushiman

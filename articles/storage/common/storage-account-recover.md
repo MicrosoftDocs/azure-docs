@@ -23,7 +23,7 @@ A deleted storage account may be recovered in some cases from within the Azure p
 
 Before you attempt to recover a deleted storage account, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-If the deleted storage account used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the storage account. For more information, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md).
+If the deleted storage account used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the storage account. For more information, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery).
 
 > [!IMPORTANT]
 > Recovery of a deleted storage account is not guaranteed. Recovery is a best-effort attempt. Microsoft recommends locking resources to prevent accidental account deletion. For more information about resource locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).

@@ -14,7 +14,7 @@ Azure Key Vault can emit events to a system topic when a certificate, key, or se
 
 ## Prerequisites
 
-- Create a Key Vault resource by following instructions from [Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+- Create a Key Vault resource by following instructions from [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 - To learn about Azure Monitor alerts, see [How to send events to Azure monitor alerts](handler-azure-monitor-alerts.md)
 
 

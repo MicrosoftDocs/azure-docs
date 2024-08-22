@@ -23,9 +23,11 @@ ms.author: mbullwin
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
+### Environment variables
+
 Create and assign persistent environment variables for your key and endpoint.
 
-### Environment variables
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 # [Command Line](#tab/command-line)
 
