@@ -75,7 +75,13 @@ Update an existing hub BGP peer connection.
 ```azurepowershell-interactive
 Update-AzVirtualHubBgpConnection -ResourceGroupName "[resource group name]" -VirtualHubName "westushub" -PeerIp 192.168.1.6 -PeerAsn 20000 -Name "testBgpConnection" -VirtualHubVnetConnection $hubVnetConnection
 ```
+## BGP learned route in HUB
 
+check BGP learned route in HUB
+
+```
+Get-AzRouteServerPeerLearnedRoute -ResourceGroupName $resourceGroupName -RouteServerName $HubName -PeerName $peerName
+```
 ## Delete a BGP peer
 
 Remove an existing hub BGP connection.
