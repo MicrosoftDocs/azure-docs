@@ -25,7 +25,7 @@ Azure provides built-in diagnostics to assist with debugging an [App Service app
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitor. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
+> In addition to the logging instructions in this article, you can also use the Azure Monitor integrated logging capability. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
 >
 
 |Type|Platform|Log storage location|Description|
@@ -116,7 +116,7 @@ To save the error page or failed request tracing for Windows apps in the [Azure 
 
 Under **Detailed Error Logging** or **Failed Request Tracing**, select **On**, and then select **Save**.
 
-Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceeds 50, the oldest error files are automatically deleted.
+Both types of logs are stored in the App Service file system. Up to 50 errors (files or folders) are retained. When the number of HTML files exceeds 50, the oldest error files are automatically deleted.
 
 The Failed Request Tracing feature by default captures a log of requests that failed with HTTP status codes between 400 and 600. To specify custom rules, you can override the `<traceFailedRequests>` section in the *web.config* file.
 
@@ -205,6 +205,6 @@ For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
-* [How to Monitor Azure App Service](web-sites-monitor.md)
+* [How to Monitor Azure App Service](monitor-app-service.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
