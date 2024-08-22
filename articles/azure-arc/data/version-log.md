@@ -9,7 +9,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.custom:
   - ignite-2023
-ms.date: 08/19/2024
+ms.date: 08/22/2024
 ms.topic: conceptual
 #Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
 ---
