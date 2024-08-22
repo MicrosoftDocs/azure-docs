@@ -279,7 +279,11 @@ GetPolygonOptions options = new GetPolygonOptions()
     Coordinates = new GeoPosition(121.5, 25.0)
 };
 Response<Boundary> result = client.GetPolygon(options);
-Console.WriteLine(result.Value.Geometry);
+
+Console.WriteLine(result.Value.Name);
+Console.WriteLine(result.Value.Copyright);
+Console.WriteLine(result.Value.CopyrightUrl);
+Console.WriteLine(result.Value.BoundingBox);
 ```
 
 ## Using V1 SDKs for Search and Render
