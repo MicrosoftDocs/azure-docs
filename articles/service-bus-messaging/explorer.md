@@ -34,7 +34,7 @@ To use the Service Bus Explorer tool, you need to do the following tasks:
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)
 
     > [!NOTE]
-    > If it's not the namespace you created, ensure that you're a member of one of these roles on the namespace or the entities you want to send or receive (including peek and purge) operations on: 
+    > Ensure that you're a member of one of these roles on the namespace or the entities you want to send or receive (including peek and purge) operations on: 
     > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner); Allows both send and receive operations.
     > - [Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender); Allows send operations.
     > - [Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver); Allows receive operations.
