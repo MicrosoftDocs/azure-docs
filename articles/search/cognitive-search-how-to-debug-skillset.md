@@ -75,11 +75,9 @@ Debug sessions work with all generally available [indexer data sources](search-d
    + Within that container, it creates a folder using the name you provided for the session name.
    + It starts your debug session.
 
-1. The debug session opens to the definition page. The page looks similar the following screenshot.
+1. A debug session opens to the settings page. You can make modifications to the initial configuration and override any defaults.
 
-   :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" lightbox="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
-
-1. In **Storage connection string**, you can specify or change the storage account. If you already have role assignments, you can skip this step.
+1. In **Storage connection string**, you can specify the connection string or change the storage account. 
 
 1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you're asked for a URI or a row ID.
 
@@ -177,7 +175,9 @@ Custom skills can be more challenging to debug because the code runs externally,
 
 ### Get a public URL
 
-#### Using Tunnelmole
+This section describes two approaches for getting a public URL to a custom skill.
+
+#### Use Tunnelmole
 
 Tunnelmole is an open source tunneling tool that can create a public URL that forwards requests to your local machine through a tunnel.
 
@@ -203,7 +203,7 @@ Tunnelmole is an open source tunneling tool that can create a public URL that fo
 
    In the preceding example, `https://m5hdpb-ip-49-183-170-144.tunnelmole.net` forwards to port `7071` on your local machine, which is the default port where Azure functions are exposed.
 
-#### Using ngrok
+#### Use ngrok
 
 [**ngrok**](https://ngrok.com/docs) is a popular, closed source, cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
 
@@ -226,9 +226,9 @@ Tunnelmole is an open source tunneling tool that can create a public URL that fo
 
 ### Configure in Azure portal
 
-Within the debug session, modify your Custom Web API Skill URI to call the Tunnelmole or ngrok forwarding URL. Ensure that you append "/api/FunctionName" when using Azure Function for executing the skillset code.
+Once you have a public URL for your custom skill, modify your Custom Web API Skill URI within a debug session to call the Tunnelmole or ngrok forwarding URL. Be sure to append "/api/FunctionName" when using Azure Function for executing the skillset code.
 
-You can edit the skill definition in the portal.
+You can edit the skill definition in the **Skill settings** section of the **Skill details** pane.
 
 ### Test your code
 
