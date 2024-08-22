@@ -4,7 +4,7 @@ description: Learn how to manage historical data with retention policy in Azure 
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge

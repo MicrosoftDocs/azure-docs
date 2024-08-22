@@ -4,8 +4,8 @@ description: This article tells how to set up machines for management with Azure
 services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
-ms.topic: conceptual
-ms.date: 12/10/2019
+ms.topic: how-to
+ms.date: 08/20/2024
 ms.custom:
 ---
 
