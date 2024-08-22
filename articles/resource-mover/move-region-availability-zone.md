@@ -151,7 +151,7 @@ Before we move the rest of the resources, we'll set a target availability zone f
 
     Changes are only made for the resource you're editing. You need to  update any dependent resources separately.
 
-5. In **SKU**, specify the [Azure tier](..//virtual-machines/sizes.md) that you want to assign to the target VM.
+5. In **SKU**, specify the [Azure tier](/azure/virtual-machines/sizes) that you want to assign to the target VM.
 6. In **Availability set**, select an availability set if you want the target VM to run within an availability set in the availability zone.
 7. Select **Save changes**.
 

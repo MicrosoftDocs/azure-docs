@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/16/2024
+ms.date: 08/20/2024
 ---
 
 # User-defined data types in Bicep
@@ -12,15 +12,16 @@ Learn how to create user-defined data types in Bicep. For system-defined data ty
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
-## Syntax
+## Define types
 
 You can use the `type` statement to create user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
+@<decorator>(<argument>)
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-The [`@allowed`](./parameters.md#decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
+The [`@allowed`](./parameters.md#use-decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types).
 
 The valid type expressions include:
 
@@ -81,7 +82,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators can be used on properties. `*` can be used to make all values require a constraint. Additional properties can still be defined when using `*`. This example creates an object that requires a key of type `int` named _id_, and that all other entries in the object must be a string value at least 10 characters long.
+  Decorators can be used on properties. `*` can be used to make all values require a constraint. Additional properties can still be defined when using `*`. This example creates an object that requires a key of type `int` named *id*, and that all other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
@@ -141,7 +142,7 @@ The valid type expressions include:
     type negatedBoolReference = !negatedBoolLiteral
     ```
 
-- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#decorators) in Bicep, so only literals are permitted as members.
+- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
     type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
@@ -227,6 +228,49 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
+## Use decorators
+
+Decorators are written in the format `@expression` and are placed above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [description](#description) | string | Provide descriptions for the user-defined data type. |
+| [discriminator](#discriminator) | string | Use this decorator to ensure the correct subclass is identified and managed. |
+| [export](#export) | none | Indicates that the user-defined data type is available for import by another Bicep file. |
+| [sealed](#sealed) | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
+
+### Discriminator
+
+See [Tagged union data type](#tagged-union-data-type).
+
+### Description
+
+Add a description to the user-defined data type. Decorators can be used on properties. For example:
+
+```bicep
+@description('Define a new object type.')
+type obj = {
+  @description('The object ID')
+  id: int
+
+  @description('Additional properties')
+  @minLength(10)
+  *: string
+}
+```
+
+Markdown-formatted text can be used for the description text.
+
+### Export
+
+Use `@export()` to share the user-defined data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+
+### Sealed
+
+See [Elevate error level](#elevate-error-level).
+
 ## Elevate error level
 
 By default, declaring an object type in Bicep allows it to accept additional properties of any type. For example, the following Bicep is valid but raises a warning of [BCP089] - `The property "otionalProperty" is not allowed on objects of type "{ property: string, optionalProperty: null | string }". Did you mean "optionalProperty"?`:
@@ -243,7 +287,7 @@ param aParameter anObject = {
 }
 ```
 
-The warning informs you that the _anObject_ type doesn't include a property named _otionalProperty_. While no errors occur during deployment, the Bicep compiler assumes _otionalProperty_ is a typo, that you intended to use _optionalProperty_ but misspelled it, and alert you to the inconsistency.
+The warning informs you that the *anObject* type doesn't include a property named *otionalProperty*. While no errors occur during deployment, the Bicep compiler assumes *otionalProperty* is a typo, that you intended to use *optionalProperty* but misspelled it, and alert you to the inconsistency.
 
 To escalate these warnings to errors, apply the `@sealed()` decorator to the object type:
 
@@ -308,22 +352,6 @@ output config object = serviceConfig
 ```
 
 For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
-
-## Import types between Bicep files
-
-Only user-defined data types that bear the `@export()` decorator can be imported to other templates.
-
-The following example enables you to import the two user-defined data types from other templates:
-
-```bicep
-@export()
-type myStringType = string
-
-@export()
-type myOtherStringType = myStringType
-```
-
-For more information, see [Import user-defined data types](./bicep-import-providers.md#import-user-defined-data-types-preview).
 
 ## Next steps
 

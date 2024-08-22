@@ -53,7 +53,7 @@ For example, consider the following container image tags. Images that are used c
 
 Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
 
-Although you might experiment with a specific host type, such as [Azure Container Instances](../container-instances/container-instances-overview.md), you'll likely want to delete the container instance when you're done. However, you might also want to keep the collection of images you pushed to Azure Container Registry. By placing your registry in its own resource group, you minimize the risk of accidentally deleting the collection of images in the registry when you delete the container instance resource group.
+Although you might experiment with a specific host type, such as [Azure Container Instances](/azure/container-instances/container-instances-overview), you'll likely want to delete the container instance when you're done. However, you might also want to keep the collection of images you pushed to Azure Container Registry. By placing your registry in its own resource group, you minimize the risk of accidentally deleting the collection of images in the registry when you delete the container instance resource group.
 
 ## Authentication and authorization
 

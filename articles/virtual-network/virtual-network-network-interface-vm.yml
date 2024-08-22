@@ -40,14 +40,14 @@ procedureSection:
   - title: |
       Add existing network interfaces to a new VM
     summary: |
-      When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches the network interface to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. Be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics) for multiple network interfaces.
+      When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches the network interface to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. Be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](/azure/virtual-machines/linux/multiple-nics#configure-guest-os-for-multiple-nics) or [Windows](/azure/virtual-machines/windows/multiple-nics#configure-guest-os-for-multiple-nics) for multiple network interfaces.
     steps: 
       - |
         [Create a network interface](virtual-network-network-interface.md#create-a-network-interface) before you create the VM.
       - |
         Create a VM. You can use CLI or PowerShell.
-         - For CLI use: [az vm create](/cli/azure/vm#az-vm-create). See [example](../virtual-machines/linux/multiple-nics.md#create-a-vm-and-attach-the-nics)
-         - For PowerShell use: [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). See [example](../virtual-machines/windows/multiple-nics.md#create-a-vm-with-multiple-nics)
+         - For CLI use: [az vm create](/cli/azure/vm#az-vm-create). See [example](/azure/virtual-machines/linux/multiple-nics#create-a-vm-and-attach-the-nics)
+         - For PowerShell use: [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). See [example](/azure/virtual-machines/windows/multiple-nics#create-a-vm-with-multiple-nics)
   - title: |
       Add a network interface to an existing VM
     summary: |
@@ -56,7 +56,7 @@ procedureSection:
       - |
         Go to the [Azure portal](https://portal.azure.com) to find an existing virtual machine. Search for and select **Virtual machines**.
       - |
-        Select the name of your VM. The VM must support the number of network interfaces you want to add. To find out how many network interfaces each VM size supports, see the sizes in Azure for [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+        Select the name of your VM. The VM must support the number of network interfaces you want to add. To find out how many network interfaces each VM size supports, see the sizes in Azure for [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
       - |
         In the VM **Overview** page, select **Stop**, and then **Yes**. Then wait until the **Status** of the VM changes to **Stopped (deallocated)**.
  
@@ -73,14 +73,14 @@ procedureSection:
       - |
         Select **Overview** > **Start** to start the virtual machine.
 
-        Now you can configure the VM operating system to use multiple network interfaces properly. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics) for multiple network interfaces.
+        Now you can configure the VM operating system to use multiple network interfaces properly. Learn how to configure [Linux](/azure/virtual-machines/linux/multiple-nics#configure-guest-os-for-multiple-nics) or [Windows](/azure/virtual-machines/windows/multiple-nics#configure-guest-os-for-multiple-nics) for multiple network interfaces.
 
         ### Commands
 
         |Tool|Command|
         |---|---|
-        |CLI|[az vm nic add](/cli/azure/vm/nic#az-vm-nic-add). See [example](../virtual-machines/linux/multiple-nics.md#add-a-nic-to-a-vm)|
-        |PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface). See [example](../virtual-machines/windows/multiple-nics.md#add-a-nic-to-an-existing-vm)|
+        |CLI|[az vm nic add](/cli/azure/vm/nic#az-vm-nic-add). See [example](/azure/virtual-machines/linux/multiple-nics#add-a-nic-to-a-vm)|
+        |PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface). See [example](/azure/virtual-machines/windows/multiple-nics#add-a-nic-to-an-existing-vm)|
   - title: |
       View network interfaces for a VM
     summary: |
@@ -131,8 +131,8 @@ procedureSection:
 
         |Tool|Command|
         |---|---|
-        |CLI|[az vm nic remove](/cli/azure/vm/nic#az-vm-nic-remove). See [example](../virtual-machines/linux/multiple-nics.md#remove-a-nic-from-a-vm)|
-        |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface). See [example](../virtual-machines/windows/multiple-nics.md#remove-a-nic-from-an-existing-vm)|
+        |CLI|[az vm nic remove](/cli/azure/vm/nic#az-vm-nic-remove). See [example](/azure/virtual-machines/linux/multiple-nics#remove-a-nic-from-a-vm)|
+        |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface). See [example](/azure/virtual-machines/windows/multiple-nics#remove-a-nic-from-an-existing-vm)|
   - title: |
       Constraints
     summary: |
@@ -141,7 +141,7 @@ procedureSection:
       - |
         A VM must have at least one network interface attached to it.
       - |
-        A VM can only have as many network interfaces attached to it as the VM size supports. To learn more about how many network interfaces each VM size supports, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md). All sizes support at least two network interfaces.
+        A VM can only have as many network interfaces attached to it as the VM size supports. To learn more about how many network interfaces each VM size supports, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes). All sizes support at least two network interfaces.
       - |
         The network interfaces you add to a VM can't currently be attached to another VM. To learn more about how to create network interfaces, see [Create a network interface](virtual-network-network-interface.md#create-a-network-interface).
       - |
@@ -151,7 +151,7 @@ procedureSection:
       - |
         You can control which network interface you send outbound traffic to. However, a VM by default sends all outbound traffic to the IP address that's assigned to the primary IP configuration of the primary network interface.
       - |
-        In the past, all VMs within the same availability set were required to have a single, or multiple, network interfaces. VMs with any number of network interfaces can now exist in the same availability set, up to the number supported by the VM size. You can only add a VM to an availability set when it's created. To learn more about availability sets, see [Availability options for Azure Virtual Machines](../virtual-machines/availability.md).
+        In the past, all VMs within the same availability set were required to have a single, or multiple, network interfaces. VMs with any number of network interfaces can now exist in the same availability set, up to the number supported by the VM size. You can only add a VM to an availability set when it's created. To learn more about availability sets, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
       - |
         You can connect network interfaces in the same VM to different subnets within a virtual network. However, the network interfaces must all be connected to the same virtual network.
       - |
@@ -165,7 +165,7 @@ procedureSection:
 
 relatedContent:
   - text: Create a VM with multiple NICs|CLI
-    url: ../virtual-machines/linux/multiple-nics.md
+    url: /azure/virtual-machines/linux/multiple-nics
   - text: Create a single NIC VM with multiple IPv4 addresses|CLI
     url: ./ip-services/virtual-network-multiple-ip-addresses-cli.md
   - text: Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|CLI
@@ -176,6 +176,6 @@ relatedContent:
 
 #|Task|Tool|
 #|---|---|
-#|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md), [PowerShell](../virtual-machines/windows/multiple-nics.md)|
+#|Create a VM with multiple NICs|[CLI](/azure/virtual-machines/linux/multiple-nics), [PowerShell](/azure/virtual-machines/windows/multiple-nics)|
 #|Create a single NIC VM with multiple IPv4 addresses|[CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md), [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 #|Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md)|

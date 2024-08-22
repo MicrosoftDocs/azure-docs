@@ -14,7 +14,7 @@ manager: jsuri
 # Troubleshoot Guest Management for Linux VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article provides information on how to troubleshoot and resolve the issues that can occur when you enable guest management on Arc-enabled VMware vSphere virtual machines.
 

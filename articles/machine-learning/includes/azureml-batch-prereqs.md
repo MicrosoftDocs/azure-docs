@@ -6,48 +6,44 @@ author: ccrestana
 ms.author: cacrest
 ---
 
-Before following the steps in this article, make sure you have the following prerequisites:
-
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-- An Azure Machine Learning workspace. If you don't have one, use the steps in the [Manage Azure Machine Learning workspaces](../how-to-manage-workspace.md) article to create one.
-- Ensure that you have the following permissions in the workspace:
+- An Azure Machine Learning workspace. To create a workspace, see [Manage Azure Machine Learning workspaces](../how-to-manage-workspace.md).
+- Ensure that you have the following permissions in the Machine Learning workspace:
 
   - Create or manage batch endpoints and deployments: Use an Owner, Contributor, or Custom role that allows `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
   - Create Azure Resource Manager deployments in the workspace resource group: Use an Owner, Contributor, or Custom role that allows `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
 
-- You need to install the following software to work with Azure Machine Learning:
+- Install the following software to work with Machine Learning:
 
   # [Azure CLI](#tab/cli)
 
-  Add the [Azure CLI](/cli/azure/) `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md).
+  Run the following command to install the [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md):
 
   ```azurecli
   az extension add -n ml
   ```
 
-  > [!NOTE]
-  > Pipeline component deployments for Batch Endpoints were introduced in version 2.7 of the `ml` extension for Azure CLI. Use `az extension update --name ml` to get the last version of it.
+  Pipeline component deployments for Batch Endpoints are introduced in version 2.7 of the `ml` extension for the Azure CLI. Use the `az extension update --name ml` command to get the latest version.
 
   # [Python](#tab/python)
 
-  Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+  Run the following command to install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install):
 
   ```python
   pip install azure-ai-ml
   ```
 
-  > [!NOTE]
-  > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK. Use `pip install -U azure-ai-ml` to get the last version of it.
+  The `ModelBatchDeployment` and `PipelineComponentBatchDeployment` classes are introduced in version 1.7.0 of the SDK. Use the `pip install -U azure-ai-ml` command to get the latest version.
 
   ---
 
 ### Connect to your workspace
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to the workspace in which you do deployment tasks.
+The workspace is the top-level resource for Machine Learning. It provides a centralized place to work with all artifacts you create when you use Machine Learning. In this section, you connect to the workspace where you perform your deployment tasks.
 
 # [Azure CLI](#tab/cli)
 
-Pass in the values for your subscription ID, workspace, location, and resource group in the following code:
+In the following command, enter the values for your subscription ID, workspace, location, and resource group:
 
 ```azurecli
 az account set --subscription <subscription>
@@ -68,13 +64,13 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 
 1. Configure the workspace details and get a handle to the workspace:
 
-   Pass in the values for your subscription ID, workspace, and resource group in the following code:
+   In the following command, enter the values for your subscription ID, workspace, and resource group:
 
    ```python
    subscription_id = "<subscription>"
    resource_group = "<resource-group>"
    workspace = "<workspace>"
-    
+   
    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
    ```
 

@@ -156,7 +156,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 | France Central | ✅ | | | |✅ | | ✅|
 | West Europe | ✅ | ✅ |✅ | |✅ | |✅ |
 | Japan East | ✅ | | | |✅ | |✅ |
-| Australia East| ✅ | ✅ | | |✅ | ✅| ✅|
+| Australia East| ✅ |  | | |✅ | ✅| ✅|
 | USGov Arizona | ✅ | | | | | | |
 | USGov Virginia | ✅ | | | | | | |
 
