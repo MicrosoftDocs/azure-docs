@@ -62,8 +62,8 @@ public class Program {
 
         System.out.println("Speak into your microphone.");
         Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
-        SpeechRecognitionResult result = task.get();
-        System.out.println("RECOGNIZED: Text=" + result.getText());
+        SpeechRecognitionResult speechRecognitionResult = task.get();
+        System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
     }
 }
 ```
@@ -91,31 +91,31 @@ public class Program {
         SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
         
         Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
-        SpeechRecognitionResult result = task.get();
-        System.out.println("RECOGNIZED: Text=" + result.getText());
+        SpeechRecognitionResult speechRecognitionResult = task.get();
+        System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
     }
 }
 ```
 
 ## Handle errors
 
-The previous examples only get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
+The previous examples only get the recognized text by using `speechRecognitionResult.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`speechRecognitionResult.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`.
 * If there's no recognition match, it informs the user: `ResultReason.NoMatch`.
 * If an error is encountered, it prints the error message: `ResultReason.Canceled`.
 
 ```java
-switch (result.getReason()) {
+switch (speechRecognitionResult.getReason()) {
     case ResultReason.RecognizedSpeech:
-        System.out.println("We recognized: " + result.getText());
+        System.out.println("We recognized: " + speechRecognitionResult.getText());
         exitCode = 0;
         break;
     case ResultReason.NoMatch:
         System.out.println("NOMATCH: Speech could not be recognized.");
         break;
     case ResultReason.Canceled: {
-            CancellationDetails cancellation = CancellationDetails.fromResult(result);
+            CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
             System.out.println("CANCELED: Reason=" + cancellation.getReason());
 
             if (cancellation.getReason() == CancellationReason.Error) {
