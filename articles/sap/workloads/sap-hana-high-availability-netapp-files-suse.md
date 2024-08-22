@@ -517,7 +517,7 @@ Create a dummy file system cluster resource. It monitors and reports failures if
 When using SAPHanaSR-angi package and resource agent, it adds a new agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. Filesystem /hana/shared is already mounted with entries in /etc/fstab on each host. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA and doesn't need any additional mount or subdirectory pre-created.
 
 1. **[1]** Configure SAPHanaFilesystem agent
-1. 
+
 ```bash
 # Replace <placeholders> with your instance number and HANA system ID. 
 sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaFilesystem \
@@ -528,7 +528,6 @@ sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:
 
 sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPHanaFil_<HANA SID>_HDB<instance number> \
   meta clone-node-max="1" interleave="true"
-
 ```
 
 ---
