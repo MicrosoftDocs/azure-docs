@@ -42,7 +42,7 @@ Here are some of the other considerations to keep in mind.
 
 These include, updating the topic configuration in the `messageTimestampType` to use the `CreateTime` (that is, Event creation time) instead of the `AppendTime` (that is, log append time).
 
-To override the default behavior (required), the below setting must be set in Azure Resource Manager(ARM).
+To override the default behavior (required), the below setting must be set in Azure Resource Manager (ARM).
 
 > [!NOTE]
 > Only the specific parts of the ARM template are shown to highlight the configuration that needs to be updated.
