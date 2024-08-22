@@ -1,6 +1,6 @@
 ---
-title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat Android
-description: Guide describes how to migrate Android apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
+title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat C#
+description: Guide describes how to migrate C# apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
 ms.date: 07/22/2024
 ms.topic: include
@@ -13,426 +13,385 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-1. **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
-2. **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
-3. **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
-4. **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
+1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+2. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+3. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
+4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
-```console
-az communication identity token issue --scope voip --connection-string "yourConnectionString"
-```
+  ```azurecli-interactive
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
+  ```
 
-For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+  For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+
+## Conceptual Difference
+
+Both Twilio Conversations and Azure Communication Services Chat offer similar functions, but their implementation differs due to the surrounding ecosystems and underlying platform philosophies. Twilio Conversations provide a multi-channel communication API. Azure Communication Services Chat is focused primarily on chat within the Azure ecosystem. This migration guide provides a basic mapping between common operations in Twilio and their equivalents in Azure Communication Services Chat, helping you transition your .NET code.
+
+### Identities
+
+#### Twilio
+
+Twilio Conversations uses identity strings directly.
+
+#### Azure Communication Services 
+
+Azure Communication Services requires creating users through the `CommunicationIdentityClient`.
 
 ## Setting up
 
+### Install the package
 
-### Install the libraries
+To start the migration from Twilio Conversations chat, the first step is to install the Azure Communication Services Chat SDK for .NET to your project.
 
-To start the migration from Twilio Conversations chat, the first step is to install the Azure Communication Services Chat SDK for Android to your project. The Azure Communication Services Chat SDK can be integrated as a `gradle` dependency.
-
-1. Add the Chat SDK
-
-```groovy
-implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
-implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
-implementation 'org.slf4j:slf4j-log4j12:1.7.29'
+```PowerShell
+dotnet add package Azure.Communication.Chat
 ```
 
-For the latest version numbers, see [Maven Central: com.azure.android/azure-communication-common](https://search.maven.org/artifact/com.azure.android/azure-communication-common) and [Maven Central: com.azure.android/azure-communication-chat](https://search.maven.org/artifact/com.azure.android/azure-communication-chat).
+## Object model
 
-2. Exclude meta files in packaging options in root `build.gradle`.
+The following classes handle some of the major features of the Azure Communication Services Chat SDK for C#.
 
-```groovy
-android {
-   ...
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/license'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/notice'
-        exclude 'META-INF/ASL2.0'
-        exclude("META-INF/*.md")
-        exclude("META-INF/*.txt")
-        exclude("META-INF/*.kotlin_module")
-    }
-}
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| `ChatClient` | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| `ChatThreadClient` | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get participants, send typing notifications and read receipts. |
+
+## Create a chat client
+
+#### Twilio 
+
+Twilio requires you to set up the Twilio client using your account credentials:
+
+```csharp
+var twilio = new TwilioRestClient(accountSid, authToken);
 ```
 
-3. Set up Azure Function.
+#### Azure Communication Services 
 
-For more information, see [Integrate Azure Function](../../tutorials/integrate-azure-function.md) for details. We recommend integrating with Azure Function to avoid hard-coding application parameters.
+To create a chat client in Azure Communication Services, use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client.
 
+Learn more about [User Access Tokens](../../quickstarts/identity/access-tokens.md).
 
-### Authenticating to the SDK
-
-To use the Azure Communication Services Chat SDK, you need to authenticate using an access token.
-
-#### Twilio
-
-The following code snippets assume the availability of a valid access token for Twilio services.
-
-```java
-void retrieveAccessTokenFromServer(final Context context, String identity,
-                                       final TokenResponseListener listener) {
-
-        // Set the chat token URL in your strings.xml file
-        String chatTokenURL = context.getString(R.string.chat_token_url);
-
-        if ("https://YOUR_DOMAIN_HERE.twil.io/chat-token".equals(chatTokenURL)) {
-            listener.receivedTokenResponse(false, new Exception("You need to replace the chat token URL in strings.xml"));
-            return;
-        }
-
-        tokenURL = chatTokenURL + "?identity=" + identity;
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                retrieveToken(new AccessTokenListener() {
-                    @Override
-                    public void receivedAccessToken(@Nullable String token,
-                                                    @Nullable Exception exception) {
-                        if (token != null) {
-                            ConversationsClient.Properties props = ConversationsClient.Properties.newBuilder().createProperties();
-                            ConversationsClient.create(context, token, props, mConversationsClientCallback);
-                            listener.receivedTokenResponse(true,null);
-                        } else {
-                            listener.receivedTokenResponse(false, exception);
-                        }
-                    }
-                });
-            }
-        }).start();
-    }
+```csharp
+// Your unique Azure Communication service endpoint
+Uri endpoint = new Uri("<replace with your resource endpoint>");
+CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
 ```
-
-
-#### Azure Communication Services
-
-The following code snippets require a valid access token to initiate a `CallClient`.
-
-You need a valid token. For more information, see [Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md).
-
-> [!NOTE]
-> Initializing `ApplicationConstants` needs to be added to `MainActivity.java` if EITHER of the following conditions is met: 1. The push notification feature is NOT enabled. 2. The version for the Azure Communication Chat library for Android is < '2.0.0'. Otherwise, please refer to step 11 in [Android push notifications](../../tutorials/chat-android-push-notification.md). See the sample APP of the SDK version that you are consuming for reference.
-
-`ACS_ENDPOINT`, `FIRST_USER_ID`, and `FIRST_USER_ACCESS_TOKEN` are returned from calling Azure Function. For more information, see [Integrate Azure Function](../../tutorials/integrate-azure-function.md) for details. We use the response from calling Azure Function to initialize the list of parameters:
-* `ACS_ENDPOINT`: the endpoint of your Communication Services resource.
-* `FIRST_USER_ID` and `SECOND_USER_ID`: valid Communication Services user IDs generated by your Communication Services resource.
-* `FIRST_USER_ACCESS_TOKEN`: the Communication Services access token for `<FIRST_USER_ID>`.
-
-Code block for initializing application parameters by calling Azure Function:
-
-```java
-try {
-        UserTokenClient userTokenClient = new UserTokenClient(AZURE_FUNCTION_URL);
-        //First user context
-        userTokenClient.getNewUserContext();
-        ACS_ENDPOINT = userTokenClient.getACSEndpoint();
-        FIRST_USER_ID = userTokenClient.getUserId();
-        FIRST_USER_ACCESS_TOKEN = userTokenClient.getUserToken();
-        COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
-        //Second user context
-        userTokenClient.getNewUserContext();
-        SECOND_USER_ID = userTokenClient.getUserId();
-    } catch (Throwable throwable) {
-        //Your handling code
-        logger.logThrowableAsError(throwable);
-    }
-```
-
-### Create a chat client
-
-#### Twilio
-
-To create a chat client in Twilio.
-
-```java
- void initializeWithAccessToken(final Context context, final String token) {
-
-        ConversationsClient.Properties props = ConversationsClient.Properties.newBuilder().createProperties();
-        ConversationsClient.create(context, token, props, mConversationsClientCallback);
-    }
-```
-
-#### Azure Communication Services
-
-Replace the comment `<CREATE A CHAT CLIENT>` with the following code (put the import statements at top of the file):
-
-```java
-import com.azure.android.core.http.policy.UserAgentPolicy;
-
-chatAsyncClient = new ChatClientBuilder()
-    .endpoint(endpoint)
-    .credential(new CommunicationTokenCredential(firstUserAccessToken))
-    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
-    .buildAsyncClient();
-
-```
-
-### Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for Java.
-
-| Name                                   | Description                                                                                                                                                                           |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ChatClient` / `ChatAsyncClient` | This class is needed for the Chat function. You instantiate it with your subscription information and use it to create, get, delete threads, and subscribe to chat events. |
-| `ChatThreadClient` / `ChatThreadAsyncClient` | This class is needed for the Chat Thread function. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ### Start a chat thread
 
-#### Twilio
+#### Twilio Conversations
 
-The following code snippet helps to start a chat thread in Twilio.
-
-```java
-conversationsClient.createConversation(DEFAULT_CONVERSATION_NAME,
-                new CallbackListener<Conversation>() {
-                    @Override
-                    public void onSuccess(Conversation conversation) {
-                        if (conversation != null) {
-                            Log.d(MainActivity.TAG, "Joining Conversation: " + DEFAULT_CONVERSATION_NAME);
-                            joinConversation(conversation);
-                        }
-                    }
-
-                    @Override
-                    public void onError(ErrorInfo errorInfo) {
-                        Log.e(MainActivity.TAG, "Error creating conversation: " + errorInfo.getMessage());
-                    }
-                });
+```csharp
+var conversation = ConversationResource.Create(
+    friendlyName: "My Conversation",
+    messagingServiceSid: "<MessagingServiceSid>"
+);
 ```
 
-#### Azure Communication Services
+#### Azure Communication Services 
 
-We use our `ChatAsyncClient` to create a new thread with an initial user.
+In Azure Communication Services, you create a thread, which is equivalent to a conversation in Twilio.
 
-Replace the comment `<CREATE A CHAT THREAD>` with the following code:
+Use the `createChatThread` method on the chatClient to create a chat thread
+- Use `topic` to give a topic to this chat; you can update the `topic` after the chat thread is created using the `UpdateTopic` function.
+- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. Initialize the `ChatParticipant` object with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you need to pass an Access ID created following the instructions to [Create a user](../../quickstarts/identity/access-tokens.md#create-an-identity).
 
-```java
-// A list of ChatParticipant to start the thread with.
-List<ChatParticipant> participants = new ArrayList<>();
-// The display name for the thread participant.
-String displayName = "initial participant";
-participants.add(new ChatParticipant()
-    .setCommunicationIdentifier(new CommunicationUserIdentifier(firstUserId))
-    .setDisplayName(displayName));
+The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, and so on, instantiate a `chatThreadClient` client instance using the `GetChatThreadClient` method on the `ChatClient` client.
 
-// The topic for the thread.
-final String topic = "General";
-// Optional, set a repeat request ID.
-final String repeatabilityRequestID = "";
-// Options to pass to the create method.
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic(topic)
-    .setParticipants(participants)
-    .setIdempotencyToken(repeatabilityRequestID);
-
-CreateChatThreadResult createChatThreadResult =
-    chatAsyncClient.createChatThread(createChatThreadOptions).get();
-ChatThreadProperties chatThreadProperties = createChatThreadResult.getChatThreadProperties();
-threadId = chatThreadProperties.getId();
-
+```csharp
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
+{
+    DisplayName = "UserDisplayName"
+};
+CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
+string threadId = chatThreadClient.Id;
 ```
 
 ### Get a chat thread client
 
-#### Twilio
+##### Twilio
 
-The following code snippet helps to get a chat thread client in Twilio.
+In Twilio Conversations, you interact directly with a conversation using the conversation's SID (unique identifier). Here's how to typically get a conversation and interact with it:
 
-```java
-conversationsClient.getConversation(DEFAULT_CONVERSATION_NAME, new CallbackListener<Conversation>() {
-            @Override
-            public void onSuccess(Conversation conversation) {
-                if (conversation != null) {
-                    if (conversation.getStatus() == Conversation.ConversationStatus.JOINED
-                            || conversation.getStatus() == Conversation.ConversationStatus.NOT_PARTICIPATING) {
-                        Log.d(MainActivity.TAG, "Already Exists in Conversation: " + DEFAULT_CONVERSATION_NAME);
-                        QuickstartConversationsManager.this.conversation = conversation;
-                        QuickstartConversationsManager.this.conversation.addListener(mDefaultConversationListener);
-                        QuickstartConversationsManager.this.loadPreviousMessages(conversation);
-                    } else {
-                        Log.d(MainActivity.TAG, "Joining Conversation: " + DEFAULT_CONVERSATION_NAME);
-                        joinConversation(conversation);
-                    }
-                }
-            }
+```csharp
+var conversationSid = "<CONVERSATION_SID>";
+var conversation = ConversationResource.Fetch(pathSid: conversationSid);
+
+// Example: Fetching all messages in the conversation
+var messages = MessageResource.Read(pathConversationSid: conversationSid);
+foreach (var message in messages)
+{
+    Console.WriteLine(message.Body);
+}
 ```
 
-#### Azure Communication Services
+#### Azure Communication Services 
 
-Now that we created a chat thread, we need to get a `ChatThreadAsyncClient` to perform operations within the thread. Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
+The `GetChatThreadClient` method returns a thread client for a thread that already exists. You can use it to perform operations on the created thread: add members, send message, and so on. `threadId` is the unique ID of the existing chat thread.
 
-```java
-ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
-    .endpoint(endpoint)
-    .credential(new CommunicationTokenCredential(firstUserAccessToken))
-    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
-    .chatThreadId(threadId)
-    .buildAsyncClient();
+```csharp
+string threadId = "<THREAD_ID>";
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
+```
 
+### List all chat threads
+
+##### Twilio
+
+In Twilio Conversations, you can retrieve all conversations that a user is a participant in by querying the `UserConversations` resource. This resource provides a list of conversations for a specific user.
+
+```csharp
+/ Initialize Twilio Client
+string accountSid = "<YOUR_ACCOUNT_SID>";
+string authToken = "<YOUR_AUTH_TOKEN>";
+TwilioClient.Init(accountSid, authToken);
+
+// The identity of the user you're querying
+string userIdentity = "user@example.com";
+
+// Retrieve all conversations the user is part of
+var userConversations = UserConversationResource.Read(pathUserSid: userIdentity);
+
+foreach (var userConversation in userConversations)
+{
+    Console.WriteLine($"Conversation SID: {userConversation.ConversationSid}");
+    // You can fetch more details about the conversation if needed
+    var conversation = Twilio.Rest.Conversations.V1.ConversationResource.Fetch(pathSid: userConversation.ConversationSid);
+    Console.WriteLine($"Conversation Friendly Name: {conversation.FriendlyName}");
+}
+```
+
+#### Azure Communication Services 
+
+Use `GetChatThreads` to retrieve all the chat threads that the user is part of.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
 ```
 
 ### Send a message to a chat thread
 
-Unlike Twilio, Azure Communication Services doesn't have separate functions for sending text messages or media.
+##### Twilio
 
-#### Twilio
+The following code snippet shows how to send a text message.
 
-To send a text message in Twilio.
-
-```java
-void sendMessage(String messageBody) {
-        if (conversation != null) {
-            Message.Options options = Message.options().withBody(messageBody);
-            Log.d(MainActivity.TAG,"Message created");
-            conversation.sendMessage(options, new CallbackListener<Message>() {
-                @Override
-                public void onSuccess(Message message) {
-                    if (conversationsManagerListener != null) {
-                        conversationsManagerListener.messageSentCallback();
-                    }
-                }
-            });
-        }
-    }
+```csharp
+var message = MessageResource.Create(
+    body: "Hello, world!",
+    from: "user@example.com",
+    pathConversationSid: conversation.Sid
+);
 ```
 
-To send media in Twilio.
+The following code snippet shows how to send a media file.
 
-```java
-// Messages messagesObject;
-messagesObject.sendMessage(
-    Message.options()
-        .withMedia(new FileInputStream("/path/to/Somefile.txt"), "text/plain")
-        .withMediaFileName("file.txt")
-        .withMediaProgressListener(new ProgressListener() {
-            @Override
-            public void onStarted() {
-                Timber.d("Upload started");
-            }
+```csharp
+// The SID of the conversation you want to send the media message to
+string conversationSid = "<CONVERSATION_SID>";
 
-            @Override
-            public void onProgress(long bytes) {
-                Timber.d("Uploaded " + bytes + " bytes");
-            }
+// The URL of the media file you want to send
+var mediaUrl = new List<Uri>
+{
+    new Uri("https://example.com/path/to/media/file.jpg") // Replace with your actual media URL
+};
 
-            @Override
-            public void onCompleted(String mediaSid) {
-                Timber.d("Upload completed");
-            }
-        }),
-    new CallbackListener<Message>() {
-        @Override
-        public void onSuccess(Message msg) {
-            Timber.d("Successfully sent MEDIA message");
-        }
-
-        @Override
-        public void onError(ErrorInfo error) {
-            Timber.e("Error sending MEDIA message");
-        }
-    });
+// Send the media message
+var message = MessageResource.Create(
+    body: "Here is an image for you!",
+    from: "user@example.com", // Sender's identity (optional)
+    mediaUrl: mediaUrl,
+    pathConversationSid: conversationSid
+);
 ```
 
 #### Azure Communication Services
 
-Replace the comment `<SEND A MESSAGE>` with the following code:
+Unlike Twilio, Azure Communication Services does not have a separate function to send text messages or media.
 
-```java
-// The chat message content, required.
-final String content = "Please take a look at the attachment";
+Use `SendMessage` to send a message to a thread.
+- Use `content` to provide the content for the message, it's required.
+- Use `type` for the content type of the message such as `Text` or `Html`. If not specified, `Text` is the default.
+- Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string is the default.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message function and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in the metadata so that recipient's application can parse that and display accordingly.
 
-// The display name of the sender, if null (i.e. not specified), an empty name will be set.
-final String senderDisplayName = "An important person";
+```csharp
+SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
+{
+    Content = "Please take a look at the attachment",
+    MessageType = ChatMessageType.Text
+};
+sendChatMessageOptions.Metadata["hasAttachment"] = "true";
+sendChatMessageOptions.Metadata["attachmentUrl"] = "https://contoso.com/files/attachment.docx";
 
-// Use metadata optionally to include any additional data you want to send along with the message.
-// This field provides a mechanism for developers to extend chat message functionality and add
-// custom information for your use case. For example, when sharing a file link in the message, you
-// might want to add 'hasAttachment:true' in metadata so that recipient's application can parse
-// that and display accordingly.
-final Map<String, String> metadata = new HashMap<String, String>();
-metadata.put("hasAttachment", "true");
-metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
 
-SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
-    .setType(ChatMessageType.TEXT)
-    .setContent(content)
-    .setSenderDisplayName(senderDisplayName)
-    .setMetadata(metadata);
-
-// A string is the response returned from sending a message, it is an id, which is the unique ID
-// of the message.
-chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
+string messageId = sendChatMessageResult.Id;
 ```
 
 ### Receive chat messages from a chat thread
 
-Unlike Twilio, Azure Communication Services doesn't have separate functions for receiving text messages or media.
+##### Twilio
 
-#### Twilio
+Twilio typically uses webhooks to notify your server of incoming messages:
 
-To receive a text message in Twilio.
+The following code snippet shows how to receive a text message.
 
-```java
-public void onMessageAdded(final Message message) {
-            Log.d(MainActivity.TAG, "Message added");
-            messages.add(message);
-            if (conversationsManagerListener != null) {
-                conversationsManagerListener.receivedNewMessage();
-            }
-        }
+```csharp
+public IActionResult ReceiveMessage()
+{
+    var incomingMessage = Request.Form["Body"];
+    // Process the incoming message
+    return Ok();
+}
 ```
 
-To receive media in Twilio.
+The following code snippet shows how to receive a media file.
+```csharp
+ for (var i = 0; i < numMedia; i++)
+            {
+                var mediaUrl = Request.Form[$"MediaUrl{i}"];
+                Trace.WriteLine(mediaUrl);
+                var contentType = Request.Form[$"MediaContentType{i}"];
 
-```java
-if (message.hasMedia()) {
-    message.getMediaContentTemporaryUrl(new CallbackListener<String>() {
-        @Override
-        public void onSuccess(String mediaContentUrl) {
-            Log.d("TAG", mediaContentUrl);
-        }
-    });
-}
+                var filePath = GetMediaFileName(mediaUrl, contentType);
+                await DownloadUrlToFileAsync(mediaUrl, filePath);
+            }
 ```
 
 #### Azure Communication Services
 
-With real-time signaling, you can subscribe to new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../concepts/chat/concepts.md#real-time-notifications).
+Unlike Twilio, Azure Communication Services does not have a separate function to receive text messages or media.
 
-Replace the comment `<RECEIVE CHAT MESSAGES>` with the following code (put the import statements at top of the file):
+Azure Communication Services Chat enables you to subscribe to events directly within the application.
 
-```java
+You can retrieve chat messages by polling the `GetMessages` method on the chat thread client at specified intervals.
 
-// Start real time notification
-chatAsyncClient.startRealtimeNotifications(firstUserAccessToken, getApplicationContext());
-
-// Register a listener for chatMessageReceived event
-chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent payload) -> {
-    ChatMessageReceivedEvent chatMessageReceivedEvent = (ChatMessageReceivedEvent) payload;
-    // You code to handle chatMessageReceived event
-    
-});
-
+```csharp
+AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
+await foreach (ChatMessage message in allMessages)
+{
+    Console.WriteLine($"{message.Id}:{message.Content.Message}");
+}
 ```
 
-> [!IMPORTANT]
-> Known issue: When using Android Chat and Calling SDK together in the same application, Chat SDK's real-time notifications feature does not work. You might get a dependency resolving issue.
-> While we are working on a solution, you can turn off the real-time notifications feature by adding the following dependency information in the app's `build.gradle` file and instead poll the `GetMessages` API to display incoming messages to users. 
-> 
-> ```
-> implementation ("com.azure.android:azure-communication-chat:1.0.0") {
->     exclude group: 'com.microsoft', module: 'trouter-client-android'
-> }
-> implementation 'com.azure.android:azure-communication-calling:1.0.0'
-> ```
-> 
-> Note that with this update, if the application tries to reach any of the notification API functions such as `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()` it generates a a runtime error.
+`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you receive messages that were received, updated, or deleted after it. Note that messages received before the offset time but edited or removed after it are also be returned.
 
-### Push notifications
+`GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. You can access the original time of message creation using `chatMessage.CreatedOn`, and use it for ordering the messages.
 
-Similar to Twilio, Azure Communication Services enable you to configure push notifications. For more information, see [Android push notifications](../../tutorials/chat-android-push-notification.md).
+`GetMessages` returns different types of messages which can be identified by `chatMessage.Type`. These types are:
+
+- `Text`: Regular chat message sent by a thread member.
+
+- `Html`:  A formatted text message. Note that Communication Services users currently can't send `RichText` messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
+
+- `TopicUpdated`: System message that indicates the topic has been updated. (readonly)
+
+- `ParticipantAdded`: System message that indicates one or more participants have been added to the chat thread. (readonly)
+
+- `ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread.
+
+For more information, see [Message Types](../../concepts/chat/concepts.md#message-types).
+
+### Add a user as a participant to the chat thread
+
+#### Twilio 
+
+```csharp
+var participant = ParticipantResource.Create(
+    pathConversationSid: conversation.Sid,
+    identity: "user@example.com"
+);
+```
+
+#### Azure Communication Services 
+
+In Azure Communication Services, you add participants when creating the chat thread or afterwards:
+
+Once you create a thread, you can add and remove users. Adding users gives them access to send messages to the thread, and add/remove other participants. Before calling `AddParticipants`, ensure that you acquire a new access token and identity for that user. The user needs the access token to initialize their chat client.
+
+Use `AddParticipants` to add one or more participants to the chat thread. The following are the supported attributes for each thread participant(s):
+- `communicationUser`, required, is the identity of the thread participant.
+- `displayName`, optional, is the display name for the thread participant.
+- `shareHistoryTime`, optional, time from which the chat history is shared with the participant.
+
+```csharp
+var josh = new CommunicationUserIdentifier(id: "<Access_ID_For_Josh>");
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+var amy = new CommunicationUserIdentifier(id: "<Access_ID_For_Amy>");
+
+var participants = new[]
+{
+    new ChatParticipant(josh) { DisplayName = "Josh" },
+    new ChatParticipant(gloria) { DisplayName = "Gloria" },
+    new ChatParticipant(amy) { DisplayName = "Amy" }
+};
+
+await chatThreadClient.AddParticipantsAsync(participants: participants);
+```
+
+### Get thread participants
+
+##### Twilio
+
+In Twilio Conversations, you use the `ConversationResource` to retrieve the participants of a specific conversation. You can then list all participants associated with that conversation.
+
+```csharp
+// The SID of the conversation you want to retrieve participants from
+string conversationSid = "<CONVERSATION_SID>";
+
+// Retrieve all participants in the conversation
+var participants = ParticipantResource.Read(pathConversationSid: conversationSid);
+
+// Output details of each participant
+foreach (var participant in participants)
+{
+    Console.WriteLine($"Participant SID: {participant.Sid}");
+            
+}
+```
+
+#### Azure Communication Services 
+
+Use `GetParticipants` to retrieve the participants of the chat thread.
+
+```csharp
+AsyncPageable<ChatParticipant> allParticipants = chatThreadClient.GetParticipantsAsync();
+await foreach (ChatParticipant participant in allParticipants)
+{
+    Console.WriteLine($"{((CommunicationUserIdentifier)participant.User).Id}:{participant.DisplayName}:{participant.ShareHistoryTime}");
+}
+```
+
+### Send read receipt
+
+##### Twilio
+```csharp
+// Find your Account SID and Auth Token at twilio.com/console
+        // and set the environment variables. See http://twil.io/secure
+        string accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
+        string authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+
+        TwilioClient.Init(accountSid, authToken);
+
+        var message = await MessageResource.FetchAsync(
+            pathConversationSid: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            pathSid: "IMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+        Console.WriteLine(message.Delivery);
+    }
+```
+
+#### Azure Communication Services 
+Use `SendReadReceipt` to notify other participants that the message is read by the user.
+
+```csharp
+await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
+```
