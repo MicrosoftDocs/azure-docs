@@ -388,8 +388,8 @@ The Salesforce connector offers new functionalities and is compatible with most 
 |Salesforce |Salesforce (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Objects that contain binary fields are not supported. You can use the latest Self-hosted integration runtime or Azure integration runtime to support it.| Objects that contain binary fields are supported, like Attachment object.|
-|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1). You can use the latest Self-hosted integration runtime or Azure integration runtime to support objects without Bulk API.|Support objects that are not supported by Bulk API, like CaseStatus.|
+| Objects that contain binary fields aren't supported. You can use the latest Self-hosted integration runtime or Azure integration runtime to support it.| Objects that contain binary fields are supported, like Attachment object.|
+|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1). You can use the latest Self-hosted integration runtime or Azure integration runtime to support objects without Bulk API.|Support objects that aren't supported by Bulk API, like CaseStatus.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
