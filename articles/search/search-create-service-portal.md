@@ -84,20 +84,6 @@ Service name requirements:
 > [!TIP]
 > If you have multiple search services, it helps to include the region (or location) in the service name as a naming convention. A name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
 
-## Choose a tier
-
-Azure AI Search is offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). There are also several features that are tier-dependent.
-
-Review the [tier descriptions](search-sku-tier.md) for computing characteristics and [feature availability](search-sku-tier.md#feature-availability-by-tier).
-
-Basic and Standard are the most common choices for production workloads, but many customers start with the Free service. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
-
-:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" lightbox="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page." border="true":::
-
-Search services created after April 3, 2024 have larger partitions and higher vector quotas.
-
-Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you should re-create the service.
-
 ## Choose a region
 
 > [!IMPORTANT]
@@ -117,13 +103,29 @@ Here's a checklist for choosing a region:
 
 1. Is Azure AI Search available in a nearby region? Check the [supported regions list](search-region-support.md). Capacity-constrained regions are indicated in the footnotes.
 
-1. Do you know which tier you want to use? Check [region availability by tier](search-sku-tier.md#region-availability-by-tier) to determine if you can create a search service at the desired tier in your region of choice.
+1. Do you know which tier you want to use? Tiers are covered in the next step. Check [region availability by tier](search-sku-tier.md#region-availability-by-tier) to determine if you can create a search service at the desired tier in your region of choice.
 
 1. Do you need [AI enrichment](cognitive-search-concept-intro.md) or [integrated data chunking and vectorization](vector-search-integrated-vectorization.md)? Verify that Azure OpenAI and Azure AI services are [offered in the same region](search-region-support.md) as Azure AI Search. 
 
    Be aware that Azure AI Vision multimodal embeddings API, used for [integrated image vectorization](search-get-started-portal-image-search.md), must be accessed through an Azure AI multiservice account, but is available in a [smaller subset of regions](/azure/ai-services/computer-vision/overview-image-analysis#region-availability).
 
 1. Do you have business continuity and disaster recovery (BCDR) requirements? Such requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) in [availability zones](search-reliability.md#availability-zones). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
+
+## Choose a tier
+
+Azure AI Search is offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). There are also several features that are tier-dependent.
+
+Review the [tier descriptions](search-sku-tier.md) for computing characteristics and [feature availability](search-sku-tier.md#feature-availability-by-tier).
+
+Basic and Standard are the most common choices for production workloads, but many customers start with the Free service. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
+
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" lightbox="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page." border="true":::
+
+Search services created after April 3, 2024 have larger partitions and higher vector quotas.
+
+Currently, some regions are tier-constrained. For more informaation, see [region availability by tier](search-sku-tier.md#region-availability-by-tier).
+
+Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you should re-create the service.
 
 ## Create your service
 
