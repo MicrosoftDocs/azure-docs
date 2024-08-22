@@ -45,9 +45,9 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - A Linux-based device that generates event log data like a firewall network device.
 
-## Create a data collection rule
+## Configure Azure Monitor Agent to collect Syslog data
 
-See the step-by-step instructions in [Create a data collection rule](../azure-monitor/agents/data-collection-syslog.md#create-a-data-collection-rule).
+See the step-by-step instructions in [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md).
 
 ## Verify that Azure Monitor Agent is running
 
@@ -113,7 +113,7 @@ This script can make changes for both rsyslog.d and syslog-ng.
 
 > [!NOTE]
 > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
-> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
+> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents).
 
 ## Verify Syslog data is forwarded to your Log Analytics workspace
 

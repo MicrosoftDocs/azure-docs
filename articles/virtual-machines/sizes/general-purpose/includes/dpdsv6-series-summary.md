@@ -3,7 +3,7 @@ title: Dpdsv6-series summary include file
 description: Include file for Dpdsv6-series summary
 author: tomvcassidy
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 05/09/2024
 ms.author: tomcassidy

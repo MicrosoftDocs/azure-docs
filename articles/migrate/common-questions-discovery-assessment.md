@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/06/2023
-ms.custom: engagement-fy23
+ms.date: 08/06/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment - Common questions
@@ -303,4 +303,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

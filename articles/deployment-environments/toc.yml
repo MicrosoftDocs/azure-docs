@@ -31,7 +31,9 @@ items:
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
-      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+    - name: Azure role-based access control
+      href: concept-deployment-environments-role-based-access-control.md
 - name: Configure resources
   expanded: false
   items:

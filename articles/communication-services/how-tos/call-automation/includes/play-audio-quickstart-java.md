@@ -98,6 +98,15 @@ To play audio to participants using audio files, you need to make sure the audio
 
 ``` java
 var playSource = new FileSource(new Uri(audioUri));
+
+/* Multiple FileSource Prompts
+var p1 = new FileSource().setUrl("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav");
+var p2 = new FileSource().setUrl("https://www2.cs.uic.edu/~i101/SoundFiles/preamble10.wav");
+
+var playSources = new ArrayList();
+playSources.add(p1);
+playSources.add(p2);
+*/
 ```
 
 ### Play source - Text-To-Speech
@@ -109,14 +118,38 @@ To play audio using Text-To-Speech through Azure AI services, you need to provid
 var playSource = new TextSource() 
     .setText(textToPlay) 
     .setSourceLocale("en-US") 
-    .setVoiceKind(VoiceKind.FEMALE); 
+    .setVoiceKind(VoiceKind.FEMALE);
+
+/* Multiple Prompt list setup: Multiple TextSource prompt
+
+var p1 = new TextSource().setText("recognize prompt one").setSourceLocale("en-US").setVoiceKind(VoiceKind.FEMALE);
+var p2 = new TextSource().setText("recognize prompt two").setSourceLocale("en-US").setVoiceKind(VoiceKind.FEMALE);
+var p3 = new TextSource().setText(content).setSourceLocale("en-US").setVoiceKind(VoiceKind.FEMALE);
+
+var playSources = new ArrayList();
+playSources.add(p1);
+playSources.add(p2);
+playSources.add(p3);
+*/
 ```
 
 ``` java
 // Provide VoiceName to select a specific voice.
 var playSource = new TextSource() 
     .setText(textToPlay) 
-    .setVoiceName("en-US-ElizabethNeural"); 
+    .setVoiceName("en-US-ElizabethNeural");
+
+/* Multiple Prompt list setup: Multiple TextSource prompt
+
+var p1 = new TextSource().setText("recognize prompt one").setVoiceName("en-US-NancyNeural");
+var p2 = new TextSource().setText("recognize prompt two").setVoiceName("en-US-NancyNeural");
+var p3 = new TextSource().setText(content).setVoiceName("en-US-NancyNeural");
+
+var playSources = new ArrayList();
+playSources.add(p1);
+playSources.add(p2);
+playSources.add(p3);
+*/
 ```
 
 ### Play source - Text-to-Speech SSML
@@ -159,6 +192,53 @@ var playResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
     .block(); 
 log.info("Play result: " + playResponse.getStatusCode()); 
 ```
+
+### Support for barge-in
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+
+```java
+// Option1: Interrupt media with text source
+var textPlay = new TextSource()
+    .setText("First Interrupt prompt message")
+    .setVoiceName("en-US-NancyNeural");
+
+var playToAllOptions = new PlayToAllOptions(textPlay)
+    .setLoop(false)
+    .setOperationCallbackUrl(appConfig.getBasecallbackuri())
+    .setInterruptCallMediaOperation(false);
+
+client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAllWithResponse(playToAllOptions, Context.NONE);
+
+/*
+Option2: Interrupt media with text source
+client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAll(textPlay);
+*/
+
+/*
+Option1: Barge-in with file source
+var interruptFile = new FileSource()
+    .setUrl("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav");
+
+var playFileOptions = new PlayToAllOptions(interruptFile)
+    .setLoop(false)
+    .setOperationCallbackUrl(appConfig.getBasecallbackuri())
+    .setInterruptCallMediaOperation(true);
+
+client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAllWithResponse(playFileOptions, Context.NONE);
+
+Option2: Barge-in with file source
+client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAll(interruptFile);
+*/
+```
+
 
 ## Play audio to a specific participant
 
@@ -214,6 +294,15 @@ Your application receives action lifecycle event updates on the callback URL tha
 if (acsEvent instanceof PlayCompleted) { 
     PlayCompleted event = (PlayCompleted) acsEvent; 
     log.info("Play completed, context=" + event.getOperationContext()); 
+} 
+```
+
+### Example of how you can deserialize the *PlayStarted* event:
+
+``` java
+if (acsEvent instanceof PlayStarted) { 
+    PlayStarted event = (PlayStarted) acsEvent; 
+    log.info("Play started, context=" + event.getOperationContext()); 
 } 
 ```
 

@@ -4,9 +4,9 @@ description: Reference for the validate-content policy available for use in Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -97,7 +97,7 @@ The policy validates the following content in the request or response against th
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 

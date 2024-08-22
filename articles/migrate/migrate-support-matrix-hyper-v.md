@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/05/2023
-ms.cutom: engagement-fy24
+ms.date: 08/08/2024
+ms.cutom: engagement-fy25
 ---
 
 # Support matrix for Hyper-V assessment
@@ -334,4 +334,4 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 
-Prepare for [assessment of servers running on Hyper-V](./tutorial-discover-hyper-v.md).
+Prepare for [discovery of servers running on Hyper-V](./tutorial-discover-hyper-v.md).

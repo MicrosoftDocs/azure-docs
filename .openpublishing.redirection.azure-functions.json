@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-configure-durable-functions-with-credentials.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-configure-managed-identity",
+            "redirect_document_id": false
+        }
+    ]
+}

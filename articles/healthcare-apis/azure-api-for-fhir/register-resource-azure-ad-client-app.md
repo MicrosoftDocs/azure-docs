@@ -3,7 +3,7 @@ title: Register a resource app in Microsoft Entra ID - Azure API for FHIR
 description: Register a resource (or API) app in Microsoft Entra ID, so that client applications can request access to the resource when authenticating.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023

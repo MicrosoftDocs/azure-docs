@@ -714,7 +714,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recovery-from-an-azure-regional-datacenter-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](/azure/mariadb/concepts-business-continuity#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -722,7 +722,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/mysql/howto-move-regions-portal).
 
 ## Microsoft.DBforPostgreSQL
 
@@ -731,7 +731,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
 > | servergroups | No | No | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).
 > | serversv2 | **Yes** | **Yes** | No |
 
 ## Microsoft.DeploymentManager

@@ -21,13 +21,15 @@ This how-to guide shows how to create an example logic app workflow that generat
 | Request message structure | Use this information to form your BAPI `get` list. |
 | Response message structure | Use this information to parse the response. |
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), make sure that the repository already exists.
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Generate schemas for an SAP artifact
 
@@ -184,11 +186,11 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -220,9 +222,9 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>

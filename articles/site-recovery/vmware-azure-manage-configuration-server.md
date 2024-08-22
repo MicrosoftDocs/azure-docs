@@ -3,7 +3,7 @@ title: Manage the configuration server for disaster recovery with Azure Site Rec
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 08/03/2022

@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to grant a user access to create labs.
 ms.topic: tutorial
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.date: 06/27/2024
@@ -26,11 +26,11 @@ Follow these steps to [assign Azure roles using the Azure portal](../role-based-
 
 1. From the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (I A M) page with Add role assignment menu option highlighted.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (I A M) page with Add role assignment menu option highlighted.":::
 
 1. On the **Role** tab, select the **Lab Creator** role.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select the user you want to add to the Lab Creators role.
 

@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure private DNS zone using the Azure CLI
 description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure CLI.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: quickstart
 ms.date: 11/30/2023
 ms.author: greglin

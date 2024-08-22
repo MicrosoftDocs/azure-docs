@@ -258,7 +258,7 @@
     {
       "source_path_from_root": "/articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
       "redirect_url": "/azure/cosmos-db/local-emulator-export-ssl-certificates",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/documentdb/documentdb-manage.md",

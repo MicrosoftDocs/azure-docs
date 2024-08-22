@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy network functions on Azure Stack Edge'
 titleSuffix: Azure Network Function Manager
 description: In this tutorial, learn how to deploy a network function as a managed application.
 author: polarapfel
-ms.service: network-function-manager
+ms.service: azure-network-function-manager
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: tobiaw

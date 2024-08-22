@@ -3,9 +3,9 @@ title: Model monitoring for generative AI applications (preview)
 titleSuffix: Azure Machine Learning
 description: Monitor the safety and quality of generative AI applications deployed to production on Azure Machine Learning.
 services: machine-learning
-author: buchananwp
+author: s-polly
 ms.author: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.reviewer: scottpolly
 reviewer: s-polly

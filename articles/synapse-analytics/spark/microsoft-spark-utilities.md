@@ -2,7 +2,7 @@
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: JeneZhang
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
@@ -42,7 +42,7 @@ Follow these steps to make sure your Microsoft Entra ID and workspace MSI have a
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Select **Save**.
 

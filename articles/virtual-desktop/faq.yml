@@ -2,11 +2,11 @@
 metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.service: virtual-desktop
   ms.date: 10/23/2023
-  ms.author: helohr 
+  ms.author: daknappe
+  ms.custom: docs_inherited 
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 

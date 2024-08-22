@@ -4,7 +4,7 @@ description: How to use managed identities in Azure Service Fabric application c
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

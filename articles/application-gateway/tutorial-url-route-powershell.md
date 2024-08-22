@@ -3,7 +3,7 @@ title: Route web traffic based on the URL - Azure PowerShell
 description: Learn how to route web traffic based on the URL to specific scalable pools of servers using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: greglin

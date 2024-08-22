@@ -41,7 +41,7 @@ Follow these steps to create an environment:
 
    Setting|Suggested value|Description
    ---|---|---
-   Environment name | A unique name | This name represents the environment in [time series Explorer](https://insights.timeseries.azure.com)
+   Environment name | A unique name | This name represents the environment in time series Explorer.
    Subscription | Your subscription | If you have multiple subscriptions, choose the subscription that contains your event source preferably. Azure Time Series Insights can automatically detect Azure IoT Hub and Event Hub resources existing in the same subscription.
    Resource group | Create a new or use existing | A resource group is a collection of Azure resources used together. You can choose an existing resource group, for example the one that contains your Event Hub or IoT Hub. Or you can make a new one if this resource is not related to the other resources.
    Location | Nearest your event source | Preferably, choose the same data center location that contains your event source data, in effort to avoid added cross-region and cross-zone bandwidth costs and added latency when moving data out of the region.
@@ -67,5 +67,3 @@ Follow these steps to create an environment:
 * [Add an Event Hub event source](./how-to-ingest-data-event-hub.md) to your Azure Time Series Insights environment.
 
 * [Send events](time-series-insights-send-events.md) to the event source.
-
-* View your environment in [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).

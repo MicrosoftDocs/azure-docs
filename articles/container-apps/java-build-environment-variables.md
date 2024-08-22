@@ -3,7 +3,7 @@ title: Build environment variables for Java in Azure Container Apps
 description: Learn about Java image build from source code via environment variables.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 02/27/2024

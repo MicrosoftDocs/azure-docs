@@ -2,7 +2,7 @@
 title: Configure a WAF rate-limit rule for Azure Front Door
 description: Learn how to configure a rate-limit rule for an existing Azure Front Door endpoint.
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 05/19/2023

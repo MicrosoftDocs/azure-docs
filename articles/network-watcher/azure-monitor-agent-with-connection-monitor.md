@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Monitor agent to monitor network connectivity with Network Watcher connection monitor.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/12/2024
 

@@ -4,10 +4,12 @@ description: Learn how to set up a lab with graphics processing unit (GPU) virtu
 author: nicolela
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Set up GPU virtual machines in labs contained within lab accounts
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 

@@ -4,7 +4,7 @@ description: full attestation of container groups in confidential containers on 
 ms.topic: conceptual
 ms.author: tomcassidy
 author: pkhandavilli
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ---
@@ -27,7 +27,7 @@ Expanding upon this concept of attestation. Full attestation captures all the co
 
 The exhaustive list of attributes that are part of the SEV-SNP attestation can be found [here](https://www.amd.com/system/files/TechDocs/56860.pdf).
 
-Some important fields to consider in an attestation token returned by [Microsoft Azure Attestation ( MAA )](../attestation/overview.md) 
+Some important fields to consider in an attestation token returned by [Microsoft Azure Attestation ( MAA )](/azure/attestation/overview) 
 
 |            Claim            |                           Sample value                           |                                           Description                                           |
 |:---------------------------:|:----------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------:|

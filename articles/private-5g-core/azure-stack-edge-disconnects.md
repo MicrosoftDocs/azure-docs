@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: An overview of Azure Private 5G Core's behavior during disconnects.
 author: James-Green-Microsoft
 ms.author: jagre
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 11/30/2022
 ms.custom: template-concept 

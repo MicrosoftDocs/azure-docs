@@ -3,8 +3,8 @@ title: Understand your datasets
 titleSuffix: Azure Machine Learning
 description: Perform exploratory data analysis to understand feature biases and imbalances by using the Responsible AI dashboard's data analysis.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt

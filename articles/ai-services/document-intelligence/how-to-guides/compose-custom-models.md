@@ -5,10 +5,8 @@ description: Learn how to create, use, and manage Document Intelligence custom a
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -36,7 +34,10 @@ ms.author: lajanuar
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 200 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+> [!IMPORTANT]
+> Model compose behavior is changing for api-version=2024-07-31-preview and later, for more info refer to [composed custom models](../concept-composed-models.md). The following behavior only applies to v3.1 and previous versions
+
+A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 200 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you train several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 To learn more, see [Composed custom models](../concept-composed-models.md).
 
@@ -48,7 +49,7 @@ To get started, you need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/).
 
-* **A Document Intelligence instance**.  Once you have your Azure subscription, [create a Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Intelligence resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* **A Document Intelligence instance**. Once you have your Azure subscription, [create a Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Intelligence resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
   1. After the resource deploys, select **Go to resource**.
 
@@ -63,7 +64,7 @@ To get started, you need the following resources:
 
 ## Create your custom models
 
-First, you need a set of custom models to compose. You can use the Document Intelligence Studio, REST API, or client-library SDKs. The steps are as follows:
+First, you need a set of custom models to compose. You can use the Document Intelligence Studio, REST API, or client libraries. The steps are as follows:
 
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
@@ -85,7 +86,7 @@ See [Build a training data set](../how-to-guides/build-a-custom-model.md?view=do
 
 ## Upload your training dataset
 
-When you've gathered a set of training documents, you need to [upload your training data](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
+Once you gather a set of training documents, you need to [upload your training data](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
 
 If you want to use manually labeled data, you have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
@@ -105,7 +106,7 @@ To create custom models, start with configuring your project:
 
 1. Enter project details, select the Azure subscription and resource, and the Azure Blob storage container that contains your data.
 
-1. Review and submit your settings to create the project.
+1. Review, submit your settings, and create the project.
 
 :::image type="content" source="../media/studio/create-project.gif" alt-text="Animation showing create a custom project in Document Intelligence Studio.":::
 
@@ -115,13 +116,15 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Document Intelligence Studio: labeling as tables](../quickstarts/try-document-intelligence-studio.md#labeling-as-tables)
+See [Document Intelligence Studio: labeling as tables](../concept-custom-label.md#tabular-fields)
 
 ### [REST API](#tab/rest)
 
 Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents.
 
-Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+Label files contain key-value associations that a user enters manually and are needed for labeled data training. However, not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+
+Label files contain key-value associations that a user entered manually. The files are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
 
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
@@ -150,7 +153,7 @@ With the [**create compose model**](/rest/api/aiservices/document-models/compose
 
 ### [Document Intelligence Studio](#tab/studio)
 
-Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
+Once the training process is successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
 * [**Gather your custom model IDs**](#gather-your-model-ids)
 * [**Compose your custom models**](#compose-your-custom-models)
@@ -197,7 +200,7 @@ You can manage your custom models throughout life cycles:
 
 ### [REST API](#tab/rest)
 
-Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
+Once the training process is successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
 * [**Compose your custom models**](#compose-your-custom-models)
 * [**Analyze documents**](#analyze-documents)
@@ -205,7 +208,7 @@ Once the training process has successfully completed, you can begin to build you
 
 #### Compose your custom models
 
-The [compose model API](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) accepts a list of model IDs to be composed.
+The [composed models API](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) accepts a list of model IDs to be composed.
 
 :::image type="content" source="../media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
@@ -221,7 +224,7 @@ You can manage custom models throughout your development needs including [**copy
 
 ### [Client libraries](#tab/sdks)
 
-Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
+Once the training process is successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
 * [**Create a composed model**](#create-a-composed-model)
 * [**Analyze documents**](#analyze-documents)
@@ -240,7 +243,7 @@ You can use the programming language of your choice to create a composed model:
 
 #### Analyze documents
 
-Once you've built your composed model, you can use it to analyze forms and documents. Use your composed `model ID` and let the service decide which of your aggregated custom models fits best according to the document provided.
+Once you build your composed model, you can use it to analyze forms and documents. Use your composed `model ID` and let the service decide which of your aggregated custom models fits best according to the document provided.
 
 |Programming language| Code sample |
 |--|--|
@@ -262,7 +265,7 @@ You can manage a custom model at each stage in its life cycles. You can copy a c
 
 ---
 
-Great! You've learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
+Great! You learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
 
 ## Next steps
 
@@ -296,7 +299,7 @@ Document Intelligence uses advanced machine-learning technology to detect and ex
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, you learn how to create Document Intelligence custom and composed models using our [Document Intelligence Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true), or [client-library SDKs](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
+In this article, learn how to create Document Intelligence custom and composed models using our [Document Intelligence Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true), or [client libraries](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
 
 ## Sample Labeling tool
 
@@ -315,11 +318,11 @@ In the Document Intelligence UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
 
-      :::image type="content" source="../media/label-tool/fott-use-custom.png" alt-text="Screenshot of the FOTT tool select custom model option.":::
+      :::image type="content" source="../media/label-tool/fott-use-custom.png" alt-text="Screenshot of the `FOTT` tool select custom model option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="../media/label-tool/fott-new-project.png" alt-text="Screenshot of the FOTT tool select new project option.":::
+    :::image type="content" source="../media/label-tool/fott-new-project.png" alt-text="Screenshot of the `FOTT` tool select new project option.":::
 
 ## Create your models
 
@@ -360,14 +363,14 @@ Document Intelligence uses the [Layout](../concept-layout.md) API to learn the e
 
 With the Model Compose operation, you can assign up to 200 trained custom models to a single model ID. When you call Analyze with the composed model ID, Document Intelligence classifies the form you submitted first, chooses the best matching assigned model, and then returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-Using the Document Intelligence Sample Labeling tool, the REST API, or the Client-library SDKs, follow the steps to set up a composed model:
+Using the Document Intelligence Sample Labeling tool, the REST API, or the client libraries, follow the steps to set up a composed model:
 
 1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
 1. [**Compose your custom models**](#compose-your-custom-models)
 
 ### Gather your custom model IDs
 
-Once the training process has successfully completed, your custom model is assigned a model ID. You can retrieve a model ID as follows:
+Once the training process is successfully completed, your custom model is assigned a model ID. You can retrieve a model ID as follows:
 
 <!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Document Intelligence Sample Labeling tool**](#tab/studio)
@@ -384,7 +387,7 @@ The [**REST API**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=tr
 
 ### [**Client-library SDKs**](#tab/sdks)
 
- The [**client-library SDKs**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#train-your-model) return a model object that can be queried to return the trained model ID:
+ The [**client library SDKs**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#train-your-model) return a model object that can be queried to return the trained model ID:
 
 * C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
@@ -398,14 +401,14 @@ The [**REST API**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=tr
 
 #### Compose your custom models
 
-After you've gathered your custom models corresponding to a single form type, you can compose them into a single model.
+After you gather your custom models that correspond to a single form type, you can compose them into a single model.
 
 <!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Document Intelligence Sample Labeling tool**](#tab/studio)
 
 The **Sample Labeling tool** enables you to quickly get started training models and  composing them to a single model ID.
 
-After you have completed training, compose your models as follows:
+After training is complete, compose your models as follows:
 
 1. On the left rail menu, select the **Model Compose** icon (merging arrow).
 
@@ -445,7 +448,7 @@ Use the programming language code of your choice to create a composed model that
 
 ### [**Document Intelligence Sample Labeling tool**](#tab/studio)
 
-1. On the tool's left-pane menu, select the **Analyze icon** (light bulb).
+1. On the tool left-pane menu, select the **`Analyze` icon** (light bulb).
 
 1. Choose a local file or  image URL to analyze.
 
@@ -480,7 +483,7 @@ Test your newly trained models by [analyzing forms](build-a-custom-model.md?view
 
 You can [manage your custom models](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) throughout their lifecycle by viewing a [list of all custom models](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTPs) under your subscription, retrieving information about [a specific custom model](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP), and [deleting custom models](/rest/api/aiservices/document-models/delete-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) from your account.
 
-Great! You've learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
+Great! You learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
 
 ## Next steps
 

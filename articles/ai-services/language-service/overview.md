@@ -13,8 +13,6 @@ ms.author: jboback
 
 # What is Azure AI Language?
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 Azure AI Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries. 
 
 ## Available features

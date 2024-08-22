@@ -3,7 +3,7 @@ title: How to deploy JAIS models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning studio
 description: Learn how to deploy JAIS models with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: how-to
 ms.date: 05/02/2024
 ms.reviewer: haelhamm

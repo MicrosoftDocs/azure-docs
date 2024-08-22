@@ -351,7 +351,7 @@ When an email address is rate limited, a notification is sent to communicate tha
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is sent to Microsoft Entra ID **user** or **group** members of the role. This includes support for roles assigned through Azure Lighthouse.
 
 > [!NOTE]
-> Action Groups only supports emailing the following roles: Owner, Contirbutor, Reader, Monitoring Contributor, Monitoring Reader.
+> Action Groups only supports emailing the following roles: Owner, Contributor, Reader, Monitoring Contributor, Monitoring Reader.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
@@ -508,8 +508,7 @@ For information about pricing for supported countries/regions, see [Azure Monito
 ## Webhook
 
 > [!NOTE]
->
-> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
+> If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. The webhook endpoint must also be publicly accessible. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 Webhook action groups generally follow these rules when called:
 - When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
     - The delay between 1st and 2nd attempt is 5 seconds

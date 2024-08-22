@@ -87,8 +87,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [C#](#tab/csharp)
     ```csharp
-    var endpoint = new Uri(System.Environment.GetEnvironmentVariable("VISION_ENDPOINT"));
-    var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("VISION_KEY"));
+    var endpoint = new Uri(System.Environment.GetEnvironmentVariable("FACE_ENDPOINT"));
+    var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("FACE_APIKEY"));
 
     var sessionClient = new FaceSessionClient(endpoint, credential);
 
@@ -107,8 +107,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Java](#tab/java)
     ```java
-    String endpoint = System.getenv("VISION_ENDPOINT");
-    String accountKey = System.getenv("VISION_KEY");
+    String endpoint = System.getenv("FACE_ENDPOINT");
+    String accountKey = System.getenv("FACE_APIKEY");
 
     FaceSessionClient sessionClient = new FaceSessionClientBuilder()
         .endpoint(endpoint)
@@ -127,8 +127,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Python](#tab/python)
     ```python
-    endpoint = os.environ["VISION_ENDPOINT"]
-    key = os.environ["VISION_KEY"]
+    endpoint = os.environ["FACE_ENDPOINT"]
+    key = os.environ["FACE_APIKEY"]
 
     face_session_client = FaceSessionClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
@@ -171,8 +171,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [REST API (Windows)](#tab/cmd)
     ```console
-    curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions" ^
-    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+    curl --request POST --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions" ^
+    --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%" ^
     --header "Content-Type: application/json" ^
     --data ^
     "{ ^
@@ -184,8 +184,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [REST API (Linux)](#tab/bash)
     ```bash
-    curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions" \
-    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
+    curl --request POST --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions" \
+    --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}" \
     --header "Content-Type: application/json" \
     --data \
     '{
@@ -303,14 +303,14 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [REST API (Windows)](#tab/cmd)
     ```console
-    curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
-    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    curl --request GET --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%"
     ```
 
     #### [REST API (Linux)](#tab/bash)
     ```bash
-    curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
-    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    curl --request GET --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}"
     ```
 
     ---
@@ -394,14 +394,14 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [REST API (Windows)](#tab/cmd)
     ```console
-    curl --request DELETE --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
-    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    curl --request DELETE --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%"
     ```
 
     #### [REST API (Linux)](#tab/bash)
     ```bash
-    curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
-    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    curl --request DELETE --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}"
     ```
 
     ---
@@ -443,8 +443,8 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [C#](#tab/csharp)
         ```csharp
-        var endpoint = new Uri(System.Environment.GetEnvironmentVariable("VISION_ENDPOINT"));
-        var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("VISION_KEY"));
+        var endpoint = new Uri(System.Environment.GetEnvironmentVariable("FACE_ENDPOINT"));
+        var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("FACE_APIKEY"));
 
         var sessionClient = new FaceSessionClient(endpoint, credential);
 
@@ -467,8 +467,8 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [Java](#tab/java)
         ```java
-        String endpoint = System.getenv("VISION_ENDPOINT");
-        String accountKey = System.getenv("VISION_KEY");
+        String endpoint = System.getenv("FACE_ENDPOINT");
+        String accountKey = System.getenv("FACE_APIKEY");
 
         FaceSessionClient sessionClient = new FaceSessionClientBuilder()
             .endpoint(endpoint)
@@ -493,8 +493,8 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [Python](#tab/python)
         ```python
-        endpoint = os.environ["VISION_ENDPOINT"]
-        key = os.environ["VISION_KEY"]
+        endpoint = os.environ["FACE_ENDPOINT"]
+        key = os.environ["FACE_APIKEY"]
 
         face_session_client = FaceSessionClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
@@ -558,16 +558,16 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [REST API (Windows)](#tab/cmd)
         ```console
-        curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" ^
-        --header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+        curl --request POST --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" ^
+        --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%" ^
         --form "Parameters=""{\\\""livenessOperationMode\\\"": \\\""passive\\\"", \\\""deviceCorrelationId\\\"": \\\""723d6d03-ef33-40a8-9682-23a1feb7bccd\\\""}""" ^
         --form "VerifyImage=@""test.png"""
         ```
 
         #### [REST API (Linux)](#tab/bash)
         ```bash
-        curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" \
-        --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
+        curl --request POST --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" \
+        --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}" \
         --form 'Parameters="{
             \"livenessOperationMode\": \"passive\",
             \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
@@ -693,14 +693,14 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [REST API (Windows)](#tab/cmd)
     ```console
-    curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
-    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    curl --request GET --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%"
     ```
 
     #### [REST API (Linux)](#tab/bash)
     ```bash
-    curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
-    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    curl --request GET --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}"
     ```
 
     ---
@@ -788,14 +788,14 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [REST API (Windows)](#tab/cmd)
     ```console
-    curl --request DELETE --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
-    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    curl --request DELETE --location "%FACE_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %FACE_APIKEY%"
     ```
 
     #### [REST API (Linux)](#tab/bash)
     ```bash
-    curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
-    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    curl --request DELETE --location "${FACE_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${FACE_APIKEY}"
     ```
 
     ---
@@ -804,7 +804,7 @@ The high-level steps involved in liveness with verification orchestration are il
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

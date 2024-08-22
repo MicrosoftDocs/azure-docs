@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Web SDK map control release notes
@@ -15,6 +15,20 @@ services: azure-maps
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (latest)
+
+### [3.3.0] (Aug 8, 2024)
+
+#### New features (3.3.0)
+- Update the Copyright control
+  - Make the copyright text smaller and ensure it fits on one line.
+  - Use different types of Microsoft logos for different CSS themes to improve visibility.
+  - Implement RWD to hide part of the component (MS logo) when the map canvas is relatively small.
+- Enhance base layer class by adding abstract `getOptions` and `setOptions` functions.
+
+#### Bug fixes (3.3.0)
+- Skip existing sources when copying user layers.
+- **\[BREAKING\]** Address the incorrect ordering of latitude and longitude values in `Position.fromLatLng()`.
+- Fix hidden accessible element visible issue on control buttons.
 
 ### [3.2.1] (May 13, 2024)
 
@@ -602,6 +616,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
 [3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1
 [3.2.0]: https://www.npmjs.com/package/azure-maps-control/v/3.2.0
 [3.1.2]: https://www.npmjs.com/package/azure-maps-control/v/3.1.2

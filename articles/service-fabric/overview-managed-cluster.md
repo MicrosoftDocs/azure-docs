@@ -4,7 +4,7 @@ description: Service Fabric managed clusters are an evolution of the Azure Servi
 ms.topic: overview
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/12/2024
 ---

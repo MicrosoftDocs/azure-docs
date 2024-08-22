@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create a Windows VM'
 description: In this quickstart, you learn how to use Terraform to create a Windows virtual machine
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 07/17/2023

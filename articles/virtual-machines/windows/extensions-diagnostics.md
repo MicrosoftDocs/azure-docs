@@ -3,7 +3,7 @@ title: Azure Diagnostics Extension for Windows
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
 author: ju-shim
 manager: ashwink
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: how-to

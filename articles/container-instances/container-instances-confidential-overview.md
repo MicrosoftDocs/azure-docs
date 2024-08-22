@@ -4,7 +4,7 @@ description: Learn more about confidential container groups.
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ms.custom: mvc

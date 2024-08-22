@@ -3,7 +3,7 @@ title: YAML reference for container group
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
 author: tomvcassidy
 ms.topic: reference
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.author: tomcassidy
 ms.date: 06/06/2022
@@ -406,7 +406,7 @@ The following tables describe the values you need to set in the schema.
 |  value | string | No | Value of the header. |
 
 > [!IMPORTANT]
-> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](/azure/aks/aks-migration).
 
 ### GpuResource object
 

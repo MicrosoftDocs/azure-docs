@@ -4,7 +4,7 @@ description: Learn how to set up an encryption certificate and encrypt secrets o
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -43,7 +43,7 @@ The resulting base-64 encoded string contains both the secret ciphertext as well
 Learn how to [Specify encrypted secrets in an application.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/general/overview.md
+[key-vault-get-started]:/azure/key-vault/general/overview
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

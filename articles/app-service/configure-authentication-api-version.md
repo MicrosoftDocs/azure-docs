@@ -44,7 +44,7 @@ The following steps will allow you to manually migrate the application to the V2
    * Microsoft Entra: `clientSecret`
    * Google: `googleClientSecret`
    * Facebook: `facebookAppSecret`
-   * Twitter: `twitterConsumerSecret`
+   * X: `twitterConsumerSecret`
    * Microsoft Account: `microsoftAccountClientSecret`
 
    > [!IMPORTANT]
@@ -58,7 +58,7 @@ The following steps will allow you to manually migrate the application to the V2
    # For Web Apps, Google example    
    az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
 
-   # For Azure Functions, Twitter example
+   # For Azure Functions, X example
    az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
    ```
 
@@ -72,7 +72,7 @@ The following steps will allow you to manually migrate the application to the V2
    * Microsoft Entra: `clientSecretSettingName`
    * Google: `googleClientSecretSettingName`
    * Facebook: `facebookAppSecretSettingName`
-   * Twitter: `twitterConsumerSecretSettingName`
+   * X: `twitterConsumerSecretSettingName`
    * Microsoft Account: `microsoftAccountClientSecretSettingName`
 
    An example file after this operation might look similar to the following, in this case only configured for Microsoft Entra ID:
@@ -90,7 +90,7 @@ The following steps will allow you to manually migrate the application to the V2
            "tokenStoreEnabled": true,
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
-           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
            "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,

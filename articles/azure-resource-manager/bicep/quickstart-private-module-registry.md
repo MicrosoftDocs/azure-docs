@@ -45,7 +45,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {

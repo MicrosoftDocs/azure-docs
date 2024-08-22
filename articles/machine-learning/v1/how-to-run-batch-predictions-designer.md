@@ -3,7 +3,7 @@ title: Run batch predictions using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 description: Learn how to create a batch prediction pipeline. Deploy the pipeline as a parameterized web service, and trigger it from any HTTP library.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: lagayhar
 author: lgayhardt

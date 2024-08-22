@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 06/27/2024
+  ms.date: 08/01/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -110,7 +110,7 @@ procedureSection:
 
         :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
 
-        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, your **Role assignments** tab is similar to the following screenshot. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, your **Role assignments** tab is similar to the following screenshot for management group, subscription, and resource group scopes. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
         :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
 

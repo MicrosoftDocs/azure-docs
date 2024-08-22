@@ -4,7 +4,7 @@ description: This article describes how to use Application Gateway in a Service 
 ms.topic: how-to
 ms.author: ankurjain
 author: ankurjain
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 09/05/2023

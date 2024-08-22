@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Deploy an application to a Service
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi

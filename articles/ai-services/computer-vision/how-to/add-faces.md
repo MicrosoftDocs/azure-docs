@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide demonstrates how to add a large number of persons and faces to a **PersonGroup** object. The same strategy also applies to **LargePersonGroup**, **FaceList**, and **LargeFaceList** objects. This sample is written in C# and uses the Azure AI Face .NET client library.
+This guide demonstrates how to add a large number of persons and faces to a **PersonGroup** object. The same strategy also applies to **LargePersonGroup**, **FaceList**, and **LargeFaceList** objects. This sample is written in C#.
 
 ## Initialization
 
@@ -57,10 +57,6 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## Authorize the API call
-
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
-
 
 ## Create the PersonGroup
 
@@ -70,7 +66,11 @@ This code creates a **PersonGroup** named `"MyPersonGroup"` to save the persons.
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = personGroupName, ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}", content);
+}
 ```
 
 ## Create the persons for the PersonGroup
@@ -78,13 +78,21 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 This code creates **Persons** concurrently, and uses `await WaitCallLimitPerSecondAsync()` to avoid exceeding the call rate limit.
 
 ```csharp
-Person[] persons = new Person[PersonCount];
+string?[] persons = new string?[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
+    using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = personName }))))
+    {
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        using (var response = await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}/persons", content))
+        {
+            string contentString = await response.Content.ReadAsStringAsync();
+            persons[i] = (string?)(JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString)?["personId"]);
+        }
+    }
 });
 ```
 
@@ -95,7 +103,6 @@ Faces added to different persons are processed concurrently. Faces added for one
 ```csharp
 Parallel.For(0, PersonCount, async i =>
 {
-    Guid personId = persons[i].PersonId;
     string personImageDir = @"/path/to/person/i/images";
 
     foreach (string imagePath in Directory.GetFiles(personImageDir, "*.jpg"))
@@ -104,7 +111,11 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
+            using (var content = new StreamContent(stream))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}/persons/{persons[i]}/persistedfaces?detectionModel=detection_03", content);
+            }
         }
     }
 });

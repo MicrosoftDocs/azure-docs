@@ -45,7 +45,7 @@ The following image shows a view of the back panel of the HPE Edgeline EL300.
 |Vibration|0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail|
 |Shock|10G 10 ms, half-sine, three for each axis. (Both positive and negative pulse) – Din Rail|
 
-### Appliance BOM
+### HPE Edgeline EL300 - Bill of materials
 
 |Product|Description|
 |:----|:----|

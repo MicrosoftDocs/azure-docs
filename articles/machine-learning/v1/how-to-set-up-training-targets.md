@@ -6,7 +6,7 @@ services: machine-learning
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.date: 02/21/2024
 ms.topic: how-to

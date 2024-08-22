@@ -3,10 +3,11 @@ title: Custom container sessions in Azure Container Apps (preview)
 description: Learn to run a container in a custom session in Azure Container Apps.
 services: container-apps
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: antchu
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Azure Container Apps custom container sessions (preview)
@@ -63,7 +64,7 @@ az containerapp sessionpool create \
     --registry-password <PASSWORD> \
     --container-type CustomContainer \
     --image myregistry.azurecr.io/my-container-image:1.0 \ 
-    --cpu 1.0 --memory 2.0Gi \
+    --cpu 0.25 --memory 0.5Gi \
     --target-port 80 \
     --cooldown-period 300 \
     --network-status EgressDisabled \
@@ -84,8 +85,8 @@ This command creates a session pool with the following settings:
 | `--registry-server` | `myregistry.azurecr.io` | The container registry server hostname. |
 | `--registry-username` | `my-username` | The username to log in to the container registry. |
 | `--registry-password` | `my-password` | The password to log in to the container registry. |
-| `--cpu` | `1.0` | The required CPU in cores. |
-| `--memory` | `2.0Gi` | The required memory. |
+| `--cpu` | `0.25` | The required CPU in cores. |
+| `--memory` | `0.5Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
 | `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
 | `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
@@ -103,12 +104,13 @@ Before you send the request, replace the placeholders between the `<>` brackets 
 
 ```json
 {
-  "type": "Microsoft.ContainerApps/sessionPools",
+  "type": "Microsoft.App/sessionPools",
   "apiVersion": "2024-02-02-preview",
   "name": "my-session-pool",
   "location": "westus2",
   "properties": {
     "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>",
+    "poolManagementType": "Dynamic",
     "containerType": "CustomContainer",
     "scaleConfiguration": {
       "maxConcurrentSessions": 10,
@@ -116,16 +118,24 @@ Before you send the request, replace the placeholders between the `<>` brackets 
     },
     "dynamicPoolConfiguration": {
       "executionType": "Timed",
-      "cooldownPeriodInSeconds": 300
+      "cooldownPeriodInSeconds": 600
     },
     "customContainerTemplate": {
       "containers": [
         {
           "image": "myregistry.azurecr.io/my-container-image:1.0",
+          "name": "mycontainer",
           "resources": {
-            "cpu": 1.0,
-            "memory": "2.0Gi"
+            "cpu": 0.25,
+            "memory": "0.5Gi"
           },
+          "command": [
+            "/bin/sh"
+          ],
+          "args": [
+            "-c",
+            "while true; do echo hello; sleep 10;done"
+          ],
           "env": [
             {
               "name": "key1",
@@ -135,9 +145,7 @@ Before you send the request, replace the placeholders between the `<>` brackets 
               "name": "key2",
               "value": "value2"
             }
-          ],
-          "command": ["/bin/sh"],
-          "args": ["-c", "while true; do echo hello; sleep 10; done"]
+          ]
         }
       ],
       "ingress": {
@@ -145,7 +153,7 @@ Before you send the request, replace the placeholders between the `<>` brackets 
       }
     },
     "sessionNetworkConfiguration": {
-      "status": "EgressDisabled"
+      "status": "EgressEnabled"
     }
   }
 }
@@ -158,17 +166,19 @@ This template creates a session pool with the following settings:
 | `name` | `my-session-pool` | The name of the session pool. |
 | `location` | `westus2` | The location of the session pool. |
 | `environmentId` | `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>` | The resource ID of the container app's environment. |
+| `poolManagementType` | `Dynamic` | Must be `Dynamic` for custom container sessions. |
 | `containerType` | `CustomContainer` | The container type of the session pool. Must be `CustomContainer` for custom container sessions. |
 | `scaleConfiguration.maxConcurrentSessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `scaleConfiguration.readySessionInstances` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `dynamicPoolConfiguration.executionType` | `Timed` | The type of execution for the session pool. Must be `Timed` for custom container sessions. |
-| `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `customContainerTemplate.containers[0]` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
-| `customContainerTemplate.containers[0].resources.cpu` | `1.0` | The required CPU in cores. |
-| `customContainerTemplate.containers[0].resources.memory` | `2.0Gi` | The required memory. |
-| `customContainerTemplate.containers[0].env` | `{"key1": "value1", "key2": "value2"}` | The environment variables to set in the container. |
+| `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `600` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
+| `customContainerTemplate.containers[0].image` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
+| `customContainerTemplate.containers[0].name` | `mycontainer` | The name of the container. |
+| `customContainerTemplate.containers[0].resources.cpu` | `0.25` | The required CPU in cores. |
+| `customContainerTemplate.containers[0].resources.memory` | `0.5Gi` | The required memory. |
+| `customContainerTemplate.containers[0].env` | Array of name-value pairs | The environment variables to set in the container. |
 | `customContainerTemplate.containers[0].command` | `["/bin/sh"]` | The command to run in the container. |
-| `customContainerTemplate.containers[0].args` | `["-c", "while true; do echo hello; sleep 10; done"]` | The arguments to pass to the command. |
+| `customContainerTemplate.containers[0].args` | `["-c", "while true; do echo hello; sleep 10;done"]` | The arguments to pass to the command. |
 | `customContainerTemplate.containers[0].ingress.targetPort` | `80` | The session port used for ingress traffic. |
 | `sessionNetworkConfiguration.status` | `EgressDisabled` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 

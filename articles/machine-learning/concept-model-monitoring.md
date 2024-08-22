@@ -5,7 +5,7 @@ description: Monitor the performance of models deployed to production on Azure M
 services: machine-learning
 author: msakande
 ms.author: mopeakande
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.reviewer: alehughes
 ms.topic: conceptual

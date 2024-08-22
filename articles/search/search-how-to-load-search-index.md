@@ -22,7 +22,7 @@ A search service accepts JSON documents that conform to the index schema. A sear
 
 + Plain text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content). 
 
-+ Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using Azure AI Search features that integrate with applied AI.
++ Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization](vector-search-integrated-vectorization.md) using Azure AI Search features that integrate with applied AI.
 
 You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), running an [indexer](search-indexer-overview.md) or using an Import wizard can automate document retrieval, JSON serialization, and indexing.
 
@@ -42,7 +42,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-    You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization (preview)](search-get-started-portal-import-vectors.md).
+    You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization](search-get-started-portal-import-vectors.md).
 
 1. After the wizard is finished, use [Search Explorer](search-explorer.md) to check for results.
 
@@ -58,7 +58,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the `@search.action` parameter.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2024-07-01
     Content-Type: application/json   
     api-key: [admin key] 
     {
@@ -96,7 +96,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 1. [Look up the documents](/rest/api/searchservice/documents/get) you just added as a validation step:
 
     ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2023-11-01
+    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2024-07-01
     ```
 
 When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that weren't specified in a "merge" or "mergeUpload" are left intact in the search index.

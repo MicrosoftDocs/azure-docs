@@ -3,7 +3,7 @@ title: "Poisson Regression: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Poisson Regression component in Azure Machine Learning designer to create a Poisson regression model.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -3,7 +3,7 @@ title: Trusted Launch for Azure VMs
 description: Learn about Trusted Launch for Azure virtual machines.
 author: Howie425
 ms.author: howieasmerom
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 11/06/2023
@@ -81,9 +81,10 @@ Trusted Launch doesn't increase existing VM pricing costs.
 
 Currently, the following VM features aren't supported with Trusted Launch:
 
-- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (currently in preview).
+- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (*Generally available for Windows*).
 - [Managed Image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
 - Nested virtualization (v5 VM size families supported).
+- [Linux VM Hibernation](./linux/hibernate-resume-linux.md)
 
 ## Secure Boot
 
@@ -122,16 +123,16 @@ Trusted Launch is integrated with Defender for Cloud to ensure that your VMs are
 
 - **Alert for VM attestation failure**: Defender for Cloud periodically performs attestation on your VMs. The attestation also happens after your VM boots. If the attestation fails, it triggers a medium-severity alert.
     VM attestation can fail for the following reasons:
-    - The attested information, which includes a boot log, deviates from a trusted baseline. Any deviation can indicate that untrusted modules have been loaded, and the OS could be compromised.
-    - The attestation quote couldn't be verified to originate from the vTPM of the attested VM. An unverified origin can indicate that malware is present and could be intercepting traffic to the vTPM.
+  - The attested information, which includes a boot log, deviates from a trusted baseline. Any deviation can indicate that untrusted modules have been loaded, and the OS could be compromised.
+  - The attestation quote couldn't be verified to originate from the vTPM of the attested VM. An unverified origin can indicate that malware is present and could be intercepting traffic to the vTPM.
 
     > [!NOTE]
     > Alerts are available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation fails if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
 - **Alert for untrusted Linux kernel module**: For Trusted Launch with Secure Boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this scenario happens, Defender for Cloud issues low-severity alerts. While there's no immediate threat, because the untrusted driver hasn't been loaded, these events should be investigated. Ask yourself:
 
-    - Which kernel driver failed? Am I familiar with this driver and do I expect it to load?
-    - Is this the exact version of the driver I'm expecting? Are the driver binaries intact? If this is a third-party driver, did the vendor pass the OS compliance tests to get it signed?
+  - Which kernel driver failed? Am I familiar with this driver and do I expect it to load?
+  - Is this the exact version of the driver I'm expecting? Are the driver binaries intact? If this is a third-party driver, did the vendor pass the OS compliance tests to get it signed?
 
 ## Related content
 

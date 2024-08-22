@@ -4,7 +4,7 @@ description: Learn how to configure liveness probes to restart unhealthy contain
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---

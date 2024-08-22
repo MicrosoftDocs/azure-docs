@@ -6,7 +6,7 @@ keywords: push notifications,push notification,android push notification,fcm,fir
 author: sethmanheim
 manager: femila
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial

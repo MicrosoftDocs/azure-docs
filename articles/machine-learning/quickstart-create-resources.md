@@ -3,13 +3,13 @@ title: "Tutorial: Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 08/17/2023
+ms.date: 07/22/2024
 adobe-target: true
 ms.custom: mode-other
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
@@ -31,7 +31,7 @@ Other ways to create a workspace are via the [Azure portal or SDK](how-to-manage
 For other ways to create a compute instance, see [Create a compute instance](how-to-create-compute-instance.md).
 
 This video shows you how to create a workspace and compute instance in Azure Machine Learning studio. The steps are also described in the sections below.
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0e901d2-e82a-4e96-9c7f-3b5467859969]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=9c6141c9-07f7-4661-ad77-6129297ddc0c]
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
-If you don't yet have a workspace, create one now: 
+If you don't yet have a workspace, create one now:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
@@ -72,16 +72,15 @@ If you don't yet have a workspace, create one now:
 
 You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials. If you don't yet have a compute instance, create one now:
 
-1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page. 
+1. Select your workspace.
+1. On the top right, select **New**.
+1. Select **Compute instance** in the list.
 
-    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the middle of the screen.":::
+    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the New list.":::
 
-    > [!TIP]
-    > You'll only see this option if you don't yet have a compute instance in your workspace.
-
-1. Supply a name. Keep all the defaults on the first page.
+1. Supply a name.
 1. Keep the default values for the rest of the page.
+1. Select **Review + Create**.
 1. Select **Create**.
 
 ## Quick tour of the studio

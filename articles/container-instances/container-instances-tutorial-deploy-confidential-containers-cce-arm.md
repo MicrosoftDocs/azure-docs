@@ -4,7 +4,7 @@ description: Learn how to create an Azure Resource Manager template for a confid
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ms.custom: mvc, devx-track-arm-template
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you deploy a Hello World application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You then use this ARM template with the Azure CLI confcom tooling to generate a CCE policy for attestation.
 
-This tutorial uses [this ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA) as an example. To view the source code for this application, see [Azure Container Instances Confidential Hello World](https://aka.ms/ccacihelloworld).
+This tutorial uses [this ARM template](https://raw.githubusercontent.com/microsoft/confidential-container-demos/main/hello-world/ACI/arm-template.json) as an example. To view the source code for this application, see [Azure Confidential Container Instances Hello World](https://github.com/microsoft/confidential-container-demos/tree/main/hello-world/ACI).
 
 The example template adds two properties to the Container Instances resource definition to make the container group confidential:
 
@@ -38,7 +38,7 @@ The example template adds two properties to the Container Instances resource def
 * `confidentialComputeProperties`: Enables you to pass in a custom CCE policy for attestation of your container group. If you don't add this object to the resource, the software components that run within the container group won't be validated.
 
 > [!NOTE]
-> The `ccePolicy` parameter under `confidentialComputeProperties` is blank. You'll fill it in after you generate the policy later in the tutorial.
+> The `ccePolicy` parameter under `confidentialComputeProperties` is blank. You'll fill it in when you generate the policy later in the tutorial.
 
 Use your preferred text editor to save this ARM template on your local machine as *template.json*.
 
@@ -63,7 +63,7 @@ Use your preferred text editor to save this ARM template on your local machine a
       },
       "image": {
         "type": "string",
-        "defaultValue": "mcr.microsoft.com/aci/aci-confidential-helloworld:v1",
+        "defaultValue": "mcr.microsoft.com/public/acc/samples/aci/helloworld:2.7",
         "metadata": {
           "description": "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
         }
@@ -163,16 +163,10 @@ With the ARM template that you crafted and the Azure CLI confcom extension, you 
 1. To generate the CCE policy, run the following command by using the ARM template as input:
 
    ```azurecli-interactive
-   az confcom acipolicygen -a .\template.json --print-policy
+   az confcom acipolicygen -a .\template.json
    ```
 
-   When this command finishes, a Base64 string generated as output should appear in the following format. This string is the CCE policy that you copy and paste into your ARM template as the value of the `ccePolicy` property.
-
-   ```output
-   cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5ldmVyeQppbXBvcnQgZnV0dXJlLmtleXdvcmRzLmluCgpmcmFnbWVudHMgOj0gWwpdCgpjb250YWluZXJzIDo9IFsKICAgIHsKICAgICAgICAiY29tbWFuZCI6IFsiL3BhdXNlIl0sCiAgICAgICAgImVudl9ydWxlcyI6IFt7InBhdHRlcm4iOiAiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogdHJ1ZX0seyJwYXR0ZXJuIjogIlRFUk09eHRlcm0iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogZmFsc2V9XSwKICAgICAgICAibGF5ZXJzIjogWyIxNmI1MTQwNTdhMDZhZDY2NWY5MmMwMjg2M2FjYTA3NGZkNTk3NmM3NTVkMjZiZmYxNjM2NTI5OTE2OWU4NDE1Il0sCiAgICAgICAgIm1vdW50cyI6IFtdLAogICAgICAgICJleGVjX3Byb2Nlc3NlcyI6IFtdLAogICAgICAgICJzaWduYWxzIjogW10sCiAgICAgICAgImFsbG93X2VsZXZhdGVkIjogZmFsc2UsCiAgICAgICAgIndvcmtpbmdfZGlyIjogIi8iCiAgICB9LApdCmFsbG93X3Byb3BlcnRpZXNfYWNjZXNzIDo9IHRydWUKYWxsb3dfZHVtcF9zdGFja3MgOj0gdHJ1ZQphbGxvd19ydW50aW1lX2xvZ2dpbmcgOj0gdHJ1ZQphbGxvd19lbnZpcm9ubWVudF92YXJpYWJsZV9kcm9wcGluZyA6PSB0cnVlCmFsbG93X3VuZW5jcnlwdGVkX3NjcmF0Y2ggOj0gdHJ1ZQoKCm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQp1bm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQptb3VudF9vdmVybGF5IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnVubW91bnRfb3ZlcmxheSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpjcmVhdGVfY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfaW5fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfZXh0ZXJuYWwgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2h1dGRvd25fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNpZ25hbF9jb250YWluZXJfcHJvY2VzcyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV9tb3VudCA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmdldF9wcm9wZXJ0aWVzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmR1bXBfc3RhY2tzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJ1bnRpbWVfbG9nZ2luZyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpsb2FkX2ZyYWdtZW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNjcmF0Y2hfbW91bnQgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2NyYXRjaF91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJlYXNvbiA6PSB7ImVycm9ycyI6IGRhdGEuZnJhbWV3b3JrLmVycm9yc30K
-   ```
-
-2. Save the changes to your local copy of the ARM template.
+   When this command finishes, a Base64 string generated as output will automatically appear in the `ccePolicy` property of the ARM template. 
 
 ## Deploy the template
 
@@ -228,7 +222,7 @@ In the following steps, you use the Azure portal to review the properties of the
 
     The presence of the attestation report below the Azure Container Instances logo confirms that the container is running on hardware that supports a TEE.
 
-    If you deploy to hardware that doesn't support a TEE (for example, by choosing a region where Container Instances Confidential isn't available), no attestation report appears.
+    If you deploy to hardware that doesn't support a TEE (for example, by choosing a region where Confidential Container Instances isn't available), no attestation report appears.
 
 ## Related content
 
@@ -236,4 +230,4 @@ Now that you've deployed a confidential container group on Container Instances, 
 
 * [Confidential containers on Azure Container Instances](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
-* [Confidential Hello World application](https://aka.ms/ccacihelloworld)
+* [Confidential Hello World application](https://github.com/microsoft/confidential-container-demos/tree/main/hello-world/ACI)

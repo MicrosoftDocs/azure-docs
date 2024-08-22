@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 08/26/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Replicate a DNS outage by using the NSG fault

@@ -1,17 +1,17 @@
 ---
-title: 'About Highly Available gateway configurations'
+title: 'Design highly available gateway connectivity'
 titleSuffix: Azure VPN Gateway
-description: Learn about highly available configuration options using Azure VPN Gateways.
+description: Learn about highly available configuration options for VPN Gateway.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: article
-ms.date: 06/23/2023
+ms.date: 07/24/2024
 ms.author: cherylmc
 
 ---
-# Highly Available cross-premises and VNet-to-VNet connectivity
+# Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections
 
-This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
+This article helps you understand how to design highly available gateway connectivity for cross-premises and VNet-to-VNet connections.
 
 ## <a name = "activestandby"></a>About VPN gateway redundancy
 
@@ -31,7 +31,7 @@ To provide better availability for your cross premises connections, there are a 
 
 You can use multiple VPN devices from your on-premises network to connect to your Azure VPN gateway, as shown in the following diagram:
 
-:::image type="content" source="./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png" alt-text="Diagram shows multiple on-premises sites with private I P subnets and on-premises V P N connected to an active Azure V P N gateway to connect to subnets hosted in Azure, with a standby gateway available.":::
+:::image type="content" source="./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png" alt-text="Diagram shows multiple on-premises sites with private IP subnets and on-premises VPN connected to an active Azure VPN gateway to connect to subnets hosted in Azure, with a standby gateway available.":::
 
 This configuration provides multiple active tunnels from the same Azure VPN gateway to your on-premises devices in the same location. There are some requirements and constraints:
 
@@ -50,11 +50,7 @@ You can create an Azure VPN gateway in an active-active configuration, where bot
 
 :::image type="content" source="./media/vpn-gateway-highlyavailable/active-active.png" alt-text="Diagram shows an on-premises site with private I P subnets and on-premises V P N connected to two active Azure V P N gateway to connect to subnets hosted in Azure.":::
 
-In this configuration, each Azure gateway instance has a unique public IP address, and each will establish an IPsec/IKE S2S VPN tunnel to your on-premises VPN device specified in your local network gateway and connection. Note that both VPN tunnels are actually part of the same connection. You'll still need to configure your on-premises VPN device to accept or establish two S2S VPN tunnels to those two Azure VPN gateway public IP addresses.
-
-Because the Azure gateway instances are in active-active configuration, the traffic from your Azure virtual network to your on-premises network will be routed through both tunnels simultaneously, even if your on-premises VPN device may favor one tunnel over the other. For a single TCP or UDP flow, Azure attempts to use the same tunnel when sending packets to your on-premises network. However, your on-premises network could use a different tunnel to send packets to Azure.
-
-When a planned maintenance or unplanned event happens to one gateway instance, the IPsec tunnel from that instance to your on-premises VPN device will be disconnected. The corresponding routes on your VPN devices should be removed or withdrawn automatically so that the traffic will be switched over to the other active IPsec tunnel. On the Azure side, the switch over will happen automatically from the affected instance to the active instance.
+[!INCLUDE [active-active gateways](../../includes/vpn-gateway-active-active-gateway-include.md)]
 
 ### Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
 

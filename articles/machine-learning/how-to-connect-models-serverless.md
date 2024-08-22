@@ -3,7 +3,7 @@ title: Consume deployed serverless API endpoints from a different workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to consume a serverless API endpoint from a different workspace than the one where it was deployed. 
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024

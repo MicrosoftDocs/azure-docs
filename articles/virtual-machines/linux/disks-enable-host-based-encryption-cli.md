@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: rogarana
 ms.custom:
-  - references_regions
   - devx-track-azurecli
   - linux-related-content
   - ignite-2023
@@ -22,10 +21,6 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
-
-## Regional availability
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
@@ -53,7 +48,7 @@ az feature show --namespace Microsoft.Compute --name EncryptionAtHost
 > [!NOTE]
 > This section only applies to configurations with customer-managed keys. If you're using platform-managed keys, you can skip to the [Example scripts](#example-scripts) section.
 
-Once the feature is enabled, you need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
+Once the feature is enabled, you need to set up a DiskEncryptionSet and either an [Azure Key Vault](/azure/key-vault/general/overview) or an [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview).
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 

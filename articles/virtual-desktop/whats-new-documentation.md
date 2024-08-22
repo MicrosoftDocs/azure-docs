@@ -4,12 +4,16 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/04/2024
+ms.date: 07/30/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
+
+## July 2024
+
+In July 2024, there were no significant changes to the documentation.
 
 ## June 2024
 

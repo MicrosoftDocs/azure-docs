@@ -383,12 +383,8 @@
         href: service-fabric-cluster-resource-manager-inbuild-throttling.md
   - name: Monitoring and diagnostics
     items:
-    - name: Monitor
+    - name: Monitor Service Fabric
       href: monitor-service-fabric.md
-    - name: Monitoring overview
-      href: service-fabric-diagnostics-overview.md
-    - name: Application monitoring
-      href: service-fabric-diagnostics-event-generation-app.md
     - name: Cluster monitoring
       items:
       - name: Cluster monitoring overview
@@ -403,8 +399,6 @@
         href: service-fabric-reliable-serviceremoting-diagnostics.md
       - name: Reliable Actors events
         href: service-fabric-reliable-actors-diagnostics.md
-    - name: Infrastructure monitoring
-      href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
       href: service-fabric-health-introduction.md
     - name: Report health events

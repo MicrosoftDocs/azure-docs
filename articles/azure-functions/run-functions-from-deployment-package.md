@@ -60,6 +60,10 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
+### Creating the zip archive
+
+[!INCLUDE [functions-deployment-zip-structure](../../includes/functions-deployment-zip-structure.md)]
+
 ## Use WEBSITE_RUN_FROM_PACKAGE = 1
 
 This section provides information about how to run your function app from a local package file.

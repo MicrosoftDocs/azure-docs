@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ---
 
@@ -13,6 +13,12 @@ ms.author: kendownie
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2024
+
+### 2024 quarter 3 (July, August, September)
+
+#### Soft delete for NFS Azure file shares is generally available
+
+Soft delete protects your Azure file shares from accidental deletion. The feature has been available for SMB Azure file shares for some time, and is now generally available for NFS Azure file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/soft-delete-for-nfs-azure-file-shares-is-now-generally-available/ba-p/4162222).
 
 ### 2024 quarter 2 (April, May, June)
 

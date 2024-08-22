@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: In this quickstart, you learn how to create a public IP address for a Standard SKU and a Basic SKU. You also learn about routing preferences and tiers.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 04/16/2024

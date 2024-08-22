@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Use NSG diagnostics to check if traffic is allowed or denied by network security group rules or Azure Virtual Network Manager security admin rules. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

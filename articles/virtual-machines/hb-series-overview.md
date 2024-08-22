@@ -1,28 +1,25 @@
 ---
 title: HB-series VM overview - Azure Virtual Machines | Microsoft Docs
 description: Learn about the preview support for the HB-series VM size in Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
 ms.topic: article
-ms.date: 04/20/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
-ms.author: jushiman
-author: ju-shim
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HB-series virtual machines overview
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
+Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
 
-Physically, an [HB-series](hb-series.md) server is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
+Physically, an [HB-series](hb-series.md) server is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS sees a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
 
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. The VM will see:
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. The VM sees:
 
 `(15 vNUMA domains) * (4 cores/vNUMA) = 60` cores per VM
 
@@ -54,7 +51,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
+| OS Support for SRIOV RDMA   | RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options) |
 
 > [!IMPORTANT]

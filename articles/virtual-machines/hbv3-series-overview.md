@@ -1,21 +1,18 @@
 ---
-title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
+title: HBv3-series virtual machine (VM) overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
 description: Learn about the HBv3-series VM size in Azure.
 services: virtual-machines
-ms.custom: linux-related-content
-ms.service: virtual-machines
+ms.custom:
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/21/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
-ms.author: jushiman
-author: ju-shim
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HBv3-series virtual machine overview
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -28,7 +25,7 @@ NUMA domains within VM OS = 4
 C-states = Enabled
 ```
 
-As a result, the server boots with 4 NUMA domains (2 per socket) each 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
+As a result, the server boots with 4 NUMA domains (2 per socket). Each domain is 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3,200 MT/s.
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 8 physical cores per server.
 
@@ -124,8 +121,8 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+           |
-| Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
+| OS Support for SRIOV RDMA      | RHEL 7.9+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+           |
+| Recommended OS for Performance | Windows Server 2019+
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      |
 
 > [!NOTE]

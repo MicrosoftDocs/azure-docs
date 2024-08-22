@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pools'
 description: Learn how to use PREDICT functionality in serverless Apache Spark pools for predicting scores through machine learning models.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 11/02/2021
 author: nelgson
 ms.author: negust

@@ -12,9 +12,9 @@ Azure Event Hubs provides encryption of data at rest with Azure Storage Service 
 > - The BYOK capability is supported by **premium** and **dedicated** tiers of Event Hubs.
 > - The encryption can be enabled only for new or empty namespaces. If the namespace contains event hubs, the encryption operation will fail.
 
-You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
-This article shows how to configure a key vault with customer-managed keys by using the Azure portal. To learn how to create a key vault using the Azure portal, see [Quickstart: Create an Azure Key Vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+This article shows how to configure a key vault with customer-managed keys by using the Azure portal. To learn how to create a key vault using the Azure portal, see [Quickstart: Create an Azure Key Vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
 ## Enable customer-managed keys (Azure portal)
 To enable customer-managed keys in the Azure portal, follow these steps. If you are using the dedicated tier, navigate to your Event Hubs Dedicated cluster first.
@@ -29,9 +29,9 @@ To enable customer-managed keys in the Azure portal, follow these steps. If you 
 > Currently you can't configure Azure Key Vault Managed HSM through the portal. 
 
 ## Set up a key vault with keys
-After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Event Hubs supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/general/key-vault-recovery.md) or [CLI](../key-vault/general/key-vault-recovery.md).
+After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Event Hubs supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](/azure/key-vault/general/key-vault-recovery) or [CLI](/azure/key-vault/general/key-vault-recovery).
 
-1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+1. To create a new key vault, follow the Azure Key Vault [Quickstart](/azure/key-vault/general/overview). For more information about importing existing keys, see [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
 
     > [!IMPORTANT]
     > Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
@@ -662,7 +662,7 @@ You can enable infrastructure encryption by updating the Azure Resource Manager 
 You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Event Hubs service will detect new key versions and start using them automatically.
 
 ### Revoke access to keys
-Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/security-features.md).
+Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](/azure/key-vault/general/security-features).
 
 Once the encryption key is revoked, the Event Hubs service on the encrypted namespace will become inoperable. If the access to the key is enabled or the delete key is restored, Event Hubs service will pick the key so you can access the data from the encrypted Event Hubs namespace.
 
@@ -682,17 +682,17 @@ Here are more details:
 > To enable Geo-DR on a namespace that's using the BYOK encryption, the secondary namespace for pairing must have a system-assigned or user-assigned managed identity enabled on it. 
 
 ### Geo-disaster recovery - encryption with system-assigned identities
-To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Event Hubs namespace.
+To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](/azure/key-vault/general/secure-your-key-vault) is set up for a system-assigned managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Event Hubs namespace.
 
 Due to this:
 
 - If [Geo disaster recovery](event-hubs-geo-dr.md) is already enabled for the Event Hubs namespace and you are looking to enable customer managed key, then
     - Break the pairing.
-    - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
+    - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
     - Set up encryption on the primary namespace.
     - Re-pair the primary and secondary namespaces.
 - If you are looking to enable Geo-DR on an Event Hubs namespace where customer-managed key is already set up, then follow these steps: 
-    - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
+    - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
 ### Geo-disaster recovery - encryption with user-assigned identities
@@ -713,4 +713,4 @@ Setting diagnostic logs for BYOK enabled namespaces gives you the required infor
 ## Next steps
 See the following articles:
 - [Event Hubs overview](event-hubs-about.md)
-- [Key Vault overview](../key-vault/general/overview.md)
+- [Key Vault overview](/azure/key-vault/general/overview)

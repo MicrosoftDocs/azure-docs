@@ -3,7 +3,7 @@ title: Data splits and cross-validation in automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn how to configure training, validation, cross-validation and test data for automated machine learning experiments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: UpdateFrequency5, automl, sdkv1

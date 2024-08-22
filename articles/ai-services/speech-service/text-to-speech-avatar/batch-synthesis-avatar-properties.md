@@ -11,9 +11,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Batch synthesis properties for text to speech avatar (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# Batch synthesis properties for text to speech avatar
 
 Batch synthesis properties can be grouped as: avatar related properties, batch job related properties, and text to speech related properties,  which are described in the following tables.
 

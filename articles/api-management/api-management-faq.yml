@@ -3,7 +3,7 @@ metadata:
   title: Azure API Management FAQs | Microsoft Docs
   description: Learn the answers to frequently asked questions (FAQs) about Azure API Management
   author: dlepow
-  ms.service: api-management
+  ms.service: azure-api-management
   ms.topic: faq
   ms.date: 11/21/2023
   ms.author: danlep 

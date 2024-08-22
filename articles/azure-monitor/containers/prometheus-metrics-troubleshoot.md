@@ -16,6 +16,8 @@ Replica pod scrapes metrics from `kube-state-metrics`, custom scrape targets in 
 
 If you encounter an error while you attempt to enable monitoring for your AKS cluster, please follow the instructions mentioned [here](https://github.com/Azure/prometheus-collector/tree/main/internal/scripts/troubleshoot) to run the troubleshooting script. This script is designed to do a basic diagnosis of for any configuration issues on your cluster and you can ch the generated files while creating a support request for faster resolution for your support case.
 
+## Missing metrics
+
 ## Metrics Throttling
 
 In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
@@ -52,6 +54,10 @@ kubectl describe pod <ama-metrics pod name> -n kube-system
 - This command provides the reason for the restarts. Pod restarts are expected if configmap changes have been made. If the reason for the restart is `OOMKilled`, the pod can't keep up with the volume of metrics. See the scale recommendations for the volume of metrics.
 
 If the pods are running as expected, the next place to check is the container logs.
+
+## Check for relabeling configs
+
+If metrics are missing, you can also check if you have relabeling configs. With relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets. Refer to [Prometheus relabel config documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) for more details.
 
 ## Container logs
 View the container logs with the following command:
@@ -159,7 +165,7 @@ Go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped b
 
 ## Metric names, label names & label values
 
-Agent based scraping currently has the limitations in the following table:
+Metrics scraping currently has the limitations in the following table:
 
 | Property | Limit |
 |:---|:---|
@@ -180,7 +186,7 @@ If you see metrics missed, you can first check if the ingestion limits are being
 - Events Per Minute Ingested Limit - The maximum number of events per minute that can be ingested before getting throttled
 - Events Per Minute Ingested % Utilization - The percentage of current metric ingestion rate limit being util
 
-To avoid metrics ingestion throttling, you can monitor and set up an alert on the ingestion limits. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota).
+To avoid metrics ingestion throttling, you can **monitor and set up an alert on the ingestion limits**. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota).
 
 Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace. Ensure you include the ID, internal ID and Location/Region for the Azure Monitor workspace in the support request, which you can find in the `Properties' menu for the Azure Monitor workspace in the Azure portal.
 

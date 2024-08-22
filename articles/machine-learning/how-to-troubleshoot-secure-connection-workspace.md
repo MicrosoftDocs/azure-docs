@@ -3,7 +3,7 @@ title: Troubleshoot private endpoint connection
 titleSuffix: Azure Machine Learning
 description: 'Learn how to troubleshoot connectivity problems to a workspace that is configured with a private endpoint.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: larryfr
