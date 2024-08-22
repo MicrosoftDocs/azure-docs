@@ -1,7 +1,7 @@
 ---
-title: Message Analysis transparency faq
+title: Message Analysis transparency FAQ
 titleSuffix: An Azure Communication Services Advanced Messaging concept
-description: Learn about the Message Analysis transparency faq
+description: Learn about the Message Analysis transparency FAQ
 author: gelli
 manager: camilo.ramirez
 services: azure-communication-services
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Message Analysis: Responsible AI Transparency FAQ 
+# Message Analysis: Responsible AI transparency FAQ 
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
 
@@ -31,7 +31,7 @@ This combination of features enables businesses to tailor their responses and be
 
 ## What are Message Analysis’s intended uses? 
 
-* Providing message analysis for agents or departments helps businesses resolve issues efficiently and provide a seamless end-user experience. 
+* Providing Message Analysis for agents or departments helps businesses resolve issues efficiently and provide a seamless end-user experience. 
 
 * Providing immediate feedback to customers by recognizing their needs. 
 
