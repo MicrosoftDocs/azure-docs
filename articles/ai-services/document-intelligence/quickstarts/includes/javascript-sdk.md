@@ -329,7 +329,7 @@ const { AzureKeyCredential } = require("@azure/core-auth");
 
 async function main() {
 
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
     const initialResponse = await client
     .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
