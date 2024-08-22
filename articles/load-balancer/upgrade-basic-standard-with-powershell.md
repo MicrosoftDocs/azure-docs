@@ -69,7 +69,7 @@ The PowerShell module performs the following functions:
 Install the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
 
 ```powershell
-PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
+Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 ## Pre- and Post-migration Steps
@@ -95,7 +95,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 1. Ensure you have selected the Basic Load Balancer's subscription ID by running `Select-AzSubscription`.
 
     ```powershell
-    PS C:\> Select-AzAccount -Subscription <SubscriptionId>
+    Select-AzSubscription -Subscription <SubscriptionId>
     ```
 
 2. Find the Load Balancer you wish to upgrade. Record its name and resource group name.
@@ -116,7 +116,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
 ```
 
 ### Example: upgrade by name
@@ -124,7 +124,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the same name, providing the Basic Load Balancer name and resource group name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
 ```
 
 ### Example: upgrade, change name, and show logs
@@ -132,7 +132,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
 ```
 
 ### Example: upgrade with alternate backup path
@@ -140,7 +140,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name and store the Basic Load Balancer backup file at the specified path
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
 ```
 
 ### Example: validate completed migration
@@ -148,7 +148,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: migrate multiple, related Load Balancers
@@ -157,7 +157,7 @@ Migrate multiple Load Balancers with shared backend members at the same time, us
 
 ```powershell
 # build array of multiple basic load balancers
-PS C:\> $multiLBConfig = @(
+$multiLBConfig = @(
     @{
         'standardLoadBalancerName' = 'myStandardInternalLB01' # specifying the standard load balancer name is optional
         'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicInternalLB01)
@@ -168,7 +168,7 @@ PS C:\> $multiLBConfig = @(
     }
 )
 # pass the array of load balancer configurations to the -MultiLBConfig parameter
-PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
+Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 ```
 
 ### Example: retry failed virtual machine scale set migration
@@ -176,7 +176,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 Retry a failed upgrade for a virtual machine scale set's load balancer (due to error or script termination) by providing the Basic Load Balancer and Virtual Machine Scale Set backup state file
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: retry failed virtual machine migration
@@ -184,7 +184,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 Retry a failed upgrade for a VM load balancer (due to error or script termination) by providing the Basic Load Balancer backup state file
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ## Common Questions
