@@ -262,7 +262,7 @@ Replace `$HOST` with the appropriate host:
 
 Remember to specify authentication methods if needed.
 
-## Default root CA and issuer with Azure IoT Operations Preview
+## Default root CA and issuer
 
 To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
 
