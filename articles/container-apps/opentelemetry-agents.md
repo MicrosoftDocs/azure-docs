@@ -232,7 +232,7 @@ az containerapp env telemetry otlp add \
 
 | Name | Description |
 |---|---|
-| `resource-group` | Name of resource group. You can configure the default group using az configure --defaults group=<name>. |
+| `resource-group` | Name of resource group. You can configure the default group using `az configure --defaults group=<NAME>`. |
 | `name` | Name of the Container Apps environment. |
 | `otlp-name` | A name you select to identify your OTLP-configured endpoint. |
 | `endpoint` | The URL of the destination that receives collected data. |
