@@ -23,7 +23,7 @@ Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI.
   * Resource sync rules
   * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
 
-* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ, Akri, and OPC UA connector.
+* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ and OPC UA connector.
 
 In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 

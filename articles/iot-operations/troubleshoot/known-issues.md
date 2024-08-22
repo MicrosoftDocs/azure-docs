@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 07/11/2024
+ms.date: 08/22/2024
 ---
 
 # Known issues: Azure IoT Operations Preview
@@ -18,8 +18,6 @@ This article lists the known issues for Azure IoT Operations Preview.
 ## Deploy and uninstall issues
 
 - You must use the Azure CLI interactive login `az login` when you deploy Azure IoT Operations. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
-
-- When you use the `az iot ops delete` command to uninstall Azure IoT Operations, some custom Akri resources might not be deleted from the cluster. These Akri instances can cause issues if you redeploy Azure IoT Operations to the same cluster. You should manually delete any Akri instance custom resources from the cluster before you redeploy Azure IoT Operations.
 
 - If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
 
@@ -43,6 +41,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 - Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
+
+- Probe operations fail with `Not Authorized` error when the deployment doesn't have a custom authorization policy with rules defined. To resolve this issue, create a [broker authorization policy with rules](../manage-mqtt-broker/howto-configure-authorization.md#authorization-rules).
 
 - You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
 
@@ -147,112 +147,10 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Akri services
 
-When Akri services generate an asset endpoint for a discovered asset, the configuration may contain an invalid setting that prevents the asset from connecting to the MQTT broker. To resolve this issue, edit the `AssetEndpointProfile` configuration and remove the `"securityMode":"none"` setting from thr `additionalConfiguration` property. For example, the configuration for the `opc-ua-broker-opcplc-000000-50000` asset endpoint generated in the quickstarts should look like the following example:
+In the current release, the Akri services don't support any user-configurable scenarios. Full support for Akri services will be added back in an upcoming preview release.
 
-```yml
-apiVersion: deviceregistry.microsoft.com/v1beta1
-kind: AssetEndpointProfile
-metadata:
-  creationTimestamp: "2024-08-05T11:41:21Z"
-  generation: 2
-  name: opc-ua-broker-opcplc-000000-50000
-  namespace: azure-iot-operations
-  resourceVersion: "233018"
-  uid: f9cf479f-7a77-49b5-af88-18d509e9cdb0
-spec:
-  additionalConfiguration: '{"applicationName":"opc-ua-broker-opcplc-000000-50000","keepAliveMilliseconds":10000,"defaults":{"publishingIntervalMilliseconds":1000,"queueSize":1,"samplingIntervalMilliseconds":1000},"subscription":{"maxItems":1000,"lifetimeMilliseconds":360000},"security":{"autoAcceptUntrustedServerCertificates":true,"securityPolicy":"http://opcfoundation.org/UA/SecurityPolicy#None"},"session":{"timeoutMilliseconds":60000,"keepAliveIntervalMilliseconds":5000,"reconnectPeriodMilliseconds":500,"reconnectExponentialBackOffMilliseconds":10000}}'
-  targetAddress: "\topc.tcp://opcplc-000000:50000"
-  transportAuthentication:
-    ownCertificates: []
-  userAuthentication:
-    mode: Anonymous
-  uuid: opc-ua-broker-opcplc-000000-50000
-```
-
-A sporadic issue might cause the `aio-opc-asset-discovery` pod to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
-
-To work around this issue, use the following steps to update the **DaemonSet** specification:
-
-1. Locate the **target** custom resource provided by `orchestration.iotoperations.azure.com` with a name that ends with `-ops-init-target`:
-
-    ```console
-    kubectl get targets -n azure-iot-operations
-    ```
-
-1. Edit the target configuration and find the `spec.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` parameter. For example:
-
-    ```console
-    kubectl edit target solid-zebra-97r6jr7rw43vqv-ops-init-target -n azure-iot-operations
-    ```
-
-1. Add the following environment variables to the `spec.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` configuration section:
-
-    ```yml
-    - name: ASPNETCORE_URLS 
-      value: http://+8443 
-    - name: POD_IP 
-      valueFrom: 
-        fieldRef: 
-          fieldPath: "status.podIP" 
-    ```
-
-1. Save your changes. The final specification looks like the following example:
-
-    ```yml
-    apiVersion: orchestrator.iotoperations.azure.com/v1 
-    kind: Target 
-    metadata: 
-      name: <cluster-name>-target 
-      namespace: azure-iot-operations 
-    spec: 
-      displayName: <cluster-name>-target 
-      scope: azure-iot-operations 
-      topologies: 
-      ...
-      version: 1.0.0.0 
-      components: 
-        ... 
-        - name: aio-opc-asset-discovery 
-          type: yaml.k8s 
-          properties: 
-            resource: 
-              apiVersion: apps/v1 
-              kind: DaemonSet 
-              metadata: 
-                labels: 
-                  app.kubernetes.io/part-of: aio 
-                name: aio-opc-asset-discovery 
-              spec: 
-                selector: 
-                  matchLabels: 
-                    name: aio-opc-asset-discovery 
-                template: 
-                  metadata: 
-                    labels: 
-                      app.kubernetes.io/part-of: aio 
-                      name: aio-opc-asset-discovery 
-                  spec: 
-                    containers: 
-                      - env: 
-                          - name: ASPNETCORE_URLS 
-                            value: http://+8443 
-                          - name: POD_IP 
-                            valueFrom: 
-                              fieldRef: 
-                                fieldPath: status.podIP 
-                          - name: DISCOVERY_HANDLERS_DIRECTORY 
-                            value: /var/lib/akri 
-                          - name: AKRI_AGENT_REGISTRATION 
-                            value: 'true' 
-                        image: >- 
-                          edgeappmodel.azurecr.io/opcuabroker/discovery-handler:0.4.0-preview.3 
-                        imagePullPolicy: Always 
-                        name: aio-opc-asset-discovery 
-                        ports: ... 
-                        resources: ...
-                        volumeMounts: ...
-                    volumes: ...
-    ```
+> [!NOTE]
+> You can see Akri related pods deployed in the cluster, but they don't support any user-configurable scenarios.
 
 ## Operations experience web UI
 
