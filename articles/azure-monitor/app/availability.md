@@ -377,7 +377,7 @@ To see the end-to-end transaction details, under **Drill into**, select **Succes
 
 To edit, temporarily disable, or delete a test, open the context menu (ellipsis) by the test, then select **Edit**. It might take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
-:::image type="content" source="media/availability/edit-availability-test.png" alt-text="Screenshot that shows the context menu to Edit, Disable, and Delete web tests.":::
+:::image type="content" source="media/availability/edit-test.png" alt-text="Screenshot that shows the context menu to Edit, Disable, and Delete web tests.":::
 
 > [!TIP]
 > You might want to disable availability tests or the alert rules associated with them while you're performing maintenance on your service.
