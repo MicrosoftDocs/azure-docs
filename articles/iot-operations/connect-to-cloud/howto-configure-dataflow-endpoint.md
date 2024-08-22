@@ -225,11 +225,13 @@ spec:
   endpointType: kafka
   authentication:
     method: systemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings: {}
+      systemAssignedManagedIdentitySettings: {
+        audience: "https://eventgrid.azure.net"
+      }
   kafkaSettings:
     host: <NAMESPACE>.servicebus.windows.net:9093
     tls:
-      mode: enabled
+      mode: Enabled
     consumerGroupId: mqConnector
 ```
 
