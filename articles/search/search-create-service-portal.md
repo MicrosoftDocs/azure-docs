@@ -93,7 +93,7 @@ If you use multiple Azure services, putting all of them in the same region minim
 
 Generally, choose a region near you, unless the following considerations apply:
 
-+ Your nearest region is capacity constrained. West Europe is at capacity and unavailable for new instances. Other regions are [at capacity for specific tiers](search-sku-tier.md#region-availability-by-tier). One advantage to using the Azure portal for resource set up is that it provides only those regions and tiers that are available. You can't select regions or tiers that are unavailable.
++ Your nearest region is capacity constrained. West Europe is at capacity and unavailable for new instances. Other regions are [at capacity for specific tiers](search-sku-tier.md#region-availability-by-tier). One advantage to using the Azure portal for resource setup is that it provides only those regions and tiers that are available. You can't select regions or tiers that are unavailable.
 
 + You want to use integrated data chunking and vectorization or built-in skills for AI enrichment. Azure OpenAI and Azure AI services multiservice accounts must be in the same region as Azure AI Search for integration purposes. [Choose a region](search-region-support.md) that provides all necessary resources.
 
@@ -123,7 +123,7 @@ Basic and Standard are the most common choices for production workloads, but man
 
 Search services created after April 3, 2024 have larger partitions and higher vector quotas.
 
-Currently, some regions are tier-constrained. For more informaation, see [region availability by tier](search-sku-tier.md#region-availability-by-tier).
+Currently, some regions are tier-constrained. For more information, see [region availability by tier](search-sku-tier.md#region-availability-by-tier).
 
 Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you should re-create the service.
 
