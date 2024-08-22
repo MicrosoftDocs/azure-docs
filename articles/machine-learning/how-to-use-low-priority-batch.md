@@ -1,7 +1,7 @@
 ---
 title: "Use low priority VMs in batch deployments"
 titleSuffix: Azure Machine Learning
-description: Learn how to use low priority VMs in Azure Machine Learning to save costs when you run batch inference jobs.
+description: Learn how to use low priority virtual machines in Azure Machine Learning to save costs when you run batch inference jobs.
 services: machine-learning
 ms.service: azure-machine-learning
 ms.subservice: inferencing
@@ -18,7 +18,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
-Azure Batch Deployments supports low priority virtual machines (VMs) to reduce the cost of batch inference workloads. Low priority virtual machines enable a large amount of compute power to be used for a low cost. Low priority virtual machines take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
+Azure batch deployments support low priority virtual machines (VMs) to reduce the cost of batch inference workloads. Low priority VMs enable a large amount of compute power to be used for a low cost. Low priority virtual machines take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
 
 > [!TIP]
 > The tradeoff for using low priority VMs is that those virtual machines might not be available or they might be preempted at any time, depending on available capacity. For this reason, this approach is most suitable for batch and asynchronous processing workloads, where job completion time is flexible and the work is distributed across many virtual machines.
@@ -82,6 +82,8 @@ az ml compute create -f low-pri-cluster.yml
 To create a new compute cluster with low priority VMs where to create the deployment, use the following script:
 
 ```python
+from azure.ai.ml.entities import AmlCompute
+
 compute_name = "low-pri-cluster"
 compute_cluster = AmlCompute(
    name=compute_name, 
