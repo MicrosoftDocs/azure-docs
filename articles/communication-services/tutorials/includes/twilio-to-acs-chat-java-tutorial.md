@@ -1,5 +1,5 @@
 ---
-title: Migrating from Twilio Conversations Chat to ACS Chat Java
+title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat Java
 description: Guide describes how to migrate Java apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
 ms.date: 07/22/2024
@@ -16,21 +16,23 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
-- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You need to record your resource **endpoint and connection string**.
+- A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
 ### Add the package references for the Chat SDK
 
 #### Twilio
+
 To use Twilio Conversations Chat APIs in your Java application, add the following dependency in your pom.xml:
+
 ```xml
 <dependencies>
     <!-- Twilio Java SDK -->
@@ -70,20 +72,22 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatAsyncClient | This class is needed for the asynchronous Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
-| ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
+| `ChatClient` | This class is needed for the Chat function. Instantiate it with your subscription information, and use it to create, get, and delete threads. |
+| `ChatAsyncClient` | This class is needed for the asynchronous Chat function. Instantiate it with your subscription information, and use it to create, get, and delete threads. |
+| `ChatThreadClient` | This class is needed for the Chat Thread function. You get an instance via the `ChatClient`, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications, and read receipts. |
+| `ChatThreadAsyncClient` | This class is needed for the asynchronous Chat Thread function. You get an instance via the `ChatAsyncClient`, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications, and read receipts. |
 
 ### Import
 
 #### Twilio
+
 ```Java
 import com.twilio.Twilio;
 import com.twilio.rest.conversations.v1.Conversation;
 ```
 
 #### Azure Communication Services
+
 ```Java
 package com.communication.quickstart;
 
@@ -99,7 +103,9 @@ import java.util.*;
 ### Create a chat client
 
 #### Twilio
+
 In Twilio, you initialize the client using the Account SID and Auth Token. Here's how you typically initialize a client.
+
 ```Java
 String accountSid = "<YOUR_ACCOUNT_SID>";
 String authToken = "<YOUR_AUTH_TOKEN>";
@@ -110,11 +116,11 @@ Twilio.init(accountSid, authToken);
 
 #### Azure Communication Services
 
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common SDK to pass the token to your chat client.
+To create a chat client, use the Communications Service endpoint and the access token that was generated as part of prerequisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the        `CommunicationTokenCredentia`l class from the Common SDK to pass the token to your chat client.
 
-Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
+Learn more about [Chat Architecture](../../concepts/chat/concepts.md)
 
-When adding the import statements, be sure to only add imports from the com.azure.communication.chat and com.azure.communication.chat.models namespaces, and not from the com.azure.communication.chat.implementation namespace. In the App.java file that was generated via Maven, you can use the following code to begin with:
+When adding the import statements, be sure to only add imports from the `com.azure.communication.chat` and `com.azure.communication.chat.models` namespaces, and not from the `com.azure.communication.chat.implementation` namespace. In the `App.java` file that was generated via Maven, you can use the following code to start:
 
 ```Java
 // Your unique Azure Communication service endpoint
@@ -137,8 +143,11 @@ final ChatClientBuilder builder = new ChatClientBuilder();
 ### Start a chat thread
 
 #### Twilio
-Creating a conversation in Twilio is straightforward using the Conversation.creator() method.
-- Use the `setFriendlyName` to give a topic to this chat.
+
+Creating a conversation in Twilio is straightforward using the `Conversation.creator()` method.
+
+Use the `setFriendlyName` to give a topic to this chat.
+
 ```Java
 // Create a new conversation
         Conversation conversation = Conversation.creator().setFriendlyName("New Conversation").create();
@@ -148,13 +157,13 @@ Creating a conversation in Twilio is straightforward using the Conversation.crea
 #### Azure Communication Services
 
 Use the `createChatThread` method to create a chat thread.
-`createChatThreadOptions` is used to describe the thread request.
-
-- Use the `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../identity/access-tokens.md) quickstart.
+- Use`createChatThreadOptions` to describe the thread request.
+- Use the `topic` parameter of the constructor to give a topic to this chat; update 'topic' after the chat thread is created using the `UpdateThread` function.
+- Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../quickstarts/identity/access-tokens.md) quickstart.
 
 `CreateChatThreadResult` is the response returned from creating a chat thread.
-It contains a `getChatThread()` method, which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
+It contains a `getChatThread()` method, which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, and so on.
+
 The `ChatThread` object also contains the `getId()` method, which retrieves the unique ID of the thread.
 
 ```Java
@@ -180,7 +189,9 @@ String chatThreadId = result.getChatThread().getId();
 ### List chat threads
 
 #### Twilio
-Here is how you list all conversations in Twilio using Java:
+
+To list all conversations in Twilio using Java:
+
 ```Java
 public static void main(String[] args) {
         // List all conversations
@@ -211,6 +222,7 @@ chatThreads.forEach(chatThread -> {
 #### Twilio
 
 Here’s how you can retrieve and interact with a specific conversation in Twilio using Java:
+
 ```Java
 // Retrieve a specific conversation by its SID
 Conversation conversation = Conversation.fetcher(conversationSid).fetch();
@@ -220,7 +232,7 @@ System.out.println("Friendly Name: " + conversation.getFriendlyName())
 
 #### Azure Communication Services
 
-The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc.
+The `getChatThreadClient` method returns a thread client for a thread that already exists. Use it to perform operations on the created thread: add participants, send message, and so on.
 `chatThreadId` is the unique ID of the existing chat thread.
 
 ```Java
@@ -230,7 +242,8 @@ ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId)
 ### Send a message to a chat thread
 
 #### Twilio
-Sending a message in Twilio involves using the Message.creator() method.
+
+Sending a message in Twilio uses the `Message.creator()` method.
 
 ```Java
 import com.twilio.rest.conversations.v1.conversation.Message;
@@ -241,7 +254,8 @@ Message message = Message.creator(conversationSid)
 System.out.println("Message SID: " + message.getSid());
 ```
 
-Twilio allows you to send media files by providing a media URL when sending a message.
+Twilio enables you to send media files by providing a media URL when sending a message.
+
 ```Java
 List<URI> mediaUrls = Arrays.asList(URI.create("https://example.com/image.jpg"));
 Message message = Message.creator(conversationSid)
@@ -251,16 +265,16 @@ Message message = Message.creator(conversationSid)
 System.out.println("Message SID: " + message.getSid());
 ```
 
-
 #### Azure Communication Services
-Unlike Twilio, Azure Communication Services does not have separate functions to send media.
-Use the `sendMessage` method to send a message to the thread you created, identified by chatThreadId.
-`sendChatMessageOptions` is used to describe the chat message request.
 
+Unlike Twilio, Azure Communication Services doesn't have separate functions to send media.
+Use the `sendMessage` method to send a message to the thread you created, identified by `chatThreadId`.
+
+Use `sendChatMessageOptions` to describe the chat message request.
 - Use `content` to provide the chat message content.
-- Use `type` to specify the chat message content type, TEXT or HTML.
+- Use `type` to specify the chat message content type: `TEXT` or `HTML`.
 - Use `senderDisplayName` to specify the display name of the sender.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include any data you want to send with the message. This field enables developers to extend chat message function and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in metadata so that recipient's application can parse that and display accordingly.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
@@ -282,7 +296,9 @@ String chatMessageId = sendChatMessageResult.getId();
 ### Receive chat messages from a chat thread
 
 #### Twilio
+
 Twilio Conversations uses webhooks to receive messages. You typically set up a webhook URL in the Twilio console.
+
 ```Java
 // This would be handled by a servlet or similar in a Java web application
 public void handleIncomingMessage(HttpServletRequest request, HttpServletResponse response) {
@@ -291,7 +307,8 @@ public void handleIncomingMessage(HttpServletRequest request, HttpServletRespons
 }
 ```
 
-This is how you can receive media file in Twilio.
+To receive media file in Twilio.
+
 ```Java
 private static final Logger logger = Logger.getLogger(TwilioWebhookServlet.class.getName());
 
@@ -330,18 +347,20 @@ chatThreadClient.listMessages().forEach(message -> {
 });
 ```
 
-`listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `.editMessage()` and `.deleteMessage()`. For deleted messages, `chatMessage.getDeletedOn()` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.getEditedOn()` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.getCreatedOn()`, and it can be used for ordering the messages.
+`listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `.editMessage()` and `.deleteMessage()`. For deleted messages, `chatMessage.getDeletedOn()` returns a `datetime` value indicating when that message was deleted. For edited messages, `chatMessage.getEditedOn()` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.getCreatedOn()`, and it can be used for ordering the messages.
 
-Read more about message types here: [Message Types](../../../concepts/chat/concepts.md#message-types).
+Read more about message types here: [Message Types](../../concepts/chat/concepts.md#message-types).
 
 ### Send read receipt
 
 #### Twilio
-Twilio Conversations does not have a direct API for sending read receipts. Twilio Conversations manages read receipts automatically.
+
+Twilio Conversations doesn't have a direct API for sending read receipts. Twilio Conversations manages read receipts automatically.
 
 #### Azure Communication Services
 
 Use the `sendReadReceipt` method to post a read receipt event to a chat thread, on behalf of a user.
+
 `chatMessageId` is the unique ID of the chat message that was read.
 
 ```Java
@@ -376,7 +395,8 @@ chatParticipantsResponse.forEach(chatParticipant -> {
 
 #### Twilio
 
-You add participants to a conversation using the Participant.creator() method.
+Add participants to a conversation using the Participant.creator() method.
+
 ```Java
 import com.twilio.rest.conversations.v1.conversation.Participant;
 
@@ -388,11 +408,11 @@ System.out.println("Participant SID: " + participant.getSid());
 
 #### Azure Communication Services
 
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. You'll need to start by getting a new access token and identity for that user. Before calling addParticipants method, ensure that you've acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. Start by getting a new access token and identity for that user. Before calling the `addParticipants` method, ensure that you acquired a new access token and identity for that user. The user needs that access token to initialize their chat client.
 
 Use the `addParticipants` method to add participants to the thread.
 
-- `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../identity/access-tokens.md) quickstart.
+- `communicationIdentifier`, required, is the `CommunicationIdentifier` you created using `CommunicationIdentityClient` in the [User Access Token](../../quickstart/identity/access-tokens.md) quickstart.
 - `displayName`, optional, is the display name for the thread participant.
 - `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 
