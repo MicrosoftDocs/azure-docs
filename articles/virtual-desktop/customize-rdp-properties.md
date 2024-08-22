@@ -64,7 +64,7 @@ Here's how to configure RDP properties using the Azure portal. For a full list o
 
 1. Select **RDP Properties**, then select the **Advanced** tab.
 
-   :::image type="content" source="media/customize-rdp-properties/rdp-properties-advanced.png" alt-text="A screenshot showing the advanced tab of RDP properties in the Azure portal.":::
+   :::image type="content" source="media/customize-rdp-properties/rdp-properties-advanced.png" alt-text="A screenshot showing the advanced tab of RDP properties in the Azure portal." lightbox="media/customize-rdp-properties/rdp-properties-advanced.png":::
 
 1. Add extra RDP properties or make changes to the existing RDP properties in a semicolon-separated format, like the default values already shown.
 
