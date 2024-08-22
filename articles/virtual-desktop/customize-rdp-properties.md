@@ -3,7 +3,7 @@ title: Set custom RDP properties on a host pool in Azure Virtual Desktop
 description: Learn how to set custom RDP properties on a host pool that add to the default properties and values or override the default values.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 08/21/2024
+ms.date: 08/22/2024
 ms.author: daknappe
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
@@ -44,7 +44,7 @@ Before you can set custom RDP properties on a host pool, you need:
 
 - An existing host pool.
 
-- An Azure account assigned the [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) role.
+- An Azure account assigned the [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) role or equivalent.
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -54,23 +54,25 @@ Select the relevant tab for your scenario.
 
 ### [Azure portal](#tab/portal)
 
-To configure RDP properties using the Azure portal:
+Here's how to configure RDP properties using the Azure portal. For a full list of supported properties and values, see [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
-4. Select **Host pools**, then select the name of the host pool you want to update.
+1. Select **Host pools**, then select the name of the host pool you want to update.
 
-6. Select **RDP Properties**, then select the **Advanced** tab.
+1. Select **RDP Properties**, then select the **Advanced** tab.
 
-7. Add or make your changes to the RDP properties in a semicolon-separated format, like the default values already shown.
+   :::image type="content" source="media/customize-rdp-properties/rdp-properties-advanced.png" alt-text="A screenshot showing the advanced tab of RDP properties in the Azure portal.":::
 
-8. When you're done, select **Save** to save your changes. Users need to refresh their resources to receive the changes.
+1. Add extra RDP properties or make changes to the existing RDP properties in a semicolon-separated format, like the default values already shown.
+
+1. When you're done, select **Save** to save your changes. Users need to refresh their resources to receive the changes.
 
 ### [Azure PowerShell](#tab/powershell)
 
-To configure RDP properties using Azure PowerShell, use the following examples. Be sure to change the `<placeholder>` values for your own. For a full list of supported properties and values, see [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) 
+To configure RDP properties using Azure PowerShell, use the following examples. Be sure to change the `<placeholder>` values for your own. For a full list of supported properties and values, see [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md).
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -109,14 +111,11 @@ To configure RDP properties using Azure PowerShell, use the following examples. 
       Update-AzWvdHostPool -Name $hostPool -ResourceGroupName $resourceGroup -CustomRdpProperty $customProperties
       ```
 
-
 3. Check the custom RDP properties set on the same host pool by running the following command:
 
-    ```azurepowershell
-
-    ```powershell
-    Get-AzWvdHostPool -ResourceGroupName $resourceGroup -Name $hostPool | FL Name, CustomRdpProperty
-    ```
+   ```azurepowershell
+   Get-AzWvdHostPool -Name $hostPool -ResourceGroupName $resourceGroup | FT Name, CustomRdpProperty
+   ```
 
    The output should be similar to the following example:
 
@@ -125,149 +124,82 @@ To configure RDP properties using Azure PowerShell, use the following examples. 
     CustomRdpProperty : use multimon:i:1;redirectclipboard:i:0;redirectprinters:i:0;
    ```
 
+4. Users need to refresh their resources to receive the changes.
+
 ### [Azure CLI](#tab/cli)
 
-To configure RDP properties using Azure CLI, use the following examples. Be sure to change the `<placeholder>` values for your own. For a full list of supported properties and values, see [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) 
+To configure RDP properties using Azure CLI, use the following examples. Be sure to change the `<placeholder>` values for your own. For a full list of supported properties and values, see [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md).
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
 2. Use one of the following examples based on your requirements:
 
-   - To add custom RDP properties to a host pool and keep any existing custom properties already set, run the following commands. RDP properties need to be written in a semi-colon-separated format. This example adds disabling clipboard and printer redirection:
+   - To add custom RDP properties to a host pool and keep any existing custom properties already set, run the following commands. RDP properties need to be written in a semi-colon-separated format. This example adds disabling clipboard and printer redirection to the existing custom properties:
 
       ```azurecli
+      hostPool="<HostPoolName>"
+      resourceGroup="<ResourceGroupName>"
+      addCustomProperties="redirectclipboard:i:0;redirectprinters:i:0"
+
       currentCustomProperties=$(az desktopvirtualization hostpool show \
-          --name <HostPoolName> \
-          --resource-group <ResourceGroupName> \
+          --name $hostPool \
+          --resource-group $resourceGroup \
           --query [customRdpProperty] \
           --output tsv)
 
-TODO: FINISH THIS
+      customProperties="$currentCustomProperties$addCustomProperties"
 
-
-      $hostPool = "<HostPoolName>"
-      $resourceGroup = "<ResourceGroupName>"
-      $addCustomProperties = "redirectclipboard:i:0;redirectprinters:i:0"
-
-      $currentCustomProperties = (Get-AzWvdHostPool -Name $hostPool -ResourceGroupName $resourceGroup).CustomRdpProperty
-      $customProperties = $currentCustomProperties + $addCustomProperties
-
-      Update-AzWvdHostPool -Name $hostPool -ResourceGroupName $resourceGroup -CustomRdpProperty $customProperties
-
-
+      az desktopvirtualization hostpool update \
+          --name $hostPool \
+          --resource-group $resourceGroup \
+          --custom-rdp-property "$customProperties"
       ```
    
    - To replace all existing custom properties with a new set of custom RDP properties, run the following command. This example only sets disabling clipboard and printer redirection:
 
       ```azurecli
+      hostPool="<HostPoolName>"
+      resourceGroup="<ResourceGroupName>"
+
       az desktopvirtualization hostpool update \
-          --name <HostPoolName> \
-          --resource-group <ResourceGroupName> \
+          --name $hostPool \
+          --resource-group $resourceGroup \
           --custom-rdp-property "redirectclipboard:i:0;redirectprinters:i:0"
       ```
 
    - To remove all custom RDP properties from a host pool, run the following command. This example passes an empty string to the `--custom-rdp-property` parameter:
 
       ```azurecli
+      hostPool="<HostPoolName>"
+      resourceGroup="<ResourceGroupName>"
+
       az desktopvirtualization hostpool update \
-          --name <HostPoolName> \
-          --resource-group <ResourceGroupName> \
+          --name $hostPool \
+          --resource-group $resourceGroup \
           --custom-rdp-property ""
       ```
 
-
-3. Check the custom RDP properties set on a host pool by running the following command:
-
-   ```azurecli
-   az desktopvirtualization hostpool show \
-       --name <HostPoolName> \
-       --resource-group <ResourceGroupName> \
-       --query [customRdpProperty] \
-       --output tsv
-    ```
-
-   The output should be similar to the following example:
-
-   ```output
-    Name              : contoso-hp01
-    CustomRdpProperty : use multimon:i:1;redirectclipboard:i:0;redirectprinters:i:0;
-   ```
-
-
-
-
-TODO: UPDATE ARTICLE FILENAME/TOC/REDIRECTION
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-To edit custom RDP properties manually in Azure CLI:
-
-### Add or edit multiple custom RDP properties
-
-To add or edit multiple custom RDP properties in Azure CLI: 
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Run the following cmdlets by providing the custom RDP property:
-
-    
-    ```azurecli
-    az desktopvirtualization hostpool update \
-        --resource-group $resourceGroupName \
-        --name $hostPoolName \
-        --custom-rdp-property $rdpProperty
-    ```
-
-3. You can check to make sure the RDP property was added by running the following cmdlet:
+3. Check the custom RDP properties set on the same host pool by running the following command:
 
     ```azurecli
     az desktopvirtualization hostpool show \
-        --resource-group $resourceGroupName \
-        --name $hostPoolName 
-    ```
-    
->[!IMPORTANT]
->- A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field won't apply any default RDP properties to your host pool.
-    
-### Remove all RDP properties
-
-To remove all custom RDP properties: 
-
-1. You can remove all custom RDP properties for a host pool by running the following Azure CLI cmdlet:
-
-    ```azurecli
-    az desktopvirtualization hostpool update \
-        --resource-group $resourceGroupName \
-        --name $hostPoolName \
-        --custom-rdp-property ""
+        --name $hostPool \
+        --resource-group $resourceGroup \
+        --query "{name:name, customRdpProperty:customRdpProperty}" \
+        --output table
     ```
 
-2. To make sure you've successfully removed the setting, enter this cmdlet:
+    The output should be similar to the following example:
 
-    ```azurecli
-    az desktopvirtualization hostpool show \
-        --resource-group $resourceGroupName \
-        --name $hostPoolName 
+    ```output
+    Name          CustomRdpProperty
+    --------      ------------------------------------------------------------
+    contoso-hp01  use multimon:i:0;redirectclipboard:i:0;redirectprinters:i:0;
     ```
 
-
----
-
+4. Users need to refresh their resources to receive the changes.
 
 ## Related content
 
 - [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md)
+- [Peripheral and resource redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md)
