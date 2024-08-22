@@ -63,13 +63,10 @@ The PowerShell module performs the following functions:
 ### Prerequisites
 
 - **PowerShell**: A supported version of PowerShell version 7 or higher is recommended for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, PowerShell 5.1 on Windows is supported. 
-- **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
-  - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
-- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It is automatically added if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command. 
 
 ### Module Installation
 
-Install the module from [PowerShell gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
+Install the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
 
 ```powershell
 PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
@@ -95,10 +92,10 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 ## Use the module
 
-1. Use `Connect-AzAccount` to connect to Azure, specifying the Basic Load Balancer's subscription ID if you have more than one subscription.
+1. Ensure you have selected the Basic Load Balancer's subscription ID by running `Select-AzSubscription`.
 
     ```powershell
-    PS C:\> Connect-AzAccount -Subscription <SubscriptionId>
+    PS C:\> Select-AzAccount -Subscription <SubscriptionId>
     ```
 
 2. Find the Load Balancer you wish to upgrade. Record its name and resource group name.
@@ -112,7 +109,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
     >[!TIP]
     >Additional parameters for advanced and recovery scenarios can be viewed by running `Get-Help Start-AzBasicLoadBalancerUpgrade -Detailed` 
 
-4. Run the Upgrade command.
+4. Run the `Start-AzBasicLoadBalancerUpgrade` command, using the following examples for guidance.
 
 ### Example: validate a scenario
 
