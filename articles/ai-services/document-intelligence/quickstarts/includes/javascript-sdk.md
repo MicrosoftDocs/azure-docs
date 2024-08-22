@@ -151,14 +151,14 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   const { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-    const key = "<your-key";
+    const key = "<your-key>";
     const endpoint = "<your-endpoint>";
 
     // sample document
     const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
    async function main() {
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
 
     const initialResponse = await client
