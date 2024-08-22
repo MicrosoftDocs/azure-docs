@@ -16,7 +16,7 @@ ms.custom: mode-other
 1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 3. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
-4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
