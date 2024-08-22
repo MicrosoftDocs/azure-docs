@@ -94,7 +94,7 @@ Other options for deploying an app version include:
 
 * Leave the app version published to the direct version endpoint and implement a process to configure downstream production environments with the direct version endpoint as required.
 * Maintain different LUIS apps for each production environments and write automation steps to import the `.lu` into a new version in the LUIS app for the target production environment, to train, and publish it.
-* Export the tested LUIS app version into a [LUIS docker container](./luis-container-howto.md?tabs=v3) and deploy the LUIS container to Azure [Container instances](../../container-instances/index.yml).
+* Export the tested LUIS app version into a [LUIS docker container](./luis-container-howto.md?tabs=v3) and deploy the LUIS container to Azure [Container instances](/azure/container-instances/).
 
 ## Release management
 
