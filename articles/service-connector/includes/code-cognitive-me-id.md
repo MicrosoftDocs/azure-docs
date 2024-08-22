@@ -6,7 +6,7 @@ ms.date: 10/20/2023
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that Azure Multi-service Cognitive Services support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
 
 ### [.NET](#tab/dotnet)
 
@@ -15,7 +15,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     dotnet add package Azure.AI.TextAnalytics
     dotnet add package Azure.Identity
     ```
-1. Authenticate using Azure Identity library and get the Azure Multi-service Cognitive Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using Azure Identity library and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```csharp
     using Azure.AI.TextAnalytics;
@@ -60,7 +60,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
         <version>1.11.4</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the Azure Multi-service Cognitive Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
@@ -94,7 +94,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     pip install azure-ai-textanalytics==5.1.0
     pip install azure-identity
     ```
-1. Authenticate using `azure-identity` and get the Azure Multi-service Cognitive Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     import os
     from azure.ai.textanalytics import TextAnalyticsClient
@@ -127,7 +127,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     npm install @azure/ai-text-analytics@5.1.0
     npm install @azure/identity
     ```
-1. Authenticate using `@azure/identity` and get the Azure Multi-service Cognitive Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
@@ -154,4 +154,4 @@ You can use the Azure client library to access various cognitive APIs that Azure
     ```
 
 ### [Other](#tab/none)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Multi-service Cognitive Services. For environment variable details, see [Integrate Azure Multi-service Cognitive Services with Service Connector](../how-to-integrate-cognitive-services.md).
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to an Azure AI multi-service resource. For environment variable details, see [Integrate an Azure AI multi-service resource with Service Connector](../how-to-integrate-cognitive-services.md).
