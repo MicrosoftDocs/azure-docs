@@ -90,7 +90,7 @@ Field extraction custom generative model `2024-07-31-preview` version is only av
 
 * **Field Description**. Provide more contextual information in description to help clarify the field that needs to be extracted. Examples include location in the document, potential field labels it can be associated with, and ways to differentiate with other terms that could be ambiguous.
 
-* **Variation**. Custom generative models can generalize across different document templates of the same document type. As a best practice, create a single model for all variations of a document type. Ideally, include a visual template for each type, especially for ones that
+* **Variation**. Custom generative models can generalize across different document templates of the same document type. As a best practice, create a single model for all variations of a document type. Ideally, include a visual template for each type, especially for ones that involve distinct formatting or structural elements, to improve the model's accuracy and consistency in generating or processing documents.
 
 ## Service guidance
 

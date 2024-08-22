@@ -20,7 +20,6 @@ The services deployed in this quickstart include:
 
 * [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
 * [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Akri services](../discover-manage-assets/overview-akri.md)
 * [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 

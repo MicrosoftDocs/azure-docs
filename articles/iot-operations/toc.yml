@@ -45,14 +45,6 @@ items:
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
         - name: Configure an OPC PLC simulator
           href: discover-manage-assets/howto-configure-opc-plc-simulator.md
-      - name: Akri (automatic asset discovery)
-        items:
-        - name: Akri overview
-          href: discover-manage-assets/overview-akri.md
-        - name: Akri architecture
-          href: discover-manage-assets/concept-akri-architecture.md
-        - name: Discover OPC UA data sources with Akri
-          href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
     - name: Manage MQTT broker
       items:
       - name: MQTT broker overview
@@ -167,8 +159,6 @@ items:
         items:
         - name: MQTT broker
           href: reference/observability-metrics-mq.md
-        - name: Akri services
-          href: reference/observability-metrics-akri.md
         - name: Connector for OPC UA
           href: reference/observability-metrics-opcua-broker.md
         - name: Layered Network Management

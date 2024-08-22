@@ -156,10 +156,10 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
-| ns=3;s=FastUInt10  | temperature | none               |
-| ns=3;s=FastUInt100 | Tag 10      | none               |
+| ns=3;s=FastUInt10  | temperature | None               |
+| ns=3;s=FastUInt100 | Tag 10      | None               |
 
-The **Observability mode** is one of the following values: `none`, `gauge`, `counter`, `histogram`, or `log`.
+The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
@@ -224,79 +224,6 @@ The sample tags you added in the previous quickstart generate messages from your
         "Value": 2696
     }
 }
-```
-
-## Discover OPC UA data sources by using Akri services
-
-In the previous section, you saw how to add assets manually. You can also use Akri services to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri services can't detect and create assets that can be ingested into the Azure Device Registry Preview. Therefore, you can't currently manage assets discovered by Akri in the Azure portal.
-
-When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
-
-```console
-kubectl get pods -n azure-iot-operations | grep akri
-```
-
-The output from the previous command looks like the following example:
-
-```output
-aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)    2d23h
-aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
-```
-
-Use the following command to verify that the discovery pod is running:
-
-```console
-kubectl get pods -n azure-iot-operations | grep discovery
-```
-
-The output from the previous command looks like the following example:
-
-```output
-aio-opc-asset-discovery-wzlnj                   1/1     Running     0              19m
-```
-
-To configure the Akri services to discover OPC UA data sources, create an Akri configuration that references your OPC UA source. Run the following command to create the configuration:
-
-```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
-```
-
-The following snippet shows the YAML file that you applied:
-
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
-
-> [!IMPORTANT]
-> There's currently a known issue where the configuration for the asset endpoint contains an invalid setting. To work around this issue, you need to remove the `"securityMode":"none"` setting from the configuration for the `opc-ua-broker-opcplc-000000-50000` asset endpoint. To learn more, see [Connector for OPC UA](../troubleshoot/known-issues.md#akri-services).
-
-To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services. You might need to wait a few minutes for the configuration to be available:
-
-```console
-kubectl get akrii -n azure-iot-operations
-```
-
-The output from the previous command looks like the following example.
-
-```output
-NAME                      CONFIG             SHARED   NODES                          AGE
-akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["k3d-k3s-default-server-0"]   45s
-```
-
-Now you can use these resources in the local cluster namespace.
-
-To confirm that the Akri services are connected to the connector for OPC UA, copy and paste the name of the Akri instance from the previous step into the following command:
-
-```console
-kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
-```
-
-The command output looks like the following example. This example excerpt from the output shows the Akri instance `brokerProperties` values and confirms that it's connected the connector for OPC UA.
-
-```json
-"spec": {
-
-        "brokerProperties": {
-            "ApplicationUri": "Boiler #2",
-            "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……
 ```
 
 ## How did we solve the problem?
