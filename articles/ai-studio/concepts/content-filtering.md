@@ -106,7 +106,9 @@ Now, you can go to the playground to test whether the content filter works as ex
 
 ### Configurability (preview)
 
-The default content filtering configuration for the GPT model series is set to filter at the medium severity threshold for all four content harm categories (hate, violence, sexual, and self-harm) and applies to both prompts (text, multi-modal text/image) and completions (text). This means that content that is detected at severity level medium or high is filtered, while content detected at severity level low isn't filtered by the content filters. For DALL-E, the default severity threshold is set to low for both prompts (text) and completions (images), so content detected at severity levels low, medium, or high is filtered. The configurability feature is available in preview and allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
+The default content filtering configuration for the GPT model series is set to filter at the medium severity threshold for all four content harm categories (hate, violence, sexual, and self-harm) and applies to both prompts (text, multi-modal text/image) and completions (text). This means that content that is detected at severity level medium or high is filtered, while content detected at severity level low isn't filtered by the content filters. For DALL-E, the default severity threshold is set to low for both prompts (text) and completions (images), so content detected at severity levels low, medium, or high is filtered. 
+
+The configurability feature allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
 
 | Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
 |-------------------|--------------------------|------------------------------|--------------|
