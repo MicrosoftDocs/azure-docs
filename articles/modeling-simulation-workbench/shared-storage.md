@@ -24,4 +24,4 @@ Users who are provisioned to a specific chamber can access all shared storage vo
 
 ## Related content
 
-- [Business continuity: Disaster recovery](./disaster-rocvery.md)
+- [Business continuity: Disaster recovery](./disaster-recovery.md)
