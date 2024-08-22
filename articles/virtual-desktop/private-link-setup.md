@@ -22,7 +22,9 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
 
-- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+- A supported app on a local device to access a remote session:
+   - Remote Desktop app on any platform. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+   - Windows App on macOS or iOS/iPadOS.
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
