@@ -14,8 +14,8 @@ ms.reviewer: gardnerjr
 
 Workbooks can extract data from these data sources:
 
- - [Logs (Analytics Tables), Application Insights](#logs-analytics-tables-application-insights)
- - [Logs (Basic, Auxiliary)](#logs-basic-and-auxiliary-tables)
+ - [Logs (Analytics Tables, Application Insights)](#logs-analytics-tables-application-insights)
+ - [Logs (Basic, Auxiliary Tables)](#logs-basic-and-auxiliary-tables)
  - [Metrics](#metrics)
  - [Azure Resource Graph](#azure-resource-graph)
  - [Azure Resource Manager](#azure-resource-manager)
@@ -29,9 +29,9 @@ Workbooks can extract data from these data sources:
  - [Change Analysis](#change-analysis)
  - [Prometheus](#prometheus)
 
-## Logs (Analytics Tables), Application Insights
+## Logs (Analytics Tables, Application Insights)
 
-With workbooks, you can query logs from the following sources:
+With workbooks, you can use the `Logs (Analytics)` data source query logs from the following sources:
 
 * Azure Monitor Logs (Application Insights resources and Log Analytics workspaces analytics tables)
 * Resource-centric data (activity logs)
@@ -50,11 +50,11 @@ Tutorial: [Making resource centric log queries in workbooks](workbooks-create-wo
 
 ## Logs (Basic and Auxiliary Tables)
 
-Workbooks also supports querying Log Analytics Basic and Auxiliary tables through a separate "Logs (basic)" data source. Basic and Auxiliary logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store with some limitations. 
+Workbooks also supports querying Log Analytics Basic and Auxiliary tables through a separate `Logs (Basic)` data source. Basic and Auxiliary logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store with some limitations. 
 
 
 > [!NOTE]
-> Basic and Auxiliary logs and the workbook data source has limitations compared to the Log (Analytics) data source, most notably
+> Basic and Auxiliary logs and the workbook `Logs (Basic)` data source have limitations compared to the `Log (Analytics)` data source, most notably
 >  * *Extra cost*, including per-query costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
 > * Basic logs does not support the full KQL language
 > * Basic logs only operates on single Log Analyics Workspace, it does not have cross-resource or resource centric query support.
@@ -76,7 +76,7 @@ Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can 
 
 Workbooks support querying for resources and their metadata by using Azure Resource Graph. This functionality is primarily used to build custom query scopes for reports. The resource scope is expressed via a KQL subset that Resource Graph supports, which is often sufficient for common use cases.
 
-To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
+To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then choose at which level of data you wish to target, either Subscriptions, Management groups, or the entire Tenant/Directory. Then select the subscriptions to target.  Use **Query control** to add the Resource Graph KQL query that selects an interesting resource subset.
 <!-- convertborder later -->
 :::image type="content" source="./media/workbooks-data-sources/azure-resource-graph.png" lightbox="./media/workbooks-data-sources/azure-resource-graph.png" alt-text="Screenshot that shows an Azure Resource Graph KQL query." border="false":::
 
