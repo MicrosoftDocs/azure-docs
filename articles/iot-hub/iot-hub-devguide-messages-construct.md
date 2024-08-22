@@ -82,7 +82,7 @@ A common use of application properties is to send a timestamp from the device us
 
 ```json
 {
-  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "applicationId":"00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource":"telemetry",
   "deviceId":"sample-device-01",
   "schema":"default@v1",

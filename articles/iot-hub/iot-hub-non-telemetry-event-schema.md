@@ -96,7 +96,7 @@ The following JSON shows a device connection state event emitted when a device d
             "system": {
                 "content_encoding": "utf-8",
                 "content_type": "application/json",
-                "correlation_id": "98dcbcf6-3398-c488-c62c-06330e65ea98",
+                "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd",
                 "user_id": "contoso-routing-hub"
             },
             "application": {
