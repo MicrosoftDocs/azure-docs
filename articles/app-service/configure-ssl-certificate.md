@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 07/28/2023
+ms.date: 08/22/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
