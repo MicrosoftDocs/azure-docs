@@ -32,7 +32,7 @@ FSLogix profile containers address many user profile challenges. Key among them 
 
 - **Performance:** The [FSLogix profile containers](/fslogix/configure-profile-container-tutorial/) are high performance and resolve performance issues that have historically blocked cached exchange mode.
 
-- **OneDrive:** Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent VDI environments.
+- **OneDrive:** Without FSLogix profile containers, OneDrive is not supported in non-persistent VDI environments.
 
 - **Additional folders:** FSLogix profile containers provides the ability to extend user profiles to include additional folders.
 
