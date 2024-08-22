@@ -205,7 +205,7 @@ and is enforced by the _Boot Diagnostics should be enabled on virtual machines_ 
 
 Azure Boot Diagnostics is a debugging feature for Azure virtual machines (VM) that allows
 diagnosis of VM boot failures by collecting serial log information and screenshots during
-the boot process. It's configurable either through an ARM template or a custom Azure Policy. Learn more [here][04]
+the boot process. It's configurable either through an ARM template or a custom Azure Policy. Learn more [here][04].
 
 ### Log Analytics Workspace
 
