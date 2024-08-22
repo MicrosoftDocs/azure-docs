@@ -76,18 +76,26 @@ You can also call these methods to update device twins:
 * Call [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace device twin tags and desired properties.
 * Call [update_twin](/en-us/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to update device twin tags and desired properties.
 
-### Incoming desired twin patch handler
+### Incoming desired properties patch handler
 
 Use [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?view=azure-python&#azure-iot-device-iothubdeviceclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
 
-This example sets up a desired properties patch handler called `DesiredPropertiesPatchHandler`.
+This example sets up a desired properties patch handler named `twin_patch_handler`.
 
 ```python
-#Define the desired properties patch handler
-device_client.on_twin_desired_properties_patch_received (DesiredPropertiesPatchHandler)
+try:
+    # Set handlers on the client
+    device_client.on_twin_desired_properties_patch_received = twin_patch_handler
+except:
+    # Clean up in the event of failure
+    client.shutdown()
 
-def DesiredPropertiesPatchHandler (desiredPropertyUpdate):
-    print ( 'Received message: {0}'.format(desiredPropertyUpdate) )
+The twin_patch_handler receives and prints the JSON patch.
+
+    # Define behavior for receiving twin desired property patches
+    def twin_patch_handler(twin_patch):
+        print("Twin patch received:")
+        print(twin_patch)
 ```
 
 ### SDK samples
@@ -132,15 +140,14 @@ iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CO
 
 You can update device twin tags and desired properties from a backend application.
 
-To apply a patch to a device twin:
+Call [get_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-twin) to get the current version of the device twin.
 
-* Create a patch in JSON format. The patch can contain tags and desired properties.
+Use the [Twin](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.twin(class)) class to add tags and properties.
 
-* Call [get_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-twin) to get the current version of the device twin.
+* tags are stored in a [dict](https://docs.python.org/3/library/stdtypes.html#dict) object
+* properties are stored in a [TwinProperties](/en-us/python/api/azure-iot-hub/azure.iot.hub.protocol.models.twinproperties) object
 
-* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags of a device twin.
-
-This example updates `region` and `plant` tag information.
+This example updates `region` and `plant` tag information. and sets a `power_level` desired property to `1`.
 
 ```python
 new_tags = {
@@ -155,6 +162,8 @@ twin = iothub_registry_manager.get_twin(DEVICE_ID)
 twin_patch = Twin(tags=new_tags, properties= TwinProperties(desired={'power_level' : 1}))
 twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 ```
+
+Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags of a device twin.
 
 ### Create a device twin query
 
