@@ -63,10 +63,10 @@ The Contoso Operations team needs to have access to all the logs that they curre
 Constoso's solution includes the following considerations:
 
 - Contoso already has an existing workspace, and they'd like to explore enabling Microsoft Sentinel in that same workspace.
-- Contoso has regulatory requirements, so we need at least one Microsoft Sentinel workspace in Europe.
-- Contoso has two different Microsoft Entra tenants, and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, so we need at least one workspace per tenant.
-- Contoso does need to collect non-SOC data, although there isn't any overlap between SOC and non-SOC data. Also, SOC data accounts for approximately 250 GB/day, so they should use separate workspaces for the sake of cost efficiency.
-- Most Contoso's VMs are the EU North region, where they already have a workspace. Therefore, in this case, bandwidth costs aren't a concern.
+- Contoso has [regulatory requirements](/azure/azure-monitor/logs/workspace-design#azure-regions), so we need at least one Microsoft Sentinel workspace in Europe.
+- Most of Contoso's VMs are the EU North region, where they already have a workspace. Therefore, in this case, bandwidth costs aren't a concern.
+- Contoso has [two different Microsoft Entra tenants](/azure/azure-monitor/logs/workspace-design#multiple-tenant-strategies), and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, and we need at least one workspace per tenant.
+- Contoso does need to collect [non-SOC data](/azure/azure-monitor/logs/workspace-design#operational-and-security-data), although there isn't any overlap between SOC and non-SOC data. Also, SOC data accounts for approximately 250 GB/day, so they should use separate workspaces for the sake of cost efficiency.
 - Contoso has a single SOC team that will be using Microsoft Sentinel, so no extra separation is needed.
 - All members of Contoso's SOC team will have access to all the data, so no extra separation is needed.
 
@@ -132,7 +132,7 @@ Fabrikam's solution includes the following considerations:
 
 - Fabrikam has a single-tenant environment, and wouldn't need separate workspaces per tenant.
 
-- However, Fabrikam will need separate workspaces for their SOC and Operations teams.
+- However, Fabrikam will need separate workspaces for their [SOC and Operations teams](/azure/azure-monitor/logs/workspace-design#operational-and-security-data).
 
     The Fabrikam Operations team needs to collect performance data, from both VMs and AKS. Since AKS is based on diagnostic settings, they can select specific logs to send to specific workspaces. Fabrikam can choose to send AKS audit logs to the Microsoft Sentinel workspace, and all AKS logs to a separate workspace, where Microsoft Sentinel isn't enabled. In the workspace where Microsoft Sentinel isn't enabled, Fabrikam will enable the Container Insights solution.
 
@@ -140,7 +140,7 @@ Fabrikam's solution includes the following considerations:
 
     Fabrikam chooses to consider their overlapping data, such as security events and Azure activity events, as SOC data only, and sends this data to the workspace with Microsoft Sentinel.
 
-- Fabrikam needs to control access for overlapping data, including security events and Azure activity events, but there's no row-level requirement. Since security events and Azure activity events aren't custom logs, Fabrikam can use table-level RBAC to grant access to these two tables for the Operations team.
+- Fabrikam needs to control access for overlapping data, including security events and Azure activity events, but there's no row-level requirement. Since security events and Azure activity events aren't custom logs, Fabrikam can use [table-level RBAC](/azure/azure-monitor/logs/workspace-design#data-access-control) to grant access to these two tables for the Operations team.
 
 The resulting Microsoft Sentinel workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
@@ -186,7 +186,7 @@ Azure VMs are scattered across the three continents, but bandwidth costs aren't 
 
 Adventure Works has a single, centralized SOC team that oversees security operations for all the different sub-entities.
 
-Adventure Works also has three independent SOC teams, one for each of the continents. Each continent's SOC team should be able to access only the data generated within its region, without seeing data from other continents. For example, the Asia SOC team should only access data from Azure resources deployed in Asia, Microsoft Entra Sign-ins from the Asia tenant, and Defender for Endpoint logs from it’s the Asia tenant.
+Adventure Works also has three independent SOC teams, one for each of the continents. Each continent's SOC team should be able to access [only the data generated within its region](/azure/azure-monitor/logs/workspace-design#azure-regions), without seeing data from other continents. For example, the Asia SOC team should only access data from Azure resources deployed in Asia, Microsoft Entra Sign-ins from the Asia tenant, and Defender for Endpoint logs from it’s the Asia tenant.
 
 Each continent's SOC team needs to access the full Microsoft Sentinel portal experience.
 
@@ -236,6 +236,7 @@ In this example, you'd have a cost savings of $1,000 per month by combining both
 
 This example is relevant only when both SOC and non-SOC data each have an ingestion size of >=50 GB/day and <100 GB/day.
 
+For more information, see [Operational and security data](/azure/azure-monitor/logs/workspace-design#operational-and-security-data).
 
 ## Next steps
 
