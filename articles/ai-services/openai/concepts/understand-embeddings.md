@@ -39,3 +39,5 @@ An alternative method of identifying similar documents is to count the number of
 
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Store your embeddings and perform vector (similarity) search using [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/vector-search), [Azure Cosmos DB for NoSQL](/azure/cosmos-db/rag-data-openai) ,  [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search) or [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector).
+* Use an Eventhouse in Real-Time Intelligence in Microsoft Fabric as a [Vector database](/fabric/real-time-intelligence/vector-database)
+    * Use the [series_cosine_similarity](/kusto/query/series-cosine-similarity-function?view=microsoft-fabric) function for similarity search.
