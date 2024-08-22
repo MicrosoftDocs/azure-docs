@@ -26,7 +26,7 @@ You can use batch model deployments for processing tabular data, but also any ot
 
 ## About this sample
 
-The model that this article works with was built using TensorFlow along with the RestNet architecture. For more information, see [Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027). You can download [a sample of this model](https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip). The model has the following constraints:
+This article uses a model that was built using TensorFlow along with the RestNet architecture. For more information, see [Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027). You can download [a sample of this model](https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip). The model has the following constraints:
 
 - It works with images of size 244x244 (tensors of `(224, 224, 3)`).
 - It requires inputs to be scaled to the range `[0,1]`.
@@ -156,7 +156,7 @@ This code is the *code/score-by-file/batch_driver.py* file:
 > [!NOTE]
 > If you want to deploy a generative model, which generates files, learn how to author a scoring script: [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
 
-### Creating the deployment
+### Create the deployment
 
 After you create the scoring script, create a batch deployment for it. Use the following procedure:
 
