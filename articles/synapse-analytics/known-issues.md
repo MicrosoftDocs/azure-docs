@@ -231,7 +231,7 @@ The following are known issues with the Synapse Spark.
 
 ### Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime
 
-The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export?tabs=scala%2Cscala1%2Cscala2%2Cscala3%2Cscala4%2Cscala5), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
+The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
 
 `com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
 
