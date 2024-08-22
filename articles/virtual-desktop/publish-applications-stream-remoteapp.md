@@ -124,10 +124,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add applications to a RemoteApp application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add applications to a RemoteApp application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -281,20 +278,19 @@ Here's how to publish a Microsoft Store application using the Windows user inter
 
 # [Azure PowerShell](#tab/powershell)
 
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to publish a Microsoft Store application using PowerShell and Azure PowerShell. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
 2. You also need to connect to a session host to run PowerShell commands as an administrator. On a session host, get a list of installed applications from the Microsoft Store by running the following commands:
 
-   ```azurepowershell
+   ```powershell
    Get-AppxPackage -AllUsers | Sort-Object Name | Select-Object Name, PackageFamilyName
    ```
 
 3. Make a note of the value for `PackageFamilyName`, then run the following command to get the `AppId` value:
 
-   ```azurepowershell
+   ```powershell
    $packageFamilyName = '<PackageFamilyName>'
    
    (Get-AppxPackage -AllUsers | ? PackageFamilyName -eq $packageFamilyName | Get-AppxPackageManifest).Package.Applications.Application.Id
@@ -317,7 +313,7 @@ Here's how to publish a Microsoft Store application using the Windows user inter
    New-AzWvdApplication @parameters
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name
