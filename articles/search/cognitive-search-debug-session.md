@@ -23,19 +23,19 @@ This article explains supported scenarios and how the editor is organized. Tabs 
 
 Use Debug Sessions to investigate and resolve problems with:
 
-+ Built-in skills used for [AI enrichment](cognitive-search-concept-intro.md) (OCR, image analysis, Entity Recognition, Sentiment Analysis, Keyword Extraction).
++ Built-in skills used for [AI enrichment](cognitive-search-concept-intro.md), such as OCR, image analysis, entity recognition, and keyword extraction.
 
 + Built-in skills used for [integrated vectorization](vector-search-integrated-vectorization.md), with data chunking through Text Split, and vectorization through an embedding skill.
 
 + Custom skills used to integrate external processing that you provide.
 
-Compare the following images for the first two scenarios. The surface area shows the progression of skills that generate or transform content en route from the source document to the search index. The flow includes index mapping options, and you can trace the arrows to follow the processing trails. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
+Compare the following debug session images for the first two scenarios. For both scenarios, the surface area shows the progression of skills that generate or transform content en route from the source document to the search index. The flow includes index mapping options, and you can trace the arrows to follow the processing trail. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
 
 The first image shows a pattern for applied AI enrichment. Skills can run sequentially or in parallel if there are no dependencies. Output field mappings send enriched or generated content from in-memory data structures to fields in an index. 
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-flow-applied-ai.png" alt-text="Screenshot of a debug session for OCR and image analysis." lightbox="media/cognitive-search-debug/debug-session-flow-applied-ai.png":::
 
-Skills for integrated vectorization typically include Text Split and an embedding skill. A Text Split skills chunks a document into pages. Projection mappings control parent-chunk indexing. This skillset skips the parent index and creates an index with just chunked content, using metadata to identify the source of the chunk.
+The second image shows a typical pattern for integrated vectorization. Skills for integrated vectorization usually includes Text Split and an embedding skill. A Text Split skill chunks a document into pages. An embedding skills provides vectorization. Projection mappings control how chunks of content are index. This particular skillset skips the parent index and creates an index of just chunked content, using metadata to identify the source of the chunk.
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png" alt-text="Screenshot of a debug session for integrated vectorization." lightbox="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png":::
 
@@ -75,15 +75,15 @@ Follow the links to drill further into skills processing. For example, the follo
 
 ### Skill details pane
 
-Skill details have the following sections.
+The **Skill details** pane has the following sections:
 
-+ **Iterations**: Show you how many times a skill executes. You can check the inputs and outputs of each one.
++ **Iterations**: Shows you how many times a skill executes. You can check the inputs and outputs of each one.
 + **Skill Settings**: View or edit the JSON skillset definition.
 + **Errors and warnings**: Shows the errors or warnings specific to this skill.
 
-## Enriched Data Structure
+### Enriched data structure pane
 
-The **Enriched Data Structure** pane slides out to the side when you select the blue show or hide arrow symbol. It's human readable representation of what the enriched document contains. Previous screenshots in this article show examples of the enriched data structure.
+The **Enriched Data Structure** pane slides out to the side when you select the blue show or hide arrow symbol. It's a human readable representation of what the enriched document contains. Previous screenshots in this article show examples of the enriched data structure.
 
 ## Next steps
 
