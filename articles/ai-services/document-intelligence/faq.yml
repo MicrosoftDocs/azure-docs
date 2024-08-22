@@ -140,7 +140,9 @@ sections:
          When I upload a file in Document Intelligence Studio by "Fetch from URL" function, can I use a URL from my blob storage?
 
         answer: |
-         Yes if it's a URL with sas token and your storage account is accessible from public network.  Fetching from URL does not work for storage account with key access disabled or behind firewall/VNet.
+         **Yes.** 
+         
+         If your Azure blob storage URL includes a SAS token and is accessible from public networks.  You cannot use the **Fetch** function for storage accounts where the key access is disabled or behind a firewall/VNet.
 
       - question: |
           Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
