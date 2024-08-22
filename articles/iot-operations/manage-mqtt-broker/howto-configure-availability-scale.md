@@ -25,12 +25,7 @@ You can horizontally scale the MQTT broker by adding more frontend replicas and 
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
-
-The `mode` field can be one of these values:
-
-- `auto`: This value indicates that MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware. The default value is *auto* and used for most scenarios.
-- `distributed`: This value indicates that you can manually specify the number of frontend pods and backend chains in the `cardinality` field. This option gives you more control over the deployment, but requires more configuration.
+To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 The `cardinality` field is a nested field that has these subfields:
 
@@ -41,6 +36,10 @@ The `cardinality` field is a nested field that has these subfields:
   - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
   - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+
+If `cardinality` field is omitted, cardinality is determined by MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware.
+
+To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 ## Configure memory profile
 
@@ -115,7 +114,6 @@ metadata:
   namespace: azure-iot-operations
 spec:
   memoryProfile: medium
-  mode: distributed
   cardinality:
     backendChain:
       partitions: 2

@@ -186,7 +186,8 @@ spec:
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-mq-dmqtt-frontend'
   port: 8884 # Avoid conflicts with default port 8883
   tls:
-    automatic:
+    mode: Automatic
+    certManagerCertificateSpec:
       issuerRef:
         name: my-issuer
         kind: Issuer
@@ -261,7 +262,7 @@ Replace `$HOST` with the appropriate host:
 
 Remember to specify authentication methods if needed.
 
-## Default root CA and issuer with Azure IoT Operations Preview
+## Default root CA and issuer
 
 To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
 

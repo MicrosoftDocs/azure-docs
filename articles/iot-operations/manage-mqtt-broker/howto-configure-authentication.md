@@ -18,6 +18,15 @@ ms.date: 08/19/2024
 
 MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
+## Link BrokerListener and BrokerAuthentication
+
+The following rules apply to the relationship between BrokerListener and BrokerAuthentication:
+
+* Each BrokerListener can have multiple ports. Each port can be linked to a BrokerAuthentication resource. 
+* Each BrokerAuthentication can support multiple authentication methods at once.
+
+To link a BrokerListener to a BrokerAuthentication resource, specify the `authenticationRef` field in the `ports` setting of the BrokerListener resource. To learn more, see [BrokerListener resource](./howto-configure-brokerlistener.md).
+
 ## Default BrokerAuthentication resource
 
 Azure IoT Operations Preview deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
@@ -36,20 +45,16 @@ metadata:
   namespace: azure-iot-operations
 spec:
   authenticationMethods:
-  - method: ServiceAccountToken
-    serviceAccountToken:
-      audiences:
-      - aio-mq
+    - method: ServiceAccountToken
+      serviceAccountTokenSettings:
+        audiences:
+          - aio-mq
 ```
 
+> [!IMPORTANT]
+> The service account token (SAT) authentication method in the default BrokerAuthentication resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default BrokerAuthentication resource. If you must change the configuration, modify the `authenticationMethods` field in this BrokerAuthentication resource but do not remove the SAT authentication method with the `aio-mq` audience. Preferably, create a new BrokerAuthentication resource with a different name and deploy it using `kubectl apply`.
+
 To change the configuration, modify the `authenticationMethods` setting in this BrokerAuthentication resource or create new brand new BrokerAuthentication resource with a different name. Then, deploy it using `kubectl apply`.
-
-## Relationship between BrokerListener and BrokerAuthentication
-
-The following rules apply to the relationship between BrokerListener and BrokerAuthentication:
-
-* Each BrokerListener can have multiple ports. Each port can be linked to a BrokerAuthentication resource. 
-* Each BrokerAuthentication can support multiple authentication methods at once
 
 ## Authentication flow
 
@@ -78,13 +83,13 @@ metadata:
 spec:
   authenticationMethods:
     - method: Custom
-      custom:
+      customSettings:
         # ...
     - method: ServiceAccountToken
-      serviceAccountToken:
+      serviceAccountTokenSettings:
         # ...
-    - method: x509Credentials
-      x509Credentials:
+    - method: X509
+      x509Settings:
         # ...
 ```
 
@@ -106,20 +111,9 @@ For testing, you can disable authentication by omitting `authenticationRef` in t
 
 To learn more about each of the authentication options, see the following sections:
 
-## X.509 client certificate
+## X.509
 
-### Prerequisites
-
-- MQTT broker configured with [TLS enabled](howto-configure-brokerlistener.md).
-- [Step-CLI](https://smallstep.com/docs/step-cli/installation/)
-- Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some.
-- Familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates.
-
-Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs.
-
-### Import trusted client root CA certificate
-
-A trusted root CA certificate is required to validate the client certificate. To import a root certificate that can be used to validate client certificates, first import the certificate PEM as ConfigMap under the key `client_ca.pem`. Client certificates must be rooted in this CA for MQTT broker to authenticate them.
+First, a trusted root CA certificate is required to validate the client certificate. Client certificates must be rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs. To import a root certificate that can be used to validate client certificates, import the certificate PEM as ConfigMap under the key `client_ca.pem`. For example:
 
 ```bash
 kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
@@ -147,20 +141,27 @@ BinaryData
 ====
 ```
 
-### Certificate attributes
-
-X509 attributes can be specified in the *BrokerAuthentication* resource. For example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed.
+Once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding it as one of the authentication methods as part of a BrokerAuthentication resource linked to a TLS-enabled listener. For example:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-kind: BrokerAuthentication
-metadata: 
-  name: authn
-  namespace: azure-iot-operations
 spec:
   authenticationMethods:
-    - method: x509Credentials
-      x509Credentials:
+    - method: X509
+      x509Settings:
+        trustedClientCaCert: client-ca
+        authorizationAttributes:
+        # ...
+```
+
+### Certificate attributes for authorization
+
+X.509 attributes can be specified in the *BrokerAuthentication* resource, and they're used to authorize clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field. For example:
+
+```yaml
+spec:
+  authenticationMethods:
+    - method: X509
+      x509Settings:
         authorizationAttributes:
           root:
             subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
@@ -181,21 +182,7 @@ In this example, every client that has a certificate issued by the root CA `CN =
 
 The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
-Authorization rules can be applied to clients using X.509 certificates with these attributes.
-
-### Enable X.509 client authentication
-
-Finally, once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding `x509` as one of the authentication methods as part of a BrokerAuthentication resource linked to a TLS-enabled listener. For example:
-
-```yaml
-spec:
-  authenticationMethods:
-    - method: x509Credentials
-      x509Credentials:
-        trustedClientCaCert: client-ca
-        attributes:
-          secretName: x509-attributes
-```
+Authorization rules can be applied to clients using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md).
 
 ### Connect mosquitto client to MQTT broker with X.509 client certificate
 
@@ -269,10 +256,10 @@ Modify the `authenticationMethods` setting in a BrokerAuthentication resource to
 spec:
   authenticationMethods:
     - method: ServiceAccountToken
-      serviceAccountToken:
+      serviceAccountTokenSettings:
         audiences:
         - aio-mq
-        -  my-audience
+        - my-audience
 ```
 
 Apply your changes with `kubectl apply`. It might take a few minutes for the changes to take effect.
