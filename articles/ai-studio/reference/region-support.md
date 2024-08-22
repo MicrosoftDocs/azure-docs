@@ -20,7 +20,7 @@ Azure AI Studio brings together various Azure AI capabilities that previously we
 
 ## Azure Public regions
 
-Azure AI Studio is currently available in preview in the following Azure regions. You can create [Azure AI Studio hubs](../how-to/create-azure-ai-resource.md) and Azure AI Studio projects in these regions.
+Azure AI Studio is currently available in the following Azure regions. You can create [Azure AI Studio hubs](../how-to/create-azure-ai-resource.md) and Azure AI Studio projects in these regions.
 
 - Australia East
 - Brazil South
@@ -45,7 +45,7 @@ Azure AI Studio is currently available in preview in the following Azure regions
 
 ### Azure Government regions
 
-Azure AI Studio preview is currently not available in Azure Government regions or air-gap regions.
+Azure AI Studio is currently not available in Azure Government regions or air-gap regions.
 
 ## Azure OpenAI
 
