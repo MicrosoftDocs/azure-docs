@@ -112,7 +112,7 @@ When using the text-to-speech avatar feature, charges will be incurred based on 
 
 ## Monitor Azure text to speech metrics
 
-Monitoring key metrics associated with text to speech services is crucial for managing resource usage and controlling costs. This section will guide you on how to find usage information in the Azure portal and provide detailed definitions of the key metrics.
+Monitoring key metrics associated with text to speech services is crucial for managing resource usage and controlling costs. This section will guide you on how to find usage information in the Azure portal and provide detailed definitions of the key metrics. For more details on Azure monitor metrics, refer to [Azure Monitor Metrics overview](/azure-monitor/essentials/data-platform-metrics).
 
 ### How to find usage information in the Azure portal
 
@@ -122,7 +122,9 @@ To effectively manage your Azure resources, it's essential to access and review 
 
 1. Navigate to **Resources** and select your resource you wish to monitor.
 
-1. Select **Metrics** under **Monitoring** from the left-hand menu. 
+1. Select **Metrics** under **Monitoring** from the left-hand menu.
+
+   :::image type="content" source="media/text-to-speech/monitoring-metrics.png" alt-text="Screenshot of selecting metrics option under monitoring.":::
 
 1. Customize metric views.
 
@@ -139,7 +141,7 @@ Below is a table summarizing the key metrics for Azure text to speech services.
 | **Metric name**                  | **Description** |
 |----------------------------------|-----------------|
 | **Synthesized Characters**       | Tracks the number of characters converted into speech, including prebuilt neural voice and custom neural voice. For details on billable characters, see [Billable characters](#billable-characters). |
-| **Video Seconds Synthesized**    | Measures the total duration of video synthesized, including batch avatar synthesis, real-time avatar synthesis, and batch custom avatar synthesis.  |
+| **Video Seconds Synthesized**    | Measures the total duration of video synthesized, including batch avatar synthesis, real-time avatar synthesis, and custom avatar synthesis.  |
 | **Avatar Model Hosting Seconds** | Tracks the total time in seconds that your custom avatar model is hosted. |
 | **Voice Model Hosting Hours**    | Tracks the total time in hours that your custom neural voice model is hosted.  |
 | **Voice Model Training Minutes** | Measures the total time in minutes for training your custom neural voice model.   |
