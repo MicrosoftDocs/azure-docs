@@ -50,8 +50,6 @@ Endpoints can be instances of any of these Azure services:
 
 The endpoint is attached to an Azure Digital Twins instance using management APIs or the Azure portal, and can carry data along from the instance to other listening services. For more information about Azure Digital Twins endpoints, see [Endpoints and event routes](concepts-route-events.md).
 
-For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
-
 ### Data history
 
 To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), set up a [data history connection](concepts-data-history.md) that automatically historizes graph updates from your Azure Digital Twins instance to an Azure Data Explorer cluster. The data history connection requires an [event hub](../event-hubs/event-hubs-about.md), but doesn't require an explicit endpoint.
