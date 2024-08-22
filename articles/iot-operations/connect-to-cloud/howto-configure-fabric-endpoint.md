@@ -59,7 +59,7 @@ Configure a dataflow endpoint for Microsoft Fabric OneLake using the Azure Arc-e
 
 ### Use the endpoint in a dataflow destination
 
-Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
+Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
 > Using the Fabric endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.

@@ -67,11 +67,12 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-dataflow.md
-      - name: Configure dataflow
+      - name: Create a dataflow
         href: connect-to-cloud/howto-create-dataflow.md
-      - name: Configure and manage dataflow endpoints
-        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+      - name: Endpoints
         items:
+        - name: Overview
+          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
         - name: MQTT and Event Grid
           href: connect-to-cloud/howto-configure-mqtt-endpoint.md
         - name: Kafka and Event Hub

@@ -124,7 +124,7 @@ spec:
 
 ### Use the endpoint in a dataflow source or destination
 
-Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
+Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-create-dataflow.md).
 
 To customize the MQTT endpoint settings, continue reading.
 
@@ -134,7 +134,7 @@ Under `mqttSettings.authentication`, you can configure the authentication method
 
 ### X.509 certificate
 
-Many MQTT brokers, like Event Grid, support X.509 authentication (see [important note](#using-x509-certificate-authentication-with-event-grid)). Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
+Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
 To use X.509 certificate authentication, you need to create a secret with the certificate and private key. The secret must be in the same namespace as the Kafka dataflow resource. use Kubernetes TLS secret containing the public certificate and private key. For example:
 

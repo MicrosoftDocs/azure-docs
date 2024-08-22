@@ -10,7 +10,7 @@ ms.date: 08/20/2024
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
 ---
 
-# Configure dataflow endpoints
+# Configure local storage dataflow endpoint in Azure IoT Operations
 
 Azure Data Lake endpoints are used for Azure Data Lake destinations. You can configure the endpoint, authentication, table, and other settings.
 
@@ -39,7 +39,7 @@ Here, the PersistentVolumeClaim (PVC) must be in the same namespace as the Dataf
 
 ### Use the endpoint in a dataflow destination
 
-Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-configure-dataflow.md).
+Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
 > Using the local storage endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
