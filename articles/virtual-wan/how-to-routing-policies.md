@@ -108,11 +108,11 @@ If the number of directly connected Virtual Network address spaces connected to 
 
 Request a limit increase if your network has Virtual Network address spaces greater than 90% of the limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past this limit.
  
-The following table provides a few example  Virtual Network address space calculation.
+The following table provides a few example  Virtual Network address space calculations.
 
 |Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to Virtual Hub| Suggested Action|
 |--|--|--|--|--|
-| Hub #1| 200| 1 | 200|  No action required, request limit increase once there are ~350 address spaces.| 
+| Hub #1| 200| 1 | 200|  No action required, monitor address space count.| 
 | Hub #2| 150 | 3 | 450| Request limit increase to enable routing intent.|
 | Hub #3 |370 | 1| 370| Request limit increase.|
 
