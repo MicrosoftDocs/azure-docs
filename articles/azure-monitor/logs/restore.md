@@ -2,7 +2,9 @@
 title: Restore logs in Azure Monitor
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 08/12/2024
+ms.author: guywild
+ms.reviewer: adi.biran
 ---
 
 # Restore logs in Azure Monitor

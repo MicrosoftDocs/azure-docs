@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
@@ -100,7 +100,7 @@ Read the [Azure Compute documentation](/azure/architecture/guide/technology-choi
 
 #### Available network bandwidth 
 
-It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
+It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the network interface card (NIC) itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
 
 As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 Gbps NIC with the egress limit set at 100 Gbps as well. By comparison, the E96_v5, with its 100 Gbps NIC has an egress limit of 35 Gbps with ingress unfettered at 100 Gbps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
 

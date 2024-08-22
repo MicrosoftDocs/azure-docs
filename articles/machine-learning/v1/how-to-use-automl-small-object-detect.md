@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train small object detection models.
 author: PhaniShekhar
 ms.author: phmantri
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021

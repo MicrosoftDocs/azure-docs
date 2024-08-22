@@ -21,8 +21,7 @@ ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
 ## Limitations
-
-* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use an Azure container registry with Public Access set to 'Select Networks' or 'None', visit [ACI's article for using Managed-Identity based authentication with ACR](../container-registry/container-registry-authentication-managed-identity.md).
+* Windows containers don't support system-assigned managed identity-authenticated image pulls with ACR, only user-assigned.
 
 ## Configure registry authentication
 

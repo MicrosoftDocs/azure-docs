@@ -35,14 +35,14 @@ In this part one, you learn how to:
 ## Prerequisites
 
 > [!IMPORTANT]
-> You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
+> You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
 
 - You need to complete the [Build a custom chat app in Python using the prompt flow SDK quickstart](../quickstarts/get-started-code.md) to set up your environment. 
 
     > [!IMPORTANT]
     > This tutorial builds on the code and environment you set up in the quickstart.
 
-- You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
+- You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/tree/main/tutorial/data) to your local machine.
 
 ## Application code structure
 
@@ -224,7 +224,7 @@ You need to set environment variables for the Azure AI Search service and connec
 
 If you don't have an Azure AI Search index already created, we walk through how to create one. If you already have an index to use, you can skip to the [set the search environment variables](#set-search-environment-variables) section. The search index is created on the Azure AI Search service that was either created or referenced in the previous step.
 
-1. Use your own data or [download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine. Unzip the file into your **rag-tutorial** folder. This data is a collection of markdown files that represent product information. The data is structured in a way that is easy to ingest into a search index. You build a search index from this data.
+1. Use your own data or [download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/tree/main/tutorial/data) to your local machine. Unzip the file into your **rag-tutorial** folder. This data is a collection of markdown files that represent product information. The data is structured in a way that is easy to ingest into a search index. You build a search index from this data.
 
 1. The prompt flow RAG package allows you to ingest the markdown files, locally create a search index, and register it in the cloud project. Install the prompt flow RAG package:
 

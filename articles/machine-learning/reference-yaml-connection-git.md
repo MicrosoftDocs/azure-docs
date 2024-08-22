@@ -42,7 +42,7 @@ The `az ml connection` commands can be used to manage both Azure Machine Learnin
 
 ## Examples
 
-Visit [this GitHub resource]() for examples. Several are shown here. These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
+These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
 
 ### YAML: Personal access token
 

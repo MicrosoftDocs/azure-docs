@@ -53,7 +53,7 @@ This example demonstrates the creation process, where the HTTP PUT function that
 
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="7-29" :::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="7-29" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

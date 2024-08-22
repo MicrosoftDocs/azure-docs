@@ -92,7 +92,7 @@ For more information, see [End of Call Survey overview](end-of-call-survey-conce
 
 For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide).
 
-For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../troubleshooting-codes.md). You can use these codes to help determine why a call ended with disruptions.
+For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md). Use these codes to help determine why a call ended.
 
 To ensure smooth functioning of the application and provide better user experience, app developers should follow a checklist. For more information, see the [Checklist for advanced calling experiences in web browsers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-communication-services/checklist-for-advanced-calling-experiences-in-web-browsers/ba-p/3266312). 
 

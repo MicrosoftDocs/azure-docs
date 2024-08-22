@@ -12,9 +12,9 @@ ms.date: 08/05/2024
 
 # Create a vector index
 
-In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create and compress the embedding space, and settings on vector field definitions that are used in query requests. The [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
+In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create and compress the embedding space, and settings on vector field definitions that are used in query requests. 
 
-Follow these steps to index vector data:
+The [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store. Follow these steps to index vector data:
 
 > [!div class="checklist"]
 > + Define a schema with vector algorithms and optional compression
@@ -24,7 +24,7 @@ Follow these steps to index vector data:
 This article explains the workflow and uses REST for illustration. Once you understand the basic workflow, continue with the Azure SDK code samples in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository for guidance on using these features in test and production code.
 
 > [!TIP]
-> Use the Azure portal to [create a vector index](search-get-started-portal-import-vectors.md) and try out integrated vectorization.
+> Use the Azure portal to [create a vector index](search-get-started-portal-import-vectors.md) and try integrated data chunking and vectorization.
 
 ## Prerequisites
 

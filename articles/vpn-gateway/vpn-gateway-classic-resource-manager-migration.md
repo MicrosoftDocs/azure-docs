@@ -6,7 +6,7 @@ services: vpn-gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 08/21/2024
 ms.author: cherylmc
 
 ---

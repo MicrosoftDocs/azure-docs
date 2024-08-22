@@ -9,7 +9,7 @@ ms.date: 10/18/2021
 
 **Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/stable/connectors/index.html) that tap into row-level changes in database tables and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
-This tutorial walks you through how to set up a change data capture based system on Azure using [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure Database for PostgreSQL](../postgresql/overview.md) and Debezium. It uses the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Event Hubs.
+This tutorial walks you through how to set up a change data capture based system on Azure using [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure Database for PostgreSQL](/azure/postgresql/overview) and Debezium. It uses the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Event Hubs.
 
 > [!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -35,7 +35,7 @@ To complete this walk through, you require:
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
 
 ## Set up and configure Azure Database for PostgreSQL
-[Azure Database for PostgreSQL](../postgresql/overview.md) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in three deployment options: Single Server, Flexible Server, and Cosmos DB for PostgreSQL. [Follow these instructions](../postgresql/quickstart-create-server-database-portal.md) to create an Azure Database for PostgreSQL server using the Azure portal. 
+[Azure Database for PostgreSQL](/azure/postgresql/overview) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in three deployment options: Single Server, Flexible Server, and Cosmos DB for PostgreSQL. [Follow these instructions](/azure/postgresql/quickstart-create-server-database-portal) to create an Azure Database for PostgreSQL server using the Azure portal. 
 
 ## Setup and run Kafka Connect
 This section covers the following topics:

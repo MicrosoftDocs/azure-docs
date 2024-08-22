@@ -7,7 +7,7 @@ items:
   - name: What is Azure AI Document Intelligence?
     displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
     href: overview.md
-  - name: Choose a model?
+  - name: Which model should I choose?
     href: choose-model-feature.md
   - name: Document Intelligence Studio
     displayName: get started
@@ -230,9 +230,12 @@ items:
     - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
-    - name: Custom model lifecycle
-      displayName: custom, train, modelId, model ID, expiration, train, build
-      href: concept-custom-lifecycle.md
+    - name: 🆕 Composed models
+      displayName: custom, assign, modelId, model ID
+      href:  concept-composed-models.md
+    - name: 🆕 Incremental classifier
+      displayName: custom, classification, training
+      href: concept-incremental-classifier.md  
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-template.md
@@ -242,18 +245,15 @@ items:
     - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
-    - name: 🆕 Incremental classifier
-      displayName: custom, classification, training
-      href: concept-incremental-classifier.md
     - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
     - name: Custom labeling tips
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
-    - name: Composed models
-      displayName: custom, assign, modelId, model ID
-      href:  concept-composed-models.md
+    - name: Custom model lifecycle
+      displayName: custom, train, modelId, model ID, expiration, train, build
+      href: concept-custom-lifecycle.md
 - name: Code samples
   items:
   - name: "C#/.NET"

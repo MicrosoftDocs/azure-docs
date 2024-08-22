@@ -4,7 +4,7 @@ description: Describes how to add a custom transformation to data flowing throug
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2023
+ms.date: 08/12/2024
 ---
 
 # Tutorial: Add transformation in workspace data collection rule to Azure Monitor using Resource Manager templates

@@ -26,7 +26,6 @@ An Azure account and a multi-service Azure AI services resource are needed to ru
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices"  title="Create an Azure AI services resource"  target="_blank">Create an Azure AI services resource</a> in the Azure portal.
 * Get the resource key and region. After your resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [this quickstart](~/articles/ai-services/multi-service-resource.md?pivots=azportal). 
 
-See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to set up and use the tool.
 
 ## Ingestion Client Features
 

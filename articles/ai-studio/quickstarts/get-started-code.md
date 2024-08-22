@@ -21,7 +21,7 @@ In this quickstart, we walk you through setting up your local development enviro
 ## Prerequisites
 
 > [!IMPORTANT]
-> You must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
+> You must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
 Before you can follow this quickstart, create the resources that you need for your application:
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md) for connecting to external resources.

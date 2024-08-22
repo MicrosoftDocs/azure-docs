@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/05/2024
+ms.date: 08/20/2024
 ms.custom:
   - references_regions
 ---
@@ -23,6 +23,7 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
+| [**Debug session improvements**](cognitive-search-debug-session.md) | feature | There are two important improvements. First, you can now debug integrated vectorization and data chunking workloads. Second, debug sessions has been modified to use a simpler, horizontal layout for skills processing. You can select an object in the flow, and view its details off to the side. The previous tabbed layout is fully replaced with more context-sensitive information on the page. |
 | [**2024-07-01**](/rest/api/searchservice/search-service-api-versions?view=rest-searchservice-2024-07-01&preserve-view=true) | API | Stable release of REST APIs for generally available vector data types, vector compression, and integrated vectorization during indexing and queries. |
 | [**Integrated vectorization**](vector-search-integrated-vectorization.md) | Feature | Announcing general availability. Skills-driven data chunking and embedding during indexing. |
 | [**Vectorizers**](vector-search-how-to-configure-vectorizer.md) | Feature  | Announcing general availability. Text-to-vector conversion during query execution. Both [Azure OpenAI vectorizer](vector-search-vectorizer-azure-open-ai.md) and [custom Web API vectorizer](vector-search-vectorizer-custom-web-api.md) are generally available. |
@@ -38,9 +39,9 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-[Chat with your data](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) | Accelerator| A solution accelerator for the RAG pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to create conversational search experiences. The code with sample data is available for use case scenarios such as financial advisor and contract review and summarization.|
-[Conversational Knowledge Mining](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services) | Accelerator|	A solution accelerator built on top of Azure AI Search, Azure Speech and Azure OpenAI services that allows customers to extract actionable insights from post-contact center conversations. |
-[Build Your Own AI Assistant](https://github.com/microsoft/Build-your-own-AI-Assistant-Solution-Accelerator) | Accelerator| A solution built on Azure Open AI Service, Azure AI Search and Microsoft Fabric, to identify relevant documents, summarize and categorize vast amounts of unstructured information, and accelerate the overall document review and content generation process. |
+| [Chat with your data](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) | Accelerator| A solution accelerator for the RAG pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to create conversational search experiences. The code with sample data is available for use case scenarios such as financial advisor and contract review and summarization.|
+| [Conversational Knowledge Mining](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services) | Accelerator| A solution accelerator built on top of Azure AI Search, Azure Speech and Azure OpenAI services that allows customers to extract actionable insights from post-contact center conversations. |
+| [Build your own copilot](https://github.com/microsoft/Build-your-own-AI-Assistant-Solution-Accelerator) | Accelerator| Create your own custom copilot solution that empowers [Client Advisor](https://github.com/microsoft/Build-your-own-copilot-Solution-Accelerator/blob/main/ClientAdvisor/README.md) to harness the power of generative AI across both structured and unstructured data. Help our customers to optimize daily tasks and foster better interactions with more clients.  |
 
 ## June 2024
 

@@ -3,7 +3,7 @@ title: View and enable diagnostic settings in FHIR service - Azure Health Data S
 description: This article describes how to enable diagnostic settings in FHIR service and review some sample queries for audit logs.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: kesheth

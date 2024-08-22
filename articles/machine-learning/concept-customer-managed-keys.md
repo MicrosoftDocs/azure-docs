@@ -57,7 +57,7 @@ When you use a customer-managed key, the resources are in your Azure subscriptio
 These Microsoft-managed resources are located in a new Azure resource group created in your subscription. This resource group is separate from the resource group for your workspace. It contains the Microsoft-managed resources that your key is used with. The formula for naming the resource group is: `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
-> The [Request Units](../cosmos-db/request-units.md) for Azure Cosmos DB automatically scale as needed.
+> The [Request Units](/azure/cosmos-db/request-units) for Azure Cosmos DB automatically scale as needed.
 
 If your Azure Machine Learning workspace uses a private endpoint, this resource group also contains a Microsoft-managed Azure virtual network. This virtual network helps secure communication between the managed services and the workspace. You *can't provide your own virtual network* for use with the Microsoft-managed resources. You also *can't modify the virtual network*. For example, you can't change the IP address range that it uses.
 

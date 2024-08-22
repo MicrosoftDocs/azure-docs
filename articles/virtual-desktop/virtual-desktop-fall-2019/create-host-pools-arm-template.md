@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) host pool Azure Resource Manager - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with an Azure Resource Manager template.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, docs_inherited
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
 ---
 # Create a host pool in Azure Virtual Desktop (classic) with an Azure Resource Manager template
 

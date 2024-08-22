@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including Ultra Disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 08/06/2024
+ms.date: 08/12/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -51,6 +51,8 @@ Ultra disks must be used as data disks and can only be created as empty disks. Y
 ### Ultra disk size
 
 Ultra Disks offer up to 100 TiB per region per subscription by default, but Ultra Disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+
+Ultra Disk sizes work like Premium SSD, Standard SSD, and Standard HDD sizes. When you create or modify an Ultra Disk, the size you set is billed as the next largest provisioned disk size. So if you were to deploy a 200 GiB Ultra Disk or set a 200 GiB Ultra Disk, you'll have a 200 GiB Ultra Disk that's billed as if it was 256 GiB, since that's the next largest provisioned disk size.
 
 The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
 
