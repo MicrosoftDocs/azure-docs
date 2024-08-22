@@ -8,9 +8,9 @@ ms.reviewer: cogoodson
 
 # Application Insights availability tests
 
-[Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness from various points around the world. These tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
+[Application Insights](./app-insights-overview.md) enables you to set up recurring web tests that monitor your website or application's availability and responsiveness from various points around the world. These availability tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
 
-Availability tests don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality. You can create up to 100 availability tests per Application Insights resource.
+Availability tests don't require any modifications to the website or application you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality. You can create up to 100 availability tests per Application Insights resource.
 
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
@@ -492,9 +492,9 @@ Set custom headers in [standard availability tests](availability-standard-tests.
 
 1. Create an alphanumeric string without spaces to identify this availability test (for example, MyAppAvailabilityTest). From here on we refer to this string as the *availability test string identifier*.
 
-1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<your availability test string identifier>` under the **Standard test info** section when creating or updating your availability tests.\
+1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<your availability test string identifier>` under the **Standard test info** section when creating or updating your availability tests.
 
-    :::image type="content" source="media/availability/custom-validation-header.png" alt-text="Screenshot that shows custom validation header.":::
+    :::image type="content" source="media/availability/custom-header.png" alt-text="Screenshot that shows custom validation header.":::
 
 1. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
 
