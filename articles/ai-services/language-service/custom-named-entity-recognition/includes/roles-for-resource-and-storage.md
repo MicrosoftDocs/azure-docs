@@ -39,7 +39,7 @@ Use the following steps to set the required roles for your Language resource and
 
 ### Roles for your user
 > [!IMPORTANT]
-> If you skip this step you will have a 403 error when trying to connect to your custom project, it is important that your current user has this role to access storage account blob data even if you are the owner of the storage account.
+> If you skip this step, you'll have a 403 error when trying to connect to your custom project. It's important that your current user has this role to access storage account blob data, even if you're the owner of the storage account.
 > 
 1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
