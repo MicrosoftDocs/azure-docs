@@ -22,6 +22,6 @@ Users who are provisioned to a specific chamber can access all shared storage vo
 
 **Management**: Workbench Owners can manage storage capacity, resize storage, and change performance tiers through the Azure portal.
 
-## Next step
+## Related content
 
 - [Business continuity: Disaster recovery](./disaster-rocvery.md)

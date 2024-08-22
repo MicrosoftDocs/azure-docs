@@ -67,7 +67,7 @@ You can now do your work in the new workbench instance created in the backup reg
 
 Once your primary region is up and operating, and you no longer need your backup instance, you can delete it.
 
-## Related information
+## Related content
 
 - [Backup and disaster recovery for Azure applications](/azure/reliability/cross-region-replication-azure)
 
