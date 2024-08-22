@@ -280,7 +280,7 @@ Public certificates are supported in the *.cer* format.
 
 Before a certificate expires, make sure to add the renewed certificate to App Service, and update any certificate bindings where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](configure-ssl-app-service-certificate.md), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. Based on your scenario, review the corresponding section:
 
-- [Renew an uploaded certificate](#renew-uploaded-certificate)
+- [Renew an uploaded certificate](#renew-an-uploaded-certificate)
 - [Renew an App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate)
 - [Renew a certificate imported from Key Vault](#renew-a-certificate-imported-from-key-vault)
 
