@@ -192,7 +192,7 @@ The following guides show you how to access data and perform specific actions us
 | [Copy blobs](storage-blob-copy-java.md) | Copy a blob from one location to another. |
 | [Create a container](storage-blob-container-create-java.md) | Create blob containers. |
 | [Create a user delegation SAS (blobs)](storage-blob-user-delegation-sas-create-java.md) | Create a user delegation SAS for a blob. |
-| [Create a user delegation SAS (containers))](storage-blob-container-user-delegation-sas-create-java.md) | Create a user delegation SAS for a container. |
+| [Create a user delegation SAS (containers)](storage-blob-container-user-delegation-sas-create-java.md) | Create a user delegation SAS for a container. |
 | [Create and manage blob leases](storage-blob-lease-java.md) | Establish and manage a lock on a blob. |
 | [Create and manage container leases](storage-blob-container-lease-java.md) | Establish and manage a lock on a container. |
 | [Delete and restore](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
