@@ -203,7 +203,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset will be retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
 
 > [!IMPORTANT]
@@ -344,8 +344,8 @@ The Salesforce Service Cloud connector offers new functionalities and is compati
 |Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Objects that contain binary fields aren't supported. You can use the latest Self-hosted integration runtime or Azure integration runtime to support it.| Objects that contain binary fields are supported, like Attachment object.|
-|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1). You can use the latest Self-hosted integration runtime or Azure integration runtime to support objects without Bulk API.|Support objects that aren't supported by Bulk API, like CaseStatus.|
+| Objects that contain binary fields are supported when using Azure integration runtime or Self-hosted integration runtime with version 5.44.8984.1 or above.| Objects that contain binary fields are supported, like Attachment object.|
+| Support objects when using Azure integration runtime or Self-hosted integration runtime with version 5.44.8984.1 or above. |Support objects that aren't supported by Bulk API, like CaseStatus.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
