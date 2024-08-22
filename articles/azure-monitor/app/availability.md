@@ -8,9 +8,9 @@ ms.reviewer: cogoodson
 
 # Application Insights availability tests
 
-After deploying your web app or website, it's crucial to ensure its availability and responsiveness to provide a seamless user experience. [Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness from various points around the world. These tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
+[Application Insights](./app-insights-overview.md) allows you to set up recurring web tests that monitor your application's availability and responsiveness from various points around the world. These tests send web requests to your application at regular intervals and alert you if your application isn't responding or if the response time is too slow.
 
-Availability tests are versatile and don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality.
+Availability tests don't require any modifications to the website you're testing. They work for any HTTP or HTTPS endpoint accessible from the public internet, including REST APIs that your service depends on. This means you can monitor not only your own applications but also external services that are critical to your application's functionality.
 
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
@@ -86,7 +86,7 @@ There are four types of availability tests:
 > [!div class="checklist"]
 > * [Workspace-based Application Insights resource](create-workspace-resource.md)
 > * Access to the source code of a [Azure Functions app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
-> * Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
+> * Developer expertise to author [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
 ### Basic code sample
 
@@ -301,6 +301,8 @@ You can use the following population tags for the geo-location attribute when yo
 
 1. On the **Alert rules** page, open your alert, then select **Edit** in the top navigation bar. Here you can set the severity level, rule description, and action group that have the notification preferences you want to use for this alert rule.
 
+    :::image type="content" source="media/availability/metric-alert-rule.png" alt-text="Screenshot that shows an alert rule page in the Azure portal with Edit highlighted." lightbox="media/availability/metric-alert-rule.png":::
+
 ### Alert criteria
 
 Automatically enabled availability alerts trigger one email when the endpoint becomes unavailable, and another email when it's available again. Availability alerts that are created through this experience are *state based*. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
@@ -311,10 +313,12 @@ For example, suppose that your website is down for an hour and you set up an ema
 
 You might not want to receive notifications when your website is down for only a short period of time, for example, during maintenance. You can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold so that it only triggers an alert if the website is down for a specific number of regions.
 
-> [TIP]
+> [!TIP]
 > For longer scheduled downtimes, temporarily deactivate the alert rule or create a custom rule. It gives you more options to account for the downtime.
 
 To make changes to the location threshold, aggregation period, and test frequency, go to the **Edit alert rule** page (see step 2 under [Enable alerts](#enable-alerts)), then select the condition to open the **Configure signal logic** window.
+
+:::image type="content" source="media/availability/configure-signal-logic.png" alt-text="Screenshot that shows a highlighted alert condition and the Configure signal logic window." lightbox="media/availability/configure-signal-logic.png":::
 
 ### Create a custom alert rule
 
@@ -361,7 +365,7 @@ Start by reviewing the graph in the **Availability** experience in the Azure por
 
 By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
 
-:::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience." lightbox="media/availability/scatter-plot.png":::
+:::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience.":::
 
 Select a particular test or location. Or you can reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions. Or you can use Log Analytics queries to run custom reports on this data.
 
@@ -373,7 +377,7 @@ To see the end-to-end transaction details, under **Drill into**, select **Succes
 
 To edit, temporarily disable, or delete a test, open the context menu (ellipsis) by the test, then select **Edit**. It might take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
-:::image type="content" source="media/availability/edit-availability-test.png" alt-text="Screenshot that shows the context menu to Edit, Disable, and Delete web tests." border="false":::
+:::image type="content" source="media/availability/edit-availability-test.png" alt-text="Screenshot that shows the context menu to Edit, Disable, and Delete web tests.":::
 
 > [!TIP]
 > You might want to disable availability tests or the alert rules associated with them while you're performing maintenance on your service.
@@ -382,7 +386,7 @@ To edit, temporarily disable, or delete a test, open the context menu (ellipsis)
 
 Open the **End-to-end transaction details** view by selecting a red cross on the Scatter Plot.
 
-:::image type="content" source="./media/availability/end-to-end-transaction-details.png" alt-text="Screenshot that shows the End-to-end transaction details tab." border="false":::
+:::image type="content" source="media/availability/end-to-end-transaction-details.png" alt-text="Screenshot that shows the End-to-end transaction details tab." lightbox="media/availability/end-to-end-transaction-details.png":::
 
 Here you can:
 
@@ -396,7 +400,7 @@ To learn more about the end-to-end transaction diagnostics experience, see the [
 
 Select the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code-level diagnostics.
 
-:::image type="content" source="media/availability/end-to-end-open-debug-snapshot.png" alt-text="Screenshot that shows the Server-side diagnostics.":::
+:::image type="content" source="media/availability/end-to-end-open-debug-snapshot.png" alt-text="Screenshot that shows the Server-side diagnostics." lightbox="media/availability/end-to-end-open-debug-snapshot.png":::
 
 In addition to the raw results, you can also view two key availability metrics in [metrics explorer](../essentials/metrics-getting-started.md):
 
@@ -507,9 +511,7 @@ Set custom headers in [standard availability tests](availability-standard-tests.
 
 Alternatively, set the availability test string identifier as a query parameter.
 
-**Example:**
-
-```https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your availability test string identifier>```
+**Example:** ```https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your availability test string identifier>```
 
 #### Configure your firewall to permit incoming requests from availability tests
 
