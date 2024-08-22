@@ -14,7 +14,7 @@ ms.date: 05/16/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure and connect the OPC PLC simulator. The simulator simulates an OPC UA server with multiple nodes that generate random data and anomalies. You can configure user defined nodes. The OPC UA simulator lets you test the process of managing OPC UA assets with the [operations experience](howto-manage-assets-remotely.md) web UI or [the Akri services](overview-akri.md).
+In this article, you learn how to configure and connect the OPC PLC simulator. The simulator simulates an OPC UA server with multiple nodes that generate random data and anomalies. You can configure user defined nodes. The OPC UA simulator lets you test the process of managing OPC UA assets with the [operations experience](howto-manage-assets-remotely.md) web UI.
 
 ## Prerequisites
 
@@ -117,5 +117,4 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 
 ## Related content
 
-- [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md)
-- [Autodetect assets using the Akri services](howto-autodetect-opcua-assets-using-akri.md)
+[OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md)

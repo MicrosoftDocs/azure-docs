@@ -436,6 +436,5 @@ To view activity logs as the resource level, select the resource that you want t
 ## Related content
 
 - [Connector for OPC UA overview](overview-opcua-broker.md)
-- [Akri services overview](overview-akri.md)
 - [az iot ops asset](/cli/azure/iot/ops/asset)
 - [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint)

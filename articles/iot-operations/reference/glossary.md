@@ -27,10 +27,6 @@ A unified data plane for the edge. It's a collection of modular, scalable, and h
 
 On first mention in an article, use _Azure IoT Operations Preview - enabled by Azure Arc_. On subsequent mentions, you can use _Azure IoT Operations_. Never use an acronym.
 
-### Akri services
-
-This component helps you discover and connect to devices and assets.
-
 ### Data processor
 
 This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The data processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
@@ -47,7 +43,7 @@ An MQTT broker that runs on the edge. The component lets you publish and subscri
 
 ### Connector for OPC UA
 
-This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
+This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 
 ### Operations experience
 
