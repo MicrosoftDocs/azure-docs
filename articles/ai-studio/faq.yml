@@ -5,8 +5,10 @@ metadata:
   description: Get answers to the most popular questions about Azure AI services.
   manager: nitinme
   ms.service: azure-ai-studio
+  ms.custom:
+    - build-2024
   ms.topic: faq
-  ms.date: 3/14/2024
+  ms.date: 5/21/2024
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
@@ -47,7 +49,7 @@ sections:
       - question: |
           Is prompt flow Microsoft's equivalent to LangChain? 
         answer: |
-          Prompt flow is complementary to LangChain and Semantic Kernel - and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
+          Prompt flow is complementary to LangChain and Semantic Kernel and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
       - question: |
           How is prompt injection handled, and how do we ensure no malicious code is running from prompt injection? 
         answer: |
@@ -86,5 +88,3 @@ additionalContent: |
   ## Next steps
   - [Azure AI Studio](what-is-ai-studio.md)
   - [Plan and manage costs](./how-to/costs-plan-manage.md)
-
-

@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 06/13/2024
 ms.custom:
   - references_regions
-  - ignite-2023
+  - build-2024
 ---
 
 # Service limits in Azure AI Search
@@ -27,10 +27,10 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
 ## Subscription limits
-[!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 ## Service limits
-[!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
 
@@ -40,14 +40,14 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 |----------|------|--------|----|----|----|------------|----|----|
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Maximum dimensions per vector field | 3072 |3072 |3072 |3072 |3072 |3072 |3072 |3072 |
+| Maximum dimensions per vector field | 4098|4098|4098|4098|4098|4098|4098|4098|
 | Maximum complex collections per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximum elements across all complex collections per document&nbsp;<sup>3</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
-| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.92 TB | 2.4 TB | 100 GB| N/A | N/A |
+| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.88&nbsp;TB | 2.34&nbsp;TB | 100 GB| N/A | N/A |
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only tier with a lower limit of 100 fields per index. 
 
@@ -71,7 +71,7 @@ The maximum document size when calling an Index API is approximately 16 megabyte
 
 Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
-When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
+When estimating document size, remember to consider only those fields that add value to your search scenarios, and exclude any source fields that have no purpose in the queries you intend to run.
 
 ## Vector index size limits
 
@@ -89,18 +89,31 @@ Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 
 Vector limits vary by service creation date and tier. To check the age of your search service and learn more about vector indexes, see [Vector index size and staying under limits](vector-search-index-size.md).
 
-### Vector limits on services created after April 3, 2024 in supported regions
+### Vector limits on services created after May 17, 2024
 
-The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
+The highest vector limits are available on search services created after May 17, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 15                  | 5                                          | 1,100 million              |
-| S1    | 160                 | 35                                         | 8,200 million              |
-| S2    | 350                 | 100                                        | 23,500 million             |
-| S3    | 700                 | 200                                        | 47,000 million             |
-| L1    | 1,000               | 12                                         | 2,800 million              |
-| L2    | 2,000               | 36                                         | 8,400 million              |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | 
+|--------|--------------------|---------------------------------|
+| Basic | 15                  | 5      |
+| S1    | 160                 | 35     |
+| S2    | 512                 | 150    |
+| S3    | 1,024               | 300    |
+| L1    | 2,048               | 150    |
+| L2    | 4,096               | 300    |
+
+### Vector limits on services created between April 3, 2024 and May 17, 2024
+
+The following vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
+
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|---------|
+| Basic | 15                  | 5       |
+| S1    | 160                 | 35      |
+| S2    | 350                 | 100     |
+| S3    | 700                 | 200     |
+| L1    | 1,000               | 12      |
+| L2    | 2,000               | 36      |
 
 Notice that L1 and L2 limits are unchanged in the April 3 rollout.
 
@@ -114,25 +127,25 @@ The following limits applied to new services created between July 1 and April 3,
 
 All other regions have these limits:
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 2                  | 1                                          | 235 million                  |
-| S1    | 25                 | 3                                          | 700 million                  |
-| S2    | 100                | 12                                         | 2,800 million                |
-| S3    | 200                | 36                                         | 8,400 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|---------------|
+| Basic | 2                  | 1              |
+| S1    | 25                 | 3              |
+| S2    | 100                | 12             |
+| S3    | 200                | 36             |
+| L1    | 1,000              | 12             |
+| L2    | 2,000              | 36             |
 
 ### Vector limits on services created before July 1, 2023
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 2                  | 0.5                                        | 115 million                  |
-| S1    | 25                 | 1                                          | 235 million                  |
-| S2    | 100                | 6                                          | 1,400 million                |
-| S3    | 200                | 12                                         | 2,800 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|--------------|
+| Basic | 2                  | 0.5           |
+| S1    | 25                 | 1             |
+| S2    | 100                | 6             |
+| S3    | 200                | 12            |
+| L1    | 1,000              | 12            |
+| L2    | 2,000              | 36            |
 
 ## Indexer limits
 
@@ -160,7 +173,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer infrastructure. As a general rule, for indexing jobs that can't finish within two hours, put the indexer on a [2-hour schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off when starting the next 2-hour interval.
 
-<sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
+<sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads is shorter so that other jobs in the queue have more opportunity to run.
 
 > [!NOTE]
 > As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
@@ -217,6 +230,10 @@ Static rate request limits for operations related to a service:
 
 + Service Statistics (GET /servicestats): 4 per second per search unit
 
+L2 reranking using the semantic reranker has an expected volume:
+
++ Up to 10 concurrent queries per replica. If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
+
 ## API request limits
 
 * Maximum of 16 MB per request <sup>1</sup>
@@ -227,7 +244,7 @@ Static rate request limits for operations related to a service:
 * The maximum number of clauses in `search` (expressions separated by AND or OR) is 1024
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 * Maximum search term size is 1,000 characters for [prefix search](query-simple-syntax.md#prefix-queries) and [regex search](query-lucene-syntax.md#bkmk_regex)
-* [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
+* [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1,000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
 
 <sup>1</sup> In Azure AI Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that aren't otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 

@@ -1,7 +1,7 @@
 ---
 title: Oxford COVID-19 Government Response Tracker
 description: Learn how to use the Oxford COVID-19 Government Response Tracker dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -13,7 +13,7 @@ The [Oxford Covid-19 Government Response Tracker (OxCGRT) dataset](https://githu
 This information can help decision-makers and citizens understand governmental responses in a consistent way, aiding efforts to fight the pandemic. The OxCGRT systematically collects information on several different common policy responses governments have taken, records these policies on a scale to reflect the extent of government action, and aggregates these scores into a suite of policy indices.
 
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Datasets
 

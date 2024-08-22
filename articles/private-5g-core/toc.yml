@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: '2403 - Current'
+    - name: '2404 - Current'
+      href: azure-private-5g-core-release-notes-2404.md
+    - name: '2403'
       href: azure-private-5g-core-release-notes-2403.md
     - name: '2310'
       href: azure-private-5g-core-release-notes-2310.md
@@ -62,6 +64,8 @@ items:
     href: policy-control.md
   - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
+  - name: Radio access network insights 
+    href: ran-insights-concepts.md
   - name: Monitor Azure Private 5G Core
     items:
     - name: Cloud monitoring with Azure Monitor platform metrics
@@ -70,6 +74,12 @@ items:
       href: monitor-private-5g-core-workbooks.md
     - name: Cloud monitoring of UE usage with Event Hubs
       href: ue-usage-event-hub.md
+    - name: Cloud monitoring with RAN insights metrics
+      href: ran-insights-monitor-with-ran-metrics-concepts.md
+    - name: Cloud monitoring with RAN insights geo maps
+      href: ran-insights-monitor-with-geo-maps-concepts.md
+    - name: Cloud monitoring with correlated metrics
+      href: ran-insights-monitor-with-correlated-metrics-concepts.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
@@ -88,6 +98,8 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+    - name: Configure routers for a Highly Available (HA) deployment
+      href: configure-routers-high-availability.md
   - name: Request support
     items:
     - name: How to open a support request 
@@ -152,6 +164,10 @@ items:
       href: configure-service-sim-policy-arm-template.md
     - name: Configure UE to UE internal forwarding - Azure portal
       href: configure-internal-forwarding.md
+  - name: Radio access network insights
+    items:
+    - name: Create a RAN insights resource - Azure Portal 
+      href: ran-insights-create-resource.md
   - name: SIMs
     items:
     - name: Provision new SIMs - Azure portal

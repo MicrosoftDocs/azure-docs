@@ -159,12 +159,12 @@ Group by charge type to see a break down of usage, purchases, and refunds; or by
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
 - [Use service principal to get cost data](../manage/assign-roles-azure-service-principals.md)

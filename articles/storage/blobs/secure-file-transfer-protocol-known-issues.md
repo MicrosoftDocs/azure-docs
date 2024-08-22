@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 07/22/2024
 ms.author: normesta
 
 ---
@@ -53,6 +53,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
 | Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation returns an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.|
 | Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
+| Undelete | There is no way to restore a soft-deleted blob with SFTP. The `Undelete` REST API must be used.|
 
 ## Authentication and authorization
   
@@ -67,8 +68,6 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - To access the storage account using SFTP, your network must allow traffic on port 22.
  
 - Static IP addresses aren't supported for storage accounts. This isn't an SFTP specific limitation.
-  
-- Internet routing isn't supported. Use Microsoft network routing.
 
 - There's a 2-minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
@@ -80,9 +79,11 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
-- Maximum file upload size via the SFTP endpoint is 100 GB. 
+- Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- To change the storage account's redundancy/replication settings or initiate account failover, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
+- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#hierarchical-namespace-hns).
+
+- To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
@@ -95,6 +96,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - TLS and SSL aren't related to SFTP.
 
 - Only SSH version 2 is supported.
+
+- Avoid blob or directory names that end with a dot (.), a forward slash (/), a backslash (\), or a sequence or combination of the two. No path segments should end with a dot (.). For more information, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## Blob Storage features
 
@@ -123,8 +126,6 @@ To see how each Blob Storage feature is supported in accounts that have SFTP sup
   - Public network access is `Enabled from all networks` or `Enabled from selected virtual networks and IP addresses`.
   
   - The client IP address is allowed by the firewall.
-  
-  - Network Routing is set to `Microsoft network routing`.
 
 ## See also
 

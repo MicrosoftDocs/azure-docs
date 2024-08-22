@@ -1,18 +1,19 @@
 ---
 title: Quickstart for creating and using Azure file shares
-description: Learn how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell. Create a storage account, create an SMB Azure file share, and use your Azure file share.
+description: Learn how to create and use SMB Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell. Create a storage account, then create and use an Azure file share.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: quickstart
-ms.date: 10/10/2023
+ms.date: 05/13/2024
 ms.author: kendownie
 ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
 ---
 
-# Quickstart: Create and use an Azure file share
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. You can mount Azure file shares in Windows, Linux, and macOS operating systems. This article shows you how to create an SMB Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell.
+# Quickstart: Create and use an SMB Azure file share
+
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. You can mount SMB Azure file shares in Windows, Linux, and macOS operating systems. This article shows you how to create an Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Applies to
 
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you'd like to install and use PowerShell locally, you'll need the Azure PowerShell module Az version 7.0.0 or later. We recommend installing the latest available version. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multifactor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
 
@@ -58,6 +59,7 @@ If you'd like to install and use PowerShell locally, you'll need the Azure Power
 
 
 ### PowerShell - Create a resource group
+
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. You need a resource group to create a storage account.
 
 The following example creates a resource group named *myResourceGroup* in the West US 2 region:
@@ -92,6 +94,7 @@ $storageAcct = New-AzStorageAccount `
 # [Azure CLI](#tab/azure-cli)
 
 ### CLI - Create a resource group
+
 A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group) command to create one. You need a resource group to create a storage account.
 
 The following example creates a resource group named *myResourceGroup* in the *West US 2* location:
@@ -107,6 +110,7 @@ az group create \
 ```
 
 ### CLI - Create a storage account
+
 A storage account is a shared pool of storage in which you can deploy Azure file shares.
 
 The following example creates a storage account using the [az storage account create](/cli/azure/storage/account) command. Storage account names must be unique, so use `$RANDOM` to append a random number to the name to make it unique.
@@ -130,7 +134,6 @@ az storage account create \
 
 ## Create an Azure file share
 
-
 # [Portal](#tab/azure-portal)
 
 To create an Azure file share:
@@ -151,7 +154,7 @@ To create an Azure file share:
 
 # [PowerShell](#tab/azure-powershell)
 
-Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
+Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 100 TiB.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -165,7 +168,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
+Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 100 TiB.
 
 ```azurecli-interactive
 shareName="myshare"
@@ -220,9 +223,9 @@ az storage directory create \
 ---
 
 
-#### Upload a file 
-# [Portal](#tab/azure-portal)
+#### Upload a file
 
+# [Portal](#tab/azure-portal)
 
 First, you need to create or select a file to upload. Do this by whatever means you see fit. When you've decided on the file you'd like to upload, follow these steps:
 
@@ -298,10 +301,10 @@ az storage file list \
 ---
 
 #### Download a file
+
 # [Portal](#tab/azure-portal)
 
 You can download a copy of the file you uploaded by right-clicking on the file and selecting **Download**. The exact experience will depend on the operating system and browser you're using.
-
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -346,6 +349,7 @@ az storage file download \
 ---
 
 ## Clean up resources
+
 # [Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
@@ -366,10 +370,9 @@ When you're done, you can use the [`az group delete`](/cli/azure/group) command 
 az group delete --name $resourceGroupName
 ```
 
-
 ---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [What is Azure Files?](storage-files-introduction.md)

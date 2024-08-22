@@ -39,6 +39,11 @@
       "source_path_from_root": "/articles/deployment-environments/quickstart-create-and-configure-projects.md",
       "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-devcenter",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/concept-environments-scenarios.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments",
+      "redirect_document_id": false
+    }     
   ]
 }

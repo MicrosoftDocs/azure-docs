@@ -2,13 +2,13 @@
 title: Use R interactively on Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to work with R interactively on Azure Machine Learning'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 06/01/2023
 ms.topic: how-to
-author: wahalulu
-ms.author: mavaisma
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: mavaisma
 ms.devlang: r
 ---
 
@@ -53,7 +53,7 @@ Your notebook is now ready to run R commands.
 
 You can upload files to your workspace file storage resource, and then access those files in R. However, for files stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you must install some packages.
 
-This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R, from an interactive session. You use the [`azureml-fsspec`](/python/api/azureml-fsspec/?view=azure-ml-py&preserve-view=true) Python package and the `reticulate` R package to read tabular data as Pandas DataFrames. This section also includes an example of reading data assets and datastores into an R `data.frame`.
+This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R, from an interactive session. You use the [`azureml-fsspec`](/python/api/azureml-fsspec/azureml.fsspec?view=azure-ml-py&preserve-view=true) Python package and the `reticulate` R package to read tabular data as Pandas DataFrames. This section also includes an example of reading data assets and datastores into an R `data.frame`.
 
 To install these packages:
 

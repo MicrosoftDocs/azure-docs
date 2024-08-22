@@ -90,6 +90,8 @@ To diagnose the problem if you can't view status information or no results are r
 
 1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
 
+1. If Containter insights is enabled using Terraform and `msi_auth_for_monitoring_enabled` is set to `true`, ensure that DCR and DCRA resources are also deployed to enable log collection. For detailed steps, see [enable Container insights](./kubernetes-monitoring-enable.md?tabs=terraform#enable-container-insights).
+
 ## Container insights agent ReplicaSet Pods aren't scheduled on a non-AKS cluster
 
 Container insights agent ReplicaSet Pods have a dependency on the following node selectors on the worker (or agent) nodes for the scheduling:
@@ -197,7 +199,7 @@ For basic read-only cluster level access, assign the **Monitoring Reader** role 
 - AKS configured with the cluster role binding clusterMonitoringUser
 - [Azure Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
 
-See [Assign role permissions to a user or group](../../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../../aks/concepts-identity.md) to learn more about role assignments.
+See [Assign role permissions to a user or group](/azure/aks/control-kubeconfig-access#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity) to learn more about role assignments.
 
 ## I don't see Image and Name property values populated when I query the ContainerLog table
 

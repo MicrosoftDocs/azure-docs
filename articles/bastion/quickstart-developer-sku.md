@@ -2,23 +2,20 @@
 title: 'Quickstart: Deploy Bastion using the Developer SKU: Azure portal'
 description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 04/26/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---
 
-# Quickstart: Deploy Azure Bastion - Developer SKU (Preview)
+# Quickstart: Deploy Azure Bastion - Developer SKU
 
 In this quickstart, you learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 The following diagram shows the architecture for Azure Bastion and the Developer SKU.
 
 :::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
-
-> [!IMPORTANT]
-> During Preview, Bastion Developer SKU is free of charge.
 
 [!INCLUDE [regions](../../includes/bastion-developer-sku-regions.md)]
 
@@ -37,7 +34,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 
   When you deploy Bastion using default values, the values are pulled from the virtual network in which your VM resides. Make sure the VM resides in a resource group that's in a region where the Developer SKU is supported.
 
-  * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
+  * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
   * If you need example values, see the [Example values](#values) section.
   * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
   * If you don't have a virtual network, you can create one at the same time you create your VM.

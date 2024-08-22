@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/17/2022
+ms.date: 08/07/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -48,7 +48,7 @@ If you don't have a device ready, you can create one in an Azure virtual machine
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 >[!WARNING]
-> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an _external_ virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an *external* virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
 A Windows device with IoT Edge for Linux on Windows installed.
 
@@ -56,21 +56,21 @@ If you don't have a device ready, you should create one before continuing with t
 
 ---
 
-## Set up the device CA certificate
+## Set up the Edge CA certificate
 
-All IoT Edge gateways need a device CA certificate installed on them. The IoT Edge security daemon uses the IoT Edge device CA certificate to sign a workload CA certificate, which in turn signs a server certificate for IoT Edge hub. The gateway presents its server certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure that the server certificate is part of a certificate chain that rolls up to the root CA certificate. This process allows the downstream device to confirm that the gateway comes from a trusted source. For more information, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+All IoT Edge gateways need an Edge CA certificate installed on them. The IoT Edge security daemon uses the Edge CA certificate to sign a workload CA certificate, which in turn signs a server certificate for IoT Edge hub. The gateway presents its server certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure that the server certificate is part of a certificate chain that rolls up to the root CA certificate. This process allows the downstream device to confirm that the gateway comes from a trusted source. For more information, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 :::image type="content" source="./media/how-to-create-transparent-gateway/gateway-setup.png" alt-text="Screenshot that shows the gateway certificate setup." lightbox="./media/how-to-create-transparent-gateway/gateway-setup.png":::
 
-The root CA certificate and the device CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway device CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
+The root CA certificate and the Edge CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway Edge CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
 
 >[!TIP]
->The process of installing the root CA certificate and device CA certificate on an IoT Edge device is also explained in more detail in [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
+>The process of installing the root CA certificate and Edge CA certificate on an IoT Edge device is also explained in more detail in [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
 
 Have the following files ready:
 
 * Root CA certificate
-* Device CA certificate
+* Edge CA certificate
 * Device CA private key
 
 For production scenarios, you should generate these files with your own certificate authority. For development and test scenarios, you can use demo certificates.
@@ -81,14 +81,14 @@ If you don't have your own certificate authority and want to use demo certificat
 
 1. To start, set up the scripts for generating certificates on your device.
 1. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
-1. Create IoT Edge device CA certificates. At the end of those instructions, you'll have a device CA certificate `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` its private key `<path>/private/iot-edge-device-ca-<cert name>.key.pem`.
+1. Create Edge CA certificates. At the end of those instructions, you'll have an Edge CA certificate `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` its private key `<path>/private/iot-edge-device-ca-<cert name>.key.pem`.
 
 ### Copy certificates to device
 
 # [IoT Edge](#tab/iotedge)
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
-1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 1. Create the certificates and keys directories and set permissions. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
@@ -127,7 +127,7 @@ For more information on the following commands, see [PowerShell functions for Io
 1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
 
    ```powershell
-   # Copy the IoT Edge device CA certificate and key
+   # Copy the Edge CA certificate and key
    Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
    Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile ~/iot-edge-device-ca-<cert name>.key.pem -pushFile
 
@@ -158,7 +158,7 @@ For more information on the following commands, see [PowerShell functions for Io
 1. Move the certificates and keys to the preferred `/var/aziot` directory.
 
    ```bash
-   # Move the IoT Edge device CA certificate and key to preferred location
+   # Move the Edge CA certificate and key to preferred location
    sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
    sudo mv ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem /var/aziot/certs
    sudo mv ~/iot-edge-device-ca-<cert name>.key.pem /var/aziot/secrets
@@ -198,7 +198,7 @@ For more information on the following commands, see [PowerShell functions for Io
 1. Find the `trust_bundle_cert` parameter. Uncomment this line and provide the file URI to the root CA certificate file on your device.
 
 1. Find the `[edge_ca]` section of the file. Uncomment the three lines in this section and provide the file URIs to your certificate and key files as values for the following properties:
-   * **cert**: device CA certificate
+   * **cert**: Edge CA certificate
    * **pk**: device CA private key
 
 1. Save and close the file.

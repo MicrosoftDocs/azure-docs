@@ -37,7 +37,7 @@ The following download links are CSV files of the latest meter IDs with their co
 
 We recommend you review the list of updated meters and familiarize yourself with the new meter IDs and names that apply to your Azure consumption. You should check reports that you have  for analysis, budgets, and any saved views to see if they use the updated meters. If so, you might need to update them accordingly for the new meter IDs and names. If you don’t use any meters in the updated meters list, the changes don’t affect you.
 
-## See also
+## Related content
 
 To learn how to create and manage budgets and save and share customized views, see the following articles:
 

@@ -4,10 +4,10 @@ description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 02/27/2024
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps
@@ -29,79 +29,9 @@ The following screenshot shows the output from the album API service you deploy.
 | Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Next, install, or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces they're not already registered in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
+## Create environment variables
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
@@ -251,7 +181,7 @@ Copy the FQDN to a web browser. From your web browser, go to the `/albums` endpo
 
 ## Deploy a WAR file
 
-You can also deploy your container app from a [WAR file](java-deploy-war-file.md).
+You can also deploy your container app from a [WAR file](java-get-started.md?tabs=war).
 
 ## Clean up resources
 

@@ -3,7 +3,7 @@ title: 'Verify Azure ExpressRoute connectivity - troubleshooting guide'
 description: This article provides instructions on troubleshooting and validating end-to-end connectivity of an ExpressRoute circuit.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 08/23/2023
 ms.author: duau
@@ -190,13 +190,6 @@ ProvisioningState          : Succeeded
 
 A successfully enabled peering context would have the primary and secondary address prefixes listed. The /30 subnets are used for the interface IP address of the MSEEs and CEs/PE-MSEEs.
 
-To get the configuration details for Azure public peering, use the following commands:
-
-```azurepowershell
-$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
-```
-
 To get the configuration details for Microsoft peering, use the following commands:
 
 ```azurepowershell
@@ -204,12 +197,12 @@ $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-If a peering isn't configured, you get an error message. Here's an example response when the stated peering (Azure public peering in this case) isn't configured within the circuit:
+If a peering isn't configured, you get an error message. Here's an example response when the stated peering isn't configured within the circuit:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
 At line:1 char:1
-    + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+    + Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering ...
     + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
         + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand

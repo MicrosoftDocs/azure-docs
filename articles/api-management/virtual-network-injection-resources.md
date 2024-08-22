@@ -1,11 +1,11 @@
 ---
-title: Azure API Management virtual network integration - network resources
+title: Azure API Management virtual network injection - network resources
 description: Learn about requirements for network resources when you deploy (inject) your API Management instance in an Azure virtual network.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 06/10/2024
 ms.author: danlep
 ---
 
@@ -18,18 +18,18 @@ The following are virtual network resource requirements for API Management injec
 #### [stv2](#tab/stv2)
 
 * An Azure Resource Manager virtual network is required.
-* You must provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) in addition to specifying a virtual network and subnet.
-* The subnet used to connect to the API Management instance may contain other Azure resource types.
-* The subnet used to connect to the API Management instance should not have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
+* The subnet used to connect to the API Management instance might contain other Azure resource types.
+* The subnet used to connect to the API Management instance shouldn't have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 * A [network security group](../virtual-network/network-security-groups-overview.md) attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
-* The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
+* Depending on whether you inject your API Management instance into a virtual network in external mode or internal mode, you may provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) in addition to specifying a virtual network and subnet.
+* The API Management service, virtual network and subnet, and public IP address resource (if provided) must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 
 #### [stv1](#tab/stv1)
 
 * An Azure Resource Manager virtual network is required.
 * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types.
-* The subnet used to connect to the API Management instance should not have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
+* The subnet used to connect to the API Management instance shouldn't have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
 * The API Management service, virtual network, and subnet resources must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 ---
@@ -62,7 +62,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 > It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 submit.
 
 > [!IMPORTANT]
-> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning may cause a change in the private IP address.
+> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
 
 ## Routing
 

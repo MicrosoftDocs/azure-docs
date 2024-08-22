@@ -4,7 +4,7 @@ description: Describes how to set up VMware disaster recovery in a multi-tenant 
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 04/03/2022
 ms.custom: subject-rbac-steps, engagement-fy23
@@ -81,7 +81,7 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select a role.
 
@@ -89,7 +89,7 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
     Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with the Role tab selected.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with the Role tab selected.":::
 
 1. On the **Members** tab, select **User, group, or service principal**, and then select a user with the relevant access level. The users that were created through the CSP portal are displayed here.
 

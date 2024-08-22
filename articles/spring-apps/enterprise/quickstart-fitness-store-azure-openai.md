@@ -4,10 +4,11 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to integrate Azure OpenAI on the Azure Spring Apps Enterprise plan.
 author: KarlErickson  # external contributor maly7
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Integrate Azure OpenAI

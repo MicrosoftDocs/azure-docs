@@ -355,6 +355,11 @@
             "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
             "redirect_url": "/azure/load-balancer/concepts",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
         }
     ]
 }

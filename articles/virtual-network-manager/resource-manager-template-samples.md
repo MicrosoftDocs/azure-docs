@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network Manager
 description: This article has links to Azure Resource Manager template examples so you can quickly deploy Azure Virtual Network Manager in various scenarios.
 services: virtual-network-manager
 author: mbender-ms
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.custom: devx-track-arm-template
 ms.topic: sample
-ms.date: 03/28/2023
+ms.date: 03/28/2024
 ms.author: mbender
 ---
 
@@ -21,8 +21,6 @@ For the JSON syntax and properties to use in templates, see [Microsoft.Network r
 
 > [!IMPORTANT]
 > In cases where a template is deploying connectivity or security configurations, the template requires a custom deployment script to deploy the configuration. The script is located at the end of the ARM template, and it uses the `Microsoft.Resources/deploymentScripts` resource type. For more information on deployment scripts, review [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Samples
 | Example | Description |

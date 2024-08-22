@@ -3,7 +3,7 @@ title:  "Apply Math Operation"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Apply Math Operation component in Azure Machine Learning to apply a mathematical operation to column values in a pipeline.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 
@@ -251,8 +251,8 @@ The order for division and subtraction are as follows:
 
 The following table shows some examples
 
-Operation|Num1|Num2|Result column|Result value|
-----|----|----|----|----
+|Operation|Num1|Num2|Result column|Result value|
+|----|----|----|----|----|
 |Addition|1|5|Add(Num2_Num1)| 6|
 |Multiplication|1|5|Multiple(Num2_Num1)|5|
 |Subtraction|5|1|Subtract(Num2_Num1)|4|

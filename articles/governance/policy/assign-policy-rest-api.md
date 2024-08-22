@@ -11,6 +11,8 @@ The first step in understanding compliance in Azure is to identify the status of
 
 This guide uses REST API to create a policy assignment and to identify non-compliant resources in your Azure environment. The examples in this article use PowerShell and the Azure CLI `az rest` commands. You can also run the `az rest` commands from a Bash shell like Git Bash.
 
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -21,7 +23,7 @@ This guide uses REST API to create a policy assignment and to identify non-compl
 
 ## Review the REST API syntax
 
-There are two elements to run REST API commands: the REST API URI and the request body. For information, go to [Policy Assignments - Create](/rest/api/policy/policy-assignments/create).
+There are two elements to run REST API commands: the REST API URI and the request body. For information, go to [Policy Assignments - Create](/rest/api/policyauthorization/policy-assignments/create).
 
 The following example shows the REST API URI syntax to create a policy definition.
 
@@ -103,7 +105,7 @@ az rest --method put --uri https://management.azure.com/subscriptions/{subscript
 
 In PowerShell, the backtick (``` ` ```) is needed to escape the `at sign` (`@`) to specify a filename. In a Bash shell like Git Bash, omit the backtick.
 
-For information, go to [Policy Assignments - Create](/rest/api/policy/policy-assignments/create).
+For information, go to [Policy Assignments - Create](/rest/api/policyauthorization/policy-assignments/create).
 
 ## Identify non-compliant resources
 
@@ -166,7 +168,7 @@ Your results resemble the following example:
 }
 ```
 
-For more information, go to [Policy States - List Query Results For Resource Group](/rest/api/policy/policy-states/list-query-results-for-resource-group).
+For more information, go to [Policy States - List Query Results For Resource Group](/rest/api/policyinsights/policy-states/list-query-results-for-resource-group).
 
 ## Clean up resources
 
@@ -186,7 +188,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/{subscript
 The policy assignment 'audit-vm-managed-disks' is not found.
 ```
 
-For more information, go to [Policy Assignments - Delete](/rest/api/policy/policy-assignments/delete) and [Policy Assignments - Get](/rest/api/policy/policy-assignments/get).
+For more information, go to [Policy Assignments - Delete](/rest/api/policyauthorization/policy-assignments/delete) and [Policy Assignments - Get](/rest/api/policyauthorization/policy-assignments/get).
 
 ## Next steps
 

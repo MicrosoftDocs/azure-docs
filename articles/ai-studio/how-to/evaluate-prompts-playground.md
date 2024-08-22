@@ -1,21 +1,22 @@
 ---
-title: How to manually evaluate prompts in Azure AI Studio playground 
+title: How to manually evaluate prompts in Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Quickly test and evaluate prompts in Azure AI Studio playground.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/22/2024
-ms.reviewer: eur
+ms.date: 5/21/2024
+ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt
 ---
 
-# Manually evaluate prompts in Azure AI Studio playground 
+# Manually evaluate prompts in Azure AI Studio playground
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 When you get started with prompt engineering, you should test different inputs one at a time to evaluate the effectiveness of the prompt can be very time intensive. This is because it's important to check whether the content filters are working appropriately, whether the response is accurate, and more. 
 
@@ -34,9 +35,12 @@ In this article you learn to:
 
 To generate manual evaluation results, you need to have the following ready: 
 
-* A test dataset in one of these formats: csv or jsonl. If you don't have a dataset available, we also allow you to input data manually from the UI.   
+* A test dataset in one of these formats: csv or jsonl. If you don't have a dataset available, we also allow you to input data manually from the UI.
 
-* A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models. Learn more about how to create a deployment [here](./deploy-models-openai.md).   
+* A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models. To learn more about how to create a deployment, see [Deploy models](./deploy-models-openai.md).
+
+> [!NOTE]
+> Manual evaluation is only supported for Azure OpenAI models at this time for chat and completion task types.
 
 ## Generate your manual evaluation results 
 
@@ -46,8 +50,7 @@ This can be done manually using the text boxes in the **Input** column.
 
 You can also **Import Data** to choose one of your previous existing datasets in your project or upload a dataset that is in CSV or JSONL format. After loading your data, you'll be prompted to map the columns appropriately. Once you finish and select **Import**, the data is populated appropriately in the columns below.  
 
-:::image type="content" source="../media/evaluations/prompts/generate-manual-eval-results.gif" alt-text="GIF of generating manual evaluation results." lightbox= "../media/evaluations/prompts/generate-manual-eval-results.gif":::
-
+:::image type="content" source="../media/evaluations/prompts/generate-manual-evaluation-results.png" alt-text="Screenshot of generating manual evaluation results." lightbox= "../media/evaluations/prompts/generate-manual-evaluation-results.png":::
 
 > [!NOTE]
 > You can add as many as 50 input rows to your manual evaluation. If your test data has more than 50 input rows, we will upload the first 50 in the input column. 
@@ -58,7 +61,7 @@ Now that your data is added, you can **Run** to populate the output column with 
 
 You can provide a thumb up or down rating to each response to assess the prompt output. Based on the ratings you provided, you can view these response scores in the at-a-glance summaries.  
 
-:::image type="content" source="../media/evaluations/prompts/rate-results.gif" alt-text="GIF of response scores in the at-a-glance summaries." lightbox= "../media/evaluations/prompts/rate-results.gif":::
+:::image type="content" source="../media/evaluations/prompts/rate-results.png" alt-text="Screenshot of response scores in the at-a-glance summaries." lightbox= "../media/evaluations/prompts/rate-results.png":::
 
 ## Iterate on your prompt and reevaluate 
 
@@ -70,7 +73,7 @@ After making your edits, you can choose to rerun all to update the entire table 
 
 After populating your results, you can **Save results** to share progress with your team or to continue your manual evaluation from where you left off later.  
 
-:::image type="content" source="../media/evaluations/prompts/save-and-compare-results.gif" alt-text="GIF of the save results workflow." lightbox= "../media/evaluations/prompts/save-and-compare-results.gif":::
+:::image type="content" source="../media/evaluations/prompts/save-and-compare-results.png" alt-text="Screenshot of the save results." lightbox= "../media/evaluations/prompts/save-and-compare-results.png":::
 
 You can also compare the thumbs up and down ratings across your different manual evaluations by saving them and viewing them in the Evaluation tab under Manual evaluation. 
 

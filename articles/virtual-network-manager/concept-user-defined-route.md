@@ -1,15 +1,15 @@
 ---
-title: Automate UDR Management with Azure Virtual Network Manager
+title: Automate management of user-defined routes (UDRs) with Azure Virtual Network Manager
 description: Learn to automate and simplifying routing behaviors using user-defined routes management with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 04/30/2024
-ms.service: virtual-network-manager
+ms.date: 05/09/2024
+ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
 ---
-# Automate UDR Management with Azure Virtual Network Manager
+#  Automate management of user-defined routes (UDRs) with Azure Virtual Network Manager
 
 This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
 
@@ -115,6 +115,11 @@ When you create a rule collection, you define the local routing settings. The lo
 
 When you select **Direct routing within virtual network** or **Direct routing within subne**t, a UDR with a virtual network next hop is created for local traffic routing within the same virtual network or subnet. However, if the destination CIDR is fully contained within the source CIDR under these selections and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
 
+## Adding additional virtual networks
+
+When you add additional virtual networks to a network group, the routing configuration is automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies the routing configuration to it. When you remove a virtual network from the network group, the applied routing configuration is automatically removed as well.
+
+
 ## Limitations of UDR management
 
 The following are the limitations of UDR management with Azure Virtual Network Manager:
@@ -128,5 +133,5 @@ The following are the limitations of UDR management with Azure Virtual Network M
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
+> [Learn how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-route.md).
 

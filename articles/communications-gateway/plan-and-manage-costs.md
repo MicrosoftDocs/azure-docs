@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Communications Gat
 author: rcdun
 ms.author: rdunstan
 ms.custom: subject-cost-optimization
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2024
 ---
@@ -33,8 +33,8 @@ The meters for production deployments include:
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
-    - Operator Connect, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering are fixed networks.
-    - Teams Phone Mobile is a mobile network.
+    - Operator Connect, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering are charged as fixed networks.
+    - Teams Phone Mobile and Azure Operator Call Protection Preview are charged as mobile networks.
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 

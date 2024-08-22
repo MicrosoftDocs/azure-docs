@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 09/15/2023
 ms.author: ryanwi
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Grant delegated permissions to a web app.
 > * Call Microsoft Graph from a web app for a signed-in user.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

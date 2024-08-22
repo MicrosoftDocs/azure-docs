@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 11/11/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Azure Policy samples for adding resources to Azure Chaos Studio

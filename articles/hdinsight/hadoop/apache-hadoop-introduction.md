@@ -1,10 +1,10 @@
 ---
 title: What is Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive, mvc
-ms.date: 04/24/2023
+ms.date: 07/23/2024
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -12,7 +12,7 @@ ms.date: 04/24/2023
 
 [Apache Hadoop](https://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
 
-Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use the [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) resource management, and a simple [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) programming model to process and analyze batch data in parallel.  Hadoop clusters in HDInsight are compatible with [Azure Blob storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
+Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use the [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) resource management, and a simple [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) programming model to process and analyze batch data in parallel.  Hadoop clusters in HDInsight are compatible with [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](../hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 

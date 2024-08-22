@@ -422,7 +422,7 @@ Insert a line like `samplingPercentage: 10,` before the instrumentation key:
     appInsights.trackPageView(); 
 </script>
 ```
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
 
@@ -495,7 +495,7 @@ As the application is scaled up, it can be processing dozens, hundreds, or thous
 
 As sampling rates increase, log based queries accuracy decrease and are inflated. It only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation and other factors.
 
-SDKs use preaggregated metrics to solve problems caused by sampling. For more information on these metrics, see [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). The SDKs identify relevant properties of logged data and extract statistics before sampling. To minimize resource use and costs, metrics are aggregated. This process results in a few metric telemetry items per minute, rather than thousands of event telemetry items. For example, these metrics might report “this web app processed 25 requests” to the MDM account, with an `itemCount` of 100 in the sent request telemetry record. These preaggregated metrics provide accurate numbers and are reliable even when sampling impacts log-based query results. You can view them in the Metrics pane of the Application Insights portal.
+SDKs use preaggregated metrics to solve problems caused by sampling. For more information on these metrics, see [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-preaggregated-metrics-table). The SDKs identify relevant properties of logged data and extract statistics before sampling. To minimize resource use and costs, metrics are aggregated. This process results in a few metric telemetry items per minute, rather than thousands of event telemetry items. For example, these metrics might report “this web app processed 25 requests” to the MDM account, with an `itemCount` of 100 in the sent request telemetry record. These preaggregated metrics provide accurate numbers and are reliable even when sampling impacts log-based query results. You can view them in the Metrics pane of the Application Insights portal.
 
 ## Frequently asked questions
 

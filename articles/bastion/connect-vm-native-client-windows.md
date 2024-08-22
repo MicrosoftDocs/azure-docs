@@ -3,16 +3,16 @@ title: 'Connect to a VM using Bastion - Windows native client'
 titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ---
 
 # Connect to a VM using Bastion and the Windows native client
 
-This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
+This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU or higher.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 

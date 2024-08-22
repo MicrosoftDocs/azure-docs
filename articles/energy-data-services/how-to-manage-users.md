@@ -40,11 +40,12 @@ The Azure object ID (OID) is the Microsoft Entra user OID.
 1. Use the `client-id` access token to do the following steps by using the commands outlined in the following sections:
    1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group with the OWNER role.
    2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group  with the OWNER role to give access of all the service groups.
-   3. Add the user to the `users.data.root@<data-partition-id>.<domain>` OSDU group  with the OWNER role to give access of all the data groups.
 1. The user becomes the admin of the data partition. The admin can then add or remove more users to the required entitlement groups:
-   1. Get the admin's auth token by using [Generate user access token](how-to-generate-auth-token.md#generate-the-user-auth-token) and by using the same `client-id` and `client-secret` values.
+   1. Get the admin's auth token by using [Generate user access token](how-to-generate-auth-token.md#generate-the-user-auth-token) with the same `client-id` and `client-secret` values.
    1. Get the OSDU group, such as `service.legal.editor@<data-partition-id>.<domain>`, to which you want to add more users by using the admin's access token.
    1. Add more users to that OSDU group by using the admin's access token.
+1. `users.data.root` is the default and permanent OWNER of all the data records when the records get created automatically in the system. Hence, if the user, who created the record and is the OWNER of the record, leaves the organization, the members of `users.data.root` always have the access of all the data records. For more details, check out [Data Root Group](concepts-entitlements.md#peculiarity-of-usersdataroot-group).
+1. As you add more members to a given OSDU group, there is a limit of 5000 membership for a given identity as defined by the OSDU community. 
   
 To know more about the OSDU bootstrap groups, check out [here](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/docs/bootstrap/bootstrap-groups-structure.md).
 

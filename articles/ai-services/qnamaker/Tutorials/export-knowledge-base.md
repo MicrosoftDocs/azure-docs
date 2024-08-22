@@ -32,7 +32,7 @@ You may want to create a copy of your knowledge base for several reasons:
 
 1. On the **Settings** page, you have the options to export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can choose to download the data in .tsv/.xlsx.
 
-   1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
+   1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
 
@@ -70,12 +70,12 @@ The export/import process is programmatically available using the following REST
 
 **Export**
 
-* [Download knowledge base API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Download knowledge base API](/rest/api/qnamaker/knowledgebase/download)
 
 **Import**
 
-* [Replace API (reload with same knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Create API (load with new knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Replace API (reload with same knowledge base ID)](/rest/api/qnamaker/knowledgebase/replace)
+* [Create API (load with new knowledge base ID)](/rest/api/qnamaker/knowledgebase/create)
 
 ## Chat logs
 

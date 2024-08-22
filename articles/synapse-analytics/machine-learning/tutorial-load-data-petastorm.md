@@ -1,15 +1,15 @@
 ---
-title: 'Load data with Petastorm'
+title: 'Load data with Petastorm (deprecated)'
 description: This article provides a conceptual overview of how to load data with Petastorm.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 02/27/2024
+ms.date: 05/02/2024
 ms.author: midesa
 ---
 
-# Load data with Petastorm (Preview)
+# Load data with Petastorm (deprecated)
 
 Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
 
@@ -20,10 +20,13 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
-> [!WARNING]
-> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtimes.
-> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-> - End of support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
+> [!NOTE]
+> The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
+
+> [!CAUTION]
+> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
+> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 
 ## Configure the Apache Spark session

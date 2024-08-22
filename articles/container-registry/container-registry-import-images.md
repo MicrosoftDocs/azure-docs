@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -27,7 +27,7 @@ Image import into an Azure container registry has the following benefits over us
 
 * If you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
 
-* If you access to the target registry, it doesn't have to use the registry's public endpoint.
+* If you have access to the target registry, you don't require the registry's public endpoint.
 
 > [!IMPORTANT]
 >* Importing images requires the external registry support  [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233#section-2.3). We recommend using a registry that supports RFC 7233 ranges while using az acr import command with the registry URI to avoid failures.
@@ -165,7 +165,7 @@ You can import an image from an Azure container registry in the same AD tenant u
 
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
-* [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
+* [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry is disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
 
 * The source registry and/or the target registry with a private endpoint or registry firewall rules must ensure the restricted registry [allows trusted services](allow-access-trusted-services.md) to access the network.
 
@@ -275,6 +275,8 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 To import from an Azure container registry in a different Microsoft Entra tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
 
+* Cross-tenant import over public access disabled registry is not supported.   
+
 ### Cross-tenant import with username and password
 
 For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.
@@ -299,6 +301,8 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ---
 
 ### Cross-tenant import with access token
+
+* Cross-tenant import over public access disabled registry is not supported.      
 
 To access the source registry using an identity in the source tenant that has registry permissions, you can get an access token:
 
@@ -340,10 +344,6 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ---
 
-> [!NOTE]
-> Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
-
-
 ## Import from a non-Azure private container registry
 
 Import an image from a non-Azure private registry by specifying credentials that enable pull access to the registry. For example, pull an image from a private Docker registry:
@@ -367,6 +367,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 > If you're importing from a non-Azure private registry with IP rules, [follow these steps.](container-registry-access-selected-networks.md) 
 
 ### Troubleshoot Import Container Images
+
 #### Symptoms and Causes
 - `The remote server may not be RFC 7233 compliant`
   - The [distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may not be RFC 7233 compliant.

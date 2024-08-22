@@ -4,7 +4,7 @@ description: Learn how to troubleshoot an application gateway by using an Intern
 services: vpn-gateway
 author: greg-lindsay
 manager: dcscontentpm
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 06/10/2022
 ms.author: greglin

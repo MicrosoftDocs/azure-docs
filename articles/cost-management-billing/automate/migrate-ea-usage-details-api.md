@@ -121,6 +121,6 @@ The following table provides a summary of the old fields available in the soluti
 | tags | Tags | The new field doesn't have the enclosing `{}` around the key-value pairs. |
 | unitOfMeasure | UnitOfMeasure |     |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to Azure Resource Manager APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

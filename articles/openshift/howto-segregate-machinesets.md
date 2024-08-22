@@ -31,7 +31,7 @@ In order to segregate worker nodes into different subnets, two main steps need t
 
 ## Deploy an ARO cluster
 
-See [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) for instructions on performing this step.
+See [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md) for instructions on performing this step.
 
 ## Create the subnets and associated machine sets
 
@@ -89,7 +89,7 @@ apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
   labels:
-    machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
+    machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID>
     machine.openshift.io/cluster-api-machine-role: worker
     machine.openshift.io/cluster-api-machine-type: worker
   name: XXX-XXX-XXX-XXX-XXX
@@ -98,21 +98,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
-      machine.openshift.io/cluster-api-machineset: XXX-XXX-XXX-XXX-XXX
+      machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID>
+      machine.openshift.io/cluster-api-machineset: <INFRASTRUCTURE_ID>-infra-<REGION><ZONE>
   template:
     metadata:
       creationTimestamp: null
       labels:
-        machine.openshift.io/cluster-api-cluster: XXX-XXX-XXX
+        machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID>
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
-        machine.openshift.io/cluster-api-machineset: XXX-XXX-XXX-XXX-XXX
+        machine.openshift.io/cluster-api-machineset: <INFRASTRUCTURE_ID>-infra-<REGION><ZONE>
     spec:
       metadata:
         creationTimestamp: null
         labels:
-          node-role.kubernetes.io/<role>: ""
+          node-role.kubernetes.io/<role>: ""            #Example: worker,infra
       providerSpec:
         value:
           apiVersion: azureproviderconfig.openshift.io/v1beta1
@@ -123,31 +123,28 @@ spec:
             offer: aro4
             publisher: azureopenshift
             resourceID: ""
-            sku: XXX_XX
-            version: XX.XX.XXX
-          internalLoadBalancer: ""
+            sku: <SKU>
+            version: <VERSION>
           kind: AzureMachineProviderSpec
-          location: useast
+          location: <REGION>
           metadata:
             creationTimestamp: null
           natRule: null
-          networkResourceGroup: XX-XXXXXX
+          networkResourceGroup: <NETWORK_RESOURCE_GROUP>
           osDisk:
             diskSizeGB: 128
             managedDisk:
               storageAccountType: Premium_LRS
             osType: Linux
           publicIP: false
-          publicLoadBalancer: XXX-XXX-XXX
-          resourceGroup: aro-fq5v3vye
-          sshPrivateKey: ""
-          sshPublicKey: ""
-          subnet: XXX-XXX
+          publicLoadBalancer: <LOADBALANCER_NAME>
+          resourceGroup: <CLUSTER_RESOURCE_GROUP>
+          subnet: <SUBNET_NAME> 
           userDataSecret:
             name: worker-user-data
           vmSize: Standard_D4s_v3
-          vnet: XXX-XXX
-          zone: "X"
+          vnet: <VNET_NAME>
+          zone: <ZONE>
 ```
 
 ### Step 5: Apply the machine set

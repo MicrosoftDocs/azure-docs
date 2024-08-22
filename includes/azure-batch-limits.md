@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: batch
- ms.service: batch
+ ms.service: azure-batch
  ms.topic: include
  ms.date: 11/17/2022
  ms.custom: include file
@@ -19,8 +19,8 @@
 
 <sup>1</sup> For capacity management purposes, the default quotas for new Batch accounts in some regions and for some subscription
 types have been reduced from the above range of values. In some cases, these limits have been reduced to zero. When you create a
-new Batch account, [check your quotas](../articles/batch/batch-quota-limit.md#view-batch-quotas) and
-[request an appropriate core or service quota increase](../articles/batch/batch-quota-limit.md#increase-a-quota), if necessary.
+new Batch account, [check your quotas](/azure/batch/batch-quota-limit#view-batch-quotas) and
+[request an appropriate core or service quota increase](/azure/batch/batch-quota-limit#increase-a-quota), if necessary.
 Alternatively, consider reusing Batch accounts that already have sufficient quota or user subscription pool allocation
 Batch accounts to maintain core and VM family quota across all Batch accounts on the subscription. Service quotas like
 active jobs or pools apply to each distinct Batch account even for user subscription pool allocation Batch accounts.
@@ -30,4 +30,4 @@ active jobs or pools apply to each distinct Batch account even for user subscrip
 
 > [!NOTE]
 > Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch
-> accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).
+> accounts in Batch service mode. [View the quotas in your Batch account](/azure/batch/batch-quota-limit#view-batch-quotas).

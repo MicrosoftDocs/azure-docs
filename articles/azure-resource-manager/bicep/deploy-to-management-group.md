@@ -1,7 +1,7 @@
 ---
 title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---
@@ -128,7 +128,7 @@ To deploy resources to the target management group, add those resources with the
 targetScope = 'managementGroup'
 
 // policy definition created in the management group
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
   ...
 }
 ```
@@ -211,7 +211,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -227,7 +227,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {
@@ -250,7 +250,7 @@ To use an ARM template to create a new Azure subscription in a management group,
 * [Programmatically create Azure subscriptions for a Microsoft Customer Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
 * [Programmatically create Azure subscriptions for a Microsoft Partner Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
-To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
+To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-a-subscription-in-an-arm-template)
 
 ## Azure Policy
 
@@ -268,7 +268,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -288,7 +288,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

@@ -23,19 +23,35 @@
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure PostgreSQL Database
-    items: 
+    items:
     - name: Back up the database - Azure portal
       href: quick-backup-postgresql-database-portal.md
     - name: Restore the PostgreSQL database across regions
       items:
       - name: Using the Azure portal
-        href: quick-cross-region-restore.md  
+        href: quick-cross-region-restore.md
       - name: With Azure PowerShell
-        href: quick-secondary-region-restore-postgresql-powershell.md  
+        href: quick-secondary-region-restore-postgresql-powershell.md
   - name: Configure AKS cluster backup
-    href: quick-backup-aks.md
+    items:
+    - name: From the Azure portal
+      href: quick-backup-aks.md
+    - name: With Terraform
+      href: quick-kubernetes-backup-terraform.md
+  - name: Configure vaulted backup for Azure Blob
+    items: 
+    - name: From the Azure portal
+      href: blob-backup-configure-quick.md
+    - name: Using PowerShell
+      href: quick-blob-vaulted-backup-powershell.md
+    - name: Using Azure CLI
+      href: quick-blob-vaulted-backup-cli.md
+    - name: Using ARM template
+      href: backup-blobs-storage-account-arm-template.md  
+    - name: Using Bicep
+      href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
-    href: quick-install-backup-extension.md    
+    href: quick-install-backup-extension.md
   - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
@@ -45,7 +61,7 @@
     - name: Restore
       href: quick-restore-hana-cli.md
   - name: Restore the entire SAP HANA system to snapshot restore point
-    href: quick-sap-hana-database-instance-restore.md    
+    href: quick-sap-hana-database-instance-restore.md
   - name: Enable enhanced soft delete
     href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
@@ -67,11 +83,13 @@
     - name: Back up the database
       href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
-      href: tutorial-cross-region-restore.md  
+      href: tutorial-cross-region-restore.md
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
+  - name: Configure vaulted backup for Azure Blob
+    href: blob-backup-configure-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
-    href: tutorial-restore-aks-backups-across-regions.md 
+    href: tutorial-restore-aks-backups-across-regions.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -85,7 +103,9 @@
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
   - name: Configure SAP HANA database instance snapshot backup
-    href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md    
+    href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md
+  - name: Back up Azure Managed Disks
+    href: back-up-managed-disks-tutorial.md
   - name: Configure Multi-user authorization (MUA)
     href: multi-user-authorization-tutorial.md
   - name: Recover soft deleted items with enhanced soft delete
@@ -129,7 +149,7 @@
     - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
     - name: Azure Database for PostgreSQL -Flexible server backup support matrix
-      href: backup-azure-database-postgresql-flex-support-matrix.md      
+      href: backup-azure-database-postgresql-flex-support-matrix.md
     - name: Azure Kubernetes Service backup support matrix
       href: azure-kubernetes-service-cluster-backup-support-matrix.md
     - name: Automation in Azure Backup
@@ -161,7 +181,7 @@
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
     - name: FAQ-Soft Delete
-      href: soft-delete-azure-backup-faq.yml 
+      href: soft-delete-azure-backup-faq.yml
   - name: Vaults
     items:
     - name: Recovery Services vault
@@ -190,18 +210,18 @@
     items:
     - name: Overview
       href: azure-kubernetes-service-backup-overview.md
-    - name: Prerequisites  
-      href: azure-kubernetes-service-cluster-backup-concept.md      
+    - name: Prerequisites
+      href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
-    href: blob-backup-overview.md 
+    href: blob-backup-overview.md
   - name: Azure File share backup
-    href: azure-file-share-backup-overview.md  
+    href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
       href: backup-azure-about-mars.md
     - name: Restore
-      href: about-restore-microsoft-azure-recovery-services.md        
+      href: about-restore-microsoft-azure-recovery-services.md
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -234,8 +254,8 @@
         href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
-      - name: Move
-        href: backup-azure-move-recovery-services-vault.md
+      - name: Relocate
+        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
@@ -312,6 +332,8 @@
           href: backup-sql-server-on-availability-groups.md
         - name: Back up a SQL Server VM from the VM pane
           href: backup-sql-server-vm-from-vm-pane.md
+        - name: Back up SQL Server from the SQL Server VM blade
+          href: backup-sql-server-database-from-azure-vm-blade.md
       - name: Restore
         href: restore-sql-database-azure-vm.md
       - name: Manage
@@ -337,7 +359,7 @@
     - name: Backup
       href: backup-azure-mysql-flexible-server.md
     - name: Restore
-      href: backup-azure-mysql-flexible-server-restore.md      
+      href: backup-azure-mysql-flexible-server-restore.md
   - name: Azure Database for PostgreSQL backup
     items:
     - name: Overview
@@ -372,10 +394,20 @@
         href: restore-postgresql-database-use-rest-api.md
   - name: Azure Database for PostgreSQL -Flexible server backup
     items:
-    - name: Backup
-      href: backup-azure-database-postgresql-flex.md
-    - name: Restore
-      href: restore-azure-database-postgresql-flex.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql-flex.md
+      - name: Restore
+        href: restore-azure-database-postgresql-flex.md
+    - name: With REST API
+      items:
+      - name: Create a policy
+        href: backup-azure-database-postgresql-flex-use-rest-api-create-update-policy.md
+      - name: Backup
+        href: backup-azure-database-postgresql-flex-use-rest-api.md
+      - name: Restore
+        href: backup-azure-database-postgresql-flex-use-rest-api-restore.md
   - name: Azure Kubernetes Service backup
     items:
     - name: From the Azure portal
@@ -386,6 +418,10 @@
         href: azure-kubernetes-service-cluster-restore.md
       - name: Manage
         href: azure-kubernetes-service-cluster-manage-backups.md
+      - name: Cross Region Restore for WebLogic Server on AKS
+        href: /azure/developer/java/migration/migrate-weblogic-to-aks-with-ha-geo-redundancy?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Cross Region Restore for Liberty on AKS
+        href: /azure/developer/java/migration/migrate-liberty-to-aks-with-ha-dr?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: With PowerShell
       items:
       - name: Backup
@@ -397,7 +433,7 @@
       - name: Backup
         href: azure-kubernetes-service-cluster-backup-using-cli.md
       - name: Restore
-        href: azure-kubernetes-service-cluster-restore-using-cli.md      
+        href: azure-kubernetes-service-cluster-restore-using-cli.md
   - name: Windows backup using MARS agent
     items:
     - name: Install or upgrade
@@ -533,7 +569,7 @@
       - name: Instance snapshot
         href: sap-hana-database-instances-restore.md
     - name: Manage
-      href: sap-hana-database-manage.md      
+      href: sap-hana-database-manage.md
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
@@ -717,7 +753,7 @@
       - name: For SQL Server and SAP HANA in Azure VMs
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Configure and manage enhanced soft delete
-      href: backup-azure-enhanced-soft-delete-configure-manage.md 
+      href: backup-azure-enhanced-soft-delete-configure-manage.md
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
@@ -750,7 +786,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
+      href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Archive tier
     items:
     - name: Overview
@@ -775,6 +811,8 @@
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
+    - name: Azure Backup Vault
+      href: backup-azure-backup-vault-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
     - name: Azure File share
@@ -799,8 +837,8 @@
       href: troubleshoot-archive-tier.md
     - name: Azure Kubernetes Service
       href: azure-kubernetes-service-backup-troubleshoot.md
-    - name: Data recovery from Microsoft Azure Backup Server 
-      href: backup-azure-alternate-dpm-server-troubleshoot.md    
+    - name: Data recovery from Microsoft Azure Backup Server
+      href: backup-azure-alternate-dpm-server-troubleshoot.md
 - name: Reference
   items:
   - name: Archived release notes

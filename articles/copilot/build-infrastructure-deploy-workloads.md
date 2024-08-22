@@ -1,27 +1,28 @@
 ---
-title: Build infrastructure and deploy workloads using Microsoft Copilot for Azure (preview)
-description: Learn how Microsoft Copilot for Azure (preview) can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
+title: Build infrastructure and deploy workloads using Microsoft Copilot in Azure
+description: Learn how Microsoft Copilot in Azure can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
 ms.date: 02/26/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 ---
 
-# Build infrastructure and deploy workloads using Microsoft Copilot for Azure (preview)
+# Build infrastructure and deploy workloads using Microsoft Copilot in Azure
 
-Microsoft Copilot for Azure (preview) can help you quickly build custom infrastructure for your workloads and provide templates and scripts to help you deploy. By using Microsoft Copilot for Azure (preview), you can often reduce your deployment time dramatically. Microsoft Copilot for Azure (preview) also helps you align to security and compliance standards and other best practices.
+Microsoft Copilot in Azure (preview) can help you quickly build custom infrastructure for your workloads and provide templates and scripts to help you deploy. By using Microsoft Copilot in Azure, you can often reduce your deployment time dramatically. Microsoft Copilot in Azure also helps you align to security and compliance standards and other best practices.
 
-Throughout a conversation, Microsoft Copilot for Azure (preview) asks you questions to better understand your requirements and applications. Based on the provided information, it then provides several architecture options suitable for deploying that infrastructure. After you select an option, Microsoft Copilot for Azure (preview) provides detailed descriptions of the infrastructure, including how it can be configured. Finally, Microsoft Copilot for Azure provides templates and scripts using the language of your choice to deploy your infrastructure.
+Throughout a conversation, Microsoft Copilot in Azure asks you questions to better understand your requirements and applications. Based on the provided information, it then provides several architecture options suitable for deploying that infrastructure. After you select an option, Microsoft Copilot in Azure provides detailed descriptions of the infrastructure, including how it can be configured. Finally, Microsoft Copilot in Azure provides templates and scripts using the language of your choice to deploy your infrastructure.
 
 To get help building infrastructure and deploying workloads, start on the [More virtual machines and related solutions](https://portal.azure.com/#view/Microsoft_Azure_SolutionCenter/SolutionGroup.ReactView/groupid/defaultLandingVmBrowse) page in the Azure portal. You can reach this page from **Virtual machines** by selecting the arrow next to **Create**, then selecting **More VMs and related solutions**.
 
 :::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-more-vms.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machines page in the Azure portal.":::
 
-Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
+Once you're there, start the conversation by letting Microsoft Copilot in Azure know what you want to build and deploy.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -56,26 +57,25 @@ The prompts you use can vary depending on the type of workload you want to deplo
 
 ## Examples
 
-From the **[More virtual machines and related solutions](https://portal.azure.com/#view/Microsoft_Azure_SolutionCenter/SolutionGroup.ReactView/groupid/defaultLandingVmBrowse)** page, you can tell Microsoft Copilot for Azure (preview) "**I want to deploy a website on Azure**." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
+From the **[More virtual machines and related solutions](https://portal.azure.com/#view/Microsoft_Azure_SolutionCenter/SolutionGroup.ReactView/groupid/defaultLandingVmBrowse)** page, you can tell Microsoft Copilot in Azure "**I want to deploy a website on Azure**." Microsoft Copilot in Azure responds with a series of questions to better understand your scenario.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" lightbox="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing options to deploy a website.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" lightbox="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" alt-text="Screenshot showing Microsoft Copilot in Azure providing options to deploy a website.":::
 
-After you provide answers, Microsoft Copilot for Azure (preview) provides several options that might be a good fit. You can choose one of these or ask more questions.
+After you provide answers, Microsoft Copilot in Azure provides several options that might be a good fit. You can choose one of these or ask more questions.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-design-options.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) Design options":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-design-options.png" alt-text="Screenshot showing Microsoft Copilot in Azure Design options.":::
 
-After you specify which option you'd like to use, Microsoft Copilot for Azure (preview) provides a step-by-step plan to walk you through the deployment. It gives you the option to change parts of the plan and also asks you to choose a development tool. In this example, Azure App Service is selected.
+After you specify which option you'd like to use, Microsoft Copilot in Azure provides a step-by-step plan to walk you through the deployment. It gives you the option to change parts of the plan and also asks you to choose a development tool. In this example, Azure App Service is selected.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-app-service.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing steps to deploy a website using Azure App Service.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-app-service.png" alt-text="Screenshot showing Microsoft Copilot in Azure providing steps to deploy a website using Azure App Service.":::
 
-Since the response in this example is ARM template, Microsoft Copilot for Azure (preview) creates a basic ARM template, then provides instructions for how to deploy it.
+Since the response in this example is ARM template, Microsoft Copilot in Azure creates a basic ARM template, then provides instructions for how to deploy it.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-create-template.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) creating an ARM template.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-create-template.png" alt-text="Screenshot showing Microsoft Copilot in Azure creating an ARM template.":::
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workload-deploy-template.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing instructions for deploying the ARM template.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workload-deploy-template.png" alt-text="Screenshot showing Microsoft Copilot in Azure providing instructions for deploying the ARM template.":::
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot in Azure.
 - Learn more about [virtual machines in Azure](/azure/virtual-machines/overview).
-- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

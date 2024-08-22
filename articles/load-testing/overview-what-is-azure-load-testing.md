@@ -1,12 +1,14 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Load Testing is a fully managed load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a load test based on a URL or by using existing JMeter scripts.'
+description: 'Azure Load Testing is a fully managed, cloud-based load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a URL-based load test, or upload a JMeter or Locust test script.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
+ms.custom:
+  - build-2024
 ms.topic: overview
 ms.author: ninallam
 author: ninallam
-ms.date: 05/09/2023
+ms.date: 04/04/2024
 adobe-target: true
 ---
 
@@ -16,7 +18,7 @@ Azure Load Testing is a fully managed load-testing service that enables you to g
 
 Quickly [create a load test for your web application by using a URL](./quickstart-create-and-run-load-test.md), and without prior knowledge of testing tools. Azure Load Testing abstracts the complexity and infrastructure to run your load test at scale.
 
-For more advanced load testing scenarios, you can [create a load test by reusing an existing Apache JMeter test script](how-to-create-and-run-load-test-with-jmeter-script.md), a popular open-source load and performance tool. For example, your test plan might consist of multiple application requests, you want to call non-HTTP endpoints, or you're using  input data and parameters to make the test more dynamic.
+For more advanced load testing scenarios, you can also create a load test by uploading a test script. Azure Load Testing supports running [Apache JMeter-based tests](./how-to-create-and-run-load-test-with-jmeter-script.md) or [Locust-based tests](./quickstart-create-run-load-test-with-locust.md). For example, your test plan might consist of multiple application requests, you want to call non-HTTP endpoints, or you're using input data and parameters to make the test more dynamic.
 
 If your application is hosted on Azure, Azure Load Testing collects detailed resource metrics to help you [identify performance bottlenecks](#identify-performance-bottlenecks-by-using-high-scale-load-tests) across your Azure application components.
 
@@ -35,18 +37,18 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 
 ## Usage scenarios
 
-Azure Load Testing uses Apache JMeter and supports a wide range of application types and communication protocols. The following list provides examples of supported application or endpoint types:
+Azure Load Testing can use the Apache JMeter or Locust testing frameworks and supports a wide range of application types and communication protocols. The following list provides examples of supported application or endpoint types:
 
 - Web applications, using HTTP or HTTPS
 - REST APIs
 - Databases via JDBC
 - TCP-based endpoints
 
-By [using JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types.
+For JMeter, you can [use JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types.
 
 With the quick test experience you can [test a single URL-based HTTP endpoint](./quickstart-create-and-run-load-test.md). By [uploading a JMeter script](how-to-create-and-run-load-test-with-jmeter-script.md), you can use all JMeter-supported communication protocols.
 
-Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter and Locust.
 
 ## Identify performance bottlenecks by using high-scale load tests
 
@@ -68,13 +70,13 @@ In the test configuration, [specify test fail criteria](./how-to-define-test-cri
 
 Azure Load Testing will automatically stop an automated load test in response to specific error conditions. Alternately, you can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL. Learn how you can [configure auto stop for your load test](./how-to-define-test-criteria.md#auto-stop-configuration).
 
-You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
+You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows, or use the Azure CLI to integrate with other CI tools.
 
 ## How does Azure Load Testing work?
 
-Azure Load Testing uses Apache JMeter for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
+Azure Load Testing uses Apache JMeter or Locust for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, use Azure Load Testing to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
 
-The Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). Each test engine instance runs your JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL (*quick test*), Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
+The Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). Each test engine instance runs your test script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL (*quick test*), Azure Load Testing automatically generates a test script for you. To scale out the load test, you can configure the number of test engines.
 
 You can host the application under load anywhere: in Azure, on-premises, or in other clouds. To run a load test for services that have no public endpoint, [deploy Azure Load Testing in a virtual network](./how-to-test-private-endpoint.md).
 
@@ -86,16 +88,17 @@ During the load test, Azure Load Testing collects the following resource metrics
 
 Azure Load Testing automatically incorporates best practices for Azure networking to help make sure that your tests run securely and reliably. Load tests are automatically stopped if the application endpoints or Azure components start throttling requests.
 
-The service automatically encrypts all data stored in your load testing resource with keys managed by Microsoft (service-managed keys). For example, this data includes your Apache JMeter script, configuration files, and more. Alternately, you can also [configure the service to use customer-managed keys](./how-to-configure-customer-managed-keys.md).
+The service automatically encrypts all data stored in your load testing resource with keys managed by Microsoft (service-managed keys). For example, this data includes your Apache JMeter or Locust test script, configuration files, and more. Alternately, you can also [configure the service to use customer-managed keys](./how-to-configure-customer-managed-keys.md).
 
 ## In-region data residency
 
 Azure Load Testing doesn't store or process customer data outside the region you deploy the service instance in.
 
-## Next steps
+## Related content
 
 Start using Azure Load Testing:
-- [Quickstart: Load test an existing web application](./quickstart-create-and-run-load-test.md).
-- [Quickstart: Automate load tests with CI/CD](./quickstart-add-load-test-cicd.md).
-- [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
+
+- [Quickstart: Create a URL-based load test](./quickstart-create-and-run-load-test.md).
+- [Quickstart: Create a load test by using a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
+- [Quickstart: Create a load test by using a Locust script](./quickstart-create-run-load-test-with-locust.md).
 - Learn about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).

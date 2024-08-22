@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 03/28/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
@@ -15,7 +16,7 @@ author: lgayhardt
 
 # Evaluation and monitoring metrics for generative AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio allows you to evaluate single-turn or complex, multi-turn conversations where you ground the generative AI model in your specific data (also known as Retrieval Augmented Generation or RAG). You can also evaluate general single-turn question answering scenarios, where no context is used to ground your generative AI model (non-RAG). Currently, we support built-in metrics for the following task types:
 
@@ -89,7 +90,7 @@ We support the following AI-Assisted metrics for the above task types:
 
 ## Risk and safety metrics
 
-The risk and safety metrics draw on insights gained from our previous Large Language Model projects such as GitHub Copilot and Bing. This ensures a comprehensive approach to evaluating generated responses for risk and safety severity scores. These metrics are generated through our safety evaluation service, which employs a set of LLMs. Each model is tasked with assessing specific risks that could be present in the response (for example, sexual content, violent content, etc.). These models are provided with risk definitions and severity scales, and they annotate generated conversations accordingly. Currently, we calculate a “defect rate” for the risk and safety metrics below. For each of these metrics, the service measures whether these types of content were detected and at what severity level. Each of the four types has three severity levels (Very low, Low, Medium, High). Users specify a threshold of tolerance, and the defect rates are produced by our service correspond to the number of instances that were generated at and above each threshold level.
+The risk and safety metrics draw on insights gained from our previous Large Language Model projects such as GitHub Copilot and Bing. This ensures a comprehensive approach to evaluating generated responses for risk and safety severity scores. These metrics are generated through our safety evaluation service, which employs a set of LLMs. Each model is tasked with assessing specific risks that could be present in the response (for example, sexual content, violent content, etc.). These models are provided with risk definitions and severity scales, and they annotate generated conversations accordingly. Currently, we calculate a “defect rate” for the risk and safety metrics below. For each of these metrics, the service measures whether these types of content were detected and at what severity level. Each of the four types has four severity levels (Very low, Low, Medium, High). Users specify a threshold of tolerance, and the defect rates are produced by our service correspond to the number of instances that were generated at and above each threshold level.
 
  Types of content:
 
@@ -100,7 +101,7 @@ The risk and safety metrics draw on insights gained from our previous Large Lang
 
 Besides the above types of contents, we also support “Jailbreak defect rate” in a comparative view across evaluations, a metric that measures the prevalence of jailbreaks in model responses. Jailbreaks are when a model response bypasses the restrictions placed on it. Jailbreak also happens where an LLM deviates from the intended task or topic.  
 
-Users can measure these risk and safety metrics on their own data or use the Azure AI SDK to [simulate different attack interactions with their generative AI application to output a test ](../how-to/simulator-interaction-data.md) (we refer to it as content risk dataset). Then you can evaluate on this simulated test dataset to output an annotated test dataset with content risk severity levels (very low, low, medium, or high) and [view your results in Azure AI ](../how-to/evaluate-flow-results.md), which provides you with overall defect rate across whole test dataset and instance view of each content risk label and reasoning.
+You can measure these risk and safety metrics on your own data or test dataset. Then you can evaluate on this simulated test dataset to output an annotated test dataset with content risk severity levels (very low, low, medium, or high) and [view your results in Azure AI ](../how-to/evaluate-flow-results.md), which provides you with overall defect rate across whole test dataset and instance view of each content risk label and reasoning.
 
 Unlike other metrics in the table, jailbreak vulnerability can't be reliably measured with annotation by an LLM. However, jailbreak vulnerability can be measured by the comparison of two different automated datasets (1) content risk dataset vs. (2) content risk dataset with jailbreak injections in the first turn. Then the user evaluates jailbreak vulnerability by comparing the two datasets’ content risk defect rates.
 
@@ -237,7 +238,7 @@ For groundedness, we provide two versions:
 | When to use it?  | Use the groundedness metric when you need to verify that AI-generated responses align with and are validated by the provided context. It's essential for applications where factual correctness and contextual accuracy are key, like information retrieval, question-answering, and content summarization. This metric ensures that the AI-generated answers are well-supported by the context. |
 | What does it need as input?  | Question, Context, Generated Answer |
 
-Built-in prompt used by Large Language Model judge to score this metric:
+Built-in prompt used by the Large Language Model judge to score this metric:
 
 ```
 You will be presented with a CONTEXT and an ANSWER about that CONTEXT. You need to decide whether the ANSWER is entailed by the CONTEXT by choosing one of the following rating: 
@@ -268,7 +269,7 @@ Note the ANSWER is generated by a computer system, it can contain certain symbol
 | What does it need as input?  | Question, Context, Generated Answer | 
 
 
-Built-in prompt used by Large Language Model judge to score this metric (For question answering data format): 
+Built-in prompt used by the Large Language Model judge to score this metric (For question answering data format): 
 
 ```
 Relevance measures how well the answer addresses the main aspects of the question, based on the context. Consider whether all and only the important aspects are contained in the answer when evaluating relevance. Given the context and question, score the relevance of the answer between one to five stars using the following rating scale: 
@@ -286,7 +287,7 @@ Five stars: the answer has perfect relevance
 This rating value should always be an integer between 1 and 5. So the rating produced should be 1 or 2 or 3 or 4 or 5. 
 ```
 
-Built-in prompt used by Large Language Model judge to score this metric (For conversation data format) (without Ground Truth available):
+Built-in prompt used by the Large Language Model judge to score this metric (For conversation data format) (without Ground Truth available):
 
 ```
 You will be provided a question, a conversation history, fetched documents related to the question and a response to the question in the {DOMAIN} domain. Your task is to evaluate the quality of the provided response by following the steps below:  
@@ -316,7 +317,7 @@ You will be provided a question, a conversation history, fetched documents relat
 - Your final response must include both the reference answer and the evaluation result. The evaluation result should be written in English.  
 ```
 
-Built-in prompt used by Large Language Model judge to score this metric (For conversation data format) (with Ground Truth available): 
+Built-in prompt used by the Large Language Model judge to score this metric (For conversation data format) (with Ground Truth available): 
 
 ```
 
@@ -360,7 +361,7 @@ Labeling standards are as following:
 | When to use it?   | Use it when assessing the readability and user-friendliness of your model's generated responses in real-world applications.   |
 | What does it need as input?  | Question, Generated Answer |
 
-Built-in prompt used by Large Language Model judge to score this metric:
+Built-in prompt used by the Large Language Model judge to score this metric:
 
 ```
 Coherence of an answer is measured by how well all the sentences fit together and sound naturally as a whole. Consider the overall quality of the answer when evaluating coherence. Given the question and answer, score the coherence of answer between one to five stars using the following rating scale: 
@@ -388,7 +389,7 @@ This rating value should always be an integer between 1 and 5. So the rating pro
 | When to use it?   | Use it when evaluating the linguistic correctness of the AI-generated text, ensuring that it adheres to proper grammatical rules, syntactic structures, and vocabulary usage in the generated responses.   |
 | What does it need as input?  | Question, Generated Answer | 
 
-Built-in prompt used by Large Language Model judge to score this metric: 
+Built-in prompt used by the Large Language Model judge to score this metric: 
 
 ```
 Fluency measures the quality of individual sentences in the answer, and whether they are well-written and grammatically correct. Consider the quality of individual sentences when evaluating fluency. Given the question and answer, score the fluency of the answer between one to five stars using the following rating scale: 
@@ -416,7 +417,7 @@ This rating value should always be an integer between 1 and 5. So the rating pro
 | When to use it?   | Use the retrieval score when you want to guarantee that the documents retrieved are highly relevant for answering your users' questions. This score helps ensure the quality and appropriateness of the retrieved content.    |
 | What does it need as input?  | Question, Context, Generated Answer  | 
 
-Built-in prompt used by Large Language Model judge to score this metric: 
+Built-in prompt used by the Large Language Model judge to score this metric: 
 
 ```
 A chat history between user and bot is shown below 
@@ -472,7 +473,7 @@ Think through step by step:
 
 
 
-Built-in prompt used by Large Language Model judge to score this metric: 
+Built-in prompt used by the Large Language Model judge to score this metric: 
 
 ```
 GPT-Similarity, as a metric, measures the similarity between the predicted answer and the correct answer. If the information and content in the predicted answer is similar or equivalent to the correct answer, then the value of the Equivalence metric should be high, else it should be low. Given the question, correct answer, and predicted answer, determine the value of Equivalence metric using the following rating scale: 
@@ -503,6 +504,6 @@ This rating value should always be an integer between 1 and 5. So the rating pro
 ## Next steps
 
 - [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
-- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [Evaluate your generative AI apps with the Azure AI Studio](../how-to/evaluate-generative-ai-app.md)
 - [View the evaluation results](../how-to/evaluate-flow-results.md)
 - [Transparency Note for Azure AI Studio safety evaluations](safety-evaluations-transparency-note.md)

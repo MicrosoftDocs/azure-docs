@@ -2,7 +2,7 @@
 title: Azure Load Balancer health probes
 description: Azure Load Balancer health probes and configuration for detecting application failures, managing load, and planned downtime. Includes probe properties and SKU comparison.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: mbender
@@ -100,7 +100,9 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
  
 * To test a health probe failure or mark down an individual instance, use a [network security group](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe. Create an NSG rule to block the destination port or [source IP](#probe-source-ip-address) to simulate the failure of a probe.
 
-* Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it. 
+* Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it.
+
+* It is not recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
 
 ## Monitoring
 
@@ -108,19 +110,21 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 ## Probe source IP address
 
-For Load Balancer's health probe to mark up your instance, you **must** allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
+For Azure Load Balancer's health probe to mark up your instance, you **must** allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance.  In turn, Azure Load Balancer marks your instance as *down* due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address as their source. 
+If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance.  In turn, Azure Load Balancer marks your instance as *down* due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address (fe80::1234:5678:9abc) as their source. For a dual-stack Azure Load Balancer, you must [configure a Network Security Group](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md#create-a-network-security-group-rule-for-inbound-and-outbound-connections) for the IPv6 health probe to function.
 
  ## Limitations
 
-* HTTPS probes don't support mutual authentication with a client certificate.
+* HTTPS probes doesn't support mutual authentication with a client certificate.
 
-* You should assume health probes fail when TCP timestamps are enabled.
+* HTTP probes doesn't support using hostnames to probes backends
+
+* Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to timeout.
 
 * A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
-* HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
+* HTTP probes doesn't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 

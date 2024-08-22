@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 08/11/2023
 ---
@@ -29,7 +29,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 1. Use the following command to run the sample application:
 
    ```bash
-   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
+   java -jar web/target/simple-todo-web.jar
    ```
 
 1. Go to `http://localhost:8080` in your browser to access the application.

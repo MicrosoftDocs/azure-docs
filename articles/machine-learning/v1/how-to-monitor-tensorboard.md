@@ -3,7 +3,7 @@ title: Visualize experiments with TensorBoard
 titleSuffix: Azure Machine Learning
 description: Launch TensorBoard to visualize experiment job histories and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: amipatel
 author: amibp
@@ -19,9 +19,9 @@ ms.custom: UpdateFrequency5, sdkv1
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
+In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/azureml.tensorboard) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
 
-[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard) is a suite of web applications for inspecting and understanding your experiment structure and performance.
+[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
 How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#launch-tensorboard) from experiment's job history. 

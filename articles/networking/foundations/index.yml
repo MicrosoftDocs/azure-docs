@@ -1,0 +1,222 @@
+### YamlMime:Hub
+title: Azure network foundation documentation
+summary: Azure network foundation services provide core connectivity for your resources in Azure.
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure network foundation documentation
+  summary: Learn about Azure network foundation services that provide core connectivity for your resources in Azure.
+  ms.service: azure-dns
+  ms.topic: hub-page
+  author: greg-lindsay
+  ms.author: greglin
+  manager: kumudD
+  ms.date: 07/23/2024
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: "Azure networking documentation" 
+      itemType: concept
+      url: /azure/networking/
+    # Card
+    - title: "What is Azure Virtual Network"
+      itemType: "video"
+      url:  https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d
+    # Card
+    - title: "How to connect and deliver services privately on Azure with Azure Private Link"
+      itemType: "video"
+      url: https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=how-to-connect-and-deliver-services-privately-on-azure-with-azure-private-link
+    # Card
+    - title: "Azure Virtual Networking: Private Link, Virtual Network Managers, and DNS"
+      itemType: "video"
+      url: https://www.youtube.com/watch?v=UHs4NTUGZeQ
+
+productDirectory:
+  title: Get started
+  items:
+    - title: Azure Virtual Network
+      imageSrc: ./media/virtual-networks.svg
+      summary: Azure Virtual Network is the fundamental building block for your private network in Azure.
+      url: ../../virtual-network/index.yml
+    - title: Azure Private Link
+      summary: Azure Private Link enables you to access Azure services over a private endpoint in your virtual network.
+      imageSrc: ./media/private-link.svg
+      url: ../../private-link/index.yml
+    - title: Azure DNS
+      summary: Azure DNS provides reliable and secure name resolution for your Azure services using Azure infrastructure.
+      imageSrc: ./media/dns.svg
+      url: ../../dns/index.yml
+    - title: Azure Virtual Network Manager (AVNM)
+      summary: AVNM is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions.
+      imageSrc: ./media/avnm.svg
+      url: ../../virtual-network-manager/index.yml
+    - title: Azure Bastion
+      summary: Azure Bastion is a fully managed PaaS service that enables you to securely connect to virtual machines via private IP address.
+      imageSrc: ./media/bastion.svg
+      url: ../../bastion/index.yml
+    - title: Route Server
+      summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network.
+      imageSrc: ./media/route-server.svg
+      url: ../../route-server/index.yml
+    - title: NAT Gateway
+      summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.
+      imageSrc: ./media/nat-gateway.svg
+      url: ../../nat-gateway/index.yml
+    - title: Traffic Manager
+      summary: Azure Traffic Manager is a DNS-based traffic load balancer.
+      imageSrc: ./media/traffic-manager.svg
+      url: ../../traffic-manager/index.yml
+
+          
+# conceptualContent section (Optional; Remove if not applicable.)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    # Section 1
+    - title: Network foundation scenarios
+      summary: Design and deploy a secure network in Azure.
+      items:
+        # Card 1
+        - title: Design and create an isolated network
+          links:
+            - url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+              itemType: training
+              text: Plan virtual networks
+            - url: /azure/virtual-network/tutorial-connect-virtual-networks-portal
+              itemType: training
+              text: Connect virtual networks
+            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=ExpressRoute
+              itemType: training
+              text: Deploy a private endpoint with a private resolver
+            - url: /azure/dns/private-dns-scenarios
+              itemType: training
+              text: Azure Private DNS zones scenarios
+        # Card 2
+        - title: Secure the network
+          links:
+            - url: /azure/virtual-network/vnet-integration-for-azure-services
+              itemType: training
+              text: Integrate Azure services with virtual networks for network isolation
+            - url: /azure/virtual-network/virtual-network-encryption-overview
+              itemType: training
+              text: Virtual network encryption
+            - url: /azure/private-link/how-to-approve-private-link-cross-subscription
+              itemType: training
+              text: Approve Private Link connections across subscriptions
+            - url: /azure/private-link/tutorial-dns-on-premises-private-resolver
+              itemType: training
+              text: Azure Private Endpoint DNS integration
+        # Card 3
+        - title: Configure access to the network
+          links:
+            - url: /azure/virtual-network/tutorial-filter-network-traffic
+              itemType: training
+              text: Filter network traffic
+            - url: /azure/virtual-network/tutorial-restrict-network-access-to-resources
+              itemType: training
+              text: Restrict network access to resources
+            - url: /azure/private-link/how-to-approve-private-link-cross-subscription
+              itemType: concept
+              text: Approve Private Link connections across subscriptions
+            - url: /azure/dns/private-resolver-hybrid-dns
+              itemType: concept
+              text: Resolve Azure and on-premises domains
+
+    # Section 2
+    - title: Learn more
+      summary: Learn more about network foundation services.
+      items:
+        # Card 1
+        - title: Learning paths and modules
+          links:
+            - url: https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/
+              itemType: learn
+              text: Introduction to Azure Virtual Networks
+            - url: https://learn.microsoft.com/training/modules/configure-virtual-networks/
+              itemType: learn
+              text: Configure virtual networks
+            - url: https://learn.microsoft.com/training/modules/introduction-azure-private-link/
+              itemType: learn
+              text: Introduction to Azure Private Link
+            - url: https://learn.microsoft.com/training/modules/design-implement-private-access-to-azure-services/
+              itemType: learn
+              text: Design and implement private access to Azure Services
+            - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns/
+              itemType: learn
+              text: Introduction to Azure DNS
+            - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns-private-resolver/
+              itemType: learn
+              text: Intro to Azure DNS Private Resolver
+          # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/training/browse/
+            text: Browse all courses, learning paths, and modules.
+        # Card 2
+        - title: Patterns and practices
+          links:
+            - url: /azure/well-architected/
+              itemType: architecture
+              text: Azure Well-Architected Framework
+            - url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+              itemType: architecture
+              text: Cloud Adoption Framework
+            - url: /azure/architecture/networking/guide/private-link-hub-spoke-network
+              itemType: architecture
+              text: Azure Private Link in a hub-and-spoke network
+            - url: /azure/architecture/networking/architecture/azure-dns-private-resolver
+              itemType: architecture
+              text: Azure DNS Private Resolver
+            - url: /azure/architecture/hybrid/hybrid-dns-infra
+              itemType: architecture
+              text: Design a hybrid Domain Name System solution with Azure
+            - url: /azure/architecture/networking/guide/private-link-virtual-wan-dns-guide
+              itemType: architecture
+              text: Private Link and DNS in Azure Virtual WAN
+          # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/en-us/azure/architecture/
+            text: Browse the Azure Architecture Center.
+        # Card 3
+        - title: Troubleshooting and FAQs
+          links:
+            - url: /azure/virtual-network/virtual-networks-faq
+              text: Azure Virtual Network FAQ
+              itemType: reference
+            - url: /azure/private-link/private-link-faq
+              text: Azure Private Link FAQ
+              itemType: reference
+            - url: /azure/dns/dns-faq
+              text: Azure DNS FAQ
+              itemType: reference
+            - url: /azure/virtual-network/what-is-ip-address-168-63-129-16
+              text: What is IP address 168.63.129.16?
+              itemType: reference
+            - url: /azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms
+              text: Troubleshooting connectivity problems between Azure VMs
+              itemType: reference
+            - url: /azure/private-link/troubleshoot-private-endpoint-connectivity
+              text: Troubleshoot Azure Private Endpoint connectivity problems
+              itemType: reference
+            - url: /azure/dns/dns-troubleshoot
+              text: Azure DNS troubleshooting guide
+              itemType: reference
+
+# additionalContent section (optional)
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Load balancing and Content Delivery
+          url: /azure/networking/load-balancer-content-delivery/
+        - title: Network security
+          url: /azure/networking/security/
+        - title: Hybrid connectivity
+          url: /azure/networking/hybrid-connectivity/
+        - title: Network monitoring and management
+          url: /azure/networking/monitoring-management/

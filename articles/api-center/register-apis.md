@@ -2,7 +2,7 @@
 title: Tutorial - Start your API inventory 
 description: In this tutorial, start the API inventory in your API center by registering APIs using the Azure portal.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.author: danlep 
@@ -72,12 +72,14 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
+> [!TIP]
+> When you register an API in the portal, you can select any of the predefined API types or enter another type of your choice. 
+
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
 :::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="media/register-apis/apis-page.png":::
 
-> [!TIP]
-> After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
+After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
 
 ## Add an API version
 

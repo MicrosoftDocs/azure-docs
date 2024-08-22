@@ -27,7 +27,7 @@ We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If yo
 
 An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!NOTE]
 > If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
@@ -166,9 +166,66 @@ If `IConfiguration` has loaded configuration from multiple providers, then `serv
 
 Run your application and make requests to it. Telemetry should now flow to Application Insights. The Application Insights SDK automatically collects incoming web requests to your application, along with the following telemetry.
 
-### Live Metrics
+### Live metrics
 
-[Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if application monitoring with Application Insights is configured correctly. Telemetry can take a few minutes to appear in the Azure portal, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+
+#### Enable live metrics by using code for any .NET application
+
+> [!NOTE]
+> Live metrics are enabled by default when you onboard it by using the recommended instructions for .NET applications.
+
+To manually configure live metrics:
+
+1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
+1. The following sample console app code shows setting up live metrics:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+
+// Create a TelemetryConfiguration instance.
+TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+QuickPulseTelemetryProcessor quickPulseProcessor = null;
+config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+    .Use((next) =>
+    {
+        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+        return quickPulseProcessor;
+    })
+    .Build();
+
+var quickPulseModule = new QuickPulseTelemetryModule();
+
+// Secure the control channel.
+// This is optional, but recommended.
+quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+quickPulseModule.Initialize(config);
+quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+// Create a TelemetryClient instance. It is important
+// to use the same TelemetryConfiguration here as the one
+// used to set up live metrics.
+TelemetryClient client = new TelemetryClient(config);
+
+// This sample runs indefinitely. Replace with actual application logic.
+while (true)
+{
+    // Send dependency and request telemetry.
+    // These will be shown in live metrics.
+    // CPU/Memory Performance counter is also shown
+    // automatically without any additional steps.
+    client.TrackDependency("My dependency", "target", "http://sample",
+        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+    client.TrackRequest("My Request", DateTimeOffset.Now,
+        TimeSpan.FromMilliseconds(230), "200", true);
+    Task.Delay(1000).Wait();
+}
+```
+
+The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the live metrics module.
 
 ### ILogger logs
 
@@ -199,7 +256,7 @@ HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) using JavaScript (Web) SDK Loader Script injection by configuration.
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage.md) using JavaScript (Web) SDK Loader Script injection by configuration.
 
 1. In `_ViewImports.cshtml`, add injection:
 
@@ -250,7 +307,7 @@ var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.Applicat
 // Disables adaptive sampling.
 aiOptions.EnableAdaptiveSampling = false;
 
-// Disables QuickPulse (Live Metrics stream).
+// Disables live metrics (also known as QuickPulse).
 aiOptions.EnableQuickPulseMetricStream = false;
 
 builder.Services.AddApplicationInsightsTelemetry(aiOptions);
@@ -267,7 +324,7 @@ public void ConfigureServices(IServiceCollection services)
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
-    // Disables QuickPulse (Live Metrics stream).
+    // Disables live metrics (also known as QuickPulse).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
 }
@@ -452,7 +509,7 @@ By default, the following automatic-collection modules are enabled. These module
 * `RequestTrackingTelemetryModule`: Collects RequestTelemetry from incoming web requests.
 * `DependencyTrackingTelemetryModule`: Collects [DependencyTelemetry](./asp-net-dependencies.md) from outgoing HTTP calls and SQL calls.
 * `PerformanceCollectorModule`: Collects Windows PerformanceCounters.
-* `QuickPulseTelemetryModule`: Collects telemetry to show in the Live Metrics portal.
+* `QuickPulseTelemetryModule`: Collects telemetry to show in the live metrics pane.
 * `AppServicesHeartbeatTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the App Service environment where the application is hosted.
 * `AzureInstanceMetadataTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the Azure VM environment where the application is hosted.
 * `EventCounterCollectionModule`: Collects [EventCounters](eventcounters.md). This module is a new feature and is available in SDK version 2.8.0 and later.
@@ -797,11 +854,15 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
             }
     ```
 
+### How can I disable telemetry correlation?
+
+To disable telemetry correlation in code, see `<ExcludeComponentCorrelationHttpHeadersOnDomains>` in [Application Insights for console applications](/previous-versions/azure/azure-monitor/app/console).
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 
@@ -817,7 +878,7 @@ Our [Service Updates](https://azure.microsoft.com/updates/?service=application-i
 
 ## Next steps
 
-* [Explore user flows](./usage-flows.md) to understand how users move through your app.
+* [Explore user flows](./usage.md#user-flows---analyze-user-navigation-patterns) to understand how users move through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./availability-overview.md) to check your app constantly from around the world.

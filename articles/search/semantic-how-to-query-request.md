@@ -1,5 +1,5 @@
 ---
-title: Query with semantic ranking
+title: Add semantic ranking
 titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
@@ -10,16 +10,18 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 07/24/2024
 ---
 
-# Create a semantic query in Azure AI Search
+# Add semantic ranking to queries in Azure AI Search
 
-In this article, learn how to invoke a semantic ranking over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
+This article explains how to invoke the semantic ranker on queries. You can apply semantic ranking to text queries, hybrid queries, and vector queries if your search documents contain string fields and the [vector query has a text representation](vector-search-how-to-query.md#query-with-integrated-vectorization).
+
+Semantic ranking iterates over an initial result set, applying an L2 ranking methodology that promotes the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
 ## Prerequisites
 
-+ A search service, Basic tier or higher, with [semantic ranking](semantic-how-to-enable-disable.md).
++ A search service, basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + An existing search index with a [semantic configuration](semantic-how-to-configure.md) and rich text content.
 
@@ -30,7 +32,7 @@ In this article, learn how to invoke a semantic ranking over a result set, promo
 
 ## Choose a client
 
-Choose a search client that supports semantic ranking. Here are some options:
+You can use any of the following tools and SDKs to build a query that uses semantic ranking:
 
 + [Azure portal](https://portal.azure.com), using the index designer to add a semantic configuration.
 + [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
@@ -41,11 +43,9 @@ Choose a search client that supports semantic ranking. Here are some options:
 
 ## Avoid features that bypass relevance scoring
 
-Several query capabilities in Azure AI Search bypass relevance scoring or are otherwise incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
+A few query capabilities bypass relevance scoring, which makes them incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
 
-+ A query with `search=*` or an empty search string, such as pure filter-only query, won't work because there's nothing to measure semantic relevance against. The query must provide terms or phrases that can be assessed during processing.
-
-+ A query composed in the [full Lucene syntax](query-lucene-syntax.md) (`queryType=full`) is incompatible with semantic ranking (`queryType=semantic`). The semantic model doesn't support the full Lucene syntax.
++ A query with `search=*` or an empty search string, such as pure filter-only query, won't work because there's nothing to measure semantic relevance against and so the search scores are zero. The query must provide terms or phrases that can be evaluated during processing.
 
 + Sorting (orderBy clauses) on specific fields overrides search scores and a semantic score. Given that the semantic score is supposed to provide the ranking, adding an orderby clause results in an HTTP 400 error if you apply semantic ranking over ordered results.
 
@@ -86,7 +86,7 @@ In this step, add parameters to the query request. To be successful, your query 
         "count": true
     }
    ```
-   
+
 ### [**REST API**](#tab/rest-query)
 
 Use [Search Documents](/rest/api/searchservice/documents/search-post) to formulate the request.
@@ -98,7 +98,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 1. Paste the following request into a web client as a template. Replace the service name and index name with valid values.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01      
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2024-07-01      
     {
         "queryType": "semantic",
         "search": "newer hotel near the water with a great restaurant",
@@ -114,9 +114,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "queryType" to "semantic".
 
-   In other queries, the "queryType" is used to specify the query parser. In semantic ranking, it's set to "semantic". For the "search" field, you can specify queries that conform to the [simple syntax](query-simple-syntax.md).
-
-1. Set "search" to a full text search query based on the [simple syntax](query-simple-syntax.md). Semantic ranking is an extension of full text search, so while this parameter isn't required, you won't get an expected outcome if it's null.
+1. Set "search" to a full text search query. Your search string can support either the [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md). Semantic ranking is an extension of full text search, so while "search" isn't required, you won't get an expected outcome if it's an empty search (`"search": "*"`).
 
 1. Set "semanticConfiguration" to a [predefined semantic configuration](semantic-how-to-configure.md) that's embedded in your index.
 
@@ -219,6 +217,20 @@ The response for the above example query returns the following match as the top 
   ...
 ]
 ```
+
+## Expected workloads
+
+For semantic ranking, you should expect a search service to support up to 10 concurrent queries per replica. 
+
+The service throttles semantic ranking requests if volumes are too high. An error message that includes these phrases indicate the service is at capacity for semantic ranking:
+
+```json
+Error in search query: Operation returned an invalid status 'Partial Content'`
+@search.semanticPartialResponseReason`
+CapacityOverloaded
+```
+
+If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
 
 ## Next steps
 

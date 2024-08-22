@@ -62,7 +62,7 @@ For more information on multi-lingual speech translation, see [the speech transl
 
 In scenarios where you want output in multiple languages, the Speech service directly offers the ability for you to translate the input language into two target languages. This enables them to receive two outputs and share these translations to a wider audience with a single API call. If more output languages are required, you can create a multi-service resource or use separate translation services. 
 
-If you need translation into more than two target languages, you need to either [create a multi-service resource](../multi-service-resource.md) or utilize separate translation services for more languages beyond the second. If you choose to call the speech translation service with a multi-service resource, please note that translation fees apply for each language beyond the second, based on the character count of the translation. 
+If you need translation into more than two target languages, you need to either [Create an Azure AI services resource](../multi-service-resource.md) or utilize separate translation services for more languages beyond the second. If you choose to call the speech translation service with a multi-service resource, please note that translation fees apply for each language beyond the second, based on the character count of the translation. 
 
 To calculate the applied translation fee, please refer to [Azure AI Translator pricing](https://azure.microsoft.com/products/ai-services/ai-translator#Pricing). 
 

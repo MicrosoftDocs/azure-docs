@@ -3,13 +3,13 @@ title: "Using low priority VMs in batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use low priority VMs to save costs when running batch jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande 
+ms.reviewer: cacrest
 ms.custom: devplatv2
 ---
 

@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 03/25/2024
+ms.date: 08/19/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
@@ -30,7 +30,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 **This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1 (GA)](?view=doc-intel-3.1.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v3.0 (GA)](?view=doc-intel-3.0.0&preserve-view=true)
 
-* Get started with Azure AI Document Intelligence latest preview version (2024-02-29-preview).
+* Get started with Azure AI Document Intelligence latest preview version (2024-07-31-preview).
 
 :::moniker-end
 
@@ -110,6 +110,14 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 
 * For v3.1 to v4.0 migration, see [**Changelog Migration guides**](../changelog-release-history.md#march-2024-preview-release).
 
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0" 
+* [**Find more samples on GitHub**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main).
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0" 
+* [**Find more samples on GitHub**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)).
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

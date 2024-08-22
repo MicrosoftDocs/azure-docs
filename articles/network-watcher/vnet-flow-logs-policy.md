@@ -1,15 +1,17 @@
 ---
-title: Manage virtual network flow logs using Azure Policy 
+title: Audit and deploy virtual network flow logs using Azure Policy 
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Policy built-in policies to audit virtual networks and deploy Azure Network Watcher virtual network flow logs.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 05/07/2024
+
+#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy virtual network flow logs.
 ---
 
-# Manage virtual network flow logs using Azure Policy
+# Audit and deploy virtual network flow logs using Azure Policy
 
 Azure Policy helps you enforce organizational standards and assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify noncompliant resources](../governance/policy/assign-policy-portal.md).
 
@@ -30,7 +32,7 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-portal-search.png":::
 
@@ -73,7 +75,7 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-portal-search.png":::
 
@@ -125,15 +127,19 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png" alt-text="Screenshot that shows the noncompliant virtual networks based on the deploy policy." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png":::
 
-    The policy takes some time to evaluate and deploy flow logs for all noncompliant virtual networks in the specified scope. 
+    > [!NOTE]
+    > The policy takes some time to evaluate virtual networks in the specified scope and deploy flow logs for the noncompliant virtual networks. 
 
-1. Verify that there are no noncompliant virtual networks in the policy compliance page.
+1. Go to **Flow logs** under **Logs** in **Network Watcher** to see the flow logs that were deployed by the policy.
+
+    :::image type="content" source="./media/vnet-flow-logs-policy/flow-logs.png" alt-text="Screenshot that shows the flow logs list in Network Watcher." lightbox="./media/vnet-flow-logs-policy/flow-logs.png":::
+
+1. In the policy compliance page, verify that all virtual networks in the specified scope are compliant.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png" alt-text="Screenshot that shows there aren't any noncompliant virtual networks after the deployment policy deployed flow logs in the defined scope." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png":::
 
-    You can view the deployed virtual network flow logs by going to **Flow logs** under **Logs** in **Network Watcher**.
-
-    :::image type="content" source="./media/vnet-flow-logs-policy/flow-logs.png" alt-text="Screenshot that shows the flow logs list in Network Watcher." lightbox="./media/vnet-flow-logs-policy/flow-logs.png":::
+    > [!NOTE]
+    > It can take up to 24 hours to update resource compliance status in Azure Policy compliance page. For more information, see [Understand evaluation outcomes](../governance/policy/overview.md?toc=/azure/network-watcher/toc.json#understand-evaluation-outcomes).
 
  ## Related content
 

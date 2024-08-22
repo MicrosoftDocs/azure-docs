@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 3/29/2024
+ms.date: 6/3/2024
 ms.custom: engagement-fy23
 ---
 
@@ -43,21 +43,23 @@ See the following prerequisites for AV64 cluster deployment.
 When a customer has a deployed Azure VMware Solution private cloud, they can scale the private cloud by adding a separate AV64 vCenter node cluster to that private cloud. In this scenario, customers should use the following steps: 
 
 1. Get an AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with the minimum of three nodes. Add other details on the Azure VMware Solution private cloud that you plan to extend using AV64.
-2. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
+2. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
+3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
 **Customer plans to create a new Azure VMware Solution private cloud**: When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
 
-1. Get AV36, AV36P, or AV52, and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each. 
-2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU. 
-3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
+1. Get AV36, AV36P, or AV52, and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each.
+2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU.
+3. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
+4. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand.
 
-**Azure VMware Solution stretched cluster private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched cluster private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched cluster private cloud. 
+**Azure VMware Solution stretched clusters private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched clusters private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched clusters private cloud. 
 
 ### AV64 Cluster vSAN fault domain (FD) design and recommendations 
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan.doc/GUID-8491C4B0-6F94-4023-8C7A-FD7B40D0368D.html). 
 
-The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures five vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the five FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. 
+The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures seven vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the seven FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. Some Azure regions still support a maximum of five FDs as part of the initial release of the AV64 SKU. Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information.
 
 ### Cluster size recommendation
 
@@ -81,7 +83,7 @@ The following three scenarios show examples of instances that normally error out
 
      :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false" lightbox="media/introduction/remove-host-scenario-2.png":::
 
-- A selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs. While adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
+- A selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five or seven FDs. While adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all seven FDs evenly.
 	In the following example, users can remove one of the hosts from FD 1, but not from FD 2 or 3.
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false" lightbox="media/introduction/remove-host-scenario-3.png":::
@@ -90,13 +92,15 @@ The following three scenarios show examples of instances that normally error out
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID-6 FTT2 and RAID-1 FTT3 policies will be supported in future on AV64 SKU. Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA).  
+This table provides the list of RAID configuration supported and host requirements in AV64 clusters. The RAID-6 FTT2 and RAID-1 FTT3 policies are supported with the AV64 SKU in some regions. In Azure regions that are currently constrained to five FDs, Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA). Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information. 
 
-|RAID configuration 	|Failures to tolerate (FTT) |	Minimum hosts required |
+| RAID configuration 	| Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|
-|RAID-1 (Mirroring) Default setting.| 	1 |	3 |
-|RAID-5 (Erasure Coding) |	1 |	4 |
-|RAID-1 (Mirroring) |	2 |	5 |
+| RAID-1 (Mirroring) Default setting. | 1 | 3 |
+| RAID-5 (Erasure Coding)             | 1 | 4 |
+| RAID-1 (Mirroring)                  | 2 | 5 |
+| RAID-6 (Erasure Coding)             | 2 | 6 |
+| RAID-1 (Mirroring)                  | 3 | 7 |
 
 ## Storage 
 
@@ -135,7 +139,7 @@ In your private cloud, you can:
 - Collect logs on each of your VMs.
 - [Download and install the MMA agent](../azure-monitor/agents/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
 - Enable the [Azure diagnostics extension](../azure-monitor/agents/diagnostics-extension-overview.md).
-- [Create and run new queries](../azure-monitor/logs/data-platform-logs.md#log-queries).
+- [Create and run new queries](../azure-monitor/logs/data-platform-logs.md#kusto-query-language-kql-and-log-analytics).
 - Run the same queries you usually run on your VMs.
 
 Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).

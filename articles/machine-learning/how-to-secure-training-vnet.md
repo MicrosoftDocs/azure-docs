@@ -3,12 +3,12 @@ title: Secure training environments with virtual networks
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 04/08/2024
 ms.custom:
   - tracking-python
@@ -162,8 +162,8 @@ To create a compute cluster in an Azure Virtual Network in a different region th
 
 ## Compute instance/cluster or serverless compute with no public IP
 
-> [!WARNING]
-> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+> [!IMPORTANT]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, compute resources can't be deployed in your Azure Virtual Network. For information on using a managed virtual network, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 > [!IMPORTANT]
 > If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
@@ -265,6 +265,9 @@ ml_client.begin_create_or_update(entity=compute)
 
 Use the following information to configure **serverless compute** nodes with no public IP address in the VNet for a given workspace:
 
+> [!IMPORTANT]
+> If you are using a no public IP serverless compute and the workspace uses an IP allow list, you must add an outbound private endpoint to the workspace. The serverless compute needs to communicate with the workspace, but when configured for no public IP it uses the Azure Default Outbound for internet access. The public IP for this outbound is dynamic, and can't be added to the IP allow list. Creating an outbound private endpoint to the workspace allows traffic from the serverless compute bound for the workspace to bypass the IP allow list.
+
 # [Azure CLI](#tab/cli)
 
 Create a workspace:
@@ -331,7 +334,7 @@ Use Azure CLI or Python SDK to configure **serverless compute** nodes with no pu
 ## <a name="compute-instancecluster-with-public-ip"></a>Compute instance/cluster or serverless compute with public IP
 
 > [!IMPORTANT]
-> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, compute resources can't be deployed in your Azure Virtual Network. For information on using a managed virtual network, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** compute instances/clusters that have a public IP. They also apply to serverless compute:
 
@@ -517,7 +520,7 @@ In this section, you learn how to use a virtual machine or Azure HDInsight clust
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
 Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
-* [Create and manage Azure virtual networks for Linux VMs](../virtual-machines/linux/tutorial-virtual-network.md)
+* [Create and manage Azure virtual networks for Linux VMs](/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Extend HDInsight using an Azure virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 

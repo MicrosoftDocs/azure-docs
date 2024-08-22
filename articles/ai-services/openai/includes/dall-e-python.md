@@ -20,7 +20,6 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 #### [DALL-E 3](#tab/dalle3)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to DALL-E in the desired Azure subscription.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
@@ -28,16 +27,13 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 #### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to DALL-E in the desired Azure subscription.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - An Azure OpenAI resource created in the `EastUS` region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 ---
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 ### Retrieve key and endpoint
 
@@ -52,19 +48,12 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
-
-
-## Create a new Python application
-
-Open a command prompt and browse to your project folder. Create a new python file, _quickstart.py_.
 
 ## Install the Python SDK
 
 
-Install the OpenAI Python SDK by using the following command:
+Open a command prompt and browse to your project folder. Install the OpenAI Python SDK by using the following command:
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -89,9 +78,10 @@ pip install requests
 pip install pillow 
 ```
 
+
 ## Generate images with DALL-E
 
-Open _quickstart.py in your preferred editor or IDE.
+Create a new python file, _quickstart.py_. Open it in your preferred editor or IDE.
 
 Replace the contents of _quickstart.py_ with the following code. 
 
@@ -192,7 +182,7 @@ image.show()
 ---
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
+> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](/azure/key-vault/general/overview).
 
 Run the application with the `python` command:
 

@@ -2,15 +2,14 @@
 title: Outlook events in Azure Event Grid
 description: This article describes Microsoft Outlook events in Azure Event Grid.
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 05/22/2024
 ---
 
 # Microsoft Outlook events
 
-This article provides the properties and schema for Microsoft Outlook events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
+This article provides the properties and schema for Microsoft Outlook events that the Microsoft Graph API publishes. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when an Outlook event or an Outlook contact is created, updated or deleted or by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |
@@ -20,6 +19,10 @@ These events are triggered when an Outlook event or an Outlook contact is create
  | **Microsoft.Graph.ContactCreated** | Triggered when a contact in Outlook is created. |
  | **Microsoft.Graph.ContactUpdated** | Triggered when a contact in Outlook is updated. |
  | **Microsoft.Graph.ContactDeleted** | Triggered when a contact in Outlook is deleted.  |
+ | **Microsoft.Graph.MessageCreated** | Triggered when a message in Outlook is created. |
+ | **Microsoft.Graph.MessageUpdated** | Triggered when a message in Outlook is updated. |
+ | **Microsoft.Graph.MessageDeleted** | Triggered when a message in Outlook is deleted.  |
+
 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Outlook event.
@@ -32,13 +35,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.EventCreated",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Events/<event-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "created",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
@@ -62,13 +65,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.EventUpdated",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Events/<event-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "updated",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
@@ -91,13 +94,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.EventDeleted",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Events/<event-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "deleted",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
@@ -121,13 +124,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.ContactCreated",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Contacts/<contact-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "created",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
@@ -151,13 +154,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.ContactUpdated",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Contacts/<contact-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "updated",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
@@ -180,13 +183,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"type": "Microsoft.Graph.ContactDeleted",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
 	"subject": "Contacts/<contact-id>",
-	"time": "2022-05-24T22:24:31.3062901Z",
+	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
 	"data": {
 		"@odata.type": "#Microsoft.OutlookServices.Notification",
 		"Id": null,
-		"SubscriptionExpirationDateTime": "2019-02-14T23:56:30.1307708Z",
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "deleted",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
 		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
@@ -196,6 +199,95 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
+			"OtherResourceData": "<some other resource data>"
+		}
+	}
+}
+```
+
+### Microsoft.Graph.MessageCreated event
+
+```json
+{
+	"id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
+	"type": "Microsoft.Graph.MessageCreated",
+	"source": "/tenants/<tenant-id>/applications/<application-id>",
+	"subject": "Messages/<messaeg-id>",
+	"time": "2024-05-22T22:24:31.3062901Z",
+	"datacontenttype": "application/json",
+	"specversion": "1.0",
+	"data": {
+		"@odata.type": "#Microsoft.OutlookServices.Notification",
+		"Id": null,
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
+		"ChangeType": "created",
+		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
+		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+		"clientState": "<client state>",
+		"resourceData": {
+			"Id": "<message id>",
+			"@odata.etag": "<tag id>",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+			"@odata.type": "#Microsoft.OutlookServices.Message",
+			"OtherResourceData": "<some other resource data>"
+		}
+	}
+}
+```
+
+### Microsoft.Graph.MessageUpdated event
+
+```json
+{
+	"id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
+	"type": "Microsoft.Graph.MessageUpdated",
+	"source": "/tenants/<tenant-id>/applications/<application-id>",
+	"subject": "Messages/<message-id>",
+	"time": "2024-05-22T22:24:31.3062901Z",
+	"datacontenttype": "application/json",
+	"specversion": "1.0",
+	"data": {
+		"@odata.type": "#Microsoft.OutlookServices.Notification",
+		"Id": null,
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
+		"ChangeType": "updated",
+		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
+		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+		"clientState": "<client state>",
+		"resourceData": {
+			"Id": "<message id>",
+			"@odata.etag": "<tag id>",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+			"@odata.type": "#Microsoft.OutlookServices.Message",
+			"OtherResourceData": "<some other resource data>"
+		}
+	}
+}
+```
+### Microsoft.Graph.MessageDeleted event
+
+```json
+{
+	"id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
+	"type": "Microsoft.Graph.MessageDeleted",
+	"source": "/tenants/<tenant-id>/applications/<application-id>",
+	"subject": "Message/<messaeg-id>",
+	"time": "2024-05-22T22:24:31.3062901Z",
+	"datacontenttype": "application/json",
+	"specversion": "1.0",
+	"data": {
+		"@odata.type": "#Microsoft.OutlookServices.Notification",
+		"Id": null,
+		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
+		"ChangeType": "deleted",
+		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
+		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+		"clientState": "<client state>",
+		"resourceData": {
+			"Id": "<message id>",
+			"@odata.etag": "<tag id>",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+			"@odata.type": "#Microsoft.OutlookServices.Message",
 			"OtherResourceData": "<some other resource data>"
 		}
 	}
@@ -230,12 +322,12 @@ The data object has the following properties:
 | `@odata.id` | string | The Graph API resource identifier for which the event was raised. |
 | `id` | string | The resource identifier for which the event was raised. |
 | `organizationId` | string | The Outlook tenant identifier.  |
-| `eventTime` | string | The time at which the resource state occurred. |
+| `eventTime` | string | The time when the resource state occurred. |
 | `sequenceNumber` | string | A sequence number. |
-| `subscriptionExpirationDateTime` | string | The time in [RFC 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
+| `subscriptionExpirationDateTime` | string | The time in [Request for Change (RFC) 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
 | `subscriptionId` | string | The Graph API subscription identifier. |
 | `tenantId` | string | The Outlook tenant identifier.  |
-| `otherResourceData` | string | Placeholder that represents one or more dynamic properties that may be included in the event. |
+| `otherResourceData` | string | Placeholder that represents one or more dynamic properties that might be included in the event. |
 
 
 ## Next steps
@@ -244,4 +336,4 @@ The data object has the following properties:
 * For information on how to subscribe to Microsoft Graph API to receive Outlook events, see [subscribe to Azure Graph API events](subscribe-to-graph-api-events.md).
 * For information about Azure Event Grid event handlers, see [event handlers](event-handlers.md).
 * For more information about creating an Azure Event Grid subscription, see [create event subscription](subscribe-through-portal.md#create-event-subscriptions) and [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about how to configure an event subscription to select specific events to be delivered, consult [event filtering](event-filtering.md). You may also want to refer to [filter events](how-to-filter-events.md).
+* For information about how to configure an event subscription to select specific events to be delivered, consult [event filtering](event-filtering.md). You might also want to refer to [filter events](how-to-filter-events.md).

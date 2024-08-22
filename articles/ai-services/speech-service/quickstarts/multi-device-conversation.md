@@ -10,7 +10,6 @@ ms.date: 2/24/2024
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
 ms.devlang: cpp
-# ms.devlang: cpp, csharp
 ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other
 ---
 

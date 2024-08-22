@@ -11,10 +11,8 @@ items:
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a dev center
+    - name: Configure Azure Deployment Environments
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a project
-      href: quickstart-create-and-configure-projects.md
     - name: Create dev center and project (Azure Resource Manager)
       href: quickstart-create-dev-center-project-azure-resource-manager.md
       displayName: Azure Deployment Environments, ADE, environments, quickstart
@@ -25,8 +23,6 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
-      href: concept-environments-scenarios.md
     - name: Parameters and data types in environment.yaml
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
@@ -35,7 +31,9 @@ items:
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
-      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+    - name: Azure role-based access control
+      href: concept-deployment-environments-role-based-access-control.md
 - name: Configure resources
   expanded: false
   items:
@@ -66,6 +64,9 @@ items:
       displayName: custom image, custom runner, extensibility
     - name: Configure Terraform container image to execute deployments
       href: how-to-configure-extensibility-terraform-container-image.md
+      displayName: custom image, custom runner, extensibility  
+    - name: Configure Pulumi container image to execute deployments
+      href: how-to-configure-extensibility-pulumi-container-image.md
       displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false
@@ -104,12 +105,12 @@ items:
 - name: Reference
   expanded: false
   items:
+    - name: ADE CLI reference
+      href: reference-deployment-environment-cli.md
     - name: ADE CLI variables
       href: reference-deployment-environment-variables.md
     - name: Install Azure CLI extension
       href: how-to-install-devcenter-cli-extension.md
-    - name: ADE CLI reference
-      href: reference-deployment-environment-cli.md  
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API

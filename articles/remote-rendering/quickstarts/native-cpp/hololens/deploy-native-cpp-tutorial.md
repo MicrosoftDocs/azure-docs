@@ -28,7 +28,7 @@ To get access to the Remote Rendering service, you first need to [create an acco
 
 The following software must be installed:
 
-* [Windows SDK 10.0.18362.0](https://developer.microsoft.com/windows/downloads/windows-10-sdk) or later.
+* [Windows SDK 10.0.18362.0](https://developer.microsoft.com/windows/downloads/windows-sdk/) or later.
 * [The latest version of Visual Studio 2022](https://visualstudio.microsoft.com/vs/).
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are required:
   * **Desktop development with C++**

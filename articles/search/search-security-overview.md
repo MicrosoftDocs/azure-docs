@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 06/28/2024
 ---
 
 # Security overview for Azure AI Search
@@ -23,7 +23,7 @@ An Azure AI Search service is hosted on Azure and is typically accessed by clien
 
 Azure AI Search has three basic network traffic patterns:
 
-+ Inbound requests made by a client to the search service (the predominant pattern)
++ Inbound requests made by a user or client to the search service (the predominant pattern)
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
@@ -31,7 +31,7 @@ Azure AI Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint include:
 
-+ Create, read, update or delete objects on the search service
++ Create, read, update, or delete indexes and other objects on the search service
 + Load an index with search documents
 + Query an index
 + Trigger indexer or skillset execution
@@ -52,12 +52,12 @@ Internal requests are secured and managed by Microsoft. You can't configure or c
 Internal traffic consists of:
 
 + Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and [private endpoint connections](service-create-private-endpoint.md) that utilize Azure Private Link.
-+ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
++ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md)
 + Requests made to the machine learning models that support [semantic ranking](semantic-search-overview.md#availability-and-pricing).
 
 ### Outbound traffic
 
-Outbound requests can be secured and managed by you. Outbound requests originate from a search service to other applications. These requests are typically made by indexers for text-based indexing, skills-based AI enrichment, and vectorizations at query time. Outbound requests include both read and write operations.
+Outbound requests can be secured and managed by you. Outbound requests originate from a search service to other applications. These requests are typically made by indexers for text-based indexing, custom skills-based AI enrichment, and vectorizations at query time. Outbound requests include both read and write operations.
 
 The following list is a full enumeration of the outbound requests for which you can configure secure connections. A search service makes requests on its own behalf, and on the behalf of an indexer or custom skill.
 
@@ -68,7 +68,7 @@ The following list is a full enumeration of the outbound requests for which you 
 | Custom skills | Connect to Azure functions, Azure web apps, or other apps running external code that's hosted off-service. The request for external processing is sent during skillset execution. |
 | Indexers and [integrated vectorization](vector-search-integrated-vectorization.md) | Connect to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing. |
 | Vectorizers | Connect to Azure OpenAI or other embedding models at query time to [convert user text strings to vectors](vector-search-how-to-configure-vectorizer.md) for vector search. |
-| Search service | Connect to Azure Key Vault for [customer-managed encyrption keys](search-security-manage-encryption-keys.md), used to encrypt and decrypt sensitive data. |
+| Search service | Connect to Azure Key Vault for [customer-managed encryption keys](search-security-manage-encryption-keys.md) used to encrypt and decrypt sensitive data. |
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
@@ -119,7 +119,7 @@ Once a request is admitted to the search service, it must still undergo authenti
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want available on your search service.
+You can use both authentication methods, or [disable an approach](search-security-enable-roles.md) that you don't want available on your search service.
 
 ## Authorization
 
@@ -142,7 +142,7 @@ Content management refers to the objects created and hosted on a search service.
 
 + For role-based authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to operations.
 
-+ For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the type of key (admin or query) authorize access to content and operations.
++ For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create request) and the type of key (admin or query) authorize access to content and operations.
 
 ### Restricting access to indexes
 
@@ -156,22 +156,23 @@ For multitenancy solutions requiring security boundaries at the index level, it'
 
 User permissions at the document level, also known as *row-level security*, isn't natively supported in Azure AI Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Azure AI Search.
 
-If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. The following table describes two approaches for trimming search results of unauthorized content.
-
-| Approach | Description |
-|----------|-------------|
-|[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
-|[Security trimming based on Microsoft Entra identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Microsoft Entra ID, one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
+If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. For more information about this pattern, see [Security trimming based on identity filters](search-security-trimming-for-azure-search.md).
 
 ## Data residency
 
-When you set up a search service, you choose a location or region that determines where customer data is stored and processed. Azure AI Search won't store customer data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+When you set up a search service, you choose a region that determines where customer data is stored and processed. Each region exists within a [geography (Geo)](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) that often includes multiple regions (for example, Switzerland is a Geo that contains Switzerland North and Switzerland West). Azure AI Search might replicate your data to another region within the same Geo for durability and high availability. The service won't store or process customer data outside of your specified Geo unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
 
-Currently, the only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
+Currently, the only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service writes to Azure Storage if you use any of the following features:
+
++ [enrichment cache](cognitive-search-incremental-indexing-conceptual.md)
++ [debug session](cognitive-search-debug-session.md)
++ [knowledge store](knowledge-store-concept-intro.md)
+
+For more information about data residency, see [data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
 ### Exceptions to data residency commitments
 
-Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data appears in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
+Object names appear in the telemetry logs used by Microsoft to provide support for the service. Object names are stored and processed outside of your selected region or location. Object names include the names of indexes and index fields, aliases, indexers, data sources, skillsets, synonym maps, resources, containers, and key vault store. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. 
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
@@ -189,7 +190,16 @@ Optionally, you can add customer-managed keys (CMK) for supplemental encryption 
 
 ### Data in transit
 
-In Azure AI Search, encryption starts with connections and transmissions. For search services on the public internet, Azure AI Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
+For search service connections over the public internet, Azure AI Search listens on HTTPS port 443.
+
+Azure AI Search supports TLS 1.2 and 1.3 for client-to-service channel encryption:
+
++ TLS 1.3 is the default on newer client operating systems and versions of .NET.
++ TLS 1.2 is the default on older systems, but you can [explicitly set TLS 1.3 on a client request](/dotnet/framework/network-programming/tls).
+
+Earlier versions of TLS (1.0 or 1.1) aren't supported.
+
+For more information, see [TLS support in .NET Framework](/dotnet/framework/network-programming/tls#tls-support-in-net-framework).
 
 ### Data at rest
 

@@ -30,7 +30,7 @@ The following command shows the most basic way to use the GPT-4 Turbo with Visio
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -46,6 +46,9 @@ The following is a sample request body. The format is the same as the chat compl
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+> [!IMPORTANT]
+> When uploading images, there is a limit of 10 images per chat request.
 
 ```json
 {
@@ -85,12 +88,12 @@ The following is a sample request body. The format is the same as the chat compl
     api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_key="<your_azure_openai_key>"
     deployment_name = '<your_deployment_name>'
-    api_version = '2023-12-01-preview' # this might change in the future
+    api_version = '2024-02-15-preview' # this might change in the future
     
     client = AzureOpenAI(
         api_key=api_key,  
         api_version=api_version,
-        base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
+        base_url=f"{api_base}openai/deployments/{deployment_name}",
     )
     ```
 
@@ -244,7 +247,7 @@ The _detail_ parameter in the model offers three choices: `low`, `high`, or `aut
 - `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
 - `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.''
 
-For details on how the image parameters impact tokens used and pricing please see - [What is OpenAI? Image Tokens with GPT-4 Turbo with Vision](../overview.md#image-tokens-gpt-4-turbo-with-vision)
+For details on how the image parameters impact tokens used and pricing please see - [What is OpenAI? Image Tokens with GPT-4 Turbo with Vision](../overview.md#image-tokens-gpt-4-turbo-with-vision-and-gpt-4o)
 
 ## Use Vision enhancement with images
 
@@ -257,12 +260,15 @@ The **object grounding** integration brings a new layer to data analysis and use
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -451,6 +457,9 @@ Follow these steps to set up a video retrieval system and integrate it with your
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
@@ -502,6 +511,9 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
     > [!TIP]
     > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+
+    > [!IMPORTANT]
+    > A video index name can be up to 24 characters long, unless it's a GUID, which can be 36 characters.
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -571,7 +583,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
 #### [REST](#tab/rest)
 
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 

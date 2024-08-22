@@ -15,6 +15,9 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 
+> [!IMPORTANT]
+> The functionality described in this article is only available in the latest Azure.ResourceManager.Communication SDK [beta versions](https://www.nuget.org/packages/Azure.ResourceManager.Communication/#versions-body-tab).
+  
 This article provides best practices for email delivery and describes how to use the Azure Communication Services email suppression list. This feature enables customers to manage opt-out capabilities for email communications.
 
 This article also provides information about the features that are important for email opt-out management. Use these features to improve email compliance management, promote better email practices, increase your email delivery success, and boost the likelihood of reaching recipient inboxes.
@@ -59,8 +62,6 @@ These benefits contribute to a more efficient, compliant, and user-friendly emai
 
 ## Next steps
 
-* [Create and manage a domain-level suppression list in Azure Communication Services](../../quickstarts/email/manage-suppression-list-management-sdks.md)
-  
 The following topics might be interesting to you:
 
 * Familiarize yourself with the [email client library](../email/sdk-features.md).

@@ -11,6 +11,8 @@ ms.author: madsd
 ---
 # Set up Azure App Service access restrictions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 By setting up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. To learn more about access restrictions, go to the [access restrictions overview](./overview-access-restrictions.md).
 
 The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers and Functions.
@@ -121,7 +123,10 @@ With service endpoints, you can configure your app with application gateways or 
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
-All available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
+All publicly available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
+
+> [!NOTE]
+> When creating service tag-based rules through Azure portal or Azure CLI you will need read access at the subscription level to get the full list of service tags for selection/validation. In addition, the `Microsoft.Network` resource provider needs to be registered on the subscription.
 
 ### Edit a rule
 

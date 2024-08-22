@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 11/20/2023
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Management of Azure Automation data

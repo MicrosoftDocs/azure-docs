@@ -68,7 +68,7 @@ The Windows update client on Windows servers can get their patches from either o
 
 ### Edit the registry
 
-If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md).
 
 ### Patching using group policy on Azure Update Manager
 
@@ -80,6 +80,13 @@ If your machine is patched using Azure Update Manager, and has Automatic updates
 
    :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/configure-wu-agent/configure-updates-group-policy-expanded.png":::
 
+For Windows Server 2022:
+
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Configure Automatic Updates**.
+1. Select **Configure Automatic Updates**.
+1. Select or deselect the **Install updates for other Microsoft products** option.
+
+   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-windows.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products in Windows Server 2022.":::
 
 ## Make WSUS configuration settings
 

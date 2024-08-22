@@ -1,10 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Perform monitoring review"
 description: "Learn how to perform monitoring of your Azure Synapse solution."
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -19,13 +19,13 @@ Using your solution requirements and other data collected during the [assessment
 
 You can use [Azure Monitor](../../azure-monitor/overview.md) to provide base-level infrastructure metrics, alerts, and logs for most Azure services. Azure diagnostic logs are emitted by a resource to provide rich, frequent data about the operation of that resource. Azure Synapse can write diagnostic logs in Azure Monitor.
 
-For more information, see [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md).
+For more information, see [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitor-synapse-analytics.md).
 
 ## Monitor dedicated SQL pools
 
-You can monitor a dedicated SQL pool by using Azure Monitor, altering, dynamic management views (DMVs), and Log Analytics.
+You can monitor a dedicated SQL pool by using Azure Monitor, alerting, dynamic management views (DMVs), and Log Analytics.
 
-- **Alerts:** You can set up alerts that send you an email or call a webhook when a certain metric reaches a predefined threshold. For example, you can receive an alert email when the database size grows too large. For more information, see [Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal](/azure/azure-sql/database/alerts-insights-configure-portal).
+- **Alerts:** You can set up alerts that send you an email or call a webhook when a certain metric reaches a predefined threshold. For example, you can receive an alert email when the database size grows too large. For more information, see [Alerts](../monitor-synapse-analytics.md#alerts).
 - **DMVs:** You can use [DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to monitor workloads to help investigate query executions in SQL pools.
 - **Log Analytics:** [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md) is a tool in the Azure portal that you can use to edit and run log queries from data collected by Azure Monitor. For more information, see [Monitor workload - Azure portal](../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md).
 

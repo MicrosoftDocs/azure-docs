@@ -2,12 +2,12 @@
 title: What is Azure Deployment Environments?
 titleSuffix: Azure Deployment Environments
 description: Enable developer teams to spin up infrastructure for deploying apps with templates, adding governance for Azure resource types, security, and cost.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/28/2024
+ms.date: 05/30/2024
 
 #customer intent: As a customer, I want to understand to purpose and capabilities of Azure Deployment Environments so that I can determine if the service will benefit my developers.
 ---
@@ -18,36 +18,49 @@ Azure Deployment Environments empowers development teams to quickly and easily s
 
 A [*deployment environment*](./concept-environments-key-concepts.md#environments) is a collection of Azure infrastructure resources defined in a template called an [*environment definition*](./concept-environments-key-concepts.md#environment-definitions). Developers can deploy infrastructure defined in the templates in subscriptions where they have access, and build their applications on the infrastructure. For example, you can define a deployment environment that includes a web app, a database, and a storage account. Your web developer can begin coding the web app without worrying about the underlying infrastructure.
 
-Platform engineers can create and manage environment definitions. To specify which environment definitions are available to developers, platform engineers can associate environment definitions with projects, and assign permissions to developers. They can also apply Azure governance based on the type of environment, such as sandbox, testing, staging, or production.
+Platform engineers can create and manage environment definitions. To specify which environment definitions are available to developers, platform engineers can associate environment definitions with projects, and assign permissions to developers. 
+
+Azure Deployment Environments helps platform engineers apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and track environments across projects. They can apply Azure governance based on the type of environment, such as sandbox, testing, staging, or production.
 
 The following diagram shows an overview of Azure Deployment Environments capabilities. Platform engineers define infrastructure templates and configure subscriptions, identity, and permissions. Developers create environments based on the templates, and build and deploy applications on the infrastructure. Environments can support different scenarios, like on-demand environments, sandbox environments for testing, and CI/CD pipelines for continuous integration and continuous deployment.
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
-Azure Deployment Environments currently supports only Azure Resource Manager (ARM) templates.
-
 You can [learn more about the key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
 
 ## Usage scenarios
 
-Common [scenarios](./concept-environments-scenarios.md) for Azure Deployment Environments include:
+Common scenarios for Azure Deployment Environments include:
 
-### Platform engineering scenarios
+### Environments as part of a CI/CD pipeline
 
-Azure Deployment Environments helps platform engineers apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and track environments across projects. They perform the following tasks:  
+Creating and managing environments across an enterprise can require significant effort. With Azure Deployment Environments, developers can incorporate different types of product lifecycle environments (such as development, testing, staging, preproduction, and production) into a continuous integration and continuous delivery (CI/CD) pipeline.
 
-- Provide a project-based, curated set of reusable IaC templates.
-- Define specific Azure deployment configurations per project and per environment type.
-- Provide a self-service experience without giving control over subscriptions.
-- Track costs and ensure compliance with enterprise governance policies.
+In this scenario:
+- Development teams can connect their environments to CI/CD pipelines to enable DevOps scenarios.
+- Central dev IT teams can centrally track costs, track security alerts, and manage environments across projects and dev centers.
 
-### Developer scenarios
+### Sandbox environments for investigations
 
-Developers can create environments whenever they need them, and develop their applications on the infrastructure. They can use Azure Deployment Environments to do the following tasks:
+Developers often investigate different technologies or infrastructure designs. By default, all environments created with Azure Deployment Environments are in their own resource group. Project members get contributor access to those resources by default.
 
-- Deploy a preconfigured environment for any stage of the development cycle.
-- Spin up a sandbox environment to explore Azure.
-- Create and manage environments through the [developer portal](./quickstart-create-access-environments.md), with the [Azure CLI](./how-to-create-access-environments.md) or with the [Azure Developer CLI](./how-to-create-environment-with-azure-developer.md).
+In this scenario:
+- Developers can add and change Azure resources as they need for their development or test environments.
+- Central dev IT teams can easily track costs for all the environments that are used for investigations.
+
+### On-demand test environments
+Developers can create ad hoc environments that mimic their formal development or test environments, to test a new capability before checking in the code and executing a pipeline. 
+
+In this scenario:
+- Developers can test the latest version of an application by using reusable templates to quickly create new ad hoc environments.
+
+### Training, hands-on labs, and hackathons
+
+A project in Azure Deployment Environments acts as a container for transient activities like workshops, hands-on labs, training, or hackathons. You can create a project to provide custom templates to each user.
+
+In this scenario, Azure Deployment Environments provides the following benefits:
+- Each user can create identical and isolated environments for training.
+- You can easily delete a project and all related resources when the training is over.
 
 ## Benefits
 
@@ -76,7 +89,6 @@ When configuring Deployment Environments, you might see Dev Box resources and co
 
 ## Related content
 
-- [Azure Deployment Environments scenarios](./concept-environments-scenarios.md)
 - [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
 - [Quickstart: Create dev center and project (Azure Resource Manager)](./quickstart-create-dev-center-project-azure-resource-manager.md)
 

@@ -1,12 +1,12 @@
 ---
-title: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
+title: Configure settings for the Config Server for Spring component in Azure Container Apps (preview)
 description: Learn how to configure a Config Server for Spring component for your container app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 05/23/2024
 ms.author: cshoe
 ---
 
@@ -67,7 +67,7 @@ az containerapp update \
 
 ## Configuration options
 
-The `az containerapp update` command uses the `--configuration` parameter to control how the Config Server for Spring is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Config Server for Spring](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
+The `az containerapp update` command uses the `--configuration` parameter to control how the Config Server for Spring is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
 
 The following table lists the different configuration values available.
 
@@ -201,7 +201,7 @@ By default, server-side encryption is enabled. Use the following steps to enable
     Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config update \
+    az containerapp env java-component config-server-for-spring update \
       --environment <ENVIRONMENT_NAME> \
       --resource-group <RESOURCE_GROUP> \
       --name <JAVA_COMPONENT_NAME> \
@@ -219,7 +219,7 @@ You can use client side decryption of properties by following the steps:
     Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config update \
+    az containerapp env java-component config-server-for-spring update \
       --environment <ENVIRONMENT_NAME> \
       --resource-group <RESOURCE_GROUP> \
       --name <JAVA_COMPONENT_NAME> \

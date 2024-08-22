@@ -13,7 +13,7 @@ ms.author: egeaney
 
 ## Customer-managed keys with Azure Key Vault
 
-When you use customer-managed keys, you must use Azure Key Vault to store them. You can either create your own keys and store them in a key vault, or you can use the Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+When you use customer-managed keys, you must use Azure Key Vault to store them. You can either create your own keys and store them in a key vault, or you can use the Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
 When you create a new Azure AI services resource, it's always encrypted by using Microsoft-managed keys. It's not possible to enable customer-managed keys when you create the resource. Customer-managed keys are stored in Key Vault. The key vault needs to be provisioned with access policies that grant key permissions to the managed identity that's associated with the Azure AI services resource. The managed identity is available only after the resource is created by using the pricing tier that's required for customer-managed keys.
 
@@ -32,7 +32,7 @@ When you use customer-managed keys, you need to set two properties in the key va
 > [!IMPORTANT]
 > If the **Soft Delete** and **Do Not Purge** properties aren't enabled and you delete your key, you can't recover the data in your Azure AI services resource.
 
-To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](../../key-vault/general/key-vault-recovery.md).
+To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](/azure/key-vault/general/key-vault-recovery).
 
 ## Enable customer-managed keys for your resource
 

@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge network requirements
 description: Learn about network requirements for Azure Arc resource bridge including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 06/04/2024
 ---
 
 # Azure Arc resource bridge network requirements
@@ -18,11 +18,16 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
 > [!NOTE]
-> The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md).
+> The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md#azure-arc-enabled-vmware-vsphere).
+> 
 
 ## SSL proxy configuration
 
-If using a proxy, Arc resource bridge must be configured for proxy so that it can connect to the Azure services.
+> [!IMPORTANT]
+> Arc Resource Bridge supports only direct (explicit) proxies, including unauthenticated proxies, proxies with basic authentication, SSL terminating proxies, and SSL passthrough proxies.
+>
+
+If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services.
 
 - To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files.
 
@@ -41,6 +46,7 @@ There are only two certificates that should be relevant when deploying the Arc r
 - SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
 In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, you may not be able to download the required images (~3.5 GB) within the allotted time (90 min).
+
 
 ## Exclusion list for no proxy
 
@@ -65,7 +71,7 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 As a notice, you should be aware that the appliance VM is configured to listen on the following ports. These ports are used exclusively for internal processes and do not require external access:
 
-- 8443 – Endpoint for AAD Authentication Webhook
+- 8443 – Endpoint for Microsoft Entra Authentication Webhook
 
 - 10257 – Endpoint for Arc resource bridge metrics
 

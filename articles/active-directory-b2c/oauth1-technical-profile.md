@@ -14,7 +14,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 
 
-#Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define an OAuth1 technical profile, so that I can federate with an OAuth1 based identity provider like Twitter and allow users to sign in with their existing social or enterprise identities.
+#Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define an OAuth1 technical profile, so that I can federate with an OAuth1 based identity provider like X and allow users to sign in with their existing social or enterprise identities.
 
 ---
 
@@ -22,7 +22,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as Twitter. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as X. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -30,7 +30,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OAuth1`. 
 
 ```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
-  <DisplayName>Twitter</DisplayName>
+  <DisplayName>X</DisplayName>
   <Protocol Name="OAuth1" />
   ...
 ```
@@ -45,7 +45,7 @@ The **OutputClaims** element contains a list of claims returned by the OAuth1 id
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-The following example shows the claims returned by the Twitter identity provider:
+The following example shows the claims returned by the X identity provider:
 
 - The **user_id** claim that is mapped to the **issuerUserId** claim.
 - The **screen_name** claim that is mapped to the **displayName** claim.
@@ -92,4 +92,4 @@ When you configure the redirect URI of your identity provider, enter `https://{t
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter.md)
+- [Add X as an OAuth1 identity provider by using custom policies](identity-provider-twitter.md)

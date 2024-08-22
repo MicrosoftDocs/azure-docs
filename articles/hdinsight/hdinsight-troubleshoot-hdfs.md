@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot HDFS in Azure HDInsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 04/26/2023
+ms.date: 05/10/2024
 ---
 
 # Troubleshoot Apache Hadoop HDFS by using Azure HDInsight

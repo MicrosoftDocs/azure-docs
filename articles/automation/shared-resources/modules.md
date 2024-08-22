@@ -3,9 +3,10 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 11/01/2021
+ms.date: 08/09/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage modules in Azure Automation
@@ -20,6 +21,9 @@ Azure Automation uses a number of PowerShell modules to enable cmdlets in runboo
 * Custom modules that you create.
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
+
+> [!IMPORTANT]
+> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](../manage-runtime-environment.md).
 
 ## Sandboxes
 
@@ -193,7 +197,7 @@ TestModule
    2.0.0
 ```
 
-Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows the highest version of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
+Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows one of the versions of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
 
 While Automation supports modules containing side-by-side versions within the same package, it does not support using multiple versions of a module across module package imports. For example, you import **module A**, which contains versions 1 and 2 into your Automation account. Later you update **module A** to include versions 3 and 4, when you import into your Automation account, only versions 3 and 4 are usable within any runbooks or DSC configurations. If you require all versions - 1, 2, 3, and 4 to be available, the .zip file your import should contain versions 1, 2, 3, and 4.
 

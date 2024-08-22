@@ -4,9 +4,9 @@ description: Learn to build and deploy a CCF JavaScript application
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/30/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # Build, test and deploy a TypeScript and JavaScript application

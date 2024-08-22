@@ -4,10 +4,8 @@ metadata:
   description: Get answers to frequently asked questions about Azure Data Factory.
   author: ssabat
   ms.author: susabat
-  ms.service: data-factory
-  ms.subservice: 
   ms.topic: faq
-  ms.date: 08/10/2023
+  ms.date: 05/15/2024
 title: Azure Data Factory FAQ
 summary: |
   [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

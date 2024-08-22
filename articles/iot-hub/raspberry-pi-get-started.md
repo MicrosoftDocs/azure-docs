@@ -19,7 +19,8 @@ This article provides basic steps for getting starting with connecting a Raspber
 Have the following prerequisites prepared before starting this article:
 
 * An Azure subscription.
-* An IoT hub with a device registered to it. If you don't have a hub with a registered device already, see [Create an IoT hub using the Azure portal](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* A device registered in your IoT hub. If you don't have devices in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 ## Use the online simulator
 

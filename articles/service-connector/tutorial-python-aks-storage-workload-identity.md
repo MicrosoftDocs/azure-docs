@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure storage account using workload ide
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/01/2024
 ---
@@ -29,7 +29,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * [Install](/cli/azure/install-azure-cli) the Azure CLI, and sign in to Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 * Install [Docker](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/), to manage container image and Kubernetes resources.
-* A basic understanding of container and AKS. Get started from [preparing an application for AKS](../aks/tutorial-kubernetes-prepare-app.md).
+* A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 * A basic understanding of [workload identity](/entra/workload-id/workload-identities-overview).
 
 ## Create Azure resources
@@ -42,7 +42,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). We create the service connection, pod definition and deploy the sample application to this cluster.
+1. Create an AKS cluster with the following command, or referring to the [tutorial](/azure/aks/learn/quick-kubernetes-deploy-cli). We create the service connection, pod definition and deploy the sample application to this cluster.
 
     ```azurecli
     az aks create \
@@ -97,7 +97,9 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 
 ## Create service connection with Service Connector (preview)
 
-Create a service connection between an AKS cluster and an Azure storage account using the Azure portal.
+Create a service connection between an AKS cluster and an Azure storage account using the Azure portal or the Azure CLI.
+
+### [Portal](#tab/azure-portal)
 
 1. Open your **Kubernetes service** in the Azure portal and select **Service Connector** from the left menu.
 
@@ -122,8 +124,25 @@ Create a service connection between an AKS cluster and an Azure storage account 
     | **User assigned managed identity** | `<MyIdentity>`      | A user assigned managed identity is needed to enable workload identity. |
 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
+    :::image type="content" source="./media/aks-tutorial/aks-storage.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
-:::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the following Azure CLI command to create a service connection to the Azure storage account, providing the following information:
+
+```azurecli
+az aks connection create storage-blob \
+    --workload-identity <user-identity-resource-id>
+```
+
+Provide the following information as prompted:
+
+* **Source compute service resource group name:** the resource group name of the AKS cluster.
+* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
+* **Target service resource group name:** the resource group name of the Azure storage account.
+* **Storage account name:** the Azure storage account that is connected.
+* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create the workload identity.
 
 ---
 

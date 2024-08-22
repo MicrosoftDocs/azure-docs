@@ -30,7 +30,7 @@ The publisher resources that you need to assign the custom role to are:
 
 - The Configuration Group Schemas (CGSs) for the Network Service Design (NSD).
 
-You must decide if you want to assign the custom role individually to each resource, or to a parent resource such as the publisher resource group. 
+You must decide if you want to assign the custom role individually to each resource, or to a parent resource such as the publisher resource group.
 
 Applying to a parent resource grants access over all child resources. For example, applying to the whole publisher resource group gives the operator access to:
 
@@ -64,17 +64,17 @@ The custom role permissions limit access to the list of the permissions shown he
 
 3. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page.":::
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screenshot showing the publisher resource group access control page." lightbox="media/how-to-assign-custom-role-resource-group.png":::
 
 
-4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*. 
+4. Under **Job function roles** find your Custom Role in the list then proceed with *Next*.
 
-    :::image type="content" source="media/how-to-assign-custom-role-add-assignment.png" alt-text="Screenshot showing the add role assignment screen.":::
+    :::image type="content" source="media/how-to-assign-custom-role-add-assignment.png" alt-text="Screenshot showing the add role assignment screen." lightbox="media/how-to-assign-custom-role-add-assignment.png":::
 
 
 5. Select **User, group, or service principal**, then Choose **+ Select Members** then find and choose the users you want to have access. Choose **Select**.
 
-    :::image type="content" source="media/how-to-assign-custom-role-add-members.png" alt-text="Screenshot showing the select members screen.":::
+    :::image type="content" source="media/how-to-assign-custom-role-add-members.png" alt-text="Screenshot showing the select members screen." lightbox="media/how-to-assign-custom-role-add-members.png":::
 
 7. Select **Review and assign**
 

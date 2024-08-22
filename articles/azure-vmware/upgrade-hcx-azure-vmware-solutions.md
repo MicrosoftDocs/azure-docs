@@ -101,4 +101,4 @@ See [Rolling Back an Upgrade Using Snapshots](https://docs.vmware.com/en/VMware-
 ## Next steps 
 [Software Versioning, Skew and Legacy Support Policies](https://docs.vmware.com/en/VMware-HCX/4.8/hcx-skew-policy/GUID-787FB2A1-52AF-483C-B595-CF382E728674.html)  
 
-[Updating VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.6/hcx-user-guide/GUID-508A94B2-19F6-47C7-9C0D-2C89A00316B9.html) 
+[Updating VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-508A94B2-19F6-47C7-9C0D-2C89A00316B9.html) 

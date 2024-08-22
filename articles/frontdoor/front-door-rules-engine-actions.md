@@ -4,9 +4,9 @@ titleSuffix: Azure Front Door
 description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 07/16/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -237,6 +237,39 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 ---
 
+> [!NOTE]
+> Certain Azure Front Door reserved headers can't be modified using rules engine actions, including the actions to modify request headers and response headers. The following list of reserved headers can't be modified, along with any headers prefixed with `x-ec` and `x-fd`.
+>
+> * `Accept-Ranges`
+> * `Host`
+> * `Connection`
+> * `Content-Length`
+> * `Transfer-Encoding`
+> * `TE`
+> * `Last-Modified`
+> * `Keep-Alive`
+> * `Expect`
+> * `Upgrade`
+> * `If-Modified-Since`
+> * `If-Unmodified-Since`
+> * `If-None-Match`
+> * `If-Match`
+> * `Range`
+> * `If-Range`
+> * `X-Ms-Via`
+> * `X-Ms-Force-Refresh`
+> * `X-MSEdge-Ref`
+> * `Warning`
+> * `Forwarded`
+> * `Via`
+> * `X-Forwarded-For`
+> * `X-Forwarded-Proto`
+> * `X-Forwarded-Host`
+> * `X-Azure-RequestChain`
+> * `X-Azure-FDID`
+> * `X-Azure-RequestChainv2`
+> * `X-Azure-Ref`
+
 ## <a name="ModifyResponseHeader"></a> Modify response header
 
 Use the **modify response header** action to modify headers that are present in responses before they're returned to your clients.
@@ -285,9 +318,42 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ---
 
+> [!NOTE]
+> Certain Azure Front Door reserved headers can't be modified using rules engine actions, including the actions to modify request headers and response headers. The following list of reserved headers can't be modified, along with any headers prefixed with `x-ec` and `x-fd`.
+>
+> * `Accept-Ranges`
+> * `Host`
+> * `Connection`
+> * `Content-Length`
+> * `Transfer-Encoding`
+> * `TE`
+> * `Last-Modified`
+> * `Keep-Alive`
+> * `Expect`
+> * `Upgrade`
+> * `If-Modified-Since`
+> * `If-Unmodified-Since`
+> * `If-None-Match`
+> * `If-Match`
+> * `Range`
+> * `If-Range`
+> * `X-Ms-Via`
+> * `X-Ms-Force-Refresh`
+> * `X-MSEdge-Ref`
+> * `Warning`
+> * `Forwarded`
+> * `Via`
+> * `X-Forwarded-For`
+> * `X-Forwarded-Proto`
+> * `X-Forwarded-Host`
+> * `X-Azure-RequestChain`
+> * `X-Azure-FDID`
+> * `X-Azure-RequestChainv2`
+> * `X-Azure-Ref`
+
 ## <a name="UrlRedirect"></a> URL redirect
 
-Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
+Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 
@@ -344,7 +410,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ## <a name="UrlRewrite"></a> URL rewrite
 
-Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
+Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 

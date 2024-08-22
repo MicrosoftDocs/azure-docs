@@ -1,10 +1,10 @@
 ---
-title: Operate devices offline - Azure IoT Edge | Microsoft Docs 
-description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
+title: Operate Azure IoT Edge devices offline
+description: Understand how IoT Edge devices can operate without internet connection for an extended time, and how to enable regular IoT devices to operate offline.
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/15/2023
-ms.topic: conceptual
+ms.date: 06/10/2024
+ms.topic: concept-article
 ms.service: iot-edge
 services: iot-edge
 ---

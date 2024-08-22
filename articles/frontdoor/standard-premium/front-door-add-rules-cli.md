@@ -4,7 +4,7 @@ description: Learn how to create an Azure Front Door Standard/Premium (Preview) 
 ms.topic: sample
 author: duau
 ms.author: duau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 
@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to:
 > - Create a rule and add it to the rule set.
 > - Add actions or conditions to your rules.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

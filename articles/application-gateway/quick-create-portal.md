@@ -5,9 +5,9 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 02/29/2024
+ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
 ---
 
@@ -15,11 +15,14 @@ ms.custom: mvc, mode-ui
 
 In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
-![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
+:::image type="content" source="./media/quick-create-portal/application-gateway-qs-resources.png" alt-text="Conceptual diagram of the quickstart setup." lightbox="./media/quick-create-portal/application-gateway-qs-resources.png":::
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 
@@ -29,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-Create the application gateway using the tabs on the **Create application gateway** page.
+Create the application gateway using the tabs on the **Create application gateway** page. The Standard v2 SKU is used in this example. To create a Basic SKU using the Azure portal, see [Deploy Application Gateway basic (Preview)](deploy-basic-portal.md).
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
@@ -53,7 +56,9 @@ Create the application gateway using the tabs on the **Create application gatewa
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** list shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
+  
+    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
          ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 
@@ -173,7 +178,7 @@ To create a backend subnet:
     - **Public inbound ports**: None.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it's in, but you need to ensure there's IP connectivity.
 7. Select **Next: Monitoring** and set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.

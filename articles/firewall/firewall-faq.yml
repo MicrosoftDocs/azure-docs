@@ -4,9 +4,9 @@ metadata:
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
   author: vhorne
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/29/2024
   ms.author: victorh
 title: Azure Firewall FAQ
@@ -146,8 +146,8 @@ sections:
           When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
 
           > [!NOTE]
-          > You must reallocate a firewall and public IP to the original resource group and subscription.
-
+          > You must reallocate a firewall and public IP to the original resource group and subscription. 
+          > When stop/start is performed, the private IP address of the firewall may change to a different IP address within the subnet.  This can affect the connectivity of previously configured route tables. 
 
       - question: How can I configure availability zones after deployment?
         answer: |
@@ -172,8 +172,8 @@ sections:
         answer: |
           For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
-      - question: Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
-        answer: Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
+      - question: Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?
+        answer: Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
       - question: Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
         answer: Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires more attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.
@@ -192,7 +192,11 @@ sections:
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
       - question: Are there any firewall resource group restrictions?
-        answer: Yes. The firewall, VNet, and the public IP address all must be in the same resource group.
+        answer: |
+          Yes. 
+          - The firewall and VNet must be in the same resource group.
+          - The public IP address can be in any resource group.
+          - The firewall, VNet, and the public IP address all must be in the same subscription.
 
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |

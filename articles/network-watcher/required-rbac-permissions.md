@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn about the required Azure role-based access control (Azure RBAC) permissions to have in order to use each of the Azure Network Watcher capabilities.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 04/24/2024
+ms.date: 05/09/2024
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -31,7 +31,6 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 > | Microsoft.Network/networkWatchers/delete                            | Delete a network watcher                                       |
 
 ## Connection monitor
-
 
 | Action                                                              | Description                                                    |
 | ------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -95,12 +94,12 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 | Action                                                              | Description                                                    |
 | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                          |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture.                                         |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture.                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture.                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture.                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture.                           | 
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                          |
+| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                         |
+| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture                                          |
+| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture                           | 
 
 ## IP flow verify
 
@@ -111,10 +110,11 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 ## Next hop
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/nextHop/action                    | Get the next hop from a VM                                     |
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hope IP address |
+| Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
+| Microsoft.Network/networkInterfaces/read | Get a network interface definition |
 
 ## Network security group view
 

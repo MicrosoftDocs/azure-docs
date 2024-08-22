@@ -1,16 +1,16 @@
 ---
-title: Create cluster pool and cluster
-description: Creating a cluster pool and cluster in HDInsight on AKS.
-ms.service: hdinsight-aks
+title: 'Quickstart: Create an HDInsight on AKS cluster pool using Azure portal'
+description: This quickstart shows you how to create a cluster pool for Azure HDInsight on AKS.
+ms.service: azure-hdinsight-on-aks
 ms.topic: quickstart
-ms.date: 12/11/2023
+ms.date: 06/18/2024
 ---
 
-# Create cluster pool and cluster
+#  Quickstart: Create an HDInsight on AKS cluster pool using Azure portal
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-HDInsight on AKS has the concept of cluster pools and clusters.
+HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
 
 - **Cluster pools** are a logical grouping of clusters and maintain a set of clusters in the same pool, which helps in building robust interoperability across multiple cluster types. It can be created within an existing virtual network or outside a virtual network.
 
@@ -18,25 +18,28 @@ HDInsight on AKS has the concept of cluster pools and clusters.
 
 - **Clusters** are individual compute workloads, such as Apache Spark, Apache Flink, or Trino, which can be created in the same cluster pool.
 
-For creating Apache Spark, Apache Flink, or Trino clusters, you need to first create a cluster pool.
+For every cluster type, you must have a cluster pool. It can be created independently or you can create new cluster pool during cluster creation.
+In this quickstart, you learn how to create a cluster pool using the Azure portal.
 
 ## Prerequisites
 
-Ensure that you have completed the [subscription prerequisites](prerequisites-subscription.md) and [resource prerequisites](prerequisites-resources.md) before creating a cluster pool.
+Ensure that you have completed the [subscription prerequisites](quickstart-prerequisites-subscription.md) before creating a cluster pool.
 
 ## Create a cluster pool
 
+The following steps explain the cluster pool creation independently. The same options are available for cluster pool during cluster creation.
+
 1. Sign in to [Azure portal](https://portal.azure.com).
-   
-1. In the Azure portal search bar, type "HDInsight on AKS cluster pool" and select "Azure HDInsight on AKS cluster pools" from the drop-down list.
-  
+
+1. In the Azure portal search bar, type **HDInsight on AKS cluster pool** and select **Azure HDInsight on AKS cluster pools** from the drop-down list.
+
    :::image type="content" source="./media/quickstart-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal." border="true" lightbox="./media/quickstart-create-cluster/search-bar.png" 
-  
+
 1. Click **+ Create**.
 
    :::image type="content" source="./media/quickstart-create-cluster/create-button.png" alt-text="Diagram showing create button." border="true" lightbox="./media/quickstart-create-cluster/create-button.png":::
-  
-1. In the **Basics** tab, enter the following information:
+
+1. On the **Basics** tab, enter the following information:
 
      :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-basic-tab.png" alt-text="Diagram showing cluster pool creation basic tab." border="true" lightbox="./media/quickstart-create-cluster/cluster-pool-basic-tab.png":::
 
@@ -49,158 +52,63 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
      |Cluster pool version|From the drop-down list, select the HDInsight on AKS cluster pool version. |
      |Virtual machine|From the drop-down list, select the virtual machine size for the cluster pool based on your requirement.|
      |Managed resource group|(Optional) Provide a name for managed resource group. It holds ancillary resources created by HDInsight on AKS.|
-   
+
 
     Select **Next: Security + networking** to continue.
-        
+
 1. On the **Security + networking** page, provide the following information:
-      
+
      :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-security-tab.png" alt-text="Diagram showing cluster pool creation network and security tab." border="true" lightbox="./media/quickstart-create-cluster/cluster-pool-security-tab.png":::
 
      |Property|Description|
      |---|---|
      |Virtual network (VNet) | From the drop-down list, select a virtual network, which is in the same region as the cluster pool.|
      |Subnet | From the drop-down list, select the name of the subnet that you plan to associate with the cluster pool.|
+     |Egress path | From the drop-down list, select the egress path for your cluster.|
+     |Private AKS | Enable private AKS to ensure that network traffic between the AKS Control plane / Kube API server and Clusters remains on a private network.|
 
     Select **Next: Integrations** to continue.
-    
-        
+
+
 1. On the **Integrations** page, provide the following information:
 
       :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-integration-tab.png" alt-text="Diagram showing cluster pool creation integration tab." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-pool-integration-tab.png":::
 
      |Property|Description|
      |---|---|
-     |Log Analytics| (Optional) Select this option to enable Log analytics to view insights and logs directly in your cluster by sending metrics and logs to a Log Analytics Workspace.|
-     |Azure Prometheus| You can enable this option after cluster pool creation is completed. |
+     |Log Analytics| (Optional) Select this option to enable Log analytics to view insights and logs directly in your cluster by sending metrics and logs to a Log Analytics Workspace. You can also enable this option post cluster pool creation.|
+     |Azure Managed Prometheus| (Optional) Enable Azure managed Prometheus to view insights and logs directly in your cluster by sending metrics and logs to an Azure Monitor workspace. You can also enable this option post cluster pool creation.|
      
-    Select **Next: Tags** to continue.
-    
-1. On the **Tags** page, enter any tags (optional) you’d like to assign to the cluster pool.
-   
-     :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-tags-page.png" alt-text="Diagram showing cluster pool creation tags tab." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-pool-tags-page.png":::
-
-     | Property | Description|
-     |---|---|
-     |Name | Enter a name (key) that help you identify resources based on settings that are relevant to your organization. For example, "Environment" to track the deployment environment for your resources.|
-     | Value | Enter the value that helps to relate to the resources. For example, "Production" to identify the resources deployed to production.|
-     | Resource | Select the applicable resource type.|
-
      Select **Next: Review + create** to continue.
-     
+
 1. On the **Review + create** page, look for the **Validation succeeded** message at the top of the page and then click **Create**.
 
      The **Deployment is in process** page is displayed while the cluster pool is being created, and the **Your deployment is complete page** is displayed once the cluster pool is fully deployed and ready for use.
 
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
-     If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon.
-    
-     > [!TIP]
-     > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
+     If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon in the Azure portal.
 
 Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster.
 
-## Create a cluster
-There are three ways to create an Azure HDInsight on AKS cluster from the Azure portal:
-- Search and create “Azure HDInsight on AKS cluster” from the marketplace.
-- Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
-- Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have two ways of creating clusters.
-    -	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the prerequisite configuration fields with smart defaults and autocreates mandatory resources.
+## Clean up resources
 
-        Virtual Machine SKU size is prefilled with the least costing recommended SKU. In the absence of any recommended SKU, it is prefilled with the SKU with the least vCores and maximum quota available at the time of cluster creation. The cluster would be created with a default constant number of five nodes. Flink and Trino clusters would have two head nodes while Spark clusters would have three head nodes. 
-        
-        The user assigned managed identity and storage account will be autocreated in the managed resource group. You can review the configurations of the cluster, which would be created on the Review+create tab. Once you click Create, “The Deployment is in progress” page is displayed while the cluster is being created. A message that "Your deployment is complete" would be displayed once the cluster is fully deployed and ready for use.
-    
-        :::image type="content" source="./media/quickstart-create-cluster/basic-mode.png" alt-text="Diagram showing basic mode of cluster creation." border="true" lightbox="./media/quickstart-create-cluster/basic-mode.png":::
+When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group.
 
-    -	If you wish to have more flexibility to customize the cluster configurations, toggle “Use advanced configuration” to On.
+1. Select the Resource group.
+1. On the page for the resource group, select Delete resource group.
+1. When prompted, type the name of the resource group and then select Delete.
 
-> [!IMPORTANT]
-> For creating a cluster in a new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisites.
-> When a user has permission to assign the Azure RBAC roles, it's assigned automatically.
-> 
-> AKS agentpool managed identity is created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**.
-> Follow these steps to [assign the role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+> [!Note]
+> To delete a cluster pool, ensure there are no active clusters in the cluster pool.
 
-For a quickstart, refer to the following steps.
+> [!TIP]
+> For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
 
-1. When the cluster pool creation completes, click **Go to resource** from the **Your deployment is complete** page or the **Notifications** area. If the **Go to resource option** isn't available, type *HDInsight on AKS cluster pool* in the search bar on the Azure portal, and then select the cluster pool you created.
+### Next steps
 
-1. Click **+ New cluster** from and then provide the following information:
+* [Create a Trino cluster in Azure HDInsight on AKS](./trino/trino-create-cluster.md)
 
-   :::image type="content" source="./media/quickstart-create-cluster/create-new-cluster.png" alt-text="Screenshot showing create new cluster option.":::
-   
-   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-basic-page.png" alt-text="Diagram showing how to create a new cluster." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-basic-page.png":::
-   
-     | Property| Description|
-     |---|---|
-     |Subscription | By default, it's populated with the subscription used for the cluster pool.|
-     |Resource group| By default, it's populated with the resource group used for the cluster pool.|
-     |Cluster pool|Represents the cluster pool in which the cluster has to be created. To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
-     |Region| By default, it's populated with the region used for the cluster pool.|
-     |Cluster pool version|By default, it's populated with the version used for the cluster pool.|
-     |HDInsight on AKS version| From the drop-down list, select the HDInsight on AKS version. For more information, see [versioning](./versions.md).|
-     |Cluster type | From the drop-down list, select the type of Cluster you want to create: Trino, Flink, or Spark.|
-     |Cluster package| Select the cluster package with component version available for the selected cluster type. |
-     |Cluster name|Enter the name of the new cluster.|
-     |User-assigned managed identity | Select the managed identity to use with the cluster.|
-     |Storage account (ADLS Gen2) | Select a storage account and a container that is the default location for cluster logs and other output. It's mandatory for Apache Flink and Spark cluster type.|      
-     |Virtual network (VNet) | The virtual network for the cluster. It's derived from the cluster pool.|
-     |Subnet|The virtual network subnet for the cluster. It's derived from the cluster pool.|
- 
-     Click **Next: Configuration** to continue.
+* [Create an Apache Flink® cluster in Azure HDInsight on AKS](./flink/flink-create-cluster-portal.md)
 
-1. On the **Configuration** page, provide the following information:
-
-   :::image type="content" source="./media/quickstart-create-cluster/configuration-and-pricing-tab.png" alt-text="Diagram showing configuration tab.":::  
-   
-
-     |Property|Description|
-     |---|---|
-     |Head node size| This value is same as the worker node size.|
-     |Number of head nodes|This value is set by default based on the cluster type.|
-     |Worker node size| From the drop-down list, select the recommended SKU or you can choose the SKU available in your subscription by clicking **Select VM size**.|
-     |Number of worker nodes|Select the number of worker nodes required for your cluster.|
-     |Autoscale|(Optional) Select this option to enable the autoscale capability|
-     |Secure shell (SSH) configuration|(Optional) Select this option to enable SSH node. By enabling SSH, more VM nodes are created.|
-
-     > [!NOTE]
-     > You will see extra section to provide service configurations for Apache Flink clusters.
-
-     Click **Next: Integrations** to continue.
-
-1. On the **Integrations** page, provide the following information:
-
-     :::image type="content" source="./media/quickstart-create-cluster/cluster-integration-tab.png" alt-text="Diagram showing integration tab.":::
-
-     |Property|Description|
-     |---|---|
-     |Log Analytics|(Optional) Select this option to enable Log analytics to view insights and logs directly in your cluster by sending metrics and logs to a Log Analytics Workspace.|
-     |Azure Prometheus|(Optional) Select this option to enable Azure Managed Prometheus to view Insights and Logs directly in your cluster by sending metrics and logs to an Azure Monitor workspace.|
-
-     > [!NOTE]
-     > To enable Log Analytics and Azure Prometheus, it should be first enabled at the cluster pool level.
-     
-     Click **Next: Tags** to continue.
-    
-1. On the **Tags** page, enter any tags(optional) you’d like to assign to the cluster.
-   
-     :::image type="content" source="./media/quickstart-create-cluster/create-cluster-tags-page.png" alt-text="Screenshot showing tags page.":::
-
-     | Property | Description|
-     |---|---|
-     |Name | Enter a name (key) that help you identify resources based on settings that are relevant to your organization. "Environment" to track the deployment environment for your resources.|
-     | Value | Enter the value that helps to relate to the resources. "Production" to identify the resources deployed to production.|
-     | Resource | Select the applicable resource type.|
-
-     Select **Next: Review + create** to continue.
-
-1. On the **Review + create** page, look for the **Validation succeeded** message at the top of the page and then click **Create**.
-
-   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-review-create-page.png" alt-text="Diagram showing cluster review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
-
-   The **Deployment is in process** page is displayed while the cluster is being created, and the **"Your deployment is complete"**  page is displayed once the cluster is fully deployed and ready for use.
-
-   > [!TIP]
-   > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
+* [Create an Apache Spark cluster in Azure HDInsight on AKS](./spark/create-spark-cluster.md)

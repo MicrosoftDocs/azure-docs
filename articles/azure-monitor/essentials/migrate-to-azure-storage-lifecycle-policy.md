@@ -16,12 +16,11 @@ ms.date: 08/16/2023
 The Diagnostic Settings Storage Retention feature is being deprecated. To configure retention for logs and metrics sent to an Azure Storage account, use Azure Storage Lifecycle Management.  
 
 This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle management](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) for retention.
-For logs sent to a Log Analytics workspace, retention is set for each table on the **Tables** page of your workspace.
+For logs sent to a Log Analytics workspace, retention is set for each table on the **Tables** page of your workspace. For more information on Log Analytics workspace retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-configure.md).
 
 > [!IMPORTANT]
 > **Deprecation Timeline.**
 > - March 31, 2023 –  The Diagnostic Settings Storage Retention feature will no longer be available to configure new retention rules for log data. This includes using the portal, CLI PowerShell, and ARM and Bicep templates.  If you have configured retention settings, you'll still be able to see and change them in the portal. 
-> - March 31, 2024 –  You will no longer be able to use the API (CLI, Powershell, or templates), or Azure portal to configure retention setting unless you're changing them to *0*. Existing retention rules will still be respected.
 > - September 30, 2025 –  All retention functionality for the Diagnostic Settings Storage Retention feature will be disabled across all environments.
 
 

@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 06/27/2024
 ms.author: rolyon
 ---
 
@@ -31,7 +31,7 @@ When you try to assign a role, you get the following error message:
 
 ### Cause
 
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
@@ -68,11 +68,11 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope](./includes/query/authorization-same-role-scope.md)]
 
     # [Conditions](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](../governance/includes/resource-graph/query/authorization-same-role-scope-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](./includes/query/authorization-same-role-scope-condition.md)]
 
     ---
 
@@ -152,11 +152,11 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal](./includes/query/authorization-same-role-principal.md)]
 
     # [Conditions](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](../governance/includes/resource-graph/query/authorization-same-role-principal-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](./includes/query/authorization-same-role-principal-condition.md)]
 
     ---
 
@@ -222,11 +222,11 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope](./includes/query/authorization-same-principal-scope.md)]
 
     # [Condition](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](../governance/includes/resource-graph/query/authorization-same-principal-scope-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](./includes/query/authorization-same-principal-scope-condition.md)]
 
     ---
 
@@ -324,7 +324,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
     This query checks active role assignments and doesn't consider eligible custom role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible custom role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
-    [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](../governance/includes/resource-graph/query/authorization-unused-custom-roles.md)]
+    [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](./includes/query/authorization-unused-custom-roles.md)]
 
     The following shows an example of the results:
 

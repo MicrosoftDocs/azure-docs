@@ -2,7 +2,7 @@
 title: Update ARO cluster certificates
 description: Learn how to manually update Azure Red Hat OpenShift cluster certificates
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/05/2022
 author: johnmarco
 ms.author: johnmarc

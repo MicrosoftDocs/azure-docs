@@ -3,10 +3,10 @@ title: How to access a compute instance terminal in your workspace
 titleSuffix: Azure Machine Learning
 description: Use the terminal on a compute instance for Git operations, to install packages, and add kernels.
 services: machine-learning
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: sgilley
-ms.service: machine-learning
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: kritifaujdar
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.topic: how-to
 ms.date: 01/10/2024
@@ -37,25 +37,25 @@ To access the terminal:
     :::image type="content" source="media/how-to-use-terminal/open-terminal-window.png" alt-text="Open terminal window":::
 
 1. When a compute instance is running, the terminal window for that compute instance appears.
-1. When no compute instance is running, use the **Compute** section on the right to start or create a compute instance.
+1. When no compute instance is running, use the **Compute** section to start or create a compute instance.
     :::image type="content" source="media/how-to-use-terminal/start-or-create-compute.png" alt-text="Start or create a compute instance":::
 
-In addition to the steps above, you can also access the terminal from:
+In addition to the previous steps, you can also access the terminal from:
 
 * RStudio or Posit Workbench (formerly RStudio Workbench) (See [Add custom applications such as RStudio or Posit Workbench)](how-to-create-compute-instance.md?tabs=python#add-custom-applications-such-as-rstudio-or-posit-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine, if you enabled SSH access when the compute instance was created.
+* SSH to the machine, if you enabled SSH access when the compute instance was created. If the compute instance is in a managed virtual network and doesn't have a public IP address, use the `az ml compute connect-ssh` command to connect to the compute instance.
 
 ## Copy and paste in the terminal
 
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
+> * FireFox and Internet Explorer may not support clipboard permissions properly.
 
 ## <a name=git></a> Use files from Git and version files
 
-Access all Git operations from the terminal. All Git files and folders will be stored in your workspace file system. This storage allows you to use these files from any compute instance in your workspace.
+Access all Git operations from the terminal. All Git files and folders are stored in your workspace file system. This storage allows you to use these files from any compute instance in your workspace.
 
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
@@ -64,7 +64,7 @@ To integrate Git with your Azure Machine Learning workspace, see  [Git integrati
 
 ## Install packages
 
- Install packages from a terminal window. Install packages into the kernel that you want to use to run your notebooks.  The default kernel is **python310-sdkv2**.  
+ Install packages from a terminal window. Install packages into the kernel that you want to use to run your notebooks. The default kernel is **python310-sdkv2**.  
 
 Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Workbench (formerly RStudio Workbench):
 
@@ -81,13 +81,13 @@ Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Work
 
 To add a new Jupyter kernel to the compute instance:
 
-1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+1. Use the terminal window to create a new environment. For example, the following command creates `newenv`:
 
     ```shell
     conda create --name newenv
     ```
 
-1. Activate the environment.  For example, after creating `newenv`:
+1. Activate the environment. For example, after creating `newenv`:
 
     ```shell
     conda activate newenv
@@ -105,13 +105,13 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 
 To add a new R kernel to the compute instance:
 
-1. Use the terminal window to create a new environment. For example, the code below creates `r_env`:
+1. Use the terminal window to create a new environment. For example, the following command creates `r_env`:
 
     ```shell
     conda create -n r_env r-essentials r-base
     ```
 
-1. Activate the environment.  For example, after creating `r_env`:
+1. Activate the environment. For example, after creating `r_env`:
 
     ```shell
     conda activate r_env
@@ -135,7 +135,7 @@ To add a new R kernel to the compute instance:
     q()
     ```
 
-It will take a few minutes before the new R kernel is ready to use.  If you get an error saying it is invalid, wait and then try again.
+It takes a few minutes before the new R kernel is ready to use. If you get an error saying it's invalid, wait and then try again.
 
 For more information about conda, see [Using R language with Anaconda](https://docs.anaconda.com/free/anaconda/packages/using-r-language/). For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
 
@@ -144,7 +144,7 @@ For more information about conda, see [Using R language with Anaconda](https://d
 > [!WARNING]
 > While customizing the compute instance, make sure you do not delete conda environments or jupyter kernels that you didn't create.
 
-To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel will still be selectable and cause unexpected behavior.
+To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel is still selectable and cause unexpected behavior.
 
 To remove the kernelspec:
 
@@ -174,11 +174,11 @@ To also remove the conda environment:
     conda env remove -n ENV_NAME
     ```
 
-Upon refresh, the kernel list in your notebooks view should reflect the changes you have made.
+Upon refresh, the kernel list in your notebooks view should reflect the changes you made.
 
 ## Manage terminal sessions
 
-Terminal sessions can stay active if terminal tabs are not properly closed. Too many active terminal sessions can impact the performance of your compute instance.
+Terminal sessions can stay active if terminal tabs aren't properly closed. Too many active terminal sessions can impact the performance of your compute instance.
 
 Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions and shut down the sessions you no longer need.
 

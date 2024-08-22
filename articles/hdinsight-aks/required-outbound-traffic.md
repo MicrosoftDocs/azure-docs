@@ -1,7 +1,7 @@
 ---
 title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
 ms.date: 03/26/2024
 ---
@@ -11,7 +11,7 @@ ms.date: 03/26/2024
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 > [!NOTE]
-> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](../aks/concepts-network.md#azure-cni-overlay-networking).
+> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](/azure/aks/concepts-network-azure-cni-overlay).
 
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 
@@ -28,7 +28,7 @@ You need to configure the following network and application security rules in yo
 | ** ServiceTag | AzureCloud.`<Region>`   | UDP      | 1194 | Network security rule| Tunneled secure communication between the nodes and the control plane.|
 | ** ServiceTag | AzureCloud.`<Region>`   | TCP      | 9000 | Network security rule|Tunneled secure communication between the nodes and the control plane.|
 | FQDN Tag| AzureKubernetesService | HTTPS      | 443 |Application security rule| Required by AKS Service.|
-| Service Tag  | AzureMonitor | TCP      | 443 |Netowrk security rule| Required for integration with Azure Monitor.|
+| Service Tag  | AzureMonitor | TCP      | 443 |Network security rule| Required for integration with Azure Monitor.|
 | FQDN| hiloprodrpacr00.azurecr.io|HTTPS|443|Application security rule| Downloads metadata info of the docker image for setup of HDInsight on AKS and monitoring.|
 | FQDN| *.blob.core.windows.net|HTTPS|443|Application security rule| Monitoring and setup of HDInsight on AKS.|
 | FQDN|graph.microsoft.com|HTTPS|443|Application security rule|  Authentication.|

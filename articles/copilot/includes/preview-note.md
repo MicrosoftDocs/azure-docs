@@ -2,10 +2,13 @@
 author: JnHs
 ms.author: jenhayes
 ms.service: copilot-for-azure
+ms.custom:
+  - build-2024
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 05/28/2024
 ---
 
 > [!IMPORTANT]
 >
-> Microsoft Copilot for Azure (preview) requires registration and is currently available only to approved enterprise customers and partners. For more information, see [Limited access to Microsoft Copilot for Azure (preview)](../limited-access.md).
+> Microsoft Copilot in Azure (preview) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

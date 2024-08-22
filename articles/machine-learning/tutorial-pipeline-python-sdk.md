@@ -3,13 +3,13 @@ title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to create your production-ready ML project in a cloud-based Python Jupyter Notebook using Azure Machine Learning Python SDK v2.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
-ms.date: 10/20/2023
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
+ms.date: 05/15/2024
 ms.custom:
   - sdkv2
   - build-2023
@@ -66,7 +66,7 @@ This video shows how to get started in Azure Machine Learning studio so that you
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/sdg-serverless/tutorials/get-started-notebooks/pipeline.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/pipeline.ipynb -->
 
 
 ## Set up the pipeline resources
@@ -98,9 +98,9 @@ from azure.identity import DefaultAzureCredential
 # authenticate
 credential = DefaultAzureCredential()
 
-SUBSCRIPTION="<SUBSCRIPTION_ID>"
-RESOURCE_GROUP="<RESOURCE_GROUP>"
-WS_NAME="<AML_WORKSPACE_NAME>"
+SUBSCRIPTION = "<SUBSCRIPTION_ID>"
+RESOURCE_GROUP = "<RESOURCE_GROUP>"
+WS_NAME = "<AML_WORKSPACE_NAME>"
 # Get a handle to the workspace
 ml_client = MLClient(
     credential=credential,
@@ -113,14 +113,14 @@ ml_client = MLClient(
 > [!NOTE]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
 
-Verify the connection by making a call to `ml_client`. Since this is the first time that you're making a call to the workspace, you might be asked to authenticate. 
+Verify the connection by making a call to `ml_client`. Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. 
 
 
 ```python
-# Verify that the handle works correctly.  
+# Verify that the handle works correctly.
 # If you ge an error here, modify your SUBSCRIPTION, RESOURCE_GROUP, and WS_NAME in the previous cell.
 ws = ml_client.workspaces.get(WS_NAME)
-print(ws.location,":", ws.resource_group)
+print(ws.location, ":", ws.resource_group)
 ```
 
 ## Access the registered data asset
@@ -476,7 +476,7 @@ outputs:
 code: .
 environment:
   # for this step, we'll use an AzureML curate environment
-  azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+  azureml://registries/azureml/environments/sklearn-1.0/labels/latest
 command: >-
   python train.py 
   --train_data ${{inputs.train_data}} 
@@ -593,7 +593,7 @@ pipeline_job = ml_client.jobs.create_or_update(
 ml_client.jobs.stream(pipeline_job.name)
 ```
 
-You can track the progress of your pipeline, by using the link generated in the previous cell. When you first select this link, you might see that the pipeline is still running. Once it's complete, you can examine each component's results.
+You can track the progress of your pipeline, by using the link generated in the previous cell. When you first select this link, you may see that the pipeline is still running. Once it's complete, you can examine each component's results.
 
 Double-click the **Train Credit Defaults Model** component. 
 
@@ -612,6 +612,7 @@ There are two important results you'll want to see about training:
 To learn how to deploy your model to an online endpoint, see [Deploy a model as an online endpoint tutorial](tutorial-deploy-model.md).
 
 <!-- nbend -->
+
 
 
 ## Clean up resources

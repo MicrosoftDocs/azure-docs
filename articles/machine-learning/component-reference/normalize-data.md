@@ -3,7 +3,7 @@ title:  "Normalize Data: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Normalize Data component in Azure Machine Learning to transform a dataset through *normalization*..
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

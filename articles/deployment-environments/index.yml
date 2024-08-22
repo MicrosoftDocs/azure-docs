@@ -6,7 +6,7 @@ summary: Learn how to configure self-serve environments that developers can use 
 metadata:
   title: Azure Deployment Environments documentation
   description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
-  ms.service: deployment-environments
+  ms.service: azure-deployment-environments
   ms.custom:
     - build-2023
     - ignite-2023
@@ -27,15 +27,13 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Use scenarios
-            url: concept-environments-scenarios.md         
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
           - text: 'Create dev center & project (Azure Resource Manager)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md
@@ -57,6 +55,20 @@ landingContent:
             url: configure-environment-definition.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
+
+  # Card
+  - title: Customize deployments with the extensibility model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure container image to execute deployments
+            url: how-to-configure-extensibility-generic-container-image.md
+          - text: Configure an ARM/Bicep custom container image
+            url: how-to-configure-extensibility-bicep-container-image.md
+          - text: Configure a Terraform custom container image
+            url: how-to-configure-extensibility-terraform-container-image.md
+          - text: Configure a Pulumi custom container image
+            url: how-to-configure-extensibility-pulumi-container-image.md  
 
   # Card
   - title: Configure environment types

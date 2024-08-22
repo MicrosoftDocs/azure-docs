@@ -63,7 +63,7 @@ Azure Operator Call Protection doesn't record the call or store the content of c
 
 Customer data is protected by Azure's robust security and privacy measures, including encryption for data at rest and in transit, identity and access management, threat detection, and compliance certifications.
 
-No customer data, including call content, is used to train the AI.
+No customer data, including call content, is used to train the AI. For more information about how Azure Operator Call Protection uses AI, see [Responsible AI FAQ for Azure Operator Call Protection](responsible-ai-faq.md).
 
 ## Next step
 

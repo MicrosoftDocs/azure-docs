@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/12/2024
+ms.date: 05/22/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
@@ -16,8 +15,8 @@ ms.date: 03/12/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!Important]
->The service has released a new Google BigQuery connector which provides better native Google BigQuery support, refer to [Google BigQuery](connector-google-bigquery.md) article on details.
+>[!IMPORTANT]
+>The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 

@@ -3,8 +3,8 @@ title: Collect your Apache Spark applications logs and metrics using Azure Stora
 description: This article shows how to use the Synapse Spark diagnostic emitter extension to collect logs, event logs and metrics.cluster and learn how to integrate the Grafana dashboards.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun
-ms.service: synapse-analytics
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
@@ -15,9 +15,6 @@ ms.date: 08/31/2021
 The Synapse Apache Spark diagnostic emitter extension is a library that enables the Apache Spark application to emit the logs, event logs, and metrics to one or more destinations, including Azure Log Analytics, Azure Storage, and Azure Event Hubs. 
 
 In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs, and metrics to your Azure storage account.
-
-> [!NOTE]
-> This feature is currently unavailable in the [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) runtime but will be supported post-GA.
 
 ## Collect logs and metrics to storage account
 
@@ -66,7 +63,7 @@ All the logs files will be in JSON lines format (also called newline-delimited J
 | `spark.synapse.diagnostic.emitter.<destination>.auth`                       | Required. `AccessKey` for using storage account [access key](../../storage/common/storage-account-keys-manage.md) authorization. `SAS` for [shared access signatures](../../storage/common/storage-sas-overview.md) authorization. |
 | `spark.synapse.diagnostic.emitter.<destination>.uri`                        | Required. The destination blob container folder uri. Should match pattern `https://<my-blob-storage>.blob.core.windows.net/<container-name>/<folder-name>`. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Optional. The secret (AccessKey or SAS) content. |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](../../key-vault/general/overview.md) name where the secret (AccessKey or SAS) is stored. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](/azure/key-vault/general/overview) name where the secret (AccessKey or SAS) is stored. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret (AccessKey or SAS) is stored. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is necessary to obtain the secret from AKV. (Please make sure MSI has read permission on the AKV). |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |

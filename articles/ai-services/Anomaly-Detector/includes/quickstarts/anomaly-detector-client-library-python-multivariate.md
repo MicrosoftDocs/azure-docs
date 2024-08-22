@@ -76,6 +76,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create and assign persistent environment variables for your key and endpoint.
 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
 # [Command Line](#tab/command-line)
 
 ```CMD
@@ -120,6 +122,7 @@ from datetime import datetime, timezone
 from azure.ai.anomalydetector import AnomalyDetectorClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.anomalydetector.models import *
+import os
 
 SUBSCRIPTION_KEY =  os.environ['ANOMALY_DETECTOR_API_KEY']
 ANOMALY_DETECTOR_ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
@@ -175,12 +178,12 @@ result = ad_client.detect_multivariate_batch_anomaly(model_id, batch_inference_b
 result_id = result.result_id
 
 # Get results (may need a few seconds)
-r = ad_client.get_multivariate_batch_detection_result(result_id)
+anomaly_results = ad_client.get_multivariate_batch_detection_result(result_id)
 print("Get detection result...(it may take a few seconds)")
 
-while r.summary.status != MultivariateBatchDetectionStatus.READY and r.summary.status != MultivariateBatchDetectionStatus.FAILED and r.summary.status !=MultivariateBatchDetectionStatus.CREATED:
+while anomaly_results.summary.status != MultivariateBatchDetectionStatus.READY and anomaly_results.summary.status != MultivariateBatchDetectionStatus.FAILED:
     anomaly_results = ad_client.get_multivariate_batch_detection_result(result_id)
-    print("Detection is {}".format(r.summary.status))
+    print("Detection is {}".format(anomaly_results.summary.status))
     time.sleep(5)
     
    
@@ -256,5 +259,5 @@ The output results have been truncated for brevity.
 
 If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
-* [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Recommendations API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -51,7 +51,7 @@ Old response for Shared scope:
 ```json
 {
         "lookBackPeriod": "Last60Days",
-        "meterId": "00000000-0000-0000-0000-000000000000",
+        "meterId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "skuName": "Standard_B1s",
         "term": "P3Y",
         "region": "eastus",
@@ -82,9 +82,9 @@ Old response for Single scope:
 
 ```json
 {
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
       "lookBackPeriod": "Last60Days",
-      "meterId": "00000000-0000-0000-0000-000000000000",
+      "meterId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
       "skuName": "Standard_B1s",
       "term": "P3Y",
       "region": "eastus",
@@ -117,14 +117,14 @@ New response:
 {
   "value": [
     {
-      "id": "billingAccount/123456/providers/Microsoft.Consumption/reservationRecommendations/00000000-0000-0000-0000-000000000000",
-      "name": "00000000-0000-0000-0000-000000000000",
+      "id": "billingAccount/123456/providers/Microsoft.Consumption/reservationRecommendations/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+      "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
       "type": "Microsoft.Consumption/reservationRecommendations",
       "location": "westus",
       "sku": "Standard_DS1_v2",
       "kind": "legacy",
       "properties": {
-        "meterId": "00000000-0000-0000-0000-000000000000",
+        "meterId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "term": "P1Y",
         "costWithNoReservedInstances": 12.0785105,
         "recommendedQuantity": 1,
@@ -153,6 +153,6 @@ New response:
 }
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

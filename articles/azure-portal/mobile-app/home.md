@@ -1,7 +1,7 @@
 ---
 title: Azure mobile app Home
 description: Azure mobile app Home surfaces the most essential information and the resources you use most often.
-ms.date: 10/16/2023
+ms.date: 05/29/2024
 ms.topic: conceptual
 ---
 
@@ -15,13 +15,13 @@ Azure mobile app **Home** consists of customizable display cards that show infor
 
 Current card options include:
 
-- **Learn**: Explore the most popular Microsoft learn modules for Azure.
+- **Learn**: Explore the [most popular Microsoft learn modules for Azure](learn-training.md).
 - **Resource groups**: Quick access to all your resource groups.
-- **Microsoft Entra ID**: Quick access to Microsoft Entra ID management.
+- **Microsoft Entra ID**: Quick access to [Microsoft Entra ID management](microsoft-entra-id.md).
 - **Azure services**: Quick access to Virtual machines, Web Apps, SQL databases, and Application Insights.
-- **Latest alerts**: A list and chart view of the alerts fired in the last 24 hours and the option to see all.
+- **Latest alerts**: A list and chart view of the alerts fired in the last 24 hours and the option to [see all notifications](alerts-notifications.md).
 - **Service Health**: A current count of service issues, maintenance, health advisories, and security advisories.
-- **Cloud Shell**: Quick access to the Cloud Shell terminal.
+- **Cloud Shell**: Quick access to the [Cloud Shell terminal](cloud-shell.md).
 - **Recent resources**: A list of your four most recently viewed resources, with the option to see all.
 - **Favorites**: A list of the resources you have added to your favorites, and the option to see all.
 

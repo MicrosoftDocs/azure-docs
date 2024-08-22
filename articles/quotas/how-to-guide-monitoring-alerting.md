@@ -1,7 +1,7 @@
 ---
 title: Create alerts for quotas
 description: Learn how to create alerts for quotas
-ms.date: 11/29/2023
+ms.date: 05/09/2024
 ms.topic: how-to
 ---
 
@@ -125,6 +125,9 @@ You must have at least the **Reader** role for the subscription to query this da
 
 Query to view current usages, quota/limit, and usage percentage for a subscription, region, and VCM family:
 
+>[!Note]
+>Currently, Compute is the only supported resource for NRT limit/quota data. Don't rely on the below queries to pull other resource types such as Disks and/or Galleries. You can get the latest snapshot for the said resources with the current [usages API](/rest/api/compute/usage/list?tabs=HTTP).
+
 ```kusto
 QuotaResources
 | where type =~ "microsoft.compute/locations/usages"
@@ -132,6 +135,7 @@ QuotaResources
 | where subscriptionId in~ ("<Subscription1>","<Subscription2>")   
 | mv-expand json = properties.value limit 400 
 | extend usagevCPUs = json.currentValue, QuotaLimit = json['limit'], quotaName = tostring(json['name'].localizedValue)
+|where quotaName !contains "Disks" and quotaName !contains "Disk" and quotaName !contains "gallery" and quotaName !contains "Snapshots"
 |where usagevCPUs > 0
 |extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
 |project subscriptionId,quotaName,usagevCPUs,QuotaLimit,usagePercent,location,json

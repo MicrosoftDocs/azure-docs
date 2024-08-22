@@ -3,20 +3,20 @@ title: How to deploy Cohere Embed models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy Cohere Embed models with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/02/2024
-ms.reviewer: mopeakande
-ms.author: shubhiraj
-author: shubhirajMsft
-ms.custom: [references_regions]
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
+ms.custom: references_regions, build-2024
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---
 
 # How to deploy Cohere Embed models with Azure Machine Learning studio
-Cohere offers two Embed models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
+Cohere offers two Embed models in Azure Machine Learning studio. These models are available as serverless APIs with pay-as-you-go, token-based billing.
 
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
@@ -25,7 +25,7 @@ You can browse the Cohere family of models in the model catalog by filtering on 
 
 ## Models
 
-In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a service with pay-as you go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a serverless API with pay-as you go billing.
 
 ### Cohere Embed v3 - English
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on various industries such as Finance, Legal, and General-Purpose Corpora.
@@ -41,19 +41,25 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Deploy with pay-as-you-go
-
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+## Deploy as a serverless API
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
 The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+- An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them. The serverless API model deployment offering for Cohere Embed is only available with workspaces created in these regions:
 
-    > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in EastUS2 or Sweden Central region.
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
 -  Azure role-based access controls (Azure RBAC) are used to grant access to operations. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resource Group.
 
@@ -69,7 +75,7 @@ To create a deployment:
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
-1. On the model's overview page in the model catalog, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's overview page in the model catalog, select **Deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-deploy-pay-as-you-go.png":::
 
@@ -81,7 +87,7 @@ To create a deployment:
 
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
-    :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png":::
+    :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png":::
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
@@ -91,11 +97,11 @@ To create a deployment:
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
-1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference] (#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
 To learn about billing for models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
-### Consume the models as a service
+### Consume the models deployed as a serverless API
 
 The previously mentioned Cohere models can be consumed using the chat API.
 
@@ -104,94 +110,25 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. Copy the **Target** URL and the **Key** token values.
 1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
-## Embed API reference for Cohere Embed models deployed as a service
+## Embed API reference for Cohere Embed models deployed as a serverless API
 
-### v1/embeddings 
-#### Request
+Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/embeddings` (for text) and `/images/embeddings` (for images), and the native [Cohere Embed v3 API](#cohere-embed-v3) on `/embed`. 
 
-```
-    POST /v1/embeddings HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
+### Azure AI Model Inference API
 
-#### v1/embeddings request schema
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the following articles:
 
-Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
+* [Reference for Text Embeddings](reference-model-inference-embeddings.md)
+* [Reference for Image Embeddings](reference-model-inference-images-embeddings.md) 
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-|`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
+An [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
-#### v1/embeddings response schema
+### Cohere Embed v3
 
-The response payload is a dictionary with the following fields:
+The following contains details about Cohere Embed v3 API.
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `object` | `enum`|The object type, which is always `list` |
-| `data` | `array` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for creating the embeddings. |
-| `usage` | `object` | Usage statistics for the completion request. |
-
-The `data` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` |The index of the embedding in the list of embeddings. |
-| `object` | `enum` | The object type, which is always "embedding." |
-| `embedding` | `array` | The embedding vector, which is a list of floats. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
-
-
-### v1/embeddings examples
-
-Request:
-
-```json
-    {    
-    "input": ["hi"]
-    }
-```
-
-Response:
-
-```json
-    {
-        "id": "87cb11c5-2316-4c88-af3c-4b2b77ed58f3",
-        "object": "list",
-        "data": [
-            {
-                "index": 0,
-                "object": "embedding",
-                "embedding": [
-                    1.1513672,
-                    1.7060547,
-                    ...
-                ]
-            }
-        ],
-        "model": "tmp",
-        "usage": {
-            "prompt_tokens": 1,
-            "completion_tokens": 0,
-            "total_tokens": 1
-        }
-    }
-```
-
-### v1/embed 
 #### Request
 
 ```
@@ -350,7 +287,7 @@ Each time a workspace subscribes to a given model offering from Azure Marketplac
 
 For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 ## Content filtering
 
@@ -361,3 +298,4 @@ Models deployed as a service with pay-as-you-go are protected by Azure AI conten
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
+- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

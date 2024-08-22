@@ -91,8 +91,8 @@
           "redirect_document_id": true
       },
       {
-          "source_path_from_root": "/articles/healthcare-apis/configure-private-link.md",
-          "redirect_url": "/azure/healthcare-apis/fhir/configure-private-link",
+          "source_path_from_root": "/articles/healthcare-apis/healthcare-apis-configure-private-link.md",
+          "redirect_url": "/azure/healthcare-apis/configure-private-link",
           "redirect_document_id": true
       },
       {
@@ -443,17 +443,32 @@
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-service-access-token-validation.md",
           "redirect_url": "/azure/healthcare-apis/get-access-token",
-          "redirect_document_id": true
+          "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/get-healthcare-apis-access-token-cli.md",
           "redirect_url": "/azure/healthcare-apis/get-access-token",
-          "redirect_document_id": false
+          "redirect_document_id": true
       },
       {
         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-portal-quickstart.md",
         "redirect_url": "/azure/healthcare-apis/deploy-azure-portal",
         "redirect_document_id": false
+      },
+      {
+         "source_path_from_root": "/articles/healthcare-apis/fhir/de-identified-export.md",
+         "redirect_url": "/azure/healthcare-apis/fhir/deidentified-export",
+         "redirect_document_id": true
+      },
+      {
+         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-service-autoscale.md",
+         "redirect_url": "/azure/healthcare-apis/fhir/autoscale",
+         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-rest-api-capabilities.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/rest-api-capabilities",
+        "redirect_document_id": true
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli.md",
@@ -484,48 +499,81 @@
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-overview.md",
         "redirect_url": "/azure/healthcare-apis/dicom/overview",
         "redirect_document_id": false
-    },
-    {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli-old.md",
+      },
+      {   
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli-old.md",
         "redirect_url": "/azure/healthcare-apis/dicom/get-access-token",
         "redirect_document_id": true
-    },
-    {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-services-overview.md",
+      },
+      {   
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-services-overview.md",
         "redirect_url": "/azure/healthcare-apis/dicom/overview",
         "redirect_document_id": true     
-    },
-    {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac-old.md",
+      },
+      {   
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac-old.md",
         "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-azure-rbac",
         "redirect_document_id": true     
-    },
-    {  
+      },
+      {  
        "source_path_from_root": "/articles/healthcare-apis/dicom/export-dicom-files.md",
        "redirect_url": "/azure/healthcare-apis/dicom/export-files",
        "redirect_document_id": true     
-    },
-    {  
+      },
+      {  
        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-change-feed-overview.md",
        "redirect_url": "/azure/healthcare-apis/dicom/change-feed-overview",
        "redirect_document_id": true   
-    },
-    {  
+      },
+      {  
        "source_path_from_root": "/articles/healthcare-apis/dicom/get-started-with-dicom.md",
        "redirect_url": "/azure/healthcare-apis/dicom/dicom-data-lake",
        "redirect_document_id": true   
-    },     
+      },     
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
           "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
           "redirect_document_id": false
       },
       {
-          "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
-          "redirect_url": "/azure/healthcare-apis/fhir/overview-of-convert-data",
+          "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
           "redirect_document_id": false
       },
       {
-          "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data.md",
-          "redirect_url": "/azure/healthcare-apis/fhir/overview-of-convert-data",
+          "source_path_from_root": "/articles/healthcare-apis/fhir/configure-settings-convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-configuration",
           "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data-with-azure-data-factory.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-azure-data-factory",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/troubleshoot-convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-troubleshoot",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/get-started-with-health-data-services.md",
+          "redirect_url": "/azure/healthcare-apis/health-data-services-get-started",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/overview-of-convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/frequently-asked-questions-convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-faq",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
+          "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",

@@ -32,7 +32,7 @@ This Azure Time Series Insights Explorer quickstart offers a guided tour of feat
 
 ## Prepare the demo environment
 
-1. In your browser, go to the [Gen1 demo](https://insights.timeseries.azure.com/demo).
+1. In your browser, go to the Gen1 demo.
 
 1. If prompted, sign in to the Azure Time Series Insights Explorer by using your Azure account credentials.
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy a virtual machine in Azure public MEC using an ARM te
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute (MEC) by using an Azure Resource Manager template.
 author: kunaltelang
 ms.author: monikama
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: quickstart
 ms.date: 11/22/2022
 ms.custom: template-quickstart, devx-track-azurecli, devx-track-arm-template
@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurecli, devx-track-arm-template
 
 In this quickstart, you learn how to use an Azure Resource Manager (ARM) template to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (MEC).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -391,7 +391,7 @@ In this quickstart, you learn how to use an Azure Resource Manager (ARM) templat
 
 To use SSH to connect to the virtual machine in the Azure public MEC, the best method is to deploy a jump box in an Azure parent region.
 
-1. Follow the instructions in [Create a virtual machine in a region](../virtual-machines/linux/quick-create-template.md).
+1. Follow the instructions in [Create a virtual machine in a region](/azure/virtual-machines/linux/quick-create-template).
 
 1. Use SSH to connect to the jump box virtual machine deployed in the region.
 

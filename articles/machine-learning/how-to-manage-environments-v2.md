@@ -2,12 +2,12 @@
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: ositanachi
-ms.author: osiotugo
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: osiotugo
 ms.date: 04/19/2024
 ms.custom: devx-track-azurecli, devplatv2, devx-track-python
 ---
@@ -294,6 +294,8 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 
 ---
 
+> [!IMPORTANT]
+> Archiving an environment's version does not delete the cached image in the container registry. If you wish to delete the cached image associated with a specific environment, you can use the command [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az-acr-repository-delete) on the environment's associated repository.
 
 
 ## Use environments for training

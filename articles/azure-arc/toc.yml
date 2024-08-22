@@ -47,8 +47,6 @@
   href: ./kubernetes/overview.md
 - name: Azure Arc-enabled data services >
   href: ./data/overview.md
-- name: Azure Arc site manager >
-  href: ./site-manager/overview.md
 - name: Azure Arc-enabled VMware vSphere >
   href: ./vmware-vsphere/overview.md
 - name: Azure Arc-enabled System Center Virtual Machine Manager >
@@ -58,6 +56,10 @@
   displayName: stack, hci
 - name: SQL Server enabled by Azure Arc >
   href: /sql/sql-server/azure-arc/overview
+- name: Azure Arc site manager >
+  href: ./site-manager/overview.md
+- name: Multicloud connector enabled by Azure Arc >
+  href: ./multicloud-connector/overview.md
 - name: Arc validation program
   items:
    - name: Program overview

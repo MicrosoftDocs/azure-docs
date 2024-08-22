@@ -7,9 +7,10 @@ metadata:
   author: maud-lv
   ms.author: malev
   ms.service: azure-app-configuration
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
-  ms.date: 04/11/2023
-
+  ms.date: 05/10/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -50,6 +51,8 @@ landingContent:
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
+        - text: Experimentation
+          url: concept-experimentation.md
         - text: Configuration files
           url: concept-config-file.md
         - text: Azure App Configuration Events 
@@ -58,8 +61,7 @@ landingContent:
           url: concept-soft-delete.md
         - text: Geo-replication 
           url: concept-geo-replication.md
-          
-        
+
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -79,9 +81,9 @@ landingContent:
         - text: Code a Java Spring app
           url: quickstart-java-spring-app.md
         - text: Code a Python app
-          url: quickstart-python.md
-        - text: Azure Resource Manager deployment
-          url: quickstart-deployment-overview.md       
+          url: quickstart-python-provider.md
+        - text: Code a JavaScript app
+          url: quickstart-javascript-provider.md
         - text: Azure Container Apps
           url: quickstart-container-apps.md
       - linkListType: tutorial
@@ -111,7 +113,7 @@ landingContent:
         - text: Pull data using Azure Pipelines
           url: pull-key-value-devops-pipeline.md
         - text: Push data using GitHub Actions
-          url: concept-github-action.md
+          url: push-kv-github-action.md
         - text: Export to project configuration file
           url: integrate-ci-cd-pipeline.md
         - text: Deploy to Kubernetes using Helm
@@ -132,6 +134,8 @@ landingContent:
         links:
           - text: What are feature flags?
             url: concept-feature-management.md
+          - text: What is experimentation?
+            url: concept-experimentation.md
       - linkListType: quickstart
         links:
         - text: Manage feature flags
@@ -142,39 +146,49 @@ landingContent:
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md
+        - text: Python app
+          url: quickstart-feature-flag-python.md
       - linkListType: tutorial
         links: 
         - text: Use feature flags in ASP.NET Core
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
-        - text: Enable a feature for specified users/groups
-          url: howto-targetingfilter-aspnet-core.md
+        - text: Enable conditional features with feature filters
+          url: howto-feature-filters.md
+        - text: Enable features on a schedule
+          url: howto-timewindow-filter.md
+        - text: Roll out features to targeted audience
+          url: howto-targetingfilter.md
+        - text: Run experiments with variant feature flags
+          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET library
+        - text: .NET feature management
+          url: feature-management-dotnet-reference.md
+        - text: .NET feature management API reference
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - text: Java Spring Library
+        - text: Java Spring feature management API reference
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - text: Python feature management API reference
+          url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
 
-  - title: Configuration SDKs and samples
+  - title: Client libraries and tools
     linkLists:
-      - linkListType: sample
-        links:
-        - text: Azure CLI samples
-          url: cli-samples.md
       - linkListType: reference
         links:
-        - text: Azure CLI
-          url: /cli/azure/appconfig
-        - text: PowerShell
-          url: /powershell/module/az.appconfiguration/
-        - text: Terraform
-          url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
         - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-        - text: Spring Boot provider
-          url: https://github.com/microsoft/spring-cloud-azure/tree/master/
+        - text: Java Spring provider
+          url: https://go.microsoft.com/fwlink/?linkid=2180917
+        - text: Python provider
+          url: https://pypi.org/project/azure-appconfiguration-provider/
+        - text: JavaScript provider
+          url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration
+        - text: Kubernetes provider
+          url: reference-kubernetes-provider.md
+      - linkListType: reference
+        links:      
         - text: Azure SDK for .NET
           url: https://go.microsoft.com/fwlink/?linkid=2092056
         - text: Azure SDK for Java
@@ -183,5 +197,27 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2103727
         - text: Azure SDK for JavaScript
           url: https://go.microsoft.com/fwlink/?linkid=2103664
+        - text: Azure SDK for Go
+          url: https://go.microsoft.com/fwlink/?linkid=2270866
+      - linkListType: reference
+        links:
+        - text: Control plane REST API
+          url: /rest/api/appconfiguration/
         - text: Data plane REST API
           url: rest-api.md
+      - linkListType: reference
+        links:
+        - text: Azure CLI
+          url: /cli/azure/appconfig
+        - text: PowerShell
+          url: /powershell/module/az.appconfiguration/
+        - text: Terraform
+          url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
+      - linkListType: sample
+        links:
+        - text: Azure CLI samples
+          url: cli-samples.md
+        - text: Azure PowerShell samples
+          url: powershell-samples.md
+        - text: Samples on GitHub
+          url: https://github.com/Azure/AppConfiguration/tree/main/examples

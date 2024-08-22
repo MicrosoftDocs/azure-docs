@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -418,7 +418,7 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copyTo?a
 
 ## Changes to list models
 
-List models are extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
+List models are extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](/rest/api/aiservices/miscellaneous/list-operations?view=rest-aiservices-v3.0%20(2022-08-31)&tabs=HTTP&preserve-view=true).
 
 ***Sample list models request***
 

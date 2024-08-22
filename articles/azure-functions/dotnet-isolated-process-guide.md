@@ -220,7 +220,9 @@ This middleware checks for the presence of a specific request header(x-correlati
 
 ### Customizing JSON serialization
 
-The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and will not influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which must be configured separately.
+
+The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
 var host = new HostBuilder()
@@ -311,11 +313,42 @@ To write to an output binding, you must apply an output binding attribute to the
 
 ### Multiple output bindings
 
-The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example from an HTTP trigger writes to both the HTTP response and a queue output binding:
+The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example is an HTTP-triggered function using [ASP.NET Core integration](#aspnet-core-integration) which writes to both the HTTP response and a queue output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+```csharp
+public class MultipleOutputBindings
+{
+    private readonly ILogger<MultipleOutputBindings> _logger;
 
-The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
+    public MultipleOutputBindings(ILogger<MultipleOutputBindings> logger)
+    {
+        _logger = logger;
+    }
+
+    [Function("MultipleOutputBindings")]
+    public MyOutputType Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
+    {
+        _logger.LogInformation("C# HTTP trigger function processed a request.");
+        var myObject = new MyOutputType
+        {
+            Result = new OkObjectResult("C# HTTP trigger function processed a request."),
+            MessageText = "some output"
+        };
+        return myObject;
+    }
+
+    public class MyOutputType
+    {
+        [HttpResult]
+        public IActionResult Result { get; set; }
+
+        [QueueOutput("myQueue")]
+        public string MessageText { get; set; }
+    }
+}
+```
+
+When using custom return types for multiple output bindings with ASP.NET Core integration, you must add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using [SDK 1.17.3-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.17.3-preview2) along with [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0) and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
 
 ### SDK types
 
@@ -350,7 +383,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 
 <sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for a dependency injection example.
 
-<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
+<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
@@ -401,6 +434,23 @@ To enable ASP.NET Core integration for HTTP:
         return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
     }
     ```
+
+#### JSON serialization with ASP.NET Core integration
+
+ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings. The following example shows how to configure JSON.NET (`Newtonsoft.Json`) for serialization using this approach:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services =>
+    {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+        services.AddMvc().AddNewtonsoftJson();
+    })
+    .Build();
+host.Run();
+```
 
 ### Built-in HTTP model
 
@@ -661,7 +711,7 @@ You can create your function app and other required resources in Azure using one
 + [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
 + [Azure portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure portal](https://portal.azure.com).
 
-### Publish code project
+### Publish your application
 
 After creating your function app and other required resources in Azure, you can deploy the code project to Azure using one of these methods:
 
@@ -672,6 +722,24 @@ After creating your function app and other required resources in Azure, you can 
 + [Deployment templates](./functions-infrastructure-as-code.md#zip-deployment-package): You can use ARM templates or Bicep files to automate package deployments.
 
 For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
+
+#### Deployment payload
+
+Many of the deployment methods make use of a zip archive. If you are creating the zip archive yourself, it must follow the structure outlined in this section. If it does not, your app may experience errors at startup.
+
+The deployment payload should match the output of a `dotnet publish` command, though without the enclosing parent folder. The zip archive should be made from the following files:
+
+- `.azurefunctions/`
+- `extensions.json`
+- `functions.metadata`
+- `host.json`
+- `worker.config.json`
+- Your project executable (a console app)
+- Other supporting files and directories peer to that executable
+
+These files are generated by the build process, and they are not meant to be edited directly.
+
+When preparing a zip archive for deployment, you should only compress the contents of the output directory, not the enclosing directory itself. When the archive is extracted into the current working directory, the files listed above need to be immediately visible.
 
 ### Deployment requirements
 

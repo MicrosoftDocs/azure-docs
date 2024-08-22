@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 05/23/2024
 ---
 
 # How to index data from Azure SQL in Azure AI Search
@@ -49,7 +49,7 @@ The data source definition specifies the data to index, credentials, and policie
 1. [Create data source](/rest/api/searchservice/create-data-source) or [Update data source](/rest/api/searchservice/update-data-source) to set its definition: 
 
    ```http
-    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+    POST https://myservice.search.windows.net/datasources?api-version=2024-07-01
     Content-Type: application/json
     api-key: admin-key
 
@@ -88,7 +88,7 @@ In a [search index](search-what-is-an-index.md), add fields that correspond to t
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -141,7 +141,7 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     Content-Type: application/json
     api-key: [search service admin key]
     {
@@ -170,7 +170,7 @@ Once the index and data source have been created, you're ready to create the ind
 
    + Default query timeout for SQL query execution is 5 minutes, which you can override.
 
-   + "convertHighWaterMarkToRowVersion" optimizes for the [High Water Mark change detection policy](#HighWaterMarkPolicy). Change detection policies are set in the data source. If you're using the native change detection policy, this parameter has no effect.
+   + "convertHighWaterMarkToRowVersion" optimizes for the [High Water Mark Change Detection policy](#HighWaterMarkPolicy). Change detection policies are set in the data source. If you're using the native change detection policy, this parameter has no effect.
 
    + "disableOrderByHighWaterMarkColumn" causes the SQL query used by the [high water mark policy](#HighWaterMarkPolicy) to omit the ORDER BY clause. If you're using the native change detection policy, this parameter has no effect.
 
@@ -185,7 +185,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -251,12 +251,12 @@ Database requirements:
 + Tables only (no views)
 + On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table
 + No composite primary key (a primary key containing more than one column) on the table
-+ No clustered indexes on the table. As a workaround, any clustered index would have to be dropped and re-created as nonclustered index, however, performance may be affected in the source compared to having a clustered index
++ No clustered indexes on the table. As a workaround, any clustered index would have to be dropped and re-created as nonclustered index, however, performance might be affected in the source compared to having a clustered index
 
 Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
 ```http
-POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+POST https://myservice.search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: admin-key
     {
@@ -293,7 +293,7 @@ The high water mark column must meet the following requirements:
 Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
 ```http
-POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+POST https://myservice.search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: admin-key
     {
@@ -319,7 +319,7 @@ If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) da
 
 + Uses the rowversion data type for the high water mark column in the indexer SQL query. Using the correct data type improves indexer query performance.
 
-+ Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting one ensures the indexer query doesn't miss these rows.
++ Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins might have rows with duplicate rowversion values. Subtracting one ensures the indexer query doesn't miss these rows.
 
 To enable this property, create or update the indexer with the following configuration:
 
@@ -349,7 +349,7 @@ If you encounter timeout errors, set the `queryTimeout` indexer configuration se
 
 ##### disableOrderByHighWaterMarkColumn
 
-You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this isn't recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later, even if the indexer has already processed almost all the rows at the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
+You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this isn't recommended because if the indexer execution is interrupted by an error, the indexer has to reprocess all rows if it runs later, even if the indexer has already processed almost all the rows at the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
 ```http
     {
@@ -363,7 +363,7 @@ You can also disable the `ORDER BY [High Water Mark Column]` clause. However, th
 
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
 
-If the rows are physically removed from the table, Azure AI Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
+If the rows are physically removed from the table, Azure AI Search has no way to infer the presence of records that no longer exist. However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
@@ -386,7 +386,7 @@ If you're setting up a soft delete policy from the Azure portal, don't add quote
 
 **Q: Can I index Always Encrypted columns?**
 
-No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Azure AI Search indexers.
+No, [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Azure AI Search indexers.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 
@@ -412,7 +412,7 @@ If you attempt to use rowversion on a read-only replica, you'll see the followin
 
 **Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
 
-It's not recommended. Only **rowversion** allows for reliable data synchronization. However, depending on your application logic, it may be safe if:
+It's not recommended. Only **rowversion** allows for reliable data synchronization. However, depending on your application logic, it can be safe if:
 
 + You can ensure that when the indexer runs, there are no outstanding transactions on the table that’s being indexed (for example, all table updates happen as a batch on a schedule, and the Azure AI Search indexer schedule is set to avoid overlapping with the table update schedule).  
 

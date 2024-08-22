@@ -33,6 +33,8 @@
     href: file-sync-modify-sync-topology.md
   - name: Replace an Azure File Sync server
     href: file-sync-replace-server.md
+  - name: Replace drive of an Azure File Sync server
+    href: file-sync-replace-drive.md
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
@@ -185,6 +187,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
+  - name: Azure File Sync agent silent installation
+    href: file-sync-agent-silent-installation.md
   - name: Azure Files reference
     href: ../files/storage-files-introduction.md
   - name: Azure Files FAQ

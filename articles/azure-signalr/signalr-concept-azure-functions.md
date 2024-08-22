@@ -2,9 +2,9 @@
 title: Real-time apps with Azure SignalR Service and Azure Functions
 description: Learn about how Azure SignalR Service and Azure Functions together allow you to create real-time serverless web applications.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 05/16/2024
 ms.author: lianwei
 ---
 
@@ -12,7 +12,7 @@ ms.author: lianwei
 
 Azure SignalR Services combined with Azure Functions allows you to run real-time messaging web apps in a serverless environment. This article provides an overview of how the services work together.
 
-Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure. It's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
+Azure SignalR Service and Azure Functions are both fully managed, highly scalable services. They enable you to focus on building applications instead of managing infrastructure. It's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
 
 ## Integrate real-time communications with Azure services
 
@@ -44,19 +44,19 @@ The SignalR Service bindings for Azure Functions allow an Azure Function app to 
 
 ### An example scenario
 
-An example of how to use the SignalR Service bindings is using Azure Functions to integrate with Azure Cosmos DB and SignalR Service to send real-time messages when new events appear on an Azure Cosmos DB change feed.
+Using Azure Functions to integrate with Azure Cosmos DB is an example of utilizing the SignalR Service bindings to send real-time messages when new events appear on an Azure Cosmos DB change feed.
 
 ![Azure Cosmos DB, Azure Functions, SignalR Service](media/signalr-concept-azure-functions/signalr-cosmosdb-functions.png)
 
 1. A change is made in an Azure Cosmos DB collection.
 2. The change event is propagated to the Azure Cosmos DB change feed.
-3. An Azure Functions is triggered by the change event using the Azure Cosmos DB trigger.
+3. The Azure Cosmos DB trigger activates an Azure Function in response to the change event.
 4. The SignalR Service output binding publishes a message to SignalR Service.
 5. The SignalR Service publishes the message to all connected clients.
 
 ### Authentication and users
 
-SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and Twitter. You can then send messages directly to these authenticated users.
+SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and X. You can then send messages directly to these authenticated users.
 
 ## Next steps
 

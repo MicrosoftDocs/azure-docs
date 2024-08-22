@@ -74,19 +74,44 @@ To use feature flags effectively, you need to externalize all the feature flags 
 
 Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
 
-[The feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows how the App Configuration .NET provider and Feature Management libraries are used together to implement feature flags for your ASP.NET web application. For more information on feature flags in Azure App Configuration, see the following articles:
-
-* [Manage feature flags](./manage-feature-flags.md)
-* [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)
-* [Enable a feature for specified users/groups](./howto-targetingfilter-aspnet-core.md)
-* [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md)
-* [Add feature flags to a .NET Framework app](./quickstart-feature-flag-dotnet.md)
-* [Add feature flags to an Azure Functions app](./quickstart-feature-flag-azure-functions-csharp.md)
-* [Add feature flags to a Spring Boot app](./quickstart-feature-flag-spring-boot.md)
-* [Use feature flags in an ASP.NET Core](./use-feature-flags-dotnet-core.md)
-* [Use feature flags in a Spring Boot app](./use-feature-flags-spring-boot.md)
-
 ## Next steps
 
+To start using feature flags with Azure App Configuration, continue to the following quickstarts specific to your application’s language or platform.
+
 > [!div class="nextstepaction"]
-> [Add feature flags to an ASP.NET Core web app](./quickstart-feature-flag-aspnet-core.md)  
+> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+
+> [!div class="nextstepaction"]
+> [Java Spring](./quickstart-feature-flag-spring-boot.md)
+
+> [!div class="nextstepaction"]
+> [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
+
+> [!div class="nextstepaction"]
+> [Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)
+
+To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+
+Feature filters allow you to enable a feature flag conditionally. Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)
+

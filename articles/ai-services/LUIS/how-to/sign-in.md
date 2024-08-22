@@ -55,8 +55,8 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 * Import a LUIS app from a .lu or .json file that already contains intents, utterances, and entities.
 
 **Using the authoring APIs** You can create a new app with the authoring APIs in a couple of ways:
-* [Add application](/rest/api/cognitiveservices-luis/authoring/apps/add?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) - start with an empty app and create intents, utterances, and entities.
-* [Add prebuilt application](/rest/api/cognitiveservices-luis/authoring/apps/add-custom-prebuilt-domain?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) - start with a prebuilt domain, including intents, utterances, and entities.
+* [Add application](/rest/api/luis/apps/add) - start with an empty app and create intents, utterances, and entities.
+* [Add prebuilt application](/rest/api/luis/apps/add-custom-prebuilt-domain) - start with a prebuilt domain, including intents, utterances, and entities.
 
 ## Create new app in LUIS using portal
 1. On  **My Apps**  page, select your  **Subscription** , and  **Authoring resource**  then select **+ New App**.

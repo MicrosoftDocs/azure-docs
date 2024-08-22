@@ -32,7 +32,7 @@ You must meet the following prerequisites before using Text Analytics for health
 
 ## Host computer requirements and recommendations
 
-[!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 The following table describes the minimum and recommended specifications for the Text Analytics for health containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
@@ -55,7 +55,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
 ```
 
-[!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## Run the container with `docker run`
 
@@ -152,7 +152,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
 
 See [How to use Azure Container Instances](../../../containers/azure-container-instance-recipe.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create an ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Due to the limit on the maximum number of CPUs per ACI resource, do not select this option if you expect to submit more than 5 large documents (approximately 5000 characters each) per request.
-See the [ACI regional support](../../../../container-instances/container-instances-region-availability.md) article for availability information. 
+See the [ACI regional support](/azure/container-instances/container-instances-region-availability) article for availability information. 
 
 > [!NOTE] 
 > Azure Container Instances don't include HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX below.
@@ -249,7 +249,7 @@ docker-compose up
 
 For more information, see NGINX's documentation on [NGINX SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
 
-[!INCLUDE [Running multiple containers on the same host](../../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## Query the container's prediction endpoint
 
@@ -257,7 +257,7 @@ The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `http://localhost:5000`, for container APIs.
 
-[!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 
 ### Structure the API request for the container
@@ -285,7 +285,7 @@ var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analyti
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -297,7 +297,7 @@ If you run the container with an output [mount](configure-containers.md#mount-se
 
 Text Analytics for health containers send billing information to Azure, using a _Language_ resource on your Azure account. 
 
-[!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## Summary
 

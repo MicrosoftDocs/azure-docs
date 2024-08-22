@@ -320,3 +320,5 @@ A key point is that application configuration snapshots are versioned independen
 
 * Walk through a sample implementation to explore [workload management in a multi-cluster environment with GitOps](workload-management.md).
 * Explore a [multi-cluster workload management sample repository](https://github.com/microsoft/kalypso).
+* [Concept: CD process with GitOps](https://github.com/microsoft/kalypso/blob/main/docs/cd-concept.md).
+* [Sample implementation: Explore CI/CD flow with GitOps](https://github.com/microsoft/kalypso/blob/main/cicd/tutorial/cicd-tutorial.md).

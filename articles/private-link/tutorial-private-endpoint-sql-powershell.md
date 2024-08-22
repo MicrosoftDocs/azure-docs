@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to create an Azure SQL server with a
 services: private-link
 author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: abell
@@ -15,7 +15,7 @@ ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png":::
 
 In this tutorial, you learn how to:
 
@@ -144,7 +144,7 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -VM $vmConfig
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create an Azure SQL server
 

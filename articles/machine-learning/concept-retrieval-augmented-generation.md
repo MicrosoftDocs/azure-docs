@@ -3,12 +3,12 @@ title: Retrieval Augmented Generation using Azure Machine Learning prompt flow (
 titleSuffix: Azure Machine Learning
 description: Explaining retrieval augmented generation and using Prompt Flow models for business use cases
 services: machine-learning
-ms.author: balapv
-author: balapv
-ms.reviewer: ssalgado
-ms.service: machine-learning
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: balapv
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.date: 07/27/2023
+ms.date: 06/10/2024
 ms.topic: conceptual
 ms.custom:
   - prompt-flow
@@ -32,7 +32,7 @@ Traditionally, a base model is trained with point-in-time data to ensure its eff
 
 Fine-tuning is suitable for continuous domain adaptation, enabling significant improvements in model quality but often incurring higher costs. Conversely, RAG offers an alternative approach, allowing the use of the same model as a reasoning engine over new data provided in a prompt. This technique enables in-context learning without the need for expensive fine-tuning, empowering businesses to use LLMs more efficiently. 
 
-RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs. By adopting RAG, companies can use the reasoning capabilities of LLMs, utilizing their existing models to process and generate responses based on new data. RAG facilitates periodic data updates without the need for fine-tuning, thereby streamlining the integration of LLMs into businesses. 
+RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs. By adopting RAG, companies can use the reasoning capabilities of LLMs, utilizing their existing models to process and generate responses based on new data. RAG facilitates periodic data updates without the need for fine-tuning, streamlining the integration of LLMs into businesses. 
 
 + Provide supplemental data as a directive or a prompt to the LLM
 + Adds a fact checking component on your existing models
@@ -70,7 +70,7 @@ To implement RAG, a few key requirements must be met. First, data should be form
 
 ## Conclusion
 
-Azure Machine Learning allows you to incorporate RAG in your AI using the Azure Machine Learning Studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with open source offerings like LangChain. 
+Azure Machine Learning allows you to incorporate RAG in your AI using the Azure Machine Learning studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with open source offerings like LangChain. 
 
 ## Next steps
 

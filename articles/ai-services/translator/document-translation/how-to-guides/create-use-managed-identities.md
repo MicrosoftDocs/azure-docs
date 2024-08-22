@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 06/06/2024
 ms.author: lajanuar
 ---
 
@@ -27,9 +27,9 @@ Managed identities for Azure resources are service principals that create a Micr
 >
 > * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
 >
-> * To use managed identities for Document Translation operations, you must [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a specific geographic Azure region such as **East US**. If your Translator resource region is set to **Global**, then you can't use managed identity for Document Translation. You can still use [Shared Access Signature tokens (SAS)](create-sas-tokens.md) for Document Translation.
+> * To use managed identities for Document Translation operations, you must [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a specific geographic Azure region such as **East US**. If your Translator resource region is set to **Global**, then you can't use managed identity for Document Translation. You can still use [Shared Access Signature (SAS) tokens](create-sas-tokens.md) for Document Translation.
 >
-> * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is is supported in the S1 Standard Service Plan (Pay-as-you-go) and C2, C3, C4, and D3 Volume Discount Plans. _See_ [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 ## Prerequisites
@@ -38,7 +38,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Azure AI services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create a multi-service resource](../../../multi-service-resource.md).
+* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Azure AI services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create an Azure AI services resource](../../../multi-service-resource.md).
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.yml) using the Azure portal.
 
@@ -251,7 +251,7 @@ Great! You just learned how to enable and use a system-assigned managed identity
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Quickstart: Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Access Azure Storage from a web app using managed identities](../../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)

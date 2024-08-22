@@ -10,7 +10,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
 >[!IMPORTANT]
 > Please be aware that the current Data Channel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 

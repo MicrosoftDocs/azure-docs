@@ -37,6 +37,8 @@ items:
       items: 
         - name: Azure portal
           href: quickstart-portal-aks-connection.md
+        - name: Azure CLI
+          href: quickstart-cli-aks-connection.md
     - name: Azure Spring Apps
       expanded: false
       items: 
@@ -94,6 +96,12 @@ items:
         href: tutorial-python-aks-keyvault-csi-driver.md
       - name: Connect to Azure Storage using workload identity
         href: tutorial-python-aks-storage-workload-identity.md
+      - name: Connect to Azure OpenAI using a connection string
+        href: tutorial-python-aks-openai-connection-string.md
+      - name: Connect to Azure OpenAI using workload identity
+        href: tutorial-python-aks-openai-workload-identity.md  
+      - name:  Connect to Azure SQL Database using a connection string
+        href: tutorial-python-aks-sql-database-connection-string.md
 - name: Concepts
   expanded: false
   items: 
@@ -105,6 +113,8 @@ items:
       href: concept-region-support.md
     - name: Permission requirements
       href: concept-permission.md
+    - name: Microsoft Entra roles
+      href: concept-microsoft-entra-roles.md
 - name: How-to guides
   expanded: false
   items: 

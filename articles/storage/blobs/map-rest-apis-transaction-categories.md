@@ -14,7 +14,7 @@ ms.custom: subject-cost-optimization
 
 This article helps you find the price of each REST operation that clients can execute against the Azure Blob Storage service.
 
-Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library.
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. REST operations are not billed for requests with unsuccessful authentication. After an identity is authenticated, all operations and requests made by that identity are billed, including those that don’t succeed.
 
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. Use the tables in this article as a guide.
 
@@ -27,8 +27,8 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | Logged operation            | REST API                                                                                  | Premium block blob        | Standard general purpose v2 | Standard general purpose v1 |
 |-----------------------------|-------------------------------------------------------------------------------------------|---------------------------|-----------------------------|-----------------------------|
 | AbortCopyBlob               | [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)                              | Other                     | Other                       | Write                       |
-| AppendBlobSeal              | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
-| AppendBlockFromURL          | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
+| SealBlob                    | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
+| AppendBlockThroughCopy      | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
 | AppendBlock                 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | CopyBlobFromURL             | [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url)                        | Write                     | Write                       | Write                       |
 | CopyBlob                    | [Copy Blob](/rest/api/storageservices/copy-blob)                                          | Write<sup>2</sup>         | Write<sup>2</sup>           | Write<sup>2</sup>           |

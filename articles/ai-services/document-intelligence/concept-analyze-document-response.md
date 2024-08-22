@@ -6,15 +6,13 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 08/07/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
   - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
-
-
 
 # Analyze document API response
 
@@ -134,16 +132,23 @@ Based on its position and styling, a cell can be classified as general content, 
 
 **Layout tables differ from document fields extracted from tabular data**. Layout tables are extracted from tabular visual content in the document without considering the semantics of the content. In fact, some layout tables are designed purely for visual layout and don't always contain structured data. The method to extract structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant post processing. It's essential to map the row or column headers to structured fields with normalized field names. Depending on the document type, use prebuilt models or train a custom model to extract such structured content. The resulting information is exposed as document fields. Such trained models can also handle tabular data without headers and structured data in nontabular forms, for example the work experience section of a resume.
 
+> [!NOTE]
+> Starting with *2024-07-31-preview*, the bounding regions for figures and tables cover only the core content and exclude associated caption and footnotes.
+
 :::image type="content" source="media/table.png" alt-text="Layout table":::
 
 #### Figures
 
-Figures (charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption` if there's any.
+Figures (charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption`, if any.
+
+When *output=figures* is specified during the initial `Analyze` operation, the service generates cropped images for all detected figures that can be accessed via `/analyeResults/{resultId}/figures/{figureId}`.
+`FigureId` will be included in each figure object, following an undocumented convention of `{pageNumber}.{figureIndex}` where `figureIndex` resets to one per page.
 
 ```json
 {
     "figures": [
       {
+        "id": "{figureId}",
         "boundingRegions": [],
         "spans": [],
         "elements": [
@@ -164,6 +169,7 @@ Figures (charts, images) in documents play a crucial role in complementing and e
 ```
 
 #### Sections
+
 Hierarchical document structure analysis is pivotal in organizing, comprehending, and processing extensive documents. This approach is vital for semantically segmenting long documents to boost comprehension, facilitate navigation, and improve information retrieval. The advent of [Retrieval Augmented Generation (RAG)](concept-retrieval-augmented-generation.md) in document generative AI underscores the significance of hierarchical document structure analysis. The Layout model supports sections and subsections in the output, which identifies the relationship of sections and object within each section. The hierarchical structure is maintained in `elements` of each section.
 
 ```json
@@ -290,7 +296,7 @@ The semantic schema of a document type is described via the fields it contains. 
   "Items": {
       "type": "array",
       "valueArray": [
-  
+
       ]
   }
   ```
@@ -335,3 +341,4 @@ The semantic schema of a document type is described via the fields it contains. 
 * Try processing your own forms and documents with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+

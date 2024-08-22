@@ -3,7 +3,7 @@ title: Deployment Planner for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2024
 ms.author: ankitadutta
@@ -67,12 +67,12 @@ The tool provides the following details:
 
 ## Support matrix
 
-|**Categories** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
---|--|--|--|--|--
-Supported scenarios |Yes|Yes|No|Yes*|No
-Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
-Supported configuration|vCenter, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA|
-Number of servers that can be profiled per running instance of the Azure Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA
+|**Categories** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**|
+| --|--|--|--|--|--|
+| Supported scenarios |Yes|Yes|No|Yes*|No|
+| Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA|
+| Supported configuration|vCenter, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA|
+| Number of servers that can be profiled per running instance of the Azure Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA|
 
 *The tool is primarily for the Hyper-V to Azure disaster recovery scenario. For Hyper-V to secondary site disaster recovery, it can be used only to understand source side recommendations like required network bandwidth, required free storage space on each of the source Hyper-V servers, and initial replication batching numbers and batch definitions.  Ignore the Azure recommendations and costs from the report. Also, the Get Throughput operation is not applicable for the Hyper-V to secondary site disaster recovery scenario.
 
@@ -81,10 +81,9 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 
 | Server requirement | Description |
 |---|---|
-|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (*.blob.core.windows.net) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more to add servers into TrustedHosts list](#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
+|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (`*.blob.core.windows.net`) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more to add servers into TrustedHosts list](#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
 | Report generation | A Windows PC or Windows Server with Microsoft Excel 2013 or later |
-| User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials i.e. user name and password
- |
+| User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials, that is, user name and password |
 
 ## Steps to add servers into TrustedHosts List
 1. The VM from where the tool is to be deployed should have all the hosts to be profiled in its TrustedHosts list. To add the client into Trustedhosts list run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2 or Windows Server 2016. 

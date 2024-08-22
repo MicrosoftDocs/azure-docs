@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 05/28/2024
 ---
 
 # Add a custom skill to an Azure AI Search enrichment pipeline
 
-An [AI enrichment pipeline](cognitive-search-concept-intro.md) can include both [built-in skills](cognitive-search-predefined-skills.md) and [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and publish. Your custom code executes externally from the search service (for example, as an Azure function), but accepts inputs and sends outputs to the skillset just like any other skill.
+An [AI enrichment pipeline](cognitive-search-concept-intro.md) can include both [built-in skills](cognitive-search-predefined-skills.md) and [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and publish. Your custom code executes externally from the search service (for example, as an Azure function), but accepts inputs and sends outputs to the skillset just like any other skill. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed.  
 
 Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include using [Azure Functions](cognitive-search-create-custom-skill-example.md) or [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
@@ -172,5 +172,5 @@ This article covered the interface requirements necessary for integrating a cust
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/skillsets/create)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

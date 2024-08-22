@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/11/2024
+ms.date: 06/14/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -84,7 +84,7 @@ For more information about operating system versions, see [Azure IoT Edge suppor
 
 ### Install a container engine
 
-Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the only container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
+Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -131,6 +131,8 @@ IoT Edge has dependencies on Docker and IoT Identity Service. Install the depend
 sudo snap install docker
 sudo snap install azure-iot-identity
 ```
+
+The Docker snap is serviced by Canonical and supported for production scenarios.
 
 ---
 

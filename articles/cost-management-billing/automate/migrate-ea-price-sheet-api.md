@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Price Sheet API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -47,7 +47,7 @@ The POST request returns a location to poll the report generation status as outl
 Status code: 202
 
 ```http
-Location: https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000?api-version=2023-09-01
+Location: https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e?api-version=2023-09-01
 Retry-After: 60
 ```
 
@@ -66,7 +66,7 @@ Status code: 200
 ### Sample request to poll report generation status
 
 ```HTTP
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000?api-version=2023-09-01
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e?api-version=2023-09-01
 ```
 
 ### Response body changes
@@ -128,6 +128,6 @@ The price sheet properties are as follows:
 | unitOfMeasure | string | How usage is measured for the service |
 | unitPrice | string | The per-unit price at the time of billing for a given product or service, inclusive of any negotiated discounts on top of the market price.<br><br>For PriceType ReservedInstance, unit price reflects the total cost of the one or three-year commitment including discounts.<br><br>Note: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers.<br><br>If services are multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers (where each tier has a specific unit price). |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

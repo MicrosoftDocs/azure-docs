@@ -4,7 +4,7 @@ description: This article is an overview of Web Application Firewall (WAF) globa
 services: web-application-firewall
 ms.topic: article
 author: winthrop28
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 10/06/2023
 ms.author: victorh
 ---

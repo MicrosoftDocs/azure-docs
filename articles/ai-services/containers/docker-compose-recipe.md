@@ -150,7 +150,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 ## Verify the service availability
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../includes/cognitive-services-containers-docker-list-tip.md)]
 
 Here's some example output:
 

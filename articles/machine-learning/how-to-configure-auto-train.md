@@ -2,11 +2,11 @@
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run for tabular data with the Azure Machine Learning CLI and Python SDK v2.
-ms.author: rasavage
-author: rsavage2
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: rasavage
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.date: 08/01/2023
 ms.topic: how-to
@@ -99,7 +99,7 @@ Training data must be accessible from the remote compute. Automated ML v2 (Pytho
 
 # [Python SDK](#tab/python)
 
-You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable/mltable) as in the following example:
 
 ```python
 import mltable

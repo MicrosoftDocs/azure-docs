@@ -1,0 +1,66 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure IoT Operations frequently asked questions
+  description: This article provides a list of frequently asked questions (FAQ) for Azure IoT Operations and their answers. 
+  author: PatAltimore
+  ms.author: patricka
+  ms.topic: faq
+  ms.custom: references_regions
+  ms.date: 07/31/2024
+
+title: Azure IoT Operations frequently asked questions
+summary: |
+  This article provides a list of frequently asked questions (FAQ) for Azure IoT Operations and their answers.
+
+sections:
+  - name: General
+    questions:
+    - question: |
+         Is message persistence supported?
+      answer: Currently, message persistence isn't supported in the preview version of Azure IoT Operations.
+    - question: |
+         Does Azure IoT Operations offer high availability and zero data loss features?
+      answer: Currently, zero data loss features aren't available in the preview version of Azure IoT Operations.
+    - question: |
+         Does Azure IoT Operations offer high availability across multi-node setups?
+      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
+    - question: |
+         Can I migrate my IoT Edge workloads to Azure IoT Operations?
+      answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, relay your requests back to us.
+    - question: |
+         Can I just upgrade my preview version to the general availability version?
+      answer: You can't upgrade from the preview to the general availability version directly. You need to redeploy.
+    - question: |
+         What Kubernetes distributions are compatible with Azure IoT Operations?
+      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu using K3s, Windows IoT using AKS Edge Essentials. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+    - question: |
+         For IoT Operations, which device communication protocols supported.
+      answer: Currently, OPC-UA and MQTT are supported in the preview version.
+    - question: |
+         Is there a non-Dapr Azure IoT Operations state store code example?
+      answer: |
+        Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
+    - question: |
+         Is MQTT with QoS 2 supported?
+      answer: Currently, QoS 2 isn't supported.
+    - question: |
+         Which Azure regions is Azure IoT Operations currently available in?
+      answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
+    - question: |
+         Is there a way to gracefully fail over between two redundant OPC UA servers in case one of them fails? 
+      answer: Currently, fail over between two redundant OPC UA servers isn't supported in the preview version of Azure IoT Operations.
+    - question: |
+         Is there a hard limit on the sampling intervals for OPC UA tags for minimum and maximum sampling interval?
+      answer: The minimum is 1 ms, however there's no upper restriction imposed at the connector level.
+  - name: Pricing
+    questions:
+    - question: |
+         Does Azure IoT Operations offer a free trial?
+      answer: Currently, there's no charge for the preview version.
+    - question: |
+         What is the cost involved in using Azure IoT Operations?
+      answer: We're currently working on pricing. The General Availability pricing isn't available yet.
+additionalContent: |
+    ## Related content
+
+    To learn more, see [IoT Operations overview](../overview-iot-operations.md) and [documentation](/azure/iot-operations/).

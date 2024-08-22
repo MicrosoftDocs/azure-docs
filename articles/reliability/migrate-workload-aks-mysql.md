@@ -76,7 +76,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 #### Azure Bastion 
 
-*Regional*: Azure Bastion is deployed within VNets or peered VNets and is associated to an Azure region. For more information, se [Bastion FAQ](../bastion/bastion-faq.md#dr).
+*Regional*: Azure Bastion is deployed within VNets or peered VNets and is associated with an Azure region. For more information, se [Reliability in Azure Bastion](reliability-bastion.md).
 
 #### Azure Container Registry (ACR) 
 
@@ -114,7 +114,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
     For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. Depending on the deployment region, when you select the VM size in the Azure portal, you may see that this VM size is supported only in zone 1 and 2. You can accept this resiliency configuration as a trade-off for high performance.  
 
-- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/create-node-pools.md#limitations).
+- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](/azure/aks/create-node-pools#limitations).
 
 ### Azure Database for MySQL Flexible Server 
 
@@ -160,4 +160,4 @@ For your application tier, please review the business continuity and disaster re
 
 Learn more about:
 > [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](availability-zones-service-support.md#azure-services-with-availability-zone-support))
+> [Azure Services that support Availability Zones](availability-zones-service-support.md#azure-services-with-availability-zone-support)

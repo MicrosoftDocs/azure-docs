@@ -32,7 +32,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 
 To learn more about using Avro schema format with Event Hubs Schema Registry, see:  
 - [How to use schema registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
-- [ How to use Schema registry with Event Hubs .NET SDK (AMQP) and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
+- [How to use Schema registry with Event Hubs .NET SDK (AMQP) and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
 
 #### JSON Schema (Preview)
 [JSON Schema](https://json-schema.org/) is a standardized way of defining the structure and data types of the events. JSON Schema enables the confident and reliable use of the JSON data format in event streaming. 

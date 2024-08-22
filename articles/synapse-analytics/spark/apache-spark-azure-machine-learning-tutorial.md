@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial: Train a model in Python with automated machine learning'
-description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning.
+title: 'Tutorial: Train a model in Python with automated machine learning (deprecated)'
+description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning (deprecated).
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.custom: devx-track-python
@@ -10,7 +10,7 @@ ms.date: 03/06/2024
 ms.author: midesa
 ---
 
-# Tutorial: Train a model in Python with automated machine learning
+# Tutorial: Train a model in Python with automated machine learning (deprecated)
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
-- Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
+- Create a serverless Apache Spark 2.4 pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
 - Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 > [!WARNING]

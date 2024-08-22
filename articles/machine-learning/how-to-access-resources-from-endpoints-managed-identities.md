@@ -3,11 +3,11 @@ title: Access Azure resources from an online endpoint
 titleSuffix: Azure Machine Learning
 description: Securely access Azure resources for your machine learning model deployment from an online endpoint with a system-assigned or user-assigned managed identity.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.custom: devplatv2, cliv2

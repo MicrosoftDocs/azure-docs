@@ -7,7 +7,7 @@ ms.author: duau
 manager: KumudD
 ms.date: 06/28/2022
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -23,9 +23,9 @@ In this quickstart, you'll learn how to create an Azure Front Door Standard/Prem
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create resource group
 

@@ -2,8 +2,8 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 01/31/2024
-ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 07/03/2024
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, build-2024, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -40,7 +40,13 @@ Choose your preferred programming language at the top of the article.
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-node.md)
 >+ [Terminal/command prompt](./create-first-function-cli-node.md)
-::: zone-end   
+::: zone-end
+::: zone pivot="programming-language-python"
+>[!NOTE]
+>Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
+>+ [Visual Studio Code](./create-first-function-vs-code-python.md)
+>+ [Terminal/command prompt](./create-first-function-cli-python.md)
+::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 >[!NOTE]
 >Editing your TypeScript function code in the Azure portal isn't currently supported. For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal). 
@@ -55,20 +61,12 @@ Choose your preferred programming language at the top of the article.
 >+ [Visual Studio Code](./create-first-function-vs-code-powershell.md)
 >+ [Terminal/command prompt](./create-first-function-cli-powershell.md)
 ::: zone-end 
-::: zone pivot="programming-language-python"  
->[!NOTE]
->Developing Python functions in the Azure portal is currently only supported when running in a [Consumption plan](./consumption-plan.md). For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).
->
-> You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
->+ [Visual Studio Code](./create-first-function-vs-code-python.md)
->+ [Terminal/command prompt](./create-first-function-cli-python.md)
-::: zone-end 
 
 Please review the [known issues](./recover-python-functions.md#development-issues-in-the-azure-portal) for development of Azure Functions using Python in the Azure portal.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 
@@ -94,7 +92,7 @@ Next, create a function in the new function app.
 
 1. Under **Select a template**, scroll down and choose the **HTTP trigger** template.
 
-1. In **Template details**, use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
+1. In **Template details**, use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#http-auth)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 ::: zone-end  
@@ -112,24 +110,7 @@ If you aren't able to create your function code in the portal, you can instead c
 ::: zone-end  
 ## Test the function
 
-> [!TIP]
-> The **Code + Test** functionality in the portal works even for functions that are read-only and can't be edited in the portal.
-
-1. In the portal, locate the HTTP triggered function in your new function app, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
-
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-example-get-function-url.png" alt-text="Screenshot of Get function URL window.":::
-
-1. In the **Get function URL** dialog, select **default** from the drop-down list, and then select the **Copy to clipboard** icon.
-
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-develop-tab-testing.png" alt-text="Screenshot of Copy the function URL window from the Azure portal.":::
-
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. The browser must display a response message that echoes back your query string value.
-
-    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you selected **Function** instead of **Anonymous** access level when creating the function. In this case, you must instead append `&name=<your_name>`.
-
-1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page. Call your function again to see the trace output written to the logs.
-
-    :::image type="content" source="media/functions-create-first-azure-function/function-app-log-view.png" alt-text="Screenshot of Functions log viewer in the Azure portal.":::
+[!INCLUDE [functions-test-function-portal](../../includes/functions-test-function-portal.md)]
 
 ## Clean up resources
 

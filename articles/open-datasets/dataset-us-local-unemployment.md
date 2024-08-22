@@ -1,7 +1,7 @@
 ---
 title: US Local Area Unemployment Statistics
 description: Learn how to use the US Local Area Unemployment Statistics dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The Local Area Unemployment Statistics (LAUS) program produces monthly and annual employment, unemployment, and labor force data for Census regions and divisions, States, counties, metropolitan areas, and many cities in the United States.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 [README](https://download.bls.gov/pub/time.series/la/la.txt) containing file for detailed information about this dataset is available at [original dataset location](https://download.bls.gov/pub/time.series/la/).
 

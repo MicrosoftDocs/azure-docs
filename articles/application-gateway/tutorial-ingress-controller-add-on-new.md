@@ -3,7 +3,7 @@ title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster wit
 description: Use this tutorial to learn how to enable the Ingress Controller add-on for your new AKS cluster with a new application gateway instance.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 02/07/2024
 ms.author: greglin
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through application gateway.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -48,7 +48,7 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 > - Enable WAF on application gateway through the portal. 
 > - Create the WAF_v2 application gateway instance first, and then follow instructions on how to [enable the AGIC add-on with an existing AKS cluster and existing application gateway instance](tutorial-ingress-controller-add-on-existing.md). 
 
-In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [managed identities](../aks/use-managed-identity.md). The AGIC add-on will be enabled in the resource group that you created, **myResourceGroup**. 
+In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](/azure/aks/concepts-network-cni-overview) and [managed identities](/azure/aks/use-managed-identity). The AGIC add-on will be enabled in the resource group that you created, **myResourceGroup**. 
 
 Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing application gateway instance will automatically create a Standard_v2 SKU application gateway instance. You'll need to specify a name and subnet address space for the new application gateway instance. The address space must be from 10.224.0.0/12 prefix used by the AKS virtual network without overlapping with 10.224.0.0/16 prefix used by the AKS subnet. In this tutorial, use *myApplicationGateway* for the application gateway name and *10.225.0.0/16* for its subnet address space.
 
@@ -56,7 +56,7 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
 
-> [NOTE!] 
+> [!NOTE] 
 > Please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in _Network Contributor_ role, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
 
 ```azurecli-interactive

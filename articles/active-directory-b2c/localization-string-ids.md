@@ -532,7 +532,7 @@ The following IDs are used for an [Microsoft Entra ID multifactor authentication
 | `UserMessageIfMaxAllowedCodeRetryReached` | Wrong code entered too many times, please try again later.|
 | `UserMessageIfServerError` | Cannot use MFA service, please try again later.|
 | `UserMessageIfThrottled` | Your request has been throttled, please try again later.|
-| `UserMessageIfWrongCodeEntered` |Wrong code entered, please try again.|
+| `UserMessageIfIncorrectOTPCodeEntered` |Wrong code entered, please try again.|
 
 <a name='azure-ad-mfa-example'></a>
 

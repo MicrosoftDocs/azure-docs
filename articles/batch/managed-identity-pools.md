@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 06/25/2024
 ms.devlang: csharp
 ms.custom:
 ---
@@ -16,9 +16,11 @@ resources in Azure.
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
 > [!IMPORTANT]
-> Pools must be configured using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) in order to use managed identities.
->
-> Creating pools with managed identities can be done by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), but is not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library).
+> Creating pools with managed identities can only be performed with the
+> [Batch Management Plane APIs or SDKs](batch-apis-tools.md#batch-management-apis) using Entra authentication.
+> It is not possible to create pools with managed identities using the
+> [Batch Service APIs or SDKs](batch-apis-tools.md#batch-service-apis). For more information, see the overview
+> documentation for [Batch APIs and tools](batch-apis-tools.md).
 
 ## Create a user-assigned managed identity
 
@@ -31,7 +33,7 @@ First, [create your user-assigned managed identity](../active-directory/managed-
 
 ## Create a Batch pool with user-assigned managed identities
 
-After you've created one or more user-assigned managed identities, you can create a Batch pool with that identity or those identities. You can:
+After you create one or more user-assigned managed identities, you can create a Batch pool with that identity or those identities. You can:
 
 - [Use the Azure portal to create the Batch pool](#create-batch-pool-in-azure-portal)
 - [Use the Batch .NET management library to create the Batch pool](#create-batch-pool-with-net)
@@ -119,7 +121,7 @@ see the following links:
 
 You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
-Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Microsoft Entra authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
+Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Microsoft Entra authentication via the [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service).
 
 For Windows, the PowerShell script to get an access token to authenticate is:
 

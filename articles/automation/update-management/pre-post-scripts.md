@@ -3,9 +3,10 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2021
+ms.date: 07/15/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Manage pre-scripts and post-scripts
