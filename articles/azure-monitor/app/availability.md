@@ -87,7 +87,7 @@ There are four types of availability tests:
 
 ### Basic code sample
 
-This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test.
+This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show how to write the underlying HTTP test code or business logic required to turn this example into a fully functional availability test.
 
 > [!NOTE]
 > To follow these instructions, you must use either the [App Service](../../azure-functions/dedicated-plan.md) plan or Functions Premium plan to allow editing code in App Service Editor.
@@ -420,7 +420,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 #### Get started
 
-1. Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
+1. Connect to your subscription with Azure PowerShell (`Connect-AzAccount` + `Set-AzContext`).
 
 1. List all URL ping tests in the current subscription:
 
@@ -430,9 +430,9 @@ The following steps walk you through the process of creating [standard tests](av
     Format-Table -Property ResourceGroupName,Name,WebTestKind,Enabled;
     ```
 
-1. Find the URL Ping Test you want to migrate and record its resource group and name.
+1. Find the URL ping test you want to migrate and record its resource group and name.
 
-1. The following commands create a standard test with the same logic as the URL ping test, and work for both HTTP and HTTPS endpoints.
+1. Create a standard test with the same logic as the URL ping test using the following commands, which work for both HTTP and HTTPS endpoints.
 
     ```shell
     $resourceGroup = "pingTestResourceGroup";
@@ -465,11 +465,11 @@ The following steps walk you through the process of creating [standard tests](av
     -RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
     ```
 
-1. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
+    The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
 
-1. Once you validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
+1. Validate the functionality of the new standard test, then [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. 
 
-1. To delete a URL ping test with Azure PowerShell, you can use this command:
+1. Disable or delete the URL ping test. To do so with Azure PowerShell, you can use this command:
 
     ```azurepowershell
     Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
