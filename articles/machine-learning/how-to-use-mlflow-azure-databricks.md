@@ -23,8 +23,8 @@ In this article, you learn:
 > [!div class="checklist"]
 > - The required libraries needed to use MLflow with Azure Databricks and Azure Machine Learning.
 > - How to [track Azure Databricks runs with MLflow in Azure Machine Learning](#track-azure-databricks-runs-with-mlflow).
-> - How to [log models with MLflow](#registering-models-in-the-registry-with-mlflow) to get them registered in Azure Machine Learning.
-> - How to [deploy and consume models registered in Azure Machine Learning](#deploying-and-consuming-models-registered-in-azure-machine-learning).
+> - How to [log models with MLflow](#register-models-in-the-registry-with-mlflow) to get them registered in Azure Machine Learning.
+> - How to [deploy and consume models registered in Azure Machine Learning](#deploy-and-consume-models-registered-in-azure-machine-learning).
 
 ## Prerequisites
 
@@ -54,8 +54,8 @@ To install libraries on your cluster:
 
 You can configure Azure Databricks to track experiments using MLflow in two ways:
 
-- [Track in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking)](#dual-tracking-on-azure-databricks-and-azure-machine-learning)
-- [Track exclusively on Azure Machine Learning](#tracking-exclusively-on-azure-machine-learning-workspace)
+- [Track in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking)](#dual-track-on-azure-databricks-and-azure-machine-learning)
+- [Track exclusively on Azure Machine Learning](#track-exclusively-on-azure-machine-learning-workspace)
 
 By default, when you link your Azure Databricks workspace, dual-tracking is configured for you.
 
@@ -63,9 +63,9 @@ By default, when you link your Azure Databricks workspace, dual-tracking is conf
 
 Linking your Azure Databricks workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace and Azure Databricks workspace at the same time. This configuration is called *Dual-tracking*.
 
-Dual-tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) isn't currently supported. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
+Dual-tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) isn't currently supported. Configure [exclusive tracking with your Azure Machine Learning workspace](#track-exclusively-on-azure-machine-learning-workspace) instead.
 
-Dual-tracking isn't currently supported in Microsoft Azure operated by 21Vianet. Configure [exclusive tracking with your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace) instead.
+Dual-tracking isn't currently supported in Microsoft Azure operated by 21Vianet. Configure [exclusive tracking with your Azure Machine Learning workspace](#track-exclusively-on-azure-machine-learning-workspace) instead.
 
 To link your Azure Databricks workspace to a new or existing Azure Machine Learning workspace:
 
@@ -94,7 +94,7 @@ with mlflow.start_run():
 ```
 
 > [!NOTE]
-> As opposed to tracking, model registries don't support registering models at the same time on both Azure Machine Learning and Azure Databricks. For more information, see [Registering models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
+> As opposed to tracking, model registries don't support registering models at the same time on both Azure Machine Learning and Azure Databricks. For more information, see [Register models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
 
 ### Track exclusively on Azure Machine Learning workspace
 
@@ -260,11 +260,11 @@ The flavor `spark` doesn't correspond to the fact that you're training a model i
 Models are logged inside of the run being tracked. That fact means that models are available in either both Azure Databricks and Azure Machine Learning (default) or exclusively in Azure Machine Learning if you configured the tracking URI to point to it.
 
 > [!IMPORTANT]
-> The parameter `registered_model_name` has not been specified. For more information about this parameter and the registry, see [Registering models in the registry with MLflow](#registering-models-in-the-registry-with-mlflow).
+> The parameter `registered_model_name` has not been specified. For more information about this parameter and the registry, see [Registering models in the registry with MLflow](#register-models-in-the-registry-with-mlflow).
 
 ## Register models in the registry with MLflow
 
-As opposed to tracking, model registries can't operate at the same time in Azure Databricks and Azure Machine Learning. They have to use either one or the other. By default, model registries use the Azure Databricks workspace. If you choose to [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace), the model registry is the Azure Machine Learning workspace.
+As opposed to tracking, model registries can't operate at the same time in Azure Databricks and Azure Machine Learning. They have to use either one or the other. By default, model registries use the Azure Databricks workspace. If you choose to [set MLflow tracking to only track in your Azure Machine Learning workspace](#track-exclusively-on-azure-machine-learning-workspace), the model registry is the Azure Machine Learning workspace.
 
 If you use the default configuration, the following code logs a model inside the corresponding runs of both Azure Databricks and Azure Machine Learning, but it registers it only on Azure Databricks.
 
@@ -278,7 +278,7 @@ mlflow.spark.log_model(model, artifact_path = "model",
 
 ### Use Azure Machine Learning registry with MLflow
 
-If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend that you [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This approach removes the ambiguity of where models are being registered and simplifies the configuration.
+If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend that you [set MLflow tracking to only track in your Azure Machine Learning workspace](#track-exclusively-on-azure-machine-learning-workspace). This approach removes the ambiguity of where models are being registered and simplifies the configuration.
 
 If you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning, you can instruct MLflow to use Azure Machine Learning for model registries by configuring the MLflow Model Registry URI. This URI has the same format and value that the MLflow that tracks URI.
 
@@ -287,7 +287,7 @@ mlflow.set_registry_uri(azureml_mlflow_uri)
 ```
 
 > [!NOTE]
-> The value of `azureml_mlflow_uri` was obtained in the same way as described in [Set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace).
+> The value of `azureml_mlflow_uri` was obtained in the same way as described in [Set MLflow tracking to only track in your Azure Machine Learning workspace](#track-exclusively-on-azure-machine-learning-workspace).
 
 For a complete example of this scenario, see [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb).
 
