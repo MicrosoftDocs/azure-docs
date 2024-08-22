@@ -73,18 +73,19 @@ Publishing locations for individual SDK packages:
 
 The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the key Android platforms currently available:
 
-| Devices & scenarios                | Description                                                                              | Support           |
+| Devices & scenarios                | Description                                                                              | Video resolution           |
 | -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
-| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Full support      |
-| Mirror auto applications           | Apps that allow driver to mirror their phone to a car’s built-in screens, running [Android Auto](https://www.android.com/auto/).          |  Partially support <sup>1</sup>        |
-| TV apps or gaming    |  Apps running running [Android TV](https://developer.android.com/tv), optimized for the TV experience, focused on streaming services and gaming.               | Partially support <sup>1</sup>        |
-| Smartwatches or wearables devices | Simple user interface and lower power consumption, designed to operate on small screens with limited hardware, using [Wear OS](https://wearos.google.com/). | Partially support <sup>1</sup>        |
-| Automobile scenarios               | Car head units running [Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive).                     | Partially support <sup>1</sup>        |
-| Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     | Partially support <sup>1</sup>        |
+| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | 720P       |
+| Mirror auto applications           | Apps that allow driver to mirror their phone to a car’s built-in screens, running [Android Auto](https://www.android.com/auto/).          | 360P        |
+| TV apps or gaming    |  Apps running running [Android TV](https://developer.android.com/tv), optimized for the TV experience, focused on streaming services and gaming.               |360P        |
+| Smartwatches or wearables devices | Simple user interface and lower power consumption, designed to operate on small screens with limited hardware, using [Wear OS](https://wearos.google.com/). |360P        |
+| Automobile scenarios               | Car head units running [Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive).                     |360P        |
+| Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     |360P        |
 
-**<sup>1</sup> Fully support audio calls and currently guarantee a video quality of 360p.**
+> [!NOTE]
+> We offer full support for **audio-only** calls across various platforms and devices, with comprehensive support available for phones and tablets. For **video calls**, support is more limited and may depend on the specific platform or device, with video resolutions capped at 360p in some cases. If your use case involves a device or platform outside of standard phones and tablets (e.g., smart glasses, custom IoT devices), we recommend connecting with us early in your development process so we can guide you on the best integration approach and any potential workarounds.
 
-Even if your use case is listed as partially supported, you can still use the Android SDK for development. We encourage you to reach out to us before you begin your project. This approach allows us to help identify the best approach tailored to your specific scenario and ensure that any limitations or requirements are addressed early in the process, optimizing the integration, and performance for your application.
+In case that you found issues during your implementation we encourage you to vist [the troubleshooting guide](troubleshooting-info.md/#accessing-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 
