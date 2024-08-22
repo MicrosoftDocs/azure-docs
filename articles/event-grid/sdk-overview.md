@@ -2,7 +2,7 @@
 title: Azure Event Grid SDKs
 description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing and consumption.
 ms.topic: reference
-ms.date: 07/06/2023
+ms.date: 08/22/2024
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -10,6 +10,9 @@ ms.devlang: csharp
 # Event Grid SDKs for management and publishing
 
 Event Grid provides SDKs that enable you to programmatically manage your resources and post events.
+
+> [!NOTE]
+> **Regarding TLS 1.0 / 1.1 deprecation**: For system topics, you need to take action only for the event delivery to destinations. If the destination supports TLS 1.2, the event delivery happens using 1.2. If the destination doesn't support TLS 1.2, the event delivery automatically falls back to 1.0 and 1.1. Post Oct 31st 2024, event delivery using 1.0 and 1.1 won't be supported. Ensure that your webhook destinations support TLS 1.2. One easy way to check for TLS 1.2 support is to use [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). If the report shows that TLS 1.2 is supported, no action is required. 
 
 ## Management SDKs
 
