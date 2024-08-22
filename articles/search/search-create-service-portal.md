@@ -107,7 +107,7 @@ If you use multiple Azure services, putting all of them in the same region minim
 
 Generally, choose a region near you, unless the following considerations apply:
 
-+ Your nearest region is capacity constrained. West Europe is at capacity and unavailable for new instances. Other regions are [at capacity for specific tiers](search-sku-tier.md#region-availability-by-tier). One advantage to using the Azure portal for resource set up is that it provides only those regions and tiers that are available. You can't select regions or tiers that are at capacity.
++ Your nearest region is capacity constrained. West Europe is at capacity and unavailable for new instances. Other regions are [at capacity for specific tiers](search-sku-tier.md#region-availability-by-tier). One advantage to using the Azure portal for resource set up is that it provides only those regions and tiers that are available. You can't select regions or tiers that are unavailable.
 
 + You want to use integrated data chunking and vectorization or built-in skills for AI enrichment. Azure OpenAI and Azure AI services multiservice accounts must be in the same region as Azure AI Search for integration purposes. [Choose a region](search-region-support.md) that provides all necessary resources.
 
@@ -121,7 +121,7 @@ Here's a checklist for choosing a region:
 
 1. Do you need [AI enrichment](cognitive-search-concept-intro.md) or [integrated data chunking and vectorization](vector-search-integrated-vectorization.md)? Verify that Azure OpenAI and Azure AI services are [offered in the same region](search-region-support.md) as Azure AI Search. 
 
-   Azure AI Vision multimodal embeddings API, used for [integrated image vectorization](search-get-started-portal-image-search), is available in a [smaller number of regions](/azure/ai-services/computer-vision/overview-image-analysis#region-availability).
+   Be aware that Azure AI Vision multimodal embeddings API, used for [integrated image vectorization](search-get-started-portal-image-search.md), must be accessed through an Azure AI multiservice account, but is available in a [smaller subset of regions](/azure/ai-services/computer-vision/overview-image-analysis#region-availability).
 
 1. Do you have business continuity and disaster recovery (BCDR) requirements? Such requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) in [availability zones](search-reliability.md#availability-zones). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
