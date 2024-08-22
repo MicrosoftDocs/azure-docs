@@ -236,19 +236,19 @@ To learn how to embed analytical content within your business process applicatio
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Database for MySQL](../mysql/index.yml)
+### [Azure Database for MySQL](/azure/mysql/)
 
 The following Azure Database for MySQL **features aren't currently available** in Azure Government:
 
 - Advanced Threat Protection
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml)
+### [Azure Database for PostgreSQL](/azure/postgresql/)
 
-For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/resources-regions).
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention

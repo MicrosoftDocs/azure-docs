@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 This article explains how to create and use automation rules in Microsoft Sentinel to manage and orchestrate threat response, in order to maximize your SOC's efficiency and effectiveness.
 
-In this article you'll learn how to define the triggers and conditions that will determine when your automation rule will run, the various actions that you can have the rule perform, and the remaining features and functionalities.
+In this article you'll learn how to define the triggers and conditions that determine when your automation rule runs, the various actions that you can have the rule perform, and the remaining features and functionalities.
 
 > [!IMPORTANT]
 >
@@ -25,11 +25,11 @@ In this article you'll learn how to define the triggers and conditions that will
 
 ## Design your automation rule
 
-Before you create your automation rule, we recommend that you determine its scope and design, including the trigger, conditions, and actions that will make up your rule.
+Before you create your automation rule, we recommend that you determine its scope and design, including the trigger, conditions, and actions that make up your rule.
 
 ### Determine the scope
 
-The first step in designing and defining your automation rule is figuring out which incidents or alerts you want it to apply to. This determination will directly impact how you create the rule.
+The first step in designing and defining your automation rule is figuring out which incidents or alerts you want it to apply to. This determination directly impacts how you create the rule.
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
@@ -48,7 +48,7 @@ Do you want this automation to be activated when new incidents or alerts are cre
 
 Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Threat detection in Microsoft Sentinel](threat-detection.md).
 
-The following table shows the different possible scenarios that will cause an automation rule to run.
+The following table shows the different possible scenarios that cause an automation rule to run.
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
@@ -90,7 +90,7 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 Use the options in the **Conditions** area to define conditions for your automation rule.
 
-- Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
+- Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (**Contains**) or exclusive (**Does not contain**), and then select the analytic rule name from the drop-down list.
 
     Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
@@ -116,9 +116,9 @@ Use the options in the **Conditions** area to define conditions for your automat
     
     - **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
-        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition is displayed only if an incident trigger is selected.)
 
-    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft Defender XDR is selected as the incident provider.)
+    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition isn't displayed if Microsoft Defender XDR is selected as the incident provider.)
 
     Then, continue by selecting one of the following operators:
 
@@ -173,7 +173,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     The only condition that can be evaluated by rules based on the alert creation trigger is which Microsoft Sentinel analytics rule created the alert.
 
-    Automation rules based on the alert trigger will therefore only run on alerts created by Microsoft Sentinel.
+    Automation rules that are based on the alert trigger only run on alerts created by Microsoft Sentinel.
 
 1. Enter a value in the field on the right. Depending on the property you chose, this might be either a text box or a drop-down in which you select from a closed list of values. You might also be able to add several values by selecting the dice icon to the right of the text box.
 
@@ -254,18 +254,19 @@ Choose the actions you want this automation rule to take. Available actions incl
 
 For whichever action you choose, fill out the fields that appear for that action according to what you want done.
 
-If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. 
+If you add a **Run playbook** action, you're prompted to choose from the drop-down list of available playbooks. 
 
-- Only playbooks that start with the **incident trigger** can be run from automation rules using one of the incident triggers, so only they will appear in the list. Likewise, only playbooks that start with the **alert trigger** are available in automation rules using the alert trigger.
+- Only playbooks that start with the **incident trigger** can be run from automation rules using one of the incident triggers, so only they appear in the list. Likewise, only playbooks that start with the **alert trigger** are available in automation rules using the alert trigger.
 
-- <a name="explicit-permissions"></a>Microsoft Sentinel must be granted explicit permissions in order to run playbooks. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Select the **Manage playbook permissions** link to assign permissions.
+- <a name="explicit-permissions"></a>Microsoft Sentinel must be granted explicit permissions in order to run playbooks. If a playbook appears unavailable in the drop-down list, it means that Sentinel doesn't have permissions to access that playbook's resource group. To assign permissions, select the **Manage playbook permissions** link.
 
     In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
-        :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
+
+    :::image type="content" source="./media/create-manage-use-automation-rules/manage-permissions.png" alt-text="Manage permissions":::
 
     You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Microsoft Sentinel Automation Contributor** role on any resource group containing playbooks you want to run.
 
-- If you don't yet have a playbook that will take the action you have in mind, [create a new playbook](tutorial-respond-threats-playbook.md). You will have to exit the automation rule creation process and restart it after you have created your playbook.
+- If you don't yet have a playbook that takes the action that you want, [create a new playbook](tutorial-respond-threats-playbook.md). You have to exit the automation rule creation process and restart it after you create your playbook.
 
 #### Move actions around
 
@@ -275,11 +276,11 @@ You can change the order of actions in your rule even after you've added them. S
 
 ### Finish creating your rule
 
-1. Under **Rule expiration**, if you want your automation rule to expire, set an expiration date (and optionally, a time). Otherwise, leave it as *Indefinite*.
+1. Under **Rule expiration**, if you want your automation rule to expire, set an expiration date, and optionally, a time. Otherwise, leave it as *Indefinite*.
 
-1. The **Order** field is prepopulated with the next available number for your rule's trigger type. This number determines where in the sequence of automation rules (of the same trigger type) this rule will run. You can change the number if you want this rule to run before an existing rule.
+1. The **Order** field is prepopulated with the next available number for your rule's trigger type. This number determines where in the sequence of automation rules (of the same trigger type) that this rule runs. You can change the number if you want this rule to run before an existing rule.
 
-    See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
+   For more information, see [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority).
 
 1. Select **Apply**. You're done!
 
@@ -296,7 +297,7 @@ SecurityIncident
 
 ## Automation rules execution
 
-Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined. See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
+Automation rules run sequentially, according to the order that you determine. Each automation rule executes after the previous one finishes its run. Within an automation rule, all actions run sequentially in the order that they're defined. See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
 
 Playbook actions within an automation rule might be treated differently under some circumstances, according to the following criteria:
 

@@ -101,8 +101,8 @@ The following chart breaks out OpenTelemetry feature support for each language.
 | Filter requests, dependencies, logs, and exceptions by anonymous user ID and synthetic source                         | :x:                | :x:                | :x:                | :white_check_mark: |
 | Filter dependencies, logs, and exceptions by operation name                                                           | :x:                | :x:                | :x:                | :white_check_mark: |
 | [Adaptive sampling](../app/sampling.md#adaptive-sampling)                                                             | :x:                | :x:                | :x:                | :white_check_mark: |
-| [Profiler](../profiler/profiler-overview.md)                                                                          | :white_check_mark: | :x:                | :x:                | :warning:          |
-| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :white_check_mark: | :x:                | :x:                | :x:                |
+| [Profiler](../profiler/profiler-overview.md)                                                                          | :x:                | :x:                | :x:                | :warning:          |
+| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :x:                | :x:                | :x:                | :x:                |
 
 **Key**
 - :white_check_mark: This feature is available to all customers with formal support.

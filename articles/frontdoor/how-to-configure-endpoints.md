@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 08/12/2024
 ms.author: duau
 ---
 
@@ -32,7 +32,7 @@ Before you can create a new endpoint with Front Door manager, you must have an A
 
    
     * **Name** - Enter a unique name for the new Front Door endpoint. Azure Front Door generates a unique endpoint hostname based on the endpoint name in the form of `<endpointname>-hash.z01.azurefd.net`.
-    * **Endpoint hostname** - A deterministic DNS name that helps prevent subdomain takeover. This name is used to access your resources through your Azure Front Door at the domain `<endpointname>-hash.z01.azurefd.net`.
+    * **Endpoint hostname** - A deterministic DNS (domain name system) name that helps prevent subdomain takeover. This name is used to access your resources through your Azure Front Door at the domain `<endpointname>-hash.z01.azurefd.net`.
     * **Status** - Set as checked to enable this endpoint.
 
 ### Add a route
@@ -52,8 +52,8 @@ Before you can create a new endpoint with Front Door manager, you must have an A
    
     * **Name** - Enter a unique name for the new route
     * **Enable route** - Set as checked to enable this route.
-    * **Domains** - Select one or more domains that have been validated and isn't associated to another route. For more information, see [add a custom domain](standard-premium/how-to-add-custom-domain.md).
-    * **Patterns to match** - Configure all URL path patterns that this route accepts. For example, you can set the pattern to match to `/images/*` to accept all requests on the URL `www.contoso.com/images/*`. Azure Front Door determines the traffic based on exact match first. If no paths match exactly, then Front Door looks for a wildcard path that matches. If no routing rules are found with a matching path, then the request get rejected and returns a 400: Bad Request error HTTP response. Patterns to match paths are not case sensitive, meaning paths with different casing are treated as duplicates. For example, you have a host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates, and aren't allowed in the *Patterns to match* field.
+    * **Domains** - Select one or more validated domains that aren't associated to another route. For more information, see [add a custom domain](standard-premium/how-to-add-custom-domain.md).
+    * **Patterns to match** - Configure all URL path patterns that this route accepts. For example, you can set the pattern to match to `/images/*` to accept all requests on the URL `www.contoso.com/images/*`. Azure Front Door determines the traffic based on exact match first. If no paths match exactly, then Front Door looks for a wildcard path that matches. If no routing rules are found with a matching path, then the request get rejected and returns a 400: Bad Request error HTTP response. Patterns to match paths aren't case sensitive, meaning paths with different casing are treated as duplicates. For example, you have a host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates, and aren't allowed in the *Patterns to match* field.
     * **Accepted protocols** - Specify the protocols you want Azure Front Door to accept when the client is making the request. You can specify HTTP, HTTPS, or both.
     * **Redirect** - Specify whether HTTPS is enforced for the incoming HTTP requests.
     * **Origin group** - Select the origin group to forward traffic to when requests are made to the origin. For more information, see [configure an origin group](standard-premium/how-to-create-origin.md).
@@ -85,7 +85,7 @@ Before you can create a new endpoint with Front Door manager, you must have an A
 
     * **Name** - Enter a unique name within this Front Door profile for the security policy.
     * **Domains** - Select one or more domains you want to apply this security policy to.
-    * **WAF Policy** - Select an existing or create a new WAF policy. When you select an existing WAF policy, it must be the same tier as the Front Door profile. For more information, see [configure WAF policy for Front Door](../web-application-firewall/afds/waf-front-door-create-portal.md).
+    * **WAF (Web Application Firewall) Policy** - Select an existing or create a new WAF policy. When you select an existing WAF policy, it must be the same tier as the Front Door profile. For more information, see [configure WAF policy for Front Door](../web-application-firewall/afds/waf-front-door-create-portal.md).
 
 1. Select **Save** to create the security policy and associate it with the endpoint.
 
@@ -93,7 +93,7 @@ Before you can create a new endpoint with Front Door manager, you must have an A
 
 ## Configure origin timeout
 
-Origin timeout is the amount of time Azure Front Door waits until it considers the connection to origin has timed out. You can set this value on the overview page of the Azure Front Door profile. This value is applied to all endpoints in the profile.
+Origin timeout is the amount of time Azure Front Door waits until it considers the connection to origin valid. You can set this value on the overview page of the Azure Front Door profile. This value is applied to all endpoints in the profile.
 
 :::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 
@@ -101,7 +101,7 @@ Origin timeout is the amount of time Azure Front Door waits until it considers t
 
 In order to remove an endpoint, you first have to remove any security policies associated with the endpoint. Then select **Delete endpoint** to remove the endpoint from the Azure Front Door profile.
 
-:::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the delete endpoint button from inside an endpoint." lightbox="./media/how-to-configure-endpoints/delete-endpoint-expanded.png":::
+:::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the deleted endpoint button from inside an endpoint." lightbox="./media/how-to-configure-endpoints/delete-endpoint-expanded.png":::
 
 ## Next steps
 

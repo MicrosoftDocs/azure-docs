@@ -4,7 +4,7 @@ description: Learn about how to utilize rolling upgrades with MaxSurge on Virtua
 author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 7/23/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy. maxsurge

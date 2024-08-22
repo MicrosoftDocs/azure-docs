@@ -199,9 +199,6 @@ items:
             displayName: correlation headers, w3c, distributed tracing, tracing
           - name: Log-based & pre-aggregated metrics
             href: app/pre-aggregated-metrics-log-metrics.md
-          - name: IP address collection
-            href: app/ip-collection.md
-            displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: Upgrade from classic resources and iKey
@@ -297,8 +294,6 @@ items:
             href: snapshot-debugger/snapshot-debugger-function-app.md
           - name: Enable Snapshot Debugger for other environments
             href: snapshot-debugger/snapshot-debugger-vm.md
-        - name: Upgrade Snapshot Debugger
-          href: snapshot-debugger/snapshot-debugger-upgrade.md
         - name: Configure BYOS (Bring Your Own Storage)
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
@@ -325,6 +320,14 @@ items:
           href: alerts/proactive-arm-config.md
         - name: E-mail notification
           href: alerts/proactive-email-notification.md
+    - name: Management and security
+      items:
+      - name: Geolocation and IP address handling
+        href: app/ip-collection.md
+        displayName: geolocation, IP collection, IP tracking, IP storage
+      - name: Microsoft Entra authentication
+        href: app/azure-ad-authentication.md
+        displayName: azure ad authentication
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -335,8 +338,6 @@ items:
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
         href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
-      - name: Troubleshooting articles
-        href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Monitor virtual machines
     items:
     - name: Best practices
@@ -450,6 +451,8 @@ items:
         href: containers/container-insights-data-collection-filter.md
       - name: Container log schema
         href: containers/container-insights-logs-schema.md
+      - name: High scale
+        href: containers/container-insights-high-scale.md      
       - name: Data transformations
         displayName: Container insights
         href: containers/container-insights-transformations.md
@@ -533,7 +536,7 @@ items:
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
         href: containers/container-insights-persistent-volumes.md
-      - name: Monitor Security with Syslog 
+      - name: Monitor Syslog 
         href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
@@ -1540,8 +1543,6 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
-    - name: Microsoft Entra authentication
-      href: app/azure-ad-authentication.md
     - name: Application Insights data model
       href: app/data-model-complete.md
     - name: Statsbeat

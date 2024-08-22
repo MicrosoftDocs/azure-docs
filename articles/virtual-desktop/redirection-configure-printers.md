@@ -35,7 +35,7 @@ For Microsoft Dev Box, you can configure your dev boxes using Microsoft Intune o
 This article provides information about the supported redirection methods and how to configure the redirection behavior for printers. To learn more about how redirection works, see [Redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md).
 
 > [!TIP]
-> Azure Universal Print is an alternative solution to redirecting printers from a local device to a remote session. For more information, see [Discover Universal Print](/universal-print/discover-universal-print) and to learn about using it with Azure Virtual Desktop, see [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd).
+> Universal Print is an alternative solution to redirecting printers from a local device to a remote session. For more information, see [Discover Universal Print](/universal-print/discover-universal-print) and to learn about using it with Azure Virtual Desktop, see [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd).
 
 ## Prerequisites
 

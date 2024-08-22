@@ -133,6 +133,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0 |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0_gen2 |
 
 
 ## Requirements for configuring automatic OS image upgrade

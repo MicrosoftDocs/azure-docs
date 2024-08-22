@@ -36,7 +36,7 @@ Yes. For the MACsec configuration, we support the preshared key mode only. It me
 
 ### Does traffic continue to flow if there's a mismatch in MACsec key between my devices and Microsoft's?
 
-No. If MACsec is configured and a key mismatch occurs, you lose connectivity to Microsoft. In other traffic doesn't fall back to an unencrypted connection, exposing your data. 
+No. If MACsec is configured and a key mismatch occurs, you lose connectivity to Microsoft. In other words, traffic doesn't fall back to an unencrypted connection, exposing your data. 
 
 ### Does enabling MACsec on ExpressRoute Direct degrade network performance?
 

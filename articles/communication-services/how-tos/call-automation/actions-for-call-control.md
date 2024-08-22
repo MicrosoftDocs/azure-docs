@@ -205,7 +205,8 @@ call_connection_properties = client.connect_call(call_locator=server_call_locato
 
 -----
 
-To connect to a Rooms call, use RoomCallLocator which takes RoomId. 
+To connect to a Rooms call, use RoomCallLocator which takes RoomId. Learn more about [Rooms](./../../concepts/rooms/room-concept.md) and how Call Automation API can be used to [manage ongoing Rooms call](./../../quickstarts/rooms/manage-rooms-call.md).  
+ 
 ### [csharp](#tab/csharp)
 
 ```csharp

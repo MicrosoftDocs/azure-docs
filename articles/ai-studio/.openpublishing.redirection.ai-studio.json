@@ -104,6 +104,11 @@
             "source_path_from_root": "/articles/ai-studio/whats-new.md",
             "redirect_url": "/azure/ai-studio/faq",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/deploy-models-open.md",
+            "redirect_url": "/azure/ai-studio/how-to/deploy-models-managed",
+            "redirect_document_id": false
         }
     ]
 }

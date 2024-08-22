@@ -491,9 +491,9 @@ Currently, these Azure services don't support NSG flow logs:
 - [Azure Functions](../azure-functions/functions-overview.md)
 - [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
 - [App Service](../app-service/overview.md)
-- [Azure Database for MariaDB](../mariadb/overview.md)
-- [Azure Database for MySQL](../mysql/single-server/overview.md)
-- [Azure Database for PostgreSQL](../postgresql/single-server/overview.md)
+- [Azure Database for MariaDB](/azure/mariadb/overview)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).

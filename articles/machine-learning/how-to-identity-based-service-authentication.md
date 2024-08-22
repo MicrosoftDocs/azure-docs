@@ -33,6 +33,18 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Workspace identity types
+
+The Azure Machine Learning workspace uses a __managed identity__ to communicate with other services. Multiple identity types are supported for Azure Machine Learning.
+
+| Managed identity type | Role assignment creation | Purpose |
+| ---- | :----: | :----: |
+| System-assigned (SAI) | Managed by Microsoft | Lifecycle tied to resource; single resource use; simple to get started |
+| System-assigned+user-assigned (SAI+UAI) | [Managed by you](#user-assigned-managed-identity) | Independent lifecycle for user-assigned identity, multi-resource use, controls least privileged access. Access data in training jobs. |
+
+Once a workspace is created with SAI identity type, it can be updated to SAI+UAI, but not back from SAI+UAI to SAI. You may assign multiple user-assigned identities to the same workspace. 
+
+
 ## Azure Container Registry and identity types
 
 This table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks).
@@ -165,7 +177,6 @@ Not supported currently.
 > [!TIP]
 > To add a new UAI, you can specify the new UAI ID under the section user_assigned_identities in addition to the existing UAIs, it's required to pass all the existing UAI IDs.<br>
 To delete one or more existing UAIs, you can put the UAI IDs which needs to be preserved under the section user_assigned_identities, the rest UAI IDs would be deleted.<br>
-To update identity type from SAI to UAI|SAI, you can change type from "user_assigned" to "system_assigned, user_assigned".
 
 ### Add a user-assigned managed identity to a workspace in addition to a system-assigned identity
 

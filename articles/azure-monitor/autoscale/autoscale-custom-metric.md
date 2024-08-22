@@ -27,7 +27,7 @@ Azure Monitor autoscale applies to:
 + [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/)
 + [Azure App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)
 + [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/) 
-+ Integration service environment and [Azure API Management](../../api-management/api-management-key-concepts.md)
++ [Azure API Management](../../api-management/api-management-key-concepts.md)
 
 ## Prerequisite
 

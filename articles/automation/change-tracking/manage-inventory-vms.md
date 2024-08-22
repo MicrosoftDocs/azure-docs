@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 ms.date: 07/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Manage inventory collection from VMs
 

@@ -5,7 +5,7 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.topic: faq
-  ms.service: virtual-machine-scale-sets
+  ms.service: azure-virtual-machine-scale-sets
   ms.date: 06/14/2024
   ms.reviewer: jushiman
   ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
