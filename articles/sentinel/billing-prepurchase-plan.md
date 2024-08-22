@@ -64,7 +64,7 @@ Purchase Microsoft Sentinel prepurchase plans in the [Azure portal reservations]
 1. Select how many Microsoft Sentinel commit units you want to purchase.
 
    `Need Sentinel screenshot here`
-   :::image type="content" source="../cost-management-billing/reservations/media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing prepurchase plan discount tiers and their term lengths." lightbox="../cost-management-billing/reservations/media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png":::
+   :::image type="content" source="media/billing-prepurchase-plan/sentinel-prepurchase-plan.png" alt-text="Screenshot showing Microsoft Sentinel prepurchase plan discount tiers and their term lengths." lightbox="media/billing-prepurchase-plan/sentinel-prepurchase-plan.png":::
 
 1. Choose to automatically renew the prepurchase reservation. *The renewal setting is turned by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
 
