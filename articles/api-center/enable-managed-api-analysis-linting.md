@@ -53,7 +53,7 @@ To enable API analysis using the default linting ruleset:
 
     :::image type="content" source="media/enable-managed-api-analysis-linting/enable-analysis-visual-studio-code.png" alt-text="Screenshot of enabling API linting and analysis in Visual Studio Code.":::
 
-A message notifies you after API analysis is successfully enabled. The following are installed locally in the `.api-center-rules` folder at the root of your working folder:
+A message notifies you after API analysis is successfully enabled. A folder for your API center is created in `.api-center-rules`, at the root of your working folder. The folder for your API center contains:
  
 * A `ruleset.yml` file that defines the default API style guide used by the linting engine.
 * A `functions` folder with an example custom function that you can use to extend the ruleset. 
@@ -108,9 +108,11 @@ Before deploying the custom ruleset to your API center, validate it locally. The
 
 1. In Visual Studio Code, use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
 1. Type **Azure API Center: Set active API Style Guide** and hit **Enter**.
-1. Choose **Select Local File** and specify the `ruleset.yml` file that you customized. Hit **Enter**.
+1. Choose **Select Local File** and specify the `ruleset.yml` file that you customized. Hit **Enter**. 
 
-With the custom ruleset set as the active API style guide, opening an OpenAPI-based API definition file automatically triggers a local linting operation in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
+    This step makes the custom ruleset the active API style guide for linting.
+
+Now, when you an OpenAPI-based API definition file, a local linting operation is automatically triggered in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
 
 :::image type="content" source="media/enable-managed-api-analysis-linting/validate-local-linting.png" alt-text="Screenshot of linting an API definition in Visual Studio Code." lightbox="media/enable-managed-api-analysis-linting/validate-local-linting.png":::
 
