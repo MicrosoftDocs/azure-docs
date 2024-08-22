@@ -35,7 +35,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
-|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Has Workaround|
+|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Has Workaround|
 
 
 
