@@ -27,7 +27,7 @@ Due to the ephemeral nature of these disks, Azure Container Storage supports the
 
 ## Choose a VM type that supports local NVMe
 
-Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required.
+Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3** is required.
 
 You can run the following command to get the VM type that's used with your node pool.
 

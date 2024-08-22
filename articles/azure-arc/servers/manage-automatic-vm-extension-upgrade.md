@@ -23,7 +23,7 @@ The extension upgrade process replaces the existing Azure VM extension version s
 
 The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
 
-For a group of Arc-enabled servers undergoing an update, the Azure platform will orchestrate updates following the model described in the [Automation Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md#availability-first-updates). However, there are some notable differences between Arc-enabled servers and Azure VMs:
+For a group of Arc-enabled servers undergoing an update, the Azure platform will orchestrate updates following the model described in the [Automation Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade#availability-first-updates). However, there are some notable differences between Arc-enabled servers and Azure VMs:
 
 **Across regions:**
 
