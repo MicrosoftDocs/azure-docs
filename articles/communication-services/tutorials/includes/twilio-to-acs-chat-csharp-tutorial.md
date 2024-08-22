@@ -1,5 +1,5 @@
 ---
-title: Migrating from Twilio Conversations Chat to ACS Chat C#
+title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat C#
 description: Guide describes how to migrate C# apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
 ms.date: 07/22/2024
@@ -12,32 +12,36 @@ ms.custom: mode-other
 ---
 
 ## Prerequisites
-Before you get started, make sure to:
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
-- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+2. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+3. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
+4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
+  For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 ## Conceptual Difference
-While both Twilio Conversations and ACS Chat offer similar functionalities, their implementation differs due to the surrounding ecosystems and underlying platform philosophies. Twilio Conversations provides a multi-channel communication API, whereas ACS Chat is focused primarily on chat within the Azure ecosystem. This migration guide provides a basic mapping between common operations in Twilio and their equivalents in ACS Chat, helping you transition your .NET code more smoothly.
+
+Both Twilio Conversations and Azure Communication Services Chat offer similar functions, but their implementation differs due to the surrounding ecosystems and underlying platform philosophies. Twilio Conversations provide a multi-channel communication API. Azure Communication Services Chat is focused primarily on chat within the Azure ecosystem. This migration guide provides a basic mapping between common operations in Twilio and their equivalents in Azure Communication Services Chat, helping you transition your .NET code.
 
 ### Identities
+
 #### Twilio
 
 Twilio Conversations uses identity strings directly.
 
 #### Azure Communication Services 
 
-ACS requires creating users through the CommunicationIdentityClient.
+Azure Communication Services requires creating users through the `CommunicationIdentityClient`.
 
 ## Setting up
+
 ### Install the package
+
 To start the migration from Twilio Conversations chat, the first step is to install the Azure Communication Services Chat SDK for .NET to your project.
 
 ```PowerShell
@@ -45,12 +49,13 @@ dotnet add package Azure.Communication.Chat
 ```
 
 ## Object model
+
 The following classes handle some of the major features of the Azure Communication Services Chat SDK for C#.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get participants, send typing notifications and read receipts. |
+| `ChatClient` | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| `ChatThreadClient` | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get participants, send typing notifications and read receipts. |
 
 ## Create a chat client
 
@@ -64,9 +69,9 @@ var twilio = new TwilioRestClient(accountSid, authToken);
 
 #### Azure Communication Services 
 
-To create a chat client in Azure Communication Services, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client.
+To create a chat client in Azure Communication Services, use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client.
 
-Learn more about [User Access Tokens](../../identity/access-tokens.md).
+Learn more about [User Access Tokens](../../quickstarts/identity/access-tokens.md).
 
 ```csharp
 // Your unique Azure Communication service endpoint
@@ -88,13 +93,13 @@ var conversation = ConversationResource.Create(
 
 #### Azure Communication Services 
 
-In ACS, you create a thread, which is equivalent to a conversation in Twilio.
+In Azure Communication Services, you create a thread, which is equivalent to a conversation in Twilio.
 
 Use the `createChatThread` method on the chatClient to create a chat thread
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
-- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you'll need to pass an Access ID which you created by following instruction to [Create a user](../../identity/access-tokens.md#create-an-identity)
+- Use `topic` to give a topic to this chat; you can update the `topic` after the chat thread is created using the `UpdateTopic` function.
+- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. Initialize the `ChatParticipant` object with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you need to pass an Access ID created following the instructions to [Create a user](../../quickstarts/identity/access-tokens.md#create-an-identity).
 
-The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a `chatThreadClient` client instance needs to instantiated using the `GetChatThreadClient` method on the `ChatClient` client.
+The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, and so on, instantiate a `chatThreadClient` client instance using the `GetChatThreadClient` method on the `ChatClient` client.
 
 ```csharp
 var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
@@ -109,7 +114,8 @@ string threadId = chatThreadClient.Id;
 ### Get a chat thread client
 
 ##### Twilio
-In Twilio Conversations, you interact directly with a conversation using the conversation's SID (unique identifier). Here's how you would typically get a conversation and interact with it:
+
+In Twilio Conversations, you interact directly with a conversation using the conversation's SID (unique identifier). Here's how to typically get a conversation and interact with it:
 
 ```csharp
 var conversationSid = "<CONVERSATION_SID>";
@@ -125,7 +131,7 @@ foreach (var message in messages)
 
 #### Azure Communication Services 
 
-The `GetChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
+The `GetChatThreadClient` method returns a thread client for a thread that already exists. You can use it to perform operations on the created thread: add members, send message, and so on. `threadId` is the unique ID of the existing chat thread.
 
 ```csharp
 string threadId = "<THREAD_ID>";
@@ -135,7 +141,8 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: thr
 ### List all chat threads
 
 ##### Twilio
-In Twilio Conversations, you can retrieve all conversations that a user is a participant in by querying the UserConversations resource. This resource provides a list of conversations for a specific user.
+
+In Twilio Conversations, you can retrieve all conversations that a user is a participant in by querying the `UserConversations` resource. This resource provides a list of conversations for a specific user.
 
 ```csharp
 / Initialize Twilio Client
@@ -173,7 +180,9 @@ await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
 ### Send a message to a chat thread
 
 ##### Twilio
+
 The following code snippet shows how to send a text message.
+
 ```csharp
 var message = MessageResource.Create(
     body: "Hello, world!",
@@ -181,7 +190,9 @@ var message = MessageResource.Create(
     pathConversationSid: conversation.Sid
 );
 ```
-The code snippet below shows how to send a media file.
+
+The following code snippet shows how to send a media file.
+
 ```csharp
 // The SID of the conversation you want to send the media message to
 string conversationSid = "<CONVERSATION_SID>";
@@ -201,16 +212,15 @@ var message = MessageResource.Create(
 );
 ```
 
-#### Azure Communication Services 
-Unlike Twilio, ACS does not have a separate function to send text messages or media.
+#### Azure Communication Services
 
+Unlike Twilio, Azure Communication Services does not have a separate function to send text messages or media.
 
 Use `SendMessage` to send a message to a thread.
-
 - Use `content` to provide the content for the message, it's required.
-- Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
-- Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `type` for the content type of the message such as `Text` or `Html`. If not specified, `Text` is the default.
+- Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string is the default.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message function and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in the metadata so that recipient's application can parse that and display accordingly.
 
 ```csharp
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
@@ -227,10 +237,13 @@ string messageId = sendChatMessageResult.Id;
 ```
 
 ### Receive chat messages from a chat thread
+
 ##### Twilio
+
 Twilio typically uses webhooks to notify your server of incoming messages:
 
 The following code snippet shows how to receive a text message.
+
 ```csharp
 public IActionResult ReceiveMessage()
 {
@@ -253,10 +266,11 @@ The following code snippet shows how to receive a media file.
             }
 ```
 
+#### Azure Communication Services
 
-#### Azure Communication Services 
-Unlike Twilio, ACS does not have a separate function to receive text messages or media.
-ACS Chat allows you to subscribe to events directly within the application.
+Unlike Twilio, Azure Communication Services does not have a separate function to receive text messages or media.
+
+Azure Communication Services Chat enables you to subscribe to events directly within the application.
 
 You can retrieve chat messages by polling the `GetMessages` method on the chat thread client at specified intervals.
 
@@ -268,25 +282,26 @@ await foreach (ChatMessage message in allMessages)
 }
 ```
 
-`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you'll receive messages that were received, updated or deleted after it. Note that messages received before the offset time but edited or removed after it will also be returned.
+`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you receive messages that were received, updated, or deleted after it. Note that messages received before the offset time but edited or removed after it are also be returned.
 
-`GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.CreatedOn`, and it can be used for ordering the messages.
+`GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. You can access the original time of message creation using `chatMessage.CreatedOn`, and use it for ordering the messages.
 
 `GetMessages` returns different types of messages which can be identified by `chatMessage.Type`. These types are:
 
 - `Text`: Regular chat message sent by a thread member.
 
-- `Html`:  A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
+- `Html`:  A formatted text message. Note that Communication Services users currently can't send `RichText` messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
 
 - `TopicUpdated`: System message that indicates the topic has been updated. (readonly)
 
-- `ParticipantAdded`: System message that indicates one or more participants have been added to the chat thread.(readonly)
+- `ParticipantAdded`: System message that indicates one or more participants have been added to the chat thread. (readonly)
 
 - `ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread.
 
-For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
+For more information, see [Message Types](../../concepts/chat/concepts.md#message-types).
 
 ### Add a user as a participant to the chat thread
+
 #### Twilio 
 
 ```csharp
@@ -298,8 +313,9 @@ var participant = ParticipantResource.Create(
 
 #### Azure Communication Services 
 
-In ACS, you add participants when creating the chat thread or afterwards:
-Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other participant. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+In Azure Communication Services, you add participants when creating the chat thread or afterwards:
+
+Once you create a thread, you can add and remove users. Adding users gives them access to send messages to the thread, and add/remove other participants. Before calling `AddParticipants`, ensure that you acquire a new access token and identity for that user. The user needs the access token to initialize their chat client.
 
 Use `AddParticipants` to add one or more participants to the chat thread. The following are the supported attributes for each thread participant(s):
 - `communicationUser`, required, is the identity of the thread participant.
@@ -324,7 +340,8 @@ await chatThreadClient.AddParticipantsAsync(participants: participants);
 ### Get thread participants
 
 ##### Twilio
-In Twilio Conversations, you use the ConversationResource to retrieve the participants of a specific conversation. You can then list all participants associated with that conversation.
+
+In Twilio Conversations, you use the `ConversationResource` to retrieve the participants of a specific conversation. You can then list all participants associated with that conversation.
 
 ```csharp
 // The SID of the conversation you want to retrieve participants from
@@ -378,4 +395,3 @@ Use `SendReadReceipt` to notify other participants that the message is read by t
 ```csharp
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
-
