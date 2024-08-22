@@ -19,9 +19,9 @@ ms.date: 03/01/2023
 This article shows how to attach or detach an Azure compute gallery to a lab plan. If you use a lab account, see how to [attach or detach a compute gallery to a lab account](how-to-attach-detach-shared-image-gallery-1.md).
 
 > [!IMPORTANT]
-> To show a virtual machine image in the list of images during lab creation, you need to replicate the compute gallery image to the same region as the lab plan. You need to manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery.
+> To show a virtual machine image in the list of images during lab creation, you need to replicate the compute gallery image to the same region as the lab plan. You need to manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the compute gallery.
 
-Saving images to a compute gallery and replicating those images incurs extra cost. This cost is separate from the Azure Lab Services usage cost. Learn more about [Azure Compute Gallery pricing](../virtual-machines/azure-compute-gallery.md#billing).
+Saving images to a compute gallery and replicating those images incurs extra cost. This cost is separate from the Azure Lab Services usage cost. Learn more about [Azure Compute Gallery pricing](/azure/virtual-machines/azure-compute-gallery#billing).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Here are a couple of scenarios supported by attaching a compute gallery.
 - A lab plan admin attaches a compute gallery to the lab plan. An image is uploaded to the compute gallery outside the context of a lab. The image is enabled on the lab plan by the lab plan admin. Then, lab creators can use that image from the compute gallery to create labs.
 - A lab plan admin attaches a compute gallery to the lab plan. A lab creator (educator) saves the customized image of their lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
 
-When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery) in Azure Lab Services, the image is uploaded to the compute gallery as a specialized image. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
+When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery) in Azure Lab Services, the image is uploaded to the compute gallery as a specialized image. [Specialized images](/azure/virtual-machines/shared-image-galleries#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
 
 A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
@@ -199,4 +199,4 @@ To learn how to save a template image to the compute gallery or use an image fro
 
 To explore other options for bringing custom images to compute gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
-For more information about compute galleries in general, see [compute gallery](../virtual-machines/shared-image-galleries.md).
+For more information about compute galleries in general, see [compute gallery](/azure/virtual-machines/shared-image-galleries).

@@ -579,7 +579,7 @@ Virtual-Machines|[Monitor virtual machines with Azure Monitor: Analyze monitorin
 Virtual-Machines|[Monitor virtual machines with Azure Monitor: Collect data](vm/monitor-virtual-machine-data-collection.md)|Rewritten for Azure Monitor Agent.|
 Virtual-Machines|[Monitor virtual machines with Azure Monitor: Migrate management pack logic](vm/monitor-virtual-machine-management-packs.md)|Rewritten for Azure Monitor Agent.|
 Virtual-Machines|[Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)|Rewritten for Azure Monitor Agent.|
-Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|VM scenario updates for Azure Monitor Agent.|
+Virtual-Machines|[Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm)|VM scenario updates for Azure Monitor Agent.|
 
 
 ## [2022](#tab/2022)
@@ -604,7 +604,7 @@ Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.m
 Virtual-Machines|[Tutorial: Create availability alert rule for Azure virtual machine (preview)](vm/tutorial-monitor-vm-alert-availability.md)|New article.|
 Virtual-Machines|[Tutorial: Enable recommended alert rules for Azure virtual machine](vm/tutorial-monitor-vm-alert-recommended.md)|New article.|
 Virtual-Machines|[Tutorial: Enable monitoring with VM insights for Azure virtual machine](vm/tutorial-monitor-vm-enable-insights.md)|New article.|
-Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|Updated for Azure Monitor Agent and availability metric.|
+Virtual-Machines|[Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm)|Updated for Azure Monitor Agent and availability metric.|
 Virtual-Machines|[Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)|Updated flow for enabling VM insights with Azure Monitor Agent by using Azure Policy.|
 Visualizations|[Creating an Azure Workbook](visualize/workbooks-create-workbook.md)|Added tutorial on resource-centric log queries in workbooks.|
 
