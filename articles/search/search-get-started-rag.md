@@ -89,40 +89,40 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. Select **Edit JSON**. 
 
-1. Search for "semantic" to find the section in the index for a semantic configuration. Replace the "semantic" line with the following semantic configuration. This example specifies a `"defaultConfiguration"`, which is important to the running of this quickstart.
+1. Search for "semantic" to find the section in the index for a semantic configuration. Replace the empty `"semantic": {}` line with the following semantic configuration. This example specifies a `"defaultConfiguration"`, which is important to the running of this quickstart.
 
     ```json
-    "semantic": {
-    "defaultConfiguration": "semantic-config",
-    "configurations": [
-        {
-        "name": "semantic-config",
-        "prioritizedFields": {
-            "titleField": {
-            "fieldName": "HotelName"
-            },
-            "prioritizedContentFields": [
-            {
-                "fieldName": "Description"
-            }
-            ],
-            "prioritizedKeywordsFields": [
-            {
-                "fieldName": "Category"
-            },
-            {
-                "fieldName": "Tags"
-            }
-            ]
-        }
-      }
-    ]
+    "semantic":{
+       "defaultConfiguration":"semantic-config",
+       "configurations":[
+          {
+             "name":"semantic-config",
+             "prioritizedFields":{
+                "titleField":{
+                   "fieldName":"HotelName"
+                },
+                "prioritizedContentFields":[
+                   {
+                      "fieldName":"Description"
+                   }
+                ],
+                "prioritizedKeywordsFields":[
+                   {
+                      "fieldName":"Category"
+                   },
+                   {
+                      "fieldName":"Tags"
+                   }
+                ]
+             }
+          }
+       ]
     },
     ```
 
 1. **Save** your changes.
 
-1. Run the following query to test your index: `hotels near the ocean with beach access and good views`.
+1. Run the following query in [Search Explorer](search-explorer.md) to test your index: `hotels near the ocean with beach access and good views`.
 
    Output should look similar to the following example. Results that are returned directly from the search engine consist of fields and their verbatim values, along with metadata like a search score and a semantic ranking score and caption if you use semantic ranking.
 

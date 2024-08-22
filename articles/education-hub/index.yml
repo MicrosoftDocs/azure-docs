@@ -63,7 +63,7 @@ landingContent:
             url: get-started-education-hub.md
       - linkListType: how-to-guide
         links:
-          - text: Manage your academic grant
+          - text: Manage your academic sponsorship
             url: hub-overview-page.md
           - text: Find IDs
             url: find-ids.md

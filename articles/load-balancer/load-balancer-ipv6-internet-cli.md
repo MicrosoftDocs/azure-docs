@@ -260,7 +260,7 @@ Create NICs and associate them with NAT rules, load balancer rules, and probes.
 
 ## Create the backend VM resources, and attach each NIC
 
-To create VMs, you must have a storage account. For load balancing, the VMs need to be members of an availability set. For more information about creating VMs, see [Create an Azure VM by using PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+To create VMs, you must have a storage account. For load balancing, the VMs need to be members of an availability set. For more information about creating VMs, see [Create an Azure VM by using PowerShell](/azure/virtual-machines/windows/quick-create-powershell?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 1. Set up the PowerShell variables:
 

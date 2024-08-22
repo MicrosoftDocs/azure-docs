@@ -6,7 +6,7 @@ ms.author: greglin
 ms.service: azure-application-gateway
 services: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 08/22/2024
 ---
 
 # Overview of WebSocket support in Application Gateway
@@ -26,7 +26,9 @@ To establish a WebSocket connection, a specific HTTP-based handshake is exchange
 ![Diagram compares a client interacting with a web server, connecting twice to get two replies, with a WebSocket interaction, where a client connects to a server once to get multiple replies.](./media/application-gateway-websocket/websocket.png)
 
 > [!NOTE]
-> As described, the HTTP protocol is used only to perform a handshake when establishing a WebSocket connection. Once the handshake is completed, a WebSocket connection gets opened for transmitting the data, and the Web Application Firewall (WAF) cannot parse any contents. Therefore, WAF doesn't perform any inspections on such data.
+> After a connection is upgraded to WebSocket, as an intermediary/terminating proxy, Application Gateway will simply send the data received from the frontend to the backend and vice-versa, without any inspection or manipulation capability.
+> Therefore, the Web Application Firewall (WAF) cannot parse any content and doesn't perform any inspections on such data. Similarly, any manipulations like Header Rewrites, URL Rewrites, or Overriding Hostname in the Backend Settings will not apply after establishing a WebSocket connection.
+
 
 ### Listener configuration element
 

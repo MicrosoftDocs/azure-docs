@@ -20,6 +20,7 @@ Information retrieval is foundational to any app that surfaces text and vectors.
 + A search engine for [vector search](vector-search-overview.md) and [full text](search-lucene-query-architecture.md) and [hybrid search](hybrid-search-overview.md) over a search index 
 + Rich indexing with [integrated data chunking and vectorization](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional applied AI](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid queries](hybrid-search-how-to-query.md), fuzzy search, autocomplete, geo-search and others
++ Relevance and query performance tuning with [semantic ranking](semantic-search-overview.md), [scoring profiles](index-add-scoring-profiles.md), [quantization for vector queries](vector-search-how-to-configure-compression-storage.md), and parameters for controlling query behaviors at runtime 
 + Azure scale, security, and reach
 + Azure integration at the data layer, machine learning layer, Azure AI services and Azure OpenAI
 
