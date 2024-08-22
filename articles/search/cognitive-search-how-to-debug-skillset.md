@@ -105,7 +105,7 @@ Remember that a debug session is based on one document from the entire index. If
 
 Select **Errors** or **Warnings** for a list of issues. 
 
-:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" lightbox="media/cognitive-search-debug/debug-session-errors-warnings.png"alt-text="media/cognitive-search-debug/debug-session-errors-warnings.png":::
+:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" lightbox="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Screenshot of the error and warning buttons at the top of the page.":::
 
 As a best practice, resolve problems with inputs before moving on to outputs.
 
