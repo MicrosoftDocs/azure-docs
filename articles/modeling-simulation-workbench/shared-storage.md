@@ -20,4 +20,8 @@ Users who are provisioned to a specific chamber can access all shared storage vo
 
 **Scalability**: Users can adjust the storage capacity and performance tier according to their needs, just like chamber private storage.  
 
-**Management**: Workbench Owners can manage storage capacity, resize storage, and change performance tiers through the Azure portal.  
+**Management**: Workbench Owners can manage storage capacity, resize storage, and change performance tiers through the Azure portal.
+
+## Next step
+
+- [Business continuity: Disaster recovery](./disaster-rocvery.md)
