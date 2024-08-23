@@ -264,7 +264,7 @@ sections:
       - question: |
           Where is data stored geographically?
         answer: |
-          Azure OpenAI Assistants endpoints are regional, and data is stored in the same region as the endpoint. For more information, see the [Azure data residency documentation](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview). 
+          Azure OpenAI Assistants endpoints are regional, and data is stored in the same geography as the endpoint. For more information, see the [Azure data residency documentation](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview). 
       - question: |
           How am I charged for Assistants?
         answer: |
