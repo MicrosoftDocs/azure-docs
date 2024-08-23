@@ -125,6 +125,5 @@ Use the following steps to relocate your static web app to another region.
 
 
 
-## Related content
 
 
