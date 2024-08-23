@@ -14,9 +14,11 @@ ms.date: 08/20/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To get started with dataflows, you need to configure endpoints. An endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
+To get started with dataflows, first create dataflow endpoints. A dataflow endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as both sources and destinations, while others are for destinations only. A dataflow needs at least one source endpoint and one destination endpoint.
 
-Use the follow table to start configuring your dataflow endpoints:
+## Get started
+
+To get started, use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination |
 |---------------|-------------|-------------------------|------------------------------|

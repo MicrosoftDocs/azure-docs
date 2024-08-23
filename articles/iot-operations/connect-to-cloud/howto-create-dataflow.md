@@ -39,30 +39,25 @@ This article shows you how to create a dataflow with an example, including the s
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md)
+- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md).
+- **Dataflow endpoint**. For example, create a dataflow endpoint for the [built-in MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-built-in-mqtt-broker).
 
-## Configure dataflow endpoints
+  ```yaml
+  apiVersion: connectivity.iotoperations.azure.com/v1beta1
+  kind: DataflowEndpoint
+  metadata:
+    name: mq
+    namespace: azure-iot-operations
+  spec:
+    endpointType: Mqtt
+    mqttSettings:
+      authentication:
+        method: ServiceAccountToken
+        serviceAccountTokenSettings: {}
+  ```
 
-The first step is to configure the dataflow endpoints for the source and destination. You can use the Azure IoT Operations portal or create a *DataflowEndpoint* custom resource. For example, to get started, create a dataflow endpoint for the [built-in MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-built-in-mqtt-broker).
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: mq
-  namespace: azure-iot-operations
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    authentication:
-      method: ServiceAccountToken
-      serviceAccountTokenSettings: {}
-```
-
-To keep the guide simple, we use this endpoint for both the source and destination.
-
-You can also use other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+  You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Create dataflow
 
@@ -79,20 +74,20 @@ spec:
   operations:
     - operationType: Source
       sourceSettings:
-        # ...
+        # See source configuration section
     - operationType: BuiltInTransformation
       builtInTransformationSettings:
-        # ...
+        # See transformation configuration section
     - operationType: Destination
       destinationSettings:
-        # ...
+        # See destination configuration section
 ```
 
 <!-- TODO: link to API reference -->
 
 Review the following sections to learn how to configure the operation types of the dataflow.
 
-## Configure source
+## Configure a source with a dataflow endpoint to get data
 
 To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint which are MQTT or Kafka topics.
 
@@ -105,6 +100,8 @@ sourceSettings:
     - thermostats/+/telemetry/temperature/#
     - humidifiers/+/telemetry/humidity/#
 ```
+
+Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple dataflows even if the topics are different. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
 
 <!-- TODO: link to API reference -->
 
@@ -162,7 +159,7 @@ sourceSettings:
 
 Details TBD.
 
-## Configure transformation
+## Configure transformation to process data
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always
 
@@ -171,17 +168,13 @@ The transformation operation is where you can transform the data from the source
 1. **Map**: Move data from one field to another with an optional conversion.
 
 ```yaml
-spec:
-  operations:
-  - operationType: builtInTransformation
-    name: transform1
-    builtInTransformationSettings:
-      datasets:
-        # ...
-      filter:
-        # ...
-      map:
-        # ...
+builtInTransformationSettings:
+  datasets:
+    # ...
+  filter:
+    # ...
+  map:
+    # ...
 ```
 
 <!-- TODO: link to API reference -->
@@ -267,15 +260,15 @@ To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) an
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data will be serialized in JSON with the types inferred. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
 
 ```yaml
-spec:
-  operations:
-  - operationType: BuiltInTransformation
-    builtInTransformationSettings:
-      serializationFormat: Parquet
-      schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
+builtInTransformationSettings:
+  serializationFormat: Parquet
+  schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
 ```
 
 To specify the schema, you can create a Schema CR with the schema definition.
+
+<!-- TODO: link to schema registry docs -->
+
 
 ```json
 {
@@ -291,7 +284,7 @@ To specify the schema, you can create a Schema CR with the schema definition.
 
 Supported serialization formats are JSON, Parquet, and Delta.
 
-## Configure destination
+## Configure destination with a dataflow endpoint to send data
 
 To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint which are MQTT or Kafka topics.
 
@@ -355,6 +348,12 @@ spec:
 ```
 
 <!-- TODO: add links to examples in the reference docs -->
+
+## Verify a dataflow is working
+
+Best to follow one of the tutorials to verify the dataflow is working.
+
+<!-- TODO: add links to the tutorials -->
 
 ## Manage dataflows
 
