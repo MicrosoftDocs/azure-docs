@@ -40,8 +40,8 @@ sections:
           Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, go to the "Continuous deployment" window under your container app.
       - question: |
           Why is the URL my app receives different than the URL specified in the request?
-	        answer:
-	          Azure Container Apps decodes the URL to protect your app against [URL confusion attacks](https://snyk.io/blog/url-confusion-vulnerabilities/). A request URL that has encoded portions, such as `http://mysite.com/archive/http%3A%2F%2Fmysite.com%2Farchive%2F123`, is sent to your app as `http://mysite.com/archive/http%3A/mysite.com/archive/123`.
+        answer:
+          Azure Container Apps decodes the URL to protect your app against [URL confusion attacks](https://snyk.io/blog/url-confusion-vulnerabilities/). A request URL that has encoded portions, such as `http://mysite.com/archive/http%3A%2F%2Fmysite.com%2Farchive%2F123`, is sent to your app as `http://mysite.com/archive/http%3A/mysite.com/archive/123`.
       - question: |
           Do Consumption only environments support custom user-defined routes?
         answer:
