@@ -35,14 +35,13 @@ The following legacy connectors or legacy driver versions will be deprecated, bu
 
 The following connectors are scheduled for deprecation on December 31, 2024. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
-(connector-amazon-marketplace-web-service.md)
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
 - [Hbase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
 - [Paypal (Preview)](connector-paypal.md)
-- [Phoenix (Preview)](connector-phoenix.md)
+- [Phoenix](connector-phoenix.md)
 
 
 ## Connectors deprecated
