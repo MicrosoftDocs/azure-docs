@@ -31,21 +31,33 @@ Before you enable single sign-on, review the following information for using it 
 
 ### Disconnection when the session is locked
 
-When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown to let users know. Users can choose the Reconnect option from the dialog when they are ready to connect again. This is done for security reasons and to ensure full support of passwordless authentication. Disconnecting provides the following benefits:
+When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they are ready to connect again. This is done for security reasons and to ensure full support of passwordless authentication. Disconnecting the session provides the following benefits:
 
 - Consistent sign-in experience through Microsoft Entra ID when needed.
 - Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
 - Supports passwordless authentication like passkeys and FIDO2 devices, contrary to the remote lock screen.
 - Conditional access policies, including multifactor authentication and sign-in frequency, are re-evaluated when the user reconnects to their session.
 - Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
+- Consistent sign-in experience through Microsoft Entra ID when needed.
 
+- Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
+
+- Supports passwordless authentication like passkeys and FIDO2 devices, contrary to the remote lock screen.
+
+- Conditional access policies, including multifactor authentication and sign-in frequency, are re-evaluated when the user reconnects to their session.
+
+- Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
 If you prefer to show the remote lock screen instead of disconnecting the session, your session hosts must use the following operating systems:
 
 - Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
 - Windows 10 single or multi-session, versions 21H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
 - Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
+- Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
 
-You can configure the session lock behavior of your session hosts by using Intune, Group Policy or the registry.
+- Windows 10 single or multi-session, versions 21H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
+
+- Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
+You can configure the session lock behavior of your session hosts by using Intune, Group Policy, or the registry.
 
 # [Intune](#tab/intune)
 
@@ -61,6 +73,7 @@ To configure the session lock experience using Intune, follow these steps. This 
     - **Profile type**: Select **Settings catalog**.
 
 1. Select **Create**.
+
 1. In **Basics**, enter the following properties:
 
     - **Name**: Enter a descriptive name for the profile. Name your profile so you can easily identify it later.
@@ -106,7 +119,7 @@ To configure the session lock experience using Group Policy, follow these steps.
 
 1. Select **OK** to save your changes.
 
-1. Once the policy is configured, it will take effect after the user initiate a new session.
+1. Once the policy is configured, it will take effect after the user initiates a new session.
 
 > [!TIP]
 > To configure the Group Policy centrally on Active Directory Domain Controllers using Windows Server 2019 or Windows Server 2016, copy the `terminalserver.admx` and `terminalserver.adml` administrative template files from a session host to the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store) on the domain controller.
@@ -227,12 +240,12 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 
 ## Hide the consent prompt dialog
 
-By default when single sign-on is enabled, users will see a dialog to allow the Remote Desktop connection when connecting to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If users see this dialogue to allow the Remote Desktop connection, the can select **Yes** to connect.
+By default when single sign-on is enabled, users will see a dialog to allow the Remote Desktop connection when connecting to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If users see this dialogue to allow the Remote Desktop connection, they can select **Yes** to connect.
 
 You can hide this dialog by configuring a list of trusted devices. To configure the list of devices, create one or more groups in Microsoft Entra ID that contains your session hosts, then add the group IDs to a property on the SSO service principals, *Microsoft Remote Desktop* and *Windows Cloud Login*.
 
 > [!TIP]
-> We recommend you use a dynamic group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. You can use the device names in this group, but for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic groups normally update within 5-10 minutes, large tenants can take up to 24 hours.
+> We recommend you use a dynamic group and configure the dynamic membership rules to include all your Azure Virtual Desktop session hosts. You can use the device names in this group, but for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic groups normally update within 5-10 minutes, large tenants can take up to 24 hours.
 >
 > Dynamic groups requires the Microsoft Entra ID P1 license or Intune for Education license. For more information, see [Dynamic membership rules for groups](/entra/identity/users/groups-dynamic-membership).
 
