@@ -21,7 +21,7 @@ While onboarding your server to Azure Arc-enabled servers, several actions are p
 
 - Azure Resource Manager creates a service principal in Microsoft Entra ID for the identity of the server. The service principal is created in the Microsoft Entra tenant that's trusted by the subscription.
 
-- Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](../../virtual-machines/windows/instance-metadata-service.md) or [Linux](../../virtual-machines/linux/instance-metadata-service.md) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Azure Arc-enabled server to help manage and configure it.
+- Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](/azure/virtual-machines/windows/instance-metadata-service) or [Linux](/azure/virtual-machines/linux/instance-metadata-service) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Azure Arc-enabled server to help manage and configure it.
 
 The environment of a managed-identity-enabled server will be configured with the following variables on a Windows Azure Arc-enabled server:
 

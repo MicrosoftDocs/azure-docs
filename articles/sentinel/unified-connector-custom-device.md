@@ -57,25 +57,7 @@ Each application section contains the following information:
 - The outline of the procedure required to ingest data manually, without using the connector. For the details of this procedure, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 - Specific instructions for configuring the originating applications or devices themselves, and/or links to the instructions on the providers' web sites. These steps must be taken whether using the connector or not.
 
-**The following devices' instructions are provided here:**
-
-- [Apache HTTP Server](#apache-http-server)
-- [Apache Tomcat](#apache-tomcat)
-- [Cisco Meraki](#cisco-meraki) (appliance)
-- [Jboss Enterprise Application Platform](#jboss-enterprise-application-platform)
-- [JuniperIDP](#juniperidp) (appliance)
-- [MarkLogic Audit](#marklogic-audit)
-- [MongoDB Audit](#mongodb-audit)
-- [NGINX HTTP Server](#nginx-http-server)
-- [Oracle WebLogic Server](#oracle-weblogic-server)
-- [PostgreSQL Events](#postgresql-events)
-- [SecurityBridge Threat Detection for SAP](#securitybridge-threat-detection-for-sap)
-- [SquidProxy](#squidproxy)
-- [Ubiquiti UniFi](#ubiquiti-unifi) (appliance)
-- [VMware vCenter](#vmware-vcenter) (appliance)
-- [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa) (appliance)
-
-### Apache HTTP Server
+## Apache HTTP Server
 
 Follow these steps to ingest log messages from Apache HTTP Server:
 
@@ -93,7 +75,7 @@ Follow these steps to ingest log messages from Apache HTTP Server:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Apache Tomcat
+## Apache Tomcat
 
 Follow these steps to ingest log messages from Apache Tomcat:
 
@@ -110,7 +92,7 @@ Follow these steps to ingest log messages from Apache Tomcat:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Cisco Meraki
+## Cisco Meraki
 
 Follow these steps to ingest log messages from Cisco Meraki:
 
@@ -196,7 +178,7 @@ Follow these steps to ingest log messages from Cisco Meraki:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### JBoss Enterprise Application Platform
+## JBoss Enterprise Application Platform
 
 Follow these steps to ingest log messages from JBoss Enterprise Application Platform:
 
@@ -214,7 +196,7 @@ Follow these steps to ingest log messages from JBoss Enterprise Application Plat
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### JuniperIDP
+## JuniperIDP
 
 Follow these steps to ingest log messages from JuniperIDP:
 
@@ -284,7 +266,7 @@ Follow these steps to ingest log messages from JuniperIDP:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### MarkLogic Audit
+## MarkLogic Audit
 
 Follow these steps to ingest log messages from MarkLogic Audit:
 
@@ -310,7 +292,7 @@ Follow these steps to ingest log messages from MarkLogic Audit:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### MongoDB Audit
+## MongoDB Audit
 
 Follow these steps to ingest log messages from MongoDB Audit:
 
@@ -334,7 +316,7 @@ Follow these steps to ingest log messages from MongoDB Audit:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### NGINX HTTP Server
+## NGINX HTTP Server
 
 Follow these steps to ingest log messages from NGINX HTTP Server:
 
@@ -351,7 +333,7 @@ Follow these steps to ingest log messages from NGINX HTTP Server:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Oracle WebLogic Server 
+## Oracle WebLogic Server 
 
 Follow these steps to ingest log messages from Oracle WebLogic Server:
 
@@ -369,7 +351,7 @@ Follow these steps to ingest log messages from Oracle WebLogic Server:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### PostgreSQL Events
+## PostgreSQL Events
 
 Follow these steps to ingest log messages from PostgreSQL Events:
 
@@ -392,7 +374,7 @@ Follow these steps to ingest log messages from PostgreSQL Events:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### SecurityBridge Threat Detection for SAP
+## SecurityBridge Threat Detection for SAP
 
 Follow these steps to ingest log messages from SecurityBridge Threat Detection for SAP:
 
@@ -409,7 +391,7 @@ Follow these steps to ingest log messages from SecurityBridge Threat Detection f
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### SquidProxy
+## SquidProxy
 
 Follow these steps to ingest log messages from SquidProxy:
 
@@ -427,7 +409,7 @@ Follow these steps to ingest log messages from SquidProxy:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Ubiquiti UniFi
+## Ubiquiti UniFi
 
 Follow these steps to ingest log messages from Ubiquiti UniFi:
 
@@ -495,7 +477,7 @@ Follow these steps to ingest log messages from Ubiquiti UniFi:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### VMware vCenter
+## VMware vCenter
 
 Follow these steps to ingest log messages from VMware vCenter:
 
@@ -571,7 +553,7 @@ Follow these steps to ingest log messages from VMware vCenter:
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Zscaler Private Access (ZPA)
+## Zscaler Private Access (ZPA)
 
 Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
