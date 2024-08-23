@@ -136,6 +136,15 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 
    ![Screenshot of the response token when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
 
+7. For oauth2/v2.0/token endpoint, pass the 'scope' instead of 'resource'
+
+   ```
+   client_id: *your client id*
+   client_secret: *your client secret*
+   grant_type: client_credentials
+   scope: https://webpubsub.azure.com/.default
+   ```
+
 ## Sample codes using Microsoft Entra authorization
 
 We officially support 4 programming languages:
