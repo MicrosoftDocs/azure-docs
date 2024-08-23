@@ -66,7 +66,7 @@ This _per-function scaling_ behavior is a part of the hosting platform, so you d
 
 In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of functions scale groups:  
 
-| Scale group name | Grouped triggers | Settings value |
+| Scale groups | Triggers in group | Settings value |
 | ---- | ---- | --- |
 | HTTP triggers |[HTTP trigger](functions-bindings-http-webhook-trigger.md)<br/>[SignalR trigger](functions-bindings-signalr-service-trigger.md) | `http` |
 | Blob storage triggers<br/>(Event Grid-based) |  [Blob storage trigger](functions-bindings-storage-blob-trigger.md) | `blob`|
