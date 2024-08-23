@@ -10,13 +10,13 @@ ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files storage with cool access
 
-Data sets are not always actively used. Up to 80% of data in a set can be considered "cool," meaning it's not currently in use or hasn't been accessed recently. When storing data on high performance storage such as Azure NetApp Files, the money spent on the capacity being used is essentially being wasted since coldcool data does not require high performance storage until it is being accessed again. So, if you could automatically tier coldcool data to lower cost storage and then bring that data back to the performance or “hot” tier when needed, why wouldn’t you?
+Data sets aren't always actively used. Up to 80% of data in a set can be considered "cool," meaning it's not currently in use or hasn't been accessed recently. When storing data on high performance storage such as Azure NetApp Files, the money spent on the capacity being used is essentially being wasted since cool data doesn't require high performance storage until it's being accessed again. 
 
-[Azure NetApp Files torage with cool access](cool-access-introduction.md) is intended to reduce costs for cloud storage in Azure. There are performance considerations in specific use cases that need to be considered.
+[Azure NetApp Files storage with cool access](cool-access-introduction.md) is intended to reduce costs for cloud storage in Azure. There are performance considerations in specific use cases that need to be considered.
 
 Accessing data that has moved to the cool tiers incurs more latency, particularly for random I/O. In a worst-case scenario, all of the data being accessed might be on the cool tier, so every request would need to conduct a retrieval of the data. It's uncommon for all of the data in an actively used dataset to be in the cool tier, so it's unlikely to observe such latency. 
 
-When the Default Cool Access retrieval policy is selected, sequential I/O is readreads are served directly from the cool tier and does not repopulate into the hot tier.  Randomly read data is repopulated into the hot tier, increasing the performance of subsequent reads. Optimizations for sequential workloads often reduce the latency incurred by cloud retrieval as compared to random readsand improves overall performance.  
+When the default cool access retrieval policy is selected, sequential I/O is eads are served directly from the cool tier and doesn't repopulate into the hot tier. Randomly read data is repopulated into the hot tier, increasing the performance of subsequent reads. Optimizations for sequential workloads often reduce the latency incurred by cloud retrieval as compared to random reads and improves overall performance.  
 
 In a recent test performed using Standard storage with cool access for Azure NetApp Files, the following results were obtained.
 
@@ -56,7 +56,7 @@ It's possible to push for more throughput for the hot and cool tiers using a sin
 :::image type="content" source="./media/performance-considerations-cool-access/throughput-sixteen-jobs.png" alt-text="Chart of throughput at varying `iodepths` with 16 jobs." lightbox="./media/performance-considerations-cool-access/throughput-sixteen-jobs.png":::
 
 - Throughput improved by nearly three times for the hot tier.
-- Throughput improve by 6.5 times for the cool tier.
+- Throughput improved by 6.5 times for the cool tier.
 - The performance difference for the hot and cool tier decreased from 2.9 to just 1.3. <!-- x what? -->
 
 ## Maximum viable job scale for cool tier – 100% sequential reads
@@ -101,7 +101,7 @@ To avoid worst-case scenario performance with cool access in Azure NetApp Files,
 
 - If your workload frequently changes access patterns in an unpredictable manner, cool access may not be ideal due to the performance differences between hot and cool tiers.
 - If your workload contains any percentage of random I/O, performance expectations when accessing data on the cool tier should be adjusted accordingly.
-- Configure the coolness window and cool access retrieval settings to match your workload pattens and to minimize the amount of cool tier retrieval. 
+- Configure the coolness window and cool access retrieval settings to match your workload patterns and to minimize the amount of cool tier retrieval. 
 
 ## Next steps
 * [Azure NetApp Files storage with cool access](cool-access-introduction.md)
