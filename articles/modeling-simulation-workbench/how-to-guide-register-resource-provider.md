@@ -9,7 +9,7 @@ ms.date: 08/20/2024
 
 #CustomerIntent: As an administrator, I want to register the resource provider so I can install Azure Modeling and Simulation Workbench
 ---
-# Register Azure Modeling and Simulation Workbench resource provider 
+# Register Azure Modeling and Simulation Workbench resource provider
 
 To install the Azure Modeling and Simulation Workbench, the resource provider must be registered with the target subscription. Registering the resource provider gives the subscription access to the application.  You should only register the resource providers you intend to use with the subscription.
 
@@ -23,16 +23,12 @@ To install the Azure Modeling and Simulation Workbench, the resource provider mu
   * [Application administrator](/azure/active-directory/roles/permissions-reference#application-administrator)
   * [Application developer](/azure/active-directory/roles/permissions-reference#application-developer)
   * [Cloud application administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator)
-  
-* A Microsoft Entra tenant.
 
-<a name='register-azure-modeling-and-simulation-workbench-rp'></a>
+* A Microsoft Entra tenant.
 
 ## Register Azure Modeling and Simulation Workbench Resource Provider
 
 [!INCLUDE [register-resource-provider](includes/register-resource-provider.md)]
-
-<a name='re-register-the-resource-provider'></a>
 
 ## Re-register the resource provider
 
@@ -52,7 +48,7 @@ Some application issues and certain updates require the resource provider to be 
 
 1. Select the *Microsoft.ModSimWorkbench* resource provider. Then select **Unregister**, wait for the operation to complete, then select **Register**.
 
-   :::image type="content" source="../media/quickstart-create-portal/register-resource-provider.png" alt-text="Screenshot of the Azure portal in a web browser, showing register resource providers.":::
+   :::image type="content" source="./media/quickstart-create-portal/register-resource-provider.png" alt-text="Screenshot of the Azure portal in a web browser, showing register resource providers.":::
 
 ## Next step
 
@@ -68,8 +64,3 @@ TODO: Add your next step link(s)
 TODO: Add your next step link(s)
 
 - [Write concepts](article-concept.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-

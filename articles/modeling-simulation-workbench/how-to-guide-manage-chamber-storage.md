@@ -18,9 +18,11 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- A user who's provisioned as a Chamber Admin or Workbench Owner.
+[!INCLUDE [prereq-account-sub](includes/prereq/prereq-account-sub.md)]
+
+[!INCLUDE [prereq-mswb-chamber](includes/prereq/prereq-mswb-chamber.md)]
+
+[!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
 
 ## Sign in to the Azure portal
 

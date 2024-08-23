@@ -14,7 +14,7 @@ Follow these steps to get register the redirect URIs with the Application Regist
    * **Dashboard reply URL**: https://<*dashboardFqdn*>/etx/oauth2/code
    * **Authentication reply URL**: https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs.":::
+   :::image type="content" source="../media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs.":::
 
 To add the redirect URIs:
 
@@ -28,11 +28,11 @@ To add the redirect URIs:
 
 1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the Redirect URI field. Then select **Configure**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you configure web authentication.":::
+   :::image type="content" source="../media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you configure web authentication.":::
 
 1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
 
 1. Paste the **Authentication reply URL** you documented in the previous step.
 
 1. Select **Save**.
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you set the second Redirect URI.":::
+   :::image type="content" source="../media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you set the second Redirect URI.":::

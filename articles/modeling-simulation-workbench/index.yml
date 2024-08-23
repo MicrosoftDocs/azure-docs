@@ -58,7 +58,7 @@ landingContent:
           - text: Export data
             url: ./how-to-guide-download-data.md
           - text: Manage chamber storage
-            url: ./how-to-guide-manage-storage.md
+            url: ./how-to-guide-manage-chamber-storage.md
 #          - name: Disaster Recovery
 #            href: ./how-to-guide-disaster-recovery.md
   # Card: Reference

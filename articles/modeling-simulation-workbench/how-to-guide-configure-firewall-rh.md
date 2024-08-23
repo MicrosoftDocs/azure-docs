@@ -9,7 +9,7 @@ ms.date: 08/18/2024
 
 #CustomerIntent: As a Chamber Admin, I want to configure firewalls on individual VMs to allow applications to communicate within a Chamber.
 ---
-"Configure firewalls in Red Hat VMs"
+# Configure firewalls in Red Hat
 
 Chamber VMs run Red Hat Linux as the operating system. By default, these images have a firewall configured to that deny any connections being made to the host, regardless if a service has been started. To allow communication on the necessary ports, the firewall must be configured to allow traffic to pass through. Similarly, if a rule is no longer required, it should be removed.
 
@@ -22,7 +22,7 @@ All the operations referenced here require `sudo` privileges and thus need the C
 
 ## Prerequisites
 
-* A user account with the Chamber Admin role.
+[!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
 
 ## List all open ports
 

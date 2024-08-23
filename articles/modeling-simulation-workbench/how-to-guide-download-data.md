@@ -105,4 +105,4 @@ Complete the following steps to download an approved export file from a chamber:
 
 ## Next steps
 
-To learn how to manage chamber storage in Azure Modeling and Simulation Workbench, see [Manage chamber storage](./how-to-guide-manage-storage.md).
+To learn how to manage chamber storage in Azure Modeling and Simulation Workbench, see [Manage chamber storage](./how-to-guide-manage-chamber-storage.md).

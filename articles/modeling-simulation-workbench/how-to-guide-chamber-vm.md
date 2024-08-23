@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/16/2024
 #CustomerIntent: As a Workbench Owner, I want to create and manage a Chamber to isolate users, workloads and data.
 ---
-# Create a Chamber VM
+# Chamber VMs
 
 Chamber virtual machines (VM) are Azure VMs that are managed by the Chamber. Chamber VMs do not require expert users to select, deploy, configure, and manage. VMs are deployed quickly, pre-configured with drivers for the most common EDA workloads, and with access to thousands of managed applications.
 
@@ -43,7 +43,7 @@ Once a Chamber VM is created, a Workbench Owner or Chamber Admin can administer 
 
 * [Manage users](./how-to-guide-manage-users.md)
 * [Start, stop, or restart a Chamber](./how-to-guide-start-stop-restart.md)
-* [Storage](./how-to-guide-manage-storage.md)
+* [Storage](./how-to-guide-manage-chamber-storage.md)
 * [License servers](./concept-license-service.md)
 
 ## Delete a Chamber VM
@@ -57,5 +57,5 @@ If a Chamber VM is no longer needed, it can be deleted.  VMs do not need to be s
 
 * [Manage users](./how-to-guide-manage-users.md)
 * [Start, stop, or restart a Chamber](./how-to-guide-start-stop-restart.md)
-* [Storage](./how-to-guide-manage-storage.md)
+* [Storage](./how-to-guide-manage-chamber-storage.md)
 * [License servers](./concept-license-service.md)

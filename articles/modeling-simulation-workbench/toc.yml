@@ -44,7 +44,7 @@ items:
     - name: Export data
       href: ./how-to-guide-download-data.md
     - name: Manage chamber storage
-      href: ./how-to-guide-manage-storage.md
+      href: ./how-to-guide-manage-chamber-storage.md
     - name: Set up networking
       href: ./how-to-guide-set-up-networking.md
     - name: Manage Red Hat firewalls

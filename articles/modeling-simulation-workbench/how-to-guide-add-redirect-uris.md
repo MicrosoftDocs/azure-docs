@@ -21,19 +21,3 @@ A redirect URI is the location where the Microsoft identity platform redirects a
 ## Add redirect URIs for the application in Microsoft Entra ID
 
 [!INCLUDE [add-redirect-uris](includes/add-redirect-uris.md)]
-
-## Next step
-
-TODO: Add your next step link(s)
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
-- 
