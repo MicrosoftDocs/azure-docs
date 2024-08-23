@@ -58,7 +58,7 @@ ms.custom: references_regions
 - Three multilingual voices now support styles. See the [Voice styles and roles](../../language-support.md?tabs=tts#voice-styles-and-roles) for more information.
   - en-US-SerenaMultilingualNeural: `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, and `sad`.
   - en-US-AndrewMultilingualNeural: `empathetic` and `relieved`.
-  - zh-CN-XiaoxiaoMultilingualNeural: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, `story`. 
+  - zh-CN-XiaoxiaoMultilingualNeural: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, and `story`. 
 
 ### July 2024 release
 
