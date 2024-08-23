@@ -1,5 +1,5 @@
 ---
-title: Create a Chamber in the Azure Modeling and Simulation Workbench
+title: "Create and manage Chambers: Azure Modeling and Simulation Workbench"
 description: How to create and manage a Chamber in the Azure Modeling and Simulation Workbench
 author: yousefi-msft
 ms.author: yousefi
@@ -45,7 +45,7 @@ Once a Chamber is created, a Workbench Owner or Chamber Admin can administer it.
 
 * [Manage users](./how-to-guide-manage-users.md)
 * [Manage license servers or upload licenses](./how-to-guide-licenses.md)
-* [Start, stop, or restart a Chamber](./howtoTODO)
+* [Start, stop, or restart a Chamber](./how-to-guide-start-stop-restart.md)
 * [Upload data](./how-to-guide-upload-data.md)
 * [Download data](./how-to-guide-download-data.md)
 

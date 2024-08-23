@@ -1,5 +1,5 @@
 ---
-title: Add redirect URIs for Azure Modeling and Simulation Workbench
+title: "Add redirect URIs: Azure Modeling and Simulation Workbench"
 description: Add redirect URIs for Azure Modeling and Simulation Workbench
 author: yousefi-msft
 ms.author: yousefi

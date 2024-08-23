@@ -1,5 +1,5 @@
 ---
-title: "Connectors in Azure Modeling and Simulation Workbench"
+title: "Connectors: Azure Modeling and Simulation Workbench"
 description: Overview of how the Azure Modeling and Simulation Workbench implements connectors.
 author: lynnar
 ms.author: lynnar

@@ -1,5 +1,5 @@
 ---
-title: Manage users in Azure Modeling and Simulation Workbench
+title: "Manage users: Azure Modeling and Simulation Workbench"
 description: In this how-to guide, you learn how to manage users' access to Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
@@ -20,7 +20,7 @@ This article describes how to grant or remove user access to your chamber.
 
 - To provision users in a chamber, make sure that those users exist in your company's Microsoft Entra tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra tenant.
 
-- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set in the user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of jane.doe@contoso.com must also have email alias of jane.doe@contoso.com.
+- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set in the user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of <jane.doe@contoso.com> must also have email alias of <jane.doe@contoso.com>.
 
 ## Assign user roles
 

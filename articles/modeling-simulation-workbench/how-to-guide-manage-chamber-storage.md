@@ -1,5 +1,5 @@
 ---
-title: Manage chamber storage in Azure Modeling and Simulation Workbench
+title: "Manage chamber storage: Azure Modeling and Simulation Workbench"
 description: Learn how to manage chamber storage in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
@@ -23,10 +23,6 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 [!INCLUDE [prereq-mswb-chamber](includes/prereq/prereq-mswb-chamber.md)]
 
 [!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
-
-## Sign in to the Azure portal
-
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
 ## Access storage options in a chamber
 

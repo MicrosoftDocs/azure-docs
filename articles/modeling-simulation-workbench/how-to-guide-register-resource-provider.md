@@ -1,5 +1,5 @@
 ---
-title: Register resource provider
+title: "Register resource provider: Azure Modeling and Simulation Workbench"
 description: Register the Azure Modeling and Simulation Workbench resource provider
 author: yousefi-msft
 ms.author: yousefi
@@ -63,4 +63,4 @@ TODO: Add your next step link(s)
 
 TODO: Add your next step link(s)
 
-- [Write concepts](article-concept.md)
+* [Write concepts](article-concept.md)

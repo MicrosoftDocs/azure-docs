@@ -1,5 +1,5 @@
 ---
-title: "Manage Chamber Idle Mode: Azure Modeling and Simulation Workbench"
+title: "Manage Chamber Idle mode: Azure Modeling and Simulation Workbench"
 description: Place a Chamber into Idle mode to optimize costs
 author: yousefi-msft
 ms.author: yousefi

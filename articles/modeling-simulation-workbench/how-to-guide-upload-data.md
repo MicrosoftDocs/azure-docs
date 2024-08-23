@@ -1,5 +1,5 @@
 ---
-title: Import data into Azure Modeling and Simulation Workbench
+title: "Import data: Azure Modeling and Simulation Workbench"
 description: Learn how to import data into a chamber in Azure Modeling and Simulation Workbench.
 author: becha8
 ms.author: becha

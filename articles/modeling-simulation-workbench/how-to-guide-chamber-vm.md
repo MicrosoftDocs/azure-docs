@@ -1,5 +1,5 @@
 ---
-title: Create a Chamber VM in the Azure Modeling and Simulation Workbench
+title: "Create and Manager Chamber VMs: Azure Modeling and Simulation Workbench"
 description: How to create and manage a Chamber VM in the Azure Modeling and Simulation Workbench
 author: yousefi-msft
 ms.author: yousefi

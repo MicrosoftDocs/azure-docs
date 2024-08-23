@@ -1,5 +1,5 @@
 ---
-title: Export data from Azure Modeling and Simulation Workbench
+title: "Export data: Azure Modeling and Simulation Workbench"
 description: Learn how to export data from a chamber in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar

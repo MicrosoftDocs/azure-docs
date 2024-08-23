@@ -1,5 +1,5 @@
 ---
-title: Manage Shared Storage in Azure Modeling and Simulation Workbench
+title: "Manage Shared Storage: Azure Modeling and Simulation Workbench"
 description: Learn how to manage Shared Storage in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi

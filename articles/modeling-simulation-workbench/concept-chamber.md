@@ -11,7 +11,7 @@ ms.date: 01/01/2023
 ---
 # "Chamber: Azure Modeling and Simulation Workbench"
 
-In Azure Modeling and Simulation Workbench, a Chamber is a security boundary for a group connected virtual machines (VM) (nodes), all on the same subnet, that share common users.  A Chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation.
+In Azure Modeling and Simulation Workbench, a Chamber is a security boundary for a group connected virtual machines (VM) (nodes), all on the same subnet, that share common users. A Chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation.
 
 - Chambers offer optimized infrastructure, allowing users to choose from varied VM sizes, storage options, and compute resources to constitute workloads.
 - Chambers enable a preconfigured, isolated environment for license server access and full-featured workload tools.
@@ -21,7 +21,7 @@ In Azure Modeling and Simulation Workbench, a Chamber is a security boundary for
 
 Chambers create a secure and isolated environment by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [Connector](./concept-connector.md)  exists per chamber that supports the protocols established through VPN, Azure Express Route, or allowlisted Public IP addresses.
 
-Only provisioned users can access the chamber environment. User provisioning is done at the Chamber level using [Identity Access Management](/azure/role-based-access-control/role-assignments-portal).  This enables cross-team and/or cross-organization collaboration on the same projects through the Chambers. Multifactor authentication (MFA) enabled through Microsoft Entra ID is recommended to enhance your organization's security.
+Only provisioned users can access the chamber environment. User provisioning is done at the Chamber level using [Identity Access Management](/azure/role-based-access-control/role-assignments-portal). This enables cross-team and/or cross-organization collaboration on the same projects through the Chambers. Multifactor authentication (MFA) enabled through Microsoft Entra ID is recommended to enhance your organization's security.
 
 ## Chamber storage
 
