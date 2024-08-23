@@ -3,7 +3,7 @@ title: Managed API linting and analysis - Azure API Center
 description: Enable managed linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/22/2024
+ms.date: 08/23/2024
 ms.author: danlep
 author: dlepow
 ms.custom: 
@@ -37,18 +37,18 @@ In this scenario:
 
 * The following Visual Studio Code extensions:
     * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
-    * [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
 
-    > [!NOTE]
-    > Enable managed API analysis using the API Center extension's pre-release version. When installing the extension, choose the pre-release version. Switch between release and pre-release versions any time via the extension's **Manage** button in the Extensions view.
+        > [!IMPORTANT]
+        > Enable managed API analysis using the API Center extension's pre-release version. When installing the extension, choose the pre-release version. Switch between release and pre-release versions any time via the extension's **Manage** button in the Extensions view.
+    * [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
     
 ## Enable API analysis using Visual Studio Code
 
 To enable API analysis using the default linting ruleset:
 
-1. In Visual Studio Code, open a folder that you will use to manage rulesets for Azure API Center.
+1. In Visual Studio Code, open a folder that you'll use to manage rulesets for Azure API Center.
 1. Select the Azure API Center icon from the Activity Bar.
-1. In the Explorer pane, expand the API center resource in which to enable API analysis.
+1. In the API Center pane, expand the API center resource in which to enable API analysis.
 1. Right-click **Rules** and select **Enable API Analysis**.
 
     :::image type="content" source="media/enable-managed-api-analysis-linting/enable-analysis-visual-studio-code.png" alt-text="Screenshot of enabling API linting and analysis in Visual Studio Code.":::
@@ -62,34 +62,21 @@ With analysis enabled, the linting engine analyzes API definitions in your API c
 
 ## View API analysis reports
 
-View the analysis reports for your API definitions in the Azure portal. After an API definition is analyzed, the report lists errors, warnings, and information based on the configured API style guide. 
+View an analysis summary and the analysis reports for your API definitions in the Azure portal. After API definitions are analyzed, the reports list errors, warnings, and information based on the configured API style guide. 
 
-In the portal, you can also view a summary of analysis reports for all API definitions in your API center.
-
-### Analysis report for an API definition
-
-To view the analysis report for an API definition in your API center:
-
-1. In the portal, navigate to an API version in your API center where you have added or updated an API definition.
-1. In the left menu, under **Details**, select **Definitions**.
-1. Select the API definition.
-1. Select the **Analysis** tab.
-    :::image type="content" source="media/enable-api-analysis-linting/analyze-api-definition.png" alt-text="Screenshot of Analysis tab for API definition in the portal." :::
-
-The **API Analysis Report** opens, and it displays the API definition and errors, warnings, and information based on the configured API style guide. The following screenshot shows an example of an API analysis report.
-
-:::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-report.png":::
-
-### API analysis summary
-
-To view a summary of analysis reports for all API definitions in your API center:
+To view an analysis summary in your API center:
 
 1. In the portal, navigate to your API center.
 1. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
 
     :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-summary.png":::
 
-    Optionally select the API Analysis Report icon to view the detailed analysis report for an API definition.
+1. Optionally select the API Analysis Report icon for an API definition. The definition's API analysis report appears, as shown in the following screenshot.
+
+    :::image type="content" source="media/enable-api-analysis-linting/api-analysis-report.png" alt-text="Screenshot of an API analysis report in the portal." lightbox="media/enable-api-analysis-linting/api-analysis-report.png":::
+
+    > [!TIP]
+    > You can also view the API analysis report by selecting **Analysis** from the API definition's menu bar.
 
 ## Customize ruleset
 
@@ -112,7 +99,7 @@ Before deploying the custom ruleset to your API center, validate it locally. The
 
     This step makes the custom ruleset the active API style guide for linting.
 
-Now, when you an OpenAPI-based API definition file, a local linting operation is automatically triggered in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
+Now, when you open an OpenAPI-based API definition file, a local linting operation is automatically triggered in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
 
 :::image type="content" source="media/enable-managed-api-analysis-linting/validate-local-linting.png" alt-text="Screenshot of linting an API definition in Visual Studio Code." lightbox="media/enable-managed-api-analysis-linting/validate-local-linting.png":::
 
@@ -128,7 +115,7 @@ To deploy the custom ruleset to your API center:
 
 A message notifies you after the rules are successfully deployed to your API center. The linting engine uses the updated ruleset to analyze API definitions.
 
-View the API analysis reports in the portal to see the results of linting with the updated ruleset.
+To see the results of linting with the updated ruleset, view the API analysis reports in the portal. 
 
 ## Related content
 
