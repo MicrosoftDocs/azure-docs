@@ -68,37 +68,40 @@ sections:
           
       - question: How much does App Configuration cost?
         answer: |
-          There are two pricing tiers:
+          There are three pricing tiers:
           
           - Free tier
           - Standard tier
+          - Premium tier
           
-          If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
+          If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the higher tier or remain on the Free tier.
           
-          You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then import configuration data into that store.
+          You can't downgrade a store from the higher tier to the lower tier, for example, from Premium tier to Standard tier. You can create a new store in the lower tier and then import configuration data into that store.
           
       - question: Which App Configuration tier should I use?
         answer: |
-          Both App Configuration tiers offer core functionality, including config settings, feature flags, Key Vault references, configuration snapshots, basic management operations, metrics, and logs.
+          All App Configuration tiers offer core functionality, including config settings, feature flags, Key Vault references, configuration snapshots, basic management operations, metrics, and logs.
           
           The following are considerations for choosing a tier.
           
-          - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store per region in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
-          - **Storage per resource**: In the free tier, each configuration store is limited to 10 MB of regular storage and 10 MB of snapshot storage. In the standard tier, each configuration store can use up to 1 GB of regular storage and an additional 1 GB of snapshot storage.
-          - **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
+          - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store per region in the Free tier. Subscriptions can have an unlimited number of configuration stores in Standard tier and Premium tier.
+          - **Storage per resource**: In the free tier, each configuration store is limited to 10 MB of regular storage and 10 MB of snapshot storage. In the Standard tier, each configuration store can use up to 1 GB of regular storage and an additional 1 GB of snapshot storage. In the Premium tier, each configuration store can use up to 4 GB of regular storage and an additional 4 GB of snapshot storage.
+          - **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the Standard tier and premium tier, this history is stored for 30 days.
           - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
           
               Standard tier stores are limited to 30,000 requests per hour. When the hourly quota is exhausted, requests may return HTTP status code 429 indicating too many requests until end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
+
+              Premium tier stores have no hourly quota on read or write request.
           
-          - **Service level agreement**: The standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The free tier doesn't have an SLA.
-          - **Features**: Both tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard tier offers more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
-          - **Cost**: Standard tier stores have a daily usage charge. The first 200,000 requests each day are included in the daily charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
+          - **Service level agreement**: The premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled. The standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The free tier doesn't have an SLA.
+          - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard tier and premium tier offers more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
+          - **Cost**: Premium tier stores also have a daily usage charge. A replica is included. The first 800,000 requests of store and additional 800,000 requests of replica each day are included in the daily charge. There's also an overage charge for requests past the daily allocation. Standard tier stores also have a daily usage charge. The first 200,000 requests each day are included in the daily charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
           
-      - question: Can I upgrade a store from the Free tier to the Standard tier? Can I downgrade a store from the Standard tier to the Free tier?
+      - question: Can I upgrade a store from the lower tier to the higher tier? Can I downgrade a store from the higher tier to the lower tier?
         answer: |
-          You can upgrade from the Free tier to the Standard tier at any time.
+          You can upgrade from the lower tier to the higher tier at any time, for example, from Standard tier to Premium tier.
           
-          You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+          You can't downgrade a store from the higher tier to the lower tier, for example, from Premium tier to Standard tier. You can create a new store in the lower tier and then [import configuration data into that store](howto-import-export-data.md).
           
       - question: Where does data stored in App Configuration reside? 
         answer: |
@@ -114,7 +117,7 @@ sections:
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
-          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour.
+          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour. Configuration stores in the Premium tier have no hourly quota on read or write request.
           
           When a store reaches its limit in the standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
           
@@ -148,11 +151,11 @@ sections:
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
-          All App Configuration stores in the standard tier have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a standard tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse. Use the purge function or set a shorter retention period if you often need to recreate a store with the same name. Workflows that require recreating a store with the same name should allow for one hour between purging a configuration store and performing the subsequent create. This recommendation is in place because once a purge is requested the actual cleanup of configuration store resources is performed asynchronously, requiring a bit of extra time to finalize. To avoid any need to wait, workflows that create ephemeral configuration stores are recommended to use unique names.
+          All App Configuration stores in Premium tier and Standard tier have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a Premium tier or Standard tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse. Use the purge function or set a shorter retention period if you often need to recreate a store with the same name. Workflows that require recreating a store with the same name should allow for one hour between purging a configuration store and performing the subsequent create. This recommendation is in place because once a purge is requested the actual cleanup of configuration store resources is performed asynchronously, requiring a bit of extra time to finalize. To avoid any need to wait, workflows that create ephemeral configuration stores are recommended to use unique names.
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
-          All App Configuration stores in the standard tier support the [soft-delete](concept-soft-delete.md) feature, which can't be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
+          All App Configuration stores in Premium tier and Standard tier support the [soft-delete](concept-soft-delete.md) feature, which can't be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
 
       - question: Can I create and update feature flags or Key Vault references programmatically?
         answer: |
