@@ -27,7 +27,7 @@ Use the following resources to get started with .NET.
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [.NET with Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)<br>- [.NET Core with Azure SQL Database](./tutorial-dotnetcore-sqldb-app.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=dotnet&pivots=container-linux-vscode)<br>- [Windows - Visual Studio](./quickstart-custom-container.md?tabs=dotnet&pivots=container-windows-vs)|
-| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 ::: zone pivot="stack-python"
@@ -44,7 +44,7 @@ Use the following resources to get started with Python.
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [PostgreSQL - CLI](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=azure-developer-cli)<br>- [PostgreSQL - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=azure-portal)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
-| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 ::: zone pivot="stack-nodejs"
@@ -56,12 +56,12 @@ Use the following resources to get started with Node.js.
 | Action | Resources |
 | --- | --- |
 | **Create your first Node.js app** | Use one of the following tools:<br><br>- [Visual Studio Code](./quickstart-nodejs.md?tabs=linux&pivots=development-environment-vscode)<br>- [CLI](./quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli)<br>- [Azure portal](./quickstart-nodejs.md?tabs=linux&pivots=development-environment-azure-portal) |
-| **Deploy your app** | - [Configure Node.js](./configure-language-nodejs.md?pivots=platform-linux)<br>- [GitHub actions](./deploy-github-actions.md) |
+| **Deploy your app** | - [Configure Node.js](./configure-language-nodejs.md?pivots=platform-linux)<br>- [GitHub Actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MongoDB](./tutorial-nodejs-mongodb-app.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=node&pivots=container-linux-vscode)|
-| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 ::: zone pivot="stack-java"
@@ -73,12 +73,12 @@ Use the following resources to get started with Java.
 | Action | Resources |
 | --- | --- |
 | **Create your first Java app** | Use one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-javase)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-tomcat)<br>- [Maven deploy to a JBoss server](./quickstart-java.md?pivots=java-jboss) |
-| **Deploy your app** | - [With Maven](configure-language-java-deploy-run.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java-deploy-run.md?pivots=platform-linux#gradle)<br>- [Deploy War](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With popular IDEs (Visual Studio Code, IntelliJ, and Eclipse)](configure-language-java-deploy-run.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
+| **Deploy your app** | - [With Maven](configure-language-java-deploy-run.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java-deploy-run.md?pivots=platform-linux#gradle)<br>- [With popular IDEs (Visual Studio Code, IntelliJ, and Eclipse)](configure-language-java-deploy-run.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** |- [Java Spring with Azure Cosmos DB](./tutorial-java-spring-cosmosdb.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
-| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 ::: zone pivot="stack-php"
@@ -95,7 +95,7 @@ Use the following resources to get started with PHP.
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
 | **Custom containers** |- [Multi-container](./quickstart-multi-container.md)<br>- [Sidecar containers](tutorial-custom-container-sidecar.md)|
-| **Review best practices** | - [Scale your app]()<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 
