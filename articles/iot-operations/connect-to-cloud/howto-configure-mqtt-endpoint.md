@@ -1,6 +1,6 @@
 ---
 title: Configure MQTT dataflow endpoints in Azure IoT Operations
-description: Configure MQTT dataflow endpoints to create connection points for dataflow sources and destinations.
+description: Learn how to configure dataflow endpoints for MQTT sources and destinations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
@@ -21,7 +21,11 @@ MQTT endpoints are used for MQTT sources and destinations. You can configure the
 - **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md)
 
-## Azure IoT Operations built-in MQTT broker
+## How to configure a dataflow endpoint for MQTT brokers
+
+To create a dataflow endpoint for MQTT brokers, you can configure the endpoint, authentication, TLS, and other settings. The endpoint is used as a connection point for dataflow sources and destinations.
+
+### Azure IoT Operations built-in MQTT broker
 
 Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows.
 
@@ -36,7 +40,9 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
-    {}
+    authentication:
+      method: ServiceAccountToken
+      serviceAccountTokenSettings: {}
 ```
 
 This creates a connection to the default MQTT broker with the following settings:
@@ -49,9 +55,7 @@ This creates a connection to the default MQTT broker with the following settings
 > [!IMPORTANT]
 > If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
 
-Once the endpoint is configured, you can use it in a dataflow to connect to the Azure IoT Operations MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
-
-## Azure Event Grid
+### Azure Event Grid
 
 [Azure Event Grid provides a fully managed MQTT broker](../../event-grid/mqtt-overview.md) that works with Azure IoT Operations dataflows.
 
@@ -85,7 +89,7 @@ spec:
 
 Now that you've configured the endpoint, you can use it in a dataflow to connect to the Event Grid MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
 
-### Using X.509 certificate authentication with Event Grid
+#### Use X.509 certificate authentication with Event Grid
 
 While it's recommended to use managed identity for authentication, you can also use X.509 certificate authentication with the Event Grid MQTT broker.
 
@@ -98,11 +102,11 @@ When you use X.509 authentication with an Event Grid MQTT broker, go to the Even
 
 The alternative client authentication and maximum client sessions options allow dataflows to use client certificate subject name for authentication instead of `MQTT CONNECT Username`. This capability is important so that dataflows can spawn multiple instances and still be able to connect. To learn more, see [Event Grid MQTT client certificate authentication](../../event-grid/mqtt-client-certificate-authentication.md) and [Multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
-### Event Grid shared subscription limitation
+#### Event Grid shared subscription limitation
 
 Azure Event Grid MQTT broker doesn't support shared subscriptions, which means that you can't set the `instanceCount` to more than 1 in the dataflow profile. If you set `instanceCount` to more than 1, the dataflow will fail to start.
 
-## Other MQTT brokers
+### Other MQTT brokers
 
 For other MQTT brokers, you can configure the endpoint, TLS, authentication, and other settings as needed.
 
@@ -118,13 +122,19 @@ spec:
       trustedCaCertificateConfigMapRef: <your CA certificate config map>
 ```
 
+### Use the endpoint in a dataflow source or destination
+
+Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+
+To customize the MQTT endpoint settings, continue reading.
+
 ## Available authentication methods
 
 Under `mqttSettings.authentication`, you can configure the authentication method for the MQTT broker. 
 
 ### X.509 certificate
 
-Many MQTT brokers, like Event Grid, support X.509 authentication (see [important note](#using-x509-certificate-authentication-with-event-grid)). Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
+Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
 To use X.509 certificate authentication, you need to create a secret with the certificate and private key. The secret must be in the same namespace as the Kafka dataflow resource. use Kubernetes TLS secret containing the public certificate and private key. For example:
 
@@ -148,7 +158,7 @@ mqttSettings:
 
 To use system-assigned managed identity for authentication, you don't need to create a secret. The system-assigned managed identity is used to authenticate with the MQTT broker. 
 
-Before you configure the endpoint, make sure that the managed identity has the necessary permissions to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, assign the managed identity to the Event Grid namespace or topic space with [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
+Before you configure the endpoint, make sure that the Azure IoT Operations managed identity has the necessary permissions to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, assign the managed identity to the Event Grid namespace or topic space with [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
 
 Then, configure the endpoint with system-assigned managed identity settings. In most cases when using with Event Grid, you can leave the settings empty as shown below. This sets the managed identity audience to the Event Grid common audience `https://eventgrid.azure.net`.
 

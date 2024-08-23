@@ -1,6 +1,6 @@
 ---
 title: Configure Kafka dataflow endpoints in Azure IoT Operations
-description: Configure Kafka dataflow endpoints to create connection points for dataflow sources and destinations.
+description: Learn how to configure dataflow endpoints for Kafka in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
@@ -21,7 +21,11 @@ Kafka endpoints are used in dataflows to setup bi-directional communication betw
 - **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md)
 
-## Azure Event Hubs
+## How to create a Kafka dataflow endpoint
+
+To create a dataflow endpoint for Kafka, you need to specify the Kafka broker host, authentication method, TLS settings, and other settings. You can use the endpoint as a source or destination in a dataflow. When used with Azure Event Hubs, you can use managed identity for authentication which eliminates the need to manage secrets.
+
+### Azure Event Hubs
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
@@ -55,7 +59,7 @@ To configure an Azure Event Hubs, we recommend that you use managed identity for
 
 The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
-### Use connection string for authentication to Event Hubs
+#### Use connection string for authentication to Event Hubs
 
 To use connection string for authentication to Event Hubs, update the `authentication` section of the Kafka settings to use the `Sasl` method and configure the `saslSettings` with the `saslType` as `Plain` and the `secretRef` with the name of the secret that contains the connection string.
 
@@ -81,7 +85,7 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs (thus Kafka topics).
 
-### Limitations
+#### Limitations
 
 Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). The following compression types are supported:
 
@@ -89,9 +93,9 @@ Azure Event Hubs [doesn't support all the compression types that Kafka supports]
 
 Using other compression types might result in errors.
 
-## Other Kafka brokers
+### Other Kafka brokers
 
-To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed.
+To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed. For example:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -103,11 +107,20 @@ spec:
   kafkaSettings:
     host: example.kafka.com:9093
     authentication:
-      ...
+      method: Sasl
+      saslSettings:
+        saslType: ScramSha256
+        secretRef: <your token secret name>
     tls:
       mode: Enabled
     consumerGroupId: mqConnector
 ```
+
+### Use the endpoint in a dataflow source or destination
+
+Now that you have created the endpoint, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+
+To customize the Kafka endpoint, you can configure additional settings such as TLS, authentication, and Kafka messaging settings. The following sections describe these settings in detail.
 
 ## Available authentication methods
 
