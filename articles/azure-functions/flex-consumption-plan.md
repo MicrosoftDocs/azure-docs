@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 07/26/2024
+ms.date: 08/22/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -129,7 +129,7 @@ In Flex Consumption, many of the standard application settings and site configur
 Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
 + **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
-+ **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
++ **Triggers**: All triggers are fully supported except for Kafka and Azure SQL triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**:
   + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
   + There is a temporary limitation where App Service quota limits for creating new apps are also being applied to Flex Consumption apps. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." please raise a support ticket so that your app creation can be unblocked.
