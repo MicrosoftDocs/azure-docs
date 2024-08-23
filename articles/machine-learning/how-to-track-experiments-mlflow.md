@@ -388,6 +388,7 @@ The MLflow SDK exposes several methods to retrieve runs, including options to co
 | Filtering runs by metrics with special characters (escaped) | **&check;** |  |
 | Filtering runs by parameters | **&check;** | **&check;** |
 | Filtering runs by tags | **&check;** | **&check;** |
+| Filtering runs by datasets | **&check;** |  |
 | Filtering runs with numeric comparators (metrics) including `=`, `!=`, `>`, `>=`, `<`, and `<=`  | **&check;** | **&check;** |
 | Filtering runs with string comparators (params, tags, and attributes): `=` and `!=` | **&check;** | **&check;**<sup>2</sup> |
 | Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** | **&check;** |
