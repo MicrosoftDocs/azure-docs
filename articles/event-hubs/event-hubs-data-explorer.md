@@ -22,11 +22,11 @@ Operations run on an Azure Event Hubs namespace are of two kinds.
 >  * We advice against using the Event Hubs Data Explorer for larger messages, as this may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
 >
 
-# Prerequisites
+## Prerequisites
 
 To use the Event Hubs Data Explorer tool, [create an Azure Event Hubs namespace and an event hub](event-hubs-create.md).
 
-# Use the Event Hubs Data Explorer
+## Use the Event Hubs Data Explorer
 
 To use the Event Hubs data explorer, navigate to the Event Hubs namespace on which you want to perform the data operations.
 
@@ -34,7 +34,7 @@ Either navigate to the `Data Explorer` directly where you can pick the event hub
 
 :::image type="content" source="./media/event-hubs-data-explorer/left-pane-nav.png" alt-text="Screenshot showing the left pane nav with 'Data Explorer' selected.":::
 
-## Send Events
+### Send Events
 
 You can send either custom payloads, or precanned dataset to the selected event hub using the `Send events` experience.
 
@@ -43,7 +43,7 @@ To do so, select the `send events` button, which enables the right pane.
 :::image type="content" source="./media/event-hubs-data-explorer/select-send-events.png" alt-text="Screenshot showing the data explorer pane with 'Send events' selected.":::
 
 
-### Sending custom payload
+#### Sending custom payload
 
 To send a custom payload - 
 1. **Select Dataset** - Pick `Custom payload`.
@@ -58,7 +58,7 @@ Once the payload details are defined, select **Send** to send the event payload 
 :::image type="content" source="./media/event-hubs-data-explorer/send-event.png" alt-text="Screenshot showing the send event experience for custom payload.":::
 
 
-### Sending precanned dataset
+#### Sending precanned dataset
 
 To send event payloads from a precanned dataset -
 1. **Select Dataset** - Pick an option from the **Pre canned datasets**, for example, Yellow taxi, Weather data, and others.
@@ -71,7 +71,7 @@ Once the payload details are defined, select **Send** to send the event payload 
 :::image type="content" source="./media/event-hubs-data-explorer/send-pre-canned-payload.png" alt-text="Screenshot showing the send event experience for precanned payload.":::
 
 
-## View Events
+### View Events
 
 Event Hubs data explorer enables viewing the events to inspect the data that fit the criteria.
 
@@ -92,7 +92,7 @@ Once the above options are set, select **View events** to pull the events and re
 
 Once the events are loaded, you can select **View next events** to pull events using the same query again, or **Clear all** to refresh the grid.
 
-## Download event payload
+### Download event payload
 
 When viewing the events on a given event hub, the event payload can be downloaded for further review.
 
@@ -101,7 +101,7 @@ To download the event payload, select the specific event and select the **downlo
 :::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the grid of events with selected event and highlighted download event button.":::
 
 
-# Next steps
+## Next steps
 
   * Learn more about [Event Hubs](event-hubs-about.md).
   * Check out [Event Hubs features and terminology](event-hubs-features.md)
