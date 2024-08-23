@@ -53,7 +53,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 > [!NOTE]
-> Effective Image version 2407260448, customers using portal for log analytics will have default [Azure Monitor Agent](./azure-monitor-agent.md) experience. In case you wish to switch to Azure Monitor experience (preview), you can pin your clusters to old images by creating a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Effective Image number 2407260448, customers using portal for log analytics will have default [Azure Monitor Agent](./azure-monitor-agent.md) experience. In case you wish to switch to Azure Monitor experience (preview), you can pin your clusters to old images by creating a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
