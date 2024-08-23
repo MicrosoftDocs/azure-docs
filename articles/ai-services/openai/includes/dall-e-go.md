@@ -61,6 +61,7 @@ import (
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 )
 
@@ -75,11 +76,7 @@ func main() {
 		return
 	}
 
-	keyCredential, err := azopenai.NewKeyCredential(azureOpenAIKey)
-
-	if err != nil {
-		// handle error
-	}
+	keyCredential := azcore.NewKeyCredential(azureOpenAIKey)
 
 	client, err := azopenai.NewClientWithKeyCredential(azureOpenAIEndpoint, keyCredential, nil)
 
@@ -87,7 +84,7 @@ func main() {
 		// handle error
 	}
 
-	resp, err := client.CreateImage(context.TODO(), azopenai.ImageGenerationOptions{
+	resp, err := client.GetImageGenerations(context.TODO(), azopenai.ImageGenerationOptions{
 		Prompt:         to.Ptr("a painting of a cat in the style of Dali"),
 		ResponseFormat: to.Ptr(azopenai.ImageGenerationResponseFormatURL),
 	}, nil)
