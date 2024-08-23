@@ -249,6 +249,11 @@ This completes the final step in the quickstart flow for using Azure IoT Operati
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster where you deployed Azure IoT Operations. In Azure, remove the Azure resource group that contains the cluster and your event hub. If you used Codespaces for these quickstarts, delete your Codespace from GitHub.
+If you're continuing on to the next quickstart, keep all of your resources.
+
+[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+
+> [!NOTE]
+> The resource group contains the Event Hubs namespace you created in this quickstart.
 
 You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard.

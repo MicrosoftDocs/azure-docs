@@ -25,9 +25,11 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 ## Prerequisites
 
-Complete [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) before you begin this quickstart.
+In instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
 To sign in to the operations experience, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
+
+Unless otherwise noted, you can run the console commands in this quickstart at either Bash or PowerShell command prompts.
 
 ## What problem will we solve?
 
@@ -85,7 +87,7 @@ To add an asset endpoint:
 
 ## Configure the simulator
 
-These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or pre-production environments:
+These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or preproduction environments:
 
 1. To configure the asset endpoint for the quickstart scenario, run the following command:
 
@@ -94,7 +96,7 @@ These quickstarts use the **OPC PLC simulator** to generate sample data. To enab
     ```
 
     > [!CAUTION]
-    > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+    > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
     To learn more, see [Deploy the OPC PLC simulator](../discover-manage-assets/howto-configure-opc-plc-simulator.md) section.
 
@@ -118,7 +120,7 @@ After you define an asset, a connector for OPC UA pod discovers it. The pod uses
 kubectl get pods -n azure-iot-operations
 ```
 
-When the OPC PLC simulator is running, dataflows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
+When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
 
 ## Manage your assets
 
@@ -232,7 +234,9 @@ In this quickstart, you added an asset endpoint and then defined an asset and ta
 
 ## Clean up resources
 
-If you won't use this deployment further, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contains the cluster.
+If you're continuing on to the next quickstart, keep all of your resources.
+
+[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
 
 ## Next step
 

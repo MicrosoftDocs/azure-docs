@@ -12,6 +12,7 @@ ms.author: eur
 |en-GB-RyanNeural|`chat`, `cheerful`|Not supported|
 |en-GB-SoniaNeural|`cheerful`, `sad`|Not supported|
 |en-IN-NeerjaNeural<sup>1</sup>|`cheerful`, `empathetic`, `newscast`|Not supported|
+|en-US-AndrewMultilingualNeural| `empathetic`, `relieved`|Not supported|
 |en-US-AriaNeural|`angry`, `chat`, `cheerful`, `customerservice`, `empathetic`, `excited`, `friendly`, `hopeful`, `narration-professional`, `newscast-casual`, `newscast-formal`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-DavisNeural|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
@@ -22,6 +23,7 @@ ms.author: eur
 |en-US-LunaNeural<sup>1</sup>|`conversation`|Not supported|
 |en-US-NancyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
+|en-US-SerenaMultilingualNeural<sup>1</sup>| `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, `sad`  |Not supported|
 |en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |es-MX-JorgeNeural|`chat`, `cheerful`|Not supported|
 |fr-FR-DeniseNeural|`cheerful`, `sad`|Not supported|

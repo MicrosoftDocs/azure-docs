@@ -28,7 +28,13 @@ items:
     - name: Data pipeline
       href: ./concept-data-pipeline.md
     - name: License service
-      href: ./concept-license-service.md      
+      href: ./concept-license-service.md
+    - name: Shared storage
+      href: ./shared-storage.md
+    - name: Business continuity
+      items:
+        - name: Disaster recovery
+          href: ./disaster-recovery.md      
 - name: How-to guides
   items: 
     - name: Manage users

@@ -35,6 +35,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
+|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Has Workaround|
 
 
 
@@ -223,7 +224,20 @@ Suggested workarounds are:
 - Switch to Managed Identity storage authorization as described in the [storage access control](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity).
 - Decrease number of security groups (having 90 or fewer security groups results with a token that is of compatible length).
 - Increase number of security groups over 200 (as that changes how token is constructed, it will contain an MS Graph API URI instead of a full list of groups). It could be achieved by adding dummy/artificial groups by following [managed groups](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity), after you would need to add users to newly created groups.
-  
+
+## Azure Synapse Analytics Apache Spark pool active known issues summary
+
+The following are known issues with the Synapse Spark.
+
+### Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime
+
+The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. If you encountered a similar error, please engage Microsoft Support Team for assistance and to provide a temporary workaround.
+
+
 ## Recently closed known issues
 
 |Synapse Component|Issue|Status|Date Resolved|

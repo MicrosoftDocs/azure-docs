@@ -91,7 +91,7 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 ```
 
 > [!CAUTION]
-> Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
 You can patch all your asset endpoints with the following command:
 
@@ -139,9 +139,9 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
           audience: https://<NAMESPACE>.servicebus.windows.net
     ```
 
-- Currently, you can't track a value by using the last known value flag, `?$last`, in your dataflows configuration. Until a bug fix is in place, the workaround to is to deploy Azure IoT Operations version 0.5.1 and use data processor.
+- Currently, you can't track a value by using the last known value flag, `?$last`, in your dataflows configuration. Until a bug fix is in place, the workaround is to deploy Azure IoT Operations version 0.5.1 and use data processor.
 
-- Dataflows profile scaling iwth `instanceCount` is limited to `1` for Azure IoT Operations version 0.6.x.
+- Dataflows profile scaling with `instanceCount` is limited to `1` for Azure IoT Operations version 0.6.x.
 
 - Configuration using Azure Resource Manager isn't supported. Instead, configure dataflows using `kubectl` and YAML files as documented.
 
