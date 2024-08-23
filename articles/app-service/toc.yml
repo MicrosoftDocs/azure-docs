@@ -192,6 +192,8 @@
                   href: tutorial-connect-msi-key-vault-javascript.md    
                 - name: Use PHP
                   href: tutorial-connect-msi-key-vault-php.md                            
+                - name: Use Python
+                  href: tutorial-connect-msi-key-vault-python.md                         
     - name: Connect by using app identity
       items:
         - name: Managed identity overview

@@ -198,7 +198,7 @@ if (businessTitleFacet != "")
   filter = "business_title eq '" + businessTitleFacet + "'";
 ```
 
-Here's another example from the hotels sample. The following code snippet adds `categoyrFacet` to the filter if a user selects a value from the category facet.
+Here's another example from the hotels sample. The following code snippet adds `categoryFacet` to the filter if a user selects a value from the category facet.
 
 ```csharp
 if (!String.IsNullOrEmpty(categoryFacet))
