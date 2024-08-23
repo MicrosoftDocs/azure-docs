@@ -48,17 +48,17 @@ ms.custom: references_regions
   | it-IT  | Italian (Italy)         | Male   | it-IT-GiuseppeMultilingualNeural |
   | ko-KR  | Korean (Korea)          | Male   | ko-KR-HyunsuMultilingualNeural   |
 
-- Enhance the following current multilingual voices with better quality and additional features.
+- Enhance the following current multilingual voices with better quality.
 
-  | Locale | Language  | Gender | Voice name     | Note   |
-  |--------|--------|--------|------------|----------------|
-  | zh-CN  | Chinese (Mandarin, Simplified) | Female | zh-CN-XiaoxiaoMultilingualNeural | Support styles: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, `story`. |
-  | en-US  | English (United States)    | Male   | en-US-AndrewMultilingualNeural | Overall quality update  |
-  | en-US  | English (United States)    | Female | en-US-AvaMultilingualNeural    | Overall quality update  |
+  | Locale | Language  | Gender | Voice name| 
+  |--------|--------|--------|------------|
+  | en-US  | English (United States)    | Male   | en-US-AndrewMultilingualNeural |
+  | en-US  | English (United States)    | Female | en-US-AvaMultilingualNeural    | 
 
-- Two en-US multilingual voices now support styles. See the [Voice styles and roles](../../language-support.md?tabs=tts#voice-styles-and-roles) for more information.
+- Three multilingual voices now support styles. See the [Voice styles and roles](../../language-support.md?tabs=tts#voice-styles-and-roles) for more information.
   - en-US-SerenaMultilingualNeural: `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, and `sad`.
   - en-US-AndrewMultilingualNeural: `empathetic` and `relieved`.
+  - zh-CN-XiaoxiaoMultilingualNeural: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, `story`. 
 
 ### July 2024 release
 
