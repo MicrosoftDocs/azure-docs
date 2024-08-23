@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: build-2023, build-2023-dataai
 ms.topic: overview
-ms.date: 02/20/2024
+ms.date: 08/21/2024
 ms.author: pafarley
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 ---
@@ -42,7 +42,7 @@ For a more structured approach, follow a Training module for Image Analysis.
 
 ## Analyze Image
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in this list are provided by the Analyze Image API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in this table are provided by the Analyze Image API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
 | Name | Description | Concept page |
 |---|---|---|
@@ -62,7 +62,7 @@ You can analyze images to provide insights about their visual features and chara
 |**Moderate content in images** (v3.2 only) |You can use Azure AI Vision to detect adult content in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.|[Detect adult content](concept-detecting-adult-content.md)|
 
 > [!TIP]
-> You can use the Read text and Object detection features of Image Analysis through the [Azure OpenAI](/azure/ai-services/openai/overview) service. The **GPT-4 Turbo with Vision** model lets you chat with an AI assistant that can analyze the images you share, and the Vision Enhancement option uses Image Analysis to give the AI assistance more details (readable text and object locations) about the image. For more information, see the [GPT-4 Turbo with Vision quickstart](/azure/ai-services/openai/gpt-v-quickstart).
+> You can leverage the Read text and Object detection features of Image Analysis through the [Azure OpenAI](/azure/ai-services/openai/overview) service. The **GPT-4 Turbo with Vision** model lets you chat with an AI assistant that can analyze the images you share, and the Vision Enhancement option uses Image Analysis to give the AI assistant more details about the image (readable text and object locations). For more information, see the [GPT-4 Turbo with Vision quickstart](/azure/ai-services/openai/gpt-v-quickstart).
 
 ## Product Recognition (v4.0 preview only)
 
@@ -148,7 +148,7 @@ As with all of the Azure AI services, developers using the Azure AI Vision servi
 
 ## Next steps
 
-Get started with Image Analysis by following the quickstart guide in your preferred development language:
+Get started with Image Analysis by following the quickstart guide in your preferred development language and API version:
 
 - [Quickstart (v4.0): Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md)
 - [Quickstart (v3.2): Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
