@@ -29,7 +29,7 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 Add the following `import` statements:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_imports":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_Imports":::
 
 #### Authorization
 

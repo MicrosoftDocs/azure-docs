@@ -29,7 +29,7 @@ This article shows how to delete containers with the [Azure Storage client libra
 
 Add the following `import` statements:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerDelete.java" id="Snippet_imports":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerDelete.java" id="Snippet_Imports":::
 
 #### Authorization
 
