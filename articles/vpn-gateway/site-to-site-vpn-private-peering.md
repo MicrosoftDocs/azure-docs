@@ -25,9 +25,9 @@ This feature is only available for standard-IP based gateways.
 
 To complete this configuration, verify that you meet the following prerequisites:
 
-* You have a functioning ExpressRoute circuit that is linked to the VNet where the VPN gateway is (or will be) created.
+* You have a functioning ExpressRoute circuit that is linked to the virtual network where the VPN gateway is (or will be) created.
 
-* You can reach resources over RFC1918 (private) IP in the VNet over the ExpressRoute circuit.
+* You can reach resources over RFC1918 (private) IP in the virtual network over the ExpressRoute circuit.
 
 ## <a name="routing"></a>Routing
 
@@ -72,10 +72,9 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 1. Enable Private IPs on the gateway. Select **Configuration**, then set **Gateway Private IPs** to **Enabled**. Select **Save** to save your changes.
 1. On the **Overview** page, select **See More** to view the private IP address. Write down this information to use later in the configuration steps.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Overview page" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
-1. To enable **Use Azure Private IP Address** on the connection, select  **Configuration**. Set **Use Azure Private IP Address** to **Enabled**, then select **Save**.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/see-more.png" alt-text="Screenshot of the Overview page with See More selected." lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+1. To enable **Use Azure Private IP Address** on the connection, go to the **Configuration** page. Set **Use Azure Private IP Address** to **Enabled**, then select **Save**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs - Enabled":::
 1. Use the private IP that you wrote down in step 3 as the remote IP on your on-premises firewall to establish the Site-to-Site tunnel over the ExpressRoute private peering.
 
    > [!NOTE]
