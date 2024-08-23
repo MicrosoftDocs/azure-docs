@@ -5,7 +5,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
-ms.date: 8/31/2023
+ms.date: 8/26/2024
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
@@ -99,7 +99,7 @@ Use the following resources to get started with PHP.
 
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn about App Service](./overview.md)
