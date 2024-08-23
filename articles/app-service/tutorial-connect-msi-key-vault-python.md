@@ -4,7 +4,7 @@ description: Learn how to secure connectivity to back-end Azure services that do
 ms.devlang: python
 # ms.devlang: python, azurecli
 ms.topic: tutorial
-ms.date: 08/05/2024
+ms.date: 08/23/2024
 author: cephalin
 ms.author: cephalin
 
@@ -13,7 +13,6 @@ ms.custom: devx-track-azurecli, devx-track-python, AppServiceConnectivity
 ---
 
 # Tutorial: Secure Cognitive Service connection from Python App Service using Key Vault
-
 
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-connect-msi-key-vault/introduction.md)]
 
@@ -37,6 +36,7 @@ az webapp deploy --resource-group $groupName --name $appName --src-path ./defaul
 ```
 
 The preceding commands:
+
 * Create a linux app service plan
 * Create a web app for Python 3.11
 * Configure the web app to install the python packages on deployment
