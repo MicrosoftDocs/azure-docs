@@ -147,6 +147,10 @@ items:
         href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
+    - name: Tutorials
+      items:
+      - name: MQTT bridge
+        href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot
