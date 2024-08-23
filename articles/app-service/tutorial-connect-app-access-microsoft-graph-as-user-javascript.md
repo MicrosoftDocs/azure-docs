@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 03/08/2022
 ms.author: ryanwi
@@ -24,9 +24,6 @@ ms.subservice: web-apps
 
 Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
 
-To see this code as part of a sample application, see the: 
-* [Sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
-
 ### Install client library packages
 
 Install the [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) and the [@microsoft/microsoft-graph-client](https://www.npmjs.com/package/@microsoft/microsoft-graph-client?activeTab=readme) packages in your project with npm.
@@ -37,7 +34,7 @@ npm install @microsoft/microsoft-graph-client
 
 ### Configure authentication information
 
-Create an object to hold the [authentication settings](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/app.js):
+Create an object to hold the authentication settings:
 
 ```javascript
 // partial code in app.js
@@ -63,7 +60,7 @@ const appSettings = {
 
 ### Call Microsoft Graph on behalf of the user
 
-The following code shows how to call [Microsoft Graph controller](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/controllers/graphController.js) as the app and get some user information.
+The following code shows how to call Microsoft Graph controller as the app and get some user information.
 
 ```javascript
 // controllers/graphController.js
@@ -92,7 +89,7 @@ exports.getProfilePage = async(req, res, next) => {
 }
 ```
 
-The previous code relies on the following [getAuthenticatedClient](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/utils/graphHelper.js) function to return Microsoft Graph client.
+The previous code relies on the following getAuthenticatedClient function to return Microsoft Graph client.
 
 ```javascript
 // utils/graphHelper.js

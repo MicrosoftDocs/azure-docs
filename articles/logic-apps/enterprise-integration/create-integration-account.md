@@ -2,7 +2,7 @@
 title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -14,7 +14,7 @@ ms.date: 01/10/2024
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
 Before you can build business-to-business (B2B) and enterprise integration workflows using Azure Logic Apps, you need to create an *integration account* resource. This account is a scalable cloud-based container in Azure that simplifies how you store and manage B2B artifacts that you define and use in your workflows for B2B scenarios, for example:
 
@@ -274,7 +274,7 @@ Before you can link your integration account to a Standard logic app resource, y
        "IsEncrypted": false,
        "Values": {
            "AzureWebJobStorage": "UseDevelopmentStorage=true",
-           "FUNCTIONS_WORKER_RUNTIME": "node",
+           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
            "WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL": "https://prod-03.westus.logic.azure.com:443/integrationAccounts/...."
        }
    }

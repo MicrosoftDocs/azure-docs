@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 08/22/2024
 
 ---
 
@@ -51,6 +51,21 @@ Some tiers are designed for certain types of work:
 
 You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure AI Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
 
+## Region availability by tier
+
+Currently, several regions are at capacity for Basic and Standard (S1) tiers and can't be used for new search services. If you use the Azure portal to create a search service, the portal excludes any region-tier combinations that aren't available.
+
+| Region | Disabled tier (SKU) due to over-capacity |
+|--------|------------------------------------------|
+| Japan East | Basic, Standard (S1) |
+| Qatar Central | Basic, Standard (S1) |
+| North Europe | Basic, Standard (S1) |
+| West Europe | All tiers |
+| Central US | Basic, Standard (S1) |
+| South Central US | Basic, Standard (S1) |
+| West US 2 | Basic, Standard (S1) |
+| West US 3| Basic, Standard (S1) |
+
 <a name="premium-features"></a>
 
 ## Feature availability by tier
@@ -77,6 +92,9 @@ Tiers determine the  maximum storage of the service itself, plus the maximum num
 ## Partition size and speed
 
 Tier pricing includes details about per-partition storage that ranges from 15 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, aren't published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios. For more information about partitions, see [Estimate and manage capacity](search-capacity-planning.md) and [Reliability in Azure AI Search](search-reliability.md).
+
+> [!NOTE]
+> Higher capacity partitions became available in selected regions starting in April 2024. A second wave of higher capacity partitions released in May 2024. If you're using an older search service, consider creating a new search service to benefit from more capacity at the same billing rate. For more information, see [Service limits](search-limits-quotas-capacity.md#service-limits)
 
 ## Billing rates
 

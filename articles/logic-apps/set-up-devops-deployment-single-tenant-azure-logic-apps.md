@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 06/12/2024
 
 # Customer intent: As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
 # Set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This article shows how to deploy a Standard logic app project to single-tenant Azure Logic Apps from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
@@ -76,7 +76,6 @@ To set up a build pipeline based on your logic app project type, complete the co
 |--------------|-----------------------|
 | Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the documentation for [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild). |
 | Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <br><br>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
-|||
 
 ### Before release to Azure
 
@@ -160,7 +159,7 @@ To find the values that you need to use in the **properties** object for complet
 
 `GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
-In the response, find the **connectionParameters** object, which contains all the information necessary for you to complete resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
+In the response, find the **connectionParameters** object, which contains the necessary information to complete the resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
 
 ```json
 {
@@ -185,6 +184,10 @@ In the response, find the **connectionParameters** object, which contains all th
 ```
 
 As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the `PUT` call that's sent to the connector's managed API as previously described, and review the request body for all the necessary information.
+
+#### On-premises data gateway resource definition
+
+If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, see [Automate deployment for Azure Logic Apps by using Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md#data-gateway-resource-definitions) and [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
 
 ### Release to Azure
 

@@ -4,8 +4,8 @@ description: Ready your Azure IoT Edge solution for production. Learn how to set
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/06/2024
-ms.topic: conceptual
+ms.date: 08/07/2024
+ms.topic: concept-article
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
@@ -26,16 +26,16 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 * **Important**
   * Install production certificates
   * Have a device management plan
-  * Use Moby as the container engine
+  * Use Moby as the container engine. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 * **Helpful**
   * Choose upstream protocol
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own Edge CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
 
-To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
+To understand the role of the Edge CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
@@ -53,9 +53,9 @@ Before you put any device in production you should know how you're going to mana
 
 Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
-### Use Moby as the container engine
+### Container engine
 
-A container engine is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.
+A container engine is a prerequisite for any IoT Edge device. The moby-engine is supported in production. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. 
 
 ### Choose upstream protocol
 

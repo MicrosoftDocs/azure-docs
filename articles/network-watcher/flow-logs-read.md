@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.custom: devx-track-azurepowershell
@@ -32,7 +32,7 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 # [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment, specifically "yourSubscriptionId", "FLOWLOGSVALIDATIONWESTCENTRALUS", "V2VALIDATIONVM-NSG", "yourStorageAccountName", "ml-rg", "000D3AF87856", "11/11/2018 03:00". For example, yourSubscriptionId should be replaced with your subscription ID.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {

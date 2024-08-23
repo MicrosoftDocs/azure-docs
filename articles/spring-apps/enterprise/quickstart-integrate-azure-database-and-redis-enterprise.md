@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom: devx-track-java, devx-track-extended-java, service-connector, devx-track-azurecli

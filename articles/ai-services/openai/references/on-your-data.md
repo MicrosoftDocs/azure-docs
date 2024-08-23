@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI On Your Data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 07/18/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -49,7 +49,7 @@ The request body inherits the same schema of chat completions API request. This 
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data.|
+| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data. When you specify the `data_sources` parameter, you won't be able to to use the `logprobs` or `top_logprobs` parameters. |
 
 ## Response body
 
@@ -174,6 +174,20 @@ completion = client.chat.completions.create(
 
 print(completion.model_dump_json(indent=2))
 
+# render the citations
+
+content = completion.choices[0].message.content
+context = completion.choices[0].message.context
+for citation_index, citation in enumerate(context["citations"]):
+    citation_reference = f"[doc{citation_index + 1}]"
+    url = "https://example.com/?redirect=" + citation["url"] # replace with actual host and encode the URL
+    filepath = citation["filepath"]
+    title = citation["title"]
+    snippet = citation["content"]
+    chunk_id = citation["chunk_id"]
+    replaced_html = f"<a href='{url}' title='{title}\n{snippet}''>(See from file {filepath}, Part {chunk_id})</a>"
+    content = content.replace(citation_reference, replaced_html)
+print(content)
 ```
 
 # [REST](#tab/rest)

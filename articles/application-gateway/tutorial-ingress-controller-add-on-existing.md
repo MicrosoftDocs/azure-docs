@@ -3,9 +3,9 @@ title: 'Tutorial: Enable ingress controller add-on for existing AKS cluster with
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 11/28/2023
+ms.date: 07/01/2024
 ms.author: greglin
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 You'll now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on for.  
 
-In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](../aks/concepts-network-cni-overview.md) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, **myResourceGroup**.
+In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](/azure/aks/concepts-network-cni-overview) and [Managed Identities](/azure/aks/use-managed-identity) in the resource group you created, **myResourceGroup**.
 
 ```azurecli-interactive
 az aks create --name myCluster --resource-group myResourceGroup --network-plugin azure --enable-managed-identity --generate-ssh-keys
@@ -78,9 +78,14 @@ If you'd like to continue using Azure CLI, you can continue to enable the AGIC a
 appgwId=$(az network application-gateway show --name myApplicationGateway --resource-group myResourceGroup -o tsv --query "id") 
 az aks enable-addons --name myCluster --resource-group myResourceGroup --addon ingress-appgw --appgw-id $appgwId
 ```
+## Enable the AGIC add-on in existing AKS cluster through Azure portal 
+
+If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the portal link. Select the **Networking** menu item under **Settings**. From there, go to the **Virtual network integration** tab within your AKS cluster. You'll see an **Application gateway ingress controller** section, which allows you to enable and disable the ingress controller add-on. Select the **Manage** button, then the checkbox next to **Enable ingress controller**. Select the application gateway you created, **myApplicationGateway** and then select **Save**.
+
+:::image type="content" source="./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png" alt-text="Screenshot showing how to enable application gateway ingress controller from the networking page of the Azure Kubernetes Service.":::
 
 > [!IMPORTANT]
-> When you use an application gateway in a different resource group than the AKS cluster resource group, the managed identity **_ingressapplicationgateway-{AKSNAME}_** that is created must have **Network Contributor** and **Reader** roles set in the application gateway resource group.
+> If you use an application gateway in a different resource group than the AKS cluster resource group, the managed identity **_ingressapplicationgateway-{AKSNAME}_** that is created must have **Network Contributor** and **Reader** roles set in the application gateway resource group.
 
 ## Peer the two virtual networks together
 
@@ -98,7 +103,7 @@ az network vnet peering create --name AKStoAppGWVnetPeering --resource-group $no
 ```
 
 > [!NOTE]
-> In the "Deploy a new AKS cluster" step above we created AKS with Azure CNI, in case you have an existing AKS cluster using [Kubenet mode](../aks/configure-kubenet.md) you need to update the route table to help the packets destined for a POD IP reach the node which is hosting the pod.
+> In the "Deploy a new AKS cluster" step above we created AKS with Azure CNI, in case you have an existing AKS cluster using [Kubenet mode](/azure/aks/configure-kubenet) you need to update the route table to help the packets destined for a POD IP reach the node which is hosting the pod.
 > A simple way to achieve this is by associating the same route table created by AKS to the Application Gateway's subnet. 
 
 

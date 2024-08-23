@@ -61,6 +61,8 @@ items:
           href: how-to-create-load-test-app-service.md
         - name: Test Azure Functions
           href: how-to-create-load-test-function-app.md
+        - name: Optimize Azure Functions
+          href: how-to-optimize-azure-functions.md          
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
@@ -113,6 +115,11 @@ items:
     - name: Examples repository
       href: /samples/?expanded=azure&products=azure-load-testing
 
+- name: Troubleshoot and debug
+  items:
+    - name: Troubleshoot issues in private endpoints tests
+      href: troubleshoot-private-endpoint-tests.md
+      
 - name: Reference
   items:
     - name: Azure CLI

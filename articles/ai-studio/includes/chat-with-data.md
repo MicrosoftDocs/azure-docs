@@ -10,7 +10,7 @@ ms.date: 5/21/2024
 ms.custom: include, build-2024
 ---
 
-To complete this section, you need a local copy of product data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
+To complete this section, you need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. Specifically, the `product_info_11.md` file contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
 
 > [!IMPORTANT]
 > The **Add your data** feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
@@ -36,7 +36,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
 1. Select **Upload** > **Upload files** to browse your local files. 
 
-1. Select the files you want to upload. Select the product information files ([3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info)) that you downloaded or created earlier. Add all of the files now. You won't be able to add more files later in the same playground session.
+1. Select the files you want to upload. Select the product information files that you [downloaded](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) or created earlier. Add all of the files now. You won't be able to add more files later in the same playground session. 
 
 1. Select **Upload** to upload the file to your Azure Blob storage account. Then select **Next**.
 
@@ -62,9 +62,5 @@ Follow these steps to add your data in the chat playground to help the assistant
 1. In the playground, you can see that your data ingestion is in progress. This process might take several minutes. Before proceeding, wait until you see the data source and index name in place of the status. 
 
    :::image type="content" source="../media/tutorials/chat/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat/add-your-data-ingestion-in-progress.png":::
-
-1. Enter a name for the playground configuration and select **Save** > **Save configuration**. All configuration items are saved by default. Items include deployment, system message, safety message, parameters, added data, examples, and variables. Saving a configuration with the same name will save over the previous version.
-
-   :::image type="content" source="../media/tutorials/chat/playground-configuration-save.png" alt-text="Screenshot of the playground configuration name and Save button." lightbox="../media/tutorials/chat/playground-configuration-save.png":::
 
 1. You can now chat with the model asking the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.

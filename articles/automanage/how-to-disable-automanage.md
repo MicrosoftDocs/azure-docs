@@ -2,13 +2,16 @@
 title: Disable Azure Automanage for virtual machines
 description: Learn how to disable Azure Automanage for Automanaged virtual machines.
 author: mmccrory
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 09/07/2022
 ms.author: memccror
 ---
 
 # Disabling Automanage for VMs
+
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
 
 You may decide one day to disable Automanage on certain VMs. For instance, your machine is running some super sensitive secure workload and you need to lock it down even further than Azure would have done naturally, so you need to configure the machine outside of Azure best practices.
 

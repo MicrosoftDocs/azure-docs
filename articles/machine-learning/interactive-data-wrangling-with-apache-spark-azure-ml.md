@@ -2,10 +2,10 @@
 title: Interactive data wrangling with Apache Spark in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Apache Spark to wrangle data with Azure Machine Learning
-author: ynpandey
-ms.author: yogipandey
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: yogipandey
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/05/2023
@@ -25,7 +25,7 @@ In this article, you'll learn how to perform data wrangling using
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
-- (Optional): An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+- (Optional): An Azure Key Vault. See [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - (Optional): A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 

@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 07/12/2024
 ---
 
 # RedisListTrigger for Azure Functions
@@ -79,7 +79,7 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisListTri
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```csharp
 ﻿using Microsoft.Extensions.Logging;

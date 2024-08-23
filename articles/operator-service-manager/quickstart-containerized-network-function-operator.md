@@ -18,9 +18,11 @@ This quickstart contains the prerequisite tasks for Operator and Containerized N
 
 ## Permissions
 
-In order to complete these prerequisites for Operator and Containerized Network Function, you need an Azure subscription where you have the _Contributor_ role (in order to create a Resource Group) and you need to be able to attain the _Owner_ or _User Access Administrator_ role over this Resource Group. Alternatively, you need an existing Resource Group where you have the ‘Owner’ or ‘User Access Administrator’ Role.
+You need an Azure subscription with an existing Resource Group over which you have the _Contributor_ role and the _User Access Administrator_ role.
 
-You also need the _Owner_ or _User Access Administrator_ role in the Network Function Definition Publisher Resource Group. The Network Function Definition Publisher Resource Group was created in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md) and named nginx-publisher-rg in the input.json file.
+Alternatively the AOSM CLI extension can create the Resource Group for you, in which case you need the _Contributor_ role over this subscription. If you use this feature, you will need to add to your user the _User Access Administrator_ role with scope of this newly created Resource Group.
+
+You also need the _User Access Administrator_ role over the Network Function Definition Publisher Resource Group. The Network Function Definition Publisher Resource Group was used in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md). Check the input-cnf-nfd.jsonc file for the Resource Group name.
 
 ## Set environment variables
 
@@ -51,11 +53,8 @@ az group create -n ${resourceGroup} -l ${location}
 
 ## Provision Azure Kubernetes Service (AKS) cluster
 
-> [!NOTE]
-> Ensure that `agentCount` is set to 1. Only one node is required at this time.
-
 ```azurecli
-az aks create -g ${resourceGroup} -n ${clusterName} --node-count 1 --generate-ssh-keys
+az aks create -g ${resourceGroup} -n ${clusterName} --node-count 3 --generate-ssh-keys
 ```
 
 ## Enable Azure Arc
@@ -220,7 +219,7 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose **Add Role Assignment**.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx sns add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx SNS add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
 
 1. Select the **Managed Identity Operator** role then proceed with **Next**.
 

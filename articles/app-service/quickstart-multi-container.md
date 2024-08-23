@@ -126,7 +126,7 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 
 **Congratulations**, you've created a multi-container app in Web App for Containers.
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 

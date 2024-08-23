@@ -4,17 +4,13 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 03/06/2024
+ms.date: 06/26/2024
 ---
-# Create a codeless connector for Microsoft Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
 Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
-
-> [!IMPORTANT]
-> The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 **Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 
@@ -56,7 +52,20 @@ Research the following components and verify support for them in the [Data Conne
 
 1. Pagination options to the data source
 
-We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
+We also recommend testing your components with an API testing tool like one of the following:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+  - [Bruno](https://www.usebruno.com/)
+  - [curl](https://curl.se/)
+
+   > [!CAUTION]  
+   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, 
+   > API keys, and other similar information, make sure to use a tool that protects your data 
+   > with the necessary security features, works offline or locally, doesn't sync your data to 
+   > the cloud, and doesn't require that you sign in to an online account. This way, you reduce 
+   > the risk around exposing sensitive data to the public.
 
 ## Build the data connector
 
@@ -209,8 +218,12 @@ Manually package an Azure Resource Management (ARM) template using the [example 
 
 In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
-- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
-- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
+- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
+- [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
+- [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
+- [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
+- [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
 
 ## Deploy the connector
 

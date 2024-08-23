@@ -2,11 +2,11 @@
 title:  Azure Arc agent
 description: Learn about Azure Arc agent
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 08/13/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ---
 
@@ -33,7 +33,7 @@ The Azure Connected Machine agent package contains several logical components bu
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+> The [Azure Monitor agent (AMA)](../../azure-monitor/agents/azure-monitor-agent-overview.md) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
 
 ## Agent resources
 
@@ -51,7 +51,7 @@ Installing the Connected Machine agent for Window applies the following system-w
     | %ProgramFiles%\AzureConnectedMachineAgent | azcmagent CLI and instance metadata service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\GC | Extension service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\GCArcService\GC | Guest configuration (policy) service executables.|
-    | %ProgramData%\AzureConnectedMachineAgent | Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
+    | %ProgramData%\AzureConnectedMachineAgent | Configuration, log, and identity token files for azcmagent CLI and instance metadata service.|
     | %ProgramData%\GuestConfig | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
     | %SYSTEMDRIVE%\packages | Extension package executables. |
 
@@ -198,7 +198,7 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
-* CPU family, socket, physical core and logical core counts
+* CPU family, socket, physical core, and logical core counts
 * Total physical memory
 * Serial number
 * SMBIOS asset tag

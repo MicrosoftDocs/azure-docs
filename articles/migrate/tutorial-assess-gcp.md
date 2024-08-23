@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/26/2024
+ms.date: 08/21/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy25
 #Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
 ---
 
@@ -51,9 +51,6 @@ Run an assessment as follows:
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess**.
-
-    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
-
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
@@ -115,7 +112,7 @@ Run an assessment as follows:
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
 1. Select **Export assessment** to download it as an Excel file.
     > [!NOTE]
@@ -191,3 +188,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Learn to migrate [GCP VMs](tutorial-migrate-gcp-virtual-machines.md).

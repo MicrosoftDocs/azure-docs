@@ -1,9 +1,9 @@
 ---
 title: "Chamber: Azure Modeling and Simulation Workbench"
 description: Overview of Azure Modeling and Simulation Workbench chamber component.
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
+author: becha8
+ms.author: becha
+ms.reviewer: becha
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
@@ -38,6 +38,6 @@ The right-sizing feature reduces the Azure spend by identifying idle and underut
 
 Learn more about reducing service costs using [Azure Advisor](/azure/advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing) and [right-size VMs best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms).
 
-## Next steps
+## Related content
 
 - [Connector](./concept-connector.md)

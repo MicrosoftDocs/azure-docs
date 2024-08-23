@@ -8,7 +8,7 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 08/06/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -60,7 +60,7 @@ While both scenarios have a dependency on Azure Private Link, they're independen
 
 When evaluating shared private links for your scenario, remember these constraints.
 
-+ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, and `2024-03-01-preview`.
++ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, `2024-03-01-preview`, and `2024-06-01-preview`. We recommend the latest preview API.
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
@@ -93,9 +93,9 @@ You can create a shared private link for the following resources.
 | Microsoft.Sql/servers <sup>3</sup> | `sqlServer` |
 | Microsoft.KeyVault/vaults | `vault` |
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
-| Microsoft.Web/sites (preview) <sup>4</sup> | `sites` |
+| Microsoft.Web/sites <sup>4</sup> | `sites` |
 | Microsoft.Sql/managedInstances (preview) <sup>5</sup>| `managedInstance` |
-| Microsoft.CognitiveServices/accounts (preview) <sup>6</sup>| `openai_account` |
+| Microsoft.CognitiveServices/accounts <sup>6</sup>| `openai_account` |
 
 <sup>1</sup> If Azure Storage and Azure AI Search are in the same region, the connection to storage is made over the Microsoft backbone network, which means a shared private link is redundant for this configuration. However, if you already set up a private endpoint for Azure Storage, you should also set up a shared private link or the connection is refused on the storage side. Also, if you're using multiple storage formats for various scenarios in search, make sure to create a separate shared private link for each subresource.
 
@@ -103,7 +103,7 @@ You can create a shared private link for the following resources.
 
 <sup>3</sup> The `Microsoft.Sql/servers` resource type is used for connections to Azure SQL database. There's currently no support for a shared private link to Azure Synapse SQL.
 
-<sup>4</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure AI Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium, and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
+<sup>4</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure AI Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium, and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md), [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) and [Azure API Management](../api-management/api-management-key-concepts.md) aren't supported at this time.
 
 <sup>5</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
 
@@ -148,7 +148,7 @@ When you complete the steps in this section, you have a shared private link that
 ### [**REST API**](#tab/rest-create)
 
 > [!NOTE]
-> Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
+> Preview API versions are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 
 While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client  needs to provide a bearer token that allows your request to go through. 
 
@@ -315,10 +315,10 @@ On the Azure AI Search side, you can confirm request approval by revisiting the 
 
    :::image type="content" source="media/search-indexer-howto-secure-access/new-shared-private-link-resource-approved.png" alt-text="Screenshot of the Azure portal, showing an Approved shared private link resource.":::
 
-Alternatively, you can also obtain connection state by using the [GET Shared Private Link API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get).
+Alternatively, you can also obtain connection state by using the [Shared Private Link Resources - Get](/rest/api/searchmanagement/shared-private-link-resources/get).
 
 ```dotnetcli
-az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2023-11-01
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2024-07-01
 ```
 
 This would return a JSON, where the connection state shows up as "status" under the "properties" section. Following is an example for a storage account.

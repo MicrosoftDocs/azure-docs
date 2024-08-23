@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 06/25/2024
 ---
 
 # Enable caching for incremental enrichment in Azure AI Search
@@ -45,10 +45,12 @@ You can use the Azure portal, preview APIs, or beta Azure SDKs are required to e
 
 ### [**REST**](#tab/rest)
 
-On new indexers, add the "cache" property in the indexer definition payload when calling [Create or Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer). You can also use the previous preview API version, 2020-06-30-Preview.
+On new indexers, add the "cache" property in the indexer definition payload when calling Create or Update Indexer. 
+
+You can use preview API versions 2021-04-30-preview and later. We recommend the latest preview for [Create or Update Indexer (2024-05-01-preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 ```https
-POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-Preview
+POST https://[service name].search.windows.net/indexers?api-version=2024-05-01-preview
     {
         "name": "<YOUR-INDEXER-NAME>",
         "targetIndexName": "<YOUR-INDEX-NAME>",
@@ -72,10 +74,10 @@ For existing indexers that already have a skillset, use the following steps to a
 
 ### Step 1: Get the indexer definition
 
-Start with a valid, work indexer that has these components: data source, skillset, index. Using an API client, send a [GET Indexer](/rest/api/searchservice/get-indexer) request to retrieve the indexer. When you use the preview API version to the GET the indexer, a "cache" property set to null is added to the definition automatically.
+Start with a valid, work indexer that has these components: data source, skillset, index. Using an API client, send a [GET Indexer](/rest/api/searchservice/indexers/get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request to retrieve the indexer. When you use the preview API version to the GET the indexer, a "cache" property set to null is added to the definition automatically.
 
 ```http
-GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2021-04-30-Preview
+GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [YOUR-ADMIN-KEY]
 ```
@@ -88,7 +90,7 @@ In the index definition, modify "cache" to include the following required and op
 + (Optional) `enableReprocessing` boolean property (`true` by default), indicates that incremental enrichment is enabled. Set to `false` if you want to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then switch back to `true` later.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-Preview
+POST https://[service name].search.windows.net/indexers?api-version=2024-05-01-preview
     {
         "name": "<YOUR-INDEXER-NAME>",
         "targetIndexName": "<YOUR-INDEX-NAME>",
@@ -106,20 +108,20 @@ POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-P
 
 ### Step 3: Reset the indexer
 
-[Reset Indexer](/rest/api/searchservice/reset-indexer) is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client for this task.
+[Reset Indexer](/rest/api/searchservice/indexers/reset) is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client for this task.
 
 ```https
-POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2021-04-30-Preview
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [YOUR-ADMIN-KEY]
 ```
 
 ### Step 4: Save the indexer
 
-[Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer) with a PUT request, where the body of the request includes "cache".
+[Update Indexer](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a PUT request, where the body of the request includes "cache".
 
 ```http
-PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2021-04-30-Preview
+PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [YOUR-ADMIN-KEY]
     {
@@ -146,10 +148,10 @@ If you now issue another GET request on the indexer, the response from the servi
 
 To run indexer, you can use the portal or the API. In the portal, from the indexers list, select the indexer and select **Run**. One advantage to using the portal is that you can monitor indexer status, note the duration of the job, and how many documents are processed. Portal pages are refreshed every few minutes.
 
-Alternatively, you can use REST to [run the indexer](/rest/api/searchservice/run-indexer):
+Alternatively, you can use REST to [run the indexer](/rest/api/searchservice/indexers/run):
 
 ```http
-POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2020-06-30-Preview
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```

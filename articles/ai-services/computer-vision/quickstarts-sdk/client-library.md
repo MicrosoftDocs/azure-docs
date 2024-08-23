@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: quickstart
-ms.date: 08/07/2023
+ms.date: 06/26/2024
 ms.author: pafarley
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python

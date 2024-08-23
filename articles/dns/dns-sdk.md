@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
-ms.service: dns
+ms.service: azure-dns
 ms.devlang: csharp
 ms.topic: article
 ms.date: 11/30/2023

@@ -203,7 +203,7 @@ Use the data ingested into Microsoft Sentinel to secure your environment with an
 - [Get visibility into alerts](get-visibility.md)
 - [Visualize and monitor your data](monitor-your-data.md)
 - [Investigate incidents](investigate-cases.md)
-- [Detect threats](detect-threats-built-in.md)
+- [Detect threats](threat-detection.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
 

@@ -56,7 +56,7 @@ Follow these steps in the Azure portal to track the order you created using the 
 
 If you used the Azure Edge Hardware Center to order your hardware, follow these steps to initiate the return. The example here is for Azure Stack Edge device but a similar flow applies to returning other hardware as well.
 
-[!INCLUDE [Initiate device return from Edge Hardware Center order resource](~/reusable-content/ce-skilling/azure/includes/azure-stack-edge-initiate-device-return.md)]
+[!INCLUDE [Initiate device return from Edge Hardware Center order resource](../../includes/azure-stack-edge-initiate-device-return.md)]
 
 ## Next steps
 

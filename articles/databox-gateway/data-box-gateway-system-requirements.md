@@ -35,11 +35,11 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 ## Supported OS for clients connected to device
 
-[!INCLUDE [Supported OS for clients connected to device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-client-os.md)]
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## Supported protocols for clients accessing device
 
-[!INCLUDE [Supported protocols for clients accessing device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-client-protocols.md)]
+[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## Supported virtualization platforms for device
 
@@ -50,21 +50,21 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 ## Supported storage accounts
 
-[!INCLUDE [Supported storage accounts](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-storage-accounts.md)]
+[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 ## Supported storage types
 
-[!INCLUDE [Supported storage types](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-storage-types.md)]
+[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## Supported browsers for local web UI
 
-[!INCLUDE [Supported browsers for local web UI](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-browsers.md)]
+[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
 ## Networking port requirements
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Gateway device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
-[!INCLUDE [Port configuration for device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-port-config.md)]
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ## URL patterns for firewall rules
 
@@ -76,15 +76,15 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
 > - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-[!INCLUDE [URL patterns for firewall](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-url-patterns-firewall.md)]
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### URL patterns for Azure Government
 
-[!INCLUDE [Azure Government URL patterns for firewall](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
 ## Internet bandwidth
 
-[!INCLUDE [Internet bandwidth](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-internet-bandwidth.md)]
+[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## Next step
 

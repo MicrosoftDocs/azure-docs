@@ -337,9 +337,8 @@ In this scenario, a 502 or 503 response might be returned to a client because of
 
 ## Next steps
 
-* [Track usage](usage-overview.md)
+* [Track usage](usage.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
-* [Build-measure-learn](usage-overview.md)
 * [Azure file copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 <!-- Remote URLs -->

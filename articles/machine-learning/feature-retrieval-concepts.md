@@ -2,12 +2,12 @@
 title: Feature retrieval specification and usage in training and inference
 titleSuffix: Azure Machine Learning
 description: The feature retrieval specification, and how to use it for training and inference tasks.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: yogipandey
 ms.date: 12/06/2023
 ms.custom: template-concept
 ---

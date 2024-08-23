@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/31/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -21,7 +21,7 @@ Azure Digital Twins is typically used together with other services to create fle
 
 Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
-Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), for storage, workflow integration, analytics, and more. 
+Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md), for storage, workflow integration, analytics, and more. 
 
 ## Data ingress
 
@@ -41,7 +41,7 @@ There are two main egress options in Azure Digital Twins. Digital twin data can 
 
 ### Endpoints
 
-To send Azure Digital Twins data to most Azure services, such as [Azure Maps](../azure-maps/about-azure-maps.md), [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
+To send Azure Digital Twins data to most Azure services, such as [Azure Maps](../azure-maps/about-azure-maps.md) or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
 
 Endpoints can be instances of any of these Azure services:
 * [Event Hubs](../event-hubs/event-hubs-about.md)
@@ -49,8 +49,6 @@ Endpoints can be instances of any of these Azure services:
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
 The endpoint is attached to an Azure Digital Twins instance using management APIs or the Azure portal, and can carry data along from the instance to other listening services. For more information about Azure Digital Twins endpoints, see [Endpoints and event routes](concepts-route-events.md).
-
-For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
 ### Data history
 

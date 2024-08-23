@@ -2,7 +2,7 @@
 title: Choose the best Azure integration services for your scenarios
 description: How to choose the best Azure Integration Services capabilities for your scenarios and requirements.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear

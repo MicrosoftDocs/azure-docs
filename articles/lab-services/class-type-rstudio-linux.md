@@ -3,11 +3,13 @@ title: Set up a lab with R and RStudio on Linux using Azure Lab Services
 description: Learn how to set up labs to teach R using RStudio on Linux
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 ---
 
 # Set up a lab to teach R on Linux
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -21,7 +23,7 @@ To set up this lab, you need an Azure subscription and lab plan to get started. 
 
 ### External resource configuration
 
-Some classes require files, such as large data files, to be stored externally.  See [use external file storage in Azure Lab Services](how-to-attach-external-storage.md) for options and setup instructions.
+Some classes require files, such as large data files, to be stored externally.
 
 If you choose to have a shared R Server for the students, the server should be set up before the lab is created.  For more information on how to set up a shared server, see [how to create a lab with a shared resource in Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  For instructions to create an RStudio Server, see [Download RStudio Server for Debian & Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) and [Accessing RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
 

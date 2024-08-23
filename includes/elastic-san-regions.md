@@ -32,3 +32,7 @@ The following list contains the regions Elastic SAN is currently available in, a
 - West US 3 - LRS
 - Sweden Central - LRS
 - Switzerland North - LRS
+- Norway East - LRS
+- UAE North - LRS
+- India Central - LRS
+  

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 
@@ -15,7 +15,6 @@ This article describes requirements and considerations about [using the volume c
 ## Requirements and considerations 
 
 * The cross-zone replication feature uses the [availability zone volume placement feature](use-availability-zones.md) of Azure NetApp Files.
-    * You can only use cross-zone replication in regions that support the availability zone volume placement. [!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
 * To establish cross-zone replication, you must create the source volume in an availability zone.  
 * You can’t use cross-zone replication and cross-region replication together on the same source volume.
 * You can use cross-zone replication with SMB and NFS volumes. Replication of SMB volumes requires an Active Directory connection in the source and destination NetApp accounts. The destination AD connection must have access to the DNS servers or AD DS Domain Controllers that are reachable from the delegated subnet in the destination zone. For more information, see [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 

@@ -3,7 +3,7 @@ title: Use ISV solutions with Data Manager for Agriculture.
 description: Learn how to use APIs from an industry solution provider.
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 05/23/2024
 ms.custom: template-how-to

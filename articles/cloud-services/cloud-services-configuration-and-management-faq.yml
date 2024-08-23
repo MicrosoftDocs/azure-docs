@@ -3,9 +3,9 @@ metadata:
   title: Configuration and management issues FAQ
   description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
   ms.topic: faq
-  ms.service: cloud-services
-  ms.subservice: deployment-files
-  ms.date: 02/21/2023
+  ms.service: azure-cloud-services-classic
+  ms.subservice: config-package-files
+  ms.date: 07/23/2024
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
@@ -14,14 +14,14 @@ title: 'Configuration and management issues for Azure Cloud Services (classic): 
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
   
-  This article includes frequently asked questions about configuration and management issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
+  This article includes frequently asked questions about configuration and management issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services Virtual Machine (VM) Size page](cloud-services-sizes-specs.md) for size information.
   
   [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
   
   **Certificates**
   
   - [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tls-ssl-certificate-incomplete-)
-  - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--windows-azure-tools-encryption-certificate-for-extensions--)
+  - [What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--microsoft-azure-tools-encryption-certificate-for-extensions--)
   - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request--csr--without--rdp-ing--in-to-the-instance-)
   - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
   - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p7b--)
@@ -29,25 +29,25 @@ summary: |
   
   **Monitoring and logging**
   
-  - [What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications-)
-  - [Why does IIS stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory-)
+  - [What are the upcoming Cloud Service capabilities in the Azure portal that can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-that-can-help-manage-and-monitor-applications-)
+  - [Why does Internet Information Service (IIS) stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory-)
   - [How do I enable WAD logging for Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services-)
   
   **Network configuration**
   
   - [How do I set the idle timeout for Azure load balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer-)
   - [How do I associate a static IP address to my Cloud Service?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service-)
-  - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?](#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provides-)
+  - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provide?](#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provide-)
   - [How to enable HTTP/2 on Cloud Services VM?](#how-to-enable-http-2-on-cloud-services-vm-)
   
   **Permissions**
   
-  - [Can Microsoft internal engineers remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission-)
-  - [I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file--i-get-following-error--an-authentication-error-has-occurred--code--0x80004005-)
+  - [Are Microsoft internal engineers able to remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission-)
+  - [I can't remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-can-t-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file--i-get-following-error--an-authentication-error-has-occurred--code--0x80004005-)
   
   **Scaling**
   
-  - [I cannot scale beyond X instances](#i-cannot-scale-beyond-x-instances)
+  - [I can't scale beyond X instances](#i-can-t-scale-beyond-x-instances)
   - [How can I configure Auto-Scale based on Memory metrics?](#how-can-i-configure-auto-scale-based-on-memory-metrics-)
   
   **Generic**
@@ -55,7 +55,7 @@ summary: |
   - [How do I add `nosniff` to my website?](#how-do-i-add--nosniff--to-my-website-)
   - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role-)
   - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service-)
-  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space-)
+  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-little-free-disk-space-)
   - [How can I add an Antimalware extension for my Cloud Services in an automated way?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
   - [How to enable Server Name Indication (SNI) for Cloud Services?](#how-to-enable-server-name-indication--sni--for-cloud-services-)
   - [How can I add tags to my Azure Cloud Service?](#how-can-i-add-tags-to-my-azure-cloud-service--)
@@ -70,36 +70,36 @@ sections:
       - question: |
           Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
         answer: |
-          We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) shows how to do this.
+          We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the Certificate Trust List (CTL). If intermittent network or Domain Name System (DNS) issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. When you install the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) shows how to do install the full certificate chain.
           
       - question: |
-          What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?
+          What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?
         answer: |
-          These certificates are automatically created whenever an extension is added to the Cloud Service. Most commonly, this is the WAD extension or the RDP extension, but it could be others, such as the Antimalware or Log Collector extension. These certificates are only used for encrypting and decrypting the private configuration for the extension. The expiration date is never checked, so it doesn’t matter if the certificate is expired. 
+          These certificates are automatically created whenever an extension is added to the Cloud Service. Most commonly, this extension is the WAD extension or the RDP extension, but it could be others, such as the Antimalware or Log Collector extension. These certificates are only used for encrypting and decrypting the private configuration for the extension. The expiration date is never checked, so it doesn’t matter if the certificate is expired. 
           
-          You can ignore these certificates. If you want to clean up the certificates, you can try deleting them all. Azure will throw an error if you try to delete a certificate that is in use.
+          You can ignore these certificates. If you want to clean up the certificates, you can try deleting them all. Azure throws an error if you try to delete a certificate that is in use.
           
       - question: |
           How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?
         answer: |
           See the following guidance document:
           
-          [Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
+          [Obtaining a certificate for use with Microsoft Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
           
-          The CSR is just a text file. It doesn't have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+          The CSR is just a text file. It doesn't have to be created from the machine intended to use the certificate. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
           
       - question: |
           My Cloud Service Management Certificate is expiring. How to renew it?
         answer: |
           You can use following PowerShell commands to renew your Management Certificates:
           
-          ```powershell
+          ```PowerShell
           Add-AzureAccount
           Select-AzureSubscription -Current -SubscriptionName <your subscription name>
           Get-AzurePublishSettingsFile
           ```
           
-          The **Get-AzurePublishSettingsFile** will create a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
+          The **Get-AzurePublishSettingsFile** creates a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
           
       - question: |
           How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?
@@ -118,11 +118,11 @@ sections:
   - name: Monitoring and logging
     questions:
       - question: |
-          What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?
+          What are the upcoming Cloud Service capabilities in the Azure portal that can help manage and monitor applications?
         answer: |
           Ability to generate a new certificate for Remote Desktop Protocol (RDP) is coming soon. Alternatively, you can run this script:
           
-          ```powershell
+          ```PowerShell
           $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
           $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
           Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
@@ -134,7 +134,7 @@ sections:
       - question: |
           Why does IIS stop writing to the log directory?
         answer: |
-          You've exhausted the local storage quota for writing to the log directory. To correct this, you can do one of three things:
+          You exhausted the local storage quota for writing to the log directory. To correct this issue, you can do one of three things:
           * Enable diagnostics for IIS and have the diagnostics periodically moved to blob storage.
           * Manually remove log files from the logging directory.
           * Increase quota limit for local resources.
@@ -146,7 +146,7 @@ sections:
       - question: |
           How do I enable WAD logging for Cloud Services?
         answer: |
-          You can enable Windows Azure Diagnostics (WAD) logging through following options:
+          You can enable Microsoft Azure Diagnostics (WAD) logging through following options:
           1. [Enable from Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
           2. [Enable through .NET code](./cloud-services-dotnet-diagnostics.md)
           3. [Enable through PowerShell](./cloud-services-diagnostics-powershell.md)
@@ -190,37 +190,37 @@ sections:
           * [Associate a reserved IP to a Cloud Service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
           
       - question: |
-          What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?
+          What are the features and capabilities that Azure basic IPS/IDS and DDOS provide?
         answer: |
-          Azure has IPS/IDS in datacenter physical servers to defend against threats. In addition, customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more. For more information, see [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
+          Azure has IPS/IDS in datacenter physical servers to defend against threats. In addition, customers can deploy non-Microsoft security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more. For more information, see [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
           
-          Microsoft continuously monitors servers, networks, and applications to detect threats. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. Microsoft Antimalware for Azure protects Azure Cloud Services and virtual machines. You have the option to deploy third-party security solutions in addition, such as web application fire walls, network firewalls, antimalware, intrusion detection and prevention systems (IDS/IPS), and more.
+          Microsoft continuously monitors servers, networks, and applications to detect threats. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. Microsoft Antimalware for Azure protects Azure Cloud Services and virtual machines. You can deploy non-Microsoft security solutions in addition, such as web application fire walls, network firewalls, antimalware, intrusion detection and prevention systems (IDS/IPS), and more.
           
       - question: |
           How to enable HTTP/2 on Cloud Services VM?
         answer: |
-          Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you don't need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
+          Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over Transport Layer Security (TLS) that negotiates HTTP/2 via TLS extensions, then you don't need to make any change on the server-side. You don't need to make changes because the h2-14 header specifying use of HTTP/2 is sent by default over TLS. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the following change on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
           
           1. Run regedit.exe.
           2. Browse to registry key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
           3. Create a new DWORD value named **DuoEnabled**.
           4. Set its value to 1.
           5. Restart your server.
-          6. Go to your **Default Web Site** and under **Bindings**, create a new TLS binding with the self-signed certificate just created. 
+          6. Go under **Bindings** on your **Default Web Site** and create a new TLS binding with the self-signed certificate you created. 
           
           For more information, see:
           
           - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
-          - Video: HTTP/2 in Windows 10: Browser, Apps and Web Server
+          - Video: HTTP/2 in Windows 10: Browser, Apps, and Web Server
                    
           
-          These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a Cloud Service](cloud-services-startup-tasks.md).
+          These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can make the previous changes in the system registry. For more information, see [How to configure and run startup tasks for a Cloud Service](cloud-services-startup-tasks.md).
           
            
-          Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
+          When you finish, you can verify whether the HTTP/2 is enabled or not by using one of the following methods:
           
-          - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-          - Enable F12 Developer Tool in Internet Explorer or Microsoft Edge and switch to the Network tab to verify the protocol. 
+          - Enable Protocol version in IIS logs and look into the IIS logs. It shows HTTP/2 in the logs. 
+          - Enable F12 Developer Tool in Internet Explorer or Microsoft Edge and switch to the Network tab. Here, you can verify the protocol. 
           
           For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
           
@@ -229,7 +229,7 @@ sections:
       - question: |
           How can I implement role-based access for Cloud Services?
         answer: |
-          Cloud Services doesn't support the Azure role-based access control (Azure RBAC) model, as it's not an Azure Resource Manager based service.
+          Cloud Services doesn't support the Azure role-based access control model, as it's not an Azure Resource Manager based service.
           
           See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
           
@@ -238,10 +238,10 @@ sections:
       - question: |
           Can Microsoft internal engineers remote desktop to Cloud Service instances without permission?
         answer: |
-          Microsoft follows a strict process that will not allow internal engineers to remote desktop into your Cloud Service without written permission (email or other written communication) from the owner or their designee.
+          Microsoft follows a strict process that doesn't allow internal engineers to remote desktop into your Cloud Service without written permission (email or other written communication) from the owner or their designee.
 
       - question: |
-          I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
+          I can't remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
         answer: |
           This error may occur if you use the RDP file from a machine that is joined to Microsoft Entra ID. To resolve this issue, follow these steps:
           
@@ -251,18 +251,18 @@ sections:
   - name: Scaling
     questions:
       - question: |
-          I cannot scale beyond X instances
+          I can't scale beyond X instances
         answer: |
-          Your Azure Subscription has a limit on the number of cores you can use. Scaling won't work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your Cloud Service, or 50 A2 sized virtual machine instances.
+          Your Azure Subscription has a limit on the number of cores you can use. Scaling doesn't work if you used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your Cloud Service, or 50 A2 sized virtual machine instances.
 
       - question: |
           How can I configure Auto-Scale based on Memory metrics?
         answer: |
-          Auto-scale based on Memory metrics for a Cloud Services is not currently supported. 
+          Autoscale based on Memory metrics for a Cloud Services isn't currently supported. 
           
-          To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
+          To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory."  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
           
-          For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
+          For more information on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
           
           For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
           
@@ -306,22 +306,22 @@ sections:
           See [Service-specific limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
           
       - question: |
-          Why does the drive on my Cloud Service VM show very little free disk space?
+          Why does the drive on my Cloud Service VM show little free disk space?
         answer: |
-          This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
+          This behavior is expected, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However, there are several things to be aware of that turn this event into a nonissue.
           
           The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
           
-          It's unsupported to write to the %approot% drive. If you're writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you aren't sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
+          It's unsupported to write to the %approot% drive. If you're writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder isn't meaningful. If you aren't sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
           
-          Azure will not write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
+          Azure doesn't write anything to the %approot% drive. Once the virtual hard disk (VHD) is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
           
-          The journal settings are non-configurable, so you can't turn it off.
+          The journal settings are nonconfigurable, so you can't turn it off.
           
       - question: |
           How can I add an Antimalware extension for my Cloud Services in an automated way?
         answer: |
-          You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
+          You can enable Antimalware extension using PowerShell script in the Startup Task. To implement it, follow the steps in these articles: 
            
           - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
           - [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension)
@@ -335,20 +335,20 @@ sections:
           
           **Method 1: Use PowerShell**
           
-          The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a Cloud Service role instance as below:
+          The SNI binding can be configured using the following PowerShell cmdlet **New-WebBinding** in a startup task for a Cloud Service role instance:
           
-          ```powershell
+          ```PowerShell
           New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
           ```
           
-          As described [here](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), the $sslFlags could be one of the values as the following:
+          As described [here](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), the $sslFlags could be one of the following values:
           
           |Value|Meaning|
           ------|------
           |0|No SNI|
           |1|SNI Enabled|
-          |2|Non SNI binding which uses Central Certificate Store|
-          |3|SNI binding which uses Central Certificate store|
+          |2|Non SNI binding, which uses Central Certificate Store|
+          |3|SNI binding, which uses Central Certificate store|
            
           **Method 2: Use code**
           
@@ -364,7 +364,7 @@ sections:
               //</code snip>
           ```
               
-          Using any of the approaches above, the respective certificates (*.pfx) for the specific hostnames have to be first installed on the role instances using a startup task or via code in order for the SNI binding to be effective.
+          Using any of the preceding approaches, the respective certificates (*.pfx) for the specific hostnames have to be first installed on the role instances using a startup task or via code in order for the SNI binding to be effective.
           
       - question: |
           How can I add tags to my Azure Cloud Service? 
@@ -376,17 +376,17 @@ sections:
         answer: |
           We're working on bringing this feature on the Azure portal. Meanwhile, you can use following PowerShell commands to get the SDK version:
           
-          ```powershell
+          ```PowerShell
           Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
           ```
           
       - question: |
           I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
         answer: |
-          An already deployed Cloud Service gets billed for the Compute and Storage it uses. So even if you shut down the Azure VM, you'll still get billed for the Storage. 
+          An already deployed Cloud Service gets billed for the Compute and Storage it uses. So even if you shut down the Azure VM, you still get billed for the Storage. 
           
           Here's what you can do to reduce your billing without losing the IP address for your service:
           
-          1. [Reserve the IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+          1. [Reserve the IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) before you delete the deployments. Azure only bills you for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
           2. Delete the deployments. Don’t delete the xxx.cloudapp.net, so that you can use it for future.
           3. If you want to redeploy the Cloud Service by using the same reserve IP that you reserved in your subscription, see [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).

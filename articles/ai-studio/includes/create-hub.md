@@ -12,7 +12,7 @@ ms.custom: include, build-2024
 
 To create a hub in [Azure AI Studio](https://ai.azure.com), follow these steps:
 
-1. Go to the **Home** page in [Azure AI studio](https://ai.azure.com) and sign in with your Azure account.
+1. Go to the **Home** page in [Azure AI Studio](https://ai.azure.com) and sign in with your Azure account.
 1. Select **All hubs** from the left pane and then select **+ New hub**.
 
     :::image type="content" source="../media/how-to/hubs/hub-new.png" alt-text="Screenshot of the button to create a new hub." lightbox="../media/how-to/hubs/hub-new.png":::

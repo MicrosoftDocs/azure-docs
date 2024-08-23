@@ -3,11 +3,11 @@ title: Deploy machine learning models
 titleSuffix: Azure Machine Learning
 description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, and FPGA.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.reviewer: larryfr
-author: dem108
-ms.author: sehan
+ms.reviewer: None
+author: Blackmist
+ms.author: larryfr
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, devx-track-azurecli, mktng-kw-nov2021, cliv1, sdkv1
@@ -527,8 +527,8 @@ The following table describes the different service states:
 > [!NOTE]
 > If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](../../azure-monitor/containers/container-insights-enable-existing-clusters.md) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
 >
-> * [Check for Resource Health events impacting your AKS cluster](../../aks/aks-resource-health.md)
-> * [Azure Kubernetes Service Diagnostics](../../aks/concepts-diagnostics.md)
+> * [Check for Resource Health events impacting your AKS cluster](/azure/aks/aks-resource-health)
+> * [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics)
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 

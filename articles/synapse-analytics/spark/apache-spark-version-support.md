@@ -3,9 +3,9 @@ title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
 author: ekote
 ms.author: eskot
-ms.reviewer: maghan, wiassaf, sngun
+ms.reviewer: maghan, whhender, whhender
 ms.date: 03/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
 ms.custom: devx-track-python
@@ -15,31 +15,24 @@ ms.custom: devx-track-python
 Apache Spark pools in Azure Synapse use runtimes to tie together essential component versions such as Azure Synapse optimizations, packages, and connectors with a specific Apache Spark version. Each runtime is upgraded periodically to include new improvements, features, and patches. When you create a serverless Apache Spark pool, select the corresponding Apache Spark version. Based on this, the pool comes preinstalled with the associated runtime components and packages.
 
 The runtimes have the following advantages:
-
 - Faster session startup times
 - Tested compatibility with specific Apache Spark versions
 - Access to popular, compatible connectors and open-source packages
 
 ## Supported Azure Synapse runtime releases
 
-> [!WARNING]  
-> End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4 and Apache Spark 3.1.
-> * Effective September 29, 2023, Azure Synapse will discontinue official support for Spark 2.4 Runtimes.
-> * Effective January 26, 2024, Azure Synapse will discontinue official support for Spark 3.1 Runtimes.  
-> * After these dates, we will not be addressing any support tickets related to Spark 2.4 or 3.1. There will be no release pipeline in place for bug or security fixes for Spark 2.4 and 3.1. **Utilizing Spark 2.4 or 3.1 post the support cutoff dates is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.**
-
 > [!TIP]
-> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime (for example, [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md)). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
+> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which is [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md)). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
 
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | | |
-| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 | GA (as of Feb 23, 2023)      | Q2/Q3 2024 | Q1 2025 |
-| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __End of Support Announced__ | July 8, 2023 | July 8, 2024 |
-| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated__         | January 26, 2023 | January 26, 2024 |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated__           | __July 29, 2022__ | __September 29, 2023__ |
+| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | Q2 2025| Q1 2026|
+| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**end of support announced**|July 12th, 2024| 3/31/2025 |
+| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __deprecated and soon disabled__ | July 8, 2023 | __July 8, 2024__ |
+| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated and soon disabled__         | January 26, 2023 | __January 26, 2024__ |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated and soon disabled__           | July 29, 2022 | __September 29, 2023__ |
 
 ## Runtime release stages
 
@@ -106,6 +99,31 @@ This guide provides a structured approach for users looking to upgrade their Azu
 **Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
 1. Recreate Spark Pool 3.3 from the ground up.
 1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
+
+**Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
+
+**Answer:** This is not allowed from UX, customer can use Azure PowerShell to update Spark version. Please use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
+
+**Sample query:**
+
+```azurepowershell
+$_target_work_space = @("workspace1", "workspace2")
+
+Get-AzSynapseWorkspace |
+    ForEach-Object {
+        if ($_target_work_space -contains $_.Name) {
+            $_workspace_name = $_.Name
+            Write-Host "Updating workspace: $($_workspace_name)"
+            Get-AzSynapseSparkPool -WorkspaceName $_workspace_name |
+            ForEach-Object {
+                Write-Host "Updating Spark pool: $($_.Name)"
+                Write-Host "Current Spark version: $($_.SparkVersion)"
+        
+                Update-AzSynapseSparkPool -WorkspaceName $_workspace_name -Name $_.Name -SparkVersion 3.4 -ForceApplySetting
+              }
+        }
+    }
+```
 
 ## Related content
 

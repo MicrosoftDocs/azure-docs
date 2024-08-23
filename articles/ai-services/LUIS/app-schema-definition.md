@@ -35,7 +35,7 @@ When you import and export the app, choose either `.json` or `.lu`.
     * Review labels
     * Suggest endpoint queries for entities
     * Suggest endpoint queries for intents
-    For more information, see the [LUIS reference documentation](/rest/api/cognitiveservices-luis/authoring/features?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true).
+    For more information, see the [LUIS reference documentation](/rest/api/luis/operation-groups).
 ```json
 {
   "luis_schema_version": "7.0.0",

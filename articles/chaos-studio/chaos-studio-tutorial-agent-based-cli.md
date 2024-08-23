@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -20,8 +20,8 @@ You can use these same steps to set up and run an experiment for any agent-based
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- A virtual machine running an operating system in the [version compatibility](chaos-studio-versions.md) list. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
-- A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
+- A virtual machine running an operating system in the [version compatibility](chaos-studio-versions.md) list. If you don't have a VM, you can [create one](/azure/virtual-machines/linux/quick-create-portal).
+- A network setup that permits you to [SSH into your VM](/azure/virtual-machines/ssh-keys-portal).
 - A user-assigned managed identity. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 ## Open Azure Cloud Shell
@@ -55,7 +55,7 @@ az vmss identity assign --ids $VMSS_RESOURCE_ID --identities $MANAGED_IDENTITY_R
 
 Chaos Studio can't inject faults against a VM unless that VM was added to Chaos Studio first. To add a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
 
-Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). The other target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
+Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). The other target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](/azure/virtual-machines/extensions/overview). You use it to inject faults in the guest operating system.
 
 ### Enable the chaos target and capabilities
 
@@ -148,13 +148,13 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
     Windows
 
     ```azurecli-interactive
-    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY","Overrides":{"CheckCertRevocation":true}}'
     ```
 
     Linux
 
     ```azurecli-interactive
-    az vm extension set --ids $VM_RESOURCE_ID --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vm extension set --ids $VM_RESOURCE_ID --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY","Overrides":{"CheckCertRevocation":true}}'
     ```
 
     #### Install the agent on a virtual machine scale set
@@ -162,13 +162,13 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
     Windows
 
     ```azurecli-interactive
-    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY","Overrides":{"CheckCertRevocation":true}}'
     ```
 
     Linux
 
     ```azurecli-interactive
-    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY","Overrides":{"CheckCertRevocation":true}}'
     ```
 1. If you're setting up a virtual machine scale set, verify that the instances were upgraded to the latest model. If needed, upgrade all instances in the model.
 

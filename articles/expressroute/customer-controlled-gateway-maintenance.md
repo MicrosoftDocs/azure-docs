@@ -3,7 +3,7 @@ title: 'Configure customer-controlled maintenance for your virtual network gatew
 titleSuffix: ExpressRoute
 description: Learn how to configure customer-controlled maintenance for your gateways using the Azure portal, or PowerShell.
 author: cherylmc
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/01/2023
@@ -13,25 +13,25 @@ ms.author: cherylmc
 
 This article helps you configure customer-controlled maintenance windows for your ExpressRoute virtual network gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
 
-[!INCLUDE [Overview](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
+[!INCLUDE [Overview](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
 
 For more information on limitations and frequently asked questions related to customer-controlled maintenance, see the [ExpressRoute FAQ](expressroute-faqs.md#customer-controlled).
 
-[!INCLUDE [Preview rollout](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-maintenance-rollout-note.md)]
+[!INCLUDE [Preview rollout](../../includes/vpn-gateway-customer-controlled-maintenance-rollout-note.md)]
 
 ## Azure portal steps
 
-[!INCLUDE [Portal steps](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-article-portal.md)]
+[!INCLUDE [Portal steps](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-portal.md)]
 
    Example:
 
    :::image type="content" source="./media/customer-controlled-gateway-maintenance/select-resources.png" alt-text="Screenshot showing the select resources page." lightbox="./media/customer-controlled-gateway-maintenance/select-resources.png":::
 
-[!INCLUDE [View add remove](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-view-add-remove.md)]
+[!INCLUDE [View add remove](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-view-add-remove.md)]
 
 ## Azure PowerShell steps
 
-[!INCLUDE [PowerShell steps](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-article-powershell.md)]
+[!INCLUDE [PowerShell steps](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-powershell.md)]
 6. Create the maintenance configuration assignment using the [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) cmdlet. The maintenance policy is applied to the resource within 24 hours.
 
    ```azurepowershell-interactive
@@ -40,7 +40,7 @@ For more information on limitations and frequently asked questions related to cu
 
 ### To remove a configuration assignment
 
-[!INCLUDE [Remove assignment](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-article-remove-assignment.md)]
+[!INCLUDE [Remove assignment](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-remove-assignment.md)]
 
 ## Next steps
 

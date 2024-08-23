@@ -64,10 +64,12 @@
       href: query-scom-managed-instance-data-on-grafana.md
     - name: View System Center Operations Manager's alerts in Azure Monitor
       href: view-operations-manager-alerts-azure-monitor.md
-    - name: Monitor Azure and Off-Azure Virtual machines
+    - name: Monitor Azure and Off-Azure Virtual machines with SCOM Managed Instance extensions
+      href: monitor-azure-off-azure-vm-with-scom-managed-instance.md
+    - name: Monitor Off-Azure Virtual machines
       href: monitor-off-azure-vm-with-scom-managed-instance.md
-    - name: Monitor Azure and Off-Azure Virtual machines (preview)
-      href: monitor-arc-enabled-vm-with-scom-managed-instance.md
+    - name: Monitor Linux machines
+      href: monitor-linux-machines.md
 - name: Logs
   items:
    - name: Activity Log
@@ -81,7 +83,7 @@
    - name: Troubleshoot commonly encountered errors while validating input parameters
      href: troubleshooting-input-parameters-scom-managed-instance.md
    - name: FAQs
-     href: common-questions.md
+     href: scom-managed-instance-faq.yml
 - name: Security
   items:
    - name: Managed Identity

@@ -10,7 +10,7 @@ ms.date: 04/08/2024
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Some scenarios might require that you create a logic app workflow that sends outbound requests to endpoints on other services or systems over HTTP or HTTPS. For example, suppose that you want to monitor a service endpoint for your website by checking that endpoint on a specific schedule. When a specific event happens at that endpoint, such as your website going down, that event triggers your workflow and runs the actions in that workflow.
 

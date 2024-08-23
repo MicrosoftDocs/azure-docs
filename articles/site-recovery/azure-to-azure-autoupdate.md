@@ -3,7 +3,7 @@ title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: ankitadutta
@@ -485,8 +485,6 @@ If you can't enable automatic updates, see the following common errors and recom
   The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown two months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional until you renew the same.
 
   **Recommended action**: To resolve this issue, select **Repair** and then **Renew Certificate**.
-
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renew-cert":::
 
   > [!NOTE]
   > After you renew the certificate, refresh the page to display the current status.

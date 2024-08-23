@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/10/2024
 ms.author: lajanuar
 ---
 
@@ -23,14 +23,15 @@ Alignment is returned as a string value of the following format for every word o
 
 Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. The method returns no error in that case.
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the Alignment element is empty. The method returns no error in that case.
 
 ## Restrictions
 Alignment is only returned for a subset of the language pairs at this point:
+
 * from English to any other language;
 * from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English
 * from Japanese to Korean or from Korean to Japanese
-You will not receive alignment information if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you", and other high frequency sentences.
+You don't receive alignment information if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you`, and other high frequency sentences.
 
 ## Example
 
