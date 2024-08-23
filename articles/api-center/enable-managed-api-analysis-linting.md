@@ -110,7 +110,7 @@ Review the linting results. Make any necessary adjustments to the ruleset and co
 To deploy the custom ruleset to your API center:
 
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
-1. In the Explorer pane, expand the API center resource in which you customized the ruleset.
+1. In the API Center pane, expand the API center resource in which you customized the ruleset.
 1. Right-click **Rules** and select **Deploy Rules to API Center**.
 
 A message notifies you after the rules are successfully deployed to your API center. The linting engine uses the updated ruleset to analyze API definitions.
