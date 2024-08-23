@@ -1,10 +1,10 @@
 ---
-title: Overview
-description: Learn how Azure App Service helps you develop and host web applications
+title: Overview of Azure App Service
+description: Learn how Azure App Service helps you develop and host web applications.
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 08/31/2023
+ms.date: 08/23/2024
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
