@@ -68,7 +68,41 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
+## Chat Completions Using JavaScript 
+The DefaultAzureCredential class is part of the Azure Identity library and provides a default TokenCredential implementation. It attempts to authenticate using multiple credential types in a specific order, including: Environment variables, Managed identity (if running in an Azure environment) and Azure CLI.
+This means you don't need any tokens or secrets in your code. The DefaultAzureCredential will automatically use the most appropriate credential available in your environment.
+
+```js
+const { DefaultAzureCredential} = require('@azure/identity');
+const { OpenAIClient } = require('@azure/openai');
+
+const message = [
+    { role: "system", content: "You are a coding assistant." },
+    { role: "user", content: "" },
+]
+
+message[1].content = "What is Java?";
+const endpoint = 'https://{your-custom-endpoint}.openai.azure.com/';
+const model = 'your-model-name';
+const credential = new DefaultAzureCredential();
+
+async function getGPTdata() {
+    try {
+        const client = new OpenAIClient(endpoint, credential);
+        const deploymentId = model;
+
+        const result = await client.getChatCompletions(deploymentId, message);
+        console.log(result.choices[0].message.content)
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+}
+
+getGPTdata();
+```
+
 ## Querying Azure OpenAI with the control plane API
+
 
 ```python
 import requests
