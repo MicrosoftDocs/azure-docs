@@ -72,7 +72,9 @@ For more information, see [Configure private endpoint in Azure Static Web Apps](
 
 ### All other deployments
 
-- If applicable, retrieve the new Function API keys from Azure Functions in the new region
+For all other deployment types, make sure to:
+
+- If applicable, retrieve the new Function API keys from Azure Functions in the new region.
 
 - If the Azure Function has a dependency on a database, ensure that the DATABASE_CONNECTION_STRING is updated (This database may not be in scope of regional migration).
 
