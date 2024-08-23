@@ -7,13 +7,13 @@ ms.date: 08/22/2024
 
 Azure Event Hubs is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability. For a high-level overview of the service, see [What is Event Hubs?](event-hubs-about.md).
 
-Developers and Operators are often looking for an easy tool to send sample data to their Event Hub to test the end-to-end flow, or view events at a specific offset (or point in time) for light debugging, often after the fact. The Event Hubs Data Explorer makes these common workflows simple by eliminating the need to write bespoke client applications to test and inspect the data on the event hub. 
+Developers and Operators are often looking for an easy tool to send sample data to their event hub to test the end-to-end flow, or view events at a specific offset (or point in time) for light debugging, often after the fact. The Event Hubs Data Explorer makes these common workflows simple by eliminating the need to write bespoke client applications to test and inspect the data on the event hub. 
 
-This article highlights the functionality of Azure Event Hubs Data explorer, that is made available on the Azure portal.
+This article highlights the functionality of Azure Event Hubs Data explorer that is made available on the Azure portal.
 
 Operations run on an Azure Event Hubs namespace are of two kinds.
 
-  * Management Operations - Create, update, delete of Event Hubs namespace, and topics.
+  * Management Operations - Create, update, delete of Event Hubs namespace, and event hubs.
   * Data Operations - Send and view events from an event hub.
 
 > [!IMPORTANT]
@@ -30,15 +30,15 @@ To use the Event Hubs Data Explorer tool, [create an Azure Event Hubs namespace 
 
 To use the Event Hubs data explorer, navigate to the Event Hubs namespace on which you want to perform the data operations.
 
-Either navigate to the `Data Explorer` directly where you may pick the event hub, or pick the event hub from the `entities` and then pick the `Data Explorer` from the navigation menu.
+Either navigate to the `Data Explorer` directly where you can pick the event hub, or pick the event hub from the `entities` and then pick the `Data Explorer` from the navigation menu.
 
 :::image type="content" source="./media/event-hubs-data-explorer/left-pane-nav.png" alt-text="Screenshot showing the left pane nav with 'Data Explorer' selected.":::
 
 ## Send Events
 
-You can send either custom payloads, or pre-canned dataset to the selected event hub using the `Send events` experience.
+You can send either custom payloads, or precanned dataset to the selected event hub using the `Send events` experience.
 
-To do so, click on the `send events` button, which will enable the right pane.
+To do so, select the `send events` button, which enables the right pane.
 
 :::image type="content" source="./media/event-hubs-data-explorer/select-send-events.png" alt-text="Screenshot showing the data explorer pane with 'Send events' selected.":::
 
@@ -51,24 +51,24 @@ To send a custom payload -
 3. Either upload a JSON file, or type out the payload in the **Enter payload** box.
 4. [Optional] Specific system properties.
 5. [Optional] Custom properties - available in key-value pair.
-6. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (i.e. the number of payloads to send) and the **Interval between repeat send in ms**.
+6. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
 
-Once the payload details have been defined, click **Send** to send the event payload as defined.
+Once the payload details are defined, select **Send** to send the event payload as defined.
 
 :::image type="content" source="./media/event-hubs-data-explorer/send-event.png" alt-text="Screenshot showing the send event experience for custom payload.":::
 
 
-### Sending pre-canned dataset
+### Sending precanned dataset
 
-To send event payloads from a pre-canned dataset -
-1. **Select Dataset** - Pick an option from the **Pre canned datasets**, for e.g. Yellow taxi, Weather data, and others.
+To send event payloads from a precanned dataset -
+1. **Select Dataset** - Pick an option from the **Pre canned datasets**, for example, Yellow taxi, Weather data, and others.
 2. [Optional] Specific system properties.
 3. [Optional] Custom properties - available in key-value pair.
-4. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (i.e. the number of payloads to send) and the **Interval between repeat send in ms**.
+4. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
 
-Once the payload details have been defined, click **Send** to send the event payload as defined.
+Once the payload details are defined, select **Send** to send the event payload as defined.
 
-:::image type="content" source="./media/event-hubs-data-explorer/send-pre-canned-payload.png" alt-text="Screenshot showing the send event experience for pre-canned payload.":::
+:::image type="content" source="./media/event-hubs-data-explorer/send-pre-canned-payload.png" alt-text="Screenshot showing the send event experience for precanned payload.":::
 
 
 ## View Events
@@ -82,20 +82,26 @@ To view events, you can define the below properties, or rely on the default -
 
 1. **PartitionID** - pick either a specific partition or select *All partition IDs*.
 2. **Consumer Group** - pick the *$Default* or another consumer group, or create one on the fly.
-3. **Event position** - Pick the *oldest position* (i.e. the start of the event hub), *Newest position* (i.e. latest ), *Custom position* (for a specific offset, sequence number or timestamp).
+3. **Event position** - Pick the *oldest position* (that is, the start of the event hub), *Newest position* (that is, latest), *Custom position* (for a specific offset, sequence number or timestamp).
 4. **Advanced properties** - Specify the *maximum batch size* and *maximum wait time in seconds*.
 
-Once the above options have been set, click **View events** to pull the events and render them on the data explorer.
+Once the above options are set, select **View events** to pull the events and render them on the data explorer.
 
 :::image type="content" source="./media/event-hubs-data-explorer/grid-of-events.png" alt-text="Screenshot showing the grid of events.":::
 
 
-Once the events have been loaded, you can click on **View next events** to pull events using the same query again, or **Clear all** to refresh the grid.
+Once the events are loaded, you can select **View next events** to pull events using the same query again, or **Clear all** to refresh the grid.
 
 ## Download event payload
 
 When viewing the events on a given event hub, the event payload can be downloaded for further review.
 
-To download the event payload, select the specific event and click on the **download** button displayed above the event payload body.
+To download the event payload, select the specific event and select the **download** button displayed above the event payload body.
 
-:::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the event grid with selected event and highlighted download event button.":::
+:::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the grid of events with selected event and highlighted download event button.":::
+
+
+# Next steps
+
+  * Learn more about [Event Hubs](event-hubs-about.md).
+  * Check out [Event Hubs features and terminology](event-hubs-features.md)
