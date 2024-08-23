@@ -146,7 +146,7 @@ command that requires elevated permissions.
      your case, the request should be unsuccessful, but you can find the hostname you need to
      resolve.
 
-     [![Screenshot of the browser developer tools](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
+     [![Screenshot of the browser developer tools.](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
 
   1. From a host outside of your private network, run the `nslookup` command to find the IP address
      of the hostname as found in the previous step.
