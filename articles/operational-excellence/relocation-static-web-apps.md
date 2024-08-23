@@ -60,7 +60,7 @@ The relocation of an Azure Static Web site introduces downtime to your applicati
 
 ## Prepare
 
-**To prepare for Azure Static Web Apps deployed with private endpoints:**
+### Deployments with private endpoints
 
 If your Static Web Apps are deployed with private endpoints, make sure to:
 
