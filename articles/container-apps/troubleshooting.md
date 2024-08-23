@@ -218,11 +218,13 @@ az extension add --name containerapp --upgrade --allow-preview true
 
 If you receive the message **provisioningState: ScheduledForDelete**, but your environment fails to actually delete, make sure to delete your associated VNet manually.
 
-1. Identify the VNet being used by the environment you're trying to delete:
-```azurecli
-az containerapp env show --resource-group $RG --name $ACA_ENV
-```
-In the output shown above look for the `infrastructureSubnetId` and note down the VNet name.
+1. Identify the VNet being used by the environment you're trying to delete. Replace the \<PLACEHOLDERS\> with your values.
+
+    ```azurecli
+    az containerapp env show --resource-group <RESOURCE_GROUP> --name <ENVIRONMENT>
+    ```
+
+    In the output, look for `infrastructureSubnetId` and note down the VNet ID. An example VNet ID is `vNet::myVNet.id`.
 
 2. Delete the VNet manually:
 ```azurecli
