@@ -25,7 +25,7 @@ The following table lists the metrics available for the Microsoft.Network/loadBa
 
 <!-- [!INCLUDE [Microsoft.Network/loadBalancers](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-loadbalancers-metrics-include.md)] -->
 
-<!- Manually included due to inprocess dimensions. Once those dimensions are completed, please reinstate this include and remove the manual copy. Please do not remove this comment. rboucher 2024_08_23 ->
+<!-- Manually included due to inprocess dimensions. Once those dimensions are completed, please reinstate this include and remove the manual copy. Please do not remove this comment. rboucher 2024_08_23 -->
 
 |Metric|Name in REST API|Unit|Aggregation|Dimensions|Time Grains|DS Export|
 |---|---|---|---|---|---|---|
