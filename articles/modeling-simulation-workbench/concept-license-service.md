@@ -32,4 +32,4 @@ This flow is extendible and can also include other software vendors across indus
 
 ## Related content
 
-- Learn more about the benefits and key features of using [Shared storage](./shared-storage.md)
+- Learn more about the benefits and key features of using [Shared storage](./shared-storage.md).
