@@ -344,8 +344,8 @@ The Salesforce Service Cloud connector offers new functionalities and is compati
 |Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Objects that contain binary fields are supported when using Azure integration runtime or Self-hosted integration runtime with version 5.44.8984.1 or above.| Objects that contain binary fields are supported, like Attachment object.|
-| Support objects when using Azure integration runtime or Self-hosted integration runtime with version 5.44.8984.1 or above. |Support objects that aren't supported by Bulk API, like CaseStatus.|
+| Objects that contain binary fields are supported when using Azure integration runtime or self-hosted integration runtime with version 5.44.8984.1 or above.| Objects that contain binary fields are supported, like Attachment object.|
+| Support objects when using Azure integration runtime or self-hosted integration runtime with version 5.44.8984.1 or above. |Support objects that aren't supported by Bulk API, like CaseStatus.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
