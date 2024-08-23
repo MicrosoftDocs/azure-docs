@@ -3,7 +3,7 @@ title: 'Virtual WAN virtual hub routing preference'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN virtual hub routing preference.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/27/2024
 ms.author: cherylmc

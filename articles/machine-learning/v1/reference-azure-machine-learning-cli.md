@@ -2,7 +2,7 @@
 title: 'Install and set up the CLI (v1)'
 description: Learn how to use the Azure CLI extension (v1) for ML to create & manage resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 author: Blackmist

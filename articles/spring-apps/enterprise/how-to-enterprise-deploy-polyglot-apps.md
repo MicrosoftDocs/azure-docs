@@ -3,7 +3,7 @@ title: How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
 description: Shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 07/05/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

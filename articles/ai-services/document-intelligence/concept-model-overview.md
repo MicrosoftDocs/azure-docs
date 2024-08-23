@@ -5,10 +5,8 @@ description: Document processing models for OCR, document layout, invoices, iden
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -50,27 +48,34 @@ ms.author: lajanuar
 
 The following table shows the available models for each current preview and stable API:
 
-|**Model Type**| **Model**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br> &bullet; [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
+|**Model Type**| **Model**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br> &bullet; [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
 |Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
 |Document analysis models|[General document](concept-general-document.md)          |moved to layout**| ✔️| ✔️| n/a|
+|Prebuilt models|[Bank Check](concept-bank-check.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Bank Statement](concept-bank-statement.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Paystub](concept-pay-stub.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[US Unified Tax*](concept-tax-document.md)                   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US 1040 Tax*](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[US 1098 Tax*](concept-tax-document.md)                   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US 1099 Tax*](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[US Mortgage 1003 URLA](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1004 URAR](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1005](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US Mortgage 1008 Summary](concept-mortgage-documents.md)       | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US Mortgage closing disclosure](concept-mortgage-documents.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Marriage certificate](concept-marriage-certificate.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Credit card](concept-credit-card.md)   | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
 |Custom classification model|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|Custom Generative Model|[Custom Generative Model](concept-custom-generative.md)   | ✔️| n/a| n/a| n/a|
 |Custom extraction model|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
 |Customextraction model|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
 |Custom extraction model|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
@@ -82,7 +87,7 @@ The following table shows the available models for each current preview and stab
 
 Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page. Document Intelligence is a multitenant service where latency for similar documents is comparable but not always identical. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale. Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
 
-|**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
+|**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -91,6 +96,7 @@ Latency is the amount of time it takes for an API server to handle and process a
 |Language detection|Free| ✔️| ✔️| n/a| n/a|
 |Key value pairs|Free| ✔️|n/a|n/a| n/a|
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
+|Searchable pdf|Add-On*| ✔️|n/a|n/a| n/a|
 
 ### Model analysis features
 
@@ -99,26 +105,6 @@ Latency is the amount of time it takes for an API server to handle and process a
 Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
 ::: moniker range=">=doc-intel-3.0.0"
-
-| **Model**   | **Description**   |
-| --- | --- |
-|**Document analysis models**||
-| [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
-| [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
-|**Prebuilt models**||
-| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number, and other key information from US health insurance cards.|
-| [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
-| [US Mortgage document models](#us-mortgage-documents) | Process US mortgage forms to extract borrower loan and property information.  |
-| [Contract](#contract) | Extract agreement and party details.|
-| [Invoice](#invoice)  | Automate invoices. |
-| [Receipt](#receipt)  | Extract receipt data from receipts.|
-| [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
-| [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
-|**Custom models**||
-| [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
-| [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured, and unstructured documents.|
-| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the documents within and can also identify multiple documents or multiple instances of a single document within an input file.
-| [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Bounding box and polygon coordinates
 
@@ -137,6 +123,7 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`languages`](concept-add-on-capabilities.md#language-detection)
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2024-02-29-preview, 2023-10-31-preview)
 * [`queryFields`](concept-add-on-capabilities.md#query-fields) (2024-02-29-preview, 2023-10-31-preview) `Not available with the US.Tax models`
+* [`searchablePDF`](concept-read.md#searchable-pdf) (2024-07-31-preview) `Only available for Read Model`
 
 ## Language support
 
@@ -327,7 +314,7 @@ Custom models can be broadly classified into two types. Custom classification mo
 
 Custom document models analyze and extract data from forms and documents specific to your business. They recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
 
-Version v3.0 and later custom models support signature detection in custom template (form) and cross-page tables in both template and neural models. [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person who signs the document. If the model returns **unsigned** for signature detection, the model didn't find a signature in the defined field.
+Version v3.0 and later custom models support signature detection in custom template (form) and cross-page tables in both template and neural models. [Signature detection](concept-custom-template.md#model-capabilities) looks for the presence of a signature, not the identity of the person who signs the document. If the model returns **unsigned** for signature detection, the model didn't find a signature in the defined field.
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 

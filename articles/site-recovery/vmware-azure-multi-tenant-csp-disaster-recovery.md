@@ -4,7 +4,7 @@ description: Describes how to set up VMware disaster recovery in a multi-tenant 
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 04/03/2022
 ms.custom: subject-rbac-steps, engagement-fy23

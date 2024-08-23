@@ -6,7 +6,7 @@ summary: The Azure Backup service provides simple, secure, and cost-effective so
 metadata:
   title: Azure Backup Documentation
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
-  ms.service: backup
+  ms.service: azure-backup
   ms.custom:
     - ignite-2023
   ms.topic: landing-page

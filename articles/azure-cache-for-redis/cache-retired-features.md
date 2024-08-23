@@ -2,10 +2,10 @@
 title: What's been retired from Azure Cache for Redis?
 titleSuffix: Azure Cache for Redis
 description: This article contains information on retirements from Azure Cache for Redis including guidance and timelines.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: conceptual
 ms.date: 10/17/2023
 

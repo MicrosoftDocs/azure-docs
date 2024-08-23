@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to analyze data with a serverles
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender, wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 02/15/2023

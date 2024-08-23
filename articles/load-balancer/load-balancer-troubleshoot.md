@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues with Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 manager: kumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 01/09/2024
 ms.author: mbender

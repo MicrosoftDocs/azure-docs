@@ -2,7 +2,7 @@
 title: Feature set materialization concepts
 titleSuffix: Azure Machine Learning
 description: Build and use feature set materialization resources.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 author: fbsolo-ms1 

@@ -3,7 +3,7 @@ title: How to run and deploy locally
 titleSuffix: Azure Machine Learning
 description: 'This article describes how to use your local computer as a target for training, debugging, or deploying models created in Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: joburges
 author: ssalgadodev

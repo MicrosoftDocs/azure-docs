@@ -1,12 +1,12 @@
 ---
 title: Drawing tools interaction types and keyboard shortcuts on map | Microsoft Azure Maps
 description: How to draw and edit shapes using a mouse, touch screen, or keyboard in the Microsoft Azure Maps Web SDK
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/05/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Interaction types and keyboard shortcuts in the drawing tools module
@@ -16,7 +16,7 @@ This article outlines all the different ways to draw and edit shapes using a mou
 The drawing manager supports three different ways of interacting with the map, to draw shapes.
 
 - `click` - Coordinates are added when the mouse or touch is clicked.
-- `freehand ` - Coordinates are added when the mouse or touch is dragged on the map.
+- `freehand` - Coordinates are added when the mouse or touch is dragged on the map.
 - `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
 
 ## How to draw shapes

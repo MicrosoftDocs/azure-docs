@@ -161,7 +161,7 @@
     items:
     - name: Monitor SignalR Service
       href: monitor-signalr.md
-    - name: Use diagnostic logs to monitor SignalR Service
+    - name: Use resource logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
     - name: Monitoring data reference
       href: monitor-signalr-reference.md

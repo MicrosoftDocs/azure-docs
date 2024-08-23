@@ -4,7 +4,6 @@ description: Learn how to copy data from QuickBooks Online to supported sink dat
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -112,7 +111,7 @@ The following properties are supported for QuickBooks linked service:
 
 When you use the QuickBooks Online connector in a linked service, it's important to manage OAuth 2.0 refresh tokens from QuickBooks correctly. The linked service uses a refresh token to obtain new access tokens. However, QuickBooks Online periodically updates the refresh token, invalidating the previous one. The linked service does not automatically update the refresh token in Azure Key Vault, so you need to manage updating the refresh token to ensure uninterrupted connectivity. Otherwise you might encounter authentication failures once the refresh token expires.
 
-You can manually update the refresh token in Azure Key Vault based on QuickBooks Online's refresh token expiry policy. But another approach is to automate updates with a scheduled task or [Azure Function](/samples/azure/azure-quickstart-templates/functions-keyvault-secret-rotation) that checks for a new refresh token and updates it in Azure Key Vault.
+You can manually update the refresh token in Azure Key Vault based on QuickBooks Online's refresh token expiry policy. But another approach is to automate updates with a scheduled task or [Azure Function](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling) that checks for a new refresh token and updates it in Azure Key Vault.
 
 ## Dataset properties
 

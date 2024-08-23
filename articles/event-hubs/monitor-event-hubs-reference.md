@@ -4,7 +4,6 @@ description: This article contains important reference material you need when yo
 ms.date: 06/20/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-ms.service: azure-event-hubs
 ---
 
 # Azure Event Hubs monitoring data reference

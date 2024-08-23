@@ -4,7 +4,7 @@ description: Deploy your containerized .NET applications to Azure Container Apps
 services: container-apps
 author: alexwolfmsft
 ms.author: alexwolf
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 3/04/2022
 ms.custom: mode-ui, devx-track-dotnet

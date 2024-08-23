@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
 ms.topic: conceptual
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ---
 
 # Monitor Azure ExpressRoute

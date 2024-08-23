@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure network security documentation
   description: Azure network security services provide security for your resources in Azure. 
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.topic: hub-page
   author: vhorne
   ms.author: victorh

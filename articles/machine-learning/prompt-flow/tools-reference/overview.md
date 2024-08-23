@@ -3,7 +3,7 @@ title: Overview of tools in prompt flow
 titleSuffix: Azure Machine Learning
 description: This overview of the tools in prompt flow includes an index table for tools and the instructions for custom tool package creation and tool package usage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023

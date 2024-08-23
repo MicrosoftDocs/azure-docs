@@ -1,9 +1,8 @@
 ---
 title: Analyze Azure network security group flow logs - Graylog
 description: Learn how to manage and analyze network security group flow logs in Azure using Network Watcher and Graylog.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 05/31/2024
 ms.author: halkazwini

@@ -9,7 +9,7 @@ ms.reviewer: bwren
 ---
 
 # Best practices for monitoring Kubernetes with Azure Monitor
-This article provides best practices for monitoring the health and performance of your [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) and [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) clusters. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
+This article provides best practices for monitoring the health and performance of your [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) and [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) clusters. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 
 

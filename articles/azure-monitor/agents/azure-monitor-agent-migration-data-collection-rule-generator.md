@@ -65,6 +65,7 @@ To run script, copy the following command and replace the parameters with your v
   - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
   - **Custom Logs** contains `logFiles` data sources only
   - **IIS Logs** contains `iisLogs` data sources only
+  - **DependencyAgent** extension
   - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
     - `VMInsights` 
 

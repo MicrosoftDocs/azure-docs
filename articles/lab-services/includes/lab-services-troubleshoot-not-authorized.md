@@ -1,5 +1,5 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: include
 author: ntrogh
 ms.author: nicktrog

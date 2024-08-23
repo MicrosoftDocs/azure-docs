@@ -2,9 +2,9 @@
 title: Share Hive Metastore with Azure Synapse Spark Pool
 description: Learn how to share existing Azure HDInsight external Hive Metastore with Azure Synapse Spark Pool.
 keywords: external Hive metastore,share,Synapse
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/16/2024
 ---
 
 # Share Hive Metastore with Synapse Spark Pool (Preview)

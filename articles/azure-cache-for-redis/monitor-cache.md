@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: robb
 ms.author: robb
-ms.service: cache
+
 ---
 
 # Monitor Azure Cache for Redis

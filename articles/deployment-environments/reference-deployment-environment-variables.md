@@ -2,7 +2,7 @@
 title: ADE CLI variables reference
 titleSuffix: Azure Deployment Environments
 description: Learn about the variables available for building custom images using the Azure Deployment Environment (ADE) CLI.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/12/2024

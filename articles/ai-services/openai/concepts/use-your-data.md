@@ -345,22 +345,24 @@ You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Foll
     > [!NOTE]
     > The citation experience is available in **Debug (Edge)** or **Debug (Chrome)** only.
 
-1. After you've tested your copilot, you can provision, deploy, and publish your Teams app by selecting the **Teams Toolkit Extension** on the left pane in Visual Studio Code. Run the separate provision, deploy, and publish stages in the **Lifecycle** section. You may be asked to sign in to your Microsoft 365 account where you have permissions to upload custom apps and your Azure Account.
+1. After you've tested your copilot, you can provision, deploy, and publish your Teams app by selecting the **Teams Toolkit Extension** on the left pane in Visual Studio Code. Run the separate provision, deploy, and publish stages in the **Lifecycle** section. You might be asked to sign in to your Microsoft 365 account where you have permissions to upload custom apps and your Azure Account.
   
 1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision))
 
-1. Assign the **Cognitive Service OpenAI User** role to your deployed App Service resource 
-    1. Go to the Azure portal and select the newly created Azure App Service resource
-    1. Go to **settings** -> **identity** -> **enable system assigned identity** 
-        1. Select **Azure role assignments** and then **add role assignments**. Specify the following parameters:
-           * Scope: resource group 
-           * Subscription: the subscription of your Azure OpenAI resource 
-           * Resource group of your Azure OpenAI resource 
-           * Role: **Cognitive Service OpenAI user**  
+1. Assign the **Cognitive Service OpenAI User** role to your deployed **User Assigned Managed Identity** resource of your custom copilot. 
+    1. Go to the Azure portal and select the newly created **User Assigned Managed Identity** resource for your custom copilot.
+    1. Go to **Azure Role Assignments**.
+    1. Select **add role assignment**. Specify the following parameters:
+        * Scope: resource group 
+        * Subscription: the subscription of your Azure OpenAI resource 
+        * Resource group of your Azure OpenAI resource 
+        * Role: **Cognitive Service OpenAI user**  
 
 1. Deploy your app to Azure by following the instructions in [Deploy to the cloud](/microsoftteams/platform/toolkit/deploy). 
 
 1. Publish your app to Teams by following the instructions in [Publish Teams app](/microsoftteams/platform/toolkit/publish).
+    > [!IMPORTANT]
+    > Your Teams app is intended for use within the same tenant of your Azure account used during setup, as it is securely configured by default for single-tenant usage. Using this app with a Teams account not associated with the Azure tenant used during setup will result in an error.
 
 The README file in your Teams app has additional details and tips. Also, see [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
 
@@ -426,26 +428,26 @@ Once you select add your dataset, you can use the **System message** section in 
 
 **Define a role**
 
-You can define a role that you want your assistant. For example, if you are building a support bot, you can add *"You are an expert incident support assistant that helps users solve new issues."*.
+You can define a role that you want your assistant. For example, if you are building a support bot, you can add *"You are an expert incident support assistant that helps users solve new issues."*
 
 **Define the type of data being retrieved**
 
 You can also add the nature of data you are providing to assistant.
-* Define the topic or scope of your dataset, like "financial report", "academic paper", or "incident report". For example, for technical support you might add *"You answer queries using information from similar incidents in the retrieved documents."*.
-* If your data has certain characteristics, you can add these details to the system message. For example, if your documents are in Japanese, you can add *"You retrieve Japanese documents and you should read them carefully in Japanese and answer in Japanese."*. 
-* If your documents include structured data like tables from a financial report, you can also add this fact into the system prompt. For example, if your data has tables, you might add *"You are given data in form of tables pertaining to financial results and you should read the table line by line to perform calculations to answer user questions."*.
+* Define the topic or scope of your dataset, like "financial report," "academic paper," or "incident report." For example, for technical support you might add *"You answer queries using information from similar incidents in the retrieved documents."*
+* If your data has certain characteristics, you can add these details to the system message. For example, if your documents are in Japanese, you can add *"You retrieve Japanese documents and you should read them carefully in Japanese and answer in Japanese."*
+* If your documents include structured data like tables from a financial report, you can also add this fact into the system prompt. For example, if your data has tables, you might add *"You are given data in form of tables pertaining to financial results and you should read the table line by line to perform calculations to answer user questions."*
 
 **Define the output style** 
 
-You can also change the model's output by defining a system message. For example, if you want to ensure that the assistant answers are in French, you can add a prompt like *"You are an AI assistant that helps users who understand French find information. The user questions can be in English or French. Please read the retrieved documents carefully and answer them in French. Please translate the knowledge from documents to French to ensure all answers are in French."*.
+You can also change the model's output by defining a system message. For example, if you want to ensure that the assistant answers are in French, you can add a prompt like *"You are an AI assistant that helps users who understand French find information. The user questions can be in English or French. Please read the retrieved documents carefully and answer them in French. Please translate the knowledge from documents to French to ensure all answers are in French."*
 
 **Reaffirm critical behavior**
 
-Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, don't answer using your own knowledge."*.
+Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, don't answer using your own knowledge."*
 
 **Prompt Engineering tricks**
 
-There are many tricks in prompt engineering that you can try to improve the output. One example is chain-of-thought prompting where you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*.
+There are many tricks in prompt engineering that you can try to improve the output. One example is chain-of-thought prompting where you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*
 
 > [!NOTE]
 > The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It doesn't affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
@@ -652,7 +654,7 @@ This means the storage account isn't accessible with the given credentials. In t
 
 ### 503 errors when sending queries with Azure AI Search
 
-Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the number of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the number of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support might not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
 
 ## Regional availability and model support
 

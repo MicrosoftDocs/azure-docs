@@ -5,7 +5,7 @@ author: meenalsri
 ms.author: mesrivas
 ms.reviewer: whhender
 ms.date: 09/01/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
 ms.custom: subject-rbac-steps

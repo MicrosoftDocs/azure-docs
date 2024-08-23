@@ -544,7 +544,7 @@ resource deploymentScript2 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
 
 ### Pass secured strings to a deployment script
 
-You can set environment variables (`EnvironmentVariable`) in your container instances to provide dynamic configuration of the application or script that the container runs. A deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instances. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
+You can set environment variables (`EnvironmentVariable`) in your container instances to provide dynamic configuration of the application or script that the container runs. A deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instances. For more information, see [Set environment variables in container instances](/azure/container-instances/container-instances-environment-variables#secure-values).
 
 The maximum allowed size for environment variables is 64 KB.
 

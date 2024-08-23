@@ -3,7 +3,7 @@ title: Manage Zoom Phone Cloud Peering customers on Azure Communications Gateway
 description: Learn how to configure Azure Communications Gateway and Microsoft 365 for a Zoom Phone Cloud Peering customer.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/25/2024
 ms.custom: template-how-to-pattern

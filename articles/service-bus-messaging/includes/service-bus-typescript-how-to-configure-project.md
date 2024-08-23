@@ -1,9 +1,8 @@
 ---
 title: Include file
 description: Include file
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 07/17/2024
 ms.author: spelluru

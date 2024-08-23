@@ -5,7 +5,7 @@ description: Use ONNX with Azure Machine Learning automated ML to make predictio
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: rvadthyavath
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 02/18/2024

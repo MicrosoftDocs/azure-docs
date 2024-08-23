@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/25/2024
+ms.date: 08/22/2024
 
 ---
 
@@ -41,20 +41,22 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | Canada East​​ ​ |  | ✅ | |
 | East US​ | ✅ | ✅ | ✅ |
 | East US 2 ​ | ✅ | ✅ | ✅ |
-| ​Central US​ ​ | ✅ | ✅ | ✅ |
+| ​Central US​ <sup>1</sup>​ | ✅ | ✅ | ✅ |
 | North Central US​ ​ | ✅ | ✅ | |
-| South Central US​ ​ | ✅ | ✅ | ✅ |
+| South Central US​ <sup>1</sup>​ | ✅ | ✅ | ✅ |
 | West US​ ​ | ✅ | ✅ | |
-| West US 2​ ​ | ✅ | ✅ | ✅ |
-| West US 3​ ​ | ✅ | ✅ |✅ |
+| West US 2​ <sup>1</sup>​ | ✅ | ✅ | ✅ |
+| West US 3​ <sup>1</sup>​ | ✅ | ✅ |✅ |
 | West Central US​ ​ | ✅ | ✅ | |
+
+<sup>1</sup> Currently, this region is at capacity for Basic and Standard (S1) tiers. Choose a higher tier or a different region.
 
 ### Europe
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
-| North Europe​​ | ✅ | ✅ | ✅ |
-| West Europe​​ <sup>1</sup>| ✅ | ✅ | ✅ |
+| North Europe​​ <sup>1</sup>| ✅ | ✅ | ✅ |
+| West Europe​​ <sup>2</sup>| ✅ | ✅ | ✅ |
 | France Central​​ | ✅ | ✅ | ✅ |
 | Germany West Central​ ​| ✅ |  | ✅ |
 | Italy North​​ |  |  | ✅ |
@@ -67,17 +69,21 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | UK South​ | ✅ | ✅ | ✅ |
 | UK West​ ​|  | ✅ | |
 
-<sup>1</sup> This region runs on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
+<sup>1</sup> Currently, this region is at capacity for Basic and Standard (S1) tiers. Choose a higher tier or a different region.
+
+<sup>2</sup> West Europe is at capacity for all tiers and isn't accepting any new search services. Additionally, the clusters used to run Azure AI Search don't have the [higher capacity partitions](search-limits-quotas-capacity.md#service-limits) that were brought online in April 2024. This means that search services deployed in this region have lower storage and computing capability.
 
 ### Middle East
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
-| Israel Central​ <sup>1</sup> |  |  | ✅  |
-| Qatar Central​ <sup>1</sup> |  |  | ✅ |
+| Israel Central​ <sup>2</sup> |  |  | ✅  |
+| Qatar Central​ <sup>1, 2</sup> |  |  | ✅ |
 | UAE North​​ | ✅ |  | ✅ |
 
-<sup>1</sup> These regions run on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
+<sup>1</sup> Currently, this region is at capacity for Basic and Standard (S1) tiers. Choose a higher tier or a different region.
+
+<sup>2</sup> These regions run on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
 
 ### Africa
 
@@ -95,14 +101,15 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | Southeast Asia​ ​ ​ | ✅ | ✅ | ✅ |
 | Central India| ✅ | ✅ | ✅ |
 | Jio India West​ ​ | ✅ | ✅ |  |
-| South India <sup>1</sup> |  | | ✅ |
-| Japan East| ✅ | ✅ | ✅ |
+| South India <sup>2</sup> |  | | ✅ |
+| Japan East <sup>1</sup> | ✅ | ✅ | ✅ |
 | Japan West​ | ✅ | ✅ |  |
 | Korea Central | ✅ | ✅ | ✅ |
 | Korea South​ ​ |  | ✅ |  |
 
-<sup>1</sup> These regions run on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
+<sup>1</sup> Currently, this region is at capacity for Basic and Standard (S1) tiers. Choose a higher tier or a different region.
 
+<sup>2</sup> These regions run on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
 
 <!-- ### United States
 

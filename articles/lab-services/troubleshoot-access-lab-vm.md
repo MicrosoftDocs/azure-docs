@@ -3,7 +3,7 @@ title: Troubleshoot lab VM access
 titleSuffix: Azure Lab Services
 description: Learn the different approaches for troubleshooting lab VMs in Azure Lab Services. Understand how each approach affects user data.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: troubleshooting

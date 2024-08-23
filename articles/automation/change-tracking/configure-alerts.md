@@ -5,6 +5,7 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # How to create alerts for Change Tracking and Inventory

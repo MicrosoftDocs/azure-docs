@@ -1,6 +1,6 @@
 ---
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 description: include for a note about property errors in visual experiences
 ms.topic: include
 ms.date: 01/26/2024

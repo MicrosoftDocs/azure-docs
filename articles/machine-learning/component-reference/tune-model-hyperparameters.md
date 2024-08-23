@@ -3,7 +3,7 @@ title: "Tune Model Hyperparameters"
 titleSuffix: Azure Machine Learning
 description: Use the Tune Model Hyperparameters component in the designer to perform a parameter sweep to tune hyper-parameters.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

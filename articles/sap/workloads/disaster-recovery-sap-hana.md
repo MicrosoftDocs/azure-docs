@@ -54,7 +54,7 @@ Requirements for a third HSR site are different for HANA scale-up and HANA scale
 
 ## HANA scale-up: Add HANA multitarget system replication for DR purposes
 
-With SAP HANA HA hook SAPHanaSR for [SLES](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv) and [RHEL](./sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr), you can add a third node for DR purposes. The Pacemaker environment is aware of a HANA multitarget DR setup.
+With SAP HANA HA hooks SAPHanaSR/susHanaSR for [SLES](./sap-hana-high-availability.md#implement-hana-resource-agents) and [RHEL](./sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr), you can add a third node for DR purposes. The Pacemaker environment is aware of a HANA multitarget DR setup.
 
 Failure of the third node won't trigger any cluster action. The cluster detects the replication status of connected sites and the monitored attribute for the third site can change between `SOK` and `SFAIL` states. Any takeover tests to the third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 

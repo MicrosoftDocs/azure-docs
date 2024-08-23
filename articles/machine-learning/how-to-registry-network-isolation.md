@@ -3,7 +3,7 @@ title: Machine Learning registry network isolation
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
 author: Blackmist

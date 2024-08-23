@@ -59,7 +59,7 @@ The full list of prebuilt avatar supported gestures provided here can also be fo
 | Meg | casual | a-little-bit<br>click-the-link<br>cross-hand<br>display-number<br>encourage-1<br>encourage-2<br>five-star-praise<br>front-left<br>front-right<br>good-1<br>good-2<br>handclap<br>introduction-to-products-1<br>introduction-to-products-2<br>introduction-to-products-3<br>left<br>length<br>lower-left<br>lower-right<br>number-one<br>press-both-hands-down<br>right<br>say-hi<br>shrug-ones-shoulders<br>slide-from-right-to-left<br>slide-to-the-left<br>spread-hands<br>the-front<br>top-middle-and-bottom-left<br>top-middle-and-bottom-right<br>upper-left<br>upper-right |
 | Meg | business | a-little-bit<br>encourage-1<br>encourage-2<br>five-star-praise<br>front-left<br>front-right<br>good-1<br>good-2<br>introduction-to-products-1<br>introduction-to-products-2<br>introduction-to-products-3<br>left<br>length<br>number-one<br>press-both-hands-down-1<br>press-both-hands-down-2<br>raise-ones-hand<br>right<br>say-hi<br>shrug-ones-shoulders<br>slide-from-left-to-right<br>slide-to-the-left<br>spread-hands<br>thanks<br>the-front<br>upper-left |
 
-Only the `casual-sitting` style is supported via the real-time text to speech API. Gestures are only supported with the batch synthesis API and aren't supported via the real-time API.      
+All styles except `lisa-graceful-sitting`, `lisa-graceful-standing`, `lisa-technical-sitting`, and `lisa-technical-standing` are supported via the real-time text to speech API. Gestures are only supported with the batch synthesis API and aren't supported via the real-time API.   
 
 ## Next steps
 

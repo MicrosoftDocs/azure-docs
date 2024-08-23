@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Introduces concepts for Java memory management to help you understand Java applications in Azure Spring Apps.
 author: KarlErickson
 ms.author: kaiqianyang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 07/30/2024
 ms.custom: devx-track-java, devx-track-extended-java

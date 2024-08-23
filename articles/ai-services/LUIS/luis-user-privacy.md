@@ -21,7 +21,7 @@ ms.date: 01/19/2024
 Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​
-Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](/rest/api/luis/operation-groups).
+Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [Azure portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](/rest/api/luis/operation-groups).
 
 [!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 

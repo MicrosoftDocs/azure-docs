@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ---
 
 # Azure Virtual Network monitoring data reference

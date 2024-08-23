@@ -1,10 +1,10 @@
 ---
 title: How to upgrade the Redis version of Azure Cache for Redis
 description: Learn how to upgrade the version of Azure Cache for Redis.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: how-to
 ms.date: 05/21/2024
 ms.custom: template-how-to, devx-track-azurecli

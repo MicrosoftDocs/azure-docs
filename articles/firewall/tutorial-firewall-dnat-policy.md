@@ -3,7 +3,7 @@ title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT polic
 description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: victorh

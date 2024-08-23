@@ -3,7 +3,7 @@
  description: include file
  services: batch
  author: prkannap
- ms.service: batch
+ ms.service: azure-batch
  ms.topic: include
  ms.date: 04/20/2022
  ms.author: prkannap

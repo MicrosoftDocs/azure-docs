@@ -3,7 +3,7 @@ title: "Tutorial: Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
@@ -31,7 +31,7 @@ Other ways to create a workspace are via the [Azure portal or SDK](how-to-manage
 For other ways to create a compute instance, see [Create a compute instance](how-to-create-compute-instance.md).
 
 This video shows you how to create a workspace and compute instance in Azure Machine Learning studio. The steps are also described in the sections below.
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0e901d2-e82a-4e96-9c7f-3b5467859969]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=9c6141c9-07f7-4661-ad77-6129297ddc0c]
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 ---
 title: HDInsight on AKS FAQ
 description: HDInsight on AKS frequently asked questions.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: faq
 ms.date: 08/29/2023
 ---

@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to onboard a custom IP address prefix using the Azure portal
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 maims.date: 07/25/2024

@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy resources in Azure public MEC using the Go SDK'
 description: In this tutorial, learn how to deploy resources in Azure public multi-access edge compute (MEC) by using the Go SDK.
 author: vsmsft
 ms.author: reemas
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: tutorial
 ms.date: 11/22/2022
 ms.custom: template-tutorial, devx-track-go

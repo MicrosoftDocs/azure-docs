@@ -6,7 +6,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure network foundation documentation
   summary: Learn about Azure network foundation services that provide core connectivity for your resources in Azure.
-  ms.service: dns 
+  ms.service: azure-dns
   ms.topic: hub-page
   author: greg-lindsay
   ms.author: greglin

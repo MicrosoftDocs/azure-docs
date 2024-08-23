@@ -20,8 +20,6 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 To learn how to manage deployment manifests by using the IoT Central UI, see [Manage IoT Edge deployment manifests in your IoT Central application](howto-manage-deployment-manifests.md).
 
 ## Deployment manifests REST API

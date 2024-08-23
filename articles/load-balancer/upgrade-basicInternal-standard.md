@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/07/2023
 ms.author: mbender

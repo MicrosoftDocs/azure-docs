@@ -4,7 +4,7 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

@@ -3,7 +3,7 @@ title:  "AutoML Image Classification Multi-label"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the AutoML Image Classification Multi-label component in Azure Machine Learning to create a classifier using ML Table data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: rasavage
