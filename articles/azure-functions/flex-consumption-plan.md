@@ -64,7 +64,15 @@ Concurrency is a key factor that determines how Flex Consumption function apps s
 
 This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
 
-In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances, and all Blob (Event Grid) functions are grouped and scale together in the same instances. All other functions in the app are scaled individually into their own instances.
+In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of functions scale groups:  
+
+| Scale group (triggers) | Name |
+| ---- | ---- |
+| HTTP<br/>SignalR | `http` |
+| Blob (event-driven) | `blob`|
+| Orchestration<br/>Activity<br/>Entity | `durable` |
+
+All other functions in the app are scaled individually in their own set of instances, which are referenced using the convention `function:<NAMED_FUNCTION>`.
 
 ## Always ready instances
 
