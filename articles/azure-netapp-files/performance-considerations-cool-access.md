@@ -51,8 +51,7 @@ The following graph shows the side-by-side comparison of what was seen in hot an
 :::image type="content" source="./media/performance-considerations-cool-access/throughput-graph.png" alt-text="Chart of throughput at varying `iodepths` with one job." lightbox="./media/performance-considerations-cool-access/throughput-graph.png":::
 
 
-
-It's possible to push for more throughput for both the hot and cool tiers using a single VM when running multiple jobs. The performance difference between hot and cool tiers is less drastic when running multiple jobs. The following graph displays results for hot and cool tiers when running 16 jobs with 16 threads at a 256-KB block size. 
+It's possible to push for more throughput for the hot and cool tiers using a single VM when running multiple jobs. The performance difference between hot and cool tiers is less drastic when running multiple jobs. The following graph displays results for hot and cool tiers when running 16 jobs with 16 threads at a 256-KB block size. 
 
 :::image type="content" source="./media/performance-considerations-cool-access/throughput-sixteen-jobs.png" alt-text="Chart of throughput at varying `iodepths` with 16 jobs." lightbox="./media/performance-considerations-cool-access/throughput-sixteen-jobs.png":::
 
@@ -68,8 +67,22 @@ In the case of cool tiering, that limit is around 16 jobs with a queue depth of 
 :::image type="content" source="./media/performance-considerations-cool-access/sixteen-jobs-line-graph.png" alt-text="Chart of throughput and latency for tests with 16 jobs." lightbox="./media/performance-considerations-cool-access/sixteen-jobs-line-graph.png":::
 
 ## What causes latency in hot and cool tiers?
-Latency in a hot tier is a factor of the storage system itself, where system resources are exhausted when more I/O is sent to the service than can be honored at any given time. As a result, operations will need to queue until previously sent operations can be complete.
-Latency in a cool tier is generally seen with the cloud retrieval operations – either requests over the network for I/O to the object store (sequential workloads) or cool block rehydration into the hot tier (random workloads).
+
+Latency in the hot tier is a factor of the storage system itself, where system resources are exhausted when more I/O is sent to the service than can be handled at any given time. As a result, operations need to queue until previously sent operations can be complete.
+
+Latency in the cool tier is generally seen with the cloud retrieval operations: either requests over the network for I/O to the object store (sequential workloads) or cool block rehydration into the hot tier (random workloads).
+
+## Mixed workload:  sequential and random
+
+A mixed workload contains both random and sequential I/O patterns. In mixed workloads, performance profiles for hot and cool tiers can have drastically different results compared to a purely sequential I/O workload but are very similar to a workload that's 100% random.
+
+The following graph shows the results using 16 jobs on a single VM with a queue depth of one and varying random/sequential ratios. 
+
+:::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput.png" alt-text="Chart showing throughput for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput.png":::
+
+The impact on performance when mixing workloads can also be observed when looking at the latency as the workload mix changes. The graphs show how latency impact for cool and hot tiers as the workload mix goes from 100% sequential to 100% random. Latency starts to spike for the cool tier at around a 60/40 sequential/random mix (greater than 12 ms), while latency remains the same (sub-2ms) for the hot tier.
+
+:::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png" alt-text="Chart showing throughput and latency for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png":::
 
 
 ## Results summary
@@ -83,6 +96,7 @@ Latency in a cool tier is generally seen with the cloud retrieval operations –
 - Sequential I/O can take advantage of a `readahead` cache in Azure NetApp Files that random I/O doesn't. This benefit to sequential I/O helps reduce the overall performance differences between the hot and cool tiers.
 
 ## General recommendations
+
 To avoid worst-case scenario performance with cool access in Azure NetApp Files, follow these recommendations:
 
 - If your workload frequently changes access patterns in an unpredictable manner, cool access may not be ideal due to the performance differences between hot and cool tiers.
@@ -97,9 +111,7 @@ To avoid worst-case scenario performance with cool access in Azure NetApp Files,
 
 
 
-:::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput.png" alt-text="Chart showing throughput for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput.png":::
 
-:::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png" alt-text="Chart showing throughput and latency for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png":::
 
 
 
