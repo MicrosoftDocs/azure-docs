@@ -93,6 +93,8 @@
     - name: Stream data into Azure Databricks using Event Hubs
       href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
       maintainContext: true
+    - name: Use Event Hubs Data Explorer to run data operations on Azure Event Hubs
+      href: event-hubs-data-explorer.md
 - name: Samples
   items:
     - name: Code samples

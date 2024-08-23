@@ -54,6 +54,8 @@ To send a custom payload -
 
 Once the payload details have been defined, click **Send** to send the event payload as defined.
 
+TODO Screenshot for custom payload.
+
 ### Sending pre-canned dataset
 
 To send event payloads from a pre-canned dataset -
@@ -64,5 +66,19 @@ To send event payloads from a pre-canned dataset -
 
 Once the payload details have been defined, click **Send** to send the event payload as defined.
 
+TODO Screenshot for pre-canned payload.
+
 ## View Events
 
+Event Hubs data explorer enables viewing the events to inspect the data that fit the criteria.
+
+To view events, you can define the below properties, or rely on the default -
+
+1. **PartitionID** - pick either a specific partition or select *All partition IDs*.
+2. **Consumer Group** - pick the *$Default* or another consumer group, or create one on the fly.
+3. **Event position** - Pick the *oldest position* (i.e. the start of the event hub), *Newest position* (i.e. latest ), *Custom position* (for a specific offset, sequence number or timestamp).
+4. **Advanced properties** - Specify the *maximum batch size* and *maximum wait time in seconds*.
+
+Once the above options have been set, click **View events** to pull the events and render them on the data explorer.
+
+TODO - Fix 
