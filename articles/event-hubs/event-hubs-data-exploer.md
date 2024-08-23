@@ -28,4 +28,41 @@ To use the Event Hubs Data Explorer tool, [create an Azure Event Hubs namespace 
 
 # Use the Event Hubs Data Explorer
 
-To use 
+To use the Event Hubs data explorer, navigate to the Event Hubs namespace on which you want to perform the data operations.
+
+Either navigate to the `Data Explorer` directly where you may pick the event hub, or pick the event hub from the `entities` and then pick the `Data Explorer` from the navigation menu.
+
+TODO - Add screenshot for left navigation menu.
+
+## Send Events
+
+You can send either custom payloads, or pre-canned dataset to the selected event hub using the `Send events` experience.
+
+To do so, click on the `send events` button, which will enable the right pane.
+
+TODO - screenshot of right pane.
+
+### Sending custom payload
+
+To send a custom payload - 
+1. **Select Dataset** - Pick `Custom payload`.
+2. Select the **Content-Type**, from either `Text/Plain`, `JSON`, or `XML`.
+3. Either upload a JSON file, or type out the payload in the **Enter payload** box.
+4. [Optional] Specific system properties.
+5. [Optional] Custom properties - available in key-value pair.
+6. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (i.e. the number of payloads to send) and the **Interval between repeat send in ms**.
+
+Once the payload details have been defined, click **Send** to send the event payload as defined.
+
+### Sending pre-canned dataset
+
+To send event payloads from a pre-canned dataset -
+1. **Select Dataset** - Pick an option from the **Pre canned datasets**, for e.g. Yellow taxi, Weather data, and others.
+2. [Optional] Specific system properties.
+3. [Optional] Custom properties - available in key-value pair.
+4. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (i.e. the number of payloads to send) and the **Interval between repeat send in ms**.
+
+Once the payload details have been defined, click **Send** to send the event payload as defined.
+
+## View Events
+
