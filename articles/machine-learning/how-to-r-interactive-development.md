@@ -16,22 +16,22 @@ ms.devlang: r
  
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-This article shows how to use R on a compute instance in Azure Machine Learning studio, that runs an R kernel in a Jupyter notebook.
+This article shows how to use R in Azure Machine Learning studio on a compute instance that runs an R kernel in a Jupyter notebook.
 
-The popular RStudio IDE also works. You can install RStudio or Posit Workbench in a custom container on a compute instance.  However, this has limitations in reading and writing to your Azure Machine Learning workspace.  
+The popular RStudio IDE also works. You can install RStudio or Posit Workbench in a custom container on a compute instance. However, this has limitations in reading and writing to your Azure Machine Learning workspace.
 
 > [!IMPORTANT]
-> The code shown in this article works on an Azure Machine Learning compute instance.  The compute instance has an environment and configuration file necessary for the code to run successfully.  
+> The code shown in this article works on an Azure Machine Learning compute instance. The compute instance has an environment and configuration file necessary for the code to run successfully.
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
 - An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
-- A basic understand of using Jupyter notebooks in Azure Machine Learning studio. See [Model development on a cloud workstation](tutorial-cloud-workstation.md) for more information.
+- A basic understand of using Jupyter notebooks in Azure Machine Learning studio. Visit the [Model development on a cloud workstation](tutorial-cloud-workstation.md) resource for more information.
 
 ## Run R in a notebook in studio
 
-You'll use a notebook in your Azure Machine Learning workspace, on a compute instance.  
+You'll use a notebook in your Azure Machine Learning workspace, on a compute instance.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Open your workspace if it isn't already open
@@ -42,7 +42,7 @@ You'll use a notebook in your Azure Machine Learning workspace, on a compute ins
     > If you're not sure how to create and work with notebooks in studio, review [Run Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
 
 1. Select the notebook.
-1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
+1. On the notebook toolbar, make sure your compute instance is running. If not, start it now.
 1. On the notebook toolbar, switch the kernel to **R**.
 
     :::image type="content" source="media/how-to-r-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R." lightbox="media/how-to-r-interactive-development/r-kernel.png":::
@@ -57,7 +57,7 @@ This section describes how to use Python and the `reticulate` package to load yo
 
 To install these packages:
 
-1. Create a new file on the compute instance, called **setup.sh**.  
+1. Create a new file on the compute instance, called **setup.sh**.
 1. Copy this code into the file:
 
     :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-compute-instance-for-interactive-r/setup-ci-for-interactive-data-reads.sh":::
@@ -75,7 +75,7 @@ For data stored in a data asset [created in Azure Machine Learning](how-to-creat
 > [!NOTE]
 > Reading a file with `reticulate` only works with tabular data.
 
-1. Ensure you have the correct version of `reticulate`.  For a version less than 1.26, try to use a newer compute instance.
+1. Ensure you have the correct version of `reticulate`. For a version less than 1.26, try to use a newer compute instance.
 
     ```r
     packageVersion("reticulate")
@@ -99,11 +99,11 @@ For data stored in a data asset [created in Azure Machine Learning](how-to-creat
         
         [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=get-uri)]
     
-    1. Run the code to retrieve the URI.
+    1. To retrieve the URI, run the code.
 
         [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=py_run_string)]
     
-1. Use Pandas read functions to read  the file(s) into the R environment
+1. Use Pandas read functions to read the file or files into the R environment.
 
     [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
 
@@ -120,17 +120,17 @@ You can also use a Datastore URI to access different files on a registered Datas
     
     uri <- paste0("azureml://subscriptions/", subscription, "/resourcegroups/", resource_group, "/workspaces/", workspace, "/datastores/", datastore_name, "/paths/", path_on_datastore)
     ```
-    
+
     > [!TIP]
     > Instead of remembering the datastore URI format, you can copy-and-paste the datastore URI from the Studio UI, if you know the datastore where your file is located:
     > 1. Navigate to the file/folder you want to read into R
-    > 1. Select the elipsis (**...**) next to it. 
+    > 1. Select the elipsis (**...**) next to it.
     > 1. Select from the menu **Copy URI**. 
     > 1. Select the **Datastore URI** to copy into your notebook/script.
     > Note that you must create a variable for `<path>` in the code.
-    > :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+    > :::image type="content" source="media/how-to-r-interactive-development/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
- 2. Create a filestore object using the aforementioned URI:
+ 2. Create a filestore object using the previously mentioned URI:
    ```r
    fs <- azureml.fsspec$AzureMachineLearningFileSystem(uri, sep = "")
    ```
@@ -173,7 +173,7 @@ Add `/home/azureuser` to the R library path.
 ```
 
 > [!TIP]
-> You must update the `.libPaths` in each interactive R script to access user installed libraries. Add this code to the top of each interactive R script or notebook.  
+> You must update the `.libPaths` in each interactive R script to access user installed libraries. Add this code to the top of each interactive R script or notebook.
 
 Once the libPath is updated, load libraries as usual.
 
