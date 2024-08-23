@@ -23,9 +23,9 @@ Now, you can save your encryption passphrase securely in Azure Key Vault as a Se
 ## Before you start
 
 -	[Create a Recovery Services vault](backup-create-recovery-services-vault.md) in case you don't have one.
--	You should use a single Azure Key Vault to store all your passphrases. [Create a Key Vault](../key-vault/general/quick-create-portal.md) in case you don't have one.
+-	You should use a single Azure Key Vault to store all your passphrases. [Create a Key Vault](/azure/key-vault/general/quick-create-portal) in case you don't have one.
   - [Azure Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) is applicable when you create a new Azure Key Vault to store your passphrase.
-  - After you create the Key Vault, to protect against accidental or malicious deletion of passphrase, [ensure that soft-delete and purge protection is turned on](../key-vault/general/soft-delete-overview.md).
+  - After you create the Key Vault, to protect against accidental or malicious deletion of passphrase, [ensure that soft-delete and purge protection is turned on](/azure/key-vault/general/soft-delete-overview).
 -	This feature is supported only in Azure public regions with MARS agent version  *2.0.9262.0* or above.
 
 ## Configure the Recovery Services vault to store passphrase to Azure Key Vault
@@ -123,7 +123,7 @@ To assign the permissions, follow these steps:
 
 3. The Recovery Services vault identity requires the **Set permission on Secret** to create and add the passphrase as a Secret to the Key Vault. 
 
-   You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](../key-vault/general/rbac-guide.md?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
+   You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](/azure/key-vault/general/rbac-guide?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
 
    Under **Details**, select **View** to view the permissions granted by the role and ensure *Set* permission on *Secret* is available.
  
@@ -249,7 +249,7 @@ You need to enable soft-delete and purge protection on your Azure Key Vault that
 
 You can enable soft-delete and purge protection from the Azure Key Vault.
 
-Alternatively, you can set these properties while creating the Key Vault. [Learn more](../key-vault/general/soft-delete-overview.md) about these Key Vault properties. 
+Alternatively, you can set these properties while creating the Key Vault. [Learn more](/azure/key-vault/general/soft-delete-overview) about these Key Vault properties. 
 
 :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/enable-soft-delete-and-purge-protection.png" alt-text="Screenshot shows how to enable spft-delete." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/enable-soft-delete-and-purge-protection.png":::
 

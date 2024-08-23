@@ -170,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2024-07-01
 
 ## Sample code
 
-+ [Add search to a web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) uses an open source Suggestions package for partial term completion in the client app.
++ [Add search to a web site (C#)](tutorial-csharp-search-query-integration.md) uses an open source Suggestions package for partial term completion in the client app.
 
 ## Next steps
 

@@ -110,7 +110,80 @@ Document Intelligence billing is calculated monthly based on the model type and 
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range=">=doc-intel-4.0.0"
+
+## Custom model usage
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Custom neural model**](concept-custom-neural.md)
+> * [**Custom generative model**](concept-custom-generative.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
+> * [**Composed custom models**](concept-composed-models.md)
+
+|Quota|Free (F0) <sup>1</sup>|Standard (S0)|
+|--|--|--|
+| **Compose Model limit** | 5 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Neural and Generative** | 1 GB <sup>3</sup> | 1 GB (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Template** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Neural and Generative** | 50,000 | 50,000 (default value) |
+| Adjustable | No | No |
+| **Custom neural model train** | 10 hours per month <sup>5</sup> | no limit (pay by the hour) |
+| Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| **Max number of document types (classes) * Classifier** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Classifier** | 1GB | 2GB (default value) |
+| Adjustable | No | No |
+| **Min number of samples per class * Classifier** | 5 | 5 (default value) |
+| Adjustable | No | No |
+
+::: moniker-end
+
+::: moniker range="=doc-intel-3.0.0"
+
+## Custom model usage
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Custom neural model**](concept-custom-neural.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
+> * [**Composed custom models**](concept-composed-models.md)
+
+|Quota|Free (F0) <sup>1</sup>|Standard (S0)|
+|--|--|--|
+| **Compose Model limit** | 5 | 200 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Template** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Neural** | 50,000 | 50,000 (default value) |
+| Adjustable | No | No |
+| **Custom neural model train** | 10 per month | 20 per month |
+| Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| **Max number of document types (classes) * Classifier** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| Adjustable | No | No |
+| **Min number of samples per class * Classifier** | 5 | 5 (default value) |
+| Adjustable | No | No |
+
+::: moniker-end
+
+::: moniker range="=doc-intel-3.1.0"
 
 ## Custom model usage
 
@@ -169,11 +242,14 @@ Document Intelligence billing is calculated monthly based on the model type and 
 ::: moniker range=">=doc-intel-2.1.0"
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
-> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
+> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions](#create-and-submit-support-request).</br>
 > <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
 ::: moniker range=">=doc-intel-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
+::: moniker-end
+::: moniker range=">=doc-intel-4.0.0"
+> <sup>5</sup> This limit applies for `v 4.0 (2024-07-31)` custom neural models only. Starting from `v 4.0`, we support training larger documents for longer durations (up to 10 hours for free, and incurring charges after). For more information, please refer to [custom nerual model page](concept-custom-neural.md).
 ::: moniker-end
 
 ## Detailed description, Quota adjustment, and best practices

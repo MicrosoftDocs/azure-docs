@@ -14,7 +14,7 @@ ms.date: 07/24/2024
 This article provides basic information about the Azure Key Vault VM extension for Windows and shows you how to enable it in Azure Cloud Services.
 
 ## What is the Key Vault VM extension?
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults. When the extension detects a change, it retrieves and installs the corresponding certificates. For more information, see [Key Vault VM extension for Windows](../virtual-machines/extensions/key-vault-windows.md).
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults. When the extension detects a change, it retrieves and installs the corresponding certificates. For more information, see [Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
 
 ## What's new in the Key Vault VM extension?
 The Key Vault VM extension is now supported on the Azure Cloud Services (extended support) platform to enable the management of certificates end to end. The extension can now pull certificates from a configured key vault at a predefined polling interval and install them for the service to use. 
@@ -31,7 +31,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 
 ### Enable the Azure Key Vault VM extension
 
-1. [Generate a certificate](../key-vault/certificates/create-certificate-signing-request.md) in your vault and download the .cer file for that certificate.
+1. [Generate a certificate](/azure/key-vault/certificates/create-certificate-signing-request) in your vault and download the .cer file for that certificate.
 
 2. In the [Azure portal](https://portal.azure.com), go to **App registrations**.
     
@@ -51,7 +51,7 @@ To use the Azure Key Vault VM extension, you need to have a Microsoft Entra tena
 6. Grant the Microsoft Entra app secret permissions in Key Vault:
    
     - If you're using a role-based access control (RBAC) preview, search for the name of the Microsoft Entra app that you created and assign it to the Key Vault Secrets User (preview) role.
-    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](../key-vault/general/assign-access-policy-portal.md).
+    - If you're using vault access policies, assign **Secret-Get** permissions to the Microsoft Entra app that you created. For more information, see [Assign access policies](/azure/key-vault/general/assign-access-policy-portal).
 
 7. Install the Key Vault VM extension by using the Azure Resource Manager template snippet for the `cloudService` resource:
 

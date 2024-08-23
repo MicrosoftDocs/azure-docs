@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 08/05/2024
+ms.date: 08/13/2024
 ---
 
 # Quickstart: Vectorize text and images by using the Azure portal
@@ -368,7 +368,7 @@ When the wizard completes the configuration, it creates the following objects:
 
 + Index with vector fields, vectorizers, vector profiles, and vector algorithms. You can't design or modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-+ Skillset with the [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or the [AML skill](cognitive-search-aml-skill.md) for the Azure AI Studio model catalog.
++ Skillset with the [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or the [AML skill](cognitive-search-aml-skill.md) for the Azure AI Studio model catalog. The skillset also has the [index projections](index-projections-concept-intro.md) configuration that allows data to be mapped from one document in the data source to its corresponding chunks in a "child" index.
 
 + Indexer with field mappings and output field mappings (if applicable).
 

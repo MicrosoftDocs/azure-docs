@@ -2,7 +2,7 @@
 title: Choose a secure network topology
 description: Learn how you can use a decision tree to help choose the best topology to secure your network.
 author: vhorne
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 06/17/2024
 ms.author: victorh

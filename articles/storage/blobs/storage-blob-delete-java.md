@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
-This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).  If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
 ## Prerequisites
 
@@ -28,7 +28,9 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 ## Delete a blob
 
-To delete a blob, call one of these methods:
+[!INCLUDE [storage-dev-guide-delete-blob-note](../../../includes/storage-dev-guides/storage-dev-guide-delete-blob-note.md)]
+
+To delete a blob, call either of the following methods:
 
 - [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 - [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
@@ -129,6 +131,10 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
@@ -136,13 +142,11 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java)
-
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
 ### See also
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Blob versioning](versioning-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

@@ -133,7 +133,7 @@ To configure the session lock experience using the registry on a session host, f
 
 In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that use Kerberos authentication from Microsoft Entra joined hosts. We don't recommend connecting to a remote session using an account that is a domain administrator.
 
-If you need to make changes to a session host as an administrator, sign in to the session host using a non-administrator account, then use the *Run as administrator* option or [runas](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771525(v=ws.11)) from a command prompt to change to an administrator.
+If you need to make changes to a session host as an administrator, sign in to the session host using a non-administrator account, then use the *Run as administrator* option or the [runas](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771525(v=ws.11)) tool from a command prompt to change to an administrator.
 
 ## Prerequisites
 
@@ -255,7 +255,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -BodyParameter $tdg
    ```
 
-   The output should be similar:
+   The output should be similar to the following example:
 
    ```output
    Id                                   DisplayName

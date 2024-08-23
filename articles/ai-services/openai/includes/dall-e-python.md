@@ -21,14 +21,14 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
-- An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
+- An Azure OpenAI resource created in a compatible region. See [Region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability).
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 #### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
-- An Azure OpenAI resource created in the `EastUS` region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in a supported region (see [Region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)). For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 ---
 
@@ -48,11 +48,7 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
-
-
 
 ## Install the Python SDK
 
@@ -186,7 +182,7 @@ image.show()
 ---
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
+> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](/azure/key-vault/general/overview).
 
 Run the application with the `python` command:
 

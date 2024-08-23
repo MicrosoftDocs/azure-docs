@@ -92,7 +92,7 @@ conceptualContent:
             - url: https://learn-video.azurefd.net/vod/player?id=0e082046-7a52-48b6-8818-6997eb422992
               itemType: video
               text: Azure API Management (APIM) STV Migration
-            - url: https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
+            - url: https://learn-video.azurefd.net/vod/player?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
               itemType: video
               text: ISE to Logic App Migration
             - url: https://aka.ms/ftalive-202404-asev2v3migration

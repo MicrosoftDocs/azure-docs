@@ -200,7 +200,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
 
-    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM.
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
 
         ```azurecli-interactive

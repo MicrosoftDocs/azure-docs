@@ -2,7 +2,7 @@
 title: Accelerated connections network performance optimization on NVAs and VMs
 description: Learn how Accelerated Connections improves networking performance for NVAs and VMs.
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 02/01/2023
 ms.author: steveesp
@@ -71,6 +71,13 @@ This list will be updated as more regions become available. The following region
 * South UK
 * West Europe
 * Central India
+* West US 2
+* West US 3
+* North Europe
+* Sweden Central
+* Southeast Asia
+* South Central US
+* Australia East
 
 ## Supported SKUs
 

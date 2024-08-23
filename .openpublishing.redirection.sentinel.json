@@ -1,9 +1,9 @@
 {
     "redirections": [
         {
-            "source_path": "articles/sentinel/cef-name-mapping.md",
-            "redirect_url": "/azure/sentinel/cef-syslog-ama-overview",
-            "redirect_document_id": false
+            "source_path": "articles/sentinel/notebooks-troubleshoot.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",

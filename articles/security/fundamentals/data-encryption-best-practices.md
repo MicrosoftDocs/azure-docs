@@ -29,7 +29,7 @@ To help protect data in the cloud, you need to account for the possible states i
 
 Protecting your keys is essential to protecting your data in the cloud.
 
-[Azure Key Vault](../../key-vault/general/overview.md) helps safeguard cryptographic keys and secrets that cloud applications and services use. Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+[Azure Key Vault](/azure/key-vault/general/overview) helps safeguard cryptographic keys and secrets that cloud applications and services use. Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
 
 You can use Key Vault to create multiple secure containers, called vaults. These vaults are backed by HSMs. Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates. It provides features for a robust solution for certificate lifecycle management.
 
@@ -72,7 +72,7 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 [Data encryption at rest](encryption-atrest.md) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
 **Best practice**: Apply disk encryption to help safeguard your data.
-**Detail**: Use [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md). Disk Encryption combines the industry-standard Linux dm-crypt or Windows BitLocker feature to provide volume encryption for the OS and the data disks.
+**Detail**: Use [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) or [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview). Disk Encryption combines the industry-standard Linux dm-crypt or Windows BitLocker feature to provide volume encryption for the OS and the data disks.
 
 Azure Storage and Azure SQL Database encrypt data at rest by default, and many services offer encryption as an option. You can use Azure Key Vault to maintain control of keys that access and encrypt your data. See [Azure resource providers encryption model support to learn more](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 

@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 07/31/2024
+ms.date: 08/14/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -25,6 +25,24 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
 | [Whisper](#whisper-models) | A series of models in preview that can transcribe and translate speech to text. |
 | [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
+
+## Early access playground (preview)
+
+On August 6, 2024, OpenAI [announced](https://openai.com/index/introducing-structured-outputs-in-the-api/) the latest version of their flagship GPT-4o model version `2024-08-06`. GPT-4o `2024-08-06` has all the capabilities of the previous version as well as:
+
+* An enhanced ability to support complex structured outputs.
+* Max output tokens have been increased from 4,096 to 16,384.
+
+Azure customers can test out GPT-4o `2024-08-06` today in the new AI Studio early access playground (preview).
+
+Unlike the previous early access playground, the AI Studio early access playground (preview) does not require you to have a resource in a specific region.
+
+> [!NOTE]
+> Prompts and completions made through the early access playground (preview) may be processed in any Azure OpenAI region, and are currently subject to a 10 request per minute per Azure subscription limit. This limit may change in the future.
+>
+> Azure OpenAI Service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+
+To test out GPT-4o `2024-08-06`, sign-in to the Azure AI early access playground (preview) using this [link](https://aka.ms/oai/docs/earlyaccessplayground).
 
 ## GPT-4o and GPT-4 Turbo
 
@@ -65,9 +83,9 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 |  Model ID  | Description | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- |:--- |:---: |
-|`gpt-4o-mini` (2024-07-18) <br> **GPT-4o mini** | **Latest small GA model** <br> - Fast, inexpensive, capable model ideal for replacing GPT-3.5 Turbo series models. <br> - Text, image processing <br>- JSON Mode <br> - parallel function calling <br> - **Does not support enhancements** | Input: 128,000 <br> Output: 16,384  | Oct 2023 |
-|`gpt-4o` (2024-05-13) <br> **GPT-4o (Omni)** | **Latest large GA model** <br> - Text, image processing <br> - JSON Mode <br> - parallel function calling <br> - Enhanced accuracy and responsiveness <br> - Parity with English text and coding tasks compared to GPT-4 Turbo with Vision <br> - Superior performance in non-English languages and in vision tasks <br> - **Does not support enhancements** |Input: 128,000  <br> Output: 4,096| Oct 2023 |
-| `gpt-4` (turbo-2024-04-09) <br>**GPT-4 Turbo with Vision** | **New GA model** <br> - Replacement for all previous GPT-4 preview models (`vision-preview`, `1106-Preview`, `0125-Preview`). <br> - [**Feature availability**](#gpt-4o-and-gpt-4-turbo) is currently different depending on method of input, and deployment type. <br> - **Does not support enhancements**. | Input: 128,000  <br> Output: 4,096  | Dec 2023 |
+|`gpt-4o-mini` (2024-07-18) <br> **GPT-4o mini** | **Latest small GA model** <br> - Fast, inexpensive, capable model ideal for replacing GPT-3.5 Turbo series models. <br> - Text, image processing <br>- JSON Mode <br> - parallel function calling | Input: 128,000 <br> Output: 16,384  | Oct 2023 |
+|`gpt-4o` (2024-05-13) <br> **GPT-4o (Omni)** | **Latest large GA model** <br> - Text, image processing <br> - JSON Mode <br> - parallel function calling <br> - Enhanced accuracy and responsiveness <br> - Parity with English text and coding tasks compared to GPT-4 Turbo with Vision <br> - Superior performance in non-English languages and in vision tasks |Input: 128,000  <br> Output: 4,096| Oct 2023 |
+| `gpt-4` (turbo-2024-04-09) <br>**GPT-4 Turbo with Vision** | **New GA model** <br> - Replacement for all previous GPT-4 preview models (`vision-preview`, `1106-Preview`, `0125-Preview`). <br> - [**Feature availability**](#gpt-4o-and-gpt-4-turbo) is currently different depending on method of input, and deployment type. | Input: 128,000  <br> Output: 4,096  | Dec 2023 |
 | `gpt-4` (0125-Preview)*<br>**GPT-4 Turbo Preview** | **Preview Model** <br> -Replaces 1106-Preview <br>- Better code generation performance <br> - Reduces cases where the model doesn't complete a task <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)<br>**GPT-4 Turbo with Vision Preview**  | **Preview model** <br> - Accepts text and image input. <br> - Supports enhancements <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 | `gpt-4` (1106-Preview)<br>**GPT-4 Turbo Preview** | **Preview Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096 | Apr 2023         |
@@ -210,7 +228,8 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 The following models support global batch:
 
 | Model | Version | Input format |
-|---|---|
+|---|---|---|
+|`gpt-4o-mini`| 2024-07-18 | text + image |
 |`gpt-4o` | 2024-05-13 |text + image |
 |`gpt-4` | turbo-2024-04-09 | text |
 |`gpt-4` | 0613 | text |
@@ -317,7 +336,7 @@ These models can only be used with Embedding API requests.
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2.
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2. You can use [global standard models](#global-standard-model-availability) if they are supported in the regions listed below. 
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` | `gpt-4o-mini (2024-07-18)` |
 |-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

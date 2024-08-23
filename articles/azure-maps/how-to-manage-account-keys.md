@@ -6,7 +6,7 @@ ms.author: peterbr
 ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: manage-account
 ---
 
 # Manage your Azure Maps account

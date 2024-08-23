@@ -181,6 +181,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to replace network devices in Azure Operator Nexus Network Fabric
+              href: howto-replace-network-devices.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
             - name: How to upgrade Network Fabric
@@ -214,6 +216,10 @@
           href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
+        - name: Install Microsoft Defender for Containers on a Nexus Kubernetes Cluster
+          href: howto-kubernetes-cluster-install-microsoft-defender.md
+        - name: Kubernetes cluster features
+          href: howto-kubernetes-cluster-features.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -288,6 +294,9 @@
       href: troubleshoot-control-plane-quorum.md
     - name: Troubleshoot Bare Metal Machine Provisioning
       href: troubleshoot-bare-metal-machine-provisioning.md
+    - name: Troubleshoot Nexus Kubernetes Cluster pods
+      href: troubleshoot-nexus-kubernetes-cluster-pods.md
+
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

@@ -92,7 +92,7 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
+    1. Select **+ Deploy model**.
     1. Search for and select **TimeGEN-1**. to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.

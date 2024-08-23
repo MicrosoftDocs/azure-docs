@@ -55,7 +55,7 @@ The DSVM comes with the most useful data-science tools preinstalled.
 | [Azure CLI](/cli/azure) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | |
 | [AzCopy](../../storage/common/storage-use-azcopy-v10.md) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | [AzCopy on the DSVM](./dsvm-tools-ingestion.md#azcopy) |
 | [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span>  | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
-| [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Azure Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
+| [Azure Cosmos DB Data Migration Tool](/azure/cosmos-db/import-data) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Azure Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
 | Unix/Linux command-line tools | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 | Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | |
 

@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency2
 
 In this article, learn how to use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab storage account in Azure DevTest Labs. After you upload your VHD file, you can create a custom image from the uploaded VHD file and use the image to provision a virtual machine.
 
-For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/managed-disks-overview.md).
+For more information about disks and VHDs in Azure, see [Introduction to managed disks](/azure/virtual-machines/managed-disks-overview).
 
 Storage Explorer supports several connection options. This article describes how to connect to a storage account that's associated with your Azure subscription. For information about other Storage Explorer connection options, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 

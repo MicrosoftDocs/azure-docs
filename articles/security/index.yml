@@ -158,9 +158,9 @@ additionalContent:
         - title: Microsoft Defender for Cloud
           summary: Unify security management and advanced threat protection across hybrid cloud workloads                 
           links: 
-            - url: ../defender-for-cloud/defender-for-cloud-introduction.md
+            - url: /azure/defender-for-cloud/defender-for-cloud-introduction
               text: Overview
-            - url: ../defender-for-cloud/tutorial-protect-resources.md
+            - url: /azure/defender-for-cloud/tutorial-protect-resources
               text: Protect your resources
             - url: /training/paths/sc-200-mitigate-threats-using-azure-defender/
               text: "Learn: Mitigate threats using Microsoft Defender for Cloud"
@@ -183,13 +183,13 @@ additionalContent:
               text: Key management in Azure
             - url: ./fundamentals/key-management-choose.md
               text: Choosing a key management solution
-            - url: ../key-vault/index.yml
+            - url: /azure/key-vault/
               text: Azure Key Vault
-            - url: ../key-vault/managed-hsm/index.yml
+            - url: /azure/key-vault/managed-hsm/
               text: Azure Managed HSM
-            - url: ../dedicated-hsm/index.yml
+            - url: /azure/dedicated-hsm/
               text: Azure Dedicated HSM
-            - url: ../payment-hsm/index.yml
+            - url: /azure/payment-hsm/
               text: Azure Payment-HSM
 
         - title: Microsoft Defender for Cloud Apps

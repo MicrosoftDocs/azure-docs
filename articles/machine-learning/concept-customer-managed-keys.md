@@ -3,7 +3,7 @@ title: Customer-managed keys
 titleSuffix: Azure Machine Learning
 description: 'Learn about using customer-managed keys to improve data security with Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: larryfr
@@ -15,7 +15,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Customer-managed keys for Azure Machine Learning
 
-Azure Machine Learning is built on top of multiple Azure services. Although the stored data is encrypted through encryption keys that Microsoft provides, you can enhance security by also providing your own (customer-managed) keys. The keys that you provide are stored in Azure Key Vault. Your data is stored on a set of other resources that you manage in your Azure subscription.
+Azure Machine Learning is built on top of multiple Azure services. Although the stored data is encrypted through encryption keys that Microsoft provides, you can enhance security by also providing your own (customer-managed) keys. The keys that you provide are stored in Azure Key Vault. Your data is can be stored on a set of other resources that you manage in your Azure subscription, or [(preview) server-side on Microsoft managed resources](#preview-service-side-encryption-of-metadata).
 
 In addition to customer-managed keys (CMK), Azure Machine Learning provides an [hbi_workspace flag](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace). Enabling this flag reduces the amount of data that Microsoft collects for diagnostic purposes and enables [extra encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). This flag also enables the following behaviors:
 
@@ -41,7 +41,7 @@ For example, the managed identity for Azure Cosmos DB would need to have those p
 ## Limitations
 
 * After workspace creation, the customer-managed encryption key for resources that the workspace depends on can only be updated to another key in the original Azure Key Vault resource.
-* Encrypted data is stored on resources in a Microsoft-managed resource group in your subscription. You can't create these resources up front or transfer ownership of them to you. The data lifecycle is managed indirectly via the Azure Machine Learning APIs as you create objects in the Azure Machine Learning service.
+* Unless you are using the [server-side preview](#preview-service-side-encryption-of-metadata), the encrypted data is stored on resources in a Microsoft-managed resource group in your subscription. You can't create these resources up front or transfer ownership of them to you. The data lifecycle is managed indirectly via the Azure Machine Learning APIs as you create objects in the Azure Machine Learning service.
 * You can't delete Microsoft-managed resources that you use for customer-managed keys without also deleting your workspace.
 * You can't encrypt the compute cluster's OS disk by using your customer-managed keys. You must use Microsoft-managed keys.
 
@@ -57,7 +57,7 @@ When you use a customer-managed key, the resources are in your Azure subscriptio
 These Microsoft-managed resources are located in a new Azure resource group created in your subscription. This resource group is separate from the resource group for your workspace. It contains the Microsoft-managed resources that your key is used with. The formula for naming the resource group is: `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
-> The [Request Units](../cosmos-db/request-units.md) for Azure Cosmos DB automatically scale as needed.
+> The [Request Units](/azure/cosmos-db/request-units) for Azure Cosmos DB automatically scale as needed.
 
 If your Azure Machine Learning workspace uses a private endpoint, this resource group also contains a Microsoft-managed Azure virtual network. This virtual network helps secure communication between the managed services and the workspace. You *can't provide your own virtual network* for use with the Microsoft-managed resources. You also *can't modify the virtual network*. For example, you can't change the IP address range that it uses.
 
@@ -73,7 +73,7 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 :::moniker range="azureml-api-1"
 | Compute | Encryption |
 | ----- | ----- |
-| Azure Container Instances | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). |
+| Azure Container Instances | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). |
 | Azure Kubernetes Service | Data is encrypted with a Microsoft-managed key or a customer-managed key. </br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). |
 | Azure Machine Learning compute instance | The local scratch disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |
 | Azure Machine Learning compute cluster | The OS disk is encrypted in Azure Storage with Microsoft-managed keys. The temporary disk is encrypted if you enable the `hbi_workspace` flag for the workspace. |

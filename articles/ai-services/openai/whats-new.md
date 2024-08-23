@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 08/05/2024
+ms.date: 08/14/2024
 recommendations: false
 ---
 
@@ -19,6 +19,43 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## August 2024
+
+### New preview API release
+
+API version `2024-07-01-preview` is the latest dataplane authoring & inference API release. It replaces API version `2024-05-01-preview` and adds support for:
+
+- [Batch API support added](./how-to/batch.md)
+- [Vector store chunking strategy parameters](/azure/ai-services/openai/reference-preview?#request-body-17)
+- `max_num_results` that the file search tool should output.
+
+For more information see our [reference documentation](./reference-preview.md)
+
+### GPT-4o mini regional availability
+
+- GPT-4o mini is available for standard and global standard deployment in the East US and Sweden Central regions.
+- GPT-4o mini is available for global batch deployment in East US, Sweden Central, and West US regions.
+
+### Evaluations guide
+
+- New blog post on [getting started with model evaluations](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/how-to-evaluate-amp-upgrade-model-versions-in-the-azure-openai/ba-p/4218880). We recommend using this guide as part of the [model upgrade and retirement process](./concepts/model-retirements.md).
+
+### Latest GPT-4o model available in the early access playground (preview)
+
+On August 6, 2024, OpenAI [announced](https://openai.com/index/introducing-structured-outputs-in-the-api/) the latest version of their flagship GPT-4o model version `2024-08-06`. GPT-4o `2024-08-06` has all the capabilities of the previous version as well as:
+
+* An enhanced ability to support complex structured outputs.
+* Max output tokens have been increased from 4,096 to 16,384.
+
+Azure customers can test out GPT-4o `2024-08-06` today in the new AI Studio early access playground (preview).
+
+Unlike the previous early access playground, the AI Studio early access playground (preview) does not require you to have a resource in a specific region.
+
+> [!NOTE]
+> Prompts and completions made through the early access playground (preview) may be processed in any Azure OpenAI region, and are currently subject to a 10 request per minute per Azure subscription limit. This limit may change in the future.
+>
+> Azure OpenAI Service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+
+To test out GPT-4o `2024-08-06`, sign-in to the Azure AI early access playground (preview) using this [link](https://aka.ms/oai/docs/earlyaccessplayground).
 
 ### Global batch deployments are now available
 
@@ -472,7 +509,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
-- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#enabling-chat-history-using-cosmos-db)
 
 ## July 2023
 

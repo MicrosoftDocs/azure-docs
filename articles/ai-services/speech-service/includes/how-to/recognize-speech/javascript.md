@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 08/13/2024
 ms.author: eur
 ms.custom: devx-track-js
 ---
@@ -11,12 +11,12 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Create a speech configuration
+## Create a speech configuration instance
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
+To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
-1. Create a `SpeechConfig` instance by using your key and location/region. 
-1. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). 
+1. Create a Speech resource in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). Get the Speech resource key and region.
+1. Create a `SpeechConfig` instance by using the following code. Replace `YourSpeechKey` and `YourSpeechRegion` with your Speech resource key and region.
 
 ```javascript
 const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
@@ -36,7 +36,7 @@ You can initialize `SpeechConfig` in a few other ways:
 Recognizing speech from a microphone isn't supported in Node.js. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech to text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech to text conversions.
 
 > [!NOTE]
-> If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig` object. For more information, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
+> If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. To learn how to get the device ID, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
 
 ## Recognize speech from a file 
 
@@ -91,7 +91,7 @@ function fromStream() {
 fromStream();
 ```
 
-Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header wasn't skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header isn't skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
 
 ## Handle errors
 
@@ -126,7 +126,8 @@ switch (result.reason) {
 
 The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
-In contrast, you can use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+In contrast, you can use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`]
+(/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#microsoft-cognitiveservices-speech-sdk-speechrecognizer-stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
 Start by defining the input and initializing [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer):
 
@@ -173,7 +174,8 @@ speechRecognizer.sessionStopped = (s, e) => {
 };
 ```
 
-With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
+With everything set up, call [`startContinuousRecognitionAsync`]
+(/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#microsoft-cognitiveservices-speech-sdk-speechrecognizer-startkeywordrecognitionasync) to start recognizing:
 
 ```javascript
 speechRecognizer.startContinuousRecognitionAsync();
@@ -190,13 +192,13 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. For more information, see the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#microsoft-cognitiveservices-speech-sdk-speechconfig-speechrecognitionlanguage) property expects a language-locale format string. For a list of supported locales, see [Language and voice support for the Speech service](../../../language-support.md).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript).
 
 ## Use a custom endpoint
 
@@ -212,5 +214,4 @@ var speechRecognizer = new SpeechSDK.SpeechRecognizer(speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
-
+For more information about containers, see Host URLs in [Install and run Speech containers with Docker](../../../speech-container-howto.md#host-urls).

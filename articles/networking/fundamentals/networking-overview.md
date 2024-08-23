@@ -3,7 +3,7 @@ title: Azure networking services overview
 description: Learn about the various networking services in Azure, including networking foundation, load balancing and content delivery, hybrid connectivity, and network security services.
 services: networking
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 07/17/2024
 ms.author: mbender

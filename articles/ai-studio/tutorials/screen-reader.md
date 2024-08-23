@@ -8,15 +8,13 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: quickstart
-ms.date: 5/21/2024
+ms.date: 8/9/2024
 ms.reviewer: ailsaleen
 ms.author: eur
 author: eric-urban
 ---
 
 # QuickStart: Get started using AI Studio with a screen reader
-
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 This article is for people who use screen readers such as [Microsoft's Narrator](https://support.microsoft.com/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1#WindowsVersion=Windows_11), JAWS, NVDA or Apple's Voiceover. In this quickstart, you'll be introduced to the basic structure of Azure AI Studio and discover how to navigate around efficiently. 
 
@@ -77,7 +75,6 @@ Prompt flow is a tool to create executable flows, linking LLMs, prompts, and Pyt
 Once you have created or selected a project, go to the navigation landmark. Press the down arrow until you hear *Prompt flow* and select this link.
 
 The prompt flow UI in Azure AI Studio is composed of the following main sections: the command toolbar, flow (includes list of the flow nodes), files, and graph view. The flow, files, and graph sections each have their own H2 headings that can be used for navigation.
-
 
 ### Flow 
 

@@ -42,7 +42,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Azure AI services [security](../security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* the Azure AI services [security](../security-features.md).
 
 ## Headers
 

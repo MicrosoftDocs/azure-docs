@@ -19,8 +19,11 @@ sections:
          Is message persistence supported?
       answer: Currently, message persistence isn't supported in the preview version of Azure IoT Operations.
     - question: |
-         Does Azure IoT Operations offer high availability and zero data loss features at general availability?
-      answer: Currently, Azure IoT Operations workloads on K3s and HCI/Aks-Arc multi-node clusters don't support distribution of Azure IoT Operations workloads across multi-node setups in the preview version.
+         Does Azure IoT Operations offer high availability and zero data loss features?
+      answer: Currently, zero data loss features aren't available in the preview version of Azure IoT Operations.
+    - question: |
+         Does Azure IoT Operations offer high availability across multi-node setups?
+      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, relay your requests back to us.
@@ -53,10 +56,10 @@ sections:
     questions:
     - question: |
          Does Azure IoT Operations offer a free trial?
-      answer: Currently, no.
+      answer: Currently, there's no charge for the preview version.
     - question: |
          What is the cost involved in using Azure IoT Operations?
-      answer: We're currently working on pricing.
+      answer: We're currently working on pricing. The General Availability pricing isn't available yet.
 additionalContent: |
     ## Related content
 

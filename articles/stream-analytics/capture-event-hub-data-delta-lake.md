@@ -65,6 +65,8 @@ Verify that the parquet files with Delta lake format are generated in the Azure 
 
 :::image type="content" source="./media/capture-event-hub-data-delta-lake/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the Azure Data Lake Storage (ADLS) container." lightbox="./media/capture-event-hub-data-delta-lake/verify-captured-data.png" :::
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
 Now you know how to use the Stream Analytics no code editor to create a job that captures Event Hubs data to Azure Data Lake Storage Gen2 in Delta lake format. Next, you can learn more about Azure Stream Analytics and how to monitor the job that you created.

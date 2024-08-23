@@ -7,11 +7,101 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### August 2024 release
+
+#### Prebuilt neural voice
+
+- Introduce new multilingual voices in public preview. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+  **Brand new multilingual voices**
+
+  | Locale | Language                      | Gender | Voice name                       |
+  |--------|-------------------------------|--------|----------------------------------|
+  | en-US  | English (United States)        | Male   | en-US-AdamMultilingualNeural     |
+  | en-US  | English (United States)        | Female | en-US-AmandaMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-DerekMultilingualNeural    |
+  | en-US  | English (United States)        | Male   | en-US-LewisMultilingualNeural    |
+  | en-US  | English (United States)        | Female | en-US-LolaMultilingualNeural     |
+  | en-US  | English (United States)        | Female | en-US-PhoebeMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-SamuelMultilingualNeural   |
+  | en-US  | English (United States)        | Female | en-US-SerenaMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-DustinMultilingualNeural   |
+  | en-US  | English (United States)        | Female | en-US-EvelynMultilingualNeural   |
+  | es-ES  | Spanish (Spain)                | Male   | es-ES-TristanMultilingualNeural  |
+  | fr-FR  | French (France)                | Male   | fr-FR-LucienMultilingualNeural   |
+  | pt-BR  | Portuguese (Brazil)            | Male   | pt-BR-MacerioMultilingualNeural  |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunfanMultilingualNeural   |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunxiaoMultilingualNeural  |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunyiMultilingualNeural    |
+
+  **Monolingual models updated to multilingual voices with improvements in naturalness**
+
+  | Locale | Language             | Gender | Voice name                      |
+  |--------|----------------------|--------|---------------------------------|
+  | en-US  | English (United States) | Female | en-US-NancyMultilingualNeural    |
+  | en-US  | English (United States) | Male   | en-US-BrandonMultilingualNeural  |
+  | en-US  | English (United States) | Male   | en-US-ChristopherMultilingualNeural |
+  | en-US  | English (United States) | Female | en-US-CoraMultilingualNeural     |
+  | en-US  | English (United States) | Male   | en-US-DavisMultilingualNeural    |
+  | en-US  | English (United States) | Male   | en-US-SteffanMultilingualNeural  |
+  | es-ES  | Spanish (Spain)         | Female | es-ES-XimenaMultilingualNeural   |
+  | it-IT  | Italian (Italy)         | Male   | it-IT-GiuseppeMultilingualNeural |
+  | ko-KR  | Korean (Korea)          | Male   | ko-KR-HyunsuMultilingualNeural   |
+
+- Enhance the following current multilingual voices with better quality.
+
+  | Locale | Language  | Gender | Voice name| 
+  |--------|--------|--------|------------|
+  | en-US  | English (United States)    | Male   | en-US-AndrewMultilingualNeural |
+  | en-US  | English (United States)    | Female | en-US-AvaMultilingualNeural    | 
+
+- Three multilingual voices now support styles. See the [Voice styles and roles](../../language-support.md?tabs=tts#voice-styles-and-roles) for more information.
+  - en-US-SerenaMultilingualNeural: `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, and `sad`.
+  - en-US-AndrewMultilingualNeural: `empathetic` and `relieved`.
+  - zh-CN-XiaoxiaoMultilingualNeural: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, and `story`. 
+
 ### July 2024 release
 
 #### Text to speech avatar (GA)
 
 Text to speech avatar is now generally available. For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md).
+
+#### Prebuilt neural voice
+
+- Introduce 2 turbo version of Azure OpenAI voices in public preview: `en-US-AlloyTurboMultilingualNeural` and `en-US-NovaTurboMultilingualNeural`. Turbo version of Azure OpenAI voices has the similar voice persona as Azure OpenAI voices but supports extra features. Turbo voices support the full set of SSML elements and more features like word boundary, just like other Azure AI Speech voices. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+- Introduce 2 new multilingual voices in public preview: `zh-CN-YunfanMultilingualNeural` and `zh-CN-YunxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+#### Embedded neural voice
+
+- `en-US-JennyMultilingual` voice is released in production, supporting up to 24 locales for on-device experience. For the supported locales, see the table below.
+
+  | Locale | Language        |
+  |--------|-----------------|
+  | `da-DK`| Danish (Denmark)|
+  | `de-DE`| German (Germany)|
+  | `en-AU`| English (Australia)|
+  | `en-GB`| English (United Kingdom)|
+  | `en-IN`| English (India)|
+  | `en-US`| English (United States)|
+  | `es-ES`| Spanish (Spain)|
+  | `es-MX`| Spanish (Mexico)|
+  | `fr-CA`| French (Canada)|
+  | `fr-FR`| French (France)|
+  | `he-IL`| Hebrew (Israel)|
+  | `it-IT`| Italian (Italy)|
+  | `ja-JP`| Japanese (Japan)|
+  | `ko-KR`| Korean (Korea)|
+  | `nb-NO`| Norwegian Bokmål (Norway)|
+  | `nl-NL`| Dutch (Netherlands)|
+  | `pl-PL`| Polish (Poland)|
+  | `pt-PT`| Portuguese (Portugal)|
+  | `sv-SE`| Swedish (Sweden)|
+  | `th-TH`| Thai (Thailand)|
+  | `tr-TR`| Turkish (Turkey)|
+  | `zh-CN`| Chinese (Mandarin, Simplified)|
+  | `zh-HK`| Chinese (Cantonese, Traditional)|
+  | `zh-TW`| Chinese (Taiwanese Mandarin, Traditional)|
 
 ### June 2024 release
 

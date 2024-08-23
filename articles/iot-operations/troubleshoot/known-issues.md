@@ -113,6 +113,8 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Dataflows
 
+- Sending data to ADX, ADLSv2, and Fabric OneLake are not available in Azure IoT Operations version 0.6.x. Support for these endpoints will be added back in an upcoming preview release.
+
 - By default, dataflows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that store the name of the asset sending the message. To include user properties in the Kafka message, update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`. For example:
 
     ```yaml
