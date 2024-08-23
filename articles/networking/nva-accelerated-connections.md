@@ -74,10 +74,10 @@ This list will be updated as more regions become available. The following region
 * West US 2
 * West US 3
 * North Europe
-* Central Sweden
+* Sweden Central
 * Southeast Asia
-* South US
-* East Australia
+* South Central US
+* Australia East
 
 ## Supported SKUs
 

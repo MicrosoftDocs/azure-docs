@@ -151,5 +151,5 @@ If you delete the Cosmos DB resource but keep the chat history option enabled on
 
 ## Related content
 
-- [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio.](./deploy-copilot-ai-studio.md).
+- [Get started building a chat app using the prompt flow SDK](../quickstarts/get-started-code.md)
 - [Build your own copilot with the prompt flow SDK.](./copilot-sdk-build-rag.md).
