@@ -230,9 +230,10 @@ az network vnet delete --resource-group $RG --name $VNET_NAME
 ```
 
 3. Delete the Azure Container Apps environment:
-```azurecli
-az containerapp env delete --resource-group $RG --name $ACA_ENV --yes
-```
+
+    ```azurecli
+    az containerapp env delete --resource-group <RESOURCE_GROUP> --name <ENVIRONMENT> --yes
+    ```
 
 ## Next steps
 
