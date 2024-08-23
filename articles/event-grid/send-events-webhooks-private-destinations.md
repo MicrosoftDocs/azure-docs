@@ -33,7 +33,7 @@ This section gives you the high-level steps for receiving events from Event Grid
 1. Create an event subscription to the system topic. You can use the Azure portal, Azure CLI, or Azure Resource Manager templates to create an event subscription that defines the filter criteria and the destination endpoint for the events. In this case, select the **Azure Relay Hybrid Connection** as the endpoint type and provide the connection string of your hybrid connection. For more information, see [Azure Relay Hybrid Connection as an event handler](handler-relay-hybrid-connections.md).
 
 
-## Considerations when using webhooks to receive events from Azure Event Grid.
+## Considerations when using webhooks to receive events from Azure Event Grid
 Ensure you have the Cloud Events validation handshake implemented. Here's the sample code in C# that demonstrates how to validate the Cloud Event schema handshake required during the subscription creation. You can use this sample code as a reference to implement your own validation handshake logic in the language of your preference.
 
 ```csharp
