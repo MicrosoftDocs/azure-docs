@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 02/09/2024
+ms.date: 08/23/2024
 ---
 
 # Get supported glossary formats
