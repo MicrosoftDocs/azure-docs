@@ -170,13 +170,13 @@ command that requires elevated permissions.
   1. Add an A record for the public IP in the Private DNS Zone of the VNET isolated setup. For this
      example, the DNS record would have the following properties:
 
-     ```
-     Name: ccon-prod-southcentralus-aci-02
-     Type: A
-     TTL: 3600
-     Value: 40.84.152.91
-     Auto registered: False
-     ```
+     - Name: ccon-prod-southcentralus-aci-02
+     - Type: A
+     - TTL: 1 hour
+     - IP Address: 40.84.152.91
+
+     For more information about creating DNS records in a private DNS zone, see
+     [Manage DNS record sets and records with Azure DNS][02].
 
 ## Managing Cloud Shell
 
@@ -231,3 +231,4 @@ Use the following steps to delete your user settings.
 
 <!-- link references -->
 [01]: /azure/cloud-shell/vnet/overview
+[02]: /azure/dns/dns-operations-recordsets-portal
