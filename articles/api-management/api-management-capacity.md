@@ -15,14 +15,14 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to measure system capacity, helping you make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
+API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to detect use of system capacity, helping you make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
 
-This article explains the capacity metrics, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
+This article explains the capacity metrics and how they behave, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 > [!IMPORTANT]
-> This article explains how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and timeout errors. API clients should be ready to handle these issues as they do with other external services, such as by using retry policies.
+> This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and timeout errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.
 
 ## Prerequisites
 
