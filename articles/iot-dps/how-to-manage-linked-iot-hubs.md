@@ -92,7 +92,7 @@ To update the settings for a linked IoT hub using the Azure portal:
 
 1. On the **Linked IoT hub details** page:
 
-    :::image type="content" source="media/how-to-manage-linked-iot-hubs/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page.":::.
+    :::image type="content" source="media/how-to-manage-linked-iot-hubs/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page.":::
 
     * Use the **Allocation weight** slider or text box to choose a weight between one and 1000. The default is one.
 
@@ -102,7 +102,7 @@ To update the settings for a linked IoT hub using the Azure portal:
 
 > [!NOTE]
 >
-> You can't update the connection string that DPS uses to connect to the IoT hub from the Azure portal. Instead, you can use the Azure CLI to update the connection string, or you can delete the linked IoT hub from your DPS instance and relink it. To learn more, see [Update keys for linked IoT hubs](#update-keys-for-linked-iot-hubs).
+> You can't update the connection string that DPS uses to connect to the IoT hub from the Azure portal. Instead, use the Azure CLI to update the connection string, or delete the linked IoT hub from your DPS instance and relink it. To learn more, see the [Update keys for linked IoT hubs](#update-keys-for-linked-iot-hubs) section.
 
 ### [Azure CLI](#tab/cli)
 
