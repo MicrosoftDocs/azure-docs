@@ -1271,46 +1271,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/container-instances/availability-zones.md",
-      "redirect_url": "/azure/reliability/reliability-containers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
-      "redirect_url": "/azure/jenkins/container-instances-jenkins",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-monitor.md",
-      "redirect_url": "/azure/container-instances/monitor-azure-container-instances",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-mounting-azure-files-volume.md",
-      "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quickstart-docker-cli.md",
-      "redirect_url": "/azure/container-instances/quickstart-docker-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-region-availability.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
-      "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/container-registry/manual-regional-move.md",
       "redirect_url": "/azure/operational-excellence/relocation-container-registry",
       "redirect_document_id": false
@@ -3693,36 +3653,6 @@
     {
       "source_path_from_root": "/articles/sentinel/tutorial-monitor-your-data.md",
       "redirect_url": "/azure/sentinel/monitor-your-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-rest-based-application-lifecycle-sample.md",
-      "redirect_url": "/rest/api/servicefabric/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/upgrade-managed-disks.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     },
     {

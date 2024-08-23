@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 08/21/2024
+ms.date: 08/22/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -91,12 +91,12 @@ These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date | Suggested replacement |
 | ---- | ---- | ---- | --- |
-| `gpt-35-turbo` | 0301 | No earlier than October 1, 2024 | `gpt-4o-mini`  | 
+| `gpt-35-turbo` | 0301 | No earlier than November 1, 2024 | `gpt-4o-mini`  | 
 | `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | November 1, 2024 | `gpt-4o-mini` |
 | `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 | `gpt-4o-mini` |
 | `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 | `gpt-4o-mini` |
-| `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
-| `gpt-4`<br>`gpt-4-32k` | 0613 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
+| `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** November 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
+| `gpt-4`<br>`gpt-4-32k` | 0613 | **Deprecation:** November 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
 | `gpt-4` | 1106-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later **<sup>1</sup>** | `gpt-4o`|
 | `gpt-4` | 0125-preview |To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>**  | `gpt-4o` |
 | `gpt-4` | vision-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>** | `gpt-4o`|
@@ -148,6 +148,11 @@ If you're an existing customer looking for information about these models, see [
 | code-search-babbage-text-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
 
 ## Retirement and deprecation history
+
+### August 22, 2024
+
+* Updated `gpt-35-turbo` (0301) retirement date to no earlier than November 1, 2024.
+* Updated `gpt4` and `gpt-4-32k` (0314 and 0613) deprecation date to November 1, 2024.
 
 ### August 8, 2024
 

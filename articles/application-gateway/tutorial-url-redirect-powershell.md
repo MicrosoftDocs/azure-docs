@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create an application gateway with URL path-based redirection using Azure PowerShell
 
-You can use Azure PowerShell to configure [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). In this article, you create backend pools using  [virtual machine scale sets](../virtual-machine-scale-sets/overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
+You can use Azure PowerShell to configure [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). In this article, you create backend pools using  [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
 
 In this article, you learn how to:
 
