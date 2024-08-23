@@ -62,7 +62,7 @@ The relocation of an Azure Static Web site introduces downtime to your applicati
 
 **To prepare for Azure Static Web Apps deployed with private endpoints:**
 
-- If your Static Web Apps are deployed with private endpoints, make sure to:
+If your Static Web Apps are deployed with private endpoints, make sure to:
 
 - Update host name for connection endpoint.
 - Update host name on DNS private zone or custom DNS server (only applicable to Private Link).
