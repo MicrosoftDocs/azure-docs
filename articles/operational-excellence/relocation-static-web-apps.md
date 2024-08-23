@@ -43,7 +43,7 @@ Review the following prerequisites before you prepare for the relocation.
     
     - [Azure Functions](./relocation-functions.md).
     - [Azure Virtual Network](./relocation-virtual-network.md)
-    - [Azure Front Door](//frontdoor/front-door-overview.md)
+    - [Azure Front Door](../frontdoor/front-door-overview.md)
     - [Network Security Group](./relocation-virtual-network-nsg.md)
     - [Azure Private Link Service](./relocation-private-link.md)
     - [Azure Key Vault](./relocation-key-vault.md)
