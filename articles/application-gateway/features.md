@@ -3,7 +3,7 @@ title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2023
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 Application Gateway includes the following features:
 

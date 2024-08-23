@@ -3,7 +3,7 @@ title:  "Algorithm & component reference"
 description: Learn about the Azure Machine Learning designer components that you can use to create your own machine learning projects.
 titleSuffix: Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -3,7 +3,7 @@ title: Transform data in the designer
 titleSuffix: Azure Machine Learning
 description: Learn how to import and transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.reviewer: franksolomon
 ms.author: keli19

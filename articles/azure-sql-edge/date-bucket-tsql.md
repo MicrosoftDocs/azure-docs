@@ -4,7 +4,7 @@ description: Learn about using DATE_BUCKET in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: reference
 keywords:
   - DATE_BUCKET

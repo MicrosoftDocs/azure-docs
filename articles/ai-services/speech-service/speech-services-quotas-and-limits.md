@@ -2,12 +2,13 @@
 title: Speech service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
-author: alexeyo26
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/22/2024
-ms.author: alexeyo
+ms.date: 5/21/2024
+ms.reviewer: alexeyo
 ---
 
 # Speech service quotas and limits
@@ -41,6 +42,14 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 | Concurrent request limit - base model endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Concurrent request limit - custom endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Max audio length for [real-time diarization](./get-started-stt-diarization.md). | N/A | 240 minutes per file  |
+
+#### Fast transcription
+
+| Quota | Free (F0) | Standard (S0) |
+|-----|-----|-----|
+| Maximum audio input file size | N/A | 200 MB |
+| Maximum audio length | N/A | 120 minutes per file  |
+| Maximum requests per minute | N/A | 300  |
 
 #### Batch transcription
 
@@ -154,9 +163,9 @@ The following quotas are adjustable for Standard (S0) resources. The Free (F0) r
 - Text to speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
 - Speech translation [concurrent request limit](#real-time-speech-to-text-and-speech-translation)
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
+Before requesting a quota increase (where applicable), check your current TPS (transactions per second) and ensure that it's necessary to increase the quota. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
 
-Let's look at an example. Suppose that your application receives response code 429, which indicates that there are too many requests. Your application receives this response even though your workload is within the limits defined by the [Quotas and limits reference](#quotas-and-limits-reference). The most likely explanation is that Speech service is scaling up to your demand and didn't reach the required scale yet. Therefore the service doesn't immediately have enough resources to serve the request. In most cases, this throttled state is transient.
+Let's look at an example. Suppose that your application receives response code 429, which indicates that there are too many requests. Your application receives this response even though your workload is within the limits defined by the [Quotas and limits reference](#quotas-and-limits-reference). The most likely explanation is that Speech service is scaling up to your demand and didn't reach the required scale yet. Therefore the service doesn't immediately have enough resources to serve the request. In such cases, increasing the quota won’t help. In most cases, the Speech service will scale up soon, and the issue causing response code 429 will be resolved.
 
 ### General best practices to mitigate throttling during autoscaling
 

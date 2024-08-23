@@ -3,7 +3,7 @@ title: 'Configure HTTPS for your custom domain - Azure Front Door'
 description: In this article, you learn how to configure HTTPS on an Azure Front Door custom domain by using the Azure portal.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: duau
@@ -75,15 +75,16 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 #### Prepare your key vault and certificate
 
-Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](../../key-vault/general/quick-create-portal.md). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
+Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
+
+There are currently two ways to authenticate Azure Front Door to access your Key Vault:
+
+- **Managed identity**: Azure Front Door uses a managed identity to authenticate to your Key Vault. This method is recommended because it's more secure and doesn't require you to manage credentials. For more information, see [Use managed identities in Azure Front Door](../managed-identity.md). Skip to [Select the certificate for Azure Front Door to deploy](#select-the-certificate-for-azure-front-door-to-deploy) if you're using this method.
+- **App registration**: Azure Front Door uses an app registration to authenticate to your Key Vault. This method is being deprecated and will be retired in the future. For more information, see [Use app registration in Azure Front Door](#register-azure-front-door).
 
 > [!WARNING]
-> Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
-
-Other points to note about certificates:
-
-* Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
-* We recommend that you use [managed identity](../managed-identity.md) to allow access to your Key Vault certificates because app registration will be retired in the future.
+> *Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
+> * Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
@@ -102,13 +103,13 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
     Azure public cloud:
 
      ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     New-MgServicePrincipal -AppId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
     Azure government cloud:
 
     ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
+     New-MgServicePrincipal -AppId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)

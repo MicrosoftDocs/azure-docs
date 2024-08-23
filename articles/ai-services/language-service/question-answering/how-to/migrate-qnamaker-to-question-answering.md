@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
-# Migrate from QnA Maker to custom question qnswering 
+# Migrate from QnA Maker to custom question answering 
 
 **Purpose of this document:** This article aims to provide information that can be used to successfully migrate applications that use QnA Maker to custom question answering. Using this article, we hope customers will gain clarity on the following: 
 
@@ -28,7 +28,7 @@ ms.custom: language-service-question-answering
 >  - Automatic RBAC to Language project (not resource)
 >  - Automatic enabling of analytics.
 
-You will also need to [re-enable analytics](analytics.md) for the language resource.
+You'll also need to [re-enable analytics](analytics.md) for the language resource.
 
 ## Comparison of features
 
@@ -42,7 +42,7 @@ In addition to a new set of features, custom question answering provides many te
 |Smart URL Refresh|➖|✔️|Custom question answering provides a means to refresh ingested content from public sources with a single click.|
 |Q&A over knowledge base (hierarchical extraction)|✔️|✔️| |
 |Active learning|✔️|✔️|Custom question answering has an improved active learning model.|
-|Alternate Questions|✔️|✔️|The improved models in custom question answering reduces the need to add alternate questions.|
+|Alternate Questions|✔️|✔️|The improved models in custom question answering reduce the need to add alternate questions.|
 |Synonyms|✔️|✔️| |
 |Metadata|✔️|✔️| |
 |Question Generation (private preview)|➖|✔️|This new feature will allow generation of questions over text.|
@@ -54,7 +54,7 @@ In addition to a new set of features, custom question answering provides many te
 
 ## Pricing
 
-When you are looking at migrating to custom question answering, please consider the following:
+When you're looking at migrating to custom question answering, please consider the following:
 
 |Component                      |QnA Maker|Custom question answering|Details                                                                                                  |
 |-------------------------------|---------|------------------|---------------------------------------------------------------------------------------------------------|
@@ -65,7 +65,7 @@ When you are looking at migrating to custom question answering, please consider 
 
 - Users may select a higher tier with higher capacity, which will impact overall price they pay. It doesn’t impact the price on language component of custom question answering.
 
-- “Text Records” in custom question answering features refers to the query submitted by the user to the runtime, and it is a concept common to all features within Language service. Sometimes a query may have more text records when the query length is higher. 
+- “Text Records” in custom question answering features refers to the query submitted by the user to the runtime, and it's a concept common to all features within Language service. Sometimes a query may have more text records when the query length is higher. 
 
 **Example price estimations**
 
@@ -76,7 +76,7 @@ When you are looking at migrating to custom question answering, please consider 
 |Medium|10                              |10(S1)                                    |800K                                |4x3(S1)                                  |Less expensive                     |
 |Low   |4                               |4(B1)                                     |100K                                |3x3(S1)                                  |Less expensive                     |
 
- Summary : Customers should save cost across the most common configurations as seen in the relative cost column.
+ Summary: Customers should save cost across the most common configurations as seen in the relative cost column.
 
 Here you can find the pricing details for [custom question answering](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
@@ -101,7 +101,7 @@ Following are the broad migration phases to consider:
 
 ![A chart showing the phases of a successful migration](../media/migrate-qnamaker-to-question-answering/migration-phases.png)
 
-Additional links which can help you are given below:
+Additional links which can help you're given below:
 - [Authoring portal](https://language.cognitive.azure.com/home)
 - [API](authoring.md)
 - [SDK](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker)
@@ -115,7 +115,7 @@ This topic compares two hypothetical scenarios when migrating from QnA Maker to 
 > An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Visit the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) page for more information.
 
 > [!IMPORTANT] 
-> Each custom question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
+> Each custom question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You'll also need to [re-enable analytics](analytics.md) for the language resource.
 
 ### Migration scenario 1: No custom authoring portal
 
@@ -169,7 +169,7 @@ Here are [detailed steps on migration scenario 2](https://github.com/Azure/azure
 
 Learn more about the [pre-built API](../../../QnAMaker/How-To/using-prebuilt-api.md)
 
-Learn more about the [custom question answering Get Answers REST API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
+Learn more about the [custom question answering Get Answers REST API](/rest/api/questionanswering/question-answering/get-answers)
 
 ## Migration steps
 

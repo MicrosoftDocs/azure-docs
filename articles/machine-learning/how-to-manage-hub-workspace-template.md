@@ -3,13 +3,13 @@ title: Create a hub workspace with Azure Resource Manager template
 titleSuffix: Azure Machine Learning
 description: Learn how to use a Bicep templates to create a new Azure Machine Learning hub workspace.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: how-to
-ms.author: deeikele
-author: deeikele
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 02/29/2024
 #Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---

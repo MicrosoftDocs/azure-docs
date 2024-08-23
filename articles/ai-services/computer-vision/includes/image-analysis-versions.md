@@ -8,7 +8,6 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 01/20/2023
 ms.author: pafarley
-ms.custom: references_regions
 ---
 
 ## Image Analysis versions
@@ -23,4 +22,4 @@ ms.custom: references_regions
 > 
 > We recommend you use the Image Analysis 4.0 API if it supports your use case. Use version 3.2 if your use case is not yet supported by 4.0.
 >
-> You'll also need to use version 3.2 if you want to do image captioning and your Vision resource is outside these Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US, East Asia. The image captioning feature in Image Analysis 4.0 is only supported in these Azure regions. Image captioning in version 3.2 is available in all Azure AI Vision regions.
+> You'll also need to use version 3.2 if you want to do image captioning and your Vision resource is outside the supported Azure regions. The image captioning feature in Image Analysis 4.0 is only supported in certain Azure regions. Image captioning in version 3.2 is available in all Azure AI Vision regions. See [Region availability](/azure/ai-services/computer-vision/overview-image-analysis#region-availability).

@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 11/01/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Understand chaos engineering and resilience

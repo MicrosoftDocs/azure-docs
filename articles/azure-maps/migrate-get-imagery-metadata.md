@@ -7,14 +7,14 @@ ms.author: aterceros
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 ---
 
 # Migrate Bing Maps Get Imagery Metadata API
 
 This article explains how to migrate the Bing Maps [Get Imagery Metadata] API to the Azure Maps [Get Map Tile] API.
 
-The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, weather radar or indoor map tiles (generated using [Azure Maps Creator]).  
+The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, or weather radar.  
 
 ## Prerequisites
 
@@ -76,8 +76,8 @@ The following table lists the fields that can appear in the HTTP response when r
 | Bing Maps response field                | Azure Maps response field       | Description |
 |-----------------------------------------|---------------------------------|-------------|
 | imageHeight (Json)<BR>ImageWidth (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
-| imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as oppsed to an image URL. |
-| imageUrlSubdomains (Json)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as oppsed to an image URL. |
+| imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
+| imageUrlSubdomains (Json)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
 | imageWidth (Json)<BR>ImageWidth (XML)   | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
 | vintageEnd (Json)<BR>VintageEnd (XML)    | Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
 | vintageStart (Json)<BR>VintageStart (XML)| Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
@@ -155,7 +155,6 @@ For more Azure Maps Render APIs see:
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Creator]: about-creator.md
 [Azure Maps Product Terms]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure Maps Supported Languages]: supported-languages.md

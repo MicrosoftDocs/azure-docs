@@ -6,11 +6,11 @@ summary: Azure Advisor scans your Azure configuration and recommends changes to 
 metadata:
   title: Azure Advisor documentation
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+  ms.author: ikhapova
+  author: ikhapova
   ms.topic: landing-page
-  ms.service: advisor
-  author: rboucher
-  ms.author: robb
-  ms.date: 10/16/2019
+  ms.service: azure-advisor
+  ms.date: 08/08/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

@@ -23,9 +23,6 @@ This tutorial shows how to apply large language models at a distributed scale by
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 
-- Access granted to Azure OpenAI in your Azure subscription.
-
-   Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
 - An Azure OpenAI resource. [Create a resource](create-resource.md?pivots=web-portal#create-a-resource).
 
@@ -127,7 +124,7 @@ assert key is not None and resource_name is not None
 Now you're ready to start running the example code.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see [Azure AI services security](../../security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, see [Azure AI services security](../../security-features.md).
 
 
 ## Create a dataset of prompts

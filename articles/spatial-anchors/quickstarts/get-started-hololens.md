@@ -71,7 +71,7 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by either selecting **Stop Debugging** or pressing **Shift + F5**.
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 

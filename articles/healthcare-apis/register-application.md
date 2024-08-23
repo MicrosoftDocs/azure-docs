@@ -2,7 +2,7 @@
 title: Register a client application in Microsoft Entra ID for the Azure Health Data Services
 description: How to register a client application in the Microsoft Entra ID and how to add a secret and API permissions to the Azure Health Data Services
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 09/02/2022

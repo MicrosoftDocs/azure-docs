@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders
 ms.date: 05/02/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 services: digital-twins
 ---
 

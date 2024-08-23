@@ -3,7 +3,7 @@ title: Long running TCP sessions with Azure Firewall
 description: There are few scenarios where Azure Firewall can potentially drop long running TCP sessions.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 01/04/2023
 ms.author: victorh 
@@ -45,7 +45,7 @@ Session disconnection isn’t an issue for resilient applications that can handl
 
 ## Network security groups
 
-You can deploy [network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md#security) (NSGs) to protect against unsolicited traffic into Azure subnets. Network security groups are simple, stateful packet inspection devices that use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets. NSG flow logs help with auditing by logging information about IP traffic flowing through an NSG. To learn more about NSG flow logging, see [Introduction to flow logging for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+You can deploy [network security groups (NSGs)](../virtual-network/virtual-network-vnet-plan-design-arm.md#security) to protect against unsolicited traffic into Azure subnets. Network security groups are simple, stateful packet inspection devices that use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets. NSG flow logs help with auditing by logging information about IP traffic flowing through an NSG. To learn more about NSG flow logging, see [Introduction to flow logging for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
 ## Next steps
 

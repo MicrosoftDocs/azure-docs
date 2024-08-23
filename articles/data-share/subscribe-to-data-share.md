@@ -3,7 +3,7 @@ title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 12/19/2023
@@ -181,7 +181,7 @@ az datashare share-subscription create --resource-group share-rg \
 Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId will be the ID you gathered from the previous step.
 
 ```azurepowershell
-New-AzDataShareSubscription -ResourceGroupName <String> -AccountName <String> -Name <String> -InvitationId <String>
+New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId "89abcdef-0123-4567-89ab-cdef01234567"
 ```
 
 ---
@@ -294,7 +294,7 @@ Use these commands to configure where you want to receive data.
 1. Run the [Get-AzDataShareSourceDataSet](/powershell/module/az.datashare/get-azdatasharesourcedataset) command to get the data set ID:
 
    ```azurepowershell
-   Get-AzDataShareSourceDataSet -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
+   Get-AzDataShareSourceDataSet -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions"
    ```
 
 1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you can skip to the next steps.
@@ -302,7 +302,7 @@ Use these commands to configure where you want to receive data.
     1. Run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command to create an Azure Storage account:
 
        ```azurepowershell
-       $storageAccount = New-AzStorageAccount -ResourceGroupName <String> -AccountName <String> -Location <String> -SkuName <String>
+       $storageAccount = New-AzStorageAccount -ResourceGroupName "share-rg" -AccountName FabrikamStorageAccount -Location "East US 2" -SkuName Standard_GRS
 
        $ctx = $storageAccount.Context
        ```
@@ -310,7 +310,7 @@ Use these commands to configure where you want to receive data.
     1. Run the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command to create a container in your new Azure Storage account that will hold your data:
 
        ```azurepowershell
-       $containerName = <String>
+       $containerName = "StorageContainer"
 
        New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
        ```
@@ -326,31 +326,31 @@ Use these commands to configure where you want to receive data.
 1. Use the [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) command to get the storage account ID:
 
    ```azurepowershell
-   Get-AzStorageAccount -ResourceGroupName <String> -Name <String>
+   Get-AzStorageAccount -ResourceGroupName "share-rg" -Name FabrikamStorageAccount
    ```
 
 1. Use the data set ID from the first step, then run the [New-AzDataShareDataSetMapping](/powershell/module/az.datashare/new-azdatasharedatasetmapping) command to create the dataset mapping:
 
    ```azurepowershell
-   New-AzDataShareDataSetMapping -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -Name <String> -StorageAccountResourceId <String> -DataSetId <String> -Container <String>
+   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "6789abcd-ef01-2345-6789-abcdef012345"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
    ```
 
 1. Run the [Start-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/start-azdatasharesubscriptionsynchronization) command to start dataset synchronization.
 
    ```azurepowershell
-   Start-AzDataShareSubscriptionSynchronization -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -SynchronizationMode <String>
+   Start-AzDataShareSubscriptionSynchronization -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -SynchronizationMode "Incremental"
    ```
 
    Run the [Get-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/get-azdatasharesubscriptionsynchronization) command to see a list of your synchronizations:
 
    ```azurepowershell
-   Get-AzDataShareSubscriptionSynchronization -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
+   Get-AzDataShareSubscriptionSynchronization -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions"
    ```
 
    Use the [Get-AzDataShareSubscriptionSynchronizationDetail](/powershell/module/az.datashare/get-azdatasharesubscriptionsynchronizationdetail) command to see synchronization settings set on your share.
 
    ```azurepowershell
-   Get-AzDataShareSubscriptionSynchronizationDetail -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -SynchronizationId <String>
+   Get-AzDataShareSubscriptionSynchronizationDetail -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -SynchronizationId "a6ee5c8d-0ce0-485e-b2f2-966b187dc6c7"
    ```
 ---
 
@@ -383,7 +383,7 @@ These steps only apply to snapshot-based sharing.
 Run the [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger) command to trigger a snapshot:
 
    ```azurepowershell
-   New-AzDataShareTrigger -ResourceGroupName <String> -AccountName <String> -Name <String> -RecurrenceInterval <String> -SynchronizationTime <DateTime>
+   New-AzDataShareTrigger -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -Name "Fabrikam Solutions" -RecurrenceInterval "Day" -SynchronizationTime "2018-11-14T04:47:52.9614956Z"
    ```
 ---
 

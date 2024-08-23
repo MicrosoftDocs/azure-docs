@@ -2,10 +2,10 @@
 title: Top-level entities in managed feature store
 titleSuffix: Azure Machine Learning
 description: Learn about how Azure Machine Learning uses managed feature stores to create data transformation features and make these features available for training and deployment.
-author: rsethur
-ms.author: seramasu
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: seramasu
+ms.service: azure-machine-learning
 ms.subservice: mldata 
 ms.topic: conceptual
 ms.date: 10/31/2023 

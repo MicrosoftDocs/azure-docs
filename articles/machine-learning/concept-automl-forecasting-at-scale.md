@@ -3,14 +3,14 @@ title: Forecasting at scale
 titleSuffix: Azure Machine Learning
 description: Learn about different ways to scale forecasting model training
 services: machine-learning
-author: ericwrightatwork
-ms.author: erwright
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: erwright
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv2
-ms.date: 08/01/2023
+ms.date: 08/21/2024
 show_latex: true
 ---
 
@@ -18,7 +18,7 @@ show_latex: true
 
 This article is about training forecasting models on large quantities of historical data. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Time series data can be large due to the number of series in the data, the number of historical observations, or both. **Many models** and hierarchical time series, or **HTS**, are scaling solutions for the former scenario, where the data consists of a large number of time series. In these cases, it can be beneficial for model accuracy and scalability to partition the data into groups and train a large number of independent models in parallel on the groups. Conversely, there are scenarios where one or a small number of high-capacity models is better. **Distributed DNN training** targets this case. We review concepts around these scenarios in the remainder of the article. 
+Time series data can be large due to the number of series in the data, the number of historical observations, or both. **Many models** and hierarchical time series, or **HTS**, are scaling solutions for the former scenario, where the data consists of a large number of time series. In these cases, it can be beneficial for model accuracy and scalability to partition the data into groups and train a large number of independent models in parallel on the groups. Conversely, there are scenarios where one or a few high-capacity models are better. **Distributed DNN training** targets this case. We review concepts around these scenarios in the remainder of the article. 
 
 ## Many models
 

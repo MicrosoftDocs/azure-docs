@@ -34,13 +34,13 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-app-settings-as-environment-variables)
-- [Java](configure-language-java.md#configure-data-sources)
+- [Java](configure-language-java-data-sources.md)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> If you store secrets in app settings, consider using [Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider more secure connectivity options that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -199,6 +199,9 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 ## Configure connection strings
 
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
@@ -212,10 +215,15 @@ At runtime, connection strings are available as environment variables, prefixed 
 * MySQL: `MYSQLCONNSTR_` 
 * SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
-* PostgreSQL: `POSTGRESQLCONNSTR_`  
+* PostgreSQL: `POSTGRESQLCONNSTR_`
+* Notification Hub: `NOTIFICATIONHUBCONNSTR_`
+* Service Bus: `SERVICEBUSCONNSTR_`
+* Event Hub: `EVENTHUBCONNSTR_`
+* Document DB: `DOCDBCONNSTR_`
+* Redis Cache: `REDISCACHECONNSTR_`
 
 >[!Note]
-> .NET apps targeting PostgreSQL should set the connection string to **Custom** as workaround for a [knows issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123) 
+> .NET apps targeting PostgreSQL, Notification Hub, Service Bus, Event Hub, Document Db and Redis Cache should set the connection string to **Custom** as workaround for a [known issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123) 
 >
 
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
@@ -224,13 +232,13 @@ For example, a MySQL connection string named *connectionstring1* can be accessed
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#configure-data-sources)
+- [Java](configure-language-java-data-sources.md)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
 
 # [Azure portal](#tab/portal)
 
@@ -408,7 +416,7 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 - [Node.js](configure-language-nodejs.md)
 - [PHP](configure-language-php.md)
 - [Python](configure-language-python.md)
-- [Java](configure-language-java.md)
+- [Java](configure-language-java-deploy-run.md)
 
 <a name="alwayson"></a>
 

@@ -1,12 +1,14 @@
 ---
 title: Subscribe to GitHub release notes repo
 description: Learn how to subscribe to HDInsight on AKS GitHub release notes repo
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 11/20/2023
 ---
 
 # Subscribe to HDInsight on AKS release notes GitHub repo
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Learn how to subscribe to HDInsight on AKS release notes GitHub repo to get email notifications.
 

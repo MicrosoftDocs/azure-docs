@@ -3,12 +3,12 @@ title: 'Tutorial: Get started with a Python script (v1)'
 titleSuffix: Azure Machine Learning
 description: Get started with your first Python script in Azure Machine Learning, with SDK v1. This is part 1 of a two-part getting-started series.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: aminsaied
-ms.author: amsaied
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: amsaied
 ms.date: 04/03/2024
 ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 ---

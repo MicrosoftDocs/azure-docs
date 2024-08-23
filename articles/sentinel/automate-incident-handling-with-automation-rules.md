@@ -52,7 +52,7 @@ Automation rules are made up of several components:
 
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Threat detection in Microsoft Sentinel](threat-detection.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
@@ -85,7 +85,7 @@ Even without being onboarded to the unified portal, you might anyway decide to u
 - A playbook can be triggered by an alert and send the alert to an external ticketing system for incident creation and management, creating a new ticket for each alert.
 
 > [!NOTE]
-> - Alert-triggered automation is available only for alerts created by [**Scheduled**, **NRT**, and **Microsoft security** analytics rules](detect-threats-built-in.md).
+> - Alert-triggered automation is available only for alerts created by [**Scheduled**, **NRT**, and **Microsoft security** analytics rules](threat-detection.md).
 >
 > - Alert-triggered automation for alerts created by Microsoft Defender XDR is not available in the unified security operations platform. For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform).
 

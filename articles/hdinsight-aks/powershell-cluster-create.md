@@ -1,11 +1,13 @@
 ---
 title: Manage HDInsight on AKS clusters using PowerShell (Preview)
 description: Manage HDInsight on AKS clusters using PowerShell.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 12/11/2023
 ---
 # Manage HDInsight on AKS clusters using PowerShell
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Microsoft Azure. This document provides information about how to create a HDInsight on AKS cluster by using Azure PowerShell. It also includes an example script. 
 

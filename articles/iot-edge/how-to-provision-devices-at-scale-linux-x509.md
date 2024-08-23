@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/27/2024
+ms.date: 06/13/2024
 ms.topic: how-to
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -92,6 +92,28 @@ Open the configuration file on the IoT Edge device.
 sudo nano /etc/aziot/config.toml
 ```
 
+Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
+
+```toml
+# DPS provisioning with X.509 certificate
+[provisioning]
+source = "dps"
+global_endpoint = "https://global.azure-devices-provisioning.net"
+id_scope = "SCOPE_ID_HERE"
+
+# Uncomment to send a custom payload during DPS registration
+# payload = { uri = "PATH_TO_JSON_FILE" }
+
+[provisioning.attestation]
+method = "x509"
+registration_id = "REGISTRATION_ID_HERE"
+
+identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE" # For example, "file:///var/aziot/device-id.pem"
+identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"   # For example, "file:///var/aziot/device-id.key"
+
+# auto_reprovisioning_mode = Dynamic
+```
+
 # [Ubuntu Core snaps](#tab/snaps)
 
 If using a snap installation of IoT Edge, the template file is located at `/snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
@@ -106,30 +128,30 @@ Open the configuration file in your home directory on the IoT Edge device.
 nano ~/config.toml
 ```
 
+Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out. The path used for the certificate files should be the path to the shared directory accessible to both *azure-iot-edge* and *azure-iot-identity* snaps. For example, `/var/snap/azure-iot-identity/current/shared/`.
+
+```toml
+# DPS provisioning with X.509 certificate
+[provisioning]
+source = "dps"
+global_endpoint = "https://global.azure-devices-provisioning.net"
+id_scope = "SCOPE_ID_HERE"
+
+# Uncomment to send a custom payload during DPS registration
+# payload = { uri = "PATH_TO_JSON_FILE" }
+
+[provisioning.attestation]
+method = "x509"
+registration_id = "REGISTRATION_ID_HERE"
+
+identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE" # For example, "file:///var/snap/azure-iot-identity/current/shared/device-id.pem"
+identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"   # For example, "file:///var/snap/azure-iot-identity/current/shared/device-id.key"
+
+
+# auto_reprovisioning_mode = Dynamic
+```
+
 ---
-
-1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
-
-   ```toml
-   # DPS provisioning with X.509 certificate
-   [provisioning]
-   source = "dps"
-   global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "SCOPE_ID_HERE"
-
-   # Uncomment to send a custom payload during DPS registration
-   # payload = { uri = "PATH_TO_JSON_FILE" }
-   
-   [provisioning.attestation]
-   method = "x509"
-   registration_id = "REGISTRATION_ID_HERE"
-
-   identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE"
-
-   identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"
-
-   # auto_reprovisioning_mode = Dynamic
-   ```
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.
 

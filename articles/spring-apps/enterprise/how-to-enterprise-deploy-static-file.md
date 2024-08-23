@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to deploy web static files.
 author: KarlErickson
 ms.author: yili7
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 5/25/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

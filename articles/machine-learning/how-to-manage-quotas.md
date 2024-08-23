@@ -3,11 +3,11 @@ title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
 description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota and limit increases.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-author: SimranArora904
-ms.author: siarora
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: siarora
 ms.date: 09/15/2023
 ms.topic: how-to
 ms.custom: troubleshooting
@@ -77,7 +77,7 @@ In addition, the maximum **run time** is 30 days and the maximum number of **met
 
 To raise the limits for the following items, [Request a quota increase](#request-quota-and-limit-increases):
 
-* VM family core quotas. To learn more about which VM family to request a quota increase for, see [virtual machine sizes in Azure](../virtual-machines/sizes.md). For example, GPU VM families start with an "N" in their family name (such as the NCv3 series).
+* VM family core quotas. To learn more about which VM family to request a quota increase for, see [virtual machine sizes in Azure](/azure/virtual-machines/sizes). For example, GPU VM families start with an "N" in their family name (such as the NCv3 series).
 * Total subscription core quotas
 * Cluster quota
 * Other resources in this section

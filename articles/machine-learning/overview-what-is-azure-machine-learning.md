@@ -2,12 +2,12 @@
 title: What is Azure Machine Learning?
 description: 'Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: overview
-author: frogglew
-ms.author: saoh
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: saoh
 ms.date: 01/29/2024
 ms.custom:
   - build-2023

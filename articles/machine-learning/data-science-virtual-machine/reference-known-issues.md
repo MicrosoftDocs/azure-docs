@@ -4,11 +4,10 @@ titleSuffix: Azure Data Science Virtual  Machine
 description: Get a list of the known issues, workarounds, and troubleshooting for Azure Data Science Virtual Machine
 services: machine-learning
 ms.service: data-science-vm
-
-author: michalmar
-ms.author: mimarusa
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: reference
-ms.reviewer: franksolomon
+ms.reviewer: mimarusa
 ms.date: 04/29/2024
 ---
 
@@ -118,7 +117,7 @@ might not be preinstalled in your image.
 ### Virtual Machine Generation 2 (Gen 2) not working
 When you try to create Data Science VM based on Virtual Machine Generation 2 (Gen 2), it fails.
 
-At this time, we maintain and provide images for Data Science Virtual Machines (DSVMs) based on Windows 2019 Server, only for Generation 1 DSVMs. [Gen 2](../../virtual-machines/generation-2.md) aren't yet supported, but we plan to support them in near future.
+At this time, we maintain and provide images for Data Science Virtual Machines (DSVMs) based on Windows 2019 Server, only for Generation 1 DSVMs. [Gen 2](/azure/virtual-machines/generation-2) aren't yet supported, but we plan to support them in near future.
 
 ### Accessing SQL Server
 

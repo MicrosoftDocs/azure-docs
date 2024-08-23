@@ -3,7 +3,7 @@ title: "Best practices for structuring an Azure Deployment Environments catalog"
 description: "This article provides guidelines for structuring an Azure Deployment Environments catalog for efficient caching."
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.topic: best-practice 
 ms.date: 11/27/2023
 

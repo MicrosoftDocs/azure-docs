@@ -1,15 +1,15 @@
 ---
-title: Securing authentication secrets in Azure Key Vault
-description: Use managed identity to secure authentication secrets in Azure Key Vault.
+title: Secure authentication secrets in Azure Key Vault for Azure Static Web Apps
+description: Use managed identity to secure authentication secrets in Azure Key Vault for Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 06/25/2024
 ms.author: cshoe
 ---
 
-# Securing authentication secrets in Azure Key Vault
+# Secure authentication secrets in Azure Key Vault for Azure Static Web Apps
 
 When configuring custom authentication providers, you may want to store connection secrets in Azure Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault for custom authentication secrets.
 
@@ -18,7 +18,7 @@ When configuring custom authentication providers, you may want to store connecti
 
 Security secrets require the following items to be in place.
 
-- Create a system-assigned identity in the Static Web Apps instance.
+- Create a system-assigned identity in your static web app.
 - Grant the identity access to a Key Vault secret.
 - Reference the Key Vault secret from the Static Web Apps application settings.
 
@@ -39,9 +39,9 @@ Key Vault integration is not available for:
 
 ## Create identity
 
-1. Open your Static Web Apps site in the Azure portal.
+1. Open your static web apps in the Azure portal.
 
-1. Under _Settings_ menu, select **Identity**.
+1. Under _Settings_, select **Identity**.
 
 1. Select the **System assigned** tab.
 
@@ -69,9 +69,9 @@ You can now add an access policy to allow your static web app to read Key Vault 
 
 1. Next to the _Select principal_ label, select the **None selected** link.
 
-1. In search box, search for your Static Web Apps application name.
+1. In search box, search for your static web app name.
 
-1. Select list item that matches your application name.
+1. Select the list item that matches your application name.
 
 2. Select **Select**.
 
@@ -99,16 +99,16 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
 1. Under the _Settings_ menu, select **Configuration**.
 
-2. Under the _Application settings_ section, select **Add**.
+1. Under the _Application settings_ section, select **Add**.
 
-3. Enter a name in the text box for the _Name_ field.
+1. Enter a name in the text box for the _Name_ field.
 
-4. Determine the secret value in text box for the _Value_ field.
+1. Determine the secret value in text box for the _Value_ field.
 
     The secret value is a composite of a few different values. The following template shows how the final string is built.
 
     ```text
-    @Microsoft.KeyVault(SecretUri=<YOUR-KEY-VAULT-SECRET-URI>)
+    @Microsoft.KeyVault(SecretUri=<YOUR_KEY_VAULT_SECRET_URI>)
     ```
     For example, a final string would look like the following sample:
 
@@ -124,17 +124,17 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
 
     Use the following steps to build the full secret value.
 
-5. Copy the template from above and paste it into a text editor.
+1. Copy the template from above and paste it into a text editor.
 
-6. Replace `<YOUR-KEY-VAULT-SECRET-URI>` with the Key Vault URI value you set aside earlier.
+1. Replace `<YOUR_KEY_VAULT_SECRET_URI>` with the Key Vault URI value you set aside earlier.
 
-7. Copy the new full string value.
+1. Copy the new full string value.
 
-8. Paste the value into the text box for the _Value_ field.
+1. Paste the value into the text box for the _Value_ field.
 
-9. Select **OK**.
+1. Select **OK**.
 
-10. Select **Save** at the top of the _Application settings_ toolbar.
+1. Select **Save** at the top of the _Application settings_ toolbar.
 
     :::image type="content" source="media/key-vault-secrets/azure-static-web-apps-application-settings-save.png" alt-text="Save application settings":::
 

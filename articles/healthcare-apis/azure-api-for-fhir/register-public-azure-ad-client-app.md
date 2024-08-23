@@ -2,7 +2,7 @@
 title: Register a public client app in Microsoft Entra ID - Azure API for FHIR
 description: This article explains how to register a public client application in Microsoft Entra ID, in preparation for deploying FHIR API in Azure.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023

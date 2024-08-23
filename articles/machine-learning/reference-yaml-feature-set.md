@@ -3,12 +3,12 @@ title: 'CLI (v2) feature set YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) feature set YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
-author: qjxu
-ms.author: qiax
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: qiax
 ms.date: 05/23/2023
 ms.custom: cliv2, build-2023
 ---

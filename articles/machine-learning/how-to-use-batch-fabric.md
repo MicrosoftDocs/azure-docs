@@ -3,13 +3,13 @@ title: "Consume models deployed in Azure Machine Learning from Fabric, using bat
 titleSuffix: Azure Machine Learning
 description: Learn to consume an Azure Machine Learning batch model deployment while working in Microsoft Fabric.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2023
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - ignite-2023
@@ -166,7 +166,7 @@ In this section, you create a Fabric-to-batch inferencing pipeline in your exist
 
 In this section, you configure inputs and outputs from the batch endpoint. **Inputs** to batch endpoints supply data and parameters needed to run the process. The Azure Machine Learning batch pipeline in Fabric supports both [model deployments](how-to-use-batch-model-deployments.md) and [pipeline deployments](how-to-use-batch-pipeline-deployments.md). The number and type of inputs you provide depend on the deployment type. In this example, you use a model deployment that requires exactly one input and produces one output.
 
-For more information on batch endpoint inputs and outputs, see [Understanding inputs and outputs in Batch Endpoints](how-to-access-data-batch-endpoints-jobs.md#understanding-inputs-and-outputs). 
+For more information on batch endpoint inputs and outputs, see [Understanding inputs and outputs in Batch Endpoints](how-to-access-data-batch-endpoints-jobs.md#understand-inputs-and-outputs). 
 
 #### Configure the input section
 

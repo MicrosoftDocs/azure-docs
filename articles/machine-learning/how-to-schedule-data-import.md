@@ -3,13 +3,13 @@ title: Schedule data import (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule an automated data import that brings in data from external sources.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: ambadal
-author: AmarBadal
-ms.reviewer: franksolomon
-ms.date: 06/19/2023
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: ambadal
+ms.date: 07/28/2024
 ms.custom: data4ml, devx-track-azurecli
 ---
 
@@ -17,11 +17,11 @@ ms.custom: data4ml, devx-track-azurecli
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to programmatically schedule data imports and use the schedule UI to do the same. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as importing the data regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI.
+In this article, you'll learn how to programmatically schedule data imports, using the schedule UI to do it. You can create a schedule based on elapsed time. Time-based schedules can handle routine tasks - for example, regular data imports to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI resources.
 
 ## Prerequisites
 
-- You must have an Azure subscription to use Azure Machine Learning. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+- You need an Azure subscription to use Azure Machine Learning. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 # [Azure CLI](#tab/cli)
 
@@ -43,7 +43,7 @@ In this article, you'll learn how to programmatically schedule data imports and 
 
 ## Schedule data import
 
-To import data on a recurring basis, you must create a schedule. A `Schedule` associates a data import action, and a trigger. The trigger can either be `cron` that use cron expression to describe the wait between runs or `recurrence` that specify using what frequency to trigger job. In each case, you must first define an import data definition. An existing data import, or a data import that is defined inline, works for this. Refer to [Create a data import in CLI, SDK and UI](how-to-import-data-assets.md).
+To import data on a recurring basis, you must create a schedule. A `Schedule` associates a data import action with a trigger. The trigger can either be `cron`, which uses a cron expression to describe the delay between runs, or a `recurrence`, which specifies the frequency to trigger a job. In each case, you must first build an import data definition. An existing data import, or a data import that is defined inline, works for this. For more information, visit [Create a data import in CLI, SDK and UI](how-to-import-data-assets.md).
 
 ## Create a schedule
 
@@ -101,9 +101,9 @@ import_data:
 
 ```
 
-`trigger` contains the following properties:
+A `trigger` contains these properties:
 
-- **(Required)**  `type` specifies the schedule type, either `recurrence` or `cron`. See the following section for more details.
+- **(Required)**  `type` specifies the schedule type, either `recurrence` or `cron`. The following section has more information.
 
 Next, run this command in the CLI:
 
@@ -155,19 +155,19 @@ ml_client.schedules.begin_create_or_update(import_schedule).result()
 ```
 `RecurrenceTrigger` contains following properties:
 
-- **(Required)** To provide better coding experience, we use `RecurrenceTrigger` for recurrence schedule.
+- **(Required)** For a better coding experience, use `RecurrenceTrigger` for the recurrence schedule.
 
 # [Studio](#tab/azure-studio)
 
-When you have a data import with satisfactory performance and outputs, you can set up a schedule to automatically trigger this import.
+When your data import has satisfactory performance and outputs, you can set up a schedule to automatically trigger that import.
 
    1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-   1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. The **Import jobs history** page should appear, as shown in this screenshot:
+   1. Under **Assets** in the left navigation, select **Data**. At the **Data import** tab, select the imported data asset to which you want to attach a schedule. The **Import jobs history** page should appear, as shown in this screenshot:
 
       :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
-   1. At the **Import jobs history** page, select the latest **Import job name** link, to open the pipelines job details page as shown in this screenshot:
+   1. At the **Import jobs history** page, select the latest **Import job name** hyperlink URL, to open the pipelines job details page as shown in this screenshot:
 
       :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
 
@@ -181,7 +181,7 @@ When you have a data import with satisfactory performance and outputs, you can s
 
   - **Name**: the unique identifier of the schedule within the workspace.
   - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+  - **Trigger**: the recurrence pattern of the schedule, which includes these properties:
     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
     - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
@@ -194,7 +194,12 @@ When you have a data import with satisfactory performance and outputs, you can s
 > [!NOTE]
 > These properties apply to CLI and SDK:
 
-- **(Required)** `frequency` specifies the unit of time that describes how often the schedule fires. Can have values of `minute`, `hour`, `day`, `week`, or `month`.
+- **(Required)** `frequency` specifies the unit of time that describes how often the schedule fires. Can have values
+  - `minute`
+  - `hour`
+  - `day`
+  - `week`
+  - `month`
 
 - **(Required)** `interval` specifies how often the schedule fires based on the frequency, which is the number of time units to wait until the schedule fires again.
 
@@ -204,13 +209,13 @@ When you have a data import with satisfactory performance and outputs, you can s
     - `hours` should be an integer or a list, ranging between 0 and 23.
     - `minutes` should be an integer or a list, ranging between 0 and 59.
     - `weekdays` a string or list ranging from `monday` to `sunday`.
-    - If `schedule` is omitted, the job(s) triggers according to the logic of `start_time`, `frequency` and `interval`.
+    - If `schedule` is omitted, the job(s) triggers fire according to the logic of `start_time`, `frequency` and `interval`.
 
 - (Optional) `start_time` describes the start date and time, with a timezone. If `start_time` is omitted, start_time equals the job creation time. For a start time in the past, the first job runs at the next calculated run time.
 
 - (Optional) `end_time` describes the end date and time with a timezone. If `end_time` is omitted, the schedule continues to trigger jobs until the schedule is manually disabled.
 
-- (Optional) `time_zone` specifies the time zone of the recurrence. If omitted, the default timezone is UTC. To learn more about timezone values, see [appendix for timezone values](reference-yaml-schedule.md#appendix).
+- (Optional) `time_zone` specifies the time zone of the recurrence. If omitted, the default timezone is UTC. For more information about timezone values, visit [appendix for timezone values](reference-yaml-schedule.md#appendix).
 
 ### Create a time-based schedule with cron expression
 
@@ -259,9 +264,9 @@ import_data:
     connection: azureml:my_snowflake_connection
 ```
 
-The `trigger` section defines the schedule details and contains following properties:
+The `trigger` section defines the schedule details and contains these properties:
 
-- **(Required)** `type` specifies the schedule type is `cron`.
+- **(Required)** `type` specifies the `cron` schedule type.
 
 ```cli
 > az ml schedule create -f <file-name>.yml
@@ -301,15 +306,15 @@ ml_client.schedules.begin_create_or_update(import_schedule).result()
 
 ```
 
-The `CronTrigger` section defines the schedule details and contains following properties:
+The `CronTrigger` section defines the schedule details and contains these properties:
 
-- **(Required)** To provide better coding experience, we use `CronTrigger` for recurrence schedule.
+- **(Required)** For a better coding experience, use `CronTrigger` for the recurrence schedule.
 
 The list continues here:
 
 # [Studio](#tab/azure-studio)
 
-When you have a data import with satisfactory performance and outputs, you can set up a schedule to automatically trigger this import.
+When your data import has satisfactory performance and outputs, you can set up a schedule to automatically trigger that import.
 
    1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
@@ -317,7 +322,7 @@ When you have a data import with satisfactory performance and outputs, you can s
 
       :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
-   1. At the **Import jobs history** page, select the latest **Import job name** link, to open the pipelines job details page as shown in this screenshot:
+   1. At the **Import jobs history** page, select the latest **Import job name** hyperlink URL, to open the pipelines job details page as shown in this screenshot:
 
       :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
 
@@ -331,9 +336,9 @@ When you have a data import with satisfactory performance and outputs, you can s
 
   - **Name**: the unique identifier of the schedule within the workspace.
   - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+  - **Trigger**: the recurrence pattern of the schedule, which includes these properties:
     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. **Cron expression** allows you to specify more flexible and customized recurrence pattern.
+    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. With **Cron expression**, you can specify a more flexible and customized recurrence pattern.
     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule remains active until you manually disable it.
     - **Tags**: the selected schedule tags.
@@ -348,7 +353,7 @@ When you have a data import with satisfactory performance and outputs, you can s
 
     - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
     - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
-    - The next table lists the valid values for each field:
+    - This table lists the valid values for each field:
 
         | Field          |   Range  | Comment                                                   |
         |----------------|----------|-----------------------------------------------------------|
@@ -358,7 +363,7 @@ When you have a data import with satisfactory performance and outputs, you can s
         | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
         | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
 
-    - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+    - For more information about crontab expressions, visit the [Crontab Expression wiki resource on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
 
     > [!IMPORTANT]
     > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
@@ -367,7 +372,7 @@ When you have a data import with satisfactory performance and outputs, you can s
 
 - (Optional) `end_time` describes the end date, and time with a timezone. If `end_time` is omitted, the schedule continues to trigger jobs until the schedule is manually disabled.
 
-- (Optional) `time_zone`specifies the time zone of the expression. If omitted, the timezone is UTC by default. See [appendix for timezone values](reference-yaml-schedule.md#appendix).
+- (Optional) `time_zone`specifies the time zone of the expression. If `time_zone` is omitted, the timezone is UTC by default.  For more information about timezone values, visit [appendix for timezone values](reference-yaml-schedule.md#appendix).
 
 Limitations:
 
@@ -423,7 +428,7 @@ You can select a schedule name to show the schedule details page. The schedule d
 
 - **Overview**: basic information for the specified schedule.
 
-    :::image type="content" source="./media/how-to-schedule-data-import/schedule-detail-overview.png" alt-text="Screenshot of the overview tab in the schedule details page." :::
+    :::image type="content" source="./media/how-to-schedule-data-import/schedule-detail-overview.png" alt-text="Screenshot of the overview tab in the schedule details page.":::
 
 - **Job definition**: defines the job that the specified schedule triggers, as shown in this screenshot:
 
@@ -442,7 +447,7 @@ az ml schedule update -n simple_cron_data_import_schedule  --set description="ne
 ```
 
 > [!NOTE]
-> To update more than just tags/description, it is recommended to use `az ml schedule create --file update_schedule.yml`
+> To update more than just tags/description, we recommend use of `az ml schedule create --file update_schedule.yml`
 
 # [Python SDK](#tab/python)
 
@@ -467,7 +472,7 @@ To change the import frequency, or to create a new association for the data impo
 
    1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-   1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. Then, the **Import jobs history** page opens, as shown in this screenshot:
+   1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. The **Import jobs history** page should appear, as shown in this screenshot:
 
       :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
@@ -484,7 +489,7 @@ To change the import frequency, or to create a new association for the data impo
       :::image type="content" source="./media/how-to-schedule-data-import/update-select-schedule.png" alt-text="Screenshot of update select schedule showing the select schedule tab." :::
 
       > [!IMPORTANT]
-      > Make sure to select the correct schedule to update. Once you finish the update, the schedule will trigger different data imports.
+      > Make sure you select the correct schedule to update. Once you finish the update, the schedule will trigger different data imports.
 
    1. You can also modify the source, query and change the destination path, for future data imports that the schedule triggers.
 
@@ -550,14 +555,14 @@ print(job_schedule)
 
 # [Studio](#tab/azure-studio)
 
-On the schedule details page, you can enable the current schedule. You can also enable schedules at the **All schedules** tab.
+At the schedule details page, you can enable the current schedule. You can also enable schedules at the **All schedules** tab.
 
 ---
 
 ## Delete a schedule
 
 > [!IMPORTANT]
-> A schedule must be disabled before deletion. Deletion is an unrecoverable action. After a schedule is deleted, you can never access or recover it.
+> A schedule must be disabled before deletion. Deletion is a permanent, unrecoverable action. After a schedule is deleted, you can never access or recover it.
 
 # [Azure CLI](#tab/cli)
 
@@ -587,7 +592,7 @@ You can delete a schedule from the schedule details page or the all schedules ta
 
 Schedules are generally used for production. To prevent problems, workspace admins may want to restrict schedule creation and management permissions within a workspace.
 
-There are currently three action rules related to schedules, and you can configure them in Azure portal. See [how to manage access to an Azure Machine Learning workspace.](how-to-assign-roles.md#create-custom-role) to learn more.
+There are currently three action rules related to schedules, and you can configure them in the Azure portal. For more information, visit [how to manage access to an Azure Machine Learning workspace.](how-to-assign-roles.md#create-custom-role).
 
 | Action | Description                                                                | Rule                                                          |
 |--------|----------------------------------------------------------------------------|---------------------------------------------------------------|

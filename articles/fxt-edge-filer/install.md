@@ -3,7 +3,7 @@ title: 'Tutorial: Install an Azure FXT Edge Filer physical device'
 description: How to unpack, rack, and cable the physical device component of the Microsoft Azure FXT Edge Filer hybrid storage cache
 author: femila
 ms.author: femila
-ms.service: fxt-edge-filer
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ---

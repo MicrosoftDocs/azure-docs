@@ -3,7 +3,7 @@ title: Azure Firewall threat intelligence based filtering
 description: You can enable Threat intelligence-based filtering for your firewall to alert and deny traffic from/to known malicious IP addresses and domains.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 08/01/2022
 ms.author: victorh

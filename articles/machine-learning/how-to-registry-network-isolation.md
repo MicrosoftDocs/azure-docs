@@ -3,12 +3,12 @@ title: Machine Learning registry network isolation
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: kritifaujdar
 ms.date: 04/29/2024
 ms.topic: how-to
 ---
@@ -204,6 +204,9 @@ For a system registry, we recommend creating a Service Endpoint Policy for the S
 
 ## How to find the registry's fully qualified domain name
 
+> [!NOTE]
+> Make sure your DNS is able to resolve the registry private FQDN which is in this format: `<registry-guid>.registry.<region>.privatelink.api.azureml.ms` as there is no public resource specific FQDN  which is recursively resolved by Azure DNS.
+
 The following examples show how to use the discovery URL to get the fully qualified domain name (FQDN) of your registry. When calling the discovery URL, you must provide an Azure access token in the request header. The following examples show how to get an access token and call the discovery URL:
 
 > [!TIP]
@@ -235,12 +238,12 @@ $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
     az account get-access-token --query accessToken
     ```
 
-1. Use a REST client such as Postman or Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
+1. Use a REST client such as Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
 
     ```bash
     curl -X GET "https://<region>.api.azureml.ms/registrymanagement/v1.0/registries/<registry_name>/discovery" -H "Authorization: Bearer <token>" -H "Content-Type: application/json"
     ```
 
-## Next steps
+## Next step
 
 Learn how to [Share models, components, and environments across workspaces with registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).

@@ -9,7 +9,7 @@ ms.reviwer: dalek git
 
 # Azure Monitor Logs cost calculations and options
 
-The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
+The most significant charges for most Azure Monitor implementations are typically ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and the various configuration options that affect your costs.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
@@ -44,7 +44,7 @@ The following [standard columns](log-standard-columns.md) are common to all tabl
 
 ### Excluded tables
 
-Some tables are free from data ingestion charges altogether, including, for example, [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage), and [Operation](/azure/azure-monitor/reference/tables/operation). This information will always be indicated by the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion, retention and archive.
+Some tables are free from data ingestion charges altogether, including, for example, [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage), and [Operation](/azure/azure-monitor/reference/tables/operation). This information is always indicated by the [_IsBillable](log-standard-columns.md#_isbillable) column, which shows whether a record was excluded from billing for data ingestion and retention.
 
 ### Charges for other solutions and services
 
@@ -54,7 +54,7 @@ See the documentation for different services and solutions for any unique billin
 
 ## Commitment tiers
 
-In addition to the pay-as-you-go model, Log Analytics has *commitment tiers*, which can save you as much as 30 percent compared to the pay-as-you-go price. With commitment tier pricing, you can commit to buy data ingestion for a workspace, starting at 100 GB per day, at a lower price than pay-as-you-go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. (Overage is billed using the same commitment tier billing meter. For example if a workspace is in the 200 GB/day commitment tier and ingests 300 GB in a day, that usage will be billed as 1.5 units of the 200 GB/day commitment tier.) The commitment tiers have a 31-day commitment period from the time a commitment tier is selected or changed.
+In addition to the pay-as-you-go model, Log Analytics has *commitment tiers*, which can save you as much as 30 percent compared to the pay-as-you-go price. With commitment tier pricing, you can commit to buy data ingestion for a workspace, starting at 100 GB per day, at a lower price than pay-as-you-go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. (Overage is billed using the same commitment tier billing meter. For example if a workspace is in the 200 GB/day commitment tier and ingests 300 GB in a day, that usage is billed as 1.5 units of the 200 GB/day commitment tier.) The commitment tiers have a 31-day commitment period from the time a commitment tier is selected or changed.
 
 - During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 - At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a lower commitment tier at any time.
@@ -87,38 +87,38 @@ Cluster billing starts when the cluster is created, regardless of whether worksp
 
 When you link workspaces to a cluster, the pricing tier is changed to cluster, and ingestion is billed based on the cluster's commitment tier. Workspaces associated to a cluster no longer have their own pricing tier. Workspaces can be unlinked from a cluster at any time, and the pricing tier can be changed to per GB.
 
-If your linked workspace is using the legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's commitment tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
+If your linked workspace is using the legacy Per Node pricing tier, it is billed based on data ingested against the cluster's commitment tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
-If a cluster is deleted, billing for the cluster will stop even if the cluster is within its 31-day commitment period. 
+If a cluster is deleted, billing for the cluster stops even if the cluster is within its 31-day commitment period. 
 
 For more information on how to create a dedicated cluster and specify its billing type, see [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster).
 
-## Basic Logs
+## Basic and Auxiliary table plans
 
-You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There's a charge to search against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts.
+You can configure certain tables in a Log Analytics workspace to use [Basic and Auxiliary table plans](logs-table-plans.md). Data in these tables has a significantly reduced ingestion charge. There's a charge to query data in these tables.
 
-The charge for searching against Basic Logs is based on the GB of data scanned in performing the search.
+The charge for querying data in Basic and Auxiliary tables is based on the GB of data scanned in performing the search.
 
-For more information on Basic Logs, including how to configure them and query their data, see [Configure Basic Logs in Azure Monitor](basic-logs-configure.md).
+For more information about the Basic and Auxiliary table plans, see [Azure Monitor Logs overview: Table plans](data-platform-logs.md#table-plans).
 
-## Log data retention and archive
+## Log data retention
 
-In addition to data ingestion, there's a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived logs have a reduced retention charge, and there's a charge to search against them. Use archived logs to reduce your costs for data that you must store for compliance or occasional investigation.
+In addition to data ingestion, there's a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or kept in long-term retention. During the long-term retention period, you pay a reduced retention charge, and there's a charge to retrieve the data using a [search job](search-jobs.md). Use long-term retention to reduce your costs for data that you must store for compliance or occasional investigation.
 
-[Deleting a custom table](create-custom-table.md#delete-a-table) does not remove data associated with that table, so retention and archive charges will continue to apply. 
+[Deleting a custom table](create-custom-table.md#delete-a-table) doesn't remove data associated with that table, so interactive and long-term retention charges continue to apply. 
 
-For more information on data retention and archiving, including how to configure these settings and access archived data, see [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md).
+For more information on data retention, including how to configure these settings and access data in long-term retention, see [Manage data retention in a Log Analytics workspace](data-retention-configure.md).
 
 >[!NOTE]
 >Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables. 
 
 ## Search jobs
 
-Searching against archived logs uses [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that's accessed to perform the search.
+Retrieve data from long-term retention by running [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that's accessed to perform the search.
 
 ## Log data restore
 
-For situations in which older or archived logs must be intensively queried with the full analytic query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're finished. Log data restore is billed by the amount of data restored, and by the time the restore is kept active. The minimal values billed for any data restore are 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration is billed on a pro-rated basis.
+When you need to intensively queried large volumes of data, or data in long-term retention with the full analytic query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're finished. Log data restore is billed by the amount of data restored, and by the time the restore is kept active. The minimal values billed for any data restore are 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration is billed on a pro-rated basis.
 
 ## Log data export
 
@@ -158,7 +158,7 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 - [MDCFileIntegrityMonitoringEvents](/azure/azure-monitor/reference/tables/mdcfileintegritymonitoringevents)
 
-If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. If the workspace has Sentinel enabled on it, if Sentinel is using a classic pricing tier, the Defender data allocation applies only for the Log Analytics data ingestion billing, but not the classic Sentinel billing. If Sentinel is using a [simplified pricing tier](/azure/sentinel/enroll-simplified-pricing-tier), the Defender data allocation applies to the unified Sentinel billing. To learn more on how Microsoft Sentinel customers can benefit, please see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. If the workspace has Sentinel enabled on it, if Sentinel is using a classic pricing tier, the Defender data allocation applies only for the Log Analytics data ingestion billing, but not the classic Sentinel billing. If Sentinel is using a [simplified pricing tier](/azure/sentinel/enroll-simplified-pricing-tier), the Defender data allocation applies to the unified Sentinel billing. To learn more on how Microsoft Sentinel customers can benefit, see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
@@ -174,7 +174,7 @@ Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricin
 A list of Azure Monitor billing meter names, including these legacy tiers, is available [here](../cost-meters.md). 
 
 > [!IMPORTANT] 
-> The legacy pricing tiers do not support access to some of the newest features in Log Analytics such as ingesting data as cost-effective Basic Logs. 
+> The legacy pricing tiers do not support access to some of the newest features in Log Analytics such as ingesting data to tables with the cost-effective Basic and Auxiliary table plans. 
 
 ### Free Trial pricing tier
 
@@ -185,13 +185,13 @@ Workspaces in the Free Trial pricing tier have daily data ingestion limited to 5
 
 ### Standalone pricing tier
 
-Usage on the Standalone pricing tier is billed by the ingested data volume. It's reported in the **Log Analytics** service and the meter is named "Data Analyzed." Workspaces in the Standalone pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Standalone pricing tier don't support the use of [Basic Logs](basic-logs-configure.md).
+Usage on the Standalone pricing tier is billed by the ingested data volume. It's reported in the **Log Analytics** service and the meter is named "Data Analyzed." Workspaces in the Standalone pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Standalone pricing tier don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md).
 
 ### Per Node pricing tier
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier is a legacy tier which is only available to existing Subscriptions fulfilling the requirement for [legacy pricing tiers](#legacy-pricing-tiers). 
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier is a legacy tier, which is only available to existing Subscriptions fulfilling the requirement for [legacy pricing tiers](#legacy-pricing-tiers). 
 
-On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic Logs](basic-logs-configure.md). Usage is reported on three meters:
+On your bill, the service is **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md). Usage is reported on three meters:
 
 - **Node**: The usage for the number of monitored nodes (VMs) in units of node months.
 - **Data Overage per Node**: The number of GB of data ingested in excess of the aggregated data allocation.
@@ -202,7 +202,7 @@ On your bill, the service will be **Insight and Analytics** for Log Analytics us
 
 ### Standard and Premium pricing tiers
 
-Workspaces cannot be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Premium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic Logs](basic-logs-configure.md) and Data Archive. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
+Workspaces can't be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Premium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md) and long-term data retention. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
 
 ### Microsoft Defender for Cloud with legacy pricing tiers
 

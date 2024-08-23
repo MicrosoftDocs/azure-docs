@@ -3,11 +3,11 @@ title: Create and run component-based ML pipelines (UI)
 titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines using the Azure Machine Learning studio UI.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date:  01/31/2024
 ms.topic: how-to
 ms.custom: devplatv2, designer
@@ -37,7 +37,7 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 >[!Note]
 > Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible.
 >
->Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. Classic prebuilt components continue to be supported but won't have any new components added. Also, deployment of classic prebuilt (v1) components doesn't support managed online endpoints (v2).
 >
 >Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across studio, CLI v2, and SDK v2 interfaces.
 >
@@ -143,6 +143,12 @@ The **Review + Submit** step is the last step to review all configurations befor
 After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
 
   :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="./media/how-to-create-component-pipelines-ui/submit-message.png":::
+
+## Specify identity in pipeline job
+
+When submitting pipeline job, you can specify the identity to access the data under `Run settings`. The default identity is `AMLToken` which didn't use any identity meanwhile we support both `UserIdentity` and `Managed`. For `UserIdentity`, the identity of job submitter is used to access input data and write the result to the output folder. If you specify `Managed`, the system will use the managed identity to access the input data and write the result to the output folder.
+
+  :::image type="content" source="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png" alt-text="Screenshot showing how to set identity in pipeline job." lightbox ="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png":::
 
 ## Next steps
 

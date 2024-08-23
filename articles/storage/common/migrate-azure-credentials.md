@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Blob Storage
 
-[!INCLUDE [passwordless-intro](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure roles and users for local development authentication
 
@@ -196,7 +196,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity.png":::
 
 # [Azure CLI](#tab/azure-cli-associate)
 

@@ -32,7 +32,7 @@ You can trigger a URL refresh in Language Studio by opening your project, select
 
 :::image type="content" source="../media/question-answering/refresh-url.png" alt-text="screenshot of language studio with refresh URL button highlighted.":::
 
-You can also trigger a refresh programmatically using the REST API. See the **[Update Sources](/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)** reference documentation for parameters and a sample request.
+You can also trigger a refresh programmatically using the REST API. See the **[Update Sources](/rest/api/questionanswering/question-answering-projects/update-sources)** reference documentation for parameters and a sample request.
 
 ## Smart refresh behavior
 
@@ -87,4 +87,4 @@ If these two QnA pairs have individual prompts attached to them (for example, Q1
 ## Next steps
 
 * [Custom question answering quickstart](../quickstart/sdk.md?pivots=studio)
-* [Update Sources API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)
+* [Update Sources API reference](/rest/api/questionanswering/question-answering-projects/update-sources)

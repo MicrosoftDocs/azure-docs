@@ -3,8 +3,8 @@ title: Optimize log search alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 5/30/2023
-ms.reviewer: yalavi
+ms.date: 7/30/2024
+ms.reviewer: nolavime
 ---
 
 # Optimize log search alert queries

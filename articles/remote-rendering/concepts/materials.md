@@ -26,7 +26,7 @@ Materials are automatically created during [model conversion](../how-tos/convers
 
 Azure Remote Rendering has two distinct material types:
 
-* [PBR materials](../overview/features/pbr-materials.md) are used for surfaces that should be rendered as physically correct, as possible. Realistic lighting is computed for these materials using *physically based rendering* (PBR). To get the most out of this material type, it's important to provide high-quality input data, such as roughness and normal maps.
+* [PBR materials](../overview/features/pbr-materials.md) are used for surfaces that should be rendered as physically correct, as possible. Realistic lighting is computed for these materials using *physically based rendering (PBR)*. To get the most out of this material type, it's important to provide high-quality input data, such as roughness and normal maps.
 
 * [Color materials](../overview/features/color-materials.md) are used for cases where no extra lighting is desired. These materials are always full bright and are easier to set up. Color materials are used for data that should either have no lighting at all, or already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 

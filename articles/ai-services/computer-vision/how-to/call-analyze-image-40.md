@@ -9,7 +9,7 @@ ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 06/01/2024
-ms.custom: references_regions, devx-track-python, devx-track-extended-java, devx-track-js
+ms.custom:  devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-computer-vision
 ---
 

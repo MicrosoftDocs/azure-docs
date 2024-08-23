@@ -3,12 +3,12 @@ title: Hyperparameter for AutoML computer vision tasks
 titleSuffix: Azure Machine Learning
 description: Learn which hyperparameters are available for computer vision tasks with automated ML.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: reference
-ms.reviewer: ssalgado
-author: swatig007
-ms.author: swatig
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 01/18/2022
 ---
 

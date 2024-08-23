@@ -28,10 +28,6 @@ The steps in this quickstart include:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
 - You need an Azure AI Studio hub or permissions to create one. Your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
     - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
     - If your role is **Azure AI Developer**, the hub must already be created. 
@@ -54,10 +50,9 @@ In the [Azure AI Studio](https://ai.azure.com) playground you can observe how yo
 
 [!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
 
-Next, you can add your data to the model to help it answer questions about your products. Try the [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md) and [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio](../tutorials/deploy-copilot-ai-studio.md) tutorials to learn more.
+Next, you can add your data to the model to help it answer questions about your products. Try the [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md) tutorial to learn more.
 
 ## Related content
 
 - [Build a custom chat app in Python using the prompt flow SDK](./get-started-code.md).
 - [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md).
-- [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio](../tutorials/deploy-copilot-ai-studio.md).

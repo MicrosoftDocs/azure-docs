@@ -1,7 +1,7 @@
 ---
 title: Debug Sessions concepts
 titleSuffix: Azure AI Search
-description: Debug Sessions, accessed through the Azure portal, provides an IDE-like environment where you can identify and fix errors, validate changes, and push changes to skillsets in an enrichment pipeline.
+description: Debug Sessions, accessed through the Azure portal, provides an IDE-like environment where you can identify and fix errors, validate changes, and push changes to skillsets in an Azure AI Search enrichment pipeline.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,75 +10,80 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 08/20/2024
 ---
 
 # Debug Sessions in Azure AI Search
 
-Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset for the duration of the session. Because you're working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
+Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document as it's produced by an indexer and skillset for the duration of the session. Because you're working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
+
+This article explains supported scenarios and how the editor is organized. Tabs and sections of the editor unpack different layers of the skillset so that you can examine skillset structure, flow, and the content it generates at run time.
+
+## Supported scenarios
+
+Use Debug Sessions to investigate and resolve problems with:
+
++ Built-in skills used for [AI enrichment](cognitive-search-concept-intro.md), such as OCR, image analysis, entity recognition, and keyword extraction.
+
++ Built-in skills used for [integrated vectorization](vector-search-integrated-vectorization.md), with data chunking through Text Split, and vectorization through an embedding skill.
+
++ Custom skills used to integrate external processing that you provide.
+
+Compare the following debug session images for the first two scenarios. For both scenarios, the surface area shows the progression of skills that generate or transform content en route from the source document to the search index. The flow includes index mapping options, and you can trace the arrows to follow the processing trail. The details pane to the right is context-sensitive. It shows a representation of the enriched document, or the details of a skill or mapping.
+
+The first image shows a pattern for applied AI enrichment. Skills can run sequentially or in parallel if there are no dependencies. Output field mappings send enriched or generated content from in-memory data structures to fields in an index. 
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-flow-applied-ai.png" alt-text="Screenshot of a debug session for OCR and image analysis." lightbox="media/cognitive-search-debug/debug-session-flow-applied-ai.png":::
+
+The second image shows a typical pattern for integrated vectorization. Skills for integrated vectorization usually includes Text Split and an embedding skill. A Text Split skill chunks a document into pages. An embedding skills provides vectorization. Projection mappings control how chunks of content are index. This particular skillset skips the parent index and creates an index of just chunked content, using metadata to identify the source of the chunk.
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png" alt-text="Screenshot of a debug session for integrated vectorization." lightbox="media/cognitive-search-debug/debug-session-flow-integrated-vectorization.png":::
+
+## Limitations
+
+Debug Sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources, with the following exceptions:
+
++ SharePoint Online indexer.
+
++ Azure Cosmos DB for MongoDB indexer.
+
++ For the Azure Cosmos DB for NoSQL, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
+
++ For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, the debug session won't find the document.
+
++ For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## How a debug session works
 
-When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document used to test the skillset. All session state is saved to a new blob container created by the Azure AI Search service in an Azure Storage account that you provide. The name of the generated container has a prefix of "ms-az-cognitive-search-debugsession". The prefix is required because it mitigates the chance of accidentally exporting session data to another container in your account. 
+When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document used to test the skillset. All session state is saved to a new blob container created by the Azure AI Search service in an Azure Storage account that you provide. The name of the generated container has a prefix of `ms-az-cognitive-search-debugsession`. The prefix is required because it mitigates the chance of accidentally exporting session data to another container in your account. 
 
-A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes will not affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
+A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes won't affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
 
-If the enrichment pipeline does not have any errors, a debug session can be used to incrementally enrich a document, test and validate each change before committing the changes.
+If the enrichment pipeline doesn't have any errors, a debug session can be used to incrementally enrich a document, test and validate each change before committing the changes.
 
-## Managing the Debug Session state
+## Debug session layout
 
-You can rerun a debug session using the **Start** button, or cancel an in-progress session using the **Cancel** button.
+The visual editor is organized into a surface area showing a progression of operations, starting with document cracking, followed by skills, mappings, and an index.
 
-:::image type="content" source="media/cognitive-search-debug/debug-session-commands.png" alt-text="Screenshot of the Debug Session control buttons." border="true":::
+Select any skill or mapping, and a pane opens to side showing relevant information.
 
-## AI Enrichments tab > Skill Graph
+:::image type="content" source="media/cognitive-search-debug/debug-session-skills-pane.png" lightbox="media/cognitive-search-debug/debug-session-skills-pane.png" alt-text="Screenshot showing a skill details pane with drilldown for more information.":::
 
-The visual editor is organized into tabs and panes. This section introduces the components of the visual editor.
+Follow the links to drill further into skills processing. For example, the following screenshot shows the output of the first iteration of the Text Split skill. 
 
-The **Skill Graph** provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are dependent upon the output of other skills are positioned lower in the graph. Skills at the same level in the hierarchy can execute in parallel. Color coded labels of skills in the graph indicate the types of skills that are being executed in the skillset (TEXT or VISION).
-
-Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including its definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. The details pane to the right is where you edit and explore.
-
-:::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Screenshot of Skills Graph tab." border="true":::
+:::image type="content" source="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" lightbox="media/cognitive-search-debug/debug-session-skills-detail-expression-evaluator.png" alt-text="Screenshot showing a skill details pane with Expression Evaluator for a given output.":::
 
 ### Skill details pane
 
-When you select an object in the **Skill Graph**, the adjacent pane provides interactive work areas in a tabbed layout. An illustration of the details pane can be found in the previous screenshot.
+The **Skill details** pane has the following sections:
 
-Skill details include the following areas:
++ **Iterations**: Shows you how many times a skill executes. You can check the inputs and outputs of each one.
++ **Skill Settings**: View or edit the JSON skillset definition.
++ **Errors and warnings**: Shows the errors or warnings specific to this skill.
 
-+ **Skill Settings** shows a formatted version of the skill definition.
-+ **Skill JSON Editor** shows the raw JSON document of the definition.
-+ **Executions** shows the data corresponding to each time a skill was executed.
-+ **Errors and warnings** shows the messages generated upon session start or refresh.
+### Enriched data structure pane
 
-On Executions or Skill Settings, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.
-
-Nested input controls in Skill Settings can be used to build complex shapes for [projections](knowledge-store-projection-overview.md), [output field mappings](cognitive-search-output-field-mapping.md) for a complex type field, or an input to a skill. When used with the Expression Evaluator, nested inputs provide an easy test and validate expression builder.
-
-### Executions pane
-
-A skill can execute multiple times in a skillset for a single document. For example, the OCR skill will execute once for each image extracted from a single document. The Executions pane displays the skill's execution history providing a deeper look into each invocation of the skill. 
-
-The execution history enables tracking a specific enrichment back to the skill that generated it. Clicking on a skill input navigates to the skill that generated that input, providing a stack-trace like feature. This allows identification of the root cause of a problem that might manifest in a downstream skill. 
-
-When you debug an error with a custom skill, there is the option to generate a request for a skill invocation in the execution history.
-
-## AI Enrichments tab > Enriched Data Structure
-
-The **Enriched Data Structure** pane shows the document's enrichments through the skillset, detailing the context for each enrichment and the originating skill. The Expression Evaluator can also be used to view the contents for each enrichment.
-
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Screenshot of Enriched Data Structure tab.":::
-
-## Expression Evaluator
-
-**Expression Evaluator** gives a quick peek into the value of any path. It allows for editing the path and testing the results before updating any of the inputs or context for a skill or projection.
-
-You can open the window from any node or element that shows the **`</>`** symbol, including parts of a dependency graph or nodes in an enrichment tree.
-
-Expression Evaluator gives you full interactive access for testing skill context, inputs, and checking outputs.
-
-:::image type="content" source="media/cognitive-search-debug/expression-evaluator.png" alt-text="Screenshot of Expression Evaluator.":::
+The **Enriched Data Structure** pane slides out to the side when you select the blue show or hide arrow symbol. It's a human readable representation of what the enriched document contains. Previous screenshots in this article show examples of the enriched data structure.
 
 ## Next steps
 

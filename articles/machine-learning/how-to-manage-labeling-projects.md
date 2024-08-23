@@ -2,10 +2,10 @@
 title: Manage labeling projects
 titleSuffix: Azure Machine Learning
 description: Tasks for the project manager to administer a labeling project in Azure Machine Learning, including how to export the labels.
-author: kvijaykannan
-ms.author: vkann
-ms.reviewer: sgilley
-ms.service: machine-learning
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: vkann
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/01/2024

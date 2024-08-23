@@ -5,7 +5,6 @@ description: Denormalize hierarchical data using the flatten transformation in A
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual

@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Queue Storage
 
-[!INCLUDE [passwordless-intro](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
 
@@ -213,7 +213,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="~/reusable-content/ce-skilling/azure/media/storage/create-user-assigned-identity.png":::
 
 # [Azure CLI](#tab/azure-cli-associate)
 
@@ -235,7 +235,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role.png" :::
+    :::image type="content" source="../../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../../includes/passwordless/media/migration-add-role.png" :::
 
 1. In the **Role** search box, search for *Storage Queue Data Contributor*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Storage Queue Data Contributor* from the list and choose **Next**.
 
@@ -243,7 +243,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity.png":::
+    :::image type="content" source="../../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 

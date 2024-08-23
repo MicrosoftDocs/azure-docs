@@ -4,7 +4,6 @@ description: Learn how to copy data from Amazon Redshift to supported sink data 
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

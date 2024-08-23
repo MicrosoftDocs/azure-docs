@@ -52,7 +52,7 @@ After the validation has been completed and terms have been signed, you're ready
 ## Extra resources
 
 - To review incentives, sign in at [Investments and incentives](https://partner.microsoft.com/membership/partner-incentives).
-- Agreements for end customers and partners in the CSP program are located on [CSP Resources](/partner-center/csp-documents-and-learning-resources). The customer agreement to be flown down is the [Microsoft Customer Agreement](/partner-center/agreements) (MCA). 
+- Agreements for end customers and partners in the CSP program are located on [CSP Resources](/partner-center/csp-documents-and-learning-resources). The customer agreement to be flown down is the [Microsoft Customer Agreement (MCA)](/partner-center/agreements). 
 - For a list of available services, see [Azure services available in the CSP program](/partner-center/azure-plan-available).
 - Get your questions answered by visiting [FAQ for Partner Center](/partner-center/faq-for-us-govt-cloud).
 - If you're still unclear about CSP or are looking to apply for the commercial side of the program, see [Enroll in the CSP program](/partner-center/enrolling-in-the-csp-program).
