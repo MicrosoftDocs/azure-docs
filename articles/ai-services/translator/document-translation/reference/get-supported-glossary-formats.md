@@ -36,9 +36,9 @@ Request headers are:
 
 |Headers|Description|Condition|
 |--- |--- |---|
-|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|Required|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
-|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
+|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|***Required***|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.| ***Required***|
 
 
 
