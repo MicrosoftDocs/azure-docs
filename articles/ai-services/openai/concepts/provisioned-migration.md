@@ -246,7 +246,7 @@ The following sections will take you through these tasks.
 
 ## Purchase a Provisioned Throughput Commitment
 
-With your commitment plan ready, the next step is to create the commitments. Commitments are created manually via Azure OpenAI Studio and require the user creating the commitment to have either the [Contributor or Cognitive Services Contributor role](./role-based-access-control.md) at the subscription level.
+With your commitment plan ready, the next step is to create the commitments. Commitments are created manually via Azure OpenAI Studio and require the user creating the commitment to have either the [Contributor or Cognitive Services Contributor role](../how-to/role-based-access-control.md) at the subscription level.
 
 For each new commitment you need to create, follow these steps:
 
