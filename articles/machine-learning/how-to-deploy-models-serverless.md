@@ -266,6 +266,8 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
     1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deployment-name.png" alt-text="A screenshot showing how to specify the name of the deployment you want to create." lightbox="media/how-to-deploy-models-serverless/deployment-name.png":::
+       > [!TIP]
+       > The **Content filter (preview)** option is enabled by default. Leave the default setting for the service to detect harmful content such as hate, self-harm, sexual, and violent content. For more information about content filtering, see the [content safety section in the Model Catalog overview](../concept-model-catalog.md).
 
     1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 
