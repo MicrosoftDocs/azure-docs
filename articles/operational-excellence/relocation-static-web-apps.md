@@ -113,7 +113,7 @@ The following steps show you how to relocate Azure Static Web Apps to another re
 
 1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed Azure Static Web App in the target region. Initiate the deployment of the application using GitHub actions or Azure DevOps Pipelines.
 
-1. With a Cold Standby deployment, inform clients about the new URL or, if you are using a custom DNS domain, simply change the DNS entry to point to the target region. With a Warm Standby deployment, a load balancer, such as Front Door or Traffic manager handle migration of the Static Web App in the source region to the Static Web App in the target region.
+1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, simply change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.
 
 
 ## Clean up
