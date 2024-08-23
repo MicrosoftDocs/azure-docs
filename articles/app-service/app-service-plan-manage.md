@@ -1,5 +1,5 @@
 ---
-title: Manage App Service plan
+title: Manage an App Service plan
 description: Learn how to perform different tasks to manage an App Service plan, such as create, move, scale, and delete.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
@@ -23,26 +23,26 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. To start creating an App Service Plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
+1. To start creating an App Service plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 
-   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service Plan in the Azure portal.":::
+   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service plan in the Azure portal.":::
 
 2. Configure the **Project Details** section before configuring the App Service plan. 
   
-3. In the **App Service Plan details** section, name the App Service Plan, then select the **Operating System** and **Region**. Region determines where your App Service plan is created.
+3. In the **App Service Plan details** section, name the App Service plan, and then select the **Operating System** and **Region**. The region specifies where your App Service plan is created.
 
 4. When creating a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select a **Pricing plan** or select **Explore pricing plans** to view additional details. 
 
-5. In the **Zone redundancy** section, select whether the App Service Plan zone redundancy should be enabled or disabled.
+5. In the **Zone redundancy** section, select whether the App Service plan zone redundancy should be enabled or disabled.
 
-6. Select **Review + create** to create the App Service Plan.
+6. Select **Review + create** to create the App Service plan.
 
 > [!IMPORTANT]
-> When creating an new App Service Plan in an existing Resource Group, certain conditions with existing apps can trigger these errors:
+> When you create an new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
 > - `The pricing tier is not allowed in this resource group`
 > - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
 > 
-> This can happen due to incompatibilities with pricing tiers, regions, operating systems, Availability Zones, existing Function apps, or existing web apps. If this error occurs, create your App Service Plan in a **new** Resource Group.
+> This can happen due to incompatibilities with pricing tiers, regions, operating systems, availability zones, existing function apps, or existing web apps. If one of these errors occurs, create your App Service plan in a **new** resource group.
 >
 
 
@@ -50,11 +50,11 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region, and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported.
 
 
 > [!NOTE]
-> Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment can have multiple webspaces, but your app can only move between plans that are created in the same webspace.
+> Azure deploys each new App Service plan into a deployment unit, internally called a *webspace*. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment can have multiple webspaces, but your app can only move between plans that are created in the same webspace.
 >
 > You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group, region combination and operating system are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
 > 
