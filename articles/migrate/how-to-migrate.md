@@ -35,7 +35,7 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
 
     - If you created an Azure Migrate project using the **Discover, assess and migrate** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers, databases and web apps** > **Migration and modernization**, select **Click here**.
 
-2. In **Azure Migrate** > **Add tools**, select the tools you want to add. Then select **Add tool*.
+2. In **Azure Migrate** > **Add tools**, select the tools you want to add. Then select **Add tool**.
 
 ## Select a database migration tool
 
