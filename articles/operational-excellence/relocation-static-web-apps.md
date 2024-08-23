@@ -76,7 +76,7 @@ For all other deployment types, make sure to:
 
 - If applicable, retrieve the new Function API keys from Azure Functions in the new region.
 
-- If the Azure Function has a dependency on a database, ensure that the DATABASE_CONNECTION_STRING is updated (This database may not be in scope of regional migration).
+- If the Azure Function has a dependency on a database, ensure that the `DATABASE_CONNECTION_STRING` is updated. This database may not be in scope of regional migration.
 
 - Update the custom domain to point to the new hostname of the static web app.
 
@@ -85,35 +85,39 @@ For all other deployment types, make sure to:
 
 ### Export the template
 
-In this section, you learn how to export a Resource Manager template. This template contains settings that describe your Static Web Site App:
+To export the Resource Manager template that contains settings that describe your static web app:
     
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All resources** and then select your Static Web Site App.
-3. On the **Static Web Site App** page, select **Export template** in the **Automation** section on the left menu. 
-4. Choose **Download** in the **Export template** page.
+1. Go to your static web app.
+1. From the left menu, under *Automation*, select **Export template**.
 
-5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+    The template may take a moment to generate.
 
-    This zip file contains the .json files that include the template and scripts to deploy the template.
-6. Make the necessary changes to the template, such as updating the location with target region.
+1. Select **Download**.
+
+1. Locate the downloaded `.zip` file, and open it into a folder of your choice.
+
+    This file contains the `.json` files that include the template and scripts to deploy the template.
+
+1. Make the necessary changes to the template, such as updating the location with target region.
 
 
 ## Relocate
 
-The following steps show you how to relocate Azure Static Web Apps to another region.
+Use the following steps to relocate your static web app to another region.
 
 1. If you are relocating with Private Endpoint, follow the guidelines in [Relocate Azure Private Link Service to another region](./relocation-private-link.md).
 
-1. If you've provided an existing Azure Functions to Azure Static Web App, follow the relocation procedure for [Azure Functions](./relocation-functions.md).
+1. If you've provided an existing Azure Functions to your static web app, follow the relocation procedure for [Azure Functions](./relocation-functions.md).
 
-1. Redeploy the Azure Static Web App using the [template that you exported and configured in the previous section](#export-the-template). 
+1. Redeploy you static web app using the [template that you exported and configured in the previous section](#export-the-template). 
 
     >[!IMPORTANT]
-    >If you're not using a custom domain, your URL to access your application in the target region will change. In that scenario, you must ensure that your consumers are informed about the URL change.
+    > If you're not using a custom domain, your application's URL the target region will change. In this scenario, ensure that users know about the URL change.
 
 1. If you're using an Integrated API, create a new Integrated API that's supported by Azure Functions.
 
-1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed Azure Static Web App in the target region. Initiate the deployment of the application using GitHub actions or Azure DevOps Pipelines.
+1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed static web app in the target region. Initiate the deployment of the application using GitHub actions or Azure DevOps Pipelines.
 
 1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, simply change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.
 
