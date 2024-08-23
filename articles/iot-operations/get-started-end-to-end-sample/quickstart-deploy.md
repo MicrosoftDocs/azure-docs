@@ -133,13 +133,7 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but want to keep your cluster, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command.
-
-   ```azurecli
-   az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
-   ```
-
-If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contained the cluster.
+[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
 
 ## Next step
 

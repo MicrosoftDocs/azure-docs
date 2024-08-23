@@ -28,9 +28,9 @@ Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. I
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
     ```
 
-1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `data/thermostat` topic:
+1. At the Bash shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `data/thermostat` topic:
 
-    ```console
+    ```bash
     mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "azure-iot-operations/data/#" -v --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
