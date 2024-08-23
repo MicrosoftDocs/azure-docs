@@ -69,11 +69,11 @@ This transaction uses the POST or PUT method to store representations of studies
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
-The following `Accept` header(s) for the response are supported:
+The following `Accept` headers for the response are supported:
 
 * `application/dicom+json`
 
-The following `Content-Type` header(s) are supported:
+The following `Content-Type` headers are supported:
 
 * `multipart/related; type="application/dicom"`
 * `application/dicom`
@@ -309,7 +309,7 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 
 #### Retrieve instances within study or series
 
-The following `Accept` header(s) are supported for retrieving instances within a study or a series:
+The following `Accept` headers are supported for retrieving instances within a study or a series:
 
 
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
@@ -320,7 +320,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 
 #### Retrieve an Instance
 
-The following `Accept` header(s) are supported for retrieving a specific instance:
+The following `Accept` headers are supported for retrieving a specific instance:
 
 * `application/dicom; transfer-syntax=*`
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
@@ -387,7 +387,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 
 ### Retrieve rendered image (for instance or frame)
 
-The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
+The following `Accept` headers are supported for retrieving a rendered image an instance or a frame:
 
 - `image/jpeg`
 - `image/png`
@@ -440,7 +440,7 @@ Query based on ID for DICOM Objects (QIDO) enables you to search for studies, se
 | GET                    | ../studies/{study}/instances?...                 | Search for instances in a study  |
 | GET                    | ../studies/{study}/series/{series}/instances?... | Search for instances in a series |
 
-The following `Accept` header(s) are supported for searching:
+The following `Accept` headers are supported for searching:
 
 * `application/dicom+json`
 
@@ -456,7 +456,7 @@ An attribute can be corrected in the following ways:
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description                                                                                                                                                                                                                                                                                |
+| Key              | Support values          | Allowed Count | Description                                                                                                                                                                                                                                                                                |
 | :--------------- | :------------------------ | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query.                                                                                                                                                                                                                                             |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
@@ -892,7 +892,7 @@ This transaction enables you to search for Workitems by attributes.
 | :----- | :------------ | :------------------- |
 | GET    | ../workitems? | Search for Workitems |
 
-The following `Accept` header(s) are supported for searching:
+The following `Accept` headers are supported for searching:
 
 * `application/dicom+json`
 
@@ -900,7 +900,7 @@ The following `Accept` header(s) are supported for searching:
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Key              | Support values          | Allowed Count | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | :--------------- | :------------------------ | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query.                                                                                                                                                                                                                                                                                                                                                                              |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
