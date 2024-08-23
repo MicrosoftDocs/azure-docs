@@ -135,7 +135,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     
     1. In the firewall's **Overview** page, copy private IP address. **The private IP address will be used as next hop address in the routing rule for the virtual network**.
     
-       :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/setup-firewall.png" alt-text="Screenshot showing how to set up firewall." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/setup-firewall.png":::
+       :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/set-up-firewall.png" alt-text="Screenshot showing how to set up firewall." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/set-up-firewall.png":::
 
 1. Route all traffic to the firewall
 
