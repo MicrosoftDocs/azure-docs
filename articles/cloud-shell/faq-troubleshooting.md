@@ -134,7 +134,7 @@ command that requires elevated permissions.
   create a DNS record for that name.
 
   1. Try to start Cloud Shell using your web browser. Use the browser's Developer Tools to find the
-     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kdb> key to
+     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kbd> key to
      open the Developer Tools. Select the **Network** tab. Find the **Search** box in the top right
      corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
      of the request entries found by the search. In the **Headers** tab, find the hostname in the
