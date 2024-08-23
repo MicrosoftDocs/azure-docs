@@ -6,7 +6,7 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 08/22/2023
+ms.date: 08/22/2024
 ms.custom: template-concept, devx-track-python
 manager: nitinme
 ---
@@ -779,7 +779,7 @@ For enhanced detection capabilities, prompts should be formatted according to th
 
 The Chat Completion API is structured by definition. It consists of a list of messages, each with an assigned role. 
 
-The safety system parses this structured format and apply the following behavior: 
+The safety system parses this structured format and applies the following behavior: 
 - On the latest “user” content, the following categories of RAI Risks will be detected: 
     - Hate 
     - Sexual 
