@@ -1,7 +1,7 @@
 ---
 title: Deploy an AutoML model with an online endpoint
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your AutoML model as a web service that Azure automatically manages by using Azure Machine Learning studio.
+description: Learn to use the Azure Machine Learning studio, SDK, and CLI to deploy your AutoML model as a web service that Azure automatically manages.
 services: machine-learning
 ms.service: azure-machine-learning
 ms.subservice: inferencing
@@ -45,7 +45,7 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 
    The system generates the Model and Environment needed for the deployment.
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-model.png" alt-text="Screenshot shows the deployment page where you can change values and then select Deploy.":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-model.png" alt-text="Screenshot showing the deployment page where you can change values and then select Deploy.":::
 
 ## Deploy manually from the studio or command line
 
