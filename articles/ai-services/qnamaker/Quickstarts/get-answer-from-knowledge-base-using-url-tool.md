@@ -1,7 +1,7 @@
 ---
 title: Use URL tool to get answer from knowledge base - QnA Maker
 titleSuffix: Azure AI services
-description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
+description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or the Visual Studio Code REST Client extension..
 #services: cognitive-services
 manager: nitinme
 ms.author: jboback
@@ -29,9 +29,9 @@ ms.date: 01/19/2024
 
 ::: zone-end
 
-::: zone pivot="url-test-tool-postman"
+::: zone pivot="url-test-tool-Visual-Studio-Code-REST-Client-extension"
 
-[!INCLUDE [Get answer using Postman](../includes/quickstart-test-tool-Postman.md)]
+[!INCLUDE [Get answer using the Visual Studio Code REST Client extension](../includes/quickstart-test-tool-vscode.md)]
 
 ::: zone-end
 
