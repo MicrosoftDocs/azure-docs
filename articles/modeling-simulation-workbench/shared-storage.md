@@ -10,7 +10,7 @@ ms.date: 08/21/2024
 
 # Shared storage for Modeling and Simulation Workbench
 
-To enable cross team and/or cross-organization collaboration in a secure manner within the workbench, a shared storage resource allows for selective data sharing between collaborating parties. It's an Azure NetApp Files based storage volume and is available to deploy in multiples of 4 TB’s. Workbench owners can create multiple shared storage instances on demand and dynamically link them to existing chambers to facilitate secure collaboration. 
+To enable cross team and/or cross-organization collaboration in a secure manner within the workbench, a shared storage resource allows for selective data sharing between collaborating parties. It's an Azure NetApp Files based storage volume and is available to deploy in multiples of 4 TBs. Workbench owners can create multiple shared storage instances on demand and dynamically link them to existing chambers to facilitate secure collaboration. 
 
 Users who are provisioned to a specific chamber can access all shared storage volumes linked to that chamber. Once users get deprovisioned from a chamber or that chamber gets deleted, they lose access to any linked shared storage volumes.  
 
