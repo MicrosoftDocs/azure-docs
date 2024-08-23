@@ -32,7 +32,7 @@ To use the Event Hubs data explorer, navigate to the Event Hubs namespace on whi
 
 Either navigate to the `Data Explorer` directly where you may pick the event hub, or pick the event hub from the `entities` and then pick the `Data Explorer` from the navigation menu.
 
-TODO - Add screenshot for left navigation menu.
+:::image type="content" source="./media/event-hubs-data-explorer/left-pane-nav.png" alt-text="Screenshot showing the left pane nav with 'Data Explorer' selected.":::
 
 ## Send Events
 
@@ -40,7 +40,8 @@ You can send either custom payloads, or pre-canned dataset to the selected event
 
 To do so, click on the `send events` button, which will enable the right pane.
 
-TODO - screenshot of right pane.
+:::image type="content" source="./media/event-hubs-data-explorer/select-send-events.png" alt-text="Screenshot showing the data explorer pane with 'Send events' selected.":::
+
 
 ### Sending custom payload
 
@@ -54,7 +55,8 @@ To send a custom payload -
 
 Once the payload details have been defined, click **Send** to send the event payload as defined.
 
-TODO Screenshot for custom payload.
+:::image type="content" source="./media/event-hubs-data-explorer/send-event.png" alt-text="Screenshot showing the send event experience for custom payload.":::
+
 
 ### Sending pre-canned dataset
 
@@ -66,13 +68,17 @@ To send event payloads from a pre-canned dataset -
 
 Once the payload details have been defined, click **Send** to send the event payload as defined.
 
-TODO Screenshot for pre-canned payload.
+:::image type="content" source="./media/event-hubs-data-explorer/send-pre-canned-payload.png" alt-text="Screenshot showing the send event experience for pre-canned payload.":::
+
 
 ## View Events
 
 Event Hubs data explorer enables viewing the events to inspect the data that fit the criteria.
 
 To view events, you can define the below properties, or rely on the default -
+
+:::image type="content" source="./media/event-hubs-data-explorer/view-event-menu.png" alt-text="Screenshot showing the data explorer menu with view events selected.":::
+
 
 1. **PartitionID** - pick either a specific partition or select *All partition IDs*.
 2. **Consumer Group** - pick the *$Default* or another consumer group, or create one on the fly.
@@ -81,4 +87,15 @@ To view events, you can define the below properties, or rely on the default -
 
 Once the above options have been set, click **View events** to pull the events and render them on the data explorer.
 
-TODO - Fix 
+:::image type="content" source="./media/event-hubs-data-explorer/grid-of-events.png" alt-text="Screenshot showing the grid of events.":::
+
+
+Once the events have been loaded, you can click on **View next events** to pull events using the same query again, or **Clear all** to refresh the grid.
+
+## Download event payload
+
+When viewing the events on a given event hub, the event payload can be downloaded for further review.
+
+To download the event payload, select the specific event and click on the **download** button displayed above the event payload body.
+
+:::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the event grid with selected event and highlighted download event button.":::
