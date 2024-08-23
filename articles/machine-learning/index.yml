@@ -135,5 +135,3 @@ landingContent:
           url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
         - text: CLI (v2) code examples
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-        - text: ML Studio (classic) documentation
-          url: ./classic/index.yml
