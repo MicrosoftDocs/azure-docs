@@ -82,12 +82,12 @@ There are four types of availability tests:
 
 > [!div class="checklist"]
 > * [Workspace-based Application Insights resource](create-workspace-resource.md)
-> * Access to the source code of a [Azure Functions app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
+> * Access to the source code of an [Azure Functions app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 > * Developer expertise to author [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
 ### Basic code sample
 
-This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show how to write the underlying HTTP test code or business logic required to turn this example into a fully functional availability test.
+This example is designed only to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show how to write the underlying HTTP test code or business logic required to turn this example into a fully functional availability test.
 
 > [!NOTE]
 > To follow these instructions, you must use either the [App Service](../../azure-functions/dedicated-plan.md) plan or Functions Premium plan to allow editing code in App Service Editor.
@@ -344,20 +344,12 @@ This section explains how to review availability test results in the Azure porta
 
 Start by reviewing the graph in the **Availability** experience in the Azure portal.
 
-### [Standard test](#tab/standard)
-
-:::image type="content" source="media/availability/availability-test-standard.png" alt-text="Screenshot that shows the Availability experience with the Refresh button highlighted." lightbox="media/availability/availability-test-standard.png":::
-
-### [TrackAvailability](#tab/track)
+:::image type="content" source="media/availability/graph-and-tests.png" alt-text="Screenshot that shows the Availability experience with two different tests listed.":::
 
 > [!NOTE]
 > Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
 
-:::image type="content" source="media/availability/availability-test-custom.png" alt-text="Screenshot that shows the Availability experience with a test marked as CUSTOM." lightbox="media/availability/availability-test-custom.png":::
-
----
-
-By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
+By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** (toggle above the graph) to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
 
 :::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience.":::
 
