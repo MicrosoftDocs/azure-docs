@@ -324,6 +324,8 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
     1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
         :::image type="content" source="../media/deploy-monitor/serverless/deployment-name.png" alt-text="A screenshot showing how to specify the name of the deployment you want to create." lightbox="../media/deploy-monitor/serverless/deployment-name.png":::
+       > [!TIP]
+       > Content filter (preview) is enabled by default. Turning it off runs a higher risk of exposing users to harmful content. Learn more about [content filtering (preview) for serverless endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-model-catalog?view=azureml-api-2#content-safety-for-models-deployed-via-maas).
 
     1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 
