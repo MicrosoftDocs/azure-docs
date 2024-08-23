@@ -14,16 +14,25 @@ ms.author: pafarley
 
 Are you just starting to explore the functionality of Azure AI services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Azure AI services.
 
+## Get solutions to common issues
+
+In the Azure portal, you can find answers to common AI service issues. 
+
+1. Go to your Azure AI services resource in the Azure portal. You can find it on the list on this page: [Azure AI services](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllCognitiveServices). If you're a United States government customer, use the [Azure portal for the United States government](https://portal.azure.us).
+1. In the left pane, under **Help**, select **Support + Troubleshooting**.
+1. Describe your issue in the text box, and answer the remaining questions in the form.
+1. You'll find Learn articles and other resources that might help you resolve your issue.
+
+
 ## Create an Azure support request
 
 <div class='icon is-large'>
     <img alt='Azure support' src='/media/logos/logo_azure.svg'>
 </div>
 
-Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
+Explore the range of Azure support options and [choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure portal for the United States government](https://portal.azure.us)
+To submit a support request for Azure AI services, follow the instructions on the [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) page in the Azure portal. Select **Cognitive Services** in the **Service type** dropdown field.
 
 ## Post a question on Microsoft Q&A
 
