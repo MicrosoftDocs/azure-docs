@@ -7,6 +7,59 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### August 2024 release
+
+#### Prebuilt neural voice
+
+- Introduce new multilingual voices in public preview. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+  **Brand new multilingual voices**
+
+  | Locale | Language                      | Gender | Voice name                       |
+  |--------|-------------------------------|--------|----------------------------------|
+  | en-US  | English (United States)        | Male   | en-US-AdamMultilingualNeural     |
+  | en-US  | English (United States)        | Female | en-US-AmandaMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-DerekMultilingualNeural    |
+  | en-US  | English (United States)        | Male   | en-US-LewisMultilingualNeural    |
+  | en-US  | English (United States)        | Female | en-US-LolaMultilingualNeural     |
+  | en-US  | English (United States)        | Female | en-US-PhoebeMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-SamuelMultilingualNeural   |
+  | en-US  | English (United States)        | Female | en-US-SerenaMultilingualNeural   |
+  | en-US  | English (United States)        | Male   | en-US-DustinMultilingualNeural   |
+  | en-US  | English (United States)        | Female | en-US-EvelynMultilingualNeural   |
+  | es-ES  | Spanish (Spain)                | Male   | es-ES-TristanMultilingualNeural  |
+  | fr-FR  | French (France)                | Male   | fr-FR-LucienMultilingualNeural   |
+  | pt-BR  | Portuguese (Brazil)            | Male   | pt-BR-MacerioMultilingualNeural  |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunfanMultilingualNeural   |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunxiaoMultilingualNeural  |
+  | zh-CN  | Chinese (Mandarin, Simplified) | Male   | zh-CN-YunyiMultilingualNeural    |
+
+  **Monolingual models updated to multilingual voices with improvements in naturalness**
+
+  | Locale | Language             | Gender | Voice name                      |
+  |--------|----------------------|--------|---------------------------------|
+  | en-US  | English (United States) | Female | en-US-NancyMultilingualNeural    |
+  | en-US  | English (United States) | Male   | en-US-BrandonMultilingualNeural  |
+  | en-US  | English (United States) | Male   | en-US-ChristopherMultilingualNeural |
+  | en-US  | English (United States) | Female | en-US-CoraMultilingualNeural     |
+  | en-US  | English (United States) | Male   | en-US-DavisMultilingualNeural    |
+  | en-US  | English (United States) | Male   | en-US-SteffanMultilingualNeural  |
+  | es-ES  | Spanish (Spain)         | Female | es-ES-XimenaMultilingualNeural   |
+  | it-IT  | Italian (Italy)         | Male   | it-IT-GiuseppeMultilingualNeural |
+  | ko-KR  | Korean (Korea)          | Male   | ko-KR-HyunsuMultilingualNeural   |
+
+- Enhance the following current multilingual voices with better quality and additional features.
+
+  | Locale | Language  | Gender | Voice name     | Note   |
+  |--------|--------|--------|------------|----------------|
+  | zh-CN  | Chinese (Mandarin, Simplified) | Female | zh-CN-XiaoxiaoMultilingualNeural | Support styles: `affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, `story`. |
+  | en-US  | English (United States)    | Male   | en-US-AndrewMultilingualNeural | Overall quality update  |
+  | en-US  | English (United States)    | Female | en-US-AvaMultilingualNeural    | Overall quality update  |
+
+- Two en-US multilingual voices now support styles. See the [Voice styles and roles](../../language-support.md?tabs=tts#voice-styles-and-roles) for more information.
+  - en-US-SerenaMultilingualNeural: `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, and `sad`.
+  - en-US-AndrewMultilingualNeural: `empathetic` and `relieved`.
+
 ### July 2024 release
 
 #### Text to speech avatar (GA)
