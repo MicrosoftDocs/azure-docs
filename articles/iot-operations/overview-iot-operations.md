@@ -57,7 +57,7 @@ Automatic asset discovery using Akri services is not available in the current ve
 > [!NOTE]
 > Some Akri services are still deployed as part of the current Azure IoT Operations release, but they don't support any user configurable scenarios.
 
-If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the previous versions site.
+If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
 
 ## Publish and subscribe with MQTT
 
