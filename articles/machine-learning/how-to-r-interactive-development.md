@@ -128,7 +128,7 @@ You can also use a Datastore URI to access different files on a registered Datas
     > 1. Select from the menu **Copy URI**. 
     > 1. Select the **Datastore URI** to copy into your notebook/script.
     > Note that you must create a variable for `<path>` in the code.
-    > :::image type="content" source="media/how-to-r-interactive-development/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+    > :::image type="content" source="media/how-to-r-interactive-development/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
  2. Create a filestore object using the previously mentioned URI:
    ```r

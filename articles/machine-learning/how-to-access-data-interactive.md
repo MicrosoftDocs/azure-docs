@@ -86,7 +86,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-interactive/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 You can also instantiate an Azure Machine Learning filesystem, to handle filesystem-like commands - for example `ls`, `glob`, `exists`, `open`.
 - The `ls()` method lists files in a specific directory. You can use ls(), ls(.), ls (<<folder_level_1>/<folder_level_2>) to list files. We support both '.' and '..', in relative paths.
@@ -491,7 +491,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-interactive/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 ```python
@@ -564,7 +564,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-interactive/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 
