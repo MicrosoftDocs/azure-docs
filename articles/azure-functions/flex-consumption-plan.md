@@ -66,11 +66,11 @@ This _per-function scaling_ behavior is a part of the hosting platform, so you d
 
 In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of functions scale groups:  
 
-| Scale group (triggers) | Name |
-| ---- | ---- |
-| HTTP<br/>SignalR | `http` |
-| Blob (event-driven) | `blob`|
-| Orchestration<br/>Activity<br/>Entity | `durable` |
+| Scale group name | Grouped triggers | Settings value |
+| ---- | ---- | --- |
+| HTTP triggers |[HTTP trigger](functions-bindings-http-webhook-trigger.md)<br/>[SignalR trigger](functions-bindings-signalr-service-trigger.md) | `http` |
+| Blob storage triggers<br/>(Event Grid-based) |  [Blob storage trigger](functions-bindings-storage-blob-trigger.md) | `blob`|
+| Durable Functions | [Orchestration trigger](./durable/durable-functions-bindings.md#orchestration-trigger)<br/>[Activity trigger](./durable/durable-functions-bindings.md#activity-trigger)<br/>[Entity trigger](./durable/durable-functions-bindings.md#entity-trigger) | `durable` |
 
 All other functions in the app are scaled individually in their own set of instances, which are referenced using the convention `function:<NAMED_FUNCTION>`.
 
