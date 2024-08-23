@@ -15,7 +15,7 @@ In Azure Modeling and Simulation Workbench, a Chamber is a security boundary for
 
 - Chambers offer optimized infrastructure, allowing users to choose from varied VM sizes, storage options, and compute resources to constitute workloads.
 - Chambers enable a preconfigured, isolated environment for license server access and full-featured workload tools.
-- Chambers are encapsulated by [Workbench](./concept-workbench.md) resource.
+- Chambers are encapsulated in the [Workbench](./concept-workbench.md) resource.
 
 ## Chamber environment
 
@@ -37,7 +37,7 @@ Administrators can optimize their resource consumption without necessarily destr
 
 Learn more about reducing service costs using [Azure Advisor](/azure/advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing) and [right-size VMs best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms).
 
-## Related content
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Create a Chamber VM](./how-to-guide-chamber.md)

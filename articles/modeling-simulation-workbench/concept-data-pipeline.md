@@ -30,11 +30,11 @@ Users with access to the chamber can export data from the chamber via the data p
 
 1. **Approve/reject export request.** The Workbench Owner either approves or rejects the export file request. Only a Workbench Owner can approve or reject requests. The individual who approves or denies can't be the same person who initially requested the export.
 
-1. **Download file to export.** If a file is approved for export, the user gets a download URI from the file request object and copies it out of the chamber using AzCopy. The URI has an expiration timestamp and must be downloaded before it expires. If the URI expires, you need to request a new download URI.
+1. **Download file.** If a file is approved for export, the user gets a download URI from the file request object and copies it out of the chamber using AzCopy. The URI has an expiration timestamp and must be downloaded before it expires. If the URI expires, you need to request a new download URI.
 
   > [!NOTE]
   > Larger files take longer to be available to download after being approved and to download using AzCopy.  Check the expiration on the download URI and request a new one if the window has expired.
 
-## Related content
+## Next steps
 
 - [License service](./concept-license-service.md)
