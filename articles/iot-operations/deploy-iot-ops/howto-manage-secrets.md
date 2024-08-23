@@ -1,8 +1,8 @@
 ---
 title: Manage secrets 
-description: Create, update, and manage secrets that are required to give your Arc-connected cluster access to Azure resources.
-author: kgremban
-ms.author: kgremban
+description: Create, update, and manage secrets that are required to give your Arc-enabled Kubernetes cluster access to Azure resources.
+author: asergaz
+ms.author: sergaz
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 03/21/2024
@@ -15,11 +15,13 @@ ms.custom: ignite-2023, devx-track-azurecli
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
+Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the managed vault solution on the cloud and uses [Secret Synchronization Controller](#TODO-ADD-LINK) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster. For more information, see [Prepare your cluster](./howto-prepare-cluster.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Operations deployed in basic or full feature set. For more information, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md).
+
+<!-- TODO: Maybe we can have an include file that explains what is basic and full feature set, to be reused across prereqs.  -->
 
 ## Configure a secret store on your cluster
 
