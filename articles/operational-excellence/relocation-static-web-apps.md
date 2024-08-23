@@ -78,7 +78,7 @@ For all other deployment types, make sure to:
 
 - If the Azure Function has a dependency on a database, ensure that the DATABASE_CONNECTION_STRING is updated (This database may not be in scope of regional migration).
 
-- Update the custom domain to point to the new hostname of the Azure Static Web App.
+- Update the custom domain to point to the new hostname of the static web app.
 
 - If using Key Vault, provision new Key Vault in target region. Update the Function API Keys in Key Vault if applicable. Any other sensitive data not to be stored in code or config files should be stored in this Key Vault
 
