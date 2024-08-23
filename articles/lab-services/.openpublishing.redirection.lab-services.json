@@ -867,7 +867,7 @@
         },
         {
             "source_path_from_root": "/articles/lab-services/how-to-attach-external-storage.md",
-            "redirect_url": "/azure/lab-services/how-to-prepare-windows-template.md#install-and-configure-onedrive",
+            "redirect_url": "/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive",
             "redirect_document_id": false
         }
     ]
