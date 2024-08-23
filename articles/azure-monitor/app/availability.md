@@ -85,7 +85,7 @@ This example is designed only to show you the mechanics of how the `TrackAvailab
 > [!div class="checklist"]
 > * [Workspace-based Application Insights resource](create-workspace-resource.md)
 > * Access to the source code of an [Azure Functions app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-> * Developer expertise to author [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
+> * Developer expertise to author custom code for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
 ### Get started
 
@@ -238,6 +238,11 @@ To create a new file, right-click under your timer trigger function (for example
 
     ```
 
+> [!NOTE]
+> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+>
+> :::image type="content" source="media/availability/availability-test-list.png" alt-text="Screenshot showing the Availability experience with two different tests listed.":::
+
 ---
 
 ## Availability alerts
@@ -344,10 +349,7 @@ This section explains how to review availability test results in the Azure porta
 
 Start by reviewing the graph in the **Availability** experience in the Azure portal.
 
-:::image type="content" source="media/availability/availability-test-list.png" alt-text="Screenshot showing the Availability experience with two different tests listed.":::
-
-> [!NOTE]
-> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+:::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot showing the Availability experience graph, highlighting the toggle between line and scatter plot." lightbox="media/availability/scatter-plot.png":::
 
 By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** (toggle above the graph) to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
 
