@@ -83,7 +83,7 @@ The Android ecosystem is extensive, encompassing various versions and specialize
 | Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     |Audio-only support        |
 
 > [!NOTE]
-> We **only supports video calls on phones and tablets**. For use cases involving video and non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process for assistance in determining the most suitable integration approach.
+> We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
 
 In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#accessing-support-files-in-the-calling-sdk).
 
