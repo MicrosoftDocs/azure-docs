@@ -4,7 +4,7 @@ description: Learn how to create a virtual machine with a static private IP addr
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
@@ -82,4 +82,4 @@ When no longer needed, you can use [az group delete](/cli/azure/group#az-group-d
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
-- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md) virtual machines.
+- Learn more about creating [Linux](/azure/virtual-machines/windows/tutorial-manage-vm) and [Windows](/azure/virtual-machines/windows/tutorial-manage-vm) virtual machines.

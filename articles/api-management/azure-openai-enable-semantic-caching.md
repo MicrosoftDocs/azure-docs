@@ -2,20 +2,23 @@
 title: Enable semantic caching for Azure OpenAI APIs in Azure API Management
 description: Prerequisites and configuration steps to enable semantic caching for Azure OpenAI APIs in Azure API Management.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Enable semantic caching for Azure OpenAI APIs in Azure API Management
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
 
 Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
+
+> [!NOTE]
+> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](../ai-studio/reference/reference-model-inference-api.md). 
 
 ## Prerequisites
 
@@ -48,13 +51,13 @@ with request body:
 
 When the request succeeds, the response includes a completion for the chat message.
 
-## Create a backend for Embeddings API
+## Create a backend for embeddings API
 
-Configure a [backend](backends.md) resource for the Embeddings API deployment with the following settings:
+Configure a [backend](backends.md) resource for the embeddings API deployment with the following settings:
 
 * **Name** - A name of your choice, such as `embeddings-backend`. You use this name to reference the backend in policies.
 * **Type** - Select **Custom URL**.
-* **Runtime URL** - The URL of the Embeddings API deployment in the Azure OpenAI Service, similar to:
+* **Runtime URL** - The URL of the embeddings API deployment in the Azure OpenAI Service, similar to:
         ```
         https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
         ```
@@ -111,6 +114,9 @@ If the request is successful, the response includes a vector representation of t
 Configure the following policies to enable semantic caching for Azure OpenAI APIs in Azure API Management:
 * In the **Inbound processing** section for the API, add the [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policy. In the `embeddings-backend-id` attribute, specify the Embeddings API backend you created.
 
+    > [!NOTE]
+    > When enabling semantic caching for other large language model APIs, use the [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) policy instead.
+
     Example:
 
     ```xml
@@ -124,6 +130,9 @@ Configure the following policies to enable semantic caching for Azure OpenAI API
     </azure-openai-semantic-cache-lookup>
     
 * In the **Outbound processing** section for the API, add the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) policy.
+
+    > [!NOTE]
+    > When enabling semantic caching for other large language model APIs, use the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) policy instead.
 
     Example:
 

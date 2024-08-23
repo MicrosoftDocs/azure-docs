@@ -1,7 +1,7 @@
 ---
 title: Azure AI services in Azure Synapse Analytics
 description: Enrich your data with artificial intelligence (AI) in Azure Synapse Analytics using pretrained models from Azure AI services.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
 ms.reviewer: whhender, garye, negust, ruxu, jessiwang

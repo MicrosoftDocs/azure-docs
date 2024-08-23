@@ -1,7 +1,7 @@
 ---
 title: Onboard a machine to Azure Automanage with an ARM template
 description: Learn how to onboard a machine to Azure Automanage with an Azure Resource Manager template.
-ms.service: automanage
+ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/10/2021
@@ -9,6 +9,8 @@ ms.date: 12/10/2021
 
 # Onboard a machine to Automanage with an Azure Resource Manager (ARM) template
 
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
 
 ## Overview
 Follow the steps to onboard a machine to Automanage Best Practices using an ARM template.

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 07/12/2023
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java
 ---
 

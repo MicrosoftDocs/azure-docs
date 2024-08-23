@@ -3,7 +3,7 @@ title: Azure Web Application Firewall JavaScript challenge (preview) overview
 description: This article is an overview of the Azure Web Application Firewall JavaScript challenge feature.
 services: web-application-firewall
 author: sowmyam2019
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.custom: devx-track-js
 ms.date: 06/12/2024
 ms.author: victorh

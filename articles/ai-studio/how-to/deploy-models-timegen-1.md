@@ -47,11 +47,10 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, visit [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
-### Pricing information
 
 #### Estimate the number of tokens needed
 
-Before you create a deployment, it's useful to estimate the number of tokens that you plan to use and be billed for.
+Before you create a deployment, it's useful to estimate the number of tokens that you plan to consume and be billed for.
 One token corresponds to one data point in your input dataset or output dataset.
 
 Suppose you have the following input time series dataset:
@@ -72,15 +71,15 @@ Given the following output dataset:
 
 You can also determine the number of tokens by counting the number of data points returned after data forecasting. In this example, the number of tokens is two.
 
-#### Estimate the pricing
+#### Estimate pricing based on tokens
 
-There are four pricing meters, as described in the following table:
+There are four pricing meters that determine the price you pay. These meters are as follows:
 
-| Pricing Meter                                 | Description                                                                             |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------|
-| paygo-inference-input-tokens                  | Costs associated with the tokens used as input for inference when *finetune_steps* = 0  |
-| paygo-inference-output-tokens                 | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
-| paygo-finetuned-model-inference-input-tokens  | Costs associated with the tokens used as input for inference when *finetune_steps* > 0  |
+| Pricing Meter | Description |
+|--|--|
+| paygo-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* = 0 |
+| paygo-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
+| paygo-finetuned-model-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* > 0 |
 | paygo-finetuned-model-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* > 0 |
 
 ### Create a new deployment
@@ -93,7 +92,7 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
+    1. Select **+ Deploy model**.
     1. Search for and select **TimeGEN-1**. to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.

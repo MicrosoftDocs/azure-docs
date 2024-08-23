@@ -10,13 +10,13 @@ author: mrbullwinkle
 ms.author: mbullwin
 ---
 
-GPT-4 is our most advanced model that can be fine-tuned to your needs. As with Azure OpenAI models generally, the advanced capabilities of fine-tuned models come with increased responsible AI challenges related to harmful content, manipulation, human-like behavior, privacy issues, and more. Learn more about risks, capabilities, and limitations in the [Overview of Responsible AI practices](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and [Transparency Note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text). To help mitigate the risks associated with GPT-4 fine-tuned models, we have implemented additional evaluation steps to help detect and prevent harmful content in the training and outputs of fine-tuned models. These steps are grounded in the [Microsoft Responsible AI Standard](https://www.microsoft.com/ai/responsible-ai) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new).
+GPT-4 and GPT-4o-mini are our most advanced models that can be fine-tuned to your needs. As with Azure OpenAI models generally, the advanced capabilities of fine-tuned models come with increased responsible AI challenges related to harmful content, manipulation, human-like behavior, privacy issues, and more. Learn more about risks, capabilities, and limitations in the [Overview of Responsible AI practices](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and [Transparency Note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text). To help mitigate the risks associated with GPT-4 and GPT-4o-mini fine-tuned models, we have implemented additional evaluation steps to help detect and prevent harmful content in the training and outputs of fine-tuned models. These steps are grounded in the [Microsoft Responsible AI Standard](https://www.microsoft.com/ai/responsible-ai) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new).
 
 - Evaluations are conducted in dedicated, customer specific, private workspaces;
 - Evaluation endpoints are in the same geography as the Azure OpenAI resource;
 - Training data is not stored in connection with performing evaluations; only the final model assessment (deployable or not deployable) is persisted; and
 
-GPT-4 fine-tuned model evaluation filters are set to predefined thresholds and cannot be modified by customers; they aren't tied to any custom content filtering configuration you may have created.
+GPT-4 and GPT-4o-mini fine-tuned model evaluation filters are set to predefined thresholds and cannot be modified by customers; they aren't tied to any custom content filtering configuration you may have created.
 
 ### Data evaluation
 

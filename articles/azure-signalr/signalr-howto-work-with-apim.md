@@ -4,7 +4,7 @@ description: This article provides information about using Azure SignalR Service
 author: vicancy
 ms.author: lianwei
 ms.date: 05/16/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 

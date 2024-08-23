@@ -3,7 +3,7 @@ title:  "Apply SQL Transformation"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Apply SQL Transformation component in Azure Machine Learning to run a SQLite query on input datasets to transform the data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

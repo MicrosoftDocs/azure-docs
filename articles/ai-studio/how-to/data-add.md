@@ -9,9 +9,8 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: franksolomon
-ms.author: ssalgado
-author: ssalgadodev
+ms.author: franksolomon
+author: fbsolo-ms1 
 ---
 
 # How to add and manage data in your Azure AI Studio project
@@ -39,7 +38,7 @@ To create and work with data, you need:
 
 ## Create data
 
-When you create your data, you need to set the data type. AI Studio supports three data types:
+When you create your data, you need to set the data type. AI Studio supports these data types:
 
 |Type  |**Canonical Scenarios**|
 |---------|---------|

@@ -89,4 +89,4 @@ If you're using [cluster connect with Microsoft Entra authentication](cluster-co
 - Learn more about [Azure Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 - Learn about [cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
 - Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)
-- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](../../aks/concepts-identity.md).
+- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](/azure/aks/concepts-identity).

@@ -15,6 +15,9 @@ For development and test environments in which queues and topics are often used 
 
 The expiration for any individual message can be controlled by setting the **time-to-live** system property, which specifies a relative duration. The expiration becomes an absolute instant when the message is enqueued into the entity. At that time, the **expires-at-utc** property takes on the value **enqueued-time-utc** + **time-to-live**. The time-to-live (TTL) setting on a brokered message isn't enforced when there are no clients actively listening.
 
+> [!NOTE]
+> Messages that have expired may not be immediately removed by the broker. The broker may opt to lazily expire these messages, based on whether the entity is in active use at the time a message expires. Consequently, customers might observe an incorrect message count when using message expiration, and may even see these messages during a peek operation. However, when receiving messages, the expired message will not be included.
+
 Past the **expires-at-utc** instant, messages become ineligible for retrieval. The expiration doesn't affect messages that are currently locked for delivery. Those messages are still handled normally. If the lock expires or the message is abandoned, the expiration takes immediate effect. While the message is under lock, the application might be in possession of a message that has expired. Whether the application is willing to go ahead with processing or chooses to abandon the message is up to the implementer.
 
 Extremely low TTL in the order of milliseconds or seconds might cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.

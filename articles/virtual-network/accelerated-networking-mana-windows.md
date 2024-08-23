@@ -2,7 +2,7 @@
 title: Windows VMs with the Microsoft Azure Network Adapter
 description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Windows VMs in Azure.
 author: mattmcinnes
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
@@ -89,5 +89,5 @@ Ethernet 5                       1230513627217            22739256679 ...7245765
 ## Next steps
 
 - [TCP/IP performance tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Monitoring Azure virtual networks](./monitor-virtual-network.md)

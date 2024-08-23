@@ -6,7 +6,7 @@ author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: mafong
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.date: 02/23/2024
 ms.topic: troubleshooting

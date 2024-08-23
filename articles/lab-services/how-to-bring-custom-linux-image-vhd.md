@@ -2,7 +2,7 @@
 title: Import a Linux image from a physical lab
 description: Learn how to import a Linux custom image from your physical lab environment into Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: ntrogh
 ms.author: nicktrog

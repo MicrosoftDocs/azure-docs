@@ -3,7 +3,7 @@ title: Integrate a virtual network with an external Azure Container Apps environ
 description: Learn how to integrate a VNET with an external Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
 ms.date: 08/31/2022

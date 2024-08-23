@@ -3,7 +3,7 @@ title: Add datasets to an existing Azure Data Share
 description: Learn how to add datasets to an existing data share in Azure Data Share and share with the same recipients.
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 12/19/2023
 ---

@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel skill-up training 
 description: This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 modules that present relevant product documentation, blog posts, and other resources.
-author: laghimp
+author: rayne-wiselman
 ms.topic: conceptual
 ms.date: 05/16/2024
-ms.author: laghimpe
+ms.author: raynew
 ms.custom: fasttrack-edit
 ---
 
@@ -314,7 +314,7 @@ Using ASIM provides the following benefits:
 
 - **Cross source detection**: Normalized analytic rules work across sources on-premises and in the cloud. The rules detect attacks, such as brute force, or impossible travel across systems, including Okta, AWS, and Azure.
 
-- **Allows source agnostic content**: Covering built-in and custom content by using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer might use to bring in the data, including Microsoft Defender for Endpoint, Windows Events, and Sysmon. We're ready to add [Sysmon for Linux](https://twitter.com/markrussinovich/status/1283039153920368651?lang=en) and WEF when it has been released.
+- **Allows source agnostic content**: Covering built-in and custom content by using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer might use to bring in the data, including Microsoft Defender for Endpoint, Windows Events, and Sysmon. We're ready to add [Sysmon for Linux](https://x.com/markrussinovich/status/1283039153920368651?lang=en) and WEF when it has been released.
 
 - **Support for your custom sources in built-in analytics**
 

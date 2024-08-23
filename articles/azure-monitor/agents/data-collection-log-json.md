@@ -52,8 +52,8 @@ Adhere to the following recommendations to ensure that you don't experience data
 ## Custom table
 Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. 
 
->
-> Warning: You shouldn’t use an existing custom table used by MMA agents. Your MMA agents won't be able to write to the table once the first AMA agent writes to the table. You should create a new table for AMA to use to prevent MMA data loss.
+> [!WARNING]
+> You shouldn't use an existing custom table used by Log Analytics agent. The legacy agents won't be able to write to the table once the first Azure Monitor agent writes to it. Create a new table for Azure Monitor agent to use to prevent Log Analytics agent data loss.
 >
 
 For example, you can use the following PowerShell script to create a custom table with multiple columns.  
@@ -88,10 +88,6 @@ $tableParams = @'
                     {
                         "name": "FilePath",
                         "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
                     }
               ]
         }
@@ -106,41 +102,39 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ## Create a data collection rule for a JSON file
 
 > [!NOTE]
-> The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. While you can create the DCR using the portal, you must modify it to define the columns in the incoming stream. See the **Resource Manager template** tab for details on creating the required DCR.
+> The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. While you can create the DCR using the portal, you must modify it to define the columns in the incoming stream. This section includes details on creating the DCR using an ARM template.
 
-### Incoming stream
-JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
+### Incoming stream schema
+
+> [!NOTE]
+> Multiline support that uses an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
+
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. You need to modify the `columns` section of the ARM template with the columns from your log.
+
+ The following table describes optional columns that you can include in addition to the columns defining the data in your log file. 
 
  | Column | Type | Description |
 |:---|:---|:---|
-| `TimeGenerated` | datetime | The time the record was generated. |
-| `RawData` | string | This column will be empty for a JSON log. |
+| `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace if it's not included in the incoming stream.  |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
-### [Portal](#tab/portal)
+### Transformation
+The [transformation](../essentials/data-collection-transformations.md) potentially modifies the incoming stream to filter records or to modify the schema to match the target table. If the schema of the incoming stream is the same as the target table, then you can use the default transformation of `source`. If not, then modify the `transformKql` section of tee ARM template with a KQL query that returns the required schema.
 
-Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **JSON Logs**  from the **Data source type** dropdown. 
+### ARM template
+
+Use the following ARM template to create a DCR for collecting text log files, making the changes described in the previous sections. The following table describes the parameters that require values when you deploy the template.
 
 | Setting | Description |
 |:---|:---|
-| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each day with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.json<br>- C:\Logs\MyLog*.json<br>- C:\App01\AppLog.json, C:\App02\AppLog.json<br>- /var/mylog.json<br>- /var/mylog*.json |
+| Data collection rule name | Unique name for the DCR. |
+| Location | Region for the DCR. Must be the same location as the Log Analytics workspace. |
+| File patterns | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each day with a new name. You can enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux).<br><br>Examples:<br>- C:\Logs\MyLog.json<br>- C:\Logs\MyLog*.json<br>- C:\App01\AppLog.json, C:\App02\AppLog.json<br>- /var/mylog.json<br>- /var/mylog*.json |
 | Table name | Name of the destination table in your Log Analytics Workspace. |     
-| Record delimiter | Not currently used but reserved for future potential use allowing delimiters other than the currently supported end of line (`/r/n`). | 
-| Transform | [Ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |
-
- 
-
-### [Resource Manager template](#tab/arm)
-
-Use the following ARM template to create a DCR for collecting text log files. In addition to the parameter values, you may need to modify the following values in the template:
-
-- `columns`: Modify with the list of columns in the JSON log that you're collecting.
-- `transformKql`: Modify the default transformation if the schema of the incoming stream doesn't match the schema of the target table. The output schema of the transformation must match the schema of the target table.
+| Workspace resource ID | Resource ID of the Log Analytics workspace with the target table. |
 
 > [!IMPORTANT]
-> If you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Add resources](./azure-monitor-agent-data-collection.md#add-resources)
-
+> When you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Add resources](./azure-monitor-agent-data-collection.md#add-resources)
 
 ```json
 {
@@ -150,45 +144,52 @@ Use the following ARM template to create a DCR for collecting text log files. In
         "dataCollectionRuleName": {
             "type": "string",
             "metadata": {
-              "description": "Unique name for the DCR. "
-            },
+                "description": "Unique name for the DCR. "
+            }
         },
         "location": {
             "type": "string",
             "metadata": {
-              "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
+                "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
+            }
         },
         "filePatterns": {
             "type": "string",
             "metadata": {
-              "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
-            },
+                "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
+            }
         },
         "tableName": {
             "type": "string",
             "metadata": {
-              "description": "Name of destination table in your Log Analytics workspace. "
-            },
+                "description": "Name of destination table in your Log Analytics workspace. "
+            }
         },
         "workspaceResourceId": {
             "type": "string",
             "metadata": {
-              "description": "Resource ID of the Log Analytics workspace with the target table."
-            },
+                "description": "Resource ID of the Log Analytics workspace with the target table."
+            }
+        },
+        "dataCollectionEndpointResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource ID of the Data Collection Endpoint to be used with this rule."
+            }
         }
     },
     "variables": {
-      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+        "tableOutputStream": "[concat('Custom-', parameters('tableName'))]"
     },
     "resources": [
         {
             "type": "Microsoft.Insights/dataCollectionRules",
-            "name": "[parameters('dataCollectionRuleName')]",
-            "location":  "[parameters('location')]",
             "apiVersion": "2022-06-01",
+            "name": "[parameters('dataCollectionRuleName')]",
+            "location": "[parameters('location')]",
             "properties": {
                 "streamDeclarations": {
-                    "Custom-JSONLog-stream": {
+                    "Custom-Json-stream": {
                         "columns": [
                             {
                                 "name": "TimeGenerated",
@@ -196,11 +197,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                             },
                             {
                                 "name": "FilePath",
-                                "type": "String"
-                            },
-                            {
-                                "name": "Computer",
-                                "type": "String"
+                                "type": "string"
                             },
                             {
                                 "name": "MyStringColumn",
@@ -216,7 +213,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                             },
                             {
                                 "name": "MyBooleanColumn",
-                                "type": "bool"
+                                "type": "boolean"
                             }
                         ]
                     }
@@ -231,14 +228,14 @@ Use the following ARM template to create a DCR for collecting text log files. In
                                 "[parameters('filePatterns')]"
                             ],
                             "format": "json",
-                            "name": "Custom-Json-dataSource"
+                            "name": "Custom-Json-stream"
                         }
                     ]
                 },
                 "destinations": {
                     "logAnalytics": [
                         {
-                            "workspaceResourceId":  "[parameters('workspaceResourceId')]",
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]",
                             "name": "workspace"
                         }
                     ]
@@ -246,7 +243,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-Json-dataSource"
+                            "Custom-Json-stream"
                         ],
                         "destinations": [
                             "workspace"
@@ -254,7 +251,8 @@ Use the following ARM template to create a DCR for collecting text log files. In
                         "transformKql": "source",
                         "outputStream": "[variables('tableOutputStream')]"
                     }
-                ]
+                ],
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]"
             }
         }
     ]

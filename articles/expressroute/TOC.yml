@@ -175,7 +175,7 @@
       href: expressroute-howto-add-ipv6-cli.md
   - name: Monitoring
     items:
-    - name: Monitoring ExpressRoute
+    - name: Monitor ExpressRoute
       href: monitor-expressroute.md
     - name: Network Insights
       href: expressroute-network-insights.md
@@ -183,8 +183,6 @@
       href: how-to-configure-connection-monitor.md
     - name: Configure ExpressRoute Traffic Collector
       href: how-to-configure-traffic-collector.md
-    - name: ExpressRoute monitoring, metrics, and alerts
-      href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
     - name: Configure custom alerts to monitor advertised routes
@@ -269,7 +267,7 @@
       href: expressroute-troubleshooting-arp-classic.md
 - name: Reference
   items:
-  - name: Monitor data reference
+  - name: Monitoring data reference
     href: monitor-expressroute-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
@@ -339,9 +337,3 @@
       href: expressroute-howto-linkvnet-classic.md
     - name: Configure ExpressRoute and S2S coexisting connections
       href: expressroute-howto-coexist-classic.md
-    - name: Create and modify public peering (deprecated)
-      href: about-public-peering.md
-    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
-      href: how-to-npm.md
-    - name: Move from public peering to Microsoft peering (deprecated)
-      href: how-to-move-peering.md

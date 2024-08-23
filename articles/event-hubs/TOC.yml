@@ -236,6 +236,10 @@
           href: apache-kafka-migration-guide.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
+        - name: Transactions in Apache Kafka for Azure Event Hubs
+          href: apache-kafka-transactions.md
+        - name: Kafka Streams for Azure Event Hubs
+          href: apache-kafka-streams.md
         - name: Replicate data from a Kafka cluster to Event Hubs
           items:
           - name: Using Apache Kafka Mirror Maker 2
@@ -315,7 +319,7 @@
 
     - name: Monitor
       items:
-        - name: Monitor Azure Event Hubs
+        - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
@@ -361,7 +365,7 @@
         href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
-    - name: Monitor data Reference
+    - name: Monitor data reference
       href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md

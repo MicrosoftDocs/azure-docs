@@ -3,7 +3,7 @@ title: How to deploy models to Azure Container Instances with CLI (v1)
 titleSuffix: Azure Machine Learning
 description: 'Use CLI (v1) to deploy your Azure Machine Learning models as a web service using Azure Container Instances.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
@@ -23,7 +23,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - prefer not to manage your own Kubernetes cluster
 - Are OK with having only a single replica of your service, which might affect uptime
 
-For information on quota and region availability for ACI, see [Quotas and region availability for Azure Container Instances](../../container-instances/container-instances-quotas.md) article.
+For information on quota and region availability for ACI, see [Quotas and region availability for Azure Container Instances](/azure/container-instances/container-instances-quotas) article.
 
 > [!IMPORTANT]
 > It is highly advised to debug locally before deploying to the web service, for more information, see [Debug Locally](how-to-troubleshoot-deployment-local.md)

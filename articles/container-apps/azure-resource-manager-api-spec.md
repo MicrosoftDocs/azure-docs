@@ -3,7 +3,7 @@ title: Azure Container Apps ARM and YAML template specifications
 description: Explore the available properties in the Azure Container Apps ARM and YAML templates.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: reference
 ms.date: 10/24/2023
 ms.author: cshoe

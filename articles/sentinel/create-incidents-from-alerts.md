@@ -20,6 +20,8 @@ You can easily configure Microsoft Sentinel to automatically create incidents ev
 > - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR [creates incidents from alerts](/defender-xdr/alerts-incidents-correlation) generated in Microsoft services.
+>
+> If you use incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
 
 ## Prerequisites
 

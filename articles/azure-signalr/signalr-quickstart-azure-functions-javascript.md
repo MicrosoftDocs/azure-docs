@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 04/19/2023
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---

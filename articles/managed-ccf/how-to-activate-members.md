@@ -4,7 +4,7 @@ description: Learn to activate the members in an Azure Managed CCF resource
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/08/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.custom:
 ---

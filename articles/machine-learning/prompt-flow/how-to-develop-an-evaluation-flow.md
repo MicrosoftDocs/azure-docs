@@ -3,7 +3,7 @@ title: Customize evaluation flow and metrics in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to customize or create your own evaluation flow and evaluation metrics tailored to your tasks and objectives, and then use in a batch run as an evaluation method in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023

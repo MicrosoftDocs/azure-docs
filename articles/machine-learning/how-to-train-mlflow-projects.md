@@ -6,7 +6,7 @@ services: machine-learning
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual

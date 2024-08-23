@@ -80,7 +80,7 @@ Also, if you plan to ingest NetWeaver/ABAP logs over a secure connection using S
 
 ## Create a virtual machine and configure access to your credentials
 
-Ideally, your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
+Ideally, your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](/azure/key-vault/general/authentication). How you access your key vault depends on where your VM is deployed:
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault.
 
@@ -107,7 +107,7 @@ Select one of the following tabs, depending on how you plan to store and access 
 
     ```
 
-    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
+    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
     > [!IMPORTANT]
     > After the VM is created, be sure to apply any security requirements and hardening procedures applicable in your organization.

@@ -52,6 +52,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | [Customer managed keys](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Mid-call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/unmute mic                                                                                                     | ✔️        |
+|                   | Mute remote participants                                                                                            | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
 |                   | Local hold/unhold                                                                                                  | ✔️        |
 |                   | Indicator of dominant speakers in the call                                                                          | ✔️        |

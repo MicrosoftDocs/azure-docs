@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight business continuity architectures
 description: This article discusses the different possible business continuity architectures for HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2024
 ---

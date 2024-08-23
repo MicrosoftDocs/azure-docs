@@ -166,7 +166,8 @@ The response provides you with CallConnection object that you can use to take fu
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 ![Sequence diagram for placing an outbound call.](media/make-call-flow.png)
 
-## Connect to a call
+## Connect to a call (in preview)
+
 Connect action enables your service to establish a connection with an ongoing call and take actions on it. This is useful to manage a Rooms call or when client applications started a 1:1 or group call that Call automation isn't part of. Connection is established using the CallLocator property and can be of types: ServerCallLocator, GroupCallLocator, and RoomCallLocator. These IDs can be found when the call is originally established or a Room is created, and also published as part of [CallStarted](./../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationcallstarted) event. 
 
 To connect to any 1:1 or group call, use the ServerCallLocator. If you started a call using GroupCallId, you can also use the GroupCallLocator. 
@@ -175,7 +176,7 @@ To connect to any 1:1 or group call, use the ServerCallLocator. If you started a
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
 CallLocator serverCallLocator = new ServerCallLocator("<ServerCallId>");
-ConnctCallResult response = await client.ConnectAsync(serverCallLocator, callbackUri);
+ConnectCallResult response = await client.ConnectCallAsync(serverCallLocator, callbackUri);
 ```
 
 ### [Java](#tab/java)
@@ -204,13 +205,14 @@ call_connection_properties = client.connect_call(call_locator=server_call_locato
 
 -----
 
-To connect to a Rooms call, use RoomCallLocator which takes RoomId. 
+To connect to a Rooms call, use RoomCallLocator which takes RoomId. Learn more about [Rooms](./../../concepts/rooms/room-concept.md) and how Call Automation API can be used to [manage ongoing Rooms call](./../../quickstarts/rooms/manage-rooms-call.md).  
+ 
 ### [csharp](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
 CallLocator roomCallLocator = new RoomCallLocator("<RoomId>");
-ConnctCallResult response = await client.ConnectAsync(roomCallLocator, callbackUri);
+ConnectCallResult response = await client.ConnectCallAsync(roomCallLocator, callbackUri);
 ```
 
 ### [Java](#tab/java)

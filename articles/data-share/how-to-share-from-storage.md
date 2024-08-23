@@ -3,7 +3,7 @@ title: Share and receive data from Azure Blob Storage and Azure Data Lake Storag
 description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 12/19/2023
 ---

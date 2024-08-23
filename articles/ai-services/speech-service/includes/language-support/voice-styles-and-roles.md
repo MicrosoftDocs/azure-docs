@@ -12,6 +12,7 @@ ms.author: eur
 |en-GB-RyanNeural|`chat`, `cheerful`|Not supported|
 |en-GB-SoniaNeural|`cheerful`, `sad`|Not supported|
 |en-IN-NeerjaNeural<sup>1</sup>|`cheerful`, `empathetic`, `newscast`|Not supported|
+|en-US-AndrewMultilingualNeural| `empathetic`, `relieved`|Not supported|
 |en-US-AriaNeural|`angry`, `chat`, `cheerful`, `customerservice`, `empathetic`, `excited`, `friendly`, `hopeful`, `narration-professional`, `newscast-casual`, `newscast-formal`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-DavisNeural|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
@@ -22,6 +23,7 @@ ms.author: eur
 |en-US-LunaNeural<sup>1</sup>|`conversation`|Not supported|
 |en-US-NancyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
+|en-US-SerenaMultilingualNeural<sup>1</sup>| `empathetic`, `excited`, `friendly`, `shy`, `serious`, `relieved`, `sad`  |Not supported|
 |en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |es-MX-JorgeNeural|`chat`, `cheerful`|Not supported|
 |fr-FR-DeniseNeural|`cheerful`, `sad`|Not supported|
@@ -36,6 +38,7 @@ ms.author: eur
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|`Boy`, `Girl`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `YoungAdultFemale`, `YoungAdultMale`|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Not supported|
 |zh-CN-XiaoshuangNeural|`chat`|Not supported|
+|zh-CN-XiaoxiaoMultilingualNeural|`affectionate`, `cheerful`, `empathetic`, `excited`, `poetry-reading`, `sorry`, `story`|Not supported|
 |zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `chat-casual`, `cheerful`, `customerservice`, `disgruntled`, `excited`, `fearful`, `friendly`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`, `sorry`, `whispering`|Not supported|
 |zh-CN-XiaoyiNeural|`affectionate`, `angry`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Not supported|
 |zh-CN-XiaozhenNeural|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|

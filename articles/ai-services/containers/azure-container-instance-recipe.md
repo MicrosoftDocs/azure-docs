@@ -16,7 +16,7 @@ ms.author: aahi
 
 # Deploy and run container on Azure Container Instance
 
-With the following steps, scale Azure AI services applications in the cloud easily with Azure [Container Instances](../../container-instances/index.yml). Containerization helps you focus on building your applications instead of managing the infrastructure. For more information on using containers, see [features and benefits](../cognitive-services-container-support.md#features-and-benefits).
+With the following steps, scale Azure AI services applications in the cloud easily with Azure [Container Instances](/azure/container-instances/). Containerization helps you focus on building your applications instead of managing the infrastructure. For more information on using containers, see [features and benefits](../cognitive-services-container-support.md#features-and-benefits).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [Portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
+[!INCLUDE [Azure portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
 
 # [CLI](#tab/cli)
 

@@ -1,6 +1,6 @@
 ---
 author: santiagxf
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 01/02/2023
 ms.author: fasantia

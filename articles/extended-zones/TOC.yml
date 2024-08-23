@@ -1,0 +1,47 @@
+- name: Azure Extended Zones documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Extended Zones?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy a VM in an Extended Zone - Portal
+    href: deploy-vm-portal.md
+  - name: Deploy a VM in an Extended Zone - ARM template
+    href: deploy-vm-arm-template.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Back up a virtual machine
+    href: backup-virtual-machine.md
+- name: Concepts
+  items:
+  - name: Extended Zones FAQ
+    href: faq.md
+- name: How-to guides
+  items:
+  - name: Request access to an Extended Zone
+    href: request-access.md
+  - name: Deploy an AKS cluster in an Extended Zone
+    href: deploy-aks-cluster.md
+  - name: Deploy a storage account in an Extended Zone
+    href: create-storage-account.md
+  - name: Request quota increase
+    href: request-quota-increase.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/edge-zones
+  - name: Azure PowerShell
+    href: /powershell/module/az.edgezones
+- name: Resources
+  items:
+  - name: Microsoft Q&A
+    href: /answers/tags/133/azure
+  - name: Azure support
+    href: https://azure.microsoft.com/support/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates
+  - name: SLA
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services

@@ -29,7 +29,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 * Install [Docker ](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/) to manage container image and Kubernetes resources.
-* A basic understanding of container and AKS. Get started from [preparing an application for AKS](../aks/tutorial-kubernetes-prepare-app.md).
+* A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 * A basic understanding of [workload identity](/entra/workload-id/workload-identities-overview).
 * Access permissions to [create Azure OpenAI resources and to deploy models](../ai-services/openai/how-to/role-based-access-control.md).
 
@@ -45,7 +45,7 @@ You start this tutorial by creating several Azure resources.
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or by referring to the [AKS quickstart](../aks/learn/quick-kubernetes-deploy-cli.md). In this tutorial, we create the service connection and pod definition and deploy the sample application to this cluster.
+1. Create an AKS cluster with the following command, or by referring to the [AKS quickstart](/azure/aks/learn/quick-kubernetes-deploy-cli). In this tutorial, we create the service connection and pod definition and deploy the sample application to this cluster.
 
     ```azurecli-interactive
     az aks create \

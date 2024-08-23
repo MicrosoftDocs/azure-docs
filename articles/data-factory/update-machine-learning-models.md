@@ -5,8 +5,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
 ms.date: 05/15/2024

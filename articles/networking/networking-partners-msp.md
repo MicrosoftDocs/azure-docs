@@ -3,7 +3,7 @@ title: 'Networking Partners: Azure Networking | Microsoft Docs'
 description: Learn about Azure Networking Managed Service Provider Partner Program and find a list of partners that offer cloud and hybrid networking services.
 services: networking
 author: skishen525
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/30/2023
 ms.author: sukishen
@@ -65,7 +65,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Zertia](https://zertia.es/)||[ExpressRoute – Intercloud connectivity](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-inter-conect-of103?tab=Overview)|[Enterprise Connectivity Suite - Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-vw-suite-of101?tab=Overview); [Manage Virtual WAN – SD-WAN Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-fortinet-of101?tab=Overview); [Manage Virtual WAN – SD-WAN Cisco Meraki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-cisco-of101?tab=Overview)|||
 
 Azure Marketplace offers for Managed ExpressRoute, Virtual WAN, Security Services and Private Edge Zone Services from the following Azure Networking MSP Partners are on our roadmap:
-[Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/us/en/glossary/cloud-enablement);   [InterCloud](https://www.intercloud.com/partners/microsoft-azure);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute); 
+[Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/us/en/glossary/cloud-enablement);   [InterCloud](https://www.intercloud.com/partners/microsoft-azure);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute); 
 
 ## <a name="expressroute"></a>ExpressRoute partners
 

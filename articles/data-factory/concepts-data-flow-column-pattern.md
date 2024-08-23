@@ -5,7 +5,6 @@ description: Create generalized data transformation patterns using column patter
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual

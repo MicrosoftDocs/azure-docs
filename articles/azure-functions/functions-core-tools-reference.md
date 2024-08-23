@@ -4,7 +4,7 @@ description: Reference documentation that supports the Azure Functions Core Tool
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 08/20/2023
+ms.date: 08/22/2024
 ---
 
 # Azure Functions Core Tools reference
@@ -53,7 +53,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 |
 
 > [!NOTE]
-> When you use either `--docker` or `--dockerfile` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
+> When you use either `--docker` or `--docker-only` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
 
 ## func logs
 
@@ -181,6 +181,16 @@ Gets settings from a specific function app.
 func azure functionapp fetch-app-settings <APP_NAME> 
 ```
 
+`func azure functionapp fetch-app-settings` supports these optional arguments:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
+| **`--slot`** | Optional name of a specific slot to which to publish. |
+| **`--subscription`** | Sets the default subscription to use. |
+
 For more information, see [Download application settings](functions-run-local.md#download-application-settings).
 
 Settings are downloaded into the local.settings.json file for the project. On-screen values are masked for security. You can protect settings in the local.settings.json file by [enabling local encryption](functions-run-local.md#encrypt-the-local-settings-file). 
@@ -192,6 +202,18 @@ Returns a list of the functions in the specified function app.
 ```command
 func azure functionapp list-functions <APP_NAME>
 ```
+
+`func azure functionapp list-functions` supports these optional arguments:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
+| **`--show-keys`** | Shows HTTP function endpoint URLs that include their default access keys. These URLs can be used to access function endpoints with `function` level [HTTP authentication](functions-bindings-http-webhook-trigger.md#http-auth). | 
+| **`--slot`** | Optional name of a specific slot to which to publish. |
+| **`--subscription`** | Sets the default subscription to use. |
+
 ## func azure functionapp logstream
 
 Connects the local command prompt to streaming logs for the function app in Azure.
@@ -202,11 +224,16 @@ func azure functionapp logstream <APP_NAME>
 
 The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux apps in the Consumption plan. For these apps, use the `--browser` option to view logs in the portal.
 
-The `deploy` action supports the following options:
+The `func azure functionapp logstream` command supports these optional arguments:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--browser`** | Open Azure Application Insights Live Stream for the function app in the default browser. |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
+| **`--slot`** | Optional name of a specific slot to which to publish. |
+| **`--subscription`** | Sets the default subscription to use. |
 
 For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
@@ -242,6 +269,7 @@ The following publish options apply, based on version:
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
+| **`--show-keys`** | Shows HTTP function endpoint URLs that include their default access keys. These URLs can be used to access function endpoints with `function` level [HTTP authentication](functions-bindings-http-webhook-trigger.md#http-auth). | 
 | **`--slot`** | Optional name of a specific slot to which to publish. |
 | **`--subscription`** | Sets the default subscription to use. |
 

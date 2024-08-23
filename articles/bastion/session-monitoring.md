@@ -4,7 +4,7 @@ description: Learn how to select an ongoing session and force-disconnect or dele
 services: bastion
 author: cherylmc
 
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: cherylmc

@@ -4,7 +4,7 @@ description: This article provides information about authorizing requests to Azu
 author: vicancy
 ms.author: lianwei
 ms.date: 02/03/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: subject-rbac-steps

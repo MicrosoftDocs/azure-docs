@@ -3,7 +3,7 @@ title: 'CLI (v2) Automated ML NLP text classification multilabel job YAML schema
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) automated ML NLP text classification multilabel job YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: reference
 ms.custom: cliv2
 

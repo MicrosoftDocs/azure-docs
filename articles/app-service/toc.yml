@@ -160,8 +160,10 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres
+        - name: Python with Postgres (Flask/Django)
           href: tutorial-python-postgresql-app.md
+        - name: Python with Postgres (FastAPI)
+          href: tutorial-python-postgresql-app-fastapi.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
@@ -265,7 +267,7 @@
           href: configure-authentication-provider-github.md
         - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Use Twitter
+        - name: Use X
           href: configure-authentication-provider-twitter.md
         - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
@@ -361,8 +363,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted app
       href: app-service-undelete.md
-    - name: Move app between regions
-      href: manage-move-across-regions.md
+    - name: Relocate app to another region
+      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management
@@ -393,6 +395,16 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+- name: WebJobs
+  items:
+    - name: Create WebJobs
+      href: webjobs-create.md
+    - name: Develop WebJobs using VS
+      href: webjobs-dotnet-deploy-vs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md          
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -457,16 +469,6 @@
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
-    - name: WebJobs
-      items:
-        - name: Create WebJobs
-          href: webjobs-create.md
-        - name: Develop WebJobs using VS
-          href: webjobs-dotnet-deploy-vs.md
-        - name: Get started with WebJobs SDK
-          href: webjobs-sdk-get-started.md
-        - name: Use WebJobs SDK
-          href: webjobs-sdk-how-to.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

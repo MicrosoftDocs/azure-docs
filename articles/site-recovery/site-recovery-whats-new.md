@@ -3,7 +3,7 @@ title: What's new in Azure Site Recovery
 description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.date: 07/15/2024
 ms.custom:
@@ -15,7 +15,7 @@ ms.custom:
 # What's new in Site Recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated regularly.
 

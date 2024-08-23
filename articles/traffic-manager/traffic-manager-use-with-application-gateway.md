@@ -3,7 +3,7 @@ title: Use Azure App Gateway with Azure Traffic Manager
 description: This article explains how to use Azure App Gateway with Azure Traffic Manager.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: greglin

@@ -2,7 +2,7 @@
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: faq
 ms.date: 04/01/2024
 ms.author: cherylmc
@@ -229,7 +229,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
 
 ## <a name="peering"></a>VNet peering FAQs
 

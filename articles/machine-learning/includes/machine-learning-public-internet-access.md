@@ -2,7 +2,7 @@
 title: Include file
 description: Include file
 author: blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 services: machine-learning
 ms.topic: include
 ms.date: 01/10/2023

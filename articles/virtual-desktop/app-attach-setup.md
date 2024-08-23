@@ -48,10 +48,6 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - Your session hosts need to run a [supported Windows client operating system](prerequisites.md#operating-systems-and-licenses) and at least one of them must be powered on. Windows Server isn't supported.
 
 ::: zone pivot="app-attach"
-- Your host pool needs to be [configured as a validation environment](configure-validation-environment.md).
-::: zone-end
-
-::: zone pivot="app-attach"
 - Your session hosts need to be joined to Microsoft Entra ID or an Active Directory Domain Services (AD DS) domain.
 ::: zone-end
 
@@ -168,10 +164,7 @@ Here's how to add an MSIX or Appx image as an app attach package using the Azure
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add an MSIX or Appx image as an app attach package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add an MSIX or Appx image as an app attach package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -258,7 +251,7 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    Get-AzWvdAppAttachPackage @parameters | FL Name, ImagePackageApplication, ImagePackageFamilyName, ImagePath, ImageVersion, ImageIsActive, ImageIsRegularRegistration, SystemDataCreatedAt
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name                       : My App
@@ -702,10 +695,7 @@ Here's how to add an MSIX image using the Azure portal:
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -722,7 +712,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
    $app = Expand-AzWvdMsixImage @parameters
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name
@@ -780,7 +770,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
    Get-AzWvdMsixPackage @parameters | ? PackageFamilyName -eq $app.PackageFamilyName | FL *
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName                  : My App
@@ -840,7 +830,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
    Get-AzWvdMsixPackage @parameters | Select-Object DisplayName, ImagePath, Name, Version, IsRegularRegistration, IsActive
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName ImagePath                        Name                                      Version IsRegularRegistration IsActive
@@ -1015,7 +1005,7 @@ Here's how to remove applications using the [Az.DesktopVirtualization](/powershe
    Get-AzWvdMsixPackage @parameters | Select-Object DisplayName, ImagePath, PackageFamilyName, Version
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName ImagePath                        Name                                      Version

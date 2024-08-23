@@ -3,7 +3,7 @@ title: Set up an ethical hacking lab
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab to teach ethical hacking using Azure Lab Services. The lab includes nested VMs for students to use in a standard environment.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to

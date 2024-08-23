@@ -2,13 +2,12 @@
 title: Authentication in Azure AI services
 titleSuffix: Azure AI services
 description: "There are three ways to authenticate a request to an Azure AI services resource: a resource key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
-#services: cognitive-services
 author: mgreenegit
 manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 8/1/2024
 ms.author: migreene
 ---
 
@@ -22,9 +21,9 @@ Each request to an Azure AI service must include an authentication header. This 
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a multi-service resource](multi-service-resource.md?pivots=azportal).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create an Azure AI services resource](multi-service-resource.md?pivots=azportal).
 
-You can get your resource key from the [Azure portal](multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
+Go to your resource in the Azure portal. The **Keys & Endpoint** section can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
 ## Authentication headers
 
@@ -33,14 +32,14 @@ Let's quickly review the authentication headers available for use with Azure AI 
 | Header | Description |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Use this header to authenticate with a resource key for a specific service or a multi-service resource key. |
-| Ocp-Apim-Subscription-Region | This header is only required when using a multi-service resource key with the [Translator service](./Translator/reference/v3-0-reference.md). Use this header to specify the resource region. |
+| Ocp-Apim-Subscription-Region | This header is only required when using a multi-service resource key with the [Azure AI Translator service](./Translator/reference/v3-0-reference.md). Use this header to specify the resource region. |
 | Authorization | Use this header if you are using an access token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
 
 ## Authenticate with a single-service resource key
 
-The first option is to authenticate a request with a resource key for a specific service, like Translator. The keys are available in the Azure portal for each resource that you've created. To use a resource key to authenticate a request, it must be passed along as the `Ocp-Apim-Subscription-Key` header.
+The first option is to authenticate a request with a resource key for a specific service, like Azure AI Translator. The keys are available in the Azure portal for each resource that you've created. Go to your resource in the Azure portal. The **Keys & Endpoint** section can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-These sample requests demonstrate how to use the `Ocp-Apim-Subscription-Key` header. Keep in mind, when using this sample you'll need to include a valid resource key.
+To use a resource key to authenticate a request, it must be passed along as the `Ocp-Apim-Subscription-Key` header. This is a sample call to the Azure AI Translator service:
 
 This is a sample call to the Translator service:
 ```cURL
@@ -50,23 +49,19 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-The following video demonstrates using an Azure AI services key.
-
 ## Authenticate with a multi-service resource key
 
 You can use a [multi-service](./multi-service-resource.md) resource key to authenticate requests. The main difference is that the multi-service resource key isn't tied to a specific service, rather, a single key can be used to authenticate requests for multiple Azure AI services. See [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The resource key is provided in each request as the `Ocp-Apim-Subscription-Key` header.
 
-[![Multi-service resource key demonstration for Azure AI services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
-
 ### Supported regions
 
-When using the [multi-service](./multi-service-resource.md) resource key to make a request to `api.cognitive.microsoft.com`, you must include the region in the URL. For example: `westus.api.cognitive.microsoft.com`.
+When using the [Azure AI services multi-service](./multi-service-resource.md) resource key to make a request to `api.cognitive.microsoft.com`, you must include the region in the URL. For example: `westus.api.cognitive.microsoft.com`.
 
 When using a multi-service resource key with [Azure AI Translator](./translator/index.yml), you must specify the resource region with the `Ocp-Apim-Subscription-Region` header.
 
-Multi-service authentication is supported in these regions:
+Multi-service resource authentication is supported in these regions:
 
 - `australiaeast`
 - `brazilsouth`
@@ -93,7 +88,7 @@ Multi-service authentication is supported in these regions:
 
 ### Sample requests
 
-This is a sample call to the Translator service:
+This is a sample call to the Azure AI Translator service:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -110,9 +105,6 @@ Some Azure AI services accept, and in some cases require, an access token. Curre
 * Text Translation API
 * Speech Services: Speech to text API
 * Speech Services: Text to speech API
-
->[!NOTE]
-> QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > The services that support access tokens may change over time, please check the API reference for a service before using this authentication method.
@@ -151,7 +143,7 @@ These multi-service regions support token exchange:
 - `westus`
 - `westus2`
 
-After you get an access token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Translator service:
+After you get an access token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Azure AI Translator service:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -259,7 +251,7 @@ In this sample, a password is used to authenticate the service principal. The to
    ```
 
    > [!NOTE]
-   > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure KeyVault.
+   > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure Key Vault.
   
 3. Call the Computer Vision API:
    ```powershell-interactive

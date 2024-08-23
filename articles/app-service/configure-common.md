@@ -40,7 +40,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> If you store secrets in app settings, consider using [Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider more secure connectivity options that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -199,6 +199,9 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 ## Configure connection strings
 
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
@@ -235,7 +238,7 @@ For example, a MySQL connection string named *connectionstring1* can be accessed
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
 
 # [Azure portal](#tab/portal)
 

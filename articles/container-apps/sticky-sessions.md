@@ -3,7 +3,7 @@ title: Session Affinity in Azure Container Apps
 description: How to set session affinity (sticky sessions) in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: cshoe
