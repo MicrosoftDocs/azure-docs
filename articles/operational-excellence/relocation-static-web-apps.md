@@ -122,7 +122,6 @@ Use the following steps to relocate your static web app to another region.
 1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, simply change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.
 
 
-## Clean up
 
 
 
