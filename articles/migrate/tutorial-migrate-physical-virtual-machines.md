@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 06/17/2024
-ms.custom: MVC, engagement-fy24
+ms.date: 08/21/2024
+ms.custom: MVC, engagement-fy25
 ---
 
 # Migrate machines as physical servers to Azure
@@ -268,7 +268,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers** > **Migration and modernization**, select **Replicated servers** under **Replications**.
+1. In **Migration goals**, select **Servers, databases and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
 1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
