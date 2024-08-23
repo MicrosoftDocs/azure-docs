@@ -70,7 +70,7 @@ If your Static Web Apps are deployed with private endpoints, make sure to:
 For more information, see [Configure private endpoint in Azure Static Web Apps](../static-web-apps/private-endpoint.md).
 
 
-**To prepare for all other deployments**
+### All other deployments
 
 - If applicable, retrieve the new Function API keys from Azure Functions in the new region
 
