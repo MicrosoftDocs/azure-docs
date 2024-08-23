@@ -325,7 +325,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
         :::image type="content" source="../media/deploy-monitor/serverless/deployment-name.png" alt-text="A screenshot showing how to specify the name of the deployment you want to create." lightbox="../media/deploy-monitor/serverless/deployment-name.png":::
        > [!TIP]
-       > Content filter (preview) is enabled by default. Turning it off runs a higher risk of exposing users to harmful content. Learn more about [content filtering (preview) for serverless endpoints](https://learn.microsoft.com/azure/machine-learning/concept-model-catalog?view=azureml-api-2#content-safety-for-models-deployed-via-maas).
+       > The **Content filter (preview)** option is enabled by default. Leave the default setting for the service to detect harmful content such as hate, self-harm, sexual, and violent content. For more information about content filtering, see [Content filtering in Azure AI Studio](../concepts/content-filtering.md).
 
     1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 
