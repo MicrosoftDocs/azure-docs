@@ -382,8 +382,6 @@ To learn more about the end-to-end transaction diagnostics experience, see the [
 
 Select the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code-level diagnostics.
 
-:::image type="content" source="media/availability/end-to-end-open-debug-snapshot.png" alt-text="Screenshot showing the Server-side diagnostics." lightbox="media/availability/end-to-end-open-debug-snapshot.png":::
-
 In addition to the raw results, you can also view two key availability metrics in [metrics explorer](../essentials/metrics-getting-started.md):
 
 * **Availability**: Percentage of the tests that were successful across all test executions.
