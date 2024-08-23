@@ -227,9 +227,10 @@ If you receive the message **provisioningState: ScheduledForDelete**, but your e
     In the output, look for `infrastructureSubnetId` and note down the VNet ID. An example VNet ID is `vNet::myVNet.id`.
 
 2. Delete the VNet manually:
-```azurecli
-az network vnet delete --resource-group $RG --name $VNET_NAME
-```
+
+    ```azurecli
+    az network vnet delete --resource-group <RESOURCE_GROUP> --name <VNET_ID>
+    ```
 
 3. Delete the Azure Container Apps environment:
 
