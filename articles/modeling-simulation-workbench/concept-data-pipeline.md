@@ -26,9 +26,9 @@ Users with access to the chamber can export data from the chamber via the data p
 
 1. **Identify file to export.** The export process is triggered when a user places a file to export into a designated area within the chamber.  A Chamber Admin or Chamber User copies the file to the data out folder within the pipeline. The data pipeline detects the copied file and creates a file object. The file creation activity is traceable in the logs and enables the next step of the data pipeline.
 
-1. **Request file to export.** A Chamber Admin reviews files in the data pipeline and requests to export files in the data out folder in the chamber. The pipeline creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
+1. **Request file to export.** A Chamber Admin reviews files staged in the data pipeline and requests to export. The pipeline manager creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
 
-1. **Approve/reject export request.** The Workbench Owner approves or rejects the file request object for export. The export approval step must be completed by the Workbench Owner and can't be the same person who requested to export the data.
+1. **Approve/reject export request.** The Workbench Owner either approves or rejects the export file request. Only a Workbench Owner can approve or reject requests. The individual who approves or denies can't be the same person who initially requested the export.
 
 1. **Download file to export.** If a file is approved for export, the user gets a download URI from the file request object and copies it out of the chamber using AzCopy. The URI has an expiration timestamp and must be downloaded before it expires. If the URI expires, you need to request a new download URI.
 

@@ -1,5 +1,5 @@
 ---
-title: Manage a license service for Azure Modeling and Simulation Workbench
+title: "Manage license services: Azure Modeling and Simulation Workbench"
 description: In this how-to guide, you learn how to upload a license file to activate a license service for an Azure Modeling and Simulation Workbench chamber.
 author: lynnar
 ms.author: lynnar

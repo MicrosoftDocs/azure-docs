@@ -247,37 +247,7 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
 ## Add redirect URIs for the application in Microsoft Entra ID
 
-A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
-
-Follow these steps to get redirect URIs:
-
-1. On the page for your new Modeling and Simulation Workbench workbench, **myModSimWorkbench**, select the left side menu **Connector**. Then select **myfirstconnector** from the right side resource list.
-
-1. On the **Overview** page, locate and document the two connector properties, **Dashboard reply URL** and **Authentication reply URL**, using the copy to clipboard icon. If these properties aren't visible, select the **See More** button on page to expand the window.
-   - **Dashboard reply URL**: For example, https://<*dashboardFqdn*>/etx/oauth2/code
-   - **Authentication reply URL**: For example, https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
-
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs.":::
-
-Follow these steps to add redirect URIs:
-
-1. In the Azure portal, in **Microsoft Entra ID** > **App registrations**, select your application created in **Register an application** step.
-
-1. Under **Manage**, select **Authentication**.
-
-1. Under **Platform configurations**, select **Add a platform**.
-
-1. Under **Configure platforms**, select **Web** tile.
-
-1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the Redirect URI field. Then select **Configure**.
-
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you configure web authentication.":::
-
-1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
-
-1. Paste the **Authentication reply URL** you documented in the previous step. Then select **Save**.
-
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you set the second Redirect URI.":::
+[!INCLUDE [add-redirect-uris](includes/add-redirect-uris.md)]
 
 ## Connect to chamber with remote desktop
 

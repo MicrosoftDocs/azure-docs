@@ -1,5 +1,5 @@
 ---
-title: Export data from Azure Modeling and Simulation Workbench
+title: "Export data: Azure Modeling and Simulation Workbench"
 description: Learn how to export data from a chamber in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
@@ -105,4 +105,4 @@ Complete the following steps to download an approved export file from a chamber:
 
 ## Next steps
 
-To learn how to manage chamber storage in Azure Modeling and Simulation Workbench, see [Manage chamber storage](./how-to-guide-manage-storage.md).
+To learn how to manage chamber storage in Azure Modeling and Simulation Workbench, see [Manage chamber storage](./how-to-guide-manage-chamber-storage.md).

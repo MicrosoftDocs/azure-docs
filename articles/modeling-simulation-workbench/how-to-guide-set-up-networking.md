@@ -1,5 +1,5 @@
 ---
-title: Set up networking in Azure Modeling and Simulation Workbench
+title: "Set up networking: Azure Modeling and Simulation Workbench"
 description: In this how-to guide, you learn how to set up networking for an Azure Modeling and Simulation Workbench connector.
 author: lynnar
 ms.author: lynnar

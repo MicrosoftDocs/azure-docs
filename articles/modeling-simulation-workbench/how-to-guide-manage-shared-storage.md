@@ -1,42 +1,50 @@
 ---
-title: Manage chamber storage in Azure Modeling and Simulation Workbench
-description: Learn how to manage chamber storage in Azure Modeling and Simulation Workbench.
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
+title: "Manage Shared Storage: Azure Modeling and Simulation Workbench"
+description: Learn how to manage Shared Storage in Azure Modeling and Simulation Workbench.
+author: yousefi-msft
+ms.author: yousefi
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
-ms.date: 01/01/2023
-# Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to manage chamber storage.
+ms.date: 08/22/2024
+# Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to manage shared storage.
 ---
 
-# Manage chamber storage in Azure Modeling and Simulation Workbench
+# Manage Shared Storage in Azure Modeling and Simulation Workbench
 
-Chamber Admins and Workbench Owners can manage the storage capacity in Azure Modeling and Simulation Workbench to fit their organization's specific needs. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.  
+Shared Storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers.  Chamber Admins and Workbench Owners can manage the Shared storagein Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.  
 
 This article explains how Chamber Admins and Workbench Owners manage chamber storage.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- A user who's provisioned as a Chamber Admin or Workbench Owner.
+[!INCLUDE [prereq-account-sub](includes/prereq/prereq-account-sub.md)]
+
+[!INCLUDE [prereq-mswb-chamber](includes/prereq/prereq-mswb-chamber.md)]
+
+[!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
 
 ## Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
-## Access storage options in a chamber
+## Create Shared Storage
+
+If you're a Workbench Owner or Chamber Admin, complete the following steps to access the Shared Storage options:
+
+1. Enter **Modeling and Simulation Workbench** in the global search. Under **Services**, select **Modeling and Simulation Workbench**.
+1. Select your workbench from the resource list.
+1. On the left menu, select **Settings** > **Shared Storage**.
+1. Select **Create** from the action bar. The Create shared storage blade appears.
+1. Fill in a name, set the capacity in 4TiB increments, and select the Chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
+1. Select **Review + Create**. If the validation checks pass, select **Create**.
+
+## Manage Shared Storage
 
 If you're a Workbench Owner or Chamber Admin, complete the following steps to access the chamber storage options:
 
 1. Enter **Modeling and Simulation Workbench** in the global search. Then, under **Services**, select **Modeling and Simulation Workbench**.
-
 1. Select your workbench from the resource list.
-
-1. On the left menu, select **Settings** > **Chamber**. A resource list appears. Select the chamber where you want to manage the storage.
-
-1. On the left menu, select **Settings** > **Storage**. In the resource list, select the displayed storage.
+1. On the left menu, select **Settings** > **Shared Storage**. In the resource list, select the storage to be managed.
 
 ### Resize chamber storage
 
