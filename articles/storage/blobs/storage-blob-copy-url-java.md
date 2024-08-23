@@ -20,12 +20,23 @@ This article shows how to copy a blob from a source object URL using the [Azure 
 
 The client library methods covered in this article use the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operations. These methods are preferred for copy scenarios where you want to move data into a storage account and have a URL for the source object. For copy operations where you want asynchronous scheduling, see [Copy a blob with asynchronous scheduling using Java](storage-blob-copy-async-java.md).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-java](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-java.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
-    - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
-    - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-java](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-java.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to perform a copy operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob From URL (REST API)](/rest/api/storageservices/put-blob-from-url#authorization) or [Put Block From URL (REST API)](/rest/api/storageservices/put-block-from-url#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
 
 [!INCLUDE [storage-dev-guide-blob-copy-from-url](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy-from-url.md)]
 
