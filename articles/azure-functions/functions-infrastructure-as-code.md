@@ -1682,15 +1682,17 @@ In a Flex Consumption plan, you configure your function app in Azure with two ty
 | Application configuration | `functionAppConfig` |
 | Application settings | `siteConfig.appSettings` collection |
 
-These configurations are maintained in `functionAppConfig`:
+These application configurations are maintained in `functionAppConfig`:
 
 | Behavior | Setting in `functionAppConfig`| 
 | --- | --- |
+| [Always ready instances](flex-consumption-plan.md#always-ready-instances) |  `scaleAndConcurrency.alwaysReady`  |
+| [Deployment source](#deployment-sources) | `deployment` |
+| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
+| [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
 | [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
-| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
-| [Deployment source](#deployment-sources) | `deployment` |
 
 The Flex Consumption plan also supports these application settings:
 
@@ -1831,7 +1833,10 @@ These application settings are required for container deployments:
 ::: zone-end 
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
- ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
+::: zone pivot="flex-consumption-plan"   
++ The optional `alwaysReady` setting contains an array of one or more `{name,instanceCount}` objects, with one for each [per-function scale group](flex-consumption-plan.md#per-function-scaling). These are the scale groups being used to make always-ready scale decisions. The values assigned to `name` and `instanceCount` are the scale group name and always ready instance count, respectively.   
+::: zone-end
+::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 + There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 ::: zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
