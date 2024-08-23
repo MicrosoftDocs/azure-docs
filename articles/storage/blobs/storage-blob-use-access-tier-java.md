@@ -29,7 +29,7 @@ This article shows how to set or change the access tier for a block blob using t
 
 Add the following `import` statements:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_Imports":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_Imports":::
 
 #### Authorization
 

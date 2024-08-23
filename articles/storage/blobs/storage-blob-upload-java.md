@@ -29,7 +29,7 @@ This article shows how to upload a block blob using the [Azure Storage client li
 
 Add the following `import` statements:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_Imports":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_Imports":::
 
 #### Authorization
 
