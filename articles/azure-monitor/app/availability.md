@@ -48,7 +48,7 @@ There are four types of availability tests:
 
 1. Select **Add Standard test** from the top navigation bar.
 
-    :::image type="content" source="media/availability/add-standard-test.png" alt-text="Screenshot that shows the Availability experience with the Add Standard test tab open." lightbox="media/availability/add-standard-test.png":::
+    :::image type="content" source="media/availability/add-standard-test.png" alt-text="Screenshot showing the Availability experience with the Add Standard test tab open." lightbox="media/availability/add-standard-test.png":::
 
 1. Input your test name, URL, and other settings described in the following table, then select **Create**.
 
@@ -78,6 +78,8 @@ There are four types of availability tests:
 >
 > *Standard tests should always be used if possible*, as they require little investment, no maintenance, and have few prerequisites.
 
+This example is designed only to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show how to write the underlying HTTP test code or business logic required to turn this example into a fully functional availability test.
+
 ### Prerequisites
 
 > [!div class="checklist"]
@@ -85,9 +87,7 @@ There are four types of availability tests:
 > * Access to the source code of an [Azure Functions app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 > * Developer expertise to author [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
-### Basic code sample
-
-This example is designed only to show you the mechanics of how the `TrackAvailability()` API call works within an Azure Functions app. It doesn't show how to write the underlying HTTP test code or business logic required to turn this example into a fully functional availability test.
+### Get started
 
 > [!NOTE]
 > To follow these instructions, you must use either the [App Service](../../azure-functions/dedicated-plan.md) plan or Functions Premium plan to allow editing code in App Service Editor.
@@ -102,7 +102,7 @@ This example is designed only to show you the mechanics of how the `TrackAvailab
 
     * **If you already have an Application Insights resource,** go to the **Monitoring** tab while creating the Azure Functions app, and select or enter the name of your existing resource in the Application Insights dropdown:
 
-        :::image type="content" source="media/availability/create-application-insights.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
+        :::image type="content" source="media/availability/create-application-insights.png" alt-text="Screenshot showing selecting your existing Application Insights resource on the Monitoring tab.":::
 
 1. Follow the instructions to [create a timer triggered function](../../azure-functions/functions-create-scheduled-function.md#create-a-timer-triggered-function).
 
@@ -125,7 +125,7 @@ To create a new file, right-click under your timer trigger function (for example
     </Project> 
     ```
 
-    :::image type="content" source="media/availability/function-proj.png" alt-text=" Screenshot that shows function.proj in the App Service Editor." lightbox="media/availability/function-proj.png":::
+    :::image type="content" source="media/availability/function-proj.png" alt-text=" Screenshot showing function.proj in the App Service Editor." lightbox="media/availability/function-proj.png":::
 
 1. Create a new file called **runAvailabilityTest.csx** and paste the following code:
 
@@ -291,11 +291,11 @@ You can use the following population tags for the geo-location attribute when yo
 
 1. After you save the availability test, open the context menu by the test you made, then select **Open Rules (Alerts) page**.
 
-    :::image type="content" source="media/availability/edit-alert.png" alt-text="Screenshot that shows the Availability experience for an Application Insights resource in the Azure portal and the Open Rules (Alerts) page menu option." lightbox="media/availability/edit-alert.png":::
+    :::image type="content" source="media/availability/open-rules-page.png" alt-text="Screenshot showing the Availability experience for an Application Insights resource in the Azure portal and the Open Rules (Alerts) page menu option." lightbox="media/availability/open-rules-page.png":::
 
 1. On the **Alert rules** page, open your alert, then select **Edit** in the top navigation bar. Here you can set the severity level, rule description, and action group that have the notification preferences you want to use for this alert rule.
 
-    :::image type="content" source="media/availability/metric-alert-rule.png" alt-text="Screenshot that shows an alert rule page in the Azure portal with Edit highlighted." lightbox="media/availability/metric-alert-rule.png":::
+    :::image type="content" source="media/availability/edit-alert.png" alt-text="Screenshot showing an alert rule page in the Azure portal with Edit highlighted." lightbox="media/availability/edit-alert.png":::
 
 ### Alert criteria
 
@@ -312,7 +312,7 @@ You might not want to receive notifications when your website is down for only a
 
 To make changes to the location threshold, aggregation period, and test frequency, go to the **Edit alert rule** page (see step 2 under [Enable alerts](#enable-alerts)), then select the condition to open the **Configure signal logic** window.
 
-:::image type="content" source="media/availability/configure-signal-logic.png" alt-text="Screenshot that shows a highlighted alert condition and the Configure signal logic window." lightbox="media/availability/configure-signal-logic.png":::
+:::image type="content" source="media/availability/configure-signal-logic.png" alt-text="Screenshot showing a highlighted alert condition and the Configure signal logic window." lightbox="media/availability/configure-signal-logic.png":::
 
 ### Create a custom alert rule
 
@@ -344,20 +344,18 @@ This section explains how to review availability test results in the Azure porta
 
 Start by reviewing the graph in the **Availability** experience in the Azure portal.
 
-:::image type="content" source="media/availability/graph-and-tests.png" alt-text="Screenshot that shows the Availability experience with two different tests listed.":::
+:::image type="content" source="media/availability/availability-test-list.png" alt-text="Screenshot showing the Availability experience with two different tests listed.":::
 
 > [!NOTE]
 > Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
 
 By default, the Availability experience shows a line graph. Change the view to **Scatter Plot** (toggle above the graph) to see samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. To see the test, test name, and location, hover over any of the green dots or red crosses.
 
-:::image type="content" source="media/availability/scatter-plot.png" alt-text="Screenshot that shows the Scatter Plot view in the Availability experience.":::
-
 Select a particular test or location. Or you can reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions. Or you can use Log Analytics queries to run custom reports on this data.
 
 To see the end-to-end transaction details, under **Drill into**, select **Successful** or **Failed**. Then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
 
-:::image type="content" source="media/availability/sample-availability-test.png" alt-text="Screenshot that shows selecting a sample availability test.":::
+:::image type="content" source="media/availability/sample-availability-test.png" alt-text="Screenshot showing selecting a sample availability test.":::
 
 ### Inspect and edit tests
 
@@ -370,7 +368,7 @@ To edit, temporarily disable, or delete a test, open the context menu (ellipsis)
 
 Open the **End-to-end transaction details** view by selecting a red cross on the Scatter Plot.
 
-:::image type="content" source="media/availability/end-to-end-transaction-details.png" alt-text="Screenshot that shows the End-to-end transaction details tab." lightbox="media/availability/end-to-end-transaction-details.png":::
+:::image type="content" source="media/availability/end-to-end-transaction-details.png" alt-text="Screenshot showing the End-to-end transaction details tab." lightbox="media/availability/end-to-end-transaction-details.png":::
 
 Here you can:
 
@@ -384,7 +382,7 @@ To learn more about the end-to-end transaction diagnostics experience, see the [
 
 Select the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code-level diagnostics.
 
-:::image type="content" source="media/availability/end-to-end-open-debug-snapshot.png" alt-text="Screenshot that shows the Server-side diagnostics." lightbox="media/availability/end-to-end-open-debug-snapshot.png":::
+:::image type="content" source="media/availability/end-to-end-open-debug-snapshot.png" alt-text="Screenshot showing the Server-side diagnostics." lightbox="media/availability/end-to-end-open-debug-snapshot.png":::
 
 In addition to the raw results, you can also view two key availability metrics in [metrics explorer](../essentials/metrics-getting-started.md):
 
@@ -395,7 +393,7 @@ In addition to the raw results, you can also view two key availability metrics i
 
 You can use Log Analytics to view your availability results (`availabilityResults`), dependencies (`dependencies`), and more. To learn more about Log Analytics, see [Log query overview](../logs/log-query-overview.md).
 
-:::image type="content" source="media/availability/availability-test-results.png" alt-text="Screenshot that shows availability results." lightbox="media/availability/availability-test-results.png":::
+:::image type="content" source="media/availability/availability-results.png" alt-text="Screenshot showing availability results in Logs." lightbox="media/availability/availability-results.png":::
 
 ## Migrate classic URL ping tests to standard tests
 
@@ -486,7 +484,7 @@ Set custom headers in [standard availability tests](availability-standard-tests.
 
 1. Add the custom header *X-Customer-InstanceId* with the value `ApplicationInsightsAvailability:<your availability test string identifier>` under the **Standard test info** section when creating or updating your availability tests.
 
-    :::image type="content" source="media/availability/custom-header.png" alt-text="Screenshot that shows custom validation header.":::
+    :::image type="content" source="media/availability/custom-header.png" alt-text="Screenshot showing custom validation header.":::
 
 1. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
 
@@ -565,7 +563,7 @@ The SLA workbook template can be accessed from your Application Insights resourc
 
 The parameters set in the workbook influence the rest of your report.
 
-:::image type="content" source="media/availability/workbook-parameters.png" alt-text=" Screenshot that shows parameters." lightbox= "media/sla-report/parameters.png":::
+:::image type="content" source="media/availability/workbook-parameters.png" alt-text=" Screenshot showing parameters." lightbox= "media/sla-report/parameters.png":::
 
 * `Subscriptions`, `App Insights Resources`, and `Web Test`: These parameters determine your high-level resource options. They're based on Log Analytics queries and are used in every report query.
 * `Failure Threshold` and `Outage Window`: You can use these parameters to determine your own criteria for a service outage. An example is the criteria for an Application Insights availability alert based on a failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
