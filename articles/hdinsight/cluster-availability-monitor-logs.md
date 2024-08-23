@@ -1,9 +1,9 @@
 ---
 title: How to monitor cluster availability with Azure Monitor logs in HDInsight
 description: Learn how to use Azure Monitor logs to monitor cluster health and availability.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # How to monitor cluster availability with Azure Monitor logs in HDInsight
@@ -100,7 +100,7 @@ After these blades close, you should see your action group listed under the **Ac
 :::image type="content" source="media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png" alt-text="Portal creates alert rule finish.":::
 
 > [!TIP]
-> The ability to specify **Severity** is a powerful tool that can be used when creating multiple alerts. For example, you could create one alert to raise a Warning (Sev 1) if a single head node goes down and another alert that raises Critical (Sev 0) in the unlikely event that both head nodes go down.
+> The ability to specify **Severity** is a powerful tool that can be used when creating multiple alerts. For example, you could create one alert to raise a Warning (severity 1) if a single head node goes down and another alert that raises Critical (severity 1) in the unlikely event that both head nodes go down.
 
 When the condition for this alert is met, the alert will fire and you'll receive an email with the alert details like this:
 
@@ -110,9 +110,9 @@ You can also view all alerts that have fired, grouped by severity, by going to *
 
 :::image type="content" source="media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png" alt-text="Log Analytics workspace alerts.":::
 
-Selecting on a severity grouping (i.e. **Sev 1,** as highlighted above) will show records for all alerts of that severity that have fired like below:
+When you select on a severity group (i.e. **severity 1,** as highlighted above) it will show records for all alerts of that severity that have fired like below:
 
-:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Log Analytics workspace sev one alert.":::
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Screenshot showing Log Analytics workspace severity  one alert.":::
 
 ## Next steps
 

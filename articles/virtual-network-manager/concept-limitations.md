@@ -3,7 +3,7 @@ title: Limitations with Azure Virtual Network Manager
 description: Learn about current limitations when you're using Azure Virtual Network Manager to manage virtual networks.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.custom: template-concept
@@ -28,7 +28,8 @@ This article provides an overview of the current limitations when you're using [
 ## Limitations for connected groups
 
 * A connected group can have up to 250 virtual networks. Virtual networks in a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology) are in a [connected group](concept-connectivity-configuration.md#connected-group), so a mesh configuration has a limit of 250 virtual networks.
-* Currently connected groups do not support BareMetal.
+* Currently connected groups do not support BareMetal Infrastructure.
+* Maximum number of private endpoints per connected group is 1000.
 * You can have network groups with or without [direct connectivity](concept-connectivity-configuration.md#direct-connectivity) enabled in the same [hub-and-spoke configuration](concept-connectivity-configuration.md#hub-and-spoke-topology), as long as the total number of virtual networks peered to the hub doesn't exceed 500 virtual networks.
   * If the network group peered to the hub *has direct connectivity enabled*, these virtual networks are in a connected group, so the network group has a limit of 250 virtual networks.
   * If the network group peered to the hub *doesn't have direct connectivity enabled*, the network group can have up to the total limit for a hub-and-spoke topology.

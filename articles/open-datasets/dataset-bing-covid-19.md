@@ -1,44 +1,63 @@
 ---
 title: Bing COVID-19
 description: Learn how to use the Bing COVID-19 dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
-ms.date: 04/16/2021
+ms.reviewer: franksolomon
+ms.date: 06/11/2024
 ---
 
 # Bing COVID-19
 
-Bing COVID-19 data includes confirmed, fatal, and recovered cases from all regions, updated daily.
-This data is reflected in the [Bing COVID-19 Tracker](https://bing.com/covid).
+Bing COVID-19 data includes confirmed, fatal, and recovered cases from all regions, updated daily. The [Bing COVID-19 Tracker](https://bing.com/covid) reflects this data.
 
-Bing collects data from multiple trusted, reliable sources, including the [World Health Organization (WHO)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019), [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/coronavirus/2019-ncov/index.html), national/regional and state public health departments, [BNO News](https://bnonews.com/index.php/2020/04/the-latest-coronavirus-cases/), [24/7 Wall St.](https://247wallst.com/), and [Wikipedia](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic).
+Bing collects data from multiple trusted, reliable sources, including:
+
+- [BNO News](https://bnonews.com/index.php/2020/04/the-latest-coronavirus-cases/)
+- [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/covid/index.html)
+- National/regional and state public health departments
+- [Wikipedia](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic)
+- The [World Health Organization (WHO)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019)
+- [24/7 Wall St.](https://247wallst.com/)
 
 [!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Datasets
-Modified datasets are available in CSV, JSON, JSON-Lines, and Parquet.
 
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.json
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.jsonl
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet
+Modified Bing COVID-19 datasets are available in CSV, JSON, JSON-Lines, and Parquet:
 
-All modified datasets have ISO 3166 subdivision codes and load times added, and use lower case column names with underscore separators.
+- [CSV](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv)
+- [JSON](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.json)
+- [JSON-Lines](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.jsonl)
+- [Parquet](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet)
 
-Raw data: https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/bing_covid-19_data/latest/Bing-COVID19-Data.csv
+All modified datasets have ISO 3166 subdivision codes and load times added. They use lower case column names with underscore separators.
 
-Previous versions of modified and raw data: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/
+[CSV-format raw data](https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/bing_covid-19_data/latest/Bing-COVID19-Data.csv)
+
+Earlier versions of modified and raw data are available at [this resource](https://github.com/microsoft/Bing-COVID-19-Data/commits/).
 
 ## Data volume
-All datasets are updated daily. As of May 11, 2020 they contained 125,576 rows (CSV 16.1 MB, JSON 40.0 MB, JSONL 39.6 MB, Parquet 1.1 MB).
+All datasets receive daily updates. As of March 5, 2023 they contained 4,766,737 rows. The dataset is available in these file formats:
+
+- CSV (560.3 MB)
+- JSON (1515.6 MB)
+- JSONL (1506.2 MB)
+- Parquet (55.4 MB)
 
 ## License and use rights attribution
-This data is available strictly for educational and academic purposes, such as medical research, government agencies, and academic institutions, under [terms and conditions](https://github.com/microsoft/Bing-COVID-19-Data/blob/master/LICENSE.txt).
 
-Data used or cited in publications should include an attribution to ‘Bing COVID-19 Tracker’ with a link to www.bing.com/covid.
+The data is available strictly for educational and academic purposes under [these terms and conditions](https://github.com/microsoft/Bing-COVID-19-Data/blob/master/LICENSE.txt). Valid purposes include:
+
+- academic institutions
+- government agencies
+- medical research
+
+Data used or cited in publications should include an attribution to **‘Bing COVID-19 Tracker’**, with a link to [www.bing.com/covid](https://www.bing.com/covid).
 
 ## Contact
-For any questions or feedback about this or other datasets in the COVID-19 Data Lake, please contact askcovid19dl@microsoft.com.
+
+For any questions or feedback about this or other datasets in the COVID-19 Data Lake contact [askcovid19dl@microsoft.com](mailto:askcovid19dl@microsoft.com).
 
 ## Columns
 
@@ -77,33 +96,27 @@ For any questions or feedback about this or other datasets in the COVID-19 Data 
 | 339003 | 2020-01-29 | 6065      | 0      | null | null | Worldwide      | null           | null            | null           | 4/26/2021 12:06:34 AM | 1472             | 0             |
 | 339004 | 2020-01-30 | 7818      | 0      | null | null | Worldwide      | null           | null            | null           | 4/26/2021 12:06:34 AM | 1753             | 0             |
 
-## Data access
-
-### Azure Notebooks
+## Data access - Azure Notebooks
 
 # [azure-storage](#tab/azure-storage)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=bing-covid-19-data -->
 
+> [!NOTE]
+> This notebook documents the URLs and sample code to access the [**Bing COVID-19 Dataset**](https://github.com/microsoft/Bing-COVID-19-Data).
 
-#### This notebook documents the URLs and sample code to access the [Bing COVID-19 Dataset](https://github.com/microsoft/Bing-COVID-19-Data)
+Use these URLs to get specific file formats hosted on Azure Blob Storage:
 
-Use the following URLs to get specific file formats hosted on Azure Blob Storage:
+- [CSV](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv)
+- [JSON](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.json)
+- [JSON-Lines](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.jsonl)
+- [Parquet](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet)
 
-CSV: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv
+Download the dataset file using the built-in capability of Pandas to download from an HTTP URL. Pandas has readers for various file formats:
 
-JSON: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.json
+[pandas.read_parquet](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html)
 
-JSONL: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.jsonl
-
-Parquet: https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet
-
-Download the dataset file using the built-in capability download from an http URL in Pandas. Pandas has readers for various file formats:
-
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html
-
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
-
+[pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
 
 ```python
 import pandas as pd
@@ -115,13 +128,13 @@ df = pd.read_parquet("https://pandemicdatalake.blob.core.windows.net/public/cura
 df.head(10)
 ```
 
-Lets check the data types of the various fields and verify that the updated column is datetime format
+To verify that the updated column has a datetime format, check the data types of the various fields:
 
 ```python
 df.dtypes
 ```
 
-We will now look into Worldwide data and plot some simple charts to visualize the data
+Review the Worldwide data. To visualize the data, build some charts:
 
 ```python
 df_Worldwide=df[df['country_region']=='Worldwide']
@@ -144,20 +157,19 @@ df_Worldwide.plot(kind='line',x='updated',y="deaths_change",grid=True)
 
 # [pyspark](#tab/pyspark)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 ---
 
-### Azure Databricks
+## Data Access - Azure Databricks
 
 # [azure-storage](#tab/azure-storage)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 # [pyspark](#tab/pyspark)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=pyspark&registryId=bing-covid-19-data -->
-
 
 ```python
 # Azure storage access info
@@ -193,16 +205,15 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 
 ---
 
-### Azure Synapse
+## Data Access - Azure Synapse
 
 # [azure-storage](#tab/azure-storage)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 # [pyspark](#tab/pyspark)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=pyspark&registryId=bing-covid-19-data -->
-
 
 ```python
 # Azure storage access info
@@ -240,4 +251,4 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 
 ## Next steps
 
-View the rest of the datasets in the [Open Datasets catalog](dataset-catalog.md).
+View the rest of the datasets in the [Open Datasets catalog](./dataset-catalog.md).

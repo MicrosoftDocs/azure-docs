@@ -1,5 +1,6 @@
 ---
-ms.service: service-health
+ms.service: azure-service-health
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 04/09/2024
 author: rboucher

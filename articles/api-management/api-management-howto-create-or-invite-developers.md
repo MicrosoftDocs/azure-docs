@@ -4,7 +4,7 @@ description: Learn how to create or invite users in Azure API Management. View a
 services: api-management
 author: dlepow
 manager: cfowler
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/20/2024
 ms.author: danlep

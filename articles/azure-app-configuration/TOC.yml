@@ -117,7 +117,7 @@
         - name: Pull using Azure Pipelines
           href: pull-key-value-devops-pipeline.md
         - name: Push using GitHub Actions
-          href: concept-github-action.md
+          href: push-kv-github-action.md
         - name: Build project using exported configuration
           href: integrate-ci-cd-pipeline.md
         - name: Deploy to Kubernetes using Helm
@@ -136,6 +136,8 @@
               href: howto-feature-filters.md
             - name: ASP.NET Core
               href: howto-feature-filters-aspnet-core.md
+            - name: Python
+              href: howto-feature-filters-python.md
         - name: Enable features on a schedule
           items:
             - name: Overview
@@ -209,7 +211,7 @@
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
-        - name: Disable access key authentication
+        - name: Manage access key authentication
           href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
@@ -327,6 +329,10 @@
           items:
             - name: API reference
               href: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - name: Python
+          items:
+            - name: API reference
+              href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
     - name: Deployment
       items:
       - name: ARM template

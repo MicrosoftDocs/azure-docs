@@ -1,8 +1,18 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-log-pipelines-application-insights.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v1/how-to-migrate-from-estimators-to-scriptrunconfig.md",
         "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-deploy-fpga-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
         "redirect_document_id": false
     },
     {

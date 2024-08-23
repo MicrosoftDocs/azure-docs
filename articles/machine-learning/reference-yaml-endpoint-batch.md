@@ -3,13 +3,13 @@ title: 'CLI (v2) batch endpoint YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) batch endpoint YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
-ms.reviewer: mopeakande
-author: santiagxf
-ms.author: fasantia
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 10/21/2021
 ---
 

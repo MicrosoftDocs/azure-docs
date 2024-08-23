@@ -3,7 +3,7 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -150,6 +150,7 @@ Some property names have changed in the new Cost Details dataset available throu
 | ResourceGuid | meterId | Exact string values differ. |
 | ResourceLocation | resourceLocation |     |
 | ResourceLocationId | None |     |
+| ResourceName | None |     |
 | ResourceRate | effectivePrice |     |
 | ServiceAdministratorId | N/A |     |
 | ServiceInfo1 | serviceInfo1 |     |
@@ -223,13 +224,13 @@ To view invoice information with the Price Sheet API in CSV format:
 
 | Method | Request URI |
 | --- | --- |
-| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
 To view invoice information with the Price Sheet API in JSON Format:
 
 | Method | Request URI |
 | --- | --- |
-| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
 You can also see estimated prices for any Azure Consumption or Marketplace consumption service in the current open billing cycle or service period.
 
@@ -366,7 +367,7 @@ The updated Price Sheet by billing account API gets the Price Sheet in CSV forma
 
 | Method | Request URI |
 | --- | --- |
-| GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
+| GET | `/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
 At the EA's enrollment scope, the API response and properties are identical. The properties correspond to the same MCA properties.
 

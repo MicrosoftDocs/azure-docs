@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 07/28/2023
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 
@@ -10,7 +10,7 @@ ms.topic: include
 1. On the **VPN sites** page, click **+Create site**.
 1. On the **Create VPN Site** page, on the **Basics** tab, complete the following fields:
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
 
     * **Region**: Previously referred to as location. This is the location you want to create this site resource in.
     * **Name**: The name by which you want to refer to your on-premises site.
@@ -40,7 +40,7 @@ ms.topic: include
 1. Once you have finished filling out the fields, select **Review + create** to verify. Click **Create** to create the site.
 1. Go to your **Virtual WAN**. On the **VPN sites** page, you should be able to see the site you created. If you can't see the site, you need to adjust the filter. Click the **X** in the **Hub association:** bubble to clear the filter.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::
 1. Once the filter has cleared, you can view your site.
 
    :::image type="content" source="./media/virtual-wan-tutorial-site-include/sites.png" alt-text="Screenshot shows site.":::

@@ -76,7 +76,7 @@ Name the resource group **myResourceGroup**, and then select **OK**.
 
 ### Create an App Service plan
 
-[!INCLUDE [app-service-plan](~/reusable-content/ce-skilling/azure/includes/app-service-plan.md)]
+[!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
 
 Next to **Hosting Plan**, select **New**.
 
@@ -100,7 +100,7 @@ To deploy the sharing service through Visual Studio Code, follow the instruction
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

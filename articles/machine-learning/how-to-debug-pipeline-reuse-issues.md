@@ -3,12 +3,12 @@ title: Debug pipeline reuse issues in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how reuse works in pipeline and how to debug reuse issues 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: lagayhar
-author: zhanxia
-ms.author: zhanxia
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 4/28/2023
 ---
 

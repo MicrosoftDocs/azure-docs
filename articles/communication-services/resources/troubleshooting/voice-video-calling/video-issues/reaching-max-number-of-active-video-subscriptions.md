@@ -15,7 +15,7 @@ ms.subservice: calling
 Azure Communication Service currently imposes a maximum limit on the number of active incoming video subscriptions that are rendered at a time. The current limit is 10 videos on desktop browsers and 6 videos on mobile browsers. Review the [supported browser list](../../../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) to see what browsers currently work with Azure Communication Services WebJS SDK.
 
 ## How to detect using the SDK
-If the number of active video subscriptions exceeds the limit, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API throws an error.
+If the number of active video subscriptions exceeds the limit, the  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API throws an error.
 
 
 | Error details    | Details                                               |

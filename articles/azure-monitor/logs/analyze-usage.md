@@ -3,7 +3,7 @@ title: Analyze usage in a Log Analytics workspace in Azure Monitor
 description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 10/23/2023
+ms.date: 08/14/2024
 ---
 
 # Analyze usage in a Log Analytics workspace
@@ -70,7 +70,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1024. by bin(StartTime, 1d), DataType 
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType 
 | render columnchart
 ```
 
@@ -173,46 +173,6 @@ find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
 | sort by eventCount desc nulls last
-```
-
-### Querying for data volumes excluding known free data types
-The following query will return the monthly data volume in GB, excluding all data types which are supposed to be free from data ingestion charges:
-
-```kusto
-let freeTables = dynamic([
-"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
-"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
-"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
-"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
-"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
-"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
-"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
-"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
-"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
-Usage 
-| where DataType !in (freeTables) 
-| where TimeGenerated > ago(30d) 
-| summarize MonthlyGB=sum(Quantity)/1000
-```
-
-To look for data which might not have IsBillable correctly set (and which could result in incorrect billing, or more specifically under-billing), use this query on your workspace:
-
-```kusto
-let freeTables = dynamic([
-"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
-"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
-"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
-"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
-"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
-"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
-"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
-"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
-"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
-Usage 
-| where DataType !in (freeTables) 
-| where TimeGenerated > ago(30d) 
-| where IsBillable == false 
-| summarize MonthlyPotentialUnderbilledGB=sum(Quantity)/1000 by DataType
 ```
 
 ## Querying for common data types

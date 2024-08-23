@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 01/23/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 ---
 # Offline backup workflow for DPM and Azure Backup Server (previous versions)

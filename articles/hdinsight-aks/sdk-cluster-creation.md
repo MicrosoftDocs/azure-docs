@@ -1,12 +1,14 @@
 ---
 title: Manage HDInsight on AKS clusters using .NET SDK (Preview)
 description: Manage HDInsight on AKS clusters using .NET SDK.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 11/23/2023
 ---
 # Manage HDInsight on AKS clusters using .NET SDK
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article describes how you can create and manage cluster in Azure HDInsight on AKS using .NET SDK.
  
@@ -356,7 +358,7 @@ Click on the Run button.
 
 There are extensive ways supported to customize and manage cluster using .NET SDK. Review the following documentation: 
 - [Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
-- [Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers) 
+- [Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight) 
 
  
  

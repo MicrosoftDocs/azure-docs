@@ -2,7 +2,7 @@
 title: Scale an instance of Azure SignalR Service
 description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei 
@@ -85,7 +85,7 @@ az signalr update \
 
 Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
-[!INCLUDE [cli-script-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Compare pricing tiers
 

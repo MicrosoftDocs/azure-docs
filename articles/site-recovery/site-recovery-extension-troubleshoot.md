@@ -3,11 +3,9 @@ title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site
 description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-manager: rochakm
-ms.service: site-recovery
-ms.custom:
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 05/03/2023
+ms.date: 05/27/2024
 ---
 
 # Troubleshoot Azure VM extension issues
@@ -77,7 +75,7 @@ Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-
 #### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/extensions/update-linux-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](/azure/virtual-machines/extensions/update-linux-agent).
 
    > [!NOTE]
    > We *strongly recommend* that you update the agent only through a distribution repository. We don't recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution isn't available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
@@ -116,6 +114,14 @@ To uninstall the extension:
 1. Select **Site Recovery Extension**.
 1. Select **Uninstall**.
 
-For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/extensions/update-linux-agent.md). Then run the protection.
+For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](/azure/virtual-machines/extensions/update-linux-agent). Then run the protection.
 
 When you complete these steps, it causes the extension to be reinstalled during the protection.
+
+
+## Next steps
+
+- Troubleshoot [RDP connection to Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Troubleshoot [SSH connection to Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
+
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

@@ -228,7 +228,7 @@ Inside the C++ NuGet package, there's file `microsoft.azure.remoterendering.Cpp.
 
 ## Unstable Holograms
 
-In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
+In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection (LSR)*. Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
 
 Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ServiceStatistics.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ServiceStatistics.VideoFramesReused` is frequently larger than zero, it indicates a network problem.
 
@@ -312,7 +312,8 @@ The Conversion service downloads all files specified under the `blobPrefix`, not
       "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
       "blobPrefix": "models/Assets",
       "relativeInputAssetPath": "myAsset.fbx"
-    ...
+      ...
+    }
   }
 }
 ```

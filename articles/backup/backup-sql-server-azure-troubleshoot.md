@@ -3,7 +3,7 @@ title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
 ms.date: 01/04/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -195,7 +195,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
+| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](/azure/virtual-machines/extensions/agent-windows) manually. |
 
 ### AutoProtectionCancelledOrNotValid
 

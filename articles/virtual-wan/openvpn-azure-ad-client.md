@@ -5,7 +5,7 @@ description: Learn how to use P2S VPN to connect to your VNet using Microsoft En
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc
@@ -25,7 +25,7 @@ For every computer that wants to connect to the VNet via the VPN client, you nee
 
 ### To download the Azure VPN client
 
-[!INCLUDE [Download Azure VPN client](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### <a name="cert"></a>To create a certificate-based client profile
 

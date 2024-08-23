@@ -13,13 +13,25 @@
       - name: Build your first static web app
         expanded: true
         items:
-          - name: Visual Studio Code
-            href: getting-started.md
-          - name: Azure portal
-            href: get-started-portal.md
-            displayName: github, devops
-          - name: Azure CLI
-            href: get-started-cli.md
+          - name: Web frameworks
+            href: deploy-web-framework.md
+          - name: Developer tools
+            items:
+                - name: Visual Studio Code
+                  href: getting-started.md
+                - name: Azure portal
+                  href: get-started-portal.md
+                  displayName: github, devops
+                - name: Azure CLI
+                  href: get-started-cli.md
+- name: Scenarios
+  items:
+  - name: Build a site with a web framework
+    items:
+    - name: 1 - Pick a web framework
+      href: deploy-web-framework.md
+    - name: 2 - Add authentication
+      href: add-authentication.md
 - name: Frameworks & libraries
   items:
   - name: Overview

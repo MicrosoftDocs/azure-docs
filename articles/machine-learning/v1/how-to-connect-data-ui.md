@@ -3,7 +3,7 @@ title: Connect to data storage with the studio UI
 titleSuffix: Azure Machine Learning
 description: Create datastores and datasets to securely connect to data in storage services in Azure with the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
@@ -201,7 +201,7 @@ You can find account key, SAS token, and service principal information at your [
 
 > [!IMPORTANT]
 > * To change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with both your workspace and the datastores connected to it. For more information, visit [sync your updated credentials](../how-to-change-storage-access-key.md).
-> * If you unregister and then re-register a datastore with the same name, and that re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For more information about how to enable soft-delete, visit [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
+> * If you unregister and then re-register a datastore with the same name, and that re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For more information about how to enable soft-delete, visit [Turn on Soft Delete for an existing key vault](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### Permissions
 

@@ -23,11 +23,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* Azure Cosmos DB for NoSQL. You can optionally [enforce role-based access as the only authentication method](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
+* Azure Cosmos DB for NoSQL. You can optionally [enforce role-based access as the only authentication method](/azure/cosmos-db/how-to-setup-rbac#disable-local-auth) for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
 
 ## Limitations
 
-Indexer support for Azure Cosmos DB for Gremlin and MongoDB Collections is currently in preview. At this time, a preview limitation requires Azure AI Search to connect using keys. You can still set up a managed identity and role assignment, but Azure AI Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure a [role-based approach](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB.
+Indexer support for Azure Cosmos DB for Gremlin and MongoDB Collections is currently in preview. At this time, a preview limitation requires Azure AI Search to connect using keys. You can still set up a managed identity and role assignment, but Azure AI Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure a [role-based approach](/azure/cosmos-db/how-to-setup-rbac#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB.
 
 ## Create a role assignment in Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Indexer support for Azure Cosmos DB for Gremlin and MongoDB Collections is curre
 
 1. Select the identity and save the role assignment.
 
-For more information, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](../cosmos-db/how-to-setup-rbac.md).
+For more information, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
 
 ### [**PowerShell**](#tab/powershell)
 
@@ -95,7 +95,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 Here's an example of how to create a data source to index data from a Cosmos DB account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 {
     "name": "my-cosmosdb-ds",
     "type": "cosmosdb",
@@ -125,7 +125,7 @@ When you're connecting with a user-assigned managed identity, there are two chan
 Here's an example of how to create an indexer data source object using the REST API.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 
 {
     "name": "[my-cosmosdb-ds]",

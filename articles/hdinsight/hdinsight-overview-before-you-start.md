@@ -1,7 +1,7 @@
 ---
 title: Before you start with Azure HDInsight
 description: In Azure HDInsight, few points to be considered before starting to create a cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 10/16/2023
 ---

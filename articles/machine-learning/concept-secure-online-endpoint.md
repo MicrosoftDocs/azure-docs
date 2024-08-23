@@ -3,13 +3,12 @@ title: Network isolation with managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how private endpoints provide network isolation for Azure Machine Learning managed online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2, moe-wsvnet
 ms.date: 02/29/2024
 ---

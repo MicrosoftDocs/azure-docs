@@ -1,10 +1,10 @@
 ---
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 06/14/2024
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -37,7 +37,7 @@ The workflow used in this document contains two actions. Actions are definitions
 
 :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png" alt-text="HDInsight oozie workflow diagram." border="false":::
 
-1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
+1. A Hive action runs a HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
     ```output
     8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
@@ -201,7 +201,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
    * `RunHiveScript`: This action is the start action and runs the `useooziewf.hql` Hive script.
 
-   * `RunSqoopExport`: This action exports the data created from the Hive script to a SQL database by using Sqoop. This action only runs if the `RunHiveScript` action is successful.
+   * `RunSqoopExport`: This action exports the data created from the Hive script to an SQL database by using Sqoop. This action only runs if the `RunHiveScript` action is successful.
 
      The workflow has several entries, such as `${jobTracker}`. You'll replace these entries with the values you use in the job definition. You'll create the job definition later in this document.
 
@@ -523,7 +523,7 @@ To access the Oozie web UI, complete the following steps:
 
 6. From the **Job Info** tab, you can see the basic job information and the individual actions within the job. You can use the tabs at the top to view the **Job Definition**, **Job Configuration**, access the **Job Log**, or view a directed acyclic graph (DAG) of the job under **Job DAG**.
 
-   * **Job Log**: Select the **Get Logs** button to get all logs for the job, or use the **Enter Search Filter** field to filter the logs.
+   * **Job Log**: Select the **Get Logs** button to get all logs for the job, or use the `Enter Search Filter` field to filter the logs.
 
        :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png" alt-text="HDInsight Apache Oozie job log." border="true":::
 

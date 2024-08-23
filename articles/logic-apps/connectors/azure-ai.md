@@ -1,32 +1,42 @@
 ---
-title: Integrate Azure AI services with your workflows
-description: Integrate data in Standard workflows with Azure OpenAI and Azure AI Search for Azure Logic Apps.
+title: Connect to Azure AI services from workflows
+description: Integrate with Azure OpenAI and Azure AI Search in Standard workflows for Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
+ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 07/23/2024
 ---
 
-# Integrate Azure AI services with Standard workflows in Azure Logic Apps (preview)
+# Connect to Azure AI services from Standard workflows in Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To integrate enterprise data and services with AI technologies, you can use the Azure OpenAI and Azure AI Search built-in connectors in automated Standard logic app workflows. These connectors support multiple authentication types, such as API keys, Microsoft Entra ID, and managed identities. They can also connect to Azure OpenAI Service and Azure AI Search endpoints behind firewalls so that your workflows securely connect to your AI resources in Azure.
+To integrate enterprise data and services with AI technologies, you can use the **Azure OpenAI** and **Azure AI Search** built-in connectors in Standard logic app workflows. These connectors support multiple authentication types, such as API keys, Microsoft Entra ID, and managed identities. They also can connect to Azure OpenAI Service and Azure AI Search endpoints behind firewalls so that your workflows securely connect to your AI resources in Azure.
 
-This guide provides an overview and examples for how to use the Azure OpenAI and Azure AI Search connector operations in your workflow.
+This guide provides an overview and examples for how to use the **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
 
 - [What is Azure OpenAI Service](../../ai-services/openai/overview.md)
 - [What is Azure AI Search](../../search/search-what-is-azure-search.md)
 
-## Why use Azure Logic Apps to integrate with AI services?
+## Why use Azure Logic Apps with AI services?
 
 Usually, building AI solutions involves several key steps and requires a few building blocks. Primarily, you need to have a dynamic ingestion pipeline and a chat interface that can communicate with large language models (LLMs) and vector databases.
+
+> [!TIP]
+>
+> To learn more, you can ask Azure Copilot these questions:
+>
+> - *What is a dynamic ingestion pipeline in AI?*
+> - *What is a vector database in AI?*
+>
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can prove challenging, which is the case for most solutions.
 
@@ -42,7 +52,16 @@ For more information, see the following resources:
 
 ### Azure OpenAI
 
-Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the Azure OpenAI connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
+Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the **Azure OpenAI** connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
+
+> [!TIP]
+>
+> To learn more, you can ask Azure Copilot these questions:
+>
+> - *What is an embedding in AI?*
+> - *What is a chat completion in AI?*
+>
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
@@ -50,7 +69,7 @@ Azure OpenAI Service provides access to [OpenAI's language models](https://opena
 
 ### Azure AI Search
 
-Azure AI Search is platform for AI-powered information retrieval that helps developers build rich search experiences and generative AI apps by combining large language models with enterprise data. With the Azure AI Search connector, your workflow can connect to Azure AI Search to index documents and perform vector searches on your data.
+Azure AI Search is platform for AI-powered information retrieval that helps developers build rich search experiences and generative AI apps by combining large language models with enterprise data. With the **Azure AI Search** connector, your workflow can connect to Azure AI Search to index documents and perform vector searches on your data.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
@@ -145,12 +164,13 @@ Each step in this pattern makes sure that the AI seamlessly extracts all the cru
 | 1 | Check for new data. | **When an HTTP request is received** | A trigger that either polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. Such an event might be a new file that's uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, the **Request** trigger operation waits for an HTTP or HTTPS request sent from another endpoint. The request includes the URL for a new uploaded document. |
 | 2 | Get the data. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
 | 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
-| 4 | Tokenize the data. | **HTTP** | An **HTTP** action that calls a custom Azure function that [batches and tokenizes](../../ai-services/openai/overview.md#tokens) the output from the **Compose** action. |
-| 5 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized string output into a JSON array. |
-| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
-| 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
-| 8 | Select embeddings and other information. | **Select** | A **Data Operations** action that selects embeddings and other document information. | 
-| 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the data based on each selected embedding. |
+| 4 | Create token string. | **Parse a document** | A **Data Operations** action that produces a [token string](../../ai-services/openai/overview.md#tokens) using the output from the **Compose** action. |
+| 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on either the number of characters or tokens per content chunk. |
+| 6 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the token string chunks into a JSON array. |
+| 7 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
+| 8 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
+| 9 | Select embeddings and other information. | **Select** | A **Data Operations** action that selects embeddings and other document information. | 
+| 10 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the data based on each selected embedding. |
 
 ### Chat workflow
 

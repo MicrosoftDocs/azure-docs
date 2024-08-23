@@ -3,7 +3,7 @@ title: Quickstart - Create API Management instance - PowerShell
 description: Use this quickstart to create a new Azure API Management instance by using Azure PowerShell cmdlets.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api, devdivchpfy22
 ms.date: 12/12/2023

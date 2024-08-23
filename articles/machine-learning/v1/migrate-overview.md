@@ -2,13 +2,13 @@
 title: Migrate to Azure Machine Learning from Studio (classic)
 description: Learn how to migrate from Machine Learning Studio (classic) to Azure Machine Learning for a modernized data science platform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: studio-classic
 ms.custom: UpdateFrequency5
 ms.topic: how-to
-ms.reviewer: larryfr
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: Blackmist
+ms.author: larryfr
 ms.date: 04/02/2024
 ---
 

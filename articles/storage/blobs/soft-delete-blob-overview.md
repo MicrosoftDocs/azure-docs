@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/01/2024
+ms.date: 06/17/2024
 ms.author: normesta
 ---
 
@@ -83,7 +83,7 @@ For premium storage accounts, soft-deleted snapshots don't count toward the per-
 
 You can restore soft-deleted blobs or directories (in a hierarchical namespace) by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation within the retention period. The **Undelete Blob** operation restores a blob and any soft-deleted snapshots associated with it. Any snapshots that were deleted during the retention period are restored. In accounts that have a hierarchical namespace, the access control list of a blob is restored along with the blob.
 
-In accounts that have a hierarchical namespace, the **Undelete Blob** operation can also be used to restore a soft-deleted directory and all its contents. If you rename a directory that contains soft-deleted blobs, those soft-deleted blobs become disconnected from the directory. If you want to restore those blobs, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted blobs. You also cannot restore a directory or a blob to a filepath that has a directory or blob of that name already there. For example, if you delete a.txt (1) and upload a new file also named a.txt (2), you cannot restore the soft-deleted a.txt (1) until the active a.txt (2) has either been deleted or renamed. You cannot access the contents of a soft-deleted directory until after the directory has been undeleted.
+In accounts that have a hierarchical namespace, the **Undelete Blob** operation can also be used to restore a soft-deleted directory and all its contents. If you rename a directory that contains soft-deleted blobs, those soft-deleted blobs become disconnected from the directory. If you want to restore those blobs, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted blobs. You also can't restore a directory or a blob to a filepath that has a directory or blob of that name already there. For example, if you delete a.txt (1) and upload a new file also named a.txt (2), you can't restore the soft-deleted a.txt (1) until the active a.txt (2) has either been deleted or renamed. You can't access the contents of a soft-deleted directory until after the directory has been undeleted.
 
 Calling **Undelete Blob** on a blob that isn't soft-deleted will restore any soft-deleted snapshots that are associated with the blob. If the blob has no snapshots and isn't soft-deleted, then calling **Undelete Blob** has no effect.
 
@@ -103,7 +103,7 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 
 If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new previous version that reflects the blob's state before the write operation. The new version isn't soft-deleted and isn't removed when the soft-delete retention period expires. No soft-deleted snapshots are created.
 
-If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created. All previous versions are retained until they are explicitly deleted, either with a direct delete operation or via a lifecycle management policy.
+If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created. All previous versions are retained until they're explicitly deleted, either with a direct delete operation or via a lifecycle management policy.
 
 Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, explicitly deleting a previous version creates a soft-deleted version that is retained until the soft-delete retention period elapses. After the soft-delete retention period has elapsed, the soft-deleted blob version is permanently deleted.
 
@@ -138,22 +138,25 @@ The following table describes the expected behavior for delete and write operati
 
 |**REST API operation**|**Soft Delete enabled**|
 |---|---|
+|[Delete Storage Account](/rest/api/storagerp/storage-accounts/delete) | No change. Containers and blobs in the deleted account aren't recoverable. |
+|[Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) | No change. Blobs in the deleted container aren't recoverable.|
+|[Delete Container](/rest/api/storageservices/delete-container) |No change. Blobs in the deleted container aren't recoverable.|
 |[Path - Delete](/rest/api/storageservices/datalakestoragegen2/path/delete) |A soft-deleted blob or directory is created. The soft-deleted object is deleted after the retention period.|
 |[Delete Blob](/rest/api/storageservices/delete-blob)|A soft-deleted object is created. The soft-deleted object is deleted after the retention period. Soft delete won't be supported for blobs with snapshots and snapshots.|
 |[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) that renames a blob or directory | Existing destination blob or empty directory will get soft-deleted and the source will replace it. The soft-deleted object is deleted after the retention period.|
-|[Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) that sets an expiration date on an existing blob | A soft-deleted blob is not created. An expired blob does not become a soft-deleted blob when it expires. |
+|[Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) that sets an expiration date on an existing blob | A soft-deleted blob isn't created. An expired blob doesn't become a soft-deleted blob when it expires. |
 
 ## Feature support
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-Soft delete is not supported for blobs that are uploaded by using Data Lake Storage Gen2 APIs on Storage accounts with no hierarchical namespace.
+Soft delete isn't supported for blobs that are uploaded by using Data Lake Storage Gen2 APIs on Storage accounts with no hierarchical namespace.
 
 ## Pricing and billing
 
 All soft-deleted data is billed at the same rate as active data. You won't be charged for data that is permanently deleted after the retention period elapses.
 
-When you enable soft delete, Microsoft recommends using a short retention period to better understand how the feature will affect your bill. The minimum recommended retention period is seven days.
+When you enable soft delete, Microsoft recommends using a short retention period to better understand how the feature affects your bill. The minimum recommended retention period is seven days.
 
 Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this additional cost and latency by storing the frequently overwritten data in a separate storage account where soft delete is disabled.
 

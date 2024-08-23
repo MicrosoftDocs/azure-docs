@@ -1,9 +1,9 @@
 ---
-author: santiagxf
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 04/02/2024
-ms.author: fasantia
+author: ccrestana
+ms.author: cacrest
 ---
 
 Before you follow the steps in this article, make sure you have the following prerequisites:

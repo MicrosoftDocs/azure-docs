@@ -34,15 +34,10 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux](#tab/linuxinstall)
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The following Linux distributions are supported for x64 architectures that use the Speech CLI:
 
-* CentOS 7/8
-* Debian 9/10
-* Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 18.04/20.04
+- Ubuntu 20.04/22.04/24.04
+- Debian 11/12
 
 > [!NOTE]
 > The Speech SDK (not the Speech CLI) supports additional architectures. For more information, see [About the Speech SDK](../speech-sdk.md).
@@ -61,8 +56,7 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
    dotnet tool update --global Microsoft.CognitiveServices.Speech.CLI
    ```
 
-3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
-4. On Ubuntu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
+3. Install GStreamer for [compressed audio support](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Enter `spx` to see help for the Speech CLI.
 

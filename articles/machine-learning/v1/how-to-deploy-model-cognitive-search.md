@@ -3,7 +3,7 @@ title: Deploy a model for use with Azure AI Search
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to deploy a model for use with Azure AI Search. The model is used as a custom skill to enrich the search experience.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.author: ssalgado

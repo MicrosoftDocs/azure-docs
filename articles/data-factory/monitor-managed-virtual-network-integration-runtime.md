@@ -1,7 +1,6 @@
 ---
 title: Monitor an integration runtime within a managed virtual network 
 description: Learn how to monitor an integration runtime within an Azure Data Factory managed virtual network.  
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -56,6 +55,8 @@ Regardless of the type of compute pool that you're using, you can access and ana
 |External capacity utilization of MVNet integration runtime|Percent|The maximum percentage of DIU utilization for external activities in a managed virtual network's integration runtime within a 1-minute window.|
 |External available capacity percentage of MVNet integration runtime|Percent|The maximum percentage of available DIU for external activities in a managed virtual network's integration runtime within a 1-minute window.|
 |External waiting queue length of MVNet integration runtime|Count|The waiting queue length of external activities in a managed virtual network's integration runtime within a 1-minute window.|
+
+For more information about these metrics, see [Supported metrics for Microsoft.DataFactory/factories](monitor-data-factory-reference.md#supported-metrics-for-microsoftdatafactoryfactories).
 
 ## Using metrics for performance optimization
 

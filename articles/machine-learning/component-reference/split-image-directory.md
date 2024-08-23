@@ -3,7 +3,7 @@ title: "Split Image Directory"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Split Image Directory component in the designer to divide the images of an image directory into two distinct sets.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

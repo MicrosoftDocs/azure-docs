@@ -3,9 +3,9 @@ title: 'Connectivity configuration in Azure Virtual Network Manager'
 description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 06/26/2024
 ms.custom: template-concept
 ---
 
@@ -64,8 +64,9 @@ To assist you in understanding the topology of your network group, Azure Virtual
   1. Select the **Preview Topology** tab to test out the Topology View and review your configuration's current connectivity.
   1. Complete the creation of your connectivity configuration.
 
-> [!NOTE]
-> The Topology View is only available during the creation of your connectivity configuration in the Azure portal. Once the configuration is created, you can no longer view the topology.
+You can review the current topology of a network group by selecting **Visualization** under **Settings** in the network group's details page. The view shows the connectivity between the  member virtual networks in the network group.
+
+:::image type="content" source="media/concept-configuration-types/network-group-topology.png" alt-text="Screenshot of visualization window showing topology of network group.":::
 
 ### Use cases
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Start here to learn how to monitor Virtual WAN.
 author: cherylmc
 ms.author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.custom: subject-monitoring
 ms.date: 02/15/2024
