@@ -26,7 +26,7 @@ This table describes Azure Monitor features that provide analysis of collected d
 
 ### Azure workbooks
 
-[Azure workbooks](./visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports. You can use workbooks to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They're especially useful to prepare end-to-end monitoring views across multiple Azure resources. Insights use prebuilt workbooks to present you with critical health and performance information for a particular service. You can access a gallery of workbooks on the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet the requirements of your different users.
+[Azure workbooks](./visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports. You can use workbooks to tap into the most complete set of data sources from across Azure and combine them into unified interactive experiences. They're especially useful to prepare end-to-end monitoring views across multiple Azure resources. Insights use prebuilt workbooks to present you with critical health and performance information for a particular service. You can access a gallery of workbooks on the **Workbooks** tab in Azure Monitor, create custom workbooks, or leverage Azure GitHub community templates to meet the requirements of your different users.
 
 :::image type="content" source="media/visualizations/workbook.png" lightbox="media/visualizations/workbook.png" alt-text="Diagram that shows screenshots of three pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.":::
 
@@ -49,6 +49,8 @@ Here's a video about how to create dashboards:
 
 Grafana has popular plug-ins and dashboard templates for application performance monitoring (APM) tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass.
 
+Grafana allows you to leverage the extensive flexibility included for combining data queries, query results, and performing open-ended client-side data processing, as well as using open-source community dashboards.
+
 All versions of Grafana include the [Azure Monitor datasource plug-in](visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.
 
 [Azure Managed Grafana](../managed-grafana/overview.md) also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards. Grafana includes out-of-the-box dashboards for Azure resources. [Create your first Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md) to get started.
@@ -68,37 +70,21 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 ## Choose the right visualization tool
 
-Azure Monitor suggests using Azure Managed Grafana for data visualizations and dashboards in cloud-native scenarios, such as Kubernetes and Azure Kubernetes Service (AKS), as well as multicloud, OSS, and third-party integrations. For other Azure scenarios, including Azure hybrid environments with Azure Arc, workbooks are the recommended option.
-
-#### When to use Azure workbooks
-
-* **Pre-configured and customizable reports native to Azure:** Easily accessible within the Azure portal and managed through Azure Automation tools like ARM, Bicep, and Terraform. These reports are tailored to your Azure RBAC assignments and come at no extra cost.
-
-* **Comprehensive Azure data sources:** Offering the most extensive collection of Azure data sources.
-
-* **Azure-managed hybrid and Edge environments:** Seamlessly integrated for optimal management.
-
-* **Azure Actions and Automation integration:** Enhancing functionality and efficiency.
-
-* **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
-
-* **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
+We recommend using Azure Managed Grafana for data visualizations and dashboards in cloud-native scenarios, such as Kubernetes and Azure Kubernetes Service (AKS), as well as multicloud, open source software, and third-party integrations. For other Azure scenarios, including Azure hybrid environments with Azure Arc, we recommend Azure workbooks.
 
 #### When to use Azure Managed Grafana
 
-* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
+* Cloud native environments monitored with Prometheus and CNCF tools
+* Multi-cloud and multi-platform environments
+* Multi-tenancy and portability support
+* Interoperability with open-source and third-party tools
+* Sharing dashboards outside of the Azure portal
 
-* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
+#### When to use Azure workbooks
 
-* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
-
-* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
-
-* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
-
-* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
-
-* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
+* Azure managed hybrid and edge environments
+* Integrations with Azure actions and automation
+* Creating custom reports based on Azure Monitor insights
 
 ### Benefits and use cases
 
