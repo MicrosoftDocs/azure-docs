@@ -89,7 +89,7 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 ```
 
 > [!CAUTION]
-> Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
 You can patch all your asset endpoints with the following command:
 

@@ -101,7 +101,7 @@ The connector for OPC UA trust relationship with the OPC PLC simulator is now es
 Optionally, you can configure an asset endpoint profile without establishing mutual trust between the connector for OPC UA and the OPC PLC simulator. If you understand the risks, you can turn off authentication for testing purposes.
 
 > [!CAUTION]
-> Don't configure for no authentication in production or pre-production environments. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
+> Don't configure for no authentication in production or preproduction environments. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
 
 To allow your asset endpoint profile to connect to an OPC PLC server without establishing mutual trust, use the `additionalConfiguration` setting to modify the `AssetEndpointProfile` configuration.
 
