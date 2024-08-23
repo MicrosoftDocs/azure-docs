@@ -112,7 +112,7 @@ When using the text-to-speech avatar feature, charges will be incurred based on 
 
 ## Monitor Azure text to speech metrics
 
-Monitoring key metrics associated with text to speech services is crucial for managing resource usage and controlling costs. This section will guide you on how to find usage information in the Azure portal and provide detailed definitions of the key metrics. For more details on Azure monitor metrics, refer to [Azure Monitor Metrics overview](/azure/ai-services/speech-service/text-to-speech).
+Monitoring key metrics associated with text to speech services is crucial for managing resource usage and controlling costs. This section will guide you on how to find usage information in the Azure portal and provide detailed definitions of the key metrics. For more details on Azure monitor metrics, refer to [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ### How to find usage information in the Azure portal
 
