@@ -38,6 +38,8 @@ The steps in this tutorial are:
 
 - You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. Specifically, the `product_info_11.md` file contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
 
+- You need to have **Microsoft.Web** resource provider registered in the selected subscription, to be able to deploy to a web app.
+
 ## Add your data and try the chat model again
 
 In the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) (that's a prerequisite for this tutorial), you can observe how your model responds without your data. Now you add your data to the model to help it answer questions about your products.
@@ -66,6 +68,9 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
 Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
 
 To deploy the web app:
+
+> [!NOTE]
+> You need to have **Microsoft.Web** resource provider registered in the selected subscription, to be able to deploy to a web app. 
 
 1. Complete the steps in the previous section to [add your data](#add-your-data-and-try-the-chat-model-again) to the playground. 
 
