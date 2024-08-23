@@ -215,7 +215,7 @@ server {
 
 #### Example Docker compose file
 
-The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy NGINX and health containers:
+The below example shows how a [docker compose](https://docs.docker.com/reference/cli/docker/compose/) file can be created to deploy NGINX and health containers:
 
 ```yaml
 version: "3.7"

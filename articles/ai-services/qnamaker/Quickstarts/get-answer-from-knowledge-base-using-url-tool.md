@@ -29,7 +29,7 @@ ms.date: 01/19/2024
 
 ::: zone-end
 
-::: zone pivot="url-test-tool-Visual-Studio-Code-REST-Client-extension"
+::: zone pivot="url-test-tool-visual-studio-code-rest-client-extension"
 
 [!INCLUDE [Get answer using the Visual Studio Code REST Client extension](../includes/quickstart-test-tool-vscode.md)]
 
