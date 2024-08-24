@@ -2,12 +2,10 @@
 title: Create and associate service endpoint policies - Azure portal
 titlesuffix: Azure Virtual Network
 description: In this article, learn how to set up and associated service endpoint policies using the Azure portal.
-services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: virtual-network
-ms.date: 02/21/2020
+ms.date: 08/20/2024
 ms.author: allensu
 ---
 
@@ -18,10 +16,13 @@ Service endpoint policies enable you to filter virtual network traffic to specif
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a service endpoint policy
-> * Create a service endpoint policy definition
-> * Create a virtual network with a subnet
-> * Associate a service endpoint policy to a subnet
+* Create a virtual network.
+* Add a subnet and enable service endpoint for Azure Storage.
+* Create two Azure Storage accounts and allow network access to it from the subnet created above.
+* Create a service endpoint policy to allow access only to one of the storage accounts.
+* Deploy a virtual machine (VM) to the subnet.
+* Confirm access to the allowed storage account from the subnet.
+* Confirm access is denied to the non-allowed storage account from the subnet.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,81 +32,107 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a service endpoint policy
 
+1. In the search box in the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
+1. Select **+ Create** to create a new resource group.
 
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information.
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. In search pane, type "service endpoint policy" and select **Service endpoint policy** and then select **Create**.
+    | Setting | Value |
+    | -------| ------- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | **Resource details** | |
+    | Region | Select **West US 2**. |
 
-![Create service endpoint policy](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
+1. Select **Review + Create**.
 
-3. Enter, or select, the following information in **Basics** 
+1. Select **Create**.
 
-   - Subscription   : Select your subscription for policy
-   - Resource group : Select **Create new** and enter *myResourceGroup*
-   - Name           : myEndpointPolicy
-   - Location       : Central US
- 
-   ![Create service endpoint policy basics](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
+1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
 
-4. Select **+ Add** under **Resources** and enter or select the following information in **Add a resource** pane
+1. Select **+ Create** to create a new service endpoint policy.
 
-   - Service        : Only **Microsoft.Storage** is available with Service Endpoint Policies
-   - Scope          : Select one out of **Single Account**, **All accounts in  subscription** and **All accounts in resource group**
-   - Subscription   : Select your subscription for storage account. Policy and storage accounts can be in different subscriptions.
-   - Resource group : Select your resource group. Required, if  scope is set as, "All accounts in resource group" or "Single account".  
-   - Resource       : Select your Azure Storage resource under the selected Subscription or Resource Group
-   - Click on **Add** button at bottom to finish adding the resource
+1. Enter or select the following information in the **Basics** tab of **Create a service endpoint policy**.
 
-   ![Service endpoint policy definition - resource](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
+    | Setting | Value |
+    | -------| ------- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** | |
+    | Name | Enter **service-endpoint-policy**. |
+    | Location | Select **West US 2**. |
 
-   - Add more resources by repeating the above steps as needed
+1. Select **Next: Policy definitions**.
 
-5. Optional: Enter or select, the following information in **Tags**:
-   
-   - Key     : Select your key for the policy. Ex: Dept     
-   - Value   : Enter value pair for the key. Ex: Finance
+1. Select **+ Add a resource** in **Resources**.
 
-6. Select **Review + Create**. Validate the information and Click **Create**. To make further edits, click **Previous**. 
+1. In **Add a resource**, enter or select the following information:
 
-   ![Create service endpoint policy final validations](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
-  
-## View endpoint policies 
+    | Setting | Value |
+    | -------| ------- |
+    | Service | Select **Microsoft.Storage**. |
+    | Scope | Select **Single account**, **All accounts in subscription**, or **All accounts in resource group**. |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | Resource | Select your Azure Storage resource. |
 
-1. In the *All services* box in the portal, begin typing *service endpoint policies*. Select **Service Endpoint Policies**.
-2. Under **Subscriptions**, select your subscription and resource group, as shown in the following picture
+1. Select **Add**.
 
-   ![Show policy](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
-       
-3. Select the policy and click on **Policy Definitions** to view or add more policy definitions.
+1. Select **Review + Create**.
 
-   ![Show policy definitions](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
+1. Select **Create**.
 
-4. Select **Associated subnets** to view the subnets the policy is associated. If no subnet is associated yet, follow the instructions in the next step.
+## Associate a service endpoint policy to a subnet
 
-   ![Associated subnets](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
- 
-5. Associate a policy to a subnet
+1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
+
+1. Select **service-endpoint-policy**.
+
+1. Expand **Settings** and select **Associated subnets**.
+
+1. Select **+ Edit subnet association**.
+
+1. In **Edit subnet association**, select the virtual network and subnet you want to associate with the service endpoint policy.
+
+1. Select **Apply**.
 
 >[!WARNING] 
 > Ensure that all the resources accessed from the subnet are added to the policy definition before associating the policy to the given subnet. Once the policy is associated, only access to the *allow listed* resources will be allowed over service endpoints. 
 >
-> Also ensure that no managed Azure services exist in the subnet that is being associated to the service endpoint policy
+> Ensure that no managed Azure services exist in the subnet that is being associated to the service endpoint policy.
+>
+> Access to Azure Storage resources in all regions will be restricted as per Service Endpoint Policy from this subnet.
 
-- Before you can associate a policy to a subnet, you have to create a virtual network and subnet. Please refer to the [Create a Virtual Network](./quick-create-portal.md) article for help with this.
+## View endpoint policies 
 
-- Once you have the virtual network and subnet are setup, you need to configure Virtual Network Service Endpoints for Azure Storage. On the Virtual Network blade, select **Service endpoints**, and in the next pane select **Microsoft.Storage** and under **Subnets** select the desired VNet or Subnet
+1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
 
-- Now, you can either choose to select the Service Endpoint Policy from the drop-down in the above pane if you have already created Service Endpoint policies before configuring Service Endpoint for the Subnet as shown below
+1. Expand **Settings** and select **Policy definitions**.
 
-    ![Associate subnet while creating service endpoint](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
+1. View the existing resources and aliases in the policy definition.
 
-- OR if you are associating Service Endpoint policies after Service Endpoints are already configured, you can choose to associate the subnet from within the Service Endpoint Policy blade by navigating to the **Associated Subnets** pane as shown below
+1. Select **+ Add a resource** to add more resources to the policy definition. Select an existing resource to modify it's settings.
 
-    ![Associate subnet via SEP](./media/virtual-network-service-endpoint-policies-portal/sep-edit-subnet-association.png)
+## Delete an endpoint policy
 
->[!WARNING] 
->Access to Azure Storage resources in all regions will be restricted as per Service Endpoint Policy from this subnet.
+1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
+
+1. Expand **Settings** and select **Associated subnets**.
+
+1. Select **+ Edit subnet association**.
+
+1. In **Edit subnet association**, select the virtual network and subnet you want to disassociate from the service endpoint policy.
+
+1. Select **Apply**.
+
+1. Select **Overview**.
+
+1. Select **Delete**.
+
+1. Select **Yes** to confirm the deletion.
 
 ## Next steps
 In this tutorial, you created a service endpoint policy and associated it to a subnet. To learn more about service endpoint policies, see [service endpoint policies overview.](virtual-network-service-endpoint-policies-overview.md)
