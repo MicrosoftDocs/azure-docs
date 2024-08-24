@@ -210,7 +210,7 @@ The `deploy` action supports the following options:
 
 For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
-## `func azure functionapp publish `
+## `func azure functionapp publish`
 
 Deploys a Functions project to an existing function app resource in Azure. 
 
