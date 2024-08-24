@@ -1834,32 +1834,32 @@ These application settings are required for container deployments:
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
 ::: zone pivot="flex-consumption-plan"   
-+ The optional `alwaysReady` setting contains an array of one or more `{name,instanceCount}` objects, with one for each [per-function scale group](flex-consumption-plan.md#per-function-scaling). These are the scale groups being used to make always-ready scale decisions. This example sets always-ready counts for both the `http` group and function named `helloworld`, which is of a non-gouped trigger type:
++ The optional `alwaysReady` setting contains an array of one or more `{name,instanceCount}` objects, with one for each [per-function scale group](flex-consumption-plan.md#per-function-scaling). These are the scale groups being used to make always-ready scale decisions. This example sets always-ready counts for both the `http` group and a single function named `helloworld`, which is of a non-grouped trigger type:
 	### [Bicep](#tab/bicep)
 	```bicep
 	alwaysReady: [
-	    {
- 		name: 'http'
- 		instanceCount: 2
- 	    }
-	    {
- 		name: 'function:helloworld'
- 		instanceCount: 1
- 	    }
+	  {
+	    name: 'http'
+	    instanceCount: 2
+	  }
+	  {
+	    name: 'function:helloworld'
+	    instanceCount: 1
+	  }
 	]
  	```
 	### [ARM template](#tab/json)
 	```json
-	"alwaysReady": [
+	  "alwaysReady": [
 	    {
- 		"name": "http",
- 		"instanceCount": 2
- 	    },
+	      "name": "http",
+	      "instanceCount": 2
+	    },
 	    {
- 		"name": "function:helloworld",
- 		"instanceCount": 1
- 	    }
-	]
+	      "name": "function:helloworld",
+	      "instanceCount": 1
+	    }
+	  ]
  	```
 ::: zone-end
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
