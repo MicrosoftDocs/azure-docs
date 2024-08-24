@@ -1,7 +1,7 @@
 ---
 title: Create an Azure confidential VM in the Azure portal
 description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
-author: Rakesh Ginjupalli
+author: linuxelf001
 ms.service: azure-virtual-machines
 ms.topic: quickstart
 ms.date: 08/24/2024
@@ -11,9 +11,9 @@ ms.author: Rakesh Ginjupalli
 # **Quickstart: Create confidential VM in the Azure portal**
 
 1. **Create a new Virtual Machine**  
-   a. Visit [portal.azure.com/\#create/Microsoft.VirtualMachine](http://portal.azure.com/\#create/Microsoft.VirtualMachine). If not signed in, you'll be prompted to log in to your Azure account.
+   a. Visit [portal.azure.com/\#create/Microsoft.VirtualMachine](https://portal.azure.com/\#create/Microsoft.VirtualMachine). If not signed in, you'll be prompted to log in to your Azure account.
 
-      Note: Alternatively, you can go to [portal.azure.com](http://portal.azure.com), locate "Virtual machines" in the left sidebar (If the sidebar is hidden, click the hamburger menu ☰ in the top-left corner to reveal it)
+      Note: Alternatively, you can go to [portal.azure.com](https://portal.azure.com), locate "Virtual machines" in the left sidebar (If the sidebar is hidden, click the hamburger menu ☰ in the top-left corner to reveal it)
 
    b. On the **Virtual machines** page, click **Create** and choose **Azure virtual machine** from the dropdown menu.  
 <br>
@@ -32,7 +32,7 @@ ms.author: Rakesh Ginjupalli
                 <p>Subscription</p>
             </td>
             <td colspan="2" rowspan="1">
-                <p>Select an existing Azure subscription. Free trial accounts don't have access to the VMs used in this guide. One option is to use a <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account?icid=payg">pay as you go subscription</a></p>
+                <p>Select an existing Azure subscription. Free trial accounts don't have access to the VMs used in this guide. One option is to use a <a href="https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=payg">pay as you go subscription</a></p>
             </td>
         </tr>
         <tr>
@@ -40,7 +40,7 @@ ms.author: Rakesh Ginjupalli
                 <p>Resource Group</p>
             </td>
             <td colspan="2" rowspan="1">
-                <p><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal">Resource groups</a> in Azure organize related resources, allowing you to easily deploy, update, and delete them as a group. The dropdown allows you to select from a list of previously created Resource groups. If necessary, select <strong>Create new</strong>, enter a name, and select <strong>OK</strong> to create a new resource group.</p>
+                <p><a href="https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal">Resource groups</a> in Azure organize related resources, allowing you to easily deploy, update, and delete them as a group. The dropdown allows you to select from a list of previously created Resource groups. If necessary, select <strong>Create new</strong>, enter a name, and select <strong>OK</strong> to create a new resource group.</p>
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@ ms.author: Rakesh Ginjupalli
             </td>
             <td colspan="2" rowspan="1">
                 <p>Single VM? Select <strong>No infrastructure redundancy required</strong></p>
-                <p>Multiple VMs? Select <a href="https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview">Virtual machine scale set</a></p>
+                <p>Multiple VMs? Select <a href="https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview">Virtual machine scale set</a></p>
             </td>
         </tr>
         <tr>
@@ -97,8 +97,8 @@ ms.author: Rakesh Ginjupalli
                 <p>Select <strong>All sizes</strong> to display a searchable and sortable list of supported VM sizes to choose from. </p>
                 <p>Azure offers a choice of Trusted Execution Environment (TEE) options from both AMD and Intel, namely the DC and EC family. The v5 series from both DC and EC families support upto 96 vCPUs.</p>
                 <ul>
-                    <li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dc-family">Read more</a> about DC family of general-purpose Confidential VMs</li>
-                    <li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/ec-family">Read more</a> about EC family of memory-optimized Confidential VMs, capable of handling extremely large amounts of data.</li>
+                    <li><a href="https://learn.microsoft.com/azure/virtual-machines/sizes/general-purpose/dc-family">Read more</a> about DC family of general-purpose Confidential VMs</li>
+                    <li><a href="https://learn.microsoft.com/azure/virtual-machines/sizes/memory-optimized/ec-family">Read more</a> about EC family of memory-optimized Confidential VMs, capable of handling extremely large amounts of data.</li>
                 </ul>
             </td>
         </tr>
@@ -140,7 +140,7 @@ ms.author: Rakesh Ginjupalli
                     <li><strong>Use existing public key</strong> will allow you to enter an existing SSH public key into a text field which will appear after you have chosen this option</li>
                 </ul>
                 <p></p>
-                <p><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys">Learn more about creating and using SSH keys in Azure</a> </p>
+                <p><a href="https://learn.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys">Learn more about creating and using SSH keys in Azure</a> </p>
             </td>
             <td colspan="1" rowspan="1">
                 <p>N/A</p>
@@ -260,8 +260,8 @@ Important: You must perform this step to successfully create the confidential VM
 <br>
 
 5. **Connect to your new confidential VM**  
-* To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon).
-* For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal).
+* To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](https://learn.microsoft.com/azure/virtual-machines/windows/connect-logon).
+* For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
 <br>
 
@@ -284,7 +284,7 @@ The optional full-disk encryption scheme is Azure's most secure and meets the [C
 3. **Can I enable Azure Accelerated Networking on confidential VMs?**\
 No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
-[Visit this link for more FAQs](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-faq)
+[Visit this link for more FAQs](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-faq)
 
 ## Next steps
 
