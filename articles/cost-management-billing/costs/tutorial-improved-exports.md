@@ -321,86 +321,17 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The exports experience currently has the following limitations.
 
-<<<<<<< HEAD
 - The new exports experience doesn't fully support the management group scope and it has feature limitations.
 - Azure MOSP billing scopes and subscriptions don’t support FOCUS datasets.
-=======
-- The new exports experience doesn't fully support the management group scope, and it has feature limitations.
-
-- Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
->>>>>>> 37bd5bc0af871e8a4a59d2e2765c7231ac8c789c
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
 ## FAQ
 
-<<<<<<< HEAD
 Here are some frequently asked questions and answers about exports.
-=======
-#### Why is file partitioning enabled in exports? 
->>>>>>> 37bd5bc0af871e8a4a59d2e2765c7231ac8c789c
 
 ### Why is file partitioning enabled in exports?
-
-<<<<<<< HEAD
 The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file.
 
-### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
-
-If you see garbled characters in Excel and you use an Asian-based language, such as Japanese or Chinese, you can resolve this issue with the following steps:
-
-For new versions of Excel:
-
-1. Open Excel.
-1. Select the **Data** tab at the top.
-1. Select the **From Text/CSV** option.
-    :::image type="content" source="./media/tutorial-improved-exports/new-excel-from-text.png" alt-text="Screenshot showing the Excel From Text/CSV option." lightbox="./media/tutorial-improved-exports/new-excel-from-text.png" :::
-1. Select the CSV file that you want to import.
-1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.
-    :::image type="content" source="./media/tutorial-improved-exports/new-excel-file-origin.png" alt-text="Screenshot showing the Excel File origin option." lightbox="./media/tutorial-improved-exports/new-excel-file-origin.png" :::
-1. Select **Load**.
-
-For older versions of MS Excel:
-
-1.	Open Excel.
-1.	Select the **Data** tab at the top.
-1.	Select the **From Text** option and then select the CSV file that you want to import.
-1.	Excel shows the Text Import Wizard.
-1.	In the wizard, select the **Delimited** option.
-1.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
-1.	Select **Next**.
-1.	Next, select the **Comma** option and then select **Finish**.
-1.	In the dialog window that appears, select **OK**.
-
-### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
-
-You might notice discrepancies between the aggregated cost from an exported file and the cost displayed in Cost Analysis. These differences can occur if the tool you use to read and aggregate the total cost truncates decimal values. This issue is common in tools like Power BI and Microsoft Excel.
-
-### Why is my Power BI report missing decimal values?
-
-Check if decimal places are being dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
-
-To manually transform a column to a decimal number in Power BI, follow these steps:
-
-1. Go to the **Table** view.
-1. Select **Transform data**.
-1. Right-click the required column.
-1. Change the type to **Decimal Number**.
-
-### Why do I get a conversion error in Microsoft Excel?
-
-When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://insider.microsoft365.com/blog/control-data-conversions-in-excel-for-windows-and-mac).
-
-:::image type="content" source="./media/tutorial-improved-exports/excel-convert-dialog.png" border="true" alt-text="Screenshot showing the Convert dialog.":::
-
-If the correct conversion isn't used, you get a green triangle with a `Number Stored as Text` error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
-
-:::image type="content" source="./media/tutorial-improved-exports/number-stored-as-text-error.png" border="true" alt-text="Screenshot showing the Number stored as text error.":::
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Review and act on optimization recommendations](tutorial-acm-opt-recommendations.md)
-=======
 #### How does the enhanced export experience handle missing attributes like subscription IDs?
 
 In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
@@ -408,4 +339,3 @@ In the new export experience, missing attributes such as subscription IDs will b
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
->>>>>>> 37bd5bc0af871e8a4a59d2e2765c7231ac8c789c
