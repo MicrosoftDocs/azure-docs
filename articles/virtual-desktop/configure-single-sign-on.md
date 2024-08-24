@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on for an Azure Virtual Desktop 
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/27/2024
+ms.date: 08/28/2024
 ---
 
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication
@@ -34,11 +34,6 @@ Before you enable single sign-on, review the following information for using it 
 When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they are ready to connect again. This is done for security reasons and to ensure full support of passwordless authentication. Disconnecting the session provides the following benefits:
 
 - Consistent sign-in experience through Microsoft Entra ID when needed.
-- Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
-- Supports passwordless authentication like passkeys and FIDO2 devices, contrary to the remote lock screen.
-- Conditional access policies, including multifactor authentication and sign-in frequency, are re-evaluated when the user reconnects to their session.
-- Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
-- Consistent sign-in experience through Microsoft Entra ID when needed.
 
 - Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
 
@@ -47,16 +42,15 @@ When single sign-on is enabled and the remote session is locked, either by the u
 - Conditional access policies, including multifactor authentication and sign-in frequency, are re-evaluated when the user reconnects to their session.
 
 - Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
+
 If you prefer to show the remote lock screen instead of disconnecting the session, your session hosts must use the following operating systems:
 
 - Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
-- Windows 10 single or multi-session, versions 21H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
-- Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
-- Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
 
 - Windows 10 single or multi-session, versions 21H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
 
 - Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
+
 You can configure the session lock behavior of your session hosts by using Intune, Group Policy, or the registry.
 
 # [Intune](#tab/intune)
@@ -70,6 +64,7 @@ To configure the session lock experience using Intune, follow these steps. This 
 1. Enter the following properties:
 
     - **Platform**: Select **Windows 10 and later**.
+
     - **Profile type**: Select **Settings catalog**.
 
 1. Select **Create**.
@@ -77,6 +72,7 @@ To configure the session lock experience using Intune, follow these steps. This 
 1. In **Basics**, enter the following properties:
 
     - **Name**: Enter a descriptive name for the profile. Name your profile so you can easily identify it later.
+
     - **Description**: Enter a description for the profile. This setting is optional, but recommended.
 
 1. Select **Next**.
@@ -133,8 +129,11 @@ To configure the session lock experience using the registry on a session host, f
 1. Set the following registry key and its value.
 
    - **Key**: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
+
    - **Type**: `REG_DWORD`
+
    - **Value name**: `fdisconnectonlockmicrosoftidentity`
+
    - **Value data**: Enter a value from the following table:
 
       | Value Data | Description |
@@ -153,14 +152,19 @@ If you need to make changes to a session host as an administrator, sign in to th
 Before you can enable single sign-on, you must meet the following prerequisites:
 
 - To configure your Microsoft Entra tenant, you must be assigned one of the following [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/manage-roles-portal):
+
    - [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+
    - [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+
    - [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)
 
 - Your session hosts must be running one of the following operating systems with the relevant cumulative update installed:
 
    - Windows 11 Enterprise single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
+
    - Windows 10 Enterprise single or multi-session with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
+
    - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 - Your session hosts must be [Microsoft Entra joined](/entra/identity/devices/concept-directory-join) or [Microsoft Entra hybrid joined](/entra/identity/devices/concept-hybrid-join). Session hosts joined to Microsoft Entra Domain Services or to Active Directory Domain Services only aren't supported.
@@ -172,9 +176,13 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 - A supported Remote Desktop client to connect to a remote session. The following clients are supported:
 
    - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+
    - [Web client](users/connect-web.md).
+
    - [macOS client](users/connect-macos.md), version 10.8.2 or later.
+
    - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
+
    - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
 
 - To configure allowing Active Directory domain administrator account to connect when single sign-on is enabled, you need an account that is a member of the **Domain Admins** security group.
@@ -290,6 +298,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 If your session hosts meet the following criteria, you must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
 
 - Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to a domain controller.
+
 - Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
@@ -309,12 +318,17 @@ When single sign-on is enabled, a new Microsoft Entra ID app is introduced to au
 To enable single sign-on on your host pool, you must configure the following RDP property, which you can do using the Azure portal or PowerShell. You can find the steps to do configure RDP properties in [Customize Remote Desktop Protocol (RDP) properties for a host pool](customize-rdp-properties.md).
 
 - In the Azure portal, set **Microsoft Entra single sign-on** to **Connections will use Microsoft Entra authentication to provide single sign-on**.
+
 - For PowerShell, set the **enablerdsaadauth** property to **1**.
 
 ## Next steps
 
 - Check out [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication) to learn how to enable passwordless authentication.
+
 - For more information about Microsoft Entra Kerberos, see [Deep dive: How Microsoft Entra Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889)
+
 - If you're accessing Azure Virtual Desktop from our Windows Desktop client, see [Connect with the Windows Desktop client](./users/connect-windows.md).
+
 - If you're accessing Azure Virtual Desktop from our web client, see [Connect with the web client](./users/connect-web.md).
+
 - If you encounter any issues, go to [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md).
