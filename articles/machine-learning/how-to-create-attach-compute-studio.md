@@ -72,8 +72,8 @@ To use VMs created outside the Azure Machine Learning workspace, you must first 
     > [!NOTE]
     > Microsoft recommends that you use SSH keys, which are more secure than passwords. Passwords are vulnerable to brute force attacks. SSH keys rely on cryptographic signatures. For information on how to create SSH keys for use with Azure Virtual Machines, see the following documents:
     >
-    > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
-    > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
+    > * [Create and use SSH keys on Linux or macOS](/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Create and use SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Select __Attach__.
 

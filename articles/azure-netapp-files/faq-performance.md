@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/13/2024
+ms.date: 08/20/2024
 ---
 # Performance FAQs for Azure NetApp Files
 
@@ -19,7 +19,7 @@ You can take the following actions per the performance requirements:
 - Select the desired service level and size for the capacity pool.
 - Create a volume with the desired quota size for the capacity and performance.
 
-There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
+There is no need to set accelerated networking for the network interface cards (NICs) in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
 
 ## How do I monitor Azure NetApp Files volume performance 
 

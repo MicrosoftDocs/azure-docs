@@ -10,7 +10,7 @@ ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv2
-ms.date: 08/01/2023
+ms.date: 08/21/2024
 show_latex: true
 ---
 
@@ -65,11 +65,11 @@ AutoML supports this inference scenario, but **you need to provide the context d
 
 Here, known values of the target and features are provided for 2023-05-01 through 2023-05-03. Missing target values starting at 2023-05-04 indicate that the inference period starts at that date. 
 
-AutoML uses the new context data to update lag and other lookback features, and also to update models like ARIMA that keep an internal state. This operation _does not_ update or re-fit model parameters.  
+AutoML uses the new context data to update lag and other lookback features, and also to update models like ARIMA that keep an internal state. This operation _doesn't_ update or re-fit model parameters.  
   
 ## Model evaluation
 
-Evaluation is the process of generating predictions on a test set held-out from the training data and computing metrics from these predictions that guide model deployment decisions. Accordingly, there's an inference mode specifically suited for model evaluation - a rolling forecast. We review it in the following sub-section.     
+Evaluation is the process of generating predictions on a test set held-out from the training data and computing metrics from these predictions that guide model deployment decisions. Accordingly, there's an inference mode suited for model evaluation - a rolling forecast. We review it in the following subsection.     
 
 ### Rolling forecast
 

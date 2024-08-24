@@ -197,7 +197,7 @@ Many customers want to use persistence to take periodic backups of the data on t
 
 ## E1 (preview) SKU Limitations
 
-The E1 (preview) SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
+The E1 (preview) SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
 
 ## Related content
 

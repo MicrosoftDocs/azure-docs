@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- To use Azure Container Storage with Azure managed disks, your AKS cluster must have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+- To use Azure Container Storage with Azure managed disks, your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Create and attach persistent volumes
 
@@ -60,9 +60,9 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
 
    If you're using UltraSSD_LRS or PremiumV2_LRS disks, you can set IOPS and throughput using the `IOPSReadWrite` and `MBpsReadWrite` parameters in your storage pool definition.
 
-   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra SSD and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](../../virtual-machines/disks-types.md#ultra-disk-iops) and [Premium SSD v2 IOPS](../../virtual-machines/disks-types.md#premium-ssd-v2-iops).
+   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra SSD and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](/azure/virtual-machines/disks-types#ultra-disk-iops) and [Premium SSD v2 IOPS](/azure/virtual-machines/disks-types#premium-ssd-v2-iops).
 
-   `MBpsReadWrite` refers to the bandwidth allowed for Ultra SSD and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](../../virtual-machines/disks-types.md#ultra-disk-throughput) and [Premium SSD v2 throughput](../../virtual-machines/disks-types.md#premium-ssd-v2-throughput).
+   `MBpsReadWrite` refers to the bandwidth allowed for Ultra SSD and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](/azure/virtual-machines/disks-types#ultra-disk-throughput) and [Premium SSD v2 throughput](/azure/virtual-machines/disks-types#premium-ssd-v2-throughput).
 
    ```yml
    apiVersion: containerstorage.azure.com/v1
@@ -153,7 +153,7 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) when you create your storage pool to encrypt the persistent volumes that you'll create.
 
-To use your own key for server-side encryption, you must have an [Azure Key Vault](/azure/key-vault/general/overview) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+To use your own key for server-side encryption, you must have an [Azure Key Vault](/azure/key-vault/general/overview) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](/azure/virtual-machines/disk-encryption#customer-managed-keys).
 
 When creating your storage pool, you must define the CMK parameters. The required CMK encryption parameters are:
 

@@ -33,7 +33,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) for more details of GPU instances provided by Azure.
 
     > [!WARNING]
     > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -48,7 +48,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) for more details of GPU instances provided by Azure.
 
    > [!WARNING]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -178,7 +178,7 @@ However, there are key differences:
 * You can ignore `primary_metric`, as it's only for reporting purposes. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks.
 * If more than 10% of the samples in your dataset contain more than 128 tokens, it's considered long range. 
-   * In order to use the long range text feature, you should use an NC6 or higher/better SKUs for GPU such as: [NCv3](../virtual-machines/ncv3-series.md) series or [ND](../virtual-machines/nd-series.md) series.
+   * In order to use the long range text feature, you should use an NC6 or higher/better SKUs for GPU such as: [NCv3](/azure/virtual-machines/ncv3-series) series or [ND](/azure/virtual-machines/nd-series) series.
 
 # [Azure CLI](#tab/cli)
 

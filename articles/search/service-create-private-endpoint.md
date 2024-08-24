@@ -138,7 +138,7 @@ In this section, you'll create a new Azure AI Search service with a Private Endp
     | Size | Accept the default **Standard D2S v3**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter the user name of the administrator. Use an account that's valid for your Azure subscription. You'll want to sign in to the Azure portal from the VM so that you can manage your search service. |
-    | Password | Enter the account password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+    | Password | Enter the account password. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Accept the default **Allow selected ports**. |
