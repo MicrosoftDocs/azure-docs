@@ -89,9 +89,11 @@ try:
 except:
     # Clean up in the event of failure
     client.shutdown()
+```
 
 The twin_patch_handler receives and prints the JSON patch.
 
+```python
     # Define behavior for receiving twin desired property patches
     def twin_patch_handler(twin_patch):
         print("Twin patch received:")
