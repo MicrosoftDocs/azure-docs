@@ -5,7 +5,7 @@ items:
     items:
       - name: What is Azure Modeling and Simulation Workbench?
         href: modeling-simulation-workbench-overview.md
-  - name: Quickstart
+  - name: Tutorials
     items:
       - name: Create an Azure Modeling and Simulation Workbench
         href: ./quickstart-create-portal.md
@@ -19,16 +19,20 @@ items:
     items:
       - name: Workbench
         href: ./concept-workbench.md
-      - name: User personas
-        href: ./concept-user-personas.md
       - name: Chamber
         href: ./concept-chamber.md
       - name: Connector
         href: ./concept-connector.md
+      - name: User personas
+        href: ./concept-user-personas.md
       - name: Data pipeline
         href: ./concept-data-pipeline.md
       - name: License service
         href: ./concept-license-service.md
+      - name: VM offerings
+        href: ./concept-vm-offerings.md
+      - name: Storage
+        href: ./concept-storage.md
       - name: Shared storage
         href: ./shared-storage.md
       - name: Business continuity
@@ -48,7 +52,23 @@ items:
       - name: Export data
         href: ./how-to-guide-download-data.md
       - name: Manage chamber storage
-        href: ./how-to-guide-manage-storage.md
+        href: ./how-to-guide-manage-chamber-storage.md
+      - name: Manage Shared Storage
+        href: ./how-to-guide-manage-shared-storage.md
+      - name: Set up networking
+        href: ./how-to-guide-set-up-networking.md
+      - name: Manage Red Hat firewalls
+        href: ./how-to-guide-configure-firewall-rh.md
+      - name: Start, stop, and restart Chambers, Connectors, and VMs
+        href: ./how-to-guide-start-stop-restart.md
+      - name: Place a Chamber into Idle mode
+        href: ./how-to-guide-idle.md
+      - name: Add redirect URIs
+        href: ./how-to-guide-add-redirect-uris.md
+      - name: Manage VMs
+        href: ./how-to-guide-chamber-vm.md
+      - name: Register a resource provider
+        href: ./how-to-guide-register-resource-provider.md
   #        - name: Disaster Recovery
   #          href: ./how-to-guide-disaster-recovery.md
   - name: Resources
