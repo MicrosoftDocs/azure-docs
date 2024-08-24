@@ -561,7 +561,7 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
 1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-1. Configure the syslog daemon to export its vCenter log messages to a temporary text file so the AMA can collect them.
+1. Configure the syslog daemon to export its ZPA log messages to a temporary text file so the AMA can collect them.
 
     # [rsyslog](#tab/rsyslog)
 
