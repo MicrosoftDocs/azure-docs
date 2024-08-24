@@ -64,7 +64,7 @@ Concurrency is a key factor that determines how Flex Consumption function apps s
 
 This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
 
-In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of functions scale groups:  
+In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of function scale groups:  
 
 | Scale groups | Triggers in group | Settings value |
 | ---- | ---- | --- |
