@@ -278,16 +278,10 @@ Important: You must perform this step to successfully create the confidential VM
 1. **Can I convert a non-confidential VM into a confidential VM?**\
 No. For security reasons, you must create a confidential VM as such from the start.
 
-2. **Why can't I find DCasv5/ECasv5 or DCesv5/ECesv5 VMs in the Azure portal size selector?**\
-Make sure you've selected an [available region for confidential VMs](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure to select clear all filters in the size selector.
-
-3. **Do I have to use the full-disk encryption scheme? Can I use a standard scheme instead?**\
+2. **Do I have to use the full-disk encryption scheme? Can I use a standard scheme instead?**\
 The optional full-disk encryption scheme is Azure's most secure and meets the [Confidential Computing principles](https://azure.microsoft.com/blog/azure-confidential-computing/). However, you can also use other [disk encryption schemes](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview) along with or instead of full-disk encryption. If you use multiple disk encryption schemes, double encryption might negatively affect performance.
 
-4. **Can I convert a DCasv5/ECasv5 CVM into a DCesv5/ECesv5 CVM or a DCesv5/ECesv5 CVM into a DCasv5/ECasv5 CVM?**\
-Yes, converting from one confidential VM to another confidential VM is allowed on both DCasv5/ECasv5 and DCesv5/ECesv5 in the regions that they share. If you're using a Windows image, make sure you have all the most recent updates. If you're using an Ubuntu Linux image, make sure you're using the Ubuntu 22.04 LTS confidential image with the minimum kernel version `6.2.0-1011-azure`.
-
-5. **Can I enable Azure Accelerated Networking on confidential VMs?**\
+3. **Can I enable Azure Accelerated Networking on confidential VMs?**\
 No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
 [Visit this link for more FAQs](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-faq)
