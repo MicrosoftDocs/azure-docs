@@ -63,7 +63,7 @@ The process of enabling and configuring the connector consists of the following 
 
 ## Set up the AWS environment
 
-To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service to create resource stacks in AWS. that automate the setup of AWS resources, credentials, and permissions.
+To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, as well as credentials, permissions, and policies.
 
 ### Prepare the template files
 
@@ -77,24 +77,30 @@ To run the script to set up the AWS environment, use the following steps:
 
 1. In the details pane for the connector, select **Open connector page**.
 
-1. In the **Configuration** section, under **1. AWS CloudFormation Deployment**, select the [AWS CloudFormation Stacks](https://aka.ms/awsCloudFormationLink#/stacks/create) link. This opens the AWS console in a new browser tab. Return to the Microsoft Sentinel tab.
+    :::image type="content" source="media/connect-aws-s3-waf/find-aws-waf-connector.png" alt-text="Screenshot of data connectors gallery.":::
 
-1. Select **Download** under Template 1 to download the template that creates the OIDC web identity provider. The template is downloaded to your designated downloads folder.
+1. In the **Configuration** section, under **1. AWS CloudFormation Deployment**, select the [AWS CloudFormation Stacks](https://aka.ms/awsCloudFormationLink#/stacks/create) link. This opens the AWS console in a new browser tab.
+
+1. Return to the Microsoft Sentinel tab. Select **Download** under *Template 1: OpenID Connect authentication deployment* to download the template that creates the OIDC web identity provider. The template is downloaded as a JSON file to your designated downloads folder.
 
     > [!NOTE]
     > If you have the older AWS S3 connector, and therefore you already have an OIDC web identity provider, you can skip this step.
 
-1. Select **Download** under Template 2 to download the template that creates the other AWS resources. The template is downloaded to your designated downloads folder.
+1. Select **Download** under *Template 2: AWS WAF resources deployment* to download the template that creates the other AWS resources. The template is downloaded as a JSON file to your designated downloads folder.
 
     :::image type="content" source="media/connect-aws-s3-waf/configure-connector.png" alt-text="Screenshot of AWS S3 WAF connector configuration page.":::
 
 ### Create AWS CloudFormation stacks
 
-Return to the AWS Console browser tab, which, after you log in, is open to the AWS CloudFormation page for creating a stack.
+Return to the AWS Console browser tab, which is open to the AWS CloudFormation page for creating a stack.
+
+If you're not already logged in to AWS, log in now, and you are redirected to the AWS CloudFormation page.
 
 #### Create the OIDC web identity provider
 
 Follow the instructions on the AWS Console page for creating a new stack.
+
+(If you already have the OIDC web identity provider from the previous version of the AWS S3 connector, skip this step and proceed to [Create the remaining AWS resources](#create-the-remaining-aws-resources).)
 
 1. Specify a template and upload a template file.
 
@@ -128,10 +134,19 @@ When the resource stacks are all created, return to the browser tab open to the 
 
 1. Input the name of the SQS queue that was created. The default name for this queue is **SentinelSQSQueue**, so the URL would be <br>`https://sqs.{AWS_REGION}.amazonaws.com/{AWS_ACCOUNT_ID}/SentinelSQSQueue`.
 
-1. Select **Connect** to add the collector. This creates a data collection rule for the Azure Monitor Agent to retrieve the logs and ingest them into a custom table in your Log Analytics workspace.
+1. Select **Connect** to add the collector. This creates a data collection rule for the Azure Monitor Agent to retrieve the logs and ingest them into the dedicated *AWSWAF* table in your Log Analytics workspace.
 
     :::image type="content" source="media/connect-aws-s3-waf/enter-collector-details.png" alt-text="Screenshot of adding new collector for WAF logs.":::
 
 ## Manual setup
 
 Now that the automatic setup process is more reliable, there aren't many good reasons to resort to manual setup. If you must, though, see the [Manual setup instructions](connect-aws.md#manual-setup) in the [Amazon Web Services S3 Connector documentation](connect-aws.md).
+
+## Test the connector
+
+After the connector is set up, go to the **Logs** page (or the **Advanced hunting** page in the Defender portal) and run the following query. If you get any results, the connector is working properly.
+
+```kusto
+AWSWAF
+| take 10
+```
