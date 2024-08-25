@@ -88,18 +88,21 @@ Follow these steps to add redirect URIs:
 
 ### Ports
 
-Modeling and Simulation Workbench requires users workstations be able to access the following ports:
+The Azure Modeling and Simulation Workbench requires certain ports to be accessible from users workstation. Firewalls and VPNs may be blocking access on these ports to certain destinations, when accessed from certain applications, or when connected to different networks. Check with your system administrator to ensure your client can access the service from all locations you will be working in.
 
-- **53/TCP or UDP**: DNS traffic.
+- **53/TCP** and **53/UDP**: DNS queries.
 - **443/TCP**: Standard https port for accessing the VM dashboard and any Azure portal page.
 - **5510/TCP**: Used by the ETX client to provide VDI access for both the native and web-based client.
 - **8443/TCP**: Used by the ETX client to negotiate and authenticate to ETX managment nodes.
 
 ### IP addresses
 
-For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f](https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It is not possible to list all Workbench IP addresses nor ensure that they will come from the same range.
+For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f](https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It is not possible to list all Workbench IP addresses nor ensure that they will come from the same range with the Public IP Connector.
 
-For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute Connector is suggested instead.
+> [!CAUTION]
+> The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled when more users are added to the Chamber. Discovery of endpoint IP addresses may be incomplete once the userbase increases.
+
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute Connector is suggested. When using a VPN Gateway, the access point of the
 
 ## Next steps
 
