@@ -18,8 +18,8 @@ groups:
   pivots:
   - id: url-test-tool-curl
     title: cURL
-  - id: url-test-tool-postman
-    title: Postman
+  - id: url-test-tool-visual-studio-code-rest-client-extension
+    title: Visual Studio Code REST Client Extension
 #Owner: kraigb
 - id: python-frameworks-01
   title: Web framework
