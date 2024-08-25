@@ -111,4 +111,4 @@ If you are not continuing to the next quickstart, delete the QnA Maker and Bot f
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get answer with Postman or cURL](get-answer-from-knowledge-base-using-url-tool.md)
+> [Get answer with the Visual Studio Code REST Client extension or cURL](get-answer-from-knowledge-base-using-url-tool.md)

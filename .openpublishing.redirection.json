@@ -1,6 +1,51 @@
 {
   "redirections": [
     {
+      "source_path": "articles/public-multi-access-edge-compute-mec/considerations-for-deployment.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/considerations-for-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/key-concepts.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/key-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/overview.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/partner-solutions.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/partner-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/quickstart-create-vm-azure-resource-manager-template.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/quickstart-create-vm-azure-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/quickstart-create-vm-cli.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/quickstart-create-vm-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-go-sdk.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-go-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/ai-studio/how-to/commitment-tier.md",
       "redirect_url": "/azure/ai-services/commitment-tier.md",
       "redirect_document_id": false
