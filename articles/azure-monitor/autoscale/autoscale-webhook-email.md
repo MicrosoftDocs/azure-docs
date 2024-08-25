@@ -4,7 +4,7 @@ description: Learn how to use autoscale actions to call web URLs or send email n
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 08/25/2024
 ms.subservice: autoscale
 ms.reviewer: akkumari
 ---
@@ -15,7 +15,11 @@ This article shows you how to set up notifications so that you can call specific
 Webhooks allow you to send HTTP requests to a specific URL endpoint (callback URL) when a certain event or trigger occurs. Using webhooks, you can automate and streamline processes by enabling the automatic exchange of information between different systems or applications. Use webhooks to trigger custom code, notifications, or other actions to run when an autoscale event occurs.
 
 ## Email
-You can send email to any valid email address when an autoscale event occurs. Administrators and co-administrators of the subscription where the rule is running are also notified.
+You can send email to any valid email address when an autoscale event occurs.
+
+> [!NOTE]    
+> Starting April 3, 2024, you won't be able to add any new Co-Administrators for Azure Autoscale Notifications. Azure Classic administrators will be retired on August 31, 2024, and you would not be able to send Azure Autoscale Notifications using Administrators and Co-Administrators after August 31, 2024. For moe information, see [Prepare for Co-administrators retirement](/azure/role-based-access-control/classic-administrators?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=azure-portal#prepare-for-co-administrators-retirement)
+
 
 ## Configure Notifications
 
@@ -27,7 +31,7 @@ Use the Azure portal, CLI, PowerShell, or Resource Manager templates to configur
 
 Select the **Notify** tab on the autoscale settings page to configure notifications.
 
-Select the check boxes to send an email to the subscription administrator or co-administrators.   You can also enter a list of email addresses to send notifications to.
+Enter a list of email addresses to send notifications to.
   
 Enter a webhook URI to send a notification to a web service. You can also add custom headers to the webhook request. For example, you can add an authentication token in the header, query parameters, or add a custom header to identify the source of the request.
 
@@ -42,19 +46,16 @@ Use the `az monitor autoscale update` or the `az monitor autoscale create` comma
 
 The following parameters are used to configure notifications:
 
-+ `--add-action` - The action to take when the autoscale rule is triggered. The value must be `email` or `webhook`.
-+ `--email-administrator {false, true}` - Send email to the subscription administrator.
-+ `--email-coadministrators {false, true}` - Send email to the subscription co-administrators.
++ `--add-action` - The action to take when the autoscale rule is triggered. The value must be `email` or `webhook`, and followed by the email address or webhook URI. 
 + `--remove-action` - Remove an action previously added by `--add-action`. The value must be `email` or `webhook`. The parameter is only relevant for the  `az monitor autoscale update` command.
 
 
-For example, the following command adds an email notification and a webhook notification to and existing autoscale setting. The command also sends email to the subscription administrator.  
+For example, the following command adds an email notification and a webhook notification to and existing autoscale setting.
 
 ```azurecli
  az monitor autoscale update \
 --resource-group <resource group name> \
 --name <autoscale setting name> \
---email-administrator true \
 --add-action email pdavis@contoso.com \
 --add-action webhook http://myservice.com/webhook-listerner-123
 ```
@@ -87,7 +88,6 @@ The following example shows how to configure a webhook and email notification.
 
 $notification=New-AzAutoscaleNotificationObject `
 -EmailCustomEmail "pdavis@contoso.com" `
--EmailSendToSubscriptionAdministrator $true ` -EmailSendToSubscriptionCoAdministrator $true `
 -Webhook $webhook
 
 
@@ -134,13 +134,13 @@ When you use the Resource Manager templates or REST API, include the `notificati
 
 | Field | Mandatory | Description |
 | --- | --- | --- |
-| operation |Yes |Value must be "Scale." |
-| sendToSubscriptionAdministrator |Yes |Value must be "true" or "false." |
-| sendToSubscriptionCoAdministrators |Yes |Value must be "true" or "false." |
-| customEmails |Yes |Value can be null [] or a string array of emails. |
-| webhooks |Yes |Value can be null or valid URI. |
-| serviceUri |Yes |Valid HTTPS URI. |
-| properties |Yes |Value must be empty {} or can contain key-value pairs. |
+| `operation` |Yes |Value must be `Scale`. |
+| `sendToSubscriptionAdministrator` |Yes |No longer supported. Value must be `false`. |
+| `sendToSubscriptionCoAdministrators` |Yes |No longer supported. Value must be `false`.|
+| `customEmails` |Yes |Value can be null [] or a string array of emails. |
+| `webhooks` |Yes |Value can be null or valid URI. |
+| `serviceUri` |Yes |Valid HTTPS URI. |
+| `properties` |Yes |Value must be empty {} or can contain key-value pairs. |
 
 ---
 
@@ -157,15 +157,15 @@ When the autoscale notification is generated, the following metadata is included
     "operation": "Scale Out",
     "context": {
         "timestamp": "2023-06-22T07:01:47.8926726Z",
-        "id": "/subscriptions/123456ab-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/microsoft.insights/autoscalesettings/AutoscaleSettings-002",
+        "id": "/subscriptions/0000aaaa-11BB-cccc-dd22-eeeeee333333/resourceGroups/rg-001/providers/microsoft.insights/autoscalesettings/AutoscaleSettings-002",
         "name": "AutoscaleSettings-002",
         "details": "Autoscale successfully started scale operation for resource 'ScaleableAppServicePlan' from capacity '1' to capacity '2'",
-        "subscriptionId": "123456ab-9876-a1b2-a2b1-123a567b9f8767",
+        "subscriptionId": "0000aaaa-11BB-cccc-dd22-eeeeee333333",
         "resourceGroupName": "rg-001",
         "resourceName": "ScaleableAppServicePlan",
         "resourceType": "microsoft.web/serverfarms",
-        "resourceId": "/subscriptions/123456ab-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/Microsoft.Web/serverfarms/ScaleableAppServicePlan",
-        "portalLink": "https://portal.azure.com/#resource/subscriptions/123456ab-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/Microsoft.Web/serverfarms/ScaleableAppServicePlan",
+        "resourceId": "/subscriptions/0000aaaa-11BB-cccc-dd22-eeeeee333333/resourceGroups/rg-001/providers/Microsoft.Web/serverfarms/ScaleableAppServicePlan",
+        "portalLink": "https://portal.azure.com/#resource/subscriptions/0000aaaa-11BB-cccc-dd22-eeeeee333333/resourceGroups/rg-001/providers/Microsoft.Web/serverfarms/ScaleableAppServicePlan",
         "resourceRegion": "West Central US",
         "oldCapacity": "1",
         "newCapacity": "2"
