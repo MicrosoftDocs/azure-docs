@@ -11,35 +11,30 @@ ms.date: 01/01/2023
 ---
 # Workbench: Azure Modeling and Simulation Workbench
 
-An Azure Modeling and Simulation Workbench is a collection of cloud resources combined and presented to be a easy to manage Platform-as-a-Service for secure, cloud-based collaboration. At the top level, a Workbench object is a grouping that encapsulates supporting services deployed in a Microsoft-managed environment.  Workbenches provide user, data, and workload isolation with full auditability and can be deployed and scaled on-demand.  The Modeling and Simulation Workbench provides conventional cloud resources, such as computing, storage, and networking, in an isolated, managed environment.
+The Azure Modeling and Simulation Workbench is a Platform-as-a-Service (Paas) that provides a secure, managed, cloud-based environment for collaboration and large-scale compute. The Modeling and Simulation Workbench provides conventional cloud resources, such as computing, storage, and networking, in an isolated, managed environment. The components are arranged as a hierarchy of containers, presented in the user's subscription but deployed in Microsoft's manged environment. Multiple enterprises can collaboratively work on projects within a workbench using Modeling and Simulation Workbench's secure design environment.
 
-This article presents the components which make up the Azure Modeling and Simulation Workbench.
+This article presents an overview of the individual components which make up the Azure Modeling and Simulation Workbench.
 
 ## Workbench
 
-A Workbench is the top-level container for the Azure Modeling and Simulation Workbench.  It hosts conventional Azure resources in a closed environment.  Workbenches house user and data isolation Chambers, virtual machines, and networking infrastructure.  The Workbench is the parent container for [Chamber](./concept-chamber.md) objects that host user data and workloads in isolated environments.  A Workbench is deployed by a special user role known as Workbench Owner and has no managing controls.
+A Workbench is the top-level container for the Azure Modeling and Simulation Workbench. It hosts conventional Azure resources in a closed environment. Workbenches house user and data isolation Chambers, virtual machines, and networking infrastructure.  A Workbench is deployed by a special user role known as Workbench Owner and has no managing controls.
 
-Multiple teams can work on shared projects within a workbench using Modeling and Simulation Workbench's collaborative and secure design environment.
+## Chambers
 
-The chamber and [connector](./concept-connector.md) have its own admin that manages the space, the components, and its users. Authorized users can access and modify systems and transform the components and services as per their project requirements. Users can also delete high-performance VMs after use to save on costs.
-
-## Workbench infrastructure
-
-The infrastructure of the Azure Modeling and Simulation Workbench is optimized for compute and memory intensive applications. Workbenches ensure maximum throughput and performance for engineering workloads, supported by high performance file systems and efficient job scheduling.
-
-A Workbench includes the following types of components:
+[Chambers](./concept-chamber.md) are contained within a Workbench object and host user data and workloads in isolated environments. Users assigned to a Chamber have visibility only to other Chamber users and resources. Compute resources are deployed into a Chamber as Workload VMs. Chambers host and have access to various storage types.
 
 ### Compute
 
-Workbenches host a select set of the Azure virtual machine (VM) offerings that span diverse memory-to-core ratios and suit different workload requirements. VM offerings include general purpose, compute optimized memory optimized VMs.
+Chamber Workload VMs are the Workbench's compute resource and the encapsulating container for traditional VMs. Unlike traditional Infrastructure-as-a-Service offerings, Workload VMs are created with a sensible set of defaults, eliminating the expertise required to securely deploy a VM into a cloud environment. Workload VMs are isolated from the internet and VMs in other Chambers, but have access to all VMs in the same Chamber. User provisioning is automated at the Chamber level. Chamber VMs offer a select set of the Azure virtual machine (VM) offerings that span diverse memory-to-core ratios and suit different workload requirements. VM offerings include general purpose, compute optimized memory optimized VMs.
 
-### Storage
+## Storage
 
-Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications.  Modeling and Simulation Workbench offers a selection of storage configurations that offer high-performance, shared or isolated access.
+Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications.  Modeling and Simulation Workbench offers a selection of storage configurations that offer high-performance, shared or isolated access. Storage is pre-configured to be accessible to Chambers or between a select set of Chambers.
 
-### Networking
+## Networking
 
-The Azure virtual network enables over-provisioned network resources with high bandwidth and low latency. Network quality and throughput impacts job runtime drastically. Azure offers built-in, custom options for fast, scalable, and secure connectivity aided by its wide and private optical-fiber capacity, enabling low-latency access globally. Azure also offers accelerated networking to reduce the number of hops and deliver improved performance.
+Networking is presented as a [Connector](./concept-connector.md) object that attaches to a Chamber. Connectors can be provisioned to allow connection directly from the internet or an Azure virtual network. Azure virtual network connections enable over-provisioned network resources with high bandwidth and low latency. Network quality and throughput impacts job runtime drastically. Azure offers built-in, custom options for fast, scalable, and secure connectivity aided by its wide and private optical-fiber capacity, enabling low-latency access globally. Azure also offers accelerated networking to reduce the number of hops and deliver improved performance.
+
 <!-- 
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - The network service creates private connections between the infrastructure on-premises without traversing the public internet. The service offers immense reliability, quicker speeds, and lower latencies than regular internet connections.
 
@@ -47,8 +42,8 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 - Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Microsoft Entra ID](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users. -->
 
-## Next step
-
 ## Related content
 
-- [User personas](./concept-user-personas.md)
+* [Storage](./concept-storage.md)
+* [User personas](./concept-user-personas.md)
+* [Chambers](./concept-chamber.md)
