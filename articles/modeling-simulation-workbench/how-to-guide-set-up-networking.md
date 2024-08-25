@@ -21,19 +21,21 @@ Each chamber has a dedicated connector. Each connector can support either of the
 
 ## Add a VPN or ExpressRoute connection
 
-If your organization set up an Azure network to oversee user access to the workbench, you can enforce stringent controls over the virtual network and subnet addresses employed to establish connections to the chamber.
+If your organization already has a presence in Azure or requires that connections to the Workbench be over a private network, the VPN or ExpressRoute Connector should be configured.
 
-When you create the connector, the Workbench Owner (Subscription Owner) can link a virtual network with a VPN gateway and/or ExpressRoute gateway. This link provides a secure connection between your on-premises network and the chamber.
+When a Connector is created, the Workbench Owner (Subscription Owner) can link an existing virtual network with a VPN gateway and/or ExpressRoute gateway. This link provides a secure connection between your on-premises network and the Chamber.
 
-To add a VPN or ExpressRoute connection:
+### Create a VPN or ExpressRoute connection
 
-1. Before you create a [connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, perform this role assignment. Azure Modeling and Simulation Workbench needs the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
+1. Before you create a [Connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, the Workbench needs a role assignment. Azure Modeling and Simulation Workbench needs the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
 
-   | Setting          | Value                                   |
-   | :--------------- | :-------------------------------------- |
-   | **Role**             | **Network Contributor**                 |
-   | **Assign access to** | **User, group, or service principal**       |
-   | **Members**          | **Azure Modeling and Simulation Workbench** |
+| Setting          | Value                                   |
+| :--------------- | :-------------------------------------- |
+| **Role**             | **Network Contributor**                 |
+| **Assign access to** | **User, group, or service principal**       |
+| **Members**          | **Azure Modeling and Simulation Workbench** |
+
+[!INCLUDE [azure-hpc-workbench-alert](includes/azure-hpc-workbench-alert.md)]
 
 1. When you create your connector, specify **VPN** or **ExpressRoute** as your method to connect to your on-premises network.
 
@@ -41,7 +43,9 @@ To add a VPN or ExpressRoute connection:
 
 ## Edit allowed public IP addresses
 
-For organizations that don't have an Azure network set up or that prefer to use a public IP, the Azure portal allows IP addresses to be allowlisted to connect into the chamber.  To use this connectivity method, you need to specify at least one IP address for the connector object when you create the workbench. Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
+Using the Azure portal, IP addresses can be allowlisted to connect to a Chamber. When creating a new Workbench and selecting the Public IP Connector, one IP address must be specified. After the Connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
+
+Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
 
 To edit the list of allowed IP addresses:
 
@@ -52,11 +56,11 @@ To edit the list of allowed IP addresses:
 
    :::image type="content" source="./media/resources-troubleshoot/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the allowlist for chamber connector networking.":::
 
-## Add redirect URIs for the application in Microsoft Entra ID
+## Redirect URIs
 
 A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication. Each time you create a new connector, you need to register the redirect URIs for your application registration in Microsoft Entra ID.
 
-Follow these steps to get redirect URIs:
+Follow these steps to find redirect URIs:
 
 1. On the page for your new workbench in Azure Modeling and Simulation Workbench, select **Connector** on the left menu. Then select the connector in the resource list.
 
@@ -66,23 +70,7 @@ Follow these steps to get redirect URIs:
 
    :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page that shows where you select the reply URLs.":::
 
-Follow these steps to add redirect URIs:
-
-1. In the Azure portal, in **Microsoft Entra ID** > **App registrations**, select the application that you created in your Microsoft Entra instance.
-
-1. Under **Manage**, select **Authentication**.
-
-1. Under **Platform configurations**, select **Add a platform**.
-
-1. Under **Configure platforms**, select the **Web** tile.
-
-1. On the **Configure Web** pane, paste the **Dashboard reply URL** value that you documented earlier. Then select **Configure**.
-
-1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
-
-1. Paste the **Authentication reply URL** value that you documented earlier. Then select **Save**.
-
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app authentication page that shows where you select redirect URIs.":::
+The redirect URIs must be registered with the Application registration to properly authenticate and redirect users to the workbench.  To learn how to add redirect URIs, see [How to add redirect URIs](./how-to-guide-add-redirect-uris.md).
 
 ## Ports and IP addresses
 

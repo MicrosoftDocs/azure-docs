@@ -11,9 +11,9 @@ ms.date: 08/18/2024
 ---
 # Configure firewalls in Red Hat
 
-Chamber VMs run Red Hat Linux as the operating system. By default, these images have a firewall configured to that deny any connections being made to the host, regardless if a service has been started. To allow communication on the necessary ports, the firewall must be configured to allow traffic to pass through. Similarly, if a rule is no longer required, it should be removed.
+Chamber VMs run Red Hat Enterprise Linux as the operating system. By default, the firewall in these images are configured to deny all inbound connections except to managed services. To allow inbound communication, rules must be added to the firewall to allow traffic to pass. Similarly, if a rule is no longer needed, it should be removed.
 
-This article will present the most common firewall configuration commands. For full documentation or more complex scenarios, see [Chapter 40. Using and configuring firewalld](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking) of the Red Hat Enterprise Linux 8 documentation.
+This article presents the most common firewall configuration commands. For full documentation or more complex scenarios, see [Chapter 40. Using and configuring firewalld](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking) of the Red Hat Enterprise Linux 8 documentation.
 
 All the operations referenced here require `sudo` privileges and thus need the Chamber Admin role.
 
@@ -31,24 +31,24 @@ List all currently open ports. This command will list ports and associated proto
 ```bash
 $ sudo firewall-cmd --list-all
 public (active)
-  target: default
-  icmp-block-inversion: no
-  interfaces: eth0
-  sources: 
-  services: cockpit dhcpv6-client ssh
-  ports: 6817-6819/tcp 60001-63000/tcp
-  protocols: 
-  forward: no
-  masquerade: no
-  forward-ports: 
-  source-ports: 
-  icmp-blocks: 
-  rich rules: 
+ target: default
+ icmp-block-inversion: no
+ interfaces: eth0
+ sources: 
+ services: cockpit dhcpv6-client ssh
+ ports: 6817-6819/tcp 60001-63000/tcp
+ protocols: 
+ forward: no
+ masquerade: no
+ forward-ports: 
+ source-ports: 
+ icmp-blocks: 
+ rich rules: 
 ```
 
 ## Open ports for traffic
 
-You can open ports for network traffic, opening a single port or a range.  These permissions are in the runtime set and not permanent and will not persist a service or VM restart.
+You can open a single or consecutive range of ports for network traffic. Changes to `firewall-d` are temporary and won't persist if the service is restarted or reloaded unless committed.
 
 ### Open a single port
 
@@ -68,7 +68,7 @@ success
 
 ### Open a range of ports
 
-Open a range of ports with `firewalld` for a specified protocol with the `--add-port=startport-endport/porttype` otpion. This command is often useful in distributed computing scenarios where workers are dispatched to a large number of nodes and multiple workers may be dispatched to the same physical node.  The following example opens 100 consecutive ports starting at port 5000 with the UDP protocol.
+Open a range of ports with `firewalld` for a specified protocol with the `--add-port=startport-endport/porttype` otpion. This command is often useful in distributed computing scenarios where workers are dispatched to a large number of nodes and multiple workers may be dispatched to the same physical node. The following example opens 100 consecutive ports starting at port 5000 with the UDP protocol.
 
 ```bash
 $ sudo firewall-cmd --add-port=5000-5099/udp
