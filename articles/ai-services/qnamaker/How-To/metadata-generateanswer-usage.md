@@ -186,7 +186,7 @@ We offer precise answer feature only with the QnA Maker managed version.
 
 ## Next steps
 
-The **Publish** page also provides information to [generate an answer](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
+The **Publish** page also provides information to [generate an answer](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or cURL.
 
 > [!div class="nextstepaction"]
 > [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)

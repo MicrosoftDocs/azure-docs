@@ -265,6 +265,9 @@ ml_client.begin_create_or_update(entity=compute)
 
 Use the following information to configure **serverless compute** nodes with no public IP address in the VNet for a given workspace:
 
+> [!IMPORTANT]
+> If you are using a no public IP serverless compute and the workspace uses an IP allow list, you must add an outbound private endpoint to the workspace. The serverless compute needs to communicate with the workspace, but when configured for no public IP it uses the Azure Default Outbound for internet access. The public IP for this outbound is dynamic, and can't be added to the IP allow list. Creating an outbound private endpoint to the workspace allows traffic from the serverless compute bound for the workspace to bypass the IP allow list.
+
 # [Azure CLI](#tab/cli)
 
 Create a workspace:
@@ -517,7 +520,7 @@ In this section, you learn how to use a virtual machine or Azure HDInsight clust
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
 Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
-* [Create and manage Azure virtual networks for Linux VMs](../virtual-machines/linux/tutorial-virtual-network.md)
+* [Create and manage Azure virtual networks for Linux VMs](/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Extend HDInsight using an Azure virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 

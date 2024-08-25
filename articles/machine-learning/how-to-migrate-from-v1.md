@@ -172,7 +172,7 @@ Environments created from v1 can be used in v2. In v2, environments have new fea
 
 ## Managing secrets
 
-The management of Key Vault secrets differs significantly in V2 compared to V1. The V1 set_secret and get_secret SDK methods are not available in V2. Instead, direct access using Key Vault client libraries should be used.
+The management of Key Vault secrets differs significantly in V2 compared to V1. The V1 set_secret and get_secret SDK methods are not available in V2. Instead, direct access using Key Vault client libraries should be used. When accessing secrets from a training script, you can use either the managed identity of the compute or your identity.
 
 For details about Key Vault, see [Use authentication credential secrets in Azure Machine Learning training jobs](how-to-use-secrets-in-runs.md?view=azureml-api-2&preserve-view=true).
 
