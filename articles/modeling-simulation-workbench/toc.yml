@@ -33,8 +33,8 @@ items:
         href: ./concept-vm-offerings.md
       - name: Storage
         href: ./concept-storage.md
-      - name: Shared storage
-        href: ./shared-storage.md
+      # - name: Shared storage
+      #   href: ./shared-storage.md
       - name: Business continuity
         items:
           - name: Disaster recovery
@@ -55,8 +55,6 @@ items:
         href: ./how-to-guide-manage-chamber-storage.md
       - name: Manage Shared Storage
         href: ./how-to-guide-manage-shared-storage.md
-      - name: Set up networking
-        href: ./how-to-guide-set-up-networking.md
       - name: Manage Red Hat firewalls
         href: ./how-to-guide-configure-firewall-rh.md
       - name: Start, stop, and restart Chambers, Connectors, and VMs

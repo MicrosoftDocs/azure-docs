@@ -84,6 +84,23 @@ Follow these steps to add redirect URIs:
 
    :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app authentication page that shows where you select redirect URIs.":::
 
+## Ports and IP addresses
+
+### Ports
+
+Modeling and Simulation Workbench requires users workstations be able to access the following ports:
+
+- **53/TCP or UDP**: DNS traffic.
+- **443/TCP**: Standard https port for accessing the VM dashboard and any Azure portal page.
+- **5510/TCP**: Used by the ETX client to provide VDI access for both the native and web-based client.
+- **8443/TCP**: Used by the ETX client to negotiate and authenticate to ETX managment nodes.
+
+### IP addresses
+
+For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f](https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It is not possible to list all Workbench IP addresses nor ensure that they will come from the same range.
+
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute Connector is suggested instead.
+
 ## Next steps
 
 To learn how to import data into an Azure Modeling and Simulation Workbench chamber, see [Import data](./how-to-guide-upload-data.md).
