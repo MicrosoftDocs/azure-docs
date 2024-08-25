@@ -40,10 +40,23 @@ Chamber Storage is the premier Chamber Storage offering.  It is hosted on Azure 
 
 Shared storage is accessible across Chambers in a Workbench. With each Shared Storage, you must specifiy which Chambers will have access to the Shared Storage Volume.  Shared Storage volumes appear under the `/mount/sharedstorage` mount point in every VM in the Chamber to which access was granted.
 
+To enable cross team and/or cross-organization collaboration in a secure manner within the workbench, a shared storage resource allows for selective data sharing between collaborating parties. It's an Azure NetApp Files based storage volume and is available to deploy in multiples of 4 TBs. Workbench owners can create multiple shared storage instances on demand and dynamically link them to existing chambers to facilitate secure collaboration.
+
+Users who are provisioned to a specific chamber can access all shared storage volumes linked to that chamber. Once users get deprovisioned from a chamber or that chamber gets deleted, they lose access to any linked shared storage volumes.  
+
+## Key features of shared storage
+
+**Performance**: A shared storage resource within the workbench is high-performance Azure NetApp Files based, targeting complex engineering workloads. It isn't limited to being used as a data transfer mechanism. The resource can also be used to run simulations.
+
+**Scalability**: Users can adjust the storage capacity and performance tier according to their needs, just like chamber private storage.  
+
+**Management**: Workbench Owners can manage storage capacity, resize storage, and change performance tiers through the Azure portal.
+
 > [!IMPORTANT]
-> All Chamber member have access to Shared Storage when that Chamber is granted access. Do not place any data in Shared Storage you do not wish to share with all members of that Chamber. Create a separate Chamber for select users if access needs to be restricted to Shared Storage.
+> All members of a Chamber have access to a Shared Storage resource once that Chamber has been granted access to the storage volume. Do not place any data in Shared Storage that you do not wish to share with all members of that Chamber. Create a separate Chamber for select users if access needs to be restricted.
 
-## Next steps
+## Resources
 
-> [!div class="nextstepaction"]
-> [Create Chamber Storage](article-concept.md)
+* [Create Chamber Storage](./how-to-guide-manage-chamber-storage.md)
+* [Create Shared Storage](./how-to-guide-manage-shared-storage.md)
+* [Chamber VM offerings and local storage](./concept-vm-offerings.md)
