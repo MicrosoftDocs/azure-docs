@@ -22,7 +22,7 @@ _OPC UA servers_ are software applications that communicate with assets. OPC UA 
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the connector for OPC UA.
 
-A _site_ is a collection of Azure IoT Operations instances. Sites help you organize your instances and manage access control. Your IT administrator creates sites, assigns instances to them, and grants access to OT users in your organization.
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
 
 In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster. An instance can have one or more asset endpoints.
 
@@ -45,7 +45,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 ## Select your site
 
-After you sign in, the web UI displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Instances that aren't part of a site appear in the **Unassigned instances** node. Select the site that you want to use:
+After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where a you have physcial assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](../../azure-arc/site-manager/overview.md). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
 :::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience.":::
 
@@ -204,8 +204,8 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     | Node ID | Tag name | Observability mode |
     | ------- | -------- | ------------------ |
-    | ns=3;s=FastUInt10 | temperature | none |
-    | ns=3;s=FastUInt100 | Tag 10 | none |
+    | ns=3;s=FastUInt10 | temperature | None |
+    | ns=3;s=FastUInt100 | Tag 10 | None |
 
 1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
 
@@ -219,11 +219,11 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 1. Create a CSV file that looks like the following example:
 
-    | NodeID              | TagName  | Sampling Interval Milliseconds | QueueSize | ObservabilityMode |
-    |---------------------|----------|--------------------------------|-----------|-------------------|
-    | ns=3;s=FastUInt1000 | Tag 1000 | 1000                           | 5         | none              |
-    | ns=3;s=FastUInt1001 | Tag 1001 | 1000                           | 5         | none              |
-    | ns=3;s=FastUInt1002 | Tag 1002 | 5000                           | 10        | none              |
+    | NodeID              | TagName  | QueueSize | ObservabilityMode | Sampling Interval Milliseconds |
+    |---------------------|----------|-----------|-------------------|--------------------------------|
+    | ns=3;s=FastUInt1000 | Tag 1000 | 5         | None              | 1000                           |
+    | ns=3;s=FastUInt1001 | Tag 1001 | 5         | None              | 1000                           |
+    | ns=3;s=FastUInt1002 | Tag 1002 | 10        | None              | 5000                           |
 
 1. Select **Add tag or CSV > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
 

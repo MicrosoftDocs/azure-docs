@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2024
 ms.topic: quickstart
-ms.date: 8/1/2024
+ms.date: 8/20/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-portal-cli-ps
 ---
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-portal-cli-ps
 
 Learn how to create and manage an Azure AI services resource. An Azure AI services resource allows you to access multiple Azure AI services with a single set of credentials. 
 
-You can access Azure AI services through two different resources: 
+You can access Azure AI services through two different resource kinds: 
 
 * Azure AI services multi-service resource:
     * Access multiple Azure AI services with a single set of credentials.

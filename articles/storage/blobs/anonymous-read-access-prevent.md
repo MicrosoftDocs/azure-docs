@@ -98,22 +98,11 @@ Azure Storage logging in Azure Monitor supports using log queries to analyze log
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings**.
-1. Select **Blob** to log requests made against Blob storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose which types of requests to log. All anonymous requests are read requests, so select **StorageRead** to capture anonymous requests.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
-
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](./monitor-blob-storage-reference.md#resource-logs).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](monitor-blob-storage-reference.md#resource-logs).
 
 #### Query logs for anonymous requests
 
@@ -321,8 +310,8 @@ Set this parameter so that no sign-in occurs -- you must sign in first. Use this
 This command produces only STDOUT output (not standard PowerShell) with information about affect accounts.
 #>
 param(
-    [boolean]$BypassConfirmation=$false,
-    [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName='SubscriptionId')]
+    [boolean]$BypassConfirmation = $false,
+    [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = 'SubscriptionId')]
     [String] $SubscriptionId,
     [switch] $ReadOnly, # Use this if you don't want to make changes, but want to get information about affected accounts
     [switch] $NoSignin # Use this if you are already signed in and don't want to be prompted again
@@ -330,48 +319,41 @@ param(
 
 begin {
     if ( ! $NoSignin.IsPresent ) {
-        login-azaccount | out-null
+        Login-AzAccount | Out-Null
     }
 }
 
 process {
     try {
-        select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
-    } catch {
-        write-error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+        Select-AzSubscription -SubscriptionId $SubscriptionId -ErrorAction Stop | Out-Null
+    }
+    catch {
+        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -ErrorAction Stop
     }
 
-    foreach ($account in Get-AzStorageAccount) 
-    {
-        if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
-        {
+    foreach ($account in Get-AzStorageAccount) {
+        if ($null -eq $account.AllowBlobPublicAccess -or $account.AllowBlobPublicAccess -eq $true) {
             Write-host "Account:" $account.StorageAccountName " isn't disallowing public access."
 
             if ( ! $ReadOnly.IsPresent ) {
-                if(!$BypassConfirmation)
-                {
+                if (!$BypassConfirmation) {
                     $confirmation = Read-Host "Do you wish to disallow public access? [y/n]"
                 }
-                if($BypassConfirmation -or $confirmation -eq 'y')
-                {
-                    try
-                    {
-                        set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
+                if ($BypassConfirmation -or $confirmation -eq 'y') {
+                    try {
+                        Set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
                         Write-Host "Success!"
                     }
-                    catch
-                    {
-                        Write-output $_
+                    catch {
+                        Write-Output $_
                     }
                 }
             }
         }
-        elseif($account.AllowBlobPublicAccess -eq $false)
-        {
-            Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
+        elseif ($account.AllowBlobPublicAccess -eq $false) {
+            Write-Host "Account:" $account.StorageAccountName "has public access disabled, no action required."
         }
-        else
-        {
+        else {
             Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
         }
     }

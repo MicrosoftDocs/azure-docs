@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 08/29/2023
 ---
 
-Use this guide to get started calling the Azure OpenAI Service image generation APIs by using PowerShell.
+Use this guide to get started calling the Azure OpenAI Service image generation APIs with PowerShell.
 
 > [!NOTE]
-> The image generation API creates an image from a text prompt. It doesn't edit existing images or create variations.
+> The image generation API creates an image from a text prompt. It doesn't edit or create variations of existing images.
 
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - For this task, <a href="https://aka.ms/installpowershell" target="_blank">the latest version of PowerShell 7</a> is recommended because the examples use new features not available in Windows PowerShell 5.1.
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in a supported region (see [Region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)). For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 
 ## Setup
@@ -27,10 +27,12 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 [!INCLUDE [environment-variables](environment-variables.md)]
 
+<!--
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=POWERSHELL&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+-->
 
-## Create a new PowerShell script
+## Generate images with DALL-E 2
 
 1. Create a new PowerShell file named _quickstart.ps1_. Open the new file in your preferred editor or IDE.
 

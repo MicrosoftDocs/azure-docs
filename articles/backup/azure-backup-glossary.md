@@ -79,7 +79,7 @@ Refer to [Azure Resource Manager documentation](../azure-resource-manager/manage
 
 ## Azure Disk Encryption (ADE)
 
-Refer to [Azure Disk Encryption documentation](../virtual-machines/disk-encryption-overview.md).
+Refer to [Azure Disk Encryption documentation](/azure/virtual-machines/disk-encryption-overview).
 
 ## Backend storage / Cloud storage / Backup storage
 
@@ -163,7 +163,7 @@ A GFS (Grandfather-father-son) backup policy is one that enables you to define w
 
 ## IaaS VMs / Azure VMs
 
-Refer to the [Azure VM documentation](../virtual-machines/index.yml).
+Refer to the [Azure VM documentation](/azure/virtual-machines/).
 
 ## Incremental backup
 
@@ -195,7 +195,7 @@ With Azure Backup Server, you can protect application workloads such as Hyper-V 
 
 ## Managed disks
 
-Refer to the [Managed disks documentation](../virtual-machines/managed-disks-overview.md).
+Refer to the [Managed disks documentation](/azure/virtual-machines/managed-disks-overview).
 
 ## MARS Agent
 
@@ -283,7 +283,7 @@ Soft delete is a feature that helps guard against accidental deletion of backup 
 
 ## Snapshot
 
-A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](../virtual-machines/windows/snapshot-copy-managed-disk.md) and [file snapshots](../storage/files/storage-snapshots-files.md).
+A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](/azure/virtual-machines/windows/snapshot-copy-managed-disk) and [file snapshots](../storage/files/storage-snapshots-files.md).
 
 ## Storage account
 

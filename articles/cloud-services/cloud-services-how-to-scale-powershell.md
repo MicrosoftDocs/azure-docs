@@ -2,7 +2,7 @@
 title: Scale an Azure cloud service (classic) in Windows PowerShell | Microsoft Docs
 description: Learn how to use PowerShell to scale a web role or worker role in or out in Azure cloud services (classic).
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.subservice: autoscale
 ms.date: 07/23/2024
 author: hirenshah1

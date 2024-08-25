@@ -21,7 +21,7 @@ The top level AI Studio resources (hub and project) are based on Azure Machine L
 
 - **AI Studio hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
     - Security configuration including a managed network that spans projects and model endpoints.
-    - Compute resources for interactive development, finetuning, open source, and serverless model deployments.
+    - Compute resources for interactive development, fine-tuning, open source, and serverless model deployments.
     - Connections to other Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search. Hub-scoped connections are shared with projects created from the hub.
     - Project management. A hub can have multiple child projects.
     - An associated Azure storage account for data upload and artifact storage.
@@ -148,7 +148,6 @@ Azure monitor and Azure Log Analytics provide monitoring and logging for the und
 For more information on price and quota, use the following articles:
 
 - [Plan and manage costs](../how-to/costs-plan-manage.md)
-- [Commitment tier pricing](../how-to/commitment-tier.md)
 - [Quota management](../how-to/quota.md)
 
 ## Next steps

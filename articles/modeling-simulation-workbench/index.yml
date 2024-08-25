@@ -10,7 +10,7 @@ metadata:
   ms.reviewer: yochu
   ms.service: modeling-simulation-workbench
   ms.topic: index
-  ms.date: 01/01/2023
+  ms.date: 08/21/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,20 +24,6 @@ landingContent:
         links:
           - text: What is Modeling and Simulation Workbench?
             url: ./modeling-simulation-workbench-overview.md
-      - linkListType: concept
-        links:
-          - text: Workbench
-            url: ./concept-workbench.md
-          - text: User Personas
-            url: ./concept-user-personas.md
-          - text: Chambers
-            url: ./concept-chamber.md
-          - text: Connectors
-            url: ./concept-connector.md
-          - text: Data Pipeline
-            url: ./concept-data-pipeline.md
-          - text: License service
-            url: ./concept-license-service.md
   # Card: Get started
   - title: Get started
     linkLists:
@@ -59,8 +45,27 @@ landingContent:
             url: ./how-to-guide-download-data.md
           - text: Manage chamber storage
             url: ./how-to-guide-manage-storage.md
-#          - name: Disaster Recovery
-#            href: ./how-to-guide-disaster-recovery.md
+  # Card: Concepts
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Workbench
+            url: ./concept-workbench.md
+          - text: User personas
+            url: ./concept-user-personas.md
+          - text: Chamber
+            url: ./concept-chamber.md
+          - text: Connector
+            url: ./concept-connector.md
+          - text: Data pipeline
+            url: ./concept-data-pipeline.md
+          - text: License service
+            url: ./concept-license-service.md
+          - text: Shared storage
+            url: ./shared-storage.md
+          - text: Disaster recovery
+            url: ./disaster-recovery.md  
   # Card: Reference
 #  - title: Reference
 #    linkLists:

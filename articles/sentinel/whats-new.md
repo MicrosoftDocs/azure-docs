@@ -21,6 +21,7 @@ The listed features were released in the last three months. For information abou
 ## August 2024
 
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
+- [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
 - [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
@@ -36,6 +37,10 @@ The exported JSON file is workspace-independent, so it can be imported to other 
 The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
 
 Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+### Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)
+
+If you've onboarded Microsoft Sentinel to the Microsoft unified security operations platform, Microsoft Sentinel data is now available with Defender XDR data in Microsoft Defender multitenant management. Only one Microsoft Sentinel workspace per tenant is currently supported in the Microsoft unified security operations platform. So, Microsoft Defender multitenant management shows security information and event management (SIEM) data from one Microsoft Sentinel workspace per tenant. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview) and [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
 ### Premium Microsoft Defender Threat Intelligence data connector (Preview)
 
