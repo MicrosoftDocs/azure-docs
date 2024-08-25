@@ -30,6 +30,7 @@ A VPN Connector can be created which deploys infrastructure specifically for VPN
 
 [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) provides secure, dedicated, encrypted connectivity from on-premise to an Azure landing zone. A Workbench Owner must create a Connector expressly for ExpressRoute, providing the necessary virtual network, supporting network infrastructure and peer the appropriate vnets.
 
-## Related content
+## Next step
 
-- [Create a Connector](./how-to-guide-set-up-networking.md)
+> [!div class="nextstepaction"]
+> [Create a Connector](./how-to-guide-set-up-networking.md)
