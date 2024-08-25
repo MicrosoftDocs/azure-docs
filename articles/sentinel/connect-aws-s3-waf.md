@@ -59,7 +59,7 @@ The process of enabling and configuring the connector consists of the following 
 
 - **In Microsoft Sentinel:**
 
-    - Enable and configure the **Amazon Web Services S3 WAF Connector** in the Microsoft Sentinel portal. [See the instructions below](#add-the-aws-role-and-queue-information-to-the-s3-data-connector).
+    - Configure the **Amazon Web Services S3 WAF Connector** in the Microsoft Sentinel portal by adding **log collectors** that poll the queue and retrieve log data from the S3 bucket. [See the instructions below](#add-log-collectors).
 
 ## Set up the AWS environment
 
