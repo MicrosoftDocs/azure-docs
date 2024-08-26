@@ -57,7 +57,8 @@ The list of impacted resources can be exported to an excel file by clicking on t
 
 The CSV file includes the properties associated with each event and additional details per event level. This CSV could be used as a static point in time snapshot for all the active events under the Service Health Planned Maintenance view. These details are a subset of more event level information available through Service Health API, which could be integrated with Event Grid or other events automation solutions.
 
-:::image type="content" source="./media/impacted-resource-maintenance/details-csv.PNG" alt-text="Screenshot of export to csv button.":::
+:::image type="content" source="./media/impacted-resource-maintenance/SH-PM-CSV-2.png" alt-text="Screenshot of csv file format.":::
+
 
 Below is a short description of each of the column properties:
 |Column Property  |Description  |
