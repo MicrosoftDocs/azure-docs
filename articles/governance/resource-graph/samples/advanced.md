@@ -4,8 +4,8 @@ description: Use Azure Resource Graph to run some advanced queries, including wo
 ms.date: 06/15/2022
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.author: daphnemamsft
-author: daphnemamsft
+ms.author: daphnema
+author: daphnema
 ---
 # Advanced Resource Graph query samples
 
@@ -38,8 +38,8 @@ before you begin.
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before running any of the following queries, check that your environment is ready. See
-[Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
-PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
+[Azure CLI](../first-query-azurecli.md#install-the-extension) and [Azure
+PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
 ## <a name="apiversion"></a>Show resource types and API versions
@@ -70,7 +70,7 @@ Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(a
 
 # [Portal](#tab/azure-portal)
 
-Try this query in Azure Resource Graph Explorer: [l](../media/)
+Try this query in Azure Resource Graph Explorer: 
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20distinct%20type%2C%20apiVersion%0D%0A%7C%20where%20isnotnull%28apiVersion%29%0D%0A%7C%20order%20by%20type%20asc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20distinct%20type%2C%20apiVersion%0D%0A%7C%20where%20isnotnull%28apiVersion%29%0D%0A%7C%20order%20by%20type%20asc" target="_blank">portal.azure.us</a>
