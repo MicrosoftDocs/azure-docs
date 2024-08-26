@@ -149,7 +149,7 @@ A compute instance is considered inactive if the below conditions are met:
 * No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are autoterminated if VS Code detects no activity for 3 hours.
 * No custom applications are running on the compute
 
-A compute instance won't be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. We also don't track VS Code SSH connections to determine activity.
+A compute instance won't be considered idle if any custom application is running. To shutdown a compute with a custom application automatically, a schedule needs to be set up, or the custom application needs to be removed.  There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. We also don't track VS Code SSH connections to determine activity.
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock is reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock is reset to 0.
 
