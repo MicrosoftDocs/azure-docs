@@ -81,7 +81,7 @@ We generally recommend using the most recent versions of the agents. The [versio
 - Kubernetes: 1.27.3
 - Mariner: 2.0.20240223
 
-## Arc-enabled SCVMM
+### Arc-enabled SCVMM
 
 - Use same `vmnetwork` key for HG and Cloud (`vmnetworkid`)
 - SCVMM - Add fallback for VMM IP pool with support for IP range in appliance network, add `--vlanid` parameter to accept `vlanid`
@@ -138,7 +138,7 @@ We generally recommend using the most recent versions of the agents. The [versio
 ### Bug fixes
 
 - Fix for clusters impacted by the `node-ip` being set as `kube-vip` IP issue
-- Bug fix for SCVMM cred rotation with the same credentials
+- Fix for SCVMM cred rotation with the same credentials
 
 ## Version 1.0.17 (December 2023)
 
@@ -217,7 +217,7 @@ We generally recommend using the most recent versions of the agents. The [versio
 - Allowing usage of `config-file` parameter for `get-credentials` command
 (new) Troubleshoot command - help debug live-site issues by running allowed actions directly on the appliance using a JIT access key
 
-## Bug fix
+### Bug fix
 
 - IPClaim premature deletion issue vSphere static IP
 
