@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 08/26/2024
 ms.author: danlep
 ms.custom: fasttrack-edit
 ---
@@ -60,6 +60,7 @@ Total **capacity** is an average of its own values from every [unit](upgrade-and
 Total **capacity** is an average of its own values from every [unit](upgrade-and-scale.md) of an API Management instance.
 
 Although the **capacity metric** is designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in the **capacity metric**.
+
 ---
 
 ## Capacity metric behavior
@@ -115,6 +116,7 @@ Low capacity metrics don't necessarily mean that your API Management instance is
 > [!TIP]
 > You can use Azure Monitor [autoscaling](api-management-howto-autoscale.md) to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
 > In multi-region deployments, only scaling the master location is allowed.
+
 ---
 
 ## Use capacity for scaling decisions
