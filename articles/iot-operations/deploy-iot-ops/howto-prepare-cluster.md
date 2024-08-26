@@ -1,11 +1,11 @@
 ---
 title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
-author: dominicbetts
-ms.author: dobett
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 07/22/2024
+ms.date: 08/26/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -186,16 +186,16 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 ### Configure multi-node clusters for Edge Storage Accelerator
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
 
-1. Install the specific kernel using:
+1. Install the required NVME over TCP module for your kernel using the following command:
 
    ```bash
    sudo apt install linux-modules-extra-`uname -r`
    ```
 
    > [!NOTE]
-   > The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Edge Storage Accelerator release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
