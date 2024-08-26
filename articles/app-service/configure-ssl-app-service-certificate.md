@@ -124,9 +124,9 @@ By default, App Service certificates have a one-year validity period. Before the
 
    If you turn on automatic renewal, certificates can start automatically renewing 32 days before expiration.
 
-   :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot of specified certificate's auto renewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" :::
+   :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot of specified certificate's auto renewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [the maximum expiration date will be 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
+1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
 1. After the renew operation completes, select **Sync**.
 
@@ -135,16 +135,15 @@ By default, App Service certificates have a one-year validity period. Before the
    > [!NOTE]
    > If you don't select **Sync**, App Service automatically syncs your certificate within 24 hours.
 
-## Rekey and App Service certificate
+## Rekey an App Service certificate
 
-If you think your certificate's private key is compromised, you can rekey your certificate. This action rolls the certificate with a new certificate issued from the certificate authority.
+If you think your certificate's private key is compromised, you can rekey your certificate. This action rotates the certificate with a new certificate issued from the certificate authority.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. From the left menu, select **Rekey and Sync**.
 
 1. To start the process, select **Rekey**. This process can take 1-10 minutes to complete.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of rekeying an App Service certificate.](./media/configure-ssl-certificate/rekey-app-service-cert.png)
+   :::image type="content" source="./media/configure-ssl-certificate/rekey-app-service-cert.png" alt-text="Screenshot of rekeying an App Service certificate." lightbox="./media/configure-ssl-certificate/rekey-app-service-cert.png"::: 
 
 1. You might also be required to [reconfirm domain ownership](#confirm-domain-ownership).
 
