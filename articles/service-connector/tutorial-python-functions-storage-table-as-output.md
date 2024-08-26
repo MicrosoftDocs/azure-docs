@@ -38,7 +38,7 @@ An overview of the function project components in this tutorial:
 
 ## Create a Python function project
 
-> [!IMPORTANT]
+> [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 Follow the [tutorial to create a local Azure Functions project](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#create-an-azure-functions-project), and provide the following information at the prompts:
