@@ -51,12 +51,12 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > While ExpressRoute circuit is preferred over Site-to-Site VPN when both routes are the same, Azure will use the longest prefix match to choose the route towards the packet's destination.
 > 
 
-:::image type="content" source="media/expressroute-howto-coexist-resource-manager/scenario1.jpg" alt-text="Diagram of a site-to-site VPN connection used as backup for ExpressRoute.":::
+Replace image with same diagram that does not include Contoso company name in it- trying to minimize public docs that expose CX names
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 
 
-:::image type="content" source="media/expressroute-howto-coexist-resource-manager/scenario2.jpg" alt-text="Diagram of a site-to-site VPN connection coexisting with an ExpressRoute connection for two different sites.":::
+Replace image with same diagram that does not include Contoso company name in it- trying to minimize public docs that expose CX names
 
 ## Selecting the steps to use
 There are two different sets of procedures to choose from. The configuration procedure that you select depends on whether you have an existing virtual network that you want to connect to, or you want to create a new virtual network.
