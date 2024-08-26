@@ -292,7 +292,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file scheme widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
     | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Start with "test"              |
-    | At a specific time | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
+    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
     | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
     | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp:*               |
     | Separator          | The separator is the delimiter for flattening the key-values to Json/Yaml. It supports the configuration's hierarchical structure and doesn't apply to property files and feature flags. Select one of the following options: *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*,  or *(No separator)*. | *;*                      |
@@ -375,7 +375,7 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                               | *my-subscription*     |
     | Resource group | Select a resource group that contains the App Configuration store where you want to export the configuration. Your current resource group is selected by default. | *my-resource-group*   |
-    | Resource       | Select the App Configuration store that contains the configuration you want to import.          | *my-other-app-config-store* |
+    | Resource       | Select the App Configuration store where you want to export the configuration.          | *my-other-app-config-store* |
 
 
 1. Fill out the next part of the form:
@@ -383,12 +383,12 @@ From the Azure portal, follow these steps:
     | Parameter   | Description  | Example                   |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
     | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp*               |
-    | Override labels       | Optional. By default, imported items use their current label. Check the box and enter a label to override these defaults with a custom label.  | *new*                     |
-    | Override content types | Optional. By default, imported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the imported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for imported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' and isn't updated by this parameter.| *JSON (application/json)* |
+    | Override labels       | Optional. By default, exported items use their current label. Check the box and enter a label to override these defaults with a custom label.  | *new*                     |
+    | Override content types | Optional. By default, exported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the exported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for exported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' and isn't updated by this parameter.| *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the export.
 
-You exported key-values and feature flags that have the label "prod" from an App Configuration store, at their state from 07/28/2022 12:00:00 AM, and trimmed the prefix "TestApp", then assigned them the label "new". All key-values that you imported have content type set as "JSON".
+You exported key-values and feature flags that have the label "prod" from an App Configuration store, at their state from 07/28/2022 12:00:00 AM, and trimmed the prefix "TestApp", then assigned them the label "new". All key-values that you exported have content type set as "JSON".
 
 #### [Azure CLI](#tab/azure-cli)
 
