@@ -117,6 +117,11 @@ In Azure, virtual network peering and connected groups are two methods of establ
 
 In a connected group, all virtual networks are connected without individual peering relationships. For example, if three virtual networks are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
 
+### When managing virtual networks that currently use VNet peering, does this result in paying VNet peering charges twice with Azure Virtual Network Manager?
+
+There is no second or double charge for peering. Your virtual network manager respects all previously created VNet peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
+
+
 ### Can I create exceptions to security admin rules?
 
 Normally, security admin rules are defined to block traffic across virtual networks. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. For these scenarios, you can [create exceptions](./concept-enforcement.md#network-traffic-enforcement-and-exceptions-with-security-admin-rules) where necessary. [Learn how to block high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these scenarios.
