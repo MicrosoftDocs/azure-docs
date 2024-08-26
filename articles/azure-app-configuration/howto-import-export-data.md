@@ -286,7 +286,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Fill out the form with the following parameters:
 
-    | Parameter          | Description                                                                                                                                                                                                                       | Example                  |
+    | Parameter          | Description  | Example                  |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
     | File type          | Select the type of file you're exporting between Yaml, Properties, or Json.   | *JSON*                   | 
     | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file scheme widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
@@ -461,8 +461,8 @@ From the Azure portal, follow these steps:
     | Parameter      | Description                                                                         | Example               |
     |----------------|-------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                   | *my-subscription*     |
-    | Resource group | Select a resource group that contains the App Service with configuration to export. | *my-resource-group*   |
-    | Resource       | Select the App Service that contains the configuration you want to export.          | *my-app-service* |
+    | Resource group | Select a resource group that contains the App Service where you want to export the configuration. | *my-resource-group*   |
+    | Resource       | Select the App Service where you want to export the configuration.        | *my-app-service* |
 
 
 1. Optionally fill out the next part of the form:
