@@ -166,16 +166,6 @@ When trying to set the configuration for Arc resource bridge, you might receive 
 
 This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
 
-### Action failed - no such host
-
-When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError` and `errorResponse` as code `GuestInternetConnectivityError` and `no such host`, then the error may be caused by the appliance VM IPs not having reachability to the endpoint specified in the error. 
-
-Error example: 
-
-`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org: on 127.0.0.53:53: no such host. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings`
-
-In the example, the appliance VM IPs are not able to access `http://aszhcitest01.company.org:55000`. Please work with your network administrator to grant the proper access to the appliance VM IPs.
-
 ### Azure Arc resource bridge is unreachable
 
 Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change and result in failing services.
@@ -254,6 +244,16 @@ Resource move of Arc resource bridge isn't currently supported. You'll need to d
 ## Azure Arc-enabled VMs on Azure Stack HCI issues
 
 For general help resolving issues related to Azure Arc-enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
+
+### Action failed - no such host
+
+When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError` and `errorResponse` as code `GuestInternetConnectivityError` and `no such host`, then the error may be caused by the appliance VM IPs not having reachability to the endpoint specified in the error. 
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org: on 127.0.0.53:53: no such host. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings`
+
+In the example, the appliance VM IPs are not able to access `http://aszhcitest01.company.org:55000`. Please work with your network administrator to grant the proper access to the appliance VM IPs.
 
 ### Authentication handshake failure
 
