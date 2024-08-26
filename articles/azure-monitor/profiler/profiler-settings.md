@@ -3,7 +3,7 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 08/23/2024
 ---
 
 # Configure Application Insights Profiler
@@ -113,6 +113,5 @@ Memory % | Percentage of memory used while Profiler was running.
 [enable-app-insights]: ./media/profiler-settings/enable-app-insights-blade-01.png
 [update-site-extension]: ./media/profiler-settings/update-site-extension-01.png
 [change-and-save-appinsights]: ./media/profiler-settings/change-and-save-app-insights-01.png
-[app-settings-for-profiler]: ./media/profiler-settings/app-settings-for-profiler-01.png
 [check-for-extension-update]: ./media/profiler-settings/check-extension-update-01.png
 [profiler-timeout]: ./media/profiler-settings/profiler-time-out.png

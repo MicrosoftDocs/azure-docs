@@ -20,8 +20,8 @@ This article will tell you how to set up a FSLogix profile container share for a
 
 When creating the virtual machine, be sure to place it on either the same virtual network as the host pool virtual machines or on a virtual network that has connectivity to the host pool virtual machines. It must also be joined to your Active Directory domain. You can create a virtual machine in multiple ways. Here are a few options:
 
-- [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Create a virtual machine from an Azure Gallery image](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Create a virtual machine from a managed image](/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 ## Prepare the virtual machine to act as a file share for user profiles
@@ -29,7 +29,7 @@ When creating the virtual machine, be sure to place it on either the same virtua
 The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
 1. Add the Azure Virtual Desktop Active Directory users to an [Active Directory security group](/windows/security/identity-protection/access-control/active-directory-security-groups/). This security group will be used to authenticate the Azure Virtual Desktop users to the file share virtual machine you just created.
-2. [Connect to the file share virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
+2. [Connect to the file share virtual machine](/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
 5. Select **Share this folder**, select **Permissions...**, then select **Add...**.
@@ -42,7 +42,7 @@ For more information about permissions, see the [FSLogix documentation](/fslogix
 
 To configure FSLogix profile container, do the following on each session host registered to the host pool:
 
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and [download the FSLogix agent](https://aka.ms/fslogix_download).
 3. Open the downloaded .zip file, navigate to either **Win32\\Release** or **x64\\Release** (depending on your operating system) and run **FSLogixAppsSetup** to install the FSLogix agent.  To learn more about how to install FSLogix, see [Download and install FSLogix](/fslogix/install-ht/).
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed successfully.

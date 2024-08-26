@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 12/19/2023
+ms.date: 08/23/2024
 ms.author: jboback
 ms.custom: language-service-clu
 ---

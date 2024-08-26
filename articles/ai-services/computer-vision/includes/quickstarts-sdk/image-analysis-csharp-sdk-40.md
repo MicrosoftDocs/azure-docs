@@ -12,7 +12,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for .NET to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
+Use the Image Analysis client SDK for .NET to read text in an image and generate an image caption. This quickstart analyzes a remote image and prints the results to the console.
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | [Package (NuGet)](https://aka.ms/azsdk/image-analysis/package/nuget) | [Samples](https://aka.ms/azsdk/image-analysis/samples/csharp)
 

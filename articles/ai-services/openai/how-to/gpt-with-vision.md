@@ -6,7 +6,7 @@ author: PatrickFarley #dereklegenzoff
 ms.author: pafarley #delegenz
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 08/21/2024
 manager: nitinme
 ---
 
@@ -15,7 +15,7 @@ manager: nitinme
 
 GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding.
 
-The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video if you use [Vision enhancement](#use-vision-enhancement-with-video).
+The GPT-4 Turbo with Vision model answers general questions about what's present in images. You can also show it video if you use [Vision enhancement](#use-vision-enhancement-with-video).
 
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
@@ -236,12 +236,12 @@ The API response should look like the following.
 }
 ```
 
-Every response includes a `"finish_details"` field. It has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
 
-## Detail parameter settings in image processing: Low, High, Auto  
+### Detail parameter settings in image processing: Low, High, Auto  
 
 The _detail_ parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
 - `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
@@ -400,7 +400,7 @@ The chat responses you receive from the model should now include enhanced inform
     "choices":
     [
         {
-            "finish_details": {
+            "finish_reason": {
                 "type": "stop",
                 "stop": "<|fim_suffix|>"
             },
@@ -443,7 +443,7 @@ The chat responses you receive from the model should now include enhanced inform
 }
 ```
 
-Every response includes a `"finish_details"` field. It has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
@@ -763,7 +763,7 @@ The chat responses you receive from the model should include information about t
 }
 ```
 
-Every response includes a `"finish_details"` field. It has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.

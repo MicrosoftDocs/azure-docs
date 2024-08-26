@@ -93,8 +93,8 @@ If you have questions or need help,  [create a support request](https://go.micro
 To learn more about reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for SUSE software plans with Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for SUSE software plans with Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

@@ -3,7 +3,7 @@ title: Azure table indexer
 titleSuffix: Azure AI Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure AI Search.
 
-manager: nitinme
+manager: vinodva
 author: mgottein
 ms.author: magottei
 
@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 08/23/2024
 ---
 
 # Index data from Azure Table Storage
@@ -174,7 +174,6 @@ Once you have an index and data source, you're ready to create the indexer. Inde
             "batchSize" : null,
             "maxFailedItems" : null,
             "maxFailedItemsPerBatch" : null,
-            "base64EncodeKeys" : null,
             "configuration" : { }
         },
         "fieldMappings" : [ ],

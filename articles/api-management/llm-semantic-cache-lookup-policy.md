@@ -71,7 +71,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 ### Example with corresponding llm-semantic-cache-store policy
 
-[!INCLUDE [api-management-semantic-cache-example](../../includes/api-management-semantic-cache-example.md)]
+[!INCLUDE [api-management-llm-semantic-cache-example](../../includes/api-management-llm-semantic-cache-example.md)]
 
 ## Related policies
 
