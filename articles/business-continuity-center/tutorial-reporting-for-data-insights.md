@@ -15,7 +15,7 @@ ms.author: v-abhmallick
 
 This tutorial describes how to set up and view reports in Azure Business Continuity Center.
 
-Azure Business Continuity Center provides a reporting solution for the backup and disaster recovery admininistrators to gain insights on the long-term data related to Azure Backup and Azure Site Recovery. This includes:
+Azure Business Continuity Center provides a reporting solution for the backup and disaster recovery administrators to gain insights on the long-term data related to Azure Backup and Azure Site Recovery. This solution includes:
 
 - Allocating and forecasting of cloud storage consumed.
 - Auditing backups and restores.
@@ -25,7 +25,7 @@ The Reporting solution in Azure Business Continuity Center uses Azure Monitor lo
 
 ## Create a Log Analytics workspace or use an existing workspace
 
-Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace, can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure-monitor/logs/quick-create-workspace.md).
+Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure-monitor/logs/quick-create-workspace.md).
 
 The data in a Log Analytics workspace is kept for *30 days* by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see Configure data retention and archive policies in Azure Monitor Logs.
 
@@ -55,13 +55,13 @@ To generate the reports, see the following options:
 
 To view your reports after setting up your vault (to transfer data to Log Analytics workspace), go to **Business Continuity Center** > **Monitoring+Reporting** > **Reports**.
 
-Azure Business Continuity Center provides a variety of reports for Azure Backup and Azure Site Recovery to assist in fetching historical data for audit and executive purposes. Before you choose the required report, first, select one or more workspace subscriptions, one or more log analytics workspaces, and other fields in the report to generate appropriate report with the required information. Learn [how to generate reports](#generate-reports).
+Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetching historical data for audit and executive purposes. Before you choose the required report, first, select one or more workspace subscriptions, log analytics workspaces, and other fields in the report to generate appropriate report with the required information. Learn [how to generate reports](#generate-reports).
 
 The following table describes the types of available reports:
 
 | Report | Solution | Description | Scope | Type |
 | --- | --- | --- | --- | --- |
-| **Backup Reports** | Azure Backup | Gain visibility into backup jobs, instances, usage, policies, policy adherence, and optimization. | - VM <br> - SQL in Azure VMs <br> - SAP HANA in Azure VMs <br> - Backup Agent <br> - Backup Server <br> - DPM <br> - Azure Files <br> SQL database in Azure VM <br> - SAP HANA in Azure VM | Consolidated |
+| **Backup Reports** | Azure Backup | Gain visibility into backup jobs, instances, usage, policies, policy adherence, and optimization. | - Virtual Machine (VM) <br> - SQL in Azure VMs <br> - SAP HANA in Azure VMs <br> - Backup Agent <br> - Backup Server <br> - Data Protection Manager (DPM) <br> - Azure Files <br> SQL database in Azure VM <br> - SAP HANA in Azure VM | Consolidated |
 | **Backup Configuration Status** | Azure Backup | Information on whether all of your VMs have been configured for backup. | VM | Out-of-Box |
 | **Backup Job History** | Azure Backup | Information on your successful and failed backup jobs over a specified duration. | - VM <br> - Backup Agent (MARS) <br> - Backup Server (MABS) <br> - DPM <br> - Azure Database for PostgreSQL Server <br> - Azure Blobs <br> - Azure Disks | Out-of-Box |
 | **Backup Schedule and Retention** | Azure Backup | Information on schedule and retention of all your backup items so that you can verify if they meet the business requirements. | - VM <br>- Azure Files | Out-of-Box |
@@ -70,14 +70,10 @@ The following table describes the types of available reports:
 | **ASR Replication History** | Azure Site Recovery | Information on your replicated items over a specified duration. | VM | Out-of-Box |
 
 
+[!INCLUDE [backup-conventions-for-reports.md](../../includes/backup-conventions-for-reports.md)]
 
-
-
-
-
-
-
+Learn about [the estimated time that different widgets can take to load, based on the number of Backup items and the time range for which the report is being viewed](../backup/configure-reports.md?tabs=recovery-services-vaults#query-load-times). To troubleshoot data discrepancy in backup reports, see [this article](../backup/configure-reports.md?tabs=recovery-services-vaults#how-to-troubleshoot).
 
 ## Next steps 
 
-[View protectable resources](./tutorial-view-protectable-resources.md).
+[Govern and view compliance](tutorial-govern-monitor-compliance.md)
