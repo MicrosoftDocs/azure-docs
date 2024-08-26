@@ -22,7 +22,7 @@ This article uses the following starter queries:
 - [List resources sorted by name](#list-resources)
 - [Show all virtual machines ordered by name in descending order](#show-vms)
 - [Show first five virtual machines by name and their OS type](#show-sorted)
-- [Count virtual machines by OS type](#count-os)
+- [Count virtual machines by OS type](#count-virtual-machines-by-os-type)
 - [Show resources that contain storage](#show-storage)
 - [List all virtual network subnets](#list-subnets)
 - [List all public IP addresses](#list-publicip)
@@ -124,7 +124,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="count-keyvaults"></a>Count Key Vault resources
+## Count Key Vault resources
 
 This query uses `count` instead of `summarize` to count the number of records returned. Only key
 vaults are included in the count.
@@ -157,7 +157,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-resources"></a>List resources sorted by name
+## List resources sorted by name
 
 This query returns any type of resource, but only the **name**, **type**, and **location**
 properties. It uses `order by` to sort the properties by the **name** property in ascending (`asc`)
@@ -191,7 +191,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="show-vms"></a>Show all virtual machines ordered by name in descending order
+## Show all virtual machines ordered by name in descending order
 
 To list only virtual machines (which are type `Microsoft.Compute/virtualMachines`), we can match
 the property **type** in the results. Similar to the previous query, `desc` changes the `order by`
@@ -226,7 +226,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="show-sorted"></a>Show first five virtual machines by name and their OS type
+## Show first five virtual machines by name and their OS type
 
 This query uses `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
