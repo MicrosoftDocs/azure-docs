@@ -60,7 +60,7 @@ Follow the steps below to create your first autoscale setting.
 
     Keep the default values and select **Add**.
 
-1. You've created your first scale-out rule. Best practice is to have at least one scale in rule. To add another rule, select **Add a rule**.
+1. You've created your first scale-out rule. Best practice is to have at least one scale-in rule. To add another rule, select **Add a rule**.
 
 1. Set **Operator** to *Less than*.
 1. Set **Metric threshold to trigger scale action** to *20*.
@@ -141,7 +141,7 @@ You can make changes in JSON directly, if necessary. These changes will be refle
 Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand. For more information, see [Predictive autoscale](autoscale-predictive.md).
 
 
-### Scale-In Policy
+### Scale-in policy
 
 When scaling a Virtual machine Scale Set, the scale-in policy determines which virtual machines are selected for removal when a scale-in event occurs. The scale-in policy can be set to either **Default**, **NewestVM**, or **OldestVM**. For more information, see [Use custom scale-in policies with Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
 
@@ -159,7 +159,7 @@ Autoscale uses a cool-down period. This period is the amount of time to wait aft
 
 ### Flapping
 
-Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers scale out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
+Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers a scale-out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
 
 ## Move autoscale to a different region
 
