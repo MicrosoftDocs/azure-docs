@@ -5,6 +5,10 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
 ms.date: 11/22/2023
+
+
+#Customer intent: [AI]As a developer, I want to create and deploy a custom data connector for a cloud-based security information and event management (SIEM) system so that I can ingest and monitor data from various sources without writing code.
+
 ---
 # Create a legacy codeless connector for Microsoft Sentinel
 

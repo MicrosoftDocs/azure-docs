@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to integrate and manage threat intelligence in my SIEM solution so that I can detect, investigate, and respond to potential security threats effectively.
+
 ---
 
 # Understand threat intelligence in Microsoft Sentinel

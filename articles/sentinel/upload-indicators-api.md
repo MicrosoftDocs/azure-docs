@@ -6,6 +6,10 @@ author: austinmccollum
 ms.topic: reference
 ms.date: 05/23/2023
 ms.author: austinmc
+
+
+#Customer intent: [AI]As a security analyst, I want to use the upload indicators API to import threat intelligence data into my SIEM system so that I can enhance threat detection and response capabilities.
+
 ---
 
 # Reference the upload indicators API (Preview) to import threat intelligence to Microsoft Sentinel

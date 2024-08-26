@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to search and analyze historical log data across large datasets so that I can investigate and identify specific events from up to seven years ago.
+
 ---
 
 # Search across long time spans in large datasets

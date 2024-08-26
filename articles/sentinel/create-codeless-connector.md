@@ -5,6 +5,10 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
 ms.date: 06/26/2024
+
+
+#Customer intent: [AI]As a security analyst, I want to create custom data connectors for my SIEM platform so that I can ingest and analyze data from various sources without writing code.
+
 ---
 # Create a codeless connector for Microsoft Sentinel
 

@@ -8,6 +8,10 @@ ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: [AI]As a security operations analyst, I want to discover, install, and manage out-of-the-box content in a centralized hub so that I can efficiently enhance and maintain my security monitoring capabilities.
+
 ---
 
 # Discover and manage Microsoft Sentinel out-of-the-box content

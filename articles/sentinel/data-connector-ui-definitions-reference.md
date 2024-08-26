@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 11/13/2023
 ms.author: austinmc
 
+
+
+#Customer intent: [AI]As a developer, I want to create and customize data connectors using a codeless platform so that I can integrate various data sources into my monitoring and analytics environment efficiently.
+
 ---
 
 # Data connector definitions reference for the Codeless Connector Platform

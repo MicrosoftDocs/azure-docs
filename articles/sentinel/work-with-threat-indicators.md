@@ -11,6 +11,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a security analyst, I want to use threat intelligence so I can power my threat detections.
+
+
+#Customer intent: [AI]As a security analyst, I want to integrate, manage, and visualize threat intelligence in a cloud-based SIEM platform so that I can detect and respond to security threats more effectively.
+
 ---
 
 # Work with threat indicators in Microsoft Sentinel
