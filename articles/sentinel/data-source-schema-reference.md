@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 11/09/2021
+
+
+#Customer intent: [AI]As a security analyst, I want to reference supported data source schemas so that I can integrate and analyze logs from various network and host systems in a unified platform.
+
 ---
 
 # Data source schema reference

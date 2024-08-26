@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
+
+
+#Customer intent: [AI]As a security operations center (SOC) manager, I want to design and implement an optimal workspace architecture for multi-tenant and multi-region environments so that I can ensure compliance, cost efficiency, and effective data segregation.
+
 ---
 
 # Microsoft Sentinel sample workspace designs

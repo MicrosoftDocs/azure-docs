@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As a security analyst, I want to monitor Azure Virtual Desktop environments using a SIEM solution so that I can enhance remote work capabilities while maintaining security.
+
 ---
 
 # Connect Azure Virtual Desktop data to Microsoft Sentinel

@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 04/25/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As a security analyst, I want to integrate data governance logs with my SIEM platform so that I can prioritize and investigate critical security incidents involving sensitive information.
+
 ---
 
 # Integrate Microsoft Sentinel and Microsoft Purview (Public Preview)

@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 06/28/2023
+
+
+#Customer intent: [AI]As a security architect, I want to design an efficient and compliant cloud-based security monitoring workspace so that I can optimize costs, meet regulatory requirements, and ensure proper data access control.
+
 ---
 
 # Design your Microsoft Sentinel workspace architecture

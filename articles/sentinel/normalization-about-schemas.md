@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: [AI]As a security analyst, I want to understand and utilize ASIM schemas so that I can normalize and query security data consistently across different sources.
+
 --- 
 
 # Advanced Security Information Model (ASIM) schemas

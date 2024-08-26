@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: [AI]As a security operations manager, I want to migrate my SOAR automation from IBM Security QRadar to Microsoft Sentinel so that I can streamline incident response and enhance threat remediation using Sentinel's advanced automation capabilities.
+
 ---
 
 # Migrate IBM Security QRadar SOAR automation to Microsoft Sentinel

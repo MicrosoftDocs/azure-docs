@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 09/01/2022
+
+
+#Customer intent: [AI]As a security analyst, I want to filter and normalize DNS log data using the AMA connector so that I can efficiently monitor and detect potential threats in my network.
+
 ---
 
 # DNS over AMA connector reference - available fields and normalization schema

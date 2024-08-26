@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As an MSSP, I want to protect my intellectual property in Microsoft Sentinel so that I can maintain control over my proprietary analytics rules, hunting queries, playbooks, and workbooks while providing managed security services to my customers.
+
 ---
 
 # Protecting MSSP intellectual property in Microsoft Sentinel

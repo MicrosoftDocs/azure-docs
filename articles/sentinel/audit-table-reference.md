@@ -6,6 +6,10 @@ ms.author: lwainstein
 ms.topic: reference
 ms.date: 01/17/2023
 ms.service: microsoft-sentinel
+
+
+#Customer intent: [AI]As a security analyst, I want to understand the schema and usage of Microsoft Sentinel audit tables so that I can effectively monitor and audit user activities within my SIEM environment.
+
 ---
 
 # Microsoft Sentinel audit tables reference

@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As a security administrator, I want to configure resource-context RBAC so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
+
 ---
 
 # Manage access to Microsoft Sentinel data by resource

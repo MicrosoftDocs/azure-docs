@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As a security operations analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
+
 ---
 
 # Audit Microsoft Sentinel queries and activities

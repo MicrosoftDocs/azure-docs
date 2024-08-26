@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: [AI]As a data engineer, I want to select the appropriate data ingestion tool so that I can efficiently transfer historical data to my target platform.
+
 ---
 
 # Select a data ingestion tool

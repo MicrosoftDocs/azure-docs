@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
+
+
+#Customer intent: [AI]As a security operations analyst, I want to implement best practices for data collection using cloud-based SIEM connectors so that I can optimize log ingestion, reduce costs, and enhance security monitoring.
+
 ---
 
 #  Data collection best practices

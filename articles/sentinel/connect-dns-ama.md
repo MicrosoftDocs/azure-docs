@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.date: 01/05/2022
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
+
+
+#Customer intent: [AI]As a security analyst, I want to stream and filter DNS server logs using a cloud-based monitoring agent so that I can detect and mitigate potential threats efficiently.
+
 ---
 
 # Stream and filter data from Windows DNS servers with the AMA connector

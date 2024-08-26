@@ -6,6 +6,10 @@ ms.author: lwainstein
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.service: microsoft-sentinel
+
+
+#Customer intent: [AI]As an SAP administrator, I want to monitor the health and performance of my SAP systems using a cloud-based solution so that I can ensure their proper functioning and quickly address any issues.
+
 ---
 
 # Monitor the health and role of your SAP systems

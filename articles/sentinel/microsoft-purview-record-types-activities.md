@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 01/02/2023
+
+
+#Customer intent: [AI]As a security analyst, I want to understand the supported audit log record types and activities for the Information Protection connector so that I can effectively monitor and respond to data sensitivity changes in my organization.
+
 ---
 
 # Microsoft Purview Information Protection connector reference - audit log record types and activities support

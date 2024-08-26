@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 02/06/2022
 ms.author: ofshezaf
+
+
+#Customer intent: [AI]As a security analyst, I want to understand the user management normalization schema so that I can effectively monitor and analyze user management activities within my organization.
+
 ---
 
 # Microsoft Sentinel user management normalization schema reference (preview)

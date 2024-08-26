@@ -5,6 +5,10 @@ author: limwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
 ms.author: lwainstein
+
+
+#Customer intent: [AI]As a security analyst, I want to create custom data connectors for Microsoft Sentinel so that I can ingest and analyze data from unsupported sources to enhance my organization's security monitoring and threat detection capabilities.
+
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors

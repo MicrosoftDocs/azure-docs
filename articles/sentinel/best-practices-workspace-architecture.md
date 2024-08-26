@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 06/28/2023
+
+
+#Customer intent: [AI]As a security architect, I want to design an optimal Log Analytics workspace architecture for my Microsoft Sentinel deployment so that I can meet business, compliance, and cost requirements while ensuring efficient data management and access control.
+
 ---
 
 # Microsoft Sentinel workspace architecture best practices

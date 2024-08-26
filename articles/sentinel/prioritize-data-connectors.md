@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ms.author: lwainstein
 ms.service: microsoft-sentinel
+
+
+#Customer intent: [AI]As a security operations manager, I want to prioritize and configure data connectors for my SIEM deployment so that I can ensure efficient and cost-effective data ingestion.
+
 ---
 
 # Prioritize your data connectors for Microsoft Sentinel

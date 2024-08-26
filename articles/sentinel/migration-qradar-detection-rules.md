@@ -5,6 +5,10 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: [AI]As a security operations center (SOC) analyst, I want to migrate QRadar detection rules to Microsoft Sentinel so that I can leverage machine learning analytics and built-in rules for more efficient threat detection and incident response.
+
 ---
 
 # Migrate QRadar detection rules to Microsoft Sentinel

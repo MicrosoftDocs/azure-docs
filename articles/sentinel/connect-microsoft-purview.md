@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to get specific labeling data from Microsoft Purview, so I can track, analyze, report on the data and use it for compliance purposes.
+
+
+#Customer intent: [AI]As a security administrator, I want to stream data from Microsoft Purview Information Protection to Microsoft Sentinel so that I can track, analyze, and report on data for compliance and security purposes.
+
 ---
 
 # Stream data from Microsoft Purview Information Protection to Microsoft Sentinel
