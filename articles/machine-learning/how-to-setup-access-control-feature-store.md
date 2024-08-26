@@ -4,7 +4,7 @@ description: Learn how to access to an Azure Machine Learning managed feature st
 author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: seramasu
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata 
 ms.custom: build-2023, ignite-2023
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Create workspaces with Azure CLI extension v1
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Azure CLI extension v1 for machine learning to create a new Azure Machine Learning workspace.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist

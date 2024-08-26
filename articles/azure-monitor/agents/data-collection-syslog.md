@@ -27,31 +27,33 @@ In the **Collect and deliver** step of the DCR, select **Linux Syslog** from the
 
 The following facilities are supported with the Syslog collector:
 
-| Pri index | Pri Name |
+| Priority Index Number | Priority Name |
 |:---|:---|
-| 0	| None |
-| 1	| Kern |
-| 2	| user |
-| 3     | mail |
-| 4	| daemon |
-| 5	| auth |
-| 6	| syslog |
-| 7	| lpr |
-| 8	| news |
-| 9	| uucp |
-| 10	| ftp |
-| 11    | ntp |
-| 12    | audit |
-| 13    | alert |
-| 14    | clock	 |
-| 15    | local0 |
-| 16    | local1 |
-| 17    | local2 |
-| 18    | local3 |
-| 19    | local4 |
-| 20    | local5 |
-| 21    | local6 |
-| 22    | local7 |
+| {none} | No Pri   |
+| 0	 | Kern     |
+| 1	 | user     |
+| 2      | mail     |
+| 3	 | daemon   |
+| 4	 | auth     |
+| 5 	 | syslog   |
+| 6	 | lpr      |
+| 7  	 | news     |
+| 8	 | uucp     |
+| 9      | corn     |
+| 10     | authpriv |
+| 11	 | ftp      |
+| 12     | ntp      |
+| 13     | audit    |
+| 14     | alert    |
+| 15     | clock    |
+| 16     | local0   |
+| 17     | local1   |
+| 18     | local2   |
+| 19     | local3   |
+| 20     | local4   |
+| 21     | local5   |
+| 22     | local6   |
+| 23     | local7   |
 
 :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 

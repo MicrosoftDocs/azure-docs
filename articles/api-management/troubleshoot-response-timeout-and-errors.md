@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ---
 
 # Troubleshooting client response timeouts and errors with API Management

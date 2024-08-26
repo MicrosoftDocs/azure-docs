@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor Log Analytics API errors
 description: This section contains a non-exhaustive list of known common errors that can occur in the Azure Monitor Log Analytics API, their causes, and possible solutions.
-ms.date: 11/29/2021
+ms.date: 08/12/2024
 author: guywi-ms
 ms.author: guywild
 ms.topic: article

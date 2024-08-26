@@ -3,8 +3,8 @@ metadata:
   title: Configuration and management issues FAQ
   description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
   ms.topic: faq
-  ms.service: cloud-services
-  ms.subservice: deployment-files
+  ms.service: azure-cloud-services-classic
+  ms.subservice: config-package-files
   ms.date: 07/23/2024
   author: hirenshah1
   ms.author: hirshah

@@ -3,8 +3,8 @@ title: What is Responsible AI
 titleSuffix: Azure Machine Learning
 description: Learn what Responsible AI is and how to use it with Azure Machine Learning to understand models, protect data, and control the model lifecycle.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt

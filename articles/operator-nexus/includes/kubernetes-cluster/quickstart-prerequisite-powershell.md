@@ -45,5 +45,5 @@ ms.custom: devx-track-azurecpowershell
 <!-- LINKS - internal -->
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md
+[kubernetes-concepts]: /azure/aks/concepts-clusters-workloads
 [azure-resource-group]: ../../../azure-resource-manager/management/overview.md

@@ -3,7 +3,7 @@ title: About ExpressRoute Metro (preview)
 description: This article provides an overview of ExpressRoute Metro and how it works.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/03/2024
 ms.author: duau

@@ -2,7 +2,7 @@
 title: Quickstart - Azure SignalR Service REST API
 description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: lianwei

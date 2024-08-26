@@ -19,7 +19,7 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in a supported region (see [Region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)). For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 
 ## Setup
@@ -106,7 +106,7 @@ Image generation result URL: https://dalleproduse.blob.core.windows.net/private/
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

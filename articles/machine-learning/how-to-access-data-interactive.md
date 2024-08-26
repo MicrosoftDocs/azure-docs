@@ -3,7 +3,7 @@ title: Access data from Azure cloud storage during interactive development
 titleSuffix: Azure Machine Learning
 description: Access data from Azure cloud storage during interactive development
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: fbsolo-ms1
@@ -35,11 +35,13 @@ A machine learning project typically starts with exploratory data analysis (EDA)
 > The guidance in this article describes data access during interactive development. It applies to any host that can run a Python session. This can include your local machine, a cloud VM, a GitHub Codespace, etc. We recommend use of an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, visit [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
 > [!IMPORTANT]
-> Ensure you have the latest `azure-fsspec` and `mltable` python libraries installed in your Python environment:
+> Ensure you have the latest `azure-fsspec`, `mltable`, and `azure-ai-ml` python libraries installed in your Python environment:
 >
 > ```bash
-> pip install -U azureml-fsspec mltable
+> pip install -U azureml-fsspec==1.3.1 mltable azure-ai-ml
 > ```
+
+The latest `azure-fsspec` package version can potentially change over time. For more information about the `azure-fsspec` package, visit [this resource](https://pypi.org/project/azureml-fsspec/).
 
 ## Access data from a datastore URI, like a filesystem
 
@@ -66,7 +68,7 @@ path_on_datastore = '<path>'
 uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/workspaces/{workspace}/datastores/{datastore_name}/paths/{path_on_datastore}'.
 ```
 
-These Datastore URIs are a known implementation of the [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): a unified pythonic interface to local, remote, and embedded file systems and bytes storage. First, pip install the `azureml-fsspec` package and its dependency `azureml-dataprep` package. Then, you can use the Azure Machine Learning Datastore `fsspec` implementation.
+These Datastore URIs are a known implementation of the [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): a unified pythonic interface to local, remote, and embedded file systems and bytes storage. First, use pip to install the `azureml-fsspec` package and its dependency `azureml-dataprep` package. Then, you can use the Azure Machine Learning Datastore `fsspec` implementation.
 
 The Azure Machine Learning Datastore `fsspec` implementation automatically handles the credential/identity passthrough that the Azure Machine Learning datastore uses. You can avoid both account key exposure in your scripts, and extra sign-in procedures, on a compute instance.
 
@@ -84,7 +86,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 You can also instantiate an Azure Machine Learning filesystem, to handle filesystem-like commands - for example `ls`, `glob`, `exists`, `open`.
 - The `ls()` method lists files in a specific directory. You can use ls(), ls(.), ls (<<folder_level_1>/<folder_level_2>) to list files. We support both '.' and '..', in relative paths.
@@ -195,7 +197,7 @@ df.head()
 #### Read a folder of parquet files into Pandas
 As part of an ETL process, Parquet files are typically written to a folder, which can then emit files relevant to the ETL such as progress, commits, etc. This example shows files created from an ETL process (files beginning with `_`) which then produce a parquet file of data.
 
-:::image type="content" source="media/how-to-access-data-ci/parquet-auxillary.png" alt-text="Screenshot showing the parquet ETL process.":::
+:::image type="content" source="media/how-to-access-data-interactive/parquet-auxillary.png" alt-text="Screenshot showing the parquet ETL process.":::
 
 In these scenarios, you only read the parquet files in the folder, and ignore the ETL process files. This code sample shows how glob patterns can read only parquet files in a folder:
 
@@ -489,7 +491,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 ```python
@@ -562,7 +564,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu, then select the **Datastores** tab.
 > 1. Select your datastore name, and then **Browse**.
 > 1. Find the file/folder you want to read into Pandas, and select the ellipsis (**...**) next to it. Select **Copy URI** from the menu. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
+> :::image type="content" source="media/how-to-access-data-interactive/datastore-uri-copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 

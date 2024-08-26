@@ -173,12 +173,12 @@ If you enable this, tracing data and system metrics during inference time (such 
 ## Grant permissions to the endpoint
 
 > [!IMPORTANT]
-> Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You might need to ask your IT admin for help.
+> Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help.
 >
 > It's recommended to grant roles to the **user-assigned** identity **before the deployment creation**.
 > It might take more than 15 minutes for the granted permission to take effect.
 
-You can grant all permissions in Azure portal UI by following steps.
+You can grant the required permissions in Azure portal UI by following steps.
 
 1. Go to the Azure AI Studio project overview page in [Azure portal](https://ms.portal.azure.com/#home).
 

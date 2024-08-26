@@ -4,13 +4,13 @@ titleSuffix: Azure AI Search
 description: Set up an Azure blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: vinodva
 
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 08/23/2024
 ---
 
 # Index data from Azure Blob Storage
@@ -158,7 +158,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/indexes/create-or-update) to define search fields that will store blob content and metadata:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
     {
         "name" : "my-search-index",
         "fields": [
@@ -179,7 +179,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
-   Metadata properties often include characters, such as `/` and `-`, which are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+   Metadata properties often include characters, such as `/` and `-`, which are invalid for document keys. However, the indexer automatically encodes the key metadata property, with no configuration or field mapping required.
 
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
@@ -194,7 +194,7 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/indexers/create-or-update) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     {
       "name" : "my-blob-indexer",
       "dataSourceName" : "my-blob-datasource",
@@ -203,7 +203,6 @@ Once the index and data source have been created, you're ready to create the ind
           "batchSize": null,
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
-          "base64EncodeKeys": null,
           "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
@@ -252,7 +251,7 @@ To illustrate, let's consider an example of two indexers, pulling data from two 
 First indexer definition example:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 {
   "name" : "my-blob-indexer1",
   "dataSourceName" : "my-blob-datasource1",
@@ -261,7 +260,6 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
       "batchSize": null,
       "maxFailedItems": null,
       "maxFailedItemsPerBatch": null,
-      "base64EncodeKeys": null,
       "configuration": {
           "indexedFileNameExtensions" : ".pdf,.docx",
           "excludedFileNameExtensions" : ".png,.jpeg",
@@ -276,7 +274,7 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 Second indexer definition that runs in parallel example:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 {
   "name" : "my-blob-indexer2",
   "dataSourceName" : "my-blob-datasource2",
@@ -285,7 +283,6 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
       "batchSize": null,
       "maxFailedItems": null,
       "maxFailedItemsPerBatch": null,
-      "base64EncodeKeys": null,
       "configuration": {
           "indexedFileNameExtensions" : ".pdf,.docx",
           "excludedFileNameExtensions" : ".png,.jpeg",
@@ -303,7 +300,7 @@ POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/indexers/get-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -355,7 +352,7 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2023-11-01
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 

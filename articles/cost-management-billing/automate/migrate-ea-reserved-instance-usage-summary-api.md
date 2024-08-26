@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Usage Summary API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -51,8 +51,8 @@ Old response:
 ```json
 [
      {
-        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
-        "reservationId": "00000000-0000-0000-0000-000000000000",
+        "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+        "reservationId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
         "skuName": "Standard_F1s",
         "reservedHours": 24,
         "usageDate": "2018-05-01T00:00:00",
@@ -75,8 +75,8 @@ New response:
       "type": "Microsoft.Consumption/reservationSummaries",
       "tags": null,
       "properties": {
-        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
-        "reservationId": "00000000-0000-0000-0000-000000000000",
+        "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+        "reservationId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
         "skuName": "Standard_B1s",
         "reservedHours": 720,
         "usageDate": "2018-09-01T00:00:00-07:00",

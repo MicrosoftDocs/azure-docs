@@ -3,7 +3,7 @@ title: SDK & CLI (v1)
 titleSuffix: Azure Machine Learning
 description: Learn about Azure Machine Learning SDK & CLI (v1).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

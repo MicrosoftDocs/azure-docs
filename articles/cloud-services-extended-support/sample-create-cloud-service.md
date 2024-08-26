@@ -2,7 +2,7 @@
 title: Azure PowerShell samples - Create an Azure Cloud Service (extended support)
 description: Sample scripts for creating Azure Cloud Service (extended support) deployments
 ms.topic: sample
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

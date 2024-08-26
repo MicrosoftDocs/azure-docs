@@ -9,7 +9,7 @@ ms.reviewer: Xema Pathak
 ---
 
 # Tutorial: Create availability alert rule for multiple Azure virtual machines
-One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the [VM availability](../../virtual-machines/monitor-vm-reference.md#vm-availability-metric-preview) metric which is currently in public preview.
+One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the [VM availability](/azure/virtual-machines/monitor-vm-reference#vm-availability-metric-preview) metric which is currently in public preview.
 
 You can create an availability alert rule for a single VM using the VM Availability metric with [recommended alerts](tutorial-monitor-vm-alert-recommended.md). This tutorial shows how to create a single rule that will apply to all virtual machines in a subscription or resource group in a particular region.
 

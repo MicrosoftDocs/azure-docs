@@ -45,20 +45,13 @@ View the upcoming version releases on the Nexus Kubernetes release calendar.
 
 For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
-|  K8s version | Nexus GA  | End of life                    | Extended Availability |
-|--------------|-----------|--------------------------------|-----------------------|
-| 1.25         | Jun 2023  | Dec 2023                       | Until 1.31 GA         |
-| 1.26         | Sep 2023  | Mar 2024                       | Until 1.32 GA         |
-| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | Until 1.33 GA         |
-| 1.28         | Nov 2023  | Oct 2024                       | Until 1.34 GA         |
-
-*\* Indicates the version is designated for Long Term Support*
+[!INCLUDE [supported-versions](./includes/kubernetes-cluster/supported-versions.md)]
 
 ## Nexus Kubernetes service version components
 
 An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
-* The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](../aks/supported-kubernetes-versions.md)
+* The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](/azure/aks/supported-kubernetes-versions)
 * The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.
 The combination of these values is represented in the API as the single kubernetesVersion. For example, `1.25.4-2` or the alternatively supported “v” notation: `v1.25.4-2`.
 
@@ -81,50 +74,31 @@ Note the following important changes to make before you upgrade to any of the av
 
 | Kubernetes Version | Version Bundle | Components      | OS components | Breaking Changes | Notes           |
 |--------------------|----------------|-----------------|---------------|------------------|-----------------|
-| 1.25.6             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.6             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.6             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.6             | 4              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.25.6             | 5              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.25.6             | 6              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.25.6             | 7              |Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.25.11             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.11             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.25.11             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0 | Azure Linux 2.0  |  No breaking changes    | |
+| 1.29.6             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.29.4             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.28.11             | 1              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | |
+| 1.28.9             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.28.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.28.0-5 |
+| 1.27.9             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.27.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |   |
+| 1.27.3             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.27.3             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.27.1-8 |
+| 1.26.12             | 2              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.26.12             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |   |
+| 1.26.6             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.26.6             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.26.3-8 |
+| 1.25.11             | 6              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.15<br>sriov-dp v3.12.0-86<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.25.11             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0 | Azure Linux 2.0  |  No breaking changes    |  |
 | 1.25.11             | 4              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0 | Azure Linux 2.0  |  No breaking changes    | |
-| 1.25.11             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0 | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.26.3             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.3             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.3             | 4              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.26.3             | 5              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.3             | 6              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.3             | 7              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0  | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.26.6             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.6             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.26.6             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.6             | 4              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.26.6             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.26.12             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled  |
-| 1.27.1             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.1             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.1             | 4              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes               | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.27.1             | 5              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.1             | 6              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.1             | 7              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.27.3             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  | No breaking changes   | Beginning with this version bundle, cluster nodes are Azure Arc-enabled |
-| 1.27.3             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.3             | 4              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.27.3             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.27.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled  |
-| 1.28.0             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes               |  |
-| 1.28.0             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes               |  Beginning with this version bundle, cluster nodes are Azure Arc-enabled  |
-| 1.28.0             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.28.0             | 4              | Calico v3.27.2<br>metrics-server v0.6.3<br>Multus v3.8.0<br>azure-arc-servers v1.0.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.10.0-60<br>Csi-nfs v4.6.0   | Azure Linux 2.0  |  No breaking changes    |  |
-| 1.28.0             | 5              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted |
-| 1.28.9             | 1              | Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Beginning with this version bundle, volume orchestration connectivity is TLS encrypted and cluster nodes are Azure Arc-enabled |
+| 1.25.6             | 8              | Calico v3.27.4<br>metrics-server v0.7.1<br>Multus v4.0.2<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4-hotfix<br>etcd v3.5.14<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    |  |
+| 1.25.6             | 7              |Calico v3.27.3<br>metrics-server v0.7.1<br>Multus v4.0.0<br>azure-arc-servers v1.1.0<br>CoreDNS v1.9.4<br>etcd v3.5.13<br>sriov-dp v3.11.0-68<br>Csi-nfs v4.7.0<br>csi-volume v0.1.0   | Azure Linux 2.0  |  No breaking changes    | Extended Available patches: 1.25.4-6 |
+
+### Version bundle features
+
+| Feature            | Version Bundle | Notes           |
+|--------------------|----------------|-----------------|
+| Volume orchestration connectivity is TLS encrypted | Beginning from 1.28.9-1, 1.28.0-5, 1.27.9-1, 1.27.3-5, 1.26.12-1, 1.26.6-5, 1.25.11-5 and 1.25.6-7  | |
+| Cluster nodes are Azure Arc-enabled | Beginning from 1.25.6-4, 1.25.11-2, 1.26.3-4, 1.26.6-2, 1.27.1-4, 1.27.3-2 and 1.28.0-2 | |
 
 ## Upgrading Kubernetes versions
 
@@ -200,6 +174,10 @@ During the extended availability period for unsupported Kubernetes versions (tha
 > [!NOTE]
 > Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
 
+### Abandoned Nexus Kubernetes clusters
+
+After the end of the extended availability period, the K8s version is completely removed from Nexus. At this point any existing Nexus Kubernetes clusters which are based on this K8s version will become abandoned. The only supported operation on abandoned clusters is deletion. Importantly, once a cluster is abandoned, upgrading to a later K8s version will not work.
+
 ## Supported `kubectl` versions
 
 You can use one minor version older or newer of `kubectl` relative to your *kube-apiserver* version, consistent with the [Kubernetes support policy for kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
@@ -224,17 +202,32 @@ Install-AzAksKubectl -Version latest
 
 ## Long Term Support (LTS)
 
-Azure Kubernetes Service (AKS) provides a Long Term Support (LTS) version of Kubernetes for a two-year period. There's only a single minor version of Kubernetes deemed LTS at any one time.  
+The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year. In Azure Kubernetes Service (AKS), this support window is called "Community support."
+
+AKS supports versions of Kubernetes that are within this Community support window, to push bug fixes and security updates from community releases.
+
+While innovation delivered with this release cadence provides huge benefits to you, it challenges you to keep up to date with Kubernetes releases, which can be made more difficult based on the number of clusters you have to maintain.
+
+### Support types
+
+After approximately one year, the Kubernetes version exits Community support and your AKS clusters are now at risk as bug fixes, and security updates become unavailable.
+
+AKS provides one year Community support and one year of long-term support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
+
+LTS intends to give you an extended period of time to plan and test for upgrades over a two-year period from the General Availability of the designated Kubernetes version.
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
 | **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications aren't compatible with the changes introduced in newer Kubernetes versions, and you can't transition to a continuous release cycle due to technical constraints or other factors  |
 |  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
 
-The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
-
 > [!IMPORTANT]
 > Kubernetes version 1.27 is the first supported LTS version of Kubernetes on Operator Nexus Kubernetes service.
+> The next LTS version after 1.27 is 1.30, which will start its LTS support in October 2024.
+
+### Migrate from LTS to the next LTS release
+
+Nexus Kubernetes clusters don't support direct upgrades between LTS versions. To transition from one LTS version to the next, you have two options: either create a new cluster with the desired LTS version and move your workloads to this new cluster, or perform a series of intermediate upgrades through the supported versions before reaching the next LTS version.
 
 ## FAQ
 

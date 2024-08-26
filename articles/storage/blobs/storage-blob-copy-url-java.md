@@ -5,7 +5,7 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
@@ -76,3 +76,5 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
 
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

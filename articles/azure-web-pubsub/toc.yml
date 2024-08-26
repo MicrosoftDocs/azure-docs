@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: MQTT in Web PubSub
+      href: overview-mqtt.md
     - name: What's new
       href: whats-new.md
 - name: Quickstarts
@@ -20,6 +22,8 @@
       href: howto-develop-create-instance.md
     - name: PubSub among clients
       href: quickstarts-pubsub-among-clients.md
+    - name: PubSub among MQTT clients
+      href: quickstarts-pubsub-among-mqtt-clients.md
     - name: Push message from server
       href: quickstarts-push-messages-from-server.md
     - name: Event notifications from clients
@@ -39,6 +43,8 @@
       href: tutorial-permission.md
     - name: Build a serverless chat app with Azure Functions
       href: quickstart-serverless.md
+    - name: Authenticate and authorize MQTT client
+      href: tutorial-upstream-auth-mqtt-client.md
 - name: How-to guides
   expanded: false
   items:
@@ -48,6 +54,8 @@
           href: howto-websocket-connect.md
         - name: Create reliable Websocket clients
           href: howto-develop-reliable-clients.md
+        - name: How to connect MQTT WebSocket clients
+          href: howto-connect-mqtt-websocket-client.md
         - name: Generate client access URL
           href: howto-generate-client-access-url.md
         - name: Configure event handler
@@ -79,7 +87,7 @@
         - name: Protect the access key
           href: howto-secure-rotate-access-key.md
         - name: Application firewall
-          href: howto-configure-application-firewall.md  
+          href: howto-configure-application-firewall.md
         - name: Use Azure Service Tags
           href: howto-service-tags.md
         - name: Use Azure private endpoints
@@ -113,7 +121,7 @@
         - name: Geo-replication
           href: howto-enable-geo-replication.md
     - name: Integrate
-      items: 
+      items:
         - name: App Service
           href: howto-integrate-app-service.md
         - name: Azure Functions
@@ -136,9 +144,33 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
+- name: MQTT (Preview)
+  expanded: false
+  items:
+    - name: Overview
+      href: overview-mqtt.md
+    - name: Quickstart for MQTT users
+      href: quickstarts-pubsub-among-mqtt-clients.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Authenticate and authorize MQTT client
+          href: tutorial-upstream-auth-mqtt-client.md
+    - name: How-to guides
+      items:
+        - name: Connect MQTT WebSocket clients
+          href: howto-connect-mqtt-websocket-client.md
+    - name: Reference
+      items:
+        - name: MQTT event handler protocol
+          href: reference-mqtt-cloud-events.md
+        - name: REST API for MQTT
+          href: reference-rest-api-mqtt.md
+        - name: Cross-protocol communication
+          href: reference-mqtt-cross-protocol-communication.md
 - name: Socket.IO
   expanded: false
-  items: 
+  items:
     - name: Overview
       href: socketio-overview.md
     - name: Quickstart for Socket.IO users
@@ -150,7 +182,7 @@
           href: socketio-build-realtime-code-streaming-app.md
     - name: How-to guides
       items:
-        - name: Easily migrate a self-hosted Socket.IO app 
+        - name: Easily migrate a self-hosted Socket.IO app
           href: socketio-migrate-from-self-hosted.md
         - name: Integrate with Azure App Service
           href: socket-io-howto-integrate-web-app.md
@@ -159,7 +191,7 @@
         - name: Authentication
           href: socketio-authentication.md
         - name: Troubleshoot
-          items: 
+          items:
             - name: Common issues
               href: socketio-troubleshoot-common-issues.md
             - name: Collect logs
@@ -174,7 +206,7 @@
           href: socketio-supported-server-apis.md
 - name: Samples
   expanded: false
-  items: 
+  items:
     - name: Authenticate and connect
       href: samples-authenticate-and-connect.md
     - name: App scenarios
@@ -209,7 +241,7 @@
 - name: Reference
   items:
     - name: Client-side API
-      items: 
+      items:
         - name: Client SDK - JavaScript
           href: reference-client-sdk-javascript.md
         - name: Client SDK - C#
@@ -224,6 +256,8 @@
       items:
         - name: REST API
           href: reference-rest-api-data-plane.md
+        - name: REST API for MQTT
+          href: reference-rest-api-mqtt.md
         - name: Server SDK - C#
           href: reference-server-sdk-csharp.md
         - name: Server SDK - Java
@@ -234,7 +268,7 @@
           href: reference-server-sdk-python.md
         - name: OData filter syntax reference
           href: reference-odata-filter.md
-    - name: API for resource management 
+    - name: API for resource management
       href: /rest/api/webpubsub/
     - name: Azure CLI webpubsub extension
       href: /cli/azure/webpubsub
@@ -251,6 +285,8 @@
           href: reference-protobuf-reliable-webpubsub-subprotocol.md
     - name: CloudEvents HTTP extension for event handler
       href: reference-cloud-events.md
+    - name: CloudEvents HTTP extension for MQTT event handler
+      href: reference-mqtt-cloud-events.md
     - name: CloudEvents AMQP extension for Event Hubs listener
       href: reference-cloud-events-amqp.md
     - name: Functions trigger and bindings

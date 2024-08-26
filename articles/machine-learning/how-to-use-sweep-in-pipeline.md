@@ -3,7 +3,7 @@ title: How to do hyperparameter sweep in pipeline
 titleSuffix: Azure Machine Learning
 description: How to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 author: lgayhardt

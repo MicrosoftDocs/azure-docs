@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
-ms.date: 02/28/2023
+ms.date: 08/12/2024
 
 # Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs to gain insights without having to export data outside of Azure Monitor.
 

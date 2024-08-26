@@ -5,7 +5,7 @@ description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct t
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau 

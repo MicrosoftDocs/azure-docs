@@ -8,10 +8,6 @@ ms.reviewer: aul
 
 # Configure PV monitoring with Container insights
 
-Starting with agent version *ciprod10052020*, the Container insights integrated agent now supports monitoring persistent volume (PV) usage. With agent version *ciprod01112021*, the agent supports monitoring PV inventory, including information about the status, storage class, type, access modes, and other details.
-
-## PV metrics
-
 Container insights automatically starts monitoring PV usage by collecting the following metrics at 60-second intervals and storing them in the **InsightsMetrics** table.
 
 | Metric name | Metric dimension (tags) | Metric description |

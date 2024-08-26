@@ -3,7 +3,7 @@ title: Understanding pricing - Azure Application Gateway
 description: This article describes the billing process for Azure Application Gateway and Web Application Firewall for both v1 to v2 SKUs
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 01/19/2024

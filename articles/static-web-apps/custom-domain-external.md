@@ -3,7 +3,7 @@ title: Set up a custom domain with external providers in Azure Static Web Apps
 description: Use an external provider to manage your custom domain in Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2024
 ms.author: cshoe

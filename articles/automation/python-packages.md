@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 07/23/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage Python 2 packages in Azure Automation

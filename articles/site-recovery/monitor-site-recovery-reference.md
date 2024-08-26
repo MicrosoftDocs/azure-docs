@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Azure Site Recovery monitoring data reference

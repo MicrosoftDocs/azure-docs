@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Azure Container Registry service tiers

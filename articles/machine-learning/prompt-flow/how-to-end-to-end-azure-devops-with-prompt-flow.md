@@ -5,7 +5,7 @@ description: Learn how to set up a sample LLMOps environment and pipeline on Azu
 services: machine-learning
 author: lgayhardt
 ms.author: lagayhar
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
 ms.reviewer: chenlujiao

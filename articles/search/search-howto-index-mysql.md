@@ -30,7 +30,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 - [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
-- [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md) and sample data. Data must reside in a table or view. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy). 
+- [Azure Database for MySQL flexible server](/azure/mysql/flexible-server/overview) and sample data. Data must reside in a table or view. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy). 
 
 - Read permissions. A *full access* connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Reader** permissions on MySQL.
 

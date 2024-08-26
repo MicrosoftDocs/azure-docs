@@ -9,19 +9,16 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 07/19/2024
+ms.date: 08/13/2024
 ---
 
 # Quickstart: Vectorize text and images by using the Azure portal
 
-> [!IMPORTANT]
-> The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
-
-This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
+This quickstart helps you get started with [integrated vectorization](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
 
 Key points about the wizard:
 
-+ Source data is either Azure Blob Storage or OneLake files and shortcuts.
++ Source data is either Azure Blob Storage, Azure Data Lake Storage (ADLS) Gen2, or OneLake files and shortcuts.
 + Document parsing mode is the default (one search document per blob or file).
 + Index schema is nonconfigurable. It provides vector and nonvector fields for chunked data.
 + Chunking is nonconfigurable. The effective settings are:
@@ -38,9 +35,9 @@ Key points about the wizard:
 
 + [Azure AI Search service](search-create-service-portal.md) in the same region as Azure AI. We recommend the Basic tier or higher.
 
-+ [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
++ [Azure Blob Storage](/azure/storage/common/storage-account-create), [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/create-data-lake-storage-account) (a storage account with a hierarchical namespace), or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
-  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
 
 + An embedding model on an Azure AI platform. [Deployment instructions](#set-up-embedding-models) are in this article.
 
@@ -97,6 +94,34 @@ This section points you to data that works for this quickstart.
 1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
 
 1. On the left pane, under **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
+
+1. Optionally, synchronize the deletions in your container with deletions in the search index. These next steps allow you to configure the indexer for deletion detection:
+
+   1. [Enable soft delete](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal#enable-blob-soft-delete-hierarchical-namespace) on your storage account.
+
+   1. If you're using [native soft delete](search-howto-index-changed-deleted-blobs.md#native-blob-soft-delete), no further steps are required on Azure Storage.
+
+   1. Otherwise, [add custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) that an indexer can scan to determine which blobs are marked for deletion. Give your custom property a descriptive name. For example, you could name the property "IsDeleted", set to false. Do this for every blob in the container. Later, when you want to delete the blob, change the property to true. For more information, see [Change and delete detection when indexing from Azure Storage](search-howto-index-changed-deleted-blobs.md)
+
+### [ADLS Gen2](#tab/sample-data-adlsgen2)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Storage account.
+
+1. You can confirm that you have Data Lake Storage by checking the **Properties** tab on the **Overview** page.
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/data-lake-storage.png" alt-text="Screenshot of the storage account properties page showing Data Lake Storage.":::
+
+1. On the left pane, under **Data Storage**, select **Containers**.
+
+1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
+
+1. On the left pane, under **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
+
+1. Optionally, synchronize the deletions in your container with deletions in the search index. These next steps allow you to configure the indexer for deletion detection:
+
+   1. [Enable soft delete](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal#enable-blob-soft-delete-hierarchical-namespace) on your storage account.
+
+   1. [Add custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) that an indexer can scan to determine which blobs are deleted. Give your custom property a descriptive name. For example, you could name the property "IsDeleted", set to false. Do this for every blob in the container. Later, when you want to delete the blob, change the property to true. For more information, see [Change and delete detection when indexing from Azure Storage](search-howto-index-changed-deleted-blobs.md)
 
 ### [OneLake](#tab/sample-data-onelake)
 
@@ -210,16 +235,45 @@ The next step is to connect to a data source to use for the search index.
 
 1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md) support. On subsequent indexing runs, the search index is updated to remove any search documents based on soft-deleted blobs on Azure Storage.
 
-   + You're prompted to choose either **Native blob soft delete** or **Soft delete using custom data**.
-   + Your blob container must have deletion detection enabled before you run the wizard.
-   + [Enable soft delete](/azure/storage/blobs/soft-delete-blob-overview) in Azure Storage, or [add custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) to your blobs that indexing recognizes as a deletion flag.
-   + If you choose **Soft delete using custom data**, you're prompted to provide the metadata property name-value pair.
+   + Blobs support either **Native blob soft delete** or **Soft delete using custom data**.
+   + You must have previously [enabled soft delete](/azure/storage/blobs/soft-delete-blob-overview) on Azure Storage, and optionally [added custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) that indexing can recognize as a deletion flag. For more information about these steps, see [Prepare sample data](#prepare-sample-data).
+   + If you configured your blobs for **soft delete using custom data**, provide the metadata property name-value pair in this step. We recommend "IsDeleted". If "IsDeleted" is set to true on a blob, the indexer drops the corresponding search document on the next indexer run.
+
+   The wizard doesn't check Azure Storage for valid settings or throw an error if the requirements aren't met. Instead, deletion detection doesn't work, and your search index is likely to collect orphaned documents over time.
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-blob.png" alt-text="Screenshot of the data source page with deletion detection options.":::
 
 1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
 
    + You're prompted to choose either a system-managed or user-managed identity. 
    + The identity should have a **Storage Blob Data Reader** role on Azure Storage. 
-   + Do not skip this option. A connection error occurs during indexing if the wizard can't connect to Azure Storage.
+   + Don't skip this step. A connection error occurs during indexing if the wizard can't connect to Azure Storage.
+
+1. Select **Next**.
+
+### [ADLS Gen2](#tab/connect-data-adlsgen2)
+
+1. On the **Set up your data connection** page, select **Azure Data Lake**.
+
+1. Specify the Azure subscription.
+
+1. Choose the storage account and container that provide the data.
+
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md) support. On subsequent indexing runs, the search index is updated to remove any search documents based on soft-deleted blobs on Azure Storage.
+
+   + ADLS Gen2 indexers on Azure AI Search support the **Soft delete using custom data** approach only.
+   + You must have previously [enabled soft delete](/azure/storage/blobs/soft-delete-blob-overview) on Azure Storage and [added custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) that indexing can recognize as a deletion flag. For more information about these steps, see [Prepare sample data](#prepare-sample-data).
+   + Provide the metadata property you created for deletion detection. We recommend "IsDeleted". If "IsDeleted" is set to true on a blob, the indexer drops the corresponding search document on the next indexer run.
+
+   The wizard doesn't check Azure Storage for valid settings or throw an error if the requirements aren't met. Instead, deletion detection doesn't work, and your search index is likely to collect orphaned documents over time.
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-data-lake-storage.png" alt-text="Screenshot of the data source page with deletion detection options.":::
+
+1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
+
+   + You're prompted to choose either a system-managed or user-managed identity. 
+   + The identity should have a **Storage Blob Data Reader** role on Azure Storage. 
+   + Don't skip this step. A connection error occurs during indexing if the wizard can't connect to Azure Storage.
 
 1. Select **Next**.
 
@@ -314,7 +368,7 @@ When the wizard completes the configuration, it creates the following objects:
 
 + Index with vector fields, vectorizers, vector profiles, and vector algorithms. You can't design or modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-+ Skillset with the [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or the [AML skill](cognitive-search-aml-skill.md) for the Azure AI Studio model catalog.
++ Skillset with the [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or the [AML skill](cognitive-search-aml-skill.md) for the Azure AI Studio model catalog. The skillset also has the [index projections](index-projections-concept-intro.md) configuration that allows data to be mapped from one document in the data source to its corresponding chunks in a "child" index.
 
 + Indexer with field mappings and output field mappings (if applicable).
 

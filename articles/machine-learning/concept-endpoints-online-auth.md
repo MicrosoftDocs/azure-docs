@@ -3,7 +3,7 @@ title: Authentication for managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works for Azure Machine Learning managed online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 author: msakande

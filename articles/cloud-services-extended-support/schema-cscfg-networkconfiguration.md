@@ -2,7 +2,7 @@
 title: Azure Cloud Services (extended support) NetworkConfiguration Schema | Microsoft Docs
 description: Information related to the network configuration schema for Cloud Services (extended support)
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
@@ -38,13 +38,13 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
-    <AddressAssignments>
-      <InstanceAddress roleName="<role-name>">
-        <Subnets>
-          <Subnet name="<subnet-name>"/>
-        </Subnets>
-      </InstanceAddress>
+    <VirtualNetworkSite name="<vnet-name>"/> <!-- Or, if the virtual network is in a different resource group: <VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> -->
+      <AddressAssignments>
+        <InstanceAddress roleName="<role-name>">
+          <Subnets>
+            <Subnet name="<subnet-name>"/>
+          </Subnets>
+        </InstanceAddress>
       <ReservedIPs>
         <ReservedIP name="<reserved-ip-name>"/>
       </ReservedIPs>

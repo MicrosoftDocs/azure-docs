@@ -3,7 +3,7 @@ title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 05/01/2023
 ms.author: mbender

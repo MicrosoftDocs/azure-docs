@@ -165,7 +165,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated.
 
-For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
+For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
 
 ### Recommendations for managing policies
 

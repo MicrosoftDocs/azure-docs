@@ -19,7 +19,7 @@ Use this guide to get started generating images with the Azure OpenAI SDK for C#
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in a supported region (see [Region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)). For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 
 ## Setup
@@ -114,7 +114,7 @@ https://dalleproduse.blob.core.windows.net/private/images/b7ac5e55-f1f8-497a-8d0
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

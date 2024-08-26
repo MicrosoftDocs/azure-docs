@@ -68,7 +68,7 @@ To support wider adoption for distributed tracing, Microsoft is contributing to 
 1. The SDK adds a `tracestate` value to the message property, which contains the time stamp for message creation.
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at the IoT Hub gateway.
-1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop." IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview) under the `DiagnosticIoTHubD2C` operation.
+1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop." IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview) under the `DiagnosticIoTHubD2C` operation.
 1. When the message processing is finished, IoT Hub generates another `span-id` value and logs it, along with the existing `trace-id` value, under the `DiagnosticIoTHubIngress` operation.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint. IoT Hub logs another `span-id` value with the same `trace-id` value under the `DiagnosticIoTHubEgress` category.
 
@@ -108,7 +108,7 @@ After the logging is turned on, IoT Hub records a log when a message that contai
 - The IoT hub processes the message.
 - The message is routed to custom endpoints. Routing must be enabled.
 
-To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
+To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Update sampling options
 
@@ -154,7 +154,7 @@ You can use the Azure portal or the Azure IoT Hub extension for Visual Studio Co
 
    **Enable Distributed Tracing: Enabled** now appears under **Distributed Tracing Setting (Preview)** > **Desired**.
 
-1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select the Enter key.
+1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select **Enter**.
 
     ![Screenshot that shows entering a sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
@@ -206,7 +206,7 @@ Here are a few example logs in Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | `{"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"}` |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | `{"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"}` |
 
-To understand the types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
+To understand the types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Run a sample application
 

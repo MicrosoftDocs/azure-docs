@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of Web Application Firewall (WAF) on Application Gateway
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 01/26/2024
 ms.author: victorh
 ms.topic: conceptual
@@ -203,8 +203,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 With the built-in Azure WAF firewall events workbook, you can get an overview of the security events on your WAF. This includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. More information on logging follows. 
 
 
-![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
-
+:::image type="content" source="../media/ag-overview/sentinel.png" lightbox= "../media/ag-overview/sentinel.png" alt-text="Screenshot of WAF Firewall events.":::
 
 #### Azure Monitor Workbook for WAF
 

@@ -3,7 +3,7 @@ title: Troubleshooting local model deployment
 titleSuffix: Azure Machine Learning
 description: Try a local model deployment as a first step in troubleshooting model deployment errors.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: joburges
 author: ssalgadodev

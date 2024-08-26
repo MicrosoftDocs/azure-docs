@@ -3,7 +3,7 @@ title: Learn about the Confidential Consortium Framework
 description: An overview of Confidential Consortium Framework.
 services: managed-confidential-consortium-framework
 author: msftsettiy
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 09/28/2023
 ms.author: settiy

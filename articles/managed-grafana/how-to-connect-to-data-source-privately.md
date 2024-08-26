@@ -1,7 +1,7 @@
 ---
 title: How to connect to a data source privately in Azure Managed Grafana
 description: Learn how to connect an Azure Managed Grafana instance to a data source using Managed Private Endpoint
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
@@ -25,7 +25,7 @@ While managed private endpoints are free, there may be charges associated with p
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-- Azure Cosmos DB for Mongo DB
+- Azure Cosmos DB for Mongo DB ([Only for Request Unit (RU) architecture](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture))
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Explorer
 - Azure Monitor private link scope (for example, Log Analytics workspace)

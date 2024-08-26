@@ -5,7 +5,7 @@ services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: concept-article
 ---
 
@@ -91,9 +91,7 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - VPN gateways currently support IPv4 traffic only, but they still can be deployed in a dual-stacked virtual network using Azure PowerShell and Azure CLI commands only.
 
-- Support for IPv6 in Application Gateway v2 is currently in public preview. For more information, see the [How to configure IPv6 Application Gateway](../../application-gateway/ipv6-application-gateway-portal.md) guides. Application Gateway v1 doesn't support a dual stack frontend.
-
-- The Azure platform (AKS, etc.) doesn't support IPv6 communication for Containers. 
+- The Azure platforms, such as Azure Container Instances and Azure Container Apps, do not support IPv6 communication for containers 
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported, each NIC must include at least one IPv4 IP configuration. 
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/26/2024
 

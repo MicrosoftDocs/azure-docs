@@ -2,7 +2,7 @@
 title: Web App Tutorial - Write Web Application - Azure API for FHIR
 description: This tutorial walks through an example of deploying a simple web application. This section of the tutorial walks through writing the web application.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

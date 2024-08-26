@@ -6,7 +6,7 @@ services: machine-learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: swatig
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.custom: devx-track-azurecli, update-code, devx-track-python
 ms.topic: how-to

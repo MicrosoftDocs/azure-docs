@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 09/19/2022
+ms.date: 07/29/2024
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: prishet
@@ -16,7 +16,7 @@ ms.reviewer: prishet
 
 Azure Storage provides data protection for Blob Storage and Azure Data Lake Storage Gen2 to help you to prepare for scenarios where you need to recover data that has been deleted or overwritten. It's important to think about how to best protect your data before an incident occurs that could compromise it. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
 
-In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
+In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters. Customer-managed (unplanned) failover is another disaster recovery option that allows you to fail over to a secondary region if the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
 
 ## Recommendations for basic data protection
 
@@ -46,7 +46,7 @@ The following table summarizes the options available in Azure Storage for common
 | Restore a deleted blob or blob version within a specified interval. | Blob soft delete<br />[Learn more...](soft-delete-blob-overview.md) | Enable blob soft delete for all storage accounts, with a minimum retention interval of seven days.<br /><br />Enable blob versioning and container soft delete together with blob soft delete for optimal protection of blob data.<br /><br />Store blobs that require different retention periods in separate storage accounts. | A deleted blob or blob version may be restored within the retention period. | Yes |
 | Restore a set of block blobs to a previous point in time. | Point-in-time restore<br />[Learn more...](point-in-time-restore-overview.md) | To use point-in-time restore to revert to an earlier state, design your application to delete individual block blobs rather than deleting containers. | A set of block blobs may be reverted to their state at a specific point in the past.<br /><br />Only operations performed on block blobs are reverted. Any operations performed on containers, page blobs, or append blobs aren't reverted. | No |
 | Manually save the state of a blob at a given point in time. | Blob snapshot<br />[Learn more...](snapshots-overview.md) | Recommended as an alternative to blob versioning when versioning isn't appropriate for your scenario, due to cost or other considerations, or when the storage account has a hierarchical namespace enabled. | A blob may be restored from a snapshot if the blob is overwritten. If the blob is deleted, snapshots are also deleted. | Yes, in preview |
-| A blob can be deleted or overwritten, but the data is regularly copied to a second storage account. | Roll-your-own solution for copying data to a second account by using Azure Storage object replication or a tool like AzCopy or Azure Data Factory. | Recommended for peace-of-mind protection against unexpected intentional actions or unpredictable scenarios.<br /><br />Create the second storage account in the same region as the primary account to avoid incurring egress charges. | Data can be restored from the second storage account if the primary account is compromised in any way. | AzCopy and Azure Data Factory are supported.<br /><br />Object replication isn't supported. |
+| A blob can be deleted or overwritten, but the data is regularly copied to a second storage account. | Azure Blob vaulted backup<br />[Learn more](../../backup/blob-backup-overview.md) | Enable vaulted backup to have an offsite copy of your data backed up to a Microsoft tenant with no-direct access | Provides selective backup of essential containers and enables the restore of individual containers to a storage account which is different from the source storage account | No<br /><br />Roll-your-own solution for copying data to a second account<br /><br />AzCopy and Azure Data Factory are supported.<br /><br />Object replication isn't supported. |
 
 ## Data protection by resource type
 
@@ -54,6 +54,7 @@ The following table summarizes the Azure Storage data protection options accordi
 
 | Data protection option | Protects an account from deletion | Protects a container from deletion | Protects an object from deletion | Protects an object from overwrites |
 |--|--|--|--|--|
+| Azure Blob vaulted backup<br /> | No | Yes | Yes | Yes |
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
 | Immutability policy on a blob version | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes<sup>4</sup> |
 | Immutability policy on a container | Yes<sup>5</sup> | Yes | Yes | Yes |
@@ -103,15 +104,16 @@ The following table summarizes the cost considerations for the various data prot
 | Blob soft delete | No charge to enable blob soft delete for a storage account. Data in a soft-deleted blob is billed at same rate as active data until the soft-deleted blob is permanently deleted. |
 | Point-in-time restore | No charge to enable point-in-time restore for a storage account; however, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in other charges.<br /><br />You're billed for point-in-time restore when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
 | Blob snapshots | Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing).<br /><br />Use lifecycle management to delete older snapshots as needed to control costs. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md). |
+| Vaulted backup | For Vaulted Backup, You will incur backup storage charges or instance fees, and the source side cost ([associated with Object replication](object-replication-overview.md#billing)) on the backed-up source account. See [Pricing](../../backup/blob-backup-overview.md?tabs=vaulted-backup#pricing).|
 | Copy data to a second storage account | Maintaining data in a second storage account will incur capacity and transaction costs. If the second storage account is located in a different region than the source account, then copying data to that second account will additionally incur egress charges. |
 
 ## Disaster recovery
 
 Azure Storage always maintains multiple copies of your data so that it's protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. For more information about how to configure your storage account for high availability, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
-If a failure occurs in a data center, if your storage account is redundant across two geographical regions (geo-redundant), then you have the option to fail over your account from the primary region to the secondary region. For more information, see [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md).
+If your storage account is configured for geo-redundancy, you have the option to initiate an unplanned failover from the primary to the secondary region during a data center failure. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover). 
 
-Customer-managed failover isn't currently supported for storage accounts with a hierarchical namespace enabled. For more information, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
+Customer-managed failover currently supports storage accounts with a hierarchical namespace enabled in preview status only. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#plan-for-failover).
 
 ## Next steps
 

@@ -22,128 +22,127 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Languages supported by Language Detection
 
-| Language            | Language Code |
-|---------------------|---------------|
-| Afrikaans           | `af`          |
-| Albanian            | `sq`          |
-| Amharic             | `am`          |
-| Arabic              | `ar`          |
-| Armenian            | `hy`          |
-| Assamese            | `as`          |
-| Azerbaijani         | `az`          |
-| Bashkir             | `ba`          |
-| Basque              | `eu`          |
-| Belarusian          | `be`          |
-| Bengali             | `bn`          |
-| Bosnian             | `bs`          |
-| Bulgarian           | `bg`          |
-| Burmese             | `my`          |
-| Catalan             | `ca`          |
-| Central Khmer       | `km`          |
-| Chinese             | `zh`          |
-| Chinese Simplified  | `zh_chs`      |
-| Chinese Traditional | `zh_cht`      |
-| Chuvash             | `cv`          |
-| Corsican            | `co`          |
-| Croatian            | `hr`          |
-| Czech               | `cs`          |
-| Danish              | `da`          |
-| Dari                | `prs`         |
-| Divehi              | `dv`          |
-| Dutch               | `nl`          |
-| English             | `en`          |
-| Esperanto           | `eo`          |
-| Estonian            | `et`          |
-| Faroese             | `fo`          |
-| Fijian              | `fj`          |
-| Finnish             | `fi`          |
-| French              | `fr`          |
-| Galician            | `gl`          |
-| Georgian            | `ka`          |
-| German              | `de`          |
-| Greek               | `el`          |
-| Gujarati            | `gu`          |
-| Haitian             | `ht`          |
-| Hausa               | `ha`          |
-| Hebrew              | `he`          |
-| Hindi               | `hi`          |
-| Hmong Daw           | `mww`         |
-| Hungarian           | `hu`          |
-| Icelandic           | `is`          |
-| Igbo                | `ig`          |
-| Indonesian          | `id`          |
-| Inuktitut           | `iu`          |
-| Irish               | `ga`          |
-| Italian             | `it`          |
-| Japanese            | `ja`          |
-| Javanese            | `jv`          |
-| Kannada             | `kn`          |
-| Kazakh              | `kk`          |
-| Kinyarwanda         | `rw`          |
-| Kirghiz             | `ky`          |
-| Korean              | `ko`          |
-| Kurdish             | `ku`          |
-| Lao                 | `lo`          |
-| Latin               | `la`          |
-| Latvian             | `lv`          |
-| Lithuanian          | `lt`          |
-| Luxembourgish       | `lb`          |
-| Macedonian          | `mk`          |
-| Malagasy            | `mg`          |
-| Malay               | `ms`          |
-| Malayalam           | `ml`          |
-| Maltese             | `mt`          |
-| Maori               | `mi`          |
-| Marathi             | `mr`          |
-| Mongolian           | `mn`          |
-| Nepali              | `ne`          |
-| Norwegian           | `no`          |
-| Norwegian Nynorsk   | `nn`          |
-| Odia                | `or`          |
-| Pasht               | `ps`          |
-| Persian             | `fa`          |
-| Polish              | `pl`          |
-| Portuguese          | `pt`          |
-| Punjabi             | `pa`          |
-| Queretaro Otomi     | `otq`         |
-| Romanian            | `ro`          |
-| Russian             | `ru`          |
-| Samoan              | `sm`          |
-| Serbian             | `sr`          |
-| Shona               | `sn`          |
-| Sindhi              | `sd`          |
-| Sinhala             | `si`          |
-| Slovak              | `sk`          |
-| Slovenian           | `sl`          |
-| Somali              | `so`          |
-| Spanish             | `es`          |
-| Sundanese           | `su`          |
-| Swahili             | `sw`          |
-| Swedish             | `sv`          |
-| Tagalog             | `tl`          |
-| Tahitian            | `ty`          |
-| Tajik               | `tg`          |
-| Tamil               | `ta`          |
-| Tatar               | `tt`          |
-| Telugu              | `te`          |
-| Thai                | `th`          |
-| Tibetan             | `bo`          |
-| Tigrinya            | `ti`          |
-| Tongan              | `to`          |
-| Turkish             | `tr`          |
-| Turkmen             | `tk`          |
-| Upper Sorbian       | `hsb`         |
-| Uyghur              | `ug`          |
-| Ukrainian           | `uk`          |
-| Urdu                | `ur`          |
-| Uzbek               | `uz`          |
-| Vietnamese          | `vi`          |
-| Welsh               | `cy`          |  
-| Xhosa               | `xh`          |
-| Yiddish             | `yi`          |
-| Yoruba              | `yo`          |
-| Yucatec Maya        | `yua`         |  
-| Zulu                | `zu`          |
+| Language            | Language Code | Supported Script Code |
+|---------------------|---------------|-----------------------|
+| Afrikaans           | `af`          | `Latn`                |
+| Albanian            | `sq`          | `Latn`                |
+| Amharic             | `am`          | `Ethi`                |
+| Arabic              | `ar`          | `Arab`                |
+| Armenian            | `hy`          | `Armn`                |
+| Assamese            | `as`          | `Beng`, `Latn`        |
+| Azerbaijani         | `az`          | `Latn`                |
+| Bashkir             | `ba`          | `Cyrl`                |
+| Basque              | `eu`          | `Latn`                |
+| Belarusian          | `be`          | `Cyrl`                |
+| Bengali             | `bn`          | `Beng`, `Latn`        |
+| Bosnian             | `bs`          | `Latn`                |
+| Bulgarian           | `bg`          | `Cyrl`                |
+| Burmese             | `my`          | `Mymr`                |
+| Catalan             | `ca`          | `Latn`                |
+| Central Khmer       | `km`          | `Khmr`                |
+| Chinese Simplified  | `zh_chs`      | `Hans`                |
+| Chinese Traditional | `zh_cht`      | `Hant`                |
+| Chuvash             | `cv`          | `Cyrl`                |
+| Corsican            | `co`          | `Latn`                |
+| Croatian            | `hr`          | `Latn`                |
+| Czech               | `cs`          | `Latn`                |
+| Danish              | `da`          | `Latn`                |
+| Dari                | `prs`         | `Arab`                |
+| Divehi              | `dv`          | `Thaa`                |
+| Dutch               | `nl`          | `Latn`                |
+| English             | `en`          | `Latn`                |
+| Esperanto           | `eo`          | `Latn`                |
+| Estonian            | `et`          | `Latn`                |
+| Faroese             | `fo`          | `Latn`                |
+| Fijian              | `fj`          | `Latn`                |
+| Finnish             | `fi`          | `Latn`                |
+| French              | `fr`          | `Latn`                |
+| Galician            | `gl`          | `Latn`                |
+| Georgian            | `ka`          | `Gujr`                |
+| German              | `de`          | `Latn`                |
+| Greek               | `el`          | `Grek`                |
+| Gujarati            | `gu`          | `Gujr`, `Latn`        |
+| Haitian             | `ht`          | `Latn`                |
+| Hausa               | `ha`          | `Latn`                |
+| Hebrew              | `he`          | `Hebr`                |
+| Hindi               | `hi`          | `Deva`, `Latn`        |
+| Hmong Daw           | `mww`         | `Latn`                |
+| Hungarian           | `hu`          | `Latn`                |
+| Icelandic           | `is`          | `Latn`                |
+| Igbo                | `ig`          | `Latn`                |
+| Indonesian          | `id`          | `Latn`                |
+| Inuktitut           | `iu`          | `Cans`, `Latn`        |
+| Irish               | `ga`          | `Latn`                |
+| Italian             | `it`          | `Latn`                |
+| Japanese            | `ja`          | `Jpan`                |
+| Javanese            | `jv`          | `Latn`                |
+| Kannada             | `kn`          | `Knda`, `Latn`        |
+| Kazakh              | `kk`          | `Cyrl`                |
+| Kinyarwanda         | `rw`          | `Latn`                |
+| Kirghiz             | `ky`          | `Cyrl`                |
+| Korean              | `ko`          | `Hang`                |
+| Kurdish             | `ku`          | `Arab`                |
+| Lao                 | `lo`          | `Laoo`                |
+| Latin               | `la`          | `Latn`                |
+| Latvian             | `lv`          | `Latn`                |
+| Lithuanian          | `lt`          | `Latn`                |
+| Luxembourgish       | `lb`          | `Latn`                |
+| Macedonian          | `mk`          | `Cyrl`                |
+| Malagasy            | `mg`          | `Latn`                |
+| Malay               | `ms`          | `Latn`                |
+| Malayalam           | `ml`          | `Mlym`, `Latn`        |
+| Maltese             | `mt`          | `Latn`                |
+| Maori               | `mi`          | `Latn`                |
+| Marathi             | `mr`          | `Deva`, `Latn`        |
+| Mongolian           | `mn`          | `Cyrl`                |
+| Nepali              | `ne`          | `Deva`                |
+| Norwegian           | `no`          | `Latn`                |
+| Norwegian Nynorsk   | `nn`          | `Latn`                |
+| Odia                | `or`          | `Orya`, `Latn`        |
+| Pashto              | `ps`          | `Arab`                |
+| Persian             | `fa`          | `Arab`                |
+| Polish              | `pl`          | `Latn`                |
+| Portuguese          | `pt`          | `Latn`                |
+| Punjabi             | `pa`          | `Guru`, `Latn`        |
+| Queretaro Otomi     | `otq`         | `Latn`                |
+| Romanian            | `ro`          | `Latn`                |
+| Russian             | `ru`          | `Cyrl`                |
+| Samoan              | `sm`          | `Latn`                |
+| Serbian             | `sr`          | `Latn`, `Cyrl`        |
+| Shona               | `sn`          | `Latn`                |
+| Sindhi              | `sd`          | `Arab`                |
+| Sinhala             | `si`          | `Sinh`                |
+| Slovak              | `sk`          | `Latn`                |
+| Slovenian           | `sl`          | `Latn`                |
+| Somali              | `so`          | `Latn`                |
+| Spanish             | `es`          | `Latn`                |
+| Sundanese           | `su`          | `Latn`                |
+| Swahili             | `sw`          | `Latn`                |
+| Swedish             | `sv`          | `Latn`                |
+| Tagalog             | `tl`          | `Latn`                |
+| Tahitian            | `ty`          | `Latn`                |
+| Tajik               | `tg`          | `Cyrl`                |
+| Tamil               | `ta`          | `Taml`, `Latn`        |
+| Tatar               | `tt`          | `Cyrl`                |
+| Telugu              | `te`          | `Telu`, `Latn`        |
+| Thai                | `th`          | `Thai`                |
+| Tibetan             | `bo`          | `Tibt`                |
+| Tigrinya            | `ti`          | `Ethi`                |
+| Tongan              | `to`          | `Latn`                |
+| Turkish             | `tr`          | `Latn`                |
+| Turkmen             | `tk`          | `Latn`                |
+| Upper Sorbian       | `hsb`         | `Latn`                |
+| Uyghur              | `ug`          | `Arab`                |
+| Ukrainian           | `uk`          | `Latn`                |
+| Urdu                | `ur`          | `Arab`, `Latn`        |
+| Uzbek               | `uz`          | `Latn`                |
+| Vietnamese          | `vi`          | `Latn`                |
+| Welsh               | `cy`          | `Latn`                |
+| Xhosa               | `xh`          | `Latn`                |
+| Yiddish             | `yi`          | `Hebr`                |
+| Yoruba              | `yo`          | `Latn`                |
+| Yucatec Maya        | `yua`         | `Latn`                |
+| Zulu                | `zu`          | `Latn`                |
 
 ## Romanized Indic Languages supported by Language Detection
 
@@ -166,21 +165,21 @@ If you have content expressed in a less frequently used language, you can try La
 
 | Language                              | Script code | Scripts        |
 | ------------------------------------- | ----------  | -------------- |
-| Bengali (Bengali-Assamese)            | `as`        | `Latn`, `Beng` |
-| Bengali (Bangla)                      | `bn`        | `Latn`, `Beng` |
+| Assamese                              | `as`        | `Latn`, `Beng` |
+| Bengali                               | `bn`        | `Latn`, `Beng` |
 | Gujarati                              | `gu`        | `Latn`, `Gujr` |
 | Hindi                                 | `hi`        | `Latn`, `Deva` |
 | Kannada                               | `kn`        | `Latn`, `Knda` |
 | Malayalam                             | `ml`        | `Latn`, `Mlym` |
 | Marathi	                            | `mr`        | `Latn`, `Deva` |
 | Oriya                                 | `or`        | `Latn`, `Orya` |
-| Gurmukhi                              | `pa`        | `Latn`, `Guru` |
+| Punjabi                               | `pa`        | `Latn`, `Guru` |
 | Tamil                                 | `ta`        | `Latn`, `Taml` |
 | Telugu                                | `te`        | `Latn`, `Telu` |
-| Arabic                                | `ar`        | `Latn`, `Arab` |
-| Cyrillic                              | `tt`        | `Latn`, `Cyrl` |
+| Urdu                                  | `ur`        | `Latn`, `Arab` |
+| Tatar                                 | `tt`        | `Latn`, `Cyrl` |
 | Serbian                               | `sr`        | `Latn`, `Cyrl` |
-| Unified Canadian Aboriginal Syllabics	| `iu`        | `Latn`, `Cans` |
+| Inuktitut                         	| `iu`        | `Latn`, `Cans` |
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.reviewer: Xema Pathak
 This guide describes how to use Azure Monitor to monitor the health and performance of virtual machines and their workloads. It includes collection of telemetry critical for monitoring and analysis and visualization of collected data to identify trends. It also shows you how to configure alerting to be proactively notified of critical issues.
 
 > [!NOTE]
-> This guide describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This guide describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm).
 
 ## Types of machines
 
@@ -63,7 +63,7 @@ The articles in this guide provide guidance on configuring VM insights and using
 
 
 ## Security monitoring
-Azure Monitor focuses on operational data, while security monitoring in Azure is performed by other services such as [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
+Azure Monitor focuses on operational data, while security monitoring in Azure is performed by other services such as [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.

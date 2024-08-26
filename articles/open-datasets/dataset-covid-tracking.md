@@ -1,7 +1,7 @@
 ---
 title: COVID Tracking Project
 description: Learn how to use the COVID tracking project dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---

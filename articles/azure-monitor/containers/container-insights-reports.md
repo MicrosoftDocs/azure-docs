@@ -79,7 +79,7 @@ The number on each tile represents how far the container limits/requests are fro
     - IPs assigned to a pod.
 
 >[!NOTE]
-> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](../../aks/configure-azure-cni-dynamic-ip-allocation.md#monitor-ip-subnet-usage).
+> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](/azure/aks/configure-azure-cni-dynamic-ip-allocation#monitor-ip-subnet-usage).
 
 ## Resource Monitoring workbooks
 

@@ -2,7 +2,7 @@
 title: Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 
 description: Apply the Microsoft Azure diagnostics extension for Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

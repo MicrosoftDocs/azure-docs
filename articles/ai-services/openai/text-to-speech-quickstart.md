@@ -38,9 +38,11 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location highlighted." lightbox="media/quickstarts/endpoint.png":::
 
+### Environment variables
+
 Create and assign persistent environment variables for your key and endpoint.
 
-### Environment variables
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 # [Command Line](#tab/command-line)
 
@@ -79,7 +81,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

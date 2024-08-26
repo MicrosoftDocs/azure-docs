@@ -3,7 +3,7 @@ title: 'How to view and configure alerts for Azure ExpressRoute circuit maintena
 description: Learn how to configure custom alerts for ExpressRoute circuit maintenance using the Service Health page in the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
