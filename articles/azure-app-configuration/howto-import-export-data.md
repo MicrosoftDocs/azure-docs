@@ -371,6 +371,7 @@ From the Azure portal, follow these steps:
     | Exclude feature flag    | If enabled, excludes feature flags when exporting configuration data.          | *false*                       |
 
 1. Select destination store, fill out the form with the following parameters:
+
     | Parameter      | Description  | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                               | *my-subscription*     |
