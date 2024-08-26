@@ -455,7 +455,7 @@ If you're using a configuration file to store your credentials, see [Deploy a da
 
 Use the following procedure to configure the Microsoft Sentinel SAP data connector agent container to use SNC for secure communications with your SAP system.
 
-**Prerequisites**: Make sure that your SAP system is configured to use SNC for secure connections before you start this procedure. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_NETWEAVER_731/a42446bded624585958a36a71903a4a7/c3d2281db19ec347a2365fba6ab3b22b.html?q=SNC). <!--not sure this is the right link for us - it's Java only?-->
+**Prerequisites**: Make sure that your SAP system is configured to use SNC for secure connections before you start this procedure. For more information, see [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html). 
 
 **To configure the container for secure communication with SNC**:
 
