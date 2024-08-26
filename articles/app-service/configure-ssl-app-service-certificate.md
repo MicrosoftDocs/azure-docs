@@ -78,18 +78,18 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
    | **Purge protection** | Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
 
 1. Select **Next** and then select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
-1. Select **Review + create**, then select **Create**.
-1. After the key vault is created, don't select **Go to resource** but wait for the **Select key vault from Azure Key Vault page** to reload.
+1. Select **Review + create**, and then select **Create**.
+1. After the key vault is created, don't select **Go to resource**. Wait for the **Select key vault from Azure Key Vault** page to reload.
 1. Select **Select**.
 1. After you select the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark to indicate success. Keep the page open for the next step.
 
 #### Confirm domain ownership
 
-1. From the same **Certificate Configuration** page in the previous section, select **Step 2: Verify**.
+1. From the same **Certificate Configuration** page as in the previous section, select **Step 2: Verify**.
 
-    :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot of 'Certificate Configuration' pane with 'Step 2: Verify' selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot of the Certificate Configuration pane with 'Step 2: Verify' selected.":::
 
-1. Select **App Service Verification**. However, because you previously mapped the domain to your web app per the [Prerequisites](#prerequisites), the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
+1. Select **App Service Verification**. Because you previously mapped the domain to your web app per the [Prerequisites](#prerequisites), the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
 
 The following domain verification methods are supported: 
 
@@ -98,21 +98,21 @@ The following domain verification methods are supported:
 | **App Service Verification** | The most convenient option when the domain is already mapped to an App Service app in the same subscription because the App Service app has already verified the domain ownership. Review the last step in [Confirm domain ownership](#confirm-domain-ownership). |
 | **Domain Verification** | Confirm an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process. |
 | **Mail Verification** | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. |
-| **Manual Verification** | Confirm the domain by using either a DNS TXT record or an HTML page, which applies only to **Standard** certificates per the following note.  The steps are provided after you select the option. The HTML page option doesn't work for web apps with "HTTPS Only' enabled. For domain verification via DNS TXT record for either root domain (ie. "contoso.com") or subdomain (ie. "www.contoso.com", "test.api.contoso.com") and regardless of certificate SKU, you need to add a TXT record at the root domain level using '@' for the name and the domain verification token for the value in your DNS record. |
+| **Manual Verification** | Confirm the domain by using either a DNS TXT record or an HTML page, which applies only to Standard certificates. (See the following note.) The steps are provided after you select the option. The HTML page option doesn't work for web apps with **HTTPS Only** enabled. For domain verification via DNS TXT record for either the root domain (for example, `contoso.com`) or the subdomain (for example, `www.contoso.com` or `test.api.contoso.com`) and regardless of the certificate SKU, you need to add a TXT record at the root domain level, using `@` for the name and the domain verification token for the value in your DNS record. |
 
 > [!IMPORTANT]
-> With the **Standard** certificate, you get a certificate for the requested top-level domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. However, **App Service Verification** and **Manual Verification** both use HTML page verification, which doesn't support the `www` subdomain when issuing, rekeying, or renewing a certificate. For the **Standard** certificate, use **Domain Verification** and **Mail Verification** to include the `www` subdomain with the requested top-level domain in the certificate.
+> With the Standard certificate, you get a certificate for the requested top-level domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. However, App Service Verification and Manual Verification both use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use Domain Verification and Mail Verification to include the `www` subdomain with the requested top-level domain in the certificate.
 
 Once your certificate is domain-verified, [you're ready to import it into an App Service app](configure-ssl-certificate.md#import-an-app-service-certificate).
 
 ## Renew an App Service certificate
 
-By default, App Service certificates have a one-year validity period. Before and nearer to the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
+By default, App Service certificates have a one-year validity period. Before the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
 > [!NOTE]
 > Starting September 23 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew or rekey process. The new certificate order remains in "pending issuance" mode during the renew or rekey process until you complete the domain verification.
 > 
-> Unlike the free App Service managed certificate, domain re-verification for App Service certificates *isn't* automated. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
+> Unlike the free App Service managed certificate, App Service certificates don't have automated domain re-verification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 >
 > The renewal process requires that the well-known [service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). These permissions are set up for you when you import an App Service certificate through the Azure portal. Make sure that you don't remove these permissions from your key vault.
 
@@ -120,12 +120,11 @@ By default, App Service certificates have a one-year validity period. Before and
 
 1. On the left menu, select **Auto Renew Settings**.
 
-1. Select **On** or **Off**, and select **Save**.
+1. Select **On** or **Off**, and then select **Save**.
 
    If you turn on automatic renewal, certificates can start automatically renewing 32 days before expiration.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of specified certificate's auto renewal settings.](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+   :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot of specified certificate's auto renewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" :::
 
 1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [the maximum expiration date will be 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
