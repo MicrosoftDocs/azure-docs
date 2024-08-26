@@ -2,7 +2,7 @@
 title: Transition from Azure Lab Services to Azure DevTest Labs
 description: Learn how to transition from Azure Lab Services to Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 08/26/2024
 
 # customer intent: As an Azure Lab Services customer, I want to understand the Azure Lab Services retirement schedule and what Microsoft and partners services I can transition to.
 ---
@@ -21,7 +21,7 @@ DevTest Labs is targeted at enterprise customers. The primary scenario for which
 
 - Customer needs access to Linux VMs - DevTest Labs is the only first party service that provides access to Linux. Cloud PC, Azure Virtual Desktop, Microsoft Dev Box don't provide access to native Linux VMs. 
 - Customer needs to use an image with nested virtualization - DevTest Labs works well with images that use nested virtualization because it provides a dedicated VM for each student. Nested virtualization isn't well-suited for multi-user session VMs because there's no concept of isolation between user sessions. 
-- Technical Computer Programming classes - DevTest Labs resources are available using the Azure portal. Only students comfortable with the Azure portal should use DTL. DTL APIs must be used to create a custom portal to access DTL VMs outside of the Azure portal. 
+- Technical Computer Programming classes - DevTest Labs resources are available using the Azure portal. Only students comfortable with the Azure portal should use DTL. DTL APIs can be used if you want to create a custom portal to access DTL VMs outside of the Azure portal. 
 
 ### When should a customer not use DevTest Labs? 
 - Customer requires extensive cost controls, including user quota and limits on the number of VMs a user can have. DevTest Labs doesn't have any ability to restrict access to a VM based on a quota granted per student.
@@ -46,8 +46,6 @@ We recommend using a Shared Image Gallery over the DTL [custom images feature](/
 
 **Does DevTest Labs support multi-VM environments?**
 [Azure Deployment Environments](https://azure.microsoft.com/products/deployment-environments/) is recommended for multi-VM environments. 
- 
-We don't recommend using DTL environments feature. 
 
 **Does DevTest Labs support schedules?**
 DevTest Labs supports an optional daily start and/or stop schedule. 
