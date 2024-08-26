@@ -5,6 +5,10 @@ author: cwatson
 ms.author: cwatson
 ms.topic: conceptual
 ms.date: 03/05/2024
+
+
+#Customer intent: [AI]As a security administrator, I want to understand the prerequisites for deploying a cloud-based SIEM solution so that I can ensure my Azure environment is properly configured and compliant.
+
 ---
 
 # Prerequisites to deploy Microsoft Sentinel

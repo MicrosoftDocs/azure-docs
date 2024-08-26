@@ -8,6 +8,10 @@ ms.topic: tutorial
 ms.date: 01/05/2023
 ms.custom: template-tutorial
 #Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
+
+
+#Customer intent: [AI]As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage storage costs and ensure compliance with data retention requirements.
+
 ---
 
 # Tutorial: Configure a data retention policy for a table in a Log Analytics workspace

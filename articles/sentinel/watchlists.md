@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to use watchlists in my SIEM platform so that I can efficiently correlate and enrich event data, reduce alert fatigue, and quickly respond to threats.
+
 ---
 
 # Watchlists in Microsoft Sentinel

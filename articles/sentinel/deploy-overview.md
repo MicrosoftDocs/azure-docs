@@ -6,6 +6,10 @@ ms.author: cwatson
 ms.topic: conceptual
 ms.date: 06/28/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: [AI]As a SOC architect, I want to plan, deploy, and fine-tune a security information and event management (SIEM) system so that I can effectively monitor, detect, and respond to security threats across my organization.
+
 ---
 
 # Deployment guide for Microsoft Sentinel

@@ -11,6 +11,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to correlate data from meaningful data sources I provide with events so I can watch for more relationships with better visibility.
+
+
+#Customer intent: [AI]As a security analyst, I want to create and manage watchlists in my SIEM platform so that I can correlate critical data with security events and enhance threat detection.
+
 ---
 
 # Create watchlists in Microsoft Sentinel

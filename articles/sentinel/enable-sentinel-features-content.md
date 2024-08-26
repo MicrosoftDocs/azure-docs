@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: cwatson
 #Customer intent: As a SOC analyst, I want to enable the Microsoft Sentinel service and the key features and content, so I can get started with my deployment.
+
+
+#Customer intent: [AI]As a security operations analyst, I want to enable and configure Microsoft Sentinel and its key features so that I can monitor and secure my organization's environment effectively.
+
 ---
 
 # Enable Microsoft Sentinel and initial features and content

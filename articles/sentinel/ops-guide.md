@@ -8,6 +8,10 @@ author: cwatson-cat
 appliesto:
   - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #Customer intent: As a security operations (SOC) team member or security administrator, I want to know what operational activities I should plan to do daily, weekly, and monthly with Microsoft Sentinel to help keep my organization's environment secure. 
+
+
+#Customer intent: [AI]As a security operations team member, I want to follow a structured operational guide for Microsoft Sentinel so that I can ensure comprehensive and consistent security monitoring and management.
+
 ---
 
 # Microsoft Sentinel operational guide

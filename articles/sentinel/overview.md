@@ -7,6 +7,10 @@ ms.topic: overview
 ms.service: microsoft-sentinel
 ms.date: 05/13/2024
 #customer intent: As a business decision maker, I want to understand what Microsoft Sentinel offers to determine whether the service meets my organization's requirements.
+
+
+#Customer intent: [AI]As a security operations center (SOC) analyst, I want to use a cloud-native SIEM and SOAR solution so that I can detect, investigate, and respond to cyber threats efficiently across my enterprise.
+
 ---
 
 # What is Microsoft Sentinel?

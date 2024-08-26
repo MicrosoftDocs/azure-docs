@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to use Jupyter notebooks with advanced data analysis and visualization capabilities so that I can enhance my threat hunting and investigation processes.
+
 ---
 
 # Jupyter notebooks with Microsoft Sentinel hunting capabilities
