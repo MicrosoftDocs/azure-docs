@@ -376,9 +376,6 @@ items:
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
-    - name: Azure AI Search
-      tocHref: /azure/search/
-      topicHref: /azure/search/
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
@@ -685,9 +682,6 @@ items:
     - name: Studio (classic)
       tocHref: /azure/machine-learning/studio
       topicHref: /azure/machine-learning/studio/
-    - name: Data Science Virtual Machine
-      tocHref: /azure/machine-learning/data-science-virtual-machine
-      topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
@@ -827,9 +821,6 @@ items:
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
-  - name: Open Datasets
-    tocHref: /azure/open-datasets/
-    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
