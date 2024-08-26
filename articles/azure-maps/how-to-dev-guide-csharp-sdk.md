@@ -301,7 +301,7 @@ for (var i = 0; i < count; i++)
 
 ## Using V1 SDKs for Search and Render
 
-To use Search V1 and Render V1 SDK, please refer to Search V1 SDK [package](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5) page and Render V1 SDK [package](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3) for more information.
+For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
 
 ## Additional information
 
