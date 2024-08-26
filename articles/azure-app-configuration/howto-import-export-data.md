@@ -375,7 +375,7 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                               | *my-subscription*     |
     | Resource group | Select a resource group that contains the App Configuration store where you want to export the configuration. Your current resource group is selected by default. | *my-resource-group*   |
-    | Resource       | Select the App Configuration store where you want to export the configuration.          | *my-other-app-config-store* |
+    | Resource       | Select the App Configuration store where you want to export the configuration.         | *my-other-app-config-store* |
 
 
 1. Fill out the next part of the form:
