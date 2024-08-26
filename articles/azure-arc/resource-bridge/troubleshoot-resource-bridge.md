@@ -326,7 +326,7 @@ This error is caused when there's a clock/time difference between ESXi host(s) a
 When deploying or upgrading Arc resource bridge, you may encounter an error similar to: 
 
 `{ "ErrorCode": "PreflightcheckErrorOnPrem", 
-"ErrorDetails": "Upgrade Operation Failed with error: \"{\\n \\\"code\\\": \\\"PreflightcheckError\\\",\\n \\\"message\\\": \\\"{\\\\n \\\\\\\"code\\\\\\\": \\\\\\\"InvalidEntityError\\\\\\\",\\\\n \\\\\\\"message\\\\\\\": \\\\\\\"Cannot retrieve vSphere Network 'seg-azure-arc-uson-avs-eastus': path 'seg-azure-arc-uson-avs-eastus' resolves to multiple networks\\\\\\\",\\\\n \\\\\\\"category\\\\\\\": \\\\\\\"\\\\\\\"\\\\n }\\\",\\n \\\"category\\\": \\\"\\\"\\n }\"" }` 
+"ErrorDetails": "Upgrade Operation Failed with error: \"{\\n \\\"code\\\": \\\"PreflightcheckError\\\",\\n \\\"message\\\": \\\"{\\\\n \\\\\\\"code\\\\\\\": \\\\\\\"InvalidEntityError\\\\\\\",\\\\n \\\\\\\"message\\\\\\\": \\\\\\\"Cannot retrieve vSphere Network 'vmware-azure-arc-01': path 'vmware-azure-arc-01' resolves to multiple networks\\\\\\\",\\\\n \\\\\\\"category\\\\\\\": \\\\\\\"\\\\\\\"\\\\n }\\\",\\n \\\"category\\\": \\\"\\\"\\n }\"" }` 
 
 This error occurs when the vSphere network segment resolves to multiple networks due to multiple vSphere network segments having the same name that is specified in the error. To fix this error, you can change the duplicate network name in vCenter (not the network with the appliance VM) or deploy Arc resource bridge on a different network.
 
