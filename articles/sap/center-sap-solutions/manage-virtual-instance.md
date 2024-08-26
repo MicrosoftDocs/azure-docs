@@ -57,6 +57,12 @@ In the sidebar menu, look under the section **SAP resources**:
 
 :::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of VIS resource in Azure portal, showing SAP resources pages in the sidebar menu for ASCS, App server, and Database instances.":::
 
+## View Manage identity under VIS
+
+You can view and create/delete the manage identity under the VIS
+
+:::image type="content" source="media/configure-virtual-instance/manage-identity-under-vis.png" lightbox="media/configure-virtual-instance/manage-identity-under-vis.png" alt-text="Screenshot of Manage Identity view under VIS in Azure portal":::
+
 ## Default Instance Numbers
 
 If you've deployed an SAP system using Azure Center for SAP solutions, the following list shows the default values of instance numbers configured during deployment:
