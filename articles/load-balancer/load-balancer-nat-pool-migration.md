@@ -63,7 +63,7 @@ Install-Module -Name AzureLoadBalancerNATPoolMigration -Scope CurrentUser -Repos
 
 #### Example: pass a Load Balancer from the pipeline
    ```azurepowershell
-   Get-AzLoadBalancer -ResourceGroupName -ResourceGroupName <loadBalancerResourceGroupName> -Name <LoadBalancerName> | Start-AzNATPoolMigration
+   Get-AzLoadBalancer -ResourceGroupName <loadBalancerResourceGroupName> -Name <LoadBalancerName> | Start-AzNATPoolMigration
    ```
 
 ## Common Questions
