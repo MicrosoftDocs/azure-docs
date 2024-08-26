@@ -71,7 +71,7 @@ Your virtual machine is typically created by your **infrastructure** team. Confi
 
     ```
 
-    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
+    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
     > [!IMPORTANT]
     > After the VM is created, be sure to apply any security requirements and hardening procedures applicable in your organization.

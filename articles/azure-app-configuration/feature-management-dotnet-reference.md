@@ -1131,7 +1131,7 @@ Compared to normal feature flags, variant feature flags have two additional prop
 
 #### Defining Variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using either the `configuration_reference` or `configuration_value` properties. `configuration_reference` is a string path that references a section of the current configuration that contains the feature flag declaration. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If both are specified, `configuration_value` is used. If neither are specified, the returned variant's `Configuration` property will be null.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` is not specified, the returned variant's `Configuration` property will be null.
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
@@ -1144,7 +1144,9 @@ A list of all possible variants is defined for each feature under the `variants`
                 "variants": [
                     { 
                         "name": "Big", 
-                        "configuration_reference": "ShoppingCart:Big" 
+                        "configuration_value": {
+                            "Size": 500
+                        }
                     },  
                     { 
                         "name": "Small", 
@@ -1155,17 +1157,6 @@ A list of all possible variants is defined for each feature under the `variants`
                 ]
             }
         ]
-    },
-
-    "ShoppingCart": {
-        "Big": {
-            "Size": 600,
-            "Color": "green"
-        },
-        "Small": {
-            "Size": 300,
-            "Color": "gray"
-        }
     }
 }
 ```
@@ -1206,7 +1197,7 @@ The process of allocating a feature's variants is determined by the `allocation`
 "variants": [
     { 
         "name": "Big", 
-        "configuration_reference": "ShoppingCart:Big" 
+        "configuration_value": "500px"
     },  
     { 
         "name": "Small", 

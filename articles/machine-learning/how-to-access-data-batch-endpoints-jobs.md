@@ -424,9 +424,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     }
     ```
 
-    ---
-
-    The data assets ID looks like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/data/<data-asset>/versions/<version>`. You can also use the `azureml:/<datasset_name>@latest` format to specify the input.
+    The data assets ID looks like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/data/<data-asset>/versions/<version>`. You can also use the `azureml:<datasset_name>@latest` format to specify the input.
 
 1. Run the endpoint:
 

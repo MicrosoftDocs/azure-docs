@@ -73,6 +73,10 @@ To learn more about copying a blob with Java, see [Copy a blob with Java](storag
 
 To learn more about setting access tiers using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for setting access tiers use the following REST API operation:
@@ -81,11 +85,9 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java)
-
 ### See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

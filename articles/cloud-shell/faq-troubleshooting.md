@@ -1,7 +1,7 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
 ms.contributor: jahelmic
-ms.date: 08/14/2024
+ms.date: 08/22/2024
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -119,6 +119,65 @@ command that requires elevated permissions.
   - `*.console.azure.com`
   - `*.servicebus.windows.net`
 
+### Accessing Cloud Shell from VNET Isolation with a Private DNS Zone - Failed to request a terminal
+
+- **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
+  request a terminal due to DNS resolution problems. This failure can be caused when you launch a
+  nonisolated Cloud Shell session from within a VNet-isolated environment that includes a private
+  DNS Zone for the servicebus domain.
+
+- **Resolution**: There are two ways to resolve this problem. You can follow the instructions in
+  [Deploy Cloud Shell in a virtual network][01]. Or, you can add a DNS record for the Azure Relay
+  instance that Cloud Shell uses.
+
+  The following steps show you how to identify the DNS name of the Cloud Shell instance and how to
+  create a DNS record for that name.
+
+  1. Try to start Cloud Shell using your web browser. Use the browser's Developer Tools to find the
+     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kbd> key to
+     open the Developer Tools. Select the **Network** tab. Find the **Search** box in the top right
+     corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
+     of the request entries found by the search. In the **Headers** tab, find the hostname in the
+     **Request URL**. The name is similar to
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`.
+
+     The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
+     for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
+     your case, the request should be unsuccessful, but you can find the hostname you need to
+     resolve.
+
+     [![Screenshot of the browser developer tools.](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
+
+  1. From a host outside of your private network, run the `nslookup` command to find the IP address
+     of the hostname as found in the previous step.
+
+     ```bash
+     nslookup ccon-prod-southcentalus-aci-02.servicebus.windows.net
+     ```
+
+     The results should look similar to the following example:
+
+     ```Output
+     Server:         168.63.129.16
+     Address:        168.63.129.16#53
+
+     Non-authoritative answer:
+     ccon-prod-southcentralus-aci-02.servicebus.windows.net  canonical name = ns-sb2-prod-sn3-012.cloudapp.net.
+     Name:   ns-sb2-prod-sn3-012.cloudapp.net
+     Address: 40.84.152.91
+     ```
+
+  1. Add an A record for the public IP in the Private DNS Zone of the VNET isolated setup. For this
+     example, the DNS record would have the following properties:
+
+     - Name: ccon-prod-southcentralus-aci-02
+     - Type: A
+     - TTL: 1 hour
+     - IP Address: 40.84.152.91
+
+     For more information about creating DNS records in a private DNS zone, see
+     [Manage DNS record sets and records with Azure DNS][02].
+
 ## Managing Cloud Shell
 
 ### Manage personal data
@@ -168,4 +227,8 @@ Use the following steps to delete your user settings.
   entry point is `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` from your
   network. The Cloud Shell icon still exists in the Azure portal, but you can't connect to the
-  service.
+    service.
+
+<!-- link references -->
+[01]: /azure/cloud-shell/vnet/overview
+[02]: /azure/dns/dns-operations-recordsets-portal
