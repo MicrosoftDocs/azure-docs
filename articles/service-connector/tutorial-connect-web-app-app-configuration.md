@@ -202,6 +202,9 @@ Start by creating your Azure resources.
 
     ### [Connection string](#tab/connectionstring)
 
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
     Import the test configuration file to Azure App Configuration using a connection string.
 
     1. Cd into the folder `ServiceConnectorSample`

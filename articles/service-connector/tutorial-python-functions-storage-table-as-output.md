@@ -29,6 +29,9 @@ An overview of the function project components in this tutorial:
 | Local Project Auth Type  | Connection String                      |
 | Cloud Function Auth Type | Connection String                      |
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ## Prerequisites
 
 - Install [Visual Studio Code](https://code.visualstudio.com) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
@@ -37,9 +40,6 @@ An overview of the function project components in this tutorial:
 - The guide assumes you know the concepts presented in the [Functions developer guide](../azure-functions/functions-reference.md) and [how to connect to services in Azure Functions](../azure-functions/add-bindings-existing-function.md).
 
 ## Create a Python function project
-
-> [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 Follow the [tutorial to create a local Azure Functions project](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#create-an-azure-functions-project), and provide the following information at the prompts:
 
