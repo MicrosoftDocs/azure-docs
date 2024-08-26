@@ -116,7 +116,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 | tableName | Name of the table. | Yes |
 
 > [!Note]
-> In copy activities, the tableName will be the name of the table instead of the label in ServiceNow. The schema value will be the actual schema value rather than the displayed one in ServiceNow.
+> In copy activities, the tableName in dataset is the name of the table instead of the label in ServiceNow, and the schema is the actual schema, not the displayed schema in ServiceNow.
 
 **Example**
 
@@ -155,6 +155,8 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 
+> [!Note]
+> The copied data is the actual value instead of the displayed value in ServiceNow.
 
 **Example:**
 
