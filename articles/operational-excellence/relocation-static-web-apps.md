@@ -113,7 +113,7 @@ Use the following steps to relocate your static web app to another region.
 1. Redeploy you static web app using the [template that you exported and configured in the previous section](#export-the-template). 
 
     >[!IMPORTANT]
-    > If you're not using a custom domain, your application's URL the target region will change. In this scenario, ensure that users know about the URL change.
+    > If you're not using a custom domain, your application's URL changes in the target region. In this scenario, ensure that users know about the URL change.
 
 1. If you're using an Integrated API, create a new Integrated API that's supported by Azure Functions.
 
