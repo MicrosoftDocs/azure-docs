@@ -202,7 +202,7 @@ sections:
         answer: |
           ### How many instances of Azure Data Factory should I have?
 
-          The answer to this question will depend on the security model your organazation has adapted. Each instance of Azure Data Factory should be scoped with Least Privileged access in mind. This could be a situation where one instance of ADF supports all HR workloads and another supports all Finance data. Each ADF has access to different Linked Services and each instance could be supported by different development teams. There is no additional cost as you are billed by compute increments so the same 100 pipelines in 1 instance of ADF would cost the same as 10 pipelines across 10 instances of ADF.
+          The answer to this question depends on the security model that your organization has adopted. Each instance of Data Factory should be scoped with Least Privileged access in mind. This could be a situation where one instance of Data Factory supports all HR workloads and another supports all Finance data. Each instance of Data Factory has access to different Linked Services, and each instance could be supported by different development teams. There is no additional cost because you're billed by compute increments, so the same 100 pipelines in 1 instance of Data Factory would cost the same as 10 pipelines across 10 instances of Data Factory.
           Access in mind. 
           
           ### How can I schedule a pipeline?
