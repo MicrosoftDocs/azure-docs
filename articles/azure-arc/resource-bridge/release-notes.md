@@ -96,7 +96,7 @@ We generally recommend using the most recent versions of the agents. The [versio
 
 - SSD storage validations added to VMware vSphere in telemetry mode to check if the ESXi host backing the resource pool has any SSD-backed storage
 - Improve missing privilege error message, show some privileges in error message
-- Validate host ESXi version and provide concrete error message for placement profile
+- Validate host ESXi version and provide a concrete error message for placement profile
 - Improve message for no datacenters found, display default folder
 - Surface VMware error when finder fails during validate
 - Verify template health and fix it during image provision
