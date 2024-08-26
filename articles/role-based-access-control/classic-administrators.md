@@ -160,7 +160,7 @@ Some users might need more access than what a job function role can provide. If 
 
 If a user must be an administrator for a subscription, assign the [Owner](built-in-roles.md#owner) role at subscription scope. 
 
-- Follow the steps in [Replace a Co-Administrator with the Owner role](#replace-a-co-administrator-with-the-owner-role).
+- Follow the steps in [Replace a Co-Administrator with Owner role](#replace-a-co-administrator-with-owner-role).
 
 ### Replace a Co-Administrator with Owner role
 
@@ -178,6 +178,8 @@ The easiest way to replace a Co-Administrator role assignment with the [Owner](b
 
 1. In the **Add role assignment** pane, review the role assignment.
 
+    :::image type="content" source="./media/classic-administrators/remediate-assign-role.png" alt-text="Screenshot of Add role assignment pane after selecting Assign RBAC role link." lightbox="./media/classic-administrators/remediate-assign-role.png":::
+
 1. Select **Review + assign** to remove the Co-Administrator role assignment and assign the Owner role.
 
 ### Remove a Co-Administrator
@@ -194,7 +196,7 @@ Follow these steps to remove a Co-Administrator.
 
 1. Add a check mark next to the Co-Administrator you want to remove.
 
-1. Select **Remove**.
+1. Select **Delete**.
 
 1. In the message box that appears, select **Yes**.
 
@@ -246,6 +248,8 @@ The easiest way to replace the Service Administrator role assignment with the [O
 
 1. In the **Add role assignment** pane, review the role assignment.
 
+    :::image type="content" source="./media/classic-administrators/remediate-assign-role.png" alt-text="Screenshot of Add role assignment pane after selecting Assign RBAC role link." lightbox="./media/classic-administrators/remediate-assign-role.png":::
+
 1. Select **Review + assign** to remove the Service Administrator role assignment and assign the Owner role.
 
 ### Remove the Service Administrator
@@ -263,7 +267,7 @@ The easiest way to replace the Service Administrator role assignment with the [O
 
 1. Add a check mark next to the Service Administrator.
 
-1. Select **Remove**.
+1. Select **Delete**.
 
 1. In the message box that appears, select **Yes**.
 
