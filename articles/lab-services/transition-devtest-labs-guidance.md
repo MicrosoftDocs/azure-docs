@@ -74,7 +74,7 @@ Yes, if the VM is created in a Bastion-enabled virtual network. See [Enable brow
    1. Using advanced settings, multiple identical VMs can be created at once.
    1. Using advanced settings, set the expiration date for [claimable VMs](/azure/devtest-labs/devtest-lab-use-claim-capabilities). VMs will automatically be deleted after their expiration date and avoid unnecessary storage charges.
 1. **Add Users** - [Add lab owners, contributors, and users in Azure DevTest Labs](/azure/devtest-labs/devtest-lab-add-devtest-user).
-   1. If there are claimable VMs, students can use the 'claim any' command to assign a precreated VM to themselves.
+   - If there are claimable VMs, students can use the 'claim any' command to assign a precreated VM to themselves.
 1. **Configure Dashboard** - Optionally, [create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards) to allow students to find their labs more easily.
 
 > [!Important] 
