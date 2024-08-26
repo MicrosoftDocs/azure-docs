@@ -117,7 +117,7 @@ Use the following steps to relocate your static web app to another region.
 
 1. If you're using an Integrated API, create a new Integrated API that's supported by Azure Functions.
 
-1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed static web app in the target region. Initiate the deployment of the application using GitHub actions or Azure DevOps Pipelines.
+1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed static web app in the target region. Initiate the deployment of the application using GitHub actions or Azure Pipelines.
 
 1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, simply change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.
 
