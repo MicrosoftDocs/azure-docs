@@ -68,14 +68,14 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale MySQL resources](/azure/mysql/concepts-pricing-tiers#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale Azure Database for MySQL resources](/azure/mysql/concepts-pricing-tiers#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
 ## Compare pricing tiers
 
-For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service).
+For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
@@ -83,7 +83,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 ## Related content
 
-* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md)
 * [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
