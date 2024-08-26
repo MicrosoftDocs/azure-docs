@@ -200,7 +200,7 @@ From the Azure portal:
 
 1. On the **Import** tab, select **App Services** under **Source type**.
 
-1. Select resource, fill out the form with the following parameters:
+1. Select an App Configuration store to import data from, and fill out the form with the following parameters:
 
     | Parameter      | Description                                                                         | Example              |
     |----------------|-------------------------------------------------------------------------------------|----------------------|
