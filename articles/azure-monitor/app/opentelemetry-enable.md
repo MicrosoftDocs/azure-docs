@@ -11,16 +11,14 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection within [Application Insights](app-insights-overview.md#application-insights-overview).
+This article describes how to enable and configure OpenTelemetry-based data collection within [Application Insights](app-insights-overview.md#application-insights-overview). The Azure Monitor OpenTelemetry Distro:
 
-The Azure Monitor OpenTelemetry Distro:
+* provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) which includes support for features specific to Azure Monitor,
+* enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions,
+* allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry, and
+* supports [Live Metrics](live-stream.md) to monitor and collect more telemetry from live, in-production web applications.
 
-* Provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor.
-* Enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions.
-* Allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry.
-* Supports [Live Metrics](live-stream.md) to monitor and collect more telemetry from live, in-production web applications.
-
-For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the "Azure Monitor OpenTelemetry Distro"?](#why-should-i-use-the-azure-monitor-opentelemetry-distro).
+For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the Azure Monitor OpenTelemetry Distro?](#why-should-i-use-the-azure-monitor-opentelemetry-distro).
 
 To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
@@ -29,11 +27,13 @@ To learn more about collecting data using OpenTelemetry, see [Data Collection Ba
 OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applications.
 
 > [!NOTE]
-> * For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
+> For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
+## Enable OpenTelemetry with Application Insights
 
+Follow the steps in this section to instrument your application with OpenTelemetry. Select a tab for langauge-specific instructions.
 
-## Prerequisites
+### Prerequisites
 
 > [!div class="checklist"]
 > * Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
@@ -41,14 +41,7 @@ OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applic
 
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
-## Get started
-
-Follow the steps in this section to instrument your application with OpenTelemetry. Select a tab for langauge-specific instructions.
-
-> [!NOTE]
-> The .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), etc.
-
-### [ASP.NET Core](#tab/aspnetcore)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="checklist"]
 > * [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET](https://dotnet.microsoft.com/download/dotnet)
@@ -56,36 +49,39 @@ Follow the steps in this section to instrument your application with OpenTelemet
 > [!Tip]
 > If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
 
-### [.NET](#tab/net)
+#### [.NET](#tab/net)
 
 > [!div class="checklist"]
 > * Application using a [supported version](https://dotnet.microsoft.com/platform/support/policy) of [.NET](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) 4.6.2 and later.
 
+> [!NOTE]
+> .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), etc.
+
 > [!Tip]
 > If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
 
-### [Java](#tab/java)
+#### [Java](#tab/java)
 
 > [!div class="checklist"]
 > * A Java application using Java 8+
 
-### [Java native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 > [!div class="checklist"]
 > * A Java application using GraalVM 17+
 
-### [Node.js](#tab/nodejs)
-
-> [!NOTE]
-> If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
+#### [Node.js](#tab/nodejs)
 
 > [!div class="checklist"]
 > * Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:<br>• [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)<br>• [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
+> [!NOTE]
+> If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
+
 > [!Tip]
 > If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-nodejs-migrate.md).
 
-### [Python](#tab/python)
+#### [Python](#tab/python)
 
 > [!div class="checklist"]
 > * Python Application using Python 3.8+
@@ -171,8 +167,6 @@ pip install azure-monitor-opentelemetry
 ```
 
 ---
-
-## Enable OpenTelemetry with Application Insights
 
 ### Modify your application
 
