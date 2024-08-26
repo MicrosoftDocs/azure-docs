@@ -120,7 +120,7 @@ Three bot categories are supported:
    - verified social media bots (such as Facebookbot and LinkedInBot)
    - verified advertising bots
    - verified content checker bots
-   - validated miscellaneous bots.
+   - validated miscellaneous bots
 
 - **Unknown**
 
