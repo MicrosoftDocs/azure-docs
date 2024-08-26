@@ -366,12 +366,12 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Start with "test"              |
-    | At a specific time | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
+    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
     | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
     | Exclude feature flag    | If enabled, excludes feature flags when exporting configuration data.          | *false*                       |
 
 1. Select destination store, fill out the form with the following parameters:
-    | Parameter      | Description                                                                                     | Example               |
+    | Parameter      | Description  | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                               | *my-subscription*     |
     | Resource group | Select a resource group that contains the App Configuration store where you want to export the configuration. Your current resource group is selected by default. | *my-resource-group*   |
@@ -380,7 +380,7 @@ From the Azure portal, follow these steps:
 
 1. Fill out the next part of the form:
 
-    | Parameter                               | Description                                                                                                                                                                                                                                                             | Example                   |
+    | Parameter   | Description  | Example                   |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
     | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp*               |
     | Override labels       | Optional. By default, imported items use their current label. Check the box and enter a label to override these defaults with a custom label.  | *new*                     |
@@ -453,7 +453,7 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Start with "test"              |
-    | At a specific time | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
+    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
     | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
 
 1. Select a destination store and fill out the form with the following parameters:
