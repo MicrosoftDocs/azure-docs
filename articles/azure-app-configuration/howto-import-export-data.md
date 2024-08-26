@@ -374,7 +374,7 @@ From the Azure portal, follow these steps:
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Subscription   | Your current subscription is selected by default.                                               | *my-subscription*     |
-    | Resource group | Select a resource group that contains the App Configuration store with configuration to import. Your current resource group is selected by default. | *my-resource-group*   |
+    | Resource group | Select a resource group that contains the App Configuration store where you want to export the configuration. Your current resource group is selected by default. | *my-resource-group*   |
     | Resource       | Select the App Configuration store that contains the configuration you want to import.          | *my-other-app-config-store* |
 
 
