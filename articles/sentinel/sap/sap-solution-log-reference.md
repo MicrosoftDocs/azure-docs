@@ -283,7 +283,7 @@ We recommend restricting the size of the learned database to be under 100 millio
     SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dynamic(["BIP"]))
     ```
 
-For more information, see [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitoring-the-sap-audit-log).
+For more information, see [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitor-the-sap-audit-log).
 
 ### SAPAuditLogConfigRecommend
 

@@ -74,7 +74,7 @@ az keyvault secret set \
   --description SECRET_AZURE_LOG_WS_PUBLIC_KEY --vault-name $kvname
 ```
 
-For more information, see the [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli) and the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
+For more information, see the [Quickstart: Create a key vault using the Azure CLI](/azure/key-vault/general/quick-create-cli) and the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
 ## Perform an expert / custom installation
 

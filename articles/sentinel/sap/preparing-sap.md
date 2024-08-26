@@ -286,7 +286,7 @@ For more information, see the [SAP Community](https://community.sap.com/t5/appli
 The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration. It's important to update the PAHI table and to monitor it frequently, so that the Microsoft Sentinel solution for SAP applications can alert on suspicious actions that might happen at any time throughout the day. For more information, see:
 
 - [SAP note 12103](https://launchpad.support.sap.com/#/notes/12103)
-- [Monitoring the configuration of static SAP security parameters (Preview)](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameters-preview)
+- [Monitoring the configuration of static SAP security parameters (Preview)](sap-solution-security-content.md#monitor-the-configuration-of-static-sap-security-parameters-preview)
 
 > [!TIP]
 > For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
