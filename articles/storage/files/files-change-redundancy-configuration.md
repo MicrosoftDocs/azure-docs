@@ -11,9 +11,9 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Change how Azure Files data is replicated
 
-Azure always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/), even in the face of failures.
+Azure always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Microsoft Online Services](https://azure.microsoft.com/support/legal/sla/storage/).
 
-This article describes the process of changing replication settings for an existing storage account.
+This article describes the process of changing replication settings for an existing storage account that hosts Azure file shares.
 
 ## Options for changing the replication type
 
