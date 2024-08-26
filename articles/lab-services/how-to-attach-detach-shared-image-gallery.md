@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: This article describes how to attach or detach an Azure compute gallery to a lab plan in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/01/2023
 ---
