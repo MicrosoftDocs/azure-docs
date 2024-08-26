@@ -125,18 +125,18 @@ Download the [applicationinsights-agent-3.5.4.jar](https://github.com/microsoft/
 #### [Java native](#tab/java-native)
 
 For Spring Boot native applications:
+
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
 * Add the [Spring Cloud Azure Starter Monitor](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-monitor) dependency.
 * Follow [these instructions](/azure//developer/java/spring-framework/developer-guide-overview#configuring-spring-boot-3) for the Azure SDK JAR (Java Archive) files.
 
 For Quarkus native applications:
+
 * Add the [Quarkus OpenTelemetry Exporter for Azure](https://mvnrepository.com/artifact/io.quarkiverse.opentelemetry.exporter/quarkus-opentelemetry-exporter-azure) dependency.
 
 #### [Node.js](#tab/nodejs)
 
-Install these packages:
-
-- [@azure/monitor-opentelemetry](https://www.npmjs.com/package/@azure/monitor-opentelemetry)
+Install the latest [@azure/monitor-opentelemetry](https://www.npmjs.com/package/@azure/monitor-opentelemetry) package:
 
 ```sh
 npm install @azure/monitor-opentelemetry
@@ -172,7 +172,7 @@ pip install azure-monitor-opentelemetry
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Add `UseAzureMonitor()` to your application startup, located in your `program.cs` class.
+Add `UseAzureMonitor()` to your application startup, located in your `program.cs` class:
 
 ```csharp
 using Azure.Monitor.OpenTelemetry.AspNetCore;
@@ -188,7 +188,7 @@ app.Run();
 
 #### [.NET](#tab/net)
 
-Add the Azure Monitor Exporter to each OpenTelemetry signal in the `program.cs` class.
+Add the Azure Monitor Exporter to each OpenTelemetry signal in the `program.cs` class:
 
 ```csharp
 // Create a new tracer provider builder and add an Azure Monitor trace exporter to the tracer provider builder.
@@ -235,7 +235,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 
 #### [Java native](#tab/java-native)
 
-Several automatic instrumentations are enabled through configuration changes; no code changes are required
+Several automatic instrumentations are enabled through configuration changes. *No code changes are required.*
 
 #### [Node.js](#tab/nodejs)
 
@@ -284,7 +284,7 @@ To copy the connection string:
 
 To paste your connection string, select from the following options:
 
-* Set via Environment Variable (Recommended)
+* Set via environment variable
 
     Replace `<Your connection string>` in the following command with *your* unique connection string.
     
@@ -292,7 +292,7 @@ To paste your connection string, select from the following options:
     APPLICATIONINSIGHTS_CONNECTION_STRING=<Your connection string>
     ```
 
-* Set via Configuration File - Java Only (Recommended)
+* Set via configuration file - ***Java only***
     
     Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.4.jar` with the following content:
     
@@ -311,53 +311,31 @@ To paste your connection string, select from the following options:
 -->
 
 > [!NOTE]
-> If you set the connection string in more than one place, we adhere to the following precedence:
->
-> 1. Code
-> 2. Environment Variable
+> If you set the connection string in multiple places, the environment variable will be prioritized over the configuration file.
 
 ### Confirm data is flowing
 
-Run your application and open your **Application Insights Resource** tab in the Azure portal. It might take a few minutes for data to show up in the portal.
+Run your application, then open Application Insights in the Azure portal. It might take a few minutes for data to show up.
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
-Application Insights is now enabled for your application. All the following steps are optional and allow for further customization.
+Application Insights is now enabled for your application. The following steps are optional and allow for further customization.
 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
-## Samples
+## Sample applications
 
-Azure Monitor OpenTelemetry sample applications are available for all supported languages.
-
-### [ASP.NET Core](#tab/aspnetcore)
+Azure Monitor OpenTelemetry sample applications are available for all supported languages:
 
 * [ASP.NET Core sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
-
-### [.NET](#tab/net)
-
 * [NET sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo)
-
-### [Java](#tab/java)
-
 * [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
-
-### [Java native](#tab/java-native)
-
 * [Java GraalVM native sample apps](https://github.com/Azure-Samples/java-native-telemetry)
-
-### [Node.js](#tab/nodejs)
-
 * [Node.js sample app](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js)
-
-### [Python](#tab/python)
-
 * [Python sample apps](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples)
-
----
 
 ## Next steps
 

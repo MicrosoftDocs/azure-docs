@@ -59,7 +59,7 @@ The following documentation provides prerequisite knowledge of the OpenTelemetry
 
 ## Step 4: Set up the Azure Monitor OpenTelemetry Distro
 
-Follow the [getting started](./opentelemetry-enable.md?tabs=python#get-started)
+Follow the [getting started](./opentelemetry-enable.md?tabs=python#enable-opentelemetry-with-application-insights)
 page to onboard onto the Azure Monitor OpenTelemetry Distro.
 
 ## Changes and limitations
