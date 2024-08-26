@@ -33,7 +33,7 @@ This article shows you how to export and import automation rules.
 
 1. Select the rule (or rules&mdash;see note) you want to export, and select **Export** from the bar at the top of the screen.
 
-    :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
+    :::image type="content" source="./media/import-export-automation-rules/export-automation-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-automation-rule.png":::
 
     Find the exported file in your Downloads folder. It has the same name as the automation rule, with a .json extension.
 
@@ -52,7 +52,7 @@ This article shows you how to export and import automation rules.
 
 1. Select **Import** from the bar at the top of the screen. In the resulting dialog box, navigate to and select the JSON file representing the rule you want to import, and select **Open**.
 
-    :::image type="content" source="./media/import-export-automation-rules/import-rule.png" alt-text="Screenshot showing how to import an automation rule." lightbox="./media/import-export-automation-rules/import-rule.png":::
+    :::image type="content" source="./media/import-export-automation-rules/import-automation-rule.png" alt-text="Screenshot showing how to import an automation rule." lightbox="./media/import-export-automation-rules/import-automation-rule.png":::
 
     > [!NOTE]
     > You can import **up to 50** automation rules from a single ARM template file.
