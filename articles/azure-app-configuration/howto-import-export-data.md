@@ -145,7 +145,7 @@ From the Azure portal, follow these steps:
 
 1. Select **Apply** to proceed with the import.
 
-You imported key-values and feature flags which are start with "test" and with the "prod" label from an App Configuration store on January 28, 2021 at 12 AM, and assigned them the label "new". All key-values that you imported have content type set as "JSON".
+You imported key-values and feature flags that start with "test" and with the "prod" label from an App Configuration store on January 28, 2021 at 12 AM, and assigned them the label "new". All key-values that you imported have content type set as "JSON".
 
 #### [Azure CLI](#tab/azure-cli)
 
