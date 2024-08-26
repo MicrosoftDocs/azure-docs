@@ -20,7 +20,7 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 
 ## Create and delete Batch accounts
 
-One of the primary features of the Batch Management API is to create and delete [Batch accounts](accounts.md) in an Azure region. To do so, use [BatchAccountCollection.CreateOrUpdate](/dotnet/api/azure.resourcemanager.batch.batchaccountcollection.createorupdatea) and [Delete](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.deletea), or their asynchronous counterparts.
+One of the primary features of the Batch Management API is to create and delete [Batch accounts](accounts.md) in an Azure region. To do so, use [BatchAccountCollection.CreateOrUpdate](/dotnet/api/azure.resourcemanager.batch.batchaccountcollection.createorupdate) and [Delete](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.delete), or their asynchronous counterparts.
 
 The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. 
 
