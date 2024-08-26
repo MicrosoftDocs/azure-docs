@@ -247,13 +247,21 @@ For general help resolving issues related to Azure Arc-enabled VMs on Azure Stac
 
 ### Action failed - no such host
 
-When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError` and `errorResponse` as code `GuestInternetConnectivityError` and `no such host`, then the error may be caused by the appliance VM IPs not having reachability to the endpoint specified in the error. 
+When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` and `no such host`, then the error may be caused by the appliance VM IPs not having reachability to the endpoint specified in the error. 
 
 Error example: 
 
 `{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org: on 127.0.0.53:53: no such host. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings`
 
-In the example, the appliance VM IPs are not able to access `http://aszhcitest01.company.org:55000`. Please work with your network administrator to grant the proper access to the appliance VM IPs.
+In the example, the appliance VM IPs are not able to access `http://aszhcitest01.company.org:55000` which is the MOC endpoint. Please work with your network administrator to make sure that the DNS server is able to resolve the required urls.
+
+To test connectivity to the DNS server:
+
+```ping <dns-server.com>```
+
+To check if the DNS server is able to resolve an address, from a machine where we can reach the DNS servers run:
+
+```Resolve-DnsName -Name "http://aszhcitest01.company.org:55000" -Server "<dns-server.com>"```
 
 ### Authentication handshake failure
 
