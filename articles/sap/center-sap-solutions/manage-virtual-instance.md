@@ -59,7 +59,7 @@ In the sidebar menu, look under the section **SAP resources**:
 
 ## View Manage identity under VIS
 
-You can view and create/delete the manage identity under the VIS
+You can view and create/delete the manage identity under the VIS.
 
 :::image type="content" source="media/configure-virtual-instance/manage-identity-under-vis.png" lightbox="media/configure-virtual-instance/manage-identity-under-vis.png" alt-text="Screenshot of Manage Identity view under VIS in Azure portal":::
 
