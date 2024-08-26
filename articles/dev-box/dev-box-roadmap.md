@@ -1,8 +1,8 @@
 ---
 title: Roadmap for Microsoft Dev Box
 description: Learn about features coming soon and in development.
-services: dev-box
-ms.service: dev-boxauthor: Taysser-Gherfal
+ms.service: dev-box
+author: Taysser-Gherfal
 ms.author: tagherfa
 ms.date: 08/26/2024
 ---
