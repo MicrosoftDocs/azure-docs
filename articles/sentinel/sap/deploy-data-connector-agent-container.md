@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 04/01/2024
+
+
+#Customer intent: [AI]As a security engineer, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into my SIEM for enhanced monitoring and threat detection.
+
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent

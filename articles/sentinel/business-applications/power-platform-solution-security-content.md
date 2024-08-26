@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 02/28/2024
+
+
+#Customer intent: [AI]As a security analyst, I want to leverage built-in analytics rules and parsers for Microsoft Power Platform so that I can detect and respond to potential security threats effectively.
+
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform: security content reference

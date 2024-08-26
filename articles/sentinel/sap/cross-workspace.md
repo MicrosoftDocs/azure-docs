@@ -7,6 +7,10 @@ ms.topic: conceptual
 ms.date: 03/22/2023
 
 # customer intent: As a security admin or SAP admin, I want to know how to use the Microsoft Sentinel solution for SAP applications in multiple workspaces so that I can plan a deployment.
+
+
+#Customer intent: [AI]As a security operations center (SOC) manager, I want to configure Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
+
 ---
 
 # Work with the Microsoft Sentinel solution for SAP applications in multiple workspaces

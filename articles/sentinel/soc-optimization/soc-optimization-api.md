@@ -13,6 +13,10 @@ appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
 #customerIntent: As a SOC engineer, I want to learn about about how to interact with SOC optimziation recommendations programmatically via API.
+
+
+#Customer intent: [AI]As a security operations center (SOC) manager, I want to programmatically interact with SOC optimization recommendations so that I can automate evaluations, integrate with third-party tools, and manage multiple environments efficiently.
+
 ---
 
 # Using SOC optimizations programmatically (Preview)

@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #customerIntent: As a SOC engineer, I want to understand how to migrate alert-trigger playbooks to automation rules, and why I might want to do so.
+
+
+#Customer intent: [AI]As a security operations analyst, I want to migrate my alert-trigger playbooks to automation rules so that I can streamline automation management and prepare for the deprecation of analytics rule triggers.
+
 ---
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules

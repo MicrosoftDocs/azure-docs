@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/19/2023
+
+
+#Customer intent: [AI]As an advanced IT admin, I want to deploy and configure a custom SAP data connector on-premises so that I can securely integrate SAP logs into my cloud-based SIEM for enhanced monitoring and analysis.
+
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources

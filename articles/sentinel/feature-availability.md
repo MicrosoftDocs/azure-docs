@@ -7,6 +7,10 @@ ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
 ms.date: 07/15/2024
+
+
+#Customer intent: [AI]As a security operations manager, I want to understand the feature availability of Microsoft Sentinel across different Azure environments so that I can effectively plan and manage our security operations.
+
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds

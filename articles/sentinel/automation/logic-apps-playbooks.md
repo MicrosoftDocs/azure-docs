@@ -11,6 +11,10 @@ appliesto:
 ms.collection: usx-security
 #customer intent: As a SOC engineer, I want to understand more about how Azure Logic Apps works with Microsoft Sentinel playbooks to help me automate threat prevention and response.
 
+
+
+#Customer intent: [AI]As a security operations analyst, I want to create and manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
+
 ---
 
 # Azure Logic Apps for Microsoft Sentinel playbooks

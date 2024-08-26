@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security operations analyst, I want to automate incident response using playbooks so that I can streamline and enhance the efficiency of threat management.
+
 ---
 
 # Automate and run Microsoft Sentinel playbooks

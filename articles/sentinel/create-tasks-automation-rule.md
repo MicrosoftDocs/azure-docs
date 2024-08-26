@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
+
+
+#Customer intent: [AI]As a SOC manager, I want to create and manage incident tasks using automation rules so that I can standardize and streamline analyst workflows.
+
 ---
 
 # Create incident tasks in Microsoft Sentinel using automation rules

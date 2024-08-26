@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 03/26/2023
+
+
+#Customer intent: [AI]As a security analyst, I want to utilize built-in workbooks and analytics rules for SAP applications so that I can monitor, detect, and respond to security incidents effectively.
+
 ---
 
 # Microsoft Sentinel solution for SAP® applications: security content reference
