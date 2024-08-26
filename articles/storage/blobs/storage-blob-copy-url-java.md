@@ -50,7 +50,7 @@ If you're copying a blob from a source within Azure, access to the source blob c
 
 The following example shows a scenario for copying from a source blob within Azure. The [uploadFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromAzure_PutBlobFromURL":::
+<!-- :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromAzure_PutBlobFromURL"::: -->
 
 The [uploadFromUrlWithResponse](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) method can also accept a [BlobUploadFromUrlOptions](/java/api/com.azure.storage.blob.options.blobuploadfromurloptions) parameter to specify further options for the operation.
 
@@ -58,7 +58,7 @@ The [uploadFromUrlWithResponse](/java/api/com.azure.storage.blob.specialized.blo
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromExternalSource_PutBlobFromURL":::
+<!-- :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromExternalSource_PutBlobFromURL"::: -->
 
 ## Resources
 
