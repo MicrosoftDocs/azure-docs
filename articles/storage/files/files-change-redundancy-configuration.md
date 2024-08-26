@@ -4,9 +4,8 @@ description: Learn how to change how Azure Files data in an existing storage acc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 08/26/2024
 ms.author: kendownie
-ms.subservice: storage-common-concepts
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
@@ -53,7 +52,7 @@ The following table provides an overview of how to switch between replication ty
 | **…from GZRS** | First, use the [Portal](files-change-redundancy-configuration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](files-change-redundancy-configuration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](files-change-redundancy-configuration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to switch to ZRS, then [perform a conversion](#perform-a-conversion) to LRS <sup>3</sup> | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli)| **N/A** |
 
 <sup>1</sup> [Adding geo-redundancy incurs a one-time egress charge](#costs-associated-with-changing-how-data-is-replicated).<br />
-<sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
+<sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](../common/redundancy-migration.md#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. For more information, see the [storage account table](#storage-account-type).<br />
 <sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. For more information, see [Failover and failback](#failover-and-failback).<br />
 <sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
@@ -91,25 +90,6 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -Name <storage_account> `
     -SkuName <sku>
 ```
-<!--
-You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with PowerShell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
-
-```powershell
-Start-AzStorageAccountMigration
-    -AccountName <String>
-    -ResourceGroupName <String>
-    -TargetSku <String>
-    -AsJob
-```
-
-To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
-
-```powershell
-Get-AzStorageAccountMigration
-   -AccountName <String>
-   -ResourceGroupName <String>
-```
--->
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -123,27 +103,6 @@ az storage account update \
     --resource-group <resource_group> \
     --sku <sku>
 ```
-
-<!--
-You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
-
-```azurecli-interactive
-az storage account migration start \
-    -- account-name <string> \
-    -- g <string> \
-    --sku <string> \
-    --no-wait
-```
-
-To track the current migration status of the conversion initiated on your storage account, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
-
-```azurecli-interactive
-az storage account migration show \
-    --account-name <string> \
-    - g <sting> \
-    -n "default"
-```
--->
 
 ---
 
@@ -168,7 +127,7 @@ Instead of opening a support request, customers in most regions can start a conv
 Customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. After initiation, the conversion could still take up to 72 hours to begin.
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. 
+> There is no SLA for completion of a conversion.
 >
 > If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 >
@@ -260,7 +219,7 @@ az storage account migration show \
 
 #### Support-initiated conversion
 
-Customers can still request a conversion by opening a support request with Microsoft.
+Customers can request a conversion by opening a support request with Microsoft.
 
 > [!TIP]
 > If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
@@ -321,7 +280,6 @@ Limitations apply to some replication change scenarios depending on:
 - [Region](#region)
 - [Feature conflicts](#feature-conflicts)
 - [Storage account type](#storage-account-type)
-- [Access tier](#access-tier)
 - [Protocol support](#protocol-support)
 - [Failover and failback](#failover-and-failback)
 
@@ -371,7 +329,7 @@ You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if either of
 
 ### Failover and failback
 
-After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
+After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](../common/storage-initiate-account-failover.md#initiate-the-failover).
 
 If you performed a customer-managed account failover to recover from an outage for your GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from GRS to LRS in the secondary region, and then configure it again as GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS or GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
 
@@ -388,7 +346,7 @@ If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) f
 > [!IMPORTANT]
 > There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 
-After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
+After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a two-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
 ## Costs associated with changing how data is replicated
 
@@ -410,4 +368,3 @@ If you remove geo-redundancy (change from GRS to LRS), there's no cost for makin
 ## See also
 
 - [Azure Files redundancy](files-redundancy.md)
-
