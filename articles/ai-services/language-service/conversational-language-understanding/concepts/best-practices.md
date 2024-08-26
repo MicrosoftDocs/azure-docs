@@ -241,9 +241,9 @@ curl --request POST \
 }'
 ```
 
-## Address out-of-domain utterances
+## Address out-of-domain utterances (Updated)
 
-Customers can use the new recipe version `2024-06-01-preview` if the model has poor AIQ on out-of-domain utterances. An example of this scenario with the default recipe can be like the following example where the model has three intents: `Sports`, `QueryWeather`, and `Alarm`. The test utterances are out-of-domain utterances and the model classifies them as `InDomain` with a relatively high confidence score.
+Customers can use the newly updated recipe version `2024-08-01-preview` if the model has poor AIQ on out-of-domain utterances. An example of this scenario with the default recipe can be like the following example where the model has three intents: `Sports`, `QueryWeather`, and `Alarm`. The test utterances are out-of-domain utterances and the model classifies them as `InDomain` with a relatively high confidence score.
 
 | Text |	Predicted intent |	Confidence score |
 |----|----|----|
@@ -251,7 +251,7 @@ Customers can use the new recipe version `2024-06-01-preview` if the model has p
 | "Do I look good to you today?" | `QueryWeather` |	1.00 |
 | "I hope you have a good evening." | `Alarm` | 0.80 |
 
-To address this scenario, use the `2024-06-01-preview` configuration version that's built specifically to address this issue while also maintaining reasonably good quality on `InDomain` utterances.
+To address this scenario, use the `2024-08-01-preview` configuration version that's built specifically to address this issue while also maintaining reasonably good quality on `InDomain` utterances.
 
 ```console
 curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<your-project>/:train?api-version=2022-10-01-preview' \
@@ -260,7 +260,7 @@ curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/au
 --data '{
       "modelLabel": "<modelLabel>",
       "trainingMode": "advanced",
-      "trainingConfigVersion": "2024-06-01-preview",
+      "trainingConfigVersion": "2024-08-01-preview",
       "evaluationOptions": {
             "kind": "percentage",
             "testingSplitPercentage": 0,
