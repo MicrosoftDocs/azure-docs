@@ -145,7 +145,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 :::moniker-end
 :::moniker range="azureml-api-2"
 > [!NOTE]
-> Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
+> Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes supported by specific compute VM types, use one of the following methods:
 > * [REST API](/rest/api/azureml/virtual-machine-sizes/list)
 > * The [Azure CLI extension 2.0 for machine learning](how-to-configure-cli.md) command, [az ml compute list-sizes](/cli/azure/ml/compute#az-ml-compute-list-sizes).
 :::moniker-end
