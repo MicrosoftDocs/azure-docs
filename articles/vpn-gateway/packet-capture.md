@@ -42,7 +42,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
   "Filters": [
     {
       "SourceSubnets": [
-        "20.1.1.0/24"
+        "10.1.0.0/24"
       ],
       "DestinationSubnets": [
         "10.1.1.0/24"
