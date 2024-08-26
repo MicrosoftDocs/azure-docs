@@ -368,7 +368,7 @@ From the Azure portal, follow these steps:
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Start with "test"              |
     | At a specific time | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
     | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
-    | Exclude feature flag    | The boolean to decide whether to exclude feature flags when import.          | *false*                       |
+    | Exclude feature flag    | If enabled, excludes feature flags when exporting configuration data.          | *false*                       |
 
 1. Select destination store, fill out the form with the following parameters:
     | Parameter      | Description                                                                                     | Example               |
