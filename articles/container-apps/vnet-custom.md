@@ -145,7 +145,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
-When using the Workload Profiles Architecture, do one more step to delegate the subnet to `Microsoft.App/environments`
+When using the Workload Profiles Architecture, you need to do one more step to delegate the subnet to `Microsoft.App/environments`.
 
 # [Bash](#tab/bash)
 
