@@ -4,7 +4,7 @@ description: Create an App Service certificate and manage it (such as renew, syn
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 07/28/2023
+ms.date: 08/27/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
