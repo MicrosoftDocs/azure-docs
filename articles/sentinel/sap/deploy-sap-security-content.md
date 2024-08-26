@@ -32,22 +32,22 @@ Make sure that you also review the [prerequisites for deploying Microsoft Sentin
 
 In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
 
-Deploying the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules. You deploy the data connector agent on your SAP system before starting to configure the solution components.
+Installing the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules. You configure the data connector agent on your SAP system before starting to configure the solution components.
 
-:::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
+1. In the **Content hub** solution page, select **Install** to open the **Microsoft Sentinel solution for SAP applications** page. For example:
 
-If you want to [work with the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md) (preview), select **Some of the data is on a different workspace**, and then do the following steps:
+    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
-1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace.
+1. As you install the solution, on the **Basics** tab, under **Project details**, select the **Subscription** and **Resource group** where you want to install the solution.
 
-1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
+    If you're working with [the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md) (preview), under **Instance details**, select **Some of the data is on a different workspace**, and then define your target workspace, your SOC workspace, and SAP workspace. For example:
 
-For example:
+    For example:
 
-:::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
+    :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
 
 > [!TIP]
-> If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. You might want the SOC and SAP data to be kept on the same workspace, but to apply additional access controls. In such cases, for more information, see [Store SAP data only in the SOC workspace](cross-workspace.md#store-sap-data-only-in-the-soc-workspace).
+> If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. In such cases, for more information, see [Store SAP data only in the SOC workspace](cross-workspace.md#store-sap-data-only-in-the-soc-workspace).
 
 For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
