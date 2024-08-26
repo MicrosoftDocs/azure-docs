@@ -30,7 +30,7 @@ They don't require you to change your code or redeploy your application.
 For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Before you switch an App Service plan from the Free tier, you must first remove the [spending limits](https://azure.microsoft.com/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> Before you switch an App Service plan from the Free tier, you must first remove the [spending limits](https://azure.microsoft.com/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your App Service subscription, see [Cost Management + Billing][azuresubscriptions] in the Azure portal.
 > 
 > 
 
@@ -89,7 +89,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:https://account.windowsazure.com/subscriptions
+[azuresubscriptions]:https://ms.portal.azure.com/#view/Microsoft_Azure_Billing/BillingMenuBlade/~/Overview
 
 <!-- IMAGES -->
 [ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png
