@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 08/26/2024
 ms.author: malev
 ---
 
@@ -38,7 +38,7 @@ From the Azure portal, follow these steps:
 
     :::image type="content" source="./media/import-export/import-file.png" alt-text="Screenshot of the Azure portal, importing a file.":::
 
-1. On the **Import** tab, select **Configuration file** under **Source type**.
+1. The **Import** radio button is selected by default. Under **Source type**, select **Configuration file**.
 
 1. Fill out the form with the following parameters:
 
@@ -120,7 +120,7 @@ From the Azure portal, follow these steps:
 
     :::image type="content" source="./media/import-export/import-app-configuration.png" alt-text="Screenshot of the Azure portal, importing from an App Configuration store.":::
 
-1. On the **Import** tab, select **App Configuration** under **Source type**.
+1. The **Import** radio button is selected by default. Under **Source type**, select **App Configuration**.
 
 1. Select an App Configuration store to import data from, and fill out the form with the following parameters:
 
@@ -198,7 +198,7 @@ From the Azure portal:
 
     :::image type="content" source="./media/import-export/import-app-service.png" alt-text="Screenshot of the Azure portal, importing from App Service.":::
 
-1. On the **Import** tab, select **App Services** under **Source type**.
+1. The **Import** radio button is selected by default. Under **Source type**, select **App Services**.
 
 1. Select an App Configuration store to import data from, and fill out the form with the following parameters:
 
@@ -282,7 +282,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
     :::image type="content" source="./media/import-export/export-file.png" alt-text="Screenshot of the Azure portal, exporting a file":::
 
-1. On the **Export** tab, select **Configuration file** under **Target type**.
+1. Select the **Export** radio button and under **Target type**, select **Configuration file**.
 
 1. Fill out the form with the following parameters:
 
@@ -358,7 +358,7 @@ From the Azure portal, follow these steps:
 
     :::image type="content" source="./media/import-export/export-app-configuration.png" alt-text="Screenshot of the Azure portal, exporting from an App Configuration store.":::
 
-1. On the **Export** tab, select **App Configuration** under **Target type**.
+1. Select the **Export** radio button and under **Target type**, select **App Configuration**.
 
 1. Select key-values, fill out the form with the following parameters:
 
@@ -443,7 +443,7 @@ From the Azure portal, follow these steps:
 
     :::image type="content" source="./media/import-export/export-app-service.png" alt-text="Screenshot of the Azure portal, exporting from App Service.":::
 
-1. On the **Export** tab, select **App Services** under **Target type**.
+1. Select the **Export** radio button and under **Target type**, select **App Services**.
 
 1. The "Export as reference" option is checked by default. This option exports key-values as a reference to the latest revision. 
 
