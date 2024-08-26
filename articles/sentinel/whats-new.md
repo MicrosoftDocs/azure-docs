@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 07/30/2024
+ms.date: 08/18/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -30,12 +30,23 @@ For more details and setup instructions, see [Connect Microsoft Sentinel to Amaz
 
 ## August 2024
 
+- [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
 - [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Export and import automation rules (Preview)
+
+Manage your Microsoft Sentinel automation rules as code! You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of your program to manage and control your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+
+The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
+
+The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
 
 ### Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)
 
@@ -169,7 +180,6 @@ For more information, see:
 
 - [Optimize your security operations](soc-optimization/soc-optimization-access.md)
 - [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
-
 
 ## April 2024
 

@@ -1140,6 +1140,8 @@
       href: add-advanced-conditions-to-automation-rules.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
+    - name: Export and import automation rules
+      href: import-export-automation-rules.md
   - name: Playbooks
     items:
     - name: Overview
