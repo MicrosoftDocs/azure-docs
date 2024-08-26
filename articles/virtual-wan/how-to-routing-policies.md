@@ -105,7 +105,7 @@ For customers using routing intent, the maximum number of address spaces across 
 
 If the number of directly connected Virtual Network address spaces connected to a hub exceeds the limit, enabling routing intent on the Virtual Hub will fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space may not be routable.
 
-Request a limit increase if your network has Virtual Network address spaces greater than 90% of the limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past this limit.
+Proactively request a limit increase if the total number of address spaces across all locally connected Virtual Networks is exceeding 90% of the documented limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
  
 The following table provides a few example  Virtual Network address space calculations.
 
@@ -121,27 +121,24 @@ Make sure to modify the resource ID of the Virtual WAN Hub in the script to matc
 
 ```powershell-interactive
 $hubVNETconnections = Get-AzVirtualHubVnetConnection -ParentResourceId "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualHubs/<virtual hub name>"
-
 $addressSpaceCount = 0
-
+  
 foreach($connection in $hubVNETconnections) {
-
-try{
-
-$resourceURI = $connection.RemoteVirtualNetwork.Id
-$RG = ($resourceURI -split "/")[4]
-$name = ($resourceURI -split "/")[8]
-$VNET = Get-AzVirtualNetwork -Name $name -ResourceGroupName $RG -ErrorAction "Stop"
-$addressSpaceCount += $VNET.AddressSpace.AddressPrefixes.Count
-}
-catch{
-Write-Host "An error ocurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
-Write-Host $resourceURI 
-Write-Host "Error Message: " -ForegroundColor Red
-Write-Host $_.Exception.Message -ForegroundColor Red 
-}
-finally{
-}
+  try{
+    $resourceURI = $connection.RemoteVirtualNetwork.Id
+    $RG = ($resourceURI -split "/")[4]
+    $name = ($resourceURI -split "/")[8]
+    $VNET = Get-AzVirtualNetwork -Name $name -ResourceGroupName $RG -ErrorAction "Stop"
+    $addressSpaceCount += $VNET.AddressSpace.AddressPrefixes.Count
+  }
+  catch{
+    Write-Host "An error ocurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
+    Write-Host $resourceURI 
+    Write-Host "Error Message: " -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red 
+  }
+  finally{
+  }
 }
 Write-Host "Total Address Spaces in VNETs connected to this Virtual WAN Hub: " -ForegroundColor Green -NoNewline
 Write-Host $addressSpaceCount -ForegroundColor Green
