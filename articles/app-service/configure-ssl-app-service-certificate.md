@@ -175,7 +175,7 @@ Because an App Service certificate is a [Key Vault secret](/azure/key-vault/gene
 
 #### [Azure CLI](#tab/cli)
 
-Run the following commands in [Azure Cloud Shell](https://shell.azure.com), or run them locally if you have [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [bought the App Service certificate](#start-certificate-purchase).
+Run the following commands in [Azure Cloud Shell](https://shell.azure.com), or run them locally if you have [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [bought the App Service certificate](#buy-the-certificate).
 
 ```azurecli-interactive
 secretname=$(az resource show \
