@@ -6,6 +6,10 @@ ms.author: kobymin
 ms.topic: how-to
 ms.custom: devx-track-extended-java
 ms.date: 01/03/2023
+
+
+#Customer intent: [AI]As an SAP administrator, I want to select the appropriate log ingestion profile for my SAP solution so that I can balance security coverage and budget requirements effectively.
+
 ---
 
 # Select SAP ingestion profile
