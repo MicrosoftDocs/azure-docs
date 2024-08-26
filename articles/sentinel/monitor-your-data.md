@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to create and customize workbooks in a cloud-based SIEM platform so that I can visualize and monitor security data effectively.
+
 ---
 
 # Visualize and monitor your data by using workbooks in Microsoft Sentinel

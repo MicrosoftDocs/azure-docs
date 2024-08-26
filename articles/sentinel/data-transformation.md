@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 02/27/2022
+
+
+#Customer intent: [AI]As a security analyst, I want to customize data ingestion and transformation in my SIEM solution so that I can filter, enrich, and secure log data efficiently.
+
 ---
 
 # Custom data ingestion and transformation in Microsoft Sentinel

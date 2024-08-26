@@ -9,6 +9,10 @@ appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to integrate Microsoft Defender XDR with Microsoft Sentinel so my security operations center can work in a unified incident queue. 
+
+
+#Customer intent: [AI]As a SecOps professional, I want to integrate Microsoft Defender XDR with Microsoft Sentinel so that I can streamline incident management and enhance threat detection across my organization's security operations.
+
 ---
 
 # Microsoft Defender XDR integration with Microsoft Sentinel

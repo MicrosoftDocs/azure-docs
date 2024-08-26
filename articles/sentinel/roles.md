@@ -9,6 +9,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: [AI]As a security operations manager, I want to assign appropriate roles and permissions in our cloud security platform so that my team can effectively manage incidents, automate responses, and access necessary data without compromising security.
+
 ---
 
 # Roles and permissions in Microsoft Sentinel

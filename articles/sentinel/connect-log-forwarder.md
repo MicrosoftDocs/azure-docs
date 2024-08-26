@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 06/18/2024
+
+
+#Customer intent: [AI]As a security operations analyst, I want to deploy a log forwarder to ingest Syslog and CEF logs so that I can centralize and analyze security data in my SIEM solution.
+
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel

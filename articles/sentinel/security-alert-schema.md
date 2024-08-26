@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 01/11/2022
 ms.author: yelevin
 
+
+
+#Customer intent: [AI]As a security analyst, I want to understand the schema of the security alert table in my Log Analytics workspace so that I can effectively analyze and respond to security incidents.
+
 ---
 
 # Microsoft Sentinel security alert schema reference

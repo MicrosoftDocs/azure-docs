@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security analyst, I want to connect Azure Stack Hub virtual machines to a centralized monitoring system so that I can efficiently monitor and manage security threats across my hybrid cloud environment.
+
 ---
 
 # Connect Azure Stack Hub virtual machines to Microsoft Sentinel

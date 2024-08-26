@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security engineer, I want to use Logstash to stream logs to a cloud-based SIEM platform so that I can centralize and analyze log data for threat detection and response.
+
 ---
 
 # Use Logstash to stream logs with HTTP Data Collection API (legacy)

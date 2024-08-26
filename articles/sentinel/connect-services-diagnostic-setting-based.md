@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security operations analyst, I want to connect Microsoft Sentinel to various data sources using diagnostic settings-based connections so that I can ingest and monitor logs and metrics for enhanced threat detection and response.
+
 ---
 
 # Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections

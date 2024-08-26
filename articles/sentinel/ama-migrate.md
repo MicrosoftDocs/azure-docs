@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 04/03/2024
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security operations analyst, I want to migrate from the Log Analytics Agent to the Azure Monitor Agent so that I can leverage improved performance and new features in Microsoft Sentinel.
+
 ---
 
 # AMA migration for Microsoft Sentinel

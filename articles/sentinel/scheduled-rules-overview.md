@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to create and customize scheduled analytics rules using Kusto queries so that I can detect and respond to security threats effectively.
+
 ---
 
 # Scheduled analytics rules in Microsoft Sentinel

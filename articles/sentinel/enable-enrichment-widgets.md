@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 11/15/2023
+
+
+#Customer intent: [AI]As a security analyst, I want to enable and configure enrichment widgets in my SIEM platform so that I can gain actionable intelligence and make better, faster decisions regarding potential security threats.
+
 ---
 
 # Enable enrichment widgets in Microsoft Sentinel 

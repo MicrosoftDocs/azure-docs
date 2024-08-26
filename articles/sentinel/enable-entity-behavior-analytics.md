@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to enable and configure User and Entity Behavior Analytics (UEBA) in my SIEM platform so that I can detect and analyze anomalous activities more effectively.
+
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel

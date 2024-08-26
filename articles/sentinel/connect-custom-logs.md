@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/05/2023
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security analyst, I want to collect and analyze custom log data from various sources so that I can monitor and detect potential threats using a centralized SIEM solution.
+
 ---
 
 # Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent

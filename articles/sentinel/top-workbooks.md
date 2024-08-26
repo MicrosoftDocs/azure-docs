@@ -8,6 +8,10 @@ ms.author: yelevin
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to identify and deploy relevant workbooks in my SIEM solution so that I can effectively monitor and investigate security data.
+
 ---
 
 # Commonly used Microsoft Sentinel workbooks

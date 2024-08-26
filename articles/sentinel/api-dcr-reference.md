@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: reference
 ms.date: 03/01/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: [AI]As a cloud engineer, I want to create Data Collection Rules (DCRs) using API requests so that I can automate the ingestion of Syslog and CEF messages into Azure Monitor.
+
 ---
 # API request examples for creating Data Collection Rules (DCRs)
 

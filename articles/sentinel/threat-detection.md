@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security analyst, I want to utilize and customize analytics rule templates in a cloud-based SIEM platform so that I can efficiently detect and respond to security threats across my organization.
+
 ---
 
 # Threat detection in Microsoft Sentinel

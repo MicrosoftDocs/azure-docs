@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.custom: linux-related-content
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security analyst, I want to integrate CEF-formatted logs from my devices into a SIEM platform so that I can enhance threat detection and incident response capabilities.
+
 ---
 
 # Get CEF-formatted logs from your device or appliance into Microsoft Sentinel

@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 06/18/2024
+
+
+#Customer intent: [AI]As a security operations analyst, I want to configure Syslog data collection from Linux-based sources so that I can monitor and analyze security events in a centralized platform.
+
 ---
 
 # Collect data from Linux-based sources using Syslog

@@ -8,6 +8,10 @@ ms.date: 06/25/2023
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: [AI]As a security operations analyst, I want to integrate Microsoft Defender XDR data with Microsoft Sentinel so that I can centralize and streamline incident management and advanced threat hunting.
+
 ---
 
 # Connect data from Microsoft Defender XDR to Microsoft Sentinel

@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: devx-track-azurecli
+
+
+#Customer intent: [AI]As a security professional, I want to build and integrate custom machine learning models into my security operations platform so that I can detect and respond to threats specific to my organization's environment.
+
 ---
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel

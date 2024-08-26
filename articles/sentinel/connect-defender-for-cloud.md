@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security operations analyst, I want to integrate and synchronize alerts from cloud security tools into a centralized SIEM platform so that I can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
+
 ---
 
 # Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel

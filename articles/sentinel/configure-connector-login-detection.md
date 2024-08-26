@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: yelevin
+
+
+#Customer intent: [AI]As a security analyst, I want to configure anomalous RDP login detection so that I can identify and respond to potential security threats in my network.
+
 ---
 
 # Configure the Security Events or Windows Security Events connector for anomalous RDP login detection

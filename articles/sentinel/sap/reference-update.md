@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: reference
 ms.date: 05/24/2023
+
+
+#Customer intent: [AI]As a system administrator, I want to customize the SAP data collector agent container update script so that I can streamline the update process and ensure compatibility with my SAP system.
+
 ---
 
 # Update script reference
