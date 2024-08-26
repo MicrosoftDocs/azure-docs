@@ -360,7 +360,7 @@ From the Azure portal, follow these steps:
 
 1. Select the **Export** radio button and under **Target type**, select **App Configuration**.
 
-1. Select key-values, fill out the form with the following parameters:
+1. Fill out the form with the following parameters:
 
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
