@@ -84,13 +84,13 @@ The region in which your app runs is the region of the App Service plan it's in.
 You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
-> Cloning has some limitations. You can read about them in [Azure App Service App cloning](app-service-web-app-cloning.md).
+> Cloning has some limitations. You can read about them in [Azure App Service App cloning](app-service-web-app-cloning.md#current-restrictions).
 
 ## Scale an App Service plan
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count automatically](../azure-monitor/autoscale/autoscale-get-started.md) or [Scale instance count manually](manage-automatic-scaling.md#disable-automatic-scaling)
+To scale out an app's instance count, see [Scale instance count automatically](../azure-monitor/autoscale/autoscale-get-started.md) or [Scale instance count manually](manage-automatic-scaling.md#disable-automatic-scaling).
 
 <a name="delete"></a>
 
