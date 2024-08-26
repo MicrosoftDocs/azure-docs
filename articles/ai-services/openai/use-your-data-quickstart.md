@@ -9,7 +9,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 03/04/2024
+ms.date: 08/21/2024
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
@@ -32,7 +32,7 @@ zone_pivot_groups: openai-use-your-data
 
 [Reference](https://platform.openai.com/docs/api-reference?lang=python) | [Source code](https://github.com/openai/openai-python) | [Package (pypi)](https://pypi.org/project/openai/) | [Samples](https://github.com/openai/openai-cookbook/)
 
-The links above reference the OpenAI API for Python. There is no Azure-specific OpenAI Python SDK. [Learn how to switch between the OpenAI services and Azure OpenAI services](/azure/ai-services/openai/how-to/switching-endpoints).
+These links reference the OpenAI API for Python. There's no Azure-specific OpenAI Python SDK. [Learn how to switch between the OpenAI services and Azure OpenAI services](/azure/ai-services/openai/how-to/switching-endpoints).
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ The links above reference the OpenAI API for Python. There is no Azure-specific 
 
 ::: zone-end
 
-In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
+In this quickstart, you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ::: zone pivot="programming-language-javascript"
 
-- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
+- [Long Term Support (LTS) versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 ::: zone-end
 

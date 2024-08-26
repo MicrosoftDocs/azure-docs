@@ -365,9 +365,7 @@ This screenshot from the Azure DevOps repo shows the workspace template files fo
 
 :::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/devops-repo-workspace-publish.png" alt-text="Screenshot that shows workspace-publish.":::
 
-You can use the workspace template to deploy artifacts and pipelines to a workspace by using the Azure DevOps release pipeline as shown in the following screenshot.
-
-:::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/release-pipeline.png" alt-text="Screenshot that shows synapse-release-pipeline.":::
+You can use the workspace template to deploy artifacts and pipelines to a workspace by using the Azure DevOps release pipeline.
 
 If the workspace isn't integrated with GitHub or Azure DevOps, you'll have to manually re-create or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and Spark definitions on the target region workspace.
 

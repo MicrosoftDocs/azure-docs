@@ -29,15 +29,12 @@ This article explains how to view  activity logs for a lab in Azure DevTest Labs
 1. Select an event to see details about it. On the **Summary** page, you see information such as operation name, time stamp, and who did the operation. 
     
     :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Stop VM event - summary":::        
-1. Switch to the **JSON** tab to see more details. In the following example, you can see the name of the VM and the operation done on the VM (stopped).
-
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Stop VM event - JSON":::           
+1. Switch to the **JSON** tab to see more details. In the JSON file, you can see the name of the VM and the operation done on the VM (stopped).
+         
 1. Switch to the **Change history (Preview)** tab to see the history of changes. In the following example, you see the change that was made on the VM. 
 
     :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Stop VM event - Change history":::             
-1. Select the change in the change history list to see more details about the change. 
-
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Stop VM event - Change details":::             
+1. Select the change in the change history list to see more details about the change.           
 
 For more information about activity logs, see [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
 

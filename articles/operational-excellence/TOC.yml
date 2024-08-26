@@ -34,6 +34,12 @@
         href: ./relocation-virtual-machine-scale-sets.md
       - name: Network Security Groups (NSG)
         href: relocation-virtual-network-nsg.md
+      - name: Azure Virtual Network
+        items:
+        - name: Virtual Network
+          href: relocation-virtual-network.md 
+        - name: Network Security Groups (NSG)
+          href: relocation-virtual-network-nsg.md
     - name: Mainstream services
       items:
       - name: Azure AI Search
@@ -71,7 +77,7 @@
         - name: Relocate Azure Event Grid system topics
           href: relocation-event-grid-system-topics.md
       - name: Azure Functions
-        href: ../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-functions.md
       - name: Azure Logic apps
         href: ../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Monitor - Log Analytics Workspace

@@ -46,8 +46,8 @@ Follow these steps to create a new console application.
         speech_translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
         speech_translation_config.speech_recognition_language="en-US"
     
-        target_language="it"
-        speech_translation_config.add_target_language(target_language)
+        to_language ="it"
+        speech_translation_config.add_target_language(to_language)
     
         audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         translation_recognizer = speechsdk.translation.TranslationRecognizer(translation_config=speech_translation_config, audio_config=audio_config)
@@ -58,8 +58,8 @@ Follow these steps to create a new console application.
         if translation_recognition_result.reason == speechsdk.ResultReason.TranslatedSpeech:
             print("Recognized: {}".format(translation_recognition_result.text))
             print("""Translated into '{}': {}""".format(
-                target_language, 
-                translation_recognition_result.translations[target_language]))
+                to_language, 
+                translation_recognition_result.translations[to_language]))
         elif translation_recognition_result.reason == speechsdk.ResultReason.NoMatch:
             print("No speech could be recognized: {}".format(translation_recognition_result.no_match_details))
         elif translation_recognition_result.reason == speechsdk.ResultReason.Canceled:
