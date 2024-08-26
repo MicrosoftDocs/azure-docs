@@ -1,6 +1,6 @@
 ---
 title: Add and manage App Service certificates
-description: Create an App Service certificate and manage it (such as renew, sync, and delete).
+description: Create an App Service certificate and manage it. Renew, synchronize, and delete App Service certificates.
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
@@ -12,7 +12,7 @@ author: msangapu-msft
 
 # Create and manage an App Service certificate for your web app
 
-This article shows how to create an App Service certificate and manage it (such as renew, sync, and delete). Once you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
+This article shows how to create an App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. Once you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:
 
@@ -27,42 +27,42 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 ## Prerequisites
 
-- [Create an App Service app](./index.yml). The app's [App Service plan](overview-hosting-plans.md) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
+- [Create an App Service app](./index.yml). The app's [App Service plan](overview-hosting-plans.md) must be in the Basic, Standard, Premium, or Isolated tier. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 
 > [!NOTE]
-> Currently, App Service certificates aren't supported in Azure National Clouds.
+> Currently, App Service certificates aren't supported in Azure national clouds.
 
 ## Buy and configure an App Service certificate
 
-#### Start certificate purchase
+#### Buy the certificate
 
-1. Go to the [App Service Certificate creation page](https://portal.azure.com/#create/Microsoft.SSL), and start your purchase for an App Service certificate.
+1. Go to the [Create App Service certificate page](https://portal.azure.com/#create/Microsoft.SSL) to start the purchase.
 
    > [!NOTE]
-   > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+   > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value `0 issue godaddy.com`.
 
-   :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Screenshot of 'Create App Service Certificate' pane with purchase options.":::
+   :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Screenshot of Create App Service certificate pane with purchase options.":::
 
-1. To help you configure the certificate, use the following table. When you're done, select **Review + Create**, then select **Create**.
+1. To configure the certificate, use the following table. When you're done, select **Review + Create**, and then select **Create**.
 
    | Setting | Description |
    |-|-|
    | **Subscription** | The Azure subscription to associate with the certificate. |
-   | **Resource group** | The resource group that will contain the certificate. You can either create a new resource group or select the same resource group as your App Service app. |
+   | **Resource Group** | The resource group that will contain the certificate. You can either create a new resource group or select the same resource group as your App Service app. |
    | **SKU** | Determines the type of certificate to create, either a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-   | **Naked Domain Host Name** | Specify the root domain. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the **Common Name** field specifies the root domain, and the **Subject Alternative Name** field specifies the `www` domain. To secure any subdomain only, specify the fully qualified domain name for the subdomain, for example, `mysubdomain.contoso.com`.|
+   | **Naked domain hostname** | Specify the root domain. The issued certificate provides security for *both* the root domain and the `www` subdomain. In the issued certificate, the **Common Name** field specifies the root domain, and the **Subject Alternative Name** field specifies the `www` domain. To provide security for only a subdomain, specify the fully qualified domain name for the subdomain, for example, `mysubdomain.contoso.com`.|
    | **Certificate name** | The friendly name for your App Service certificate. |
-   | **Enable auto renewal** | Select whether to automatically renew the certificate before expiration. Each renewal extends the certificate expiration by one year and the cost is charged to your subscription. |
+   | **Enable auto renewal** | Select whether to automatically renew the certificate before expiration. Each renewal extends the certificate expiration by one year. The cost is charged to your subscription. |
 
 1. When deployment is complete, select **Go to resource**.
 
-#### Store certificate in Azure Key Vault
+#### Store the certificate in Azure Key Vault
 
-[Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using this certificate.
+[Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, we recommend that you use Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using the certificate.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
 
-    :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot of 'Certificate Configuration' pane with 'Step 1: Store' selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot of the Certificate Configuration pane with 'Step 1: Store' selected.":::
 
 1. On the **Key Vault Status** page, select **Select from Key Vault**.
 
@@ -74,10 +74,10 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
    | **Key vault name** | A unique name that uses only alphanumeric characters and dashes. |
    | **Region** | The same location as your App Service app. |
    | **Pricing tier** | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-   | **Days to retain deleted vaults** | The number of days after deletion, in which objects remain recoverable (see [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview)). Set a value between 7 and 90. |
-   | **Purge protection** | Prevents objects soft-deleted st objects to be manually purged. Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
+   | **Days to retain deleted vaults** | The number of days, after deletion, that objects remain recoverable. (See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).) Set a value between 7 and 90. |
+   | **Purge protection** | Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
 
-1. Select **Next** and select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
+1. Select **Next** and then select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
 1. Select **Review + create**, then select **Create**.
 1. After the key vault is created, don't select **Go to resource** but wait for the **Select key vault from Azure Key Vault page** to reload.
 1. Select **Select**.
