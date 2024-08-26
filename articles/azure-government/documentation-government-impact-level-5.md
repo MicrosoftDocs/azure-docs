@@ -32,7 +32,7 @@ You need to address two key areas for Azure services in IL5 scope: compute isola
 
 ### Compute isolation
 
-IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](/azure/virtual-machines/isolation). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
@@ -169,7 +169,7 @@ For Compute services availability in Azure Government, see [Products available b
 
 - Enable user subscription mode, which will require a Key Vault instance for proper encryption and key storage. For more information, see the documentation on [batch account configurations](../batch/batch-account-create-portal.md).
 
-### [Virtual machines](../virtual-machines/index.yml) and [virtual machine scale sets](../virtual-machine-scale-sets/index.yml)
+### [Virtual machines](/azure/virtual-machines/) and [virtual machine scale sets](/azure/virtual-machine-scale-sets/)
 
 You can use Azure virtual machines with multiple deployment mediums. You can do so for single virtual machines and for virtual machines deployed via the Azure virtual machine scale sets feature.
 
@@ -178,7 +178,7 @@ All virtual machines should use Disk Encryption for virtual machines or Disk Enc
 > [!IMPORTANT]
 > When you deploy VMs in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia, you must use Azure Dedicated Host, as described in the next section.
 
-#### [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md)
+#### [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts)
 
 Azure Dedicated Host provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our datacenters, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts, in whatever configuration meets your needs.
 
@@ -186,20 +186,20 @@ These VMs provide the necessary level of isolation required to support IL5 workl
 
 Current Dedicated Host SKUs (VM series and Host Type) that offer the required compute isolation include SKUs in the VM families listed on the [Dedicated Host pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
-#### [Isolated virtual machines](../virtual-machines/isolation.md)
+#### [Isolated virtual machines](/azure/virtual-machines/isolation)
 
 Virtual machine scale sets aren't currently supported on Azure Dedicated Host. But specific VM types, when deployed, consume the entire physical host for the VM. Isolated VM types can be deployed via virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When you configure your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 > [!IMPORTANT]
-> As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](../virtual-machines/isolation.md).**
+> As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](/azure/virtual-machines/isolation).**
 
 #### Disk encryption for virtual machines
 
 You can encrypt the storage that supports these virtual machines in one of two ways to support necessary encryption standards.
 
 - Use Azure Disk Encryption to encrypt the drives by using dm-crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
-  - [Enable Azure Disk Encryption for Windows](../virtual-machines/windows/disk-encryption-overview.md)
+  - [Enable Azure Disk Encryption for Linux](/azure/virtual-machines/linux/disk-encryption-overview)
+  - [Enable Azure Disk Encryption for Windows](/azure/virtual-machines/windows/disk-encryption-overview)
 - Use Azure Storage service encryption for storage accounts with your own key to encrypt the storage account that holds the disks:
   - [Storage service encryption with customer-managed keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -207,7 +207,7 @@ You can encrypt the storage that supports these virtual machines in one of two w
 
 You can encrypt disks that support virtual machine scale sets by using Azure Disk Encryption:
 
-- [Encrypt disks in virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-key-vault.md)
+- [Encrypt disks in virtual machine scale sets](/azure/virtual-machine-scale-sets/disk-encryption-key-vault)
 
 ## Containers
 
@@ -217,9 +217,9 @@ For Containers services availability in Azure Government, see [Products availabl
 
 - Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](/azure/aks/azure-disk-customer-managed-keys).
 
-### [Container Instances](../container-instances/index.yml)
+### [Container Instances](/azure/container-instances/)
 
-- Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). 
+- Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). 
 
 ### [Container Registry](../container-registry/index.yml) 
 

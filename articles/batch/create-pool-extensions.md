@@ -25,16 +25,16 @@ You can check the live status of the extensions you use and retrieve the informa
 
 The following extensions can currently be installed when creating a Batch pool:
 
-- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
-- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
-- [Azure Monitor Logs analytics and monitoring extension for Linux](../virtual-machines/extensions/oms-linux.md)
-- [Azure Monitor Logs analytics and monitoring extension for Windows](../virtual-machines/extensions/oms-windows.md)
-- [Azure Desired State Configuration (DSC) extension](../virtual-machines/extensions/dsc-overview.md)
-- [Azure Diagnostics extension for Windows VMs](../virtual-machines/windows/extensions-diagnostics.md)
-- [HPC GPU driver extension for Windows on AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
-- [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
-- [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
-- [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
+- [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
+- [Azure Monitor Logs analytics and monitoring extension for Linux](/azure/virtual-machines/extensions/oms-linux)
+- [Azure Monitor Logs analytics and monitoring extension for Windows](/azure/virtual-machines/extensions/oms-windows)
+- [Azure Desired State Configuration (DSC) extension](/azure/virtual-machines/extensions/dsc-overview)
+- [Azure Diagnostics extension for Windows VMs](/azure/virtual-machines/windows/extensions-diagnostics)
+- [HPC GPU driver extension for Windows on AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows)
+- [HPC GPU driver extension for Windows on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows)
+- [HPC GPU driver extension for Linux on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-linux)
+- [Microsoft Antimalware extension for Windows](/azure/virtual-machines/extensions/iaas-antimalware-windows)
 - [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
 - [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
 
@@ -220,8 +220,8 @@ Response Body
 
 If Key Vault extension is configured incorrectly, the compute node might be in a usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
 
-- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
-- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
+- [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 
 ## Next steps
 

@@ -34,7 +34,7 @@ Azure Machine Learning allows you to perform real-time inferencing on data by us
 To define an endpoint, you need to specify:
 
 - **Endpoint name**: This name must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
-- **Authentication mode**: You can choose from key-based authentication mode, Azure Machine Learning token-based authentication mode, or Microsoft Entra token-based authentication (preview) for the endpoint. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+- **Authentication mode**: You can choose from key-based authentication mode, Azure Machine Learning token-based authentication mode, or Microsoft Entra token-based authentication for the endpoint. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
 Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your machine learning models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
 To learn how to define a managed online endpoint, see [Define the endpoint](how-to-deploy-online-endpoints.md#define-the-endpoint).

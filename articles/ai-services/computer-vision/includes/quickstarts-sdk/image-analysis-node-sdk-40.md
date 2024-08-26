@@ -12,7 +12,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for JavaScript to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console.
+Use the Image Analysis client SDK for JavaScript to read text in an image and generate an image caption. This quickstart analyzes a remote image and prints the results to the console.
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/js) | [Package (npm)](https://aka.ms/azsdk/image-analysis/package/npm) | [Samples](https://aka.ms/azsdk/image-analysis/samples/js)
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/13/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 # SMB performance best practices for Azure NetApp Files
