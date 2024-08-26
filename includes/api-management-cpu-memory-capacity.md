@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 08/08/2023
+ms.date: 08/27/2024
 ms.author: danlep
 ---
 
