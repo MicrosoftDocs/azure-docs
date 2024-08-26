@@ -94,56 +94,66 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 ## Device inventory column data
 
-The following table lists the columns available in the Defender for IoT device inventory on the Azure portal. Starred items **(*)** are also available from the OT sensor.
+The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editible. Starred items **(*)** are also available from the OT sensor.
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-|Name  |Description |
-|---------|---------|
-|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. |
-|**Business Function**     | Editable. Describes the device's business function. |
-| **Class** | Editable. The device's class. <br>Default: `IoT` <!-- is this correct for me default was set to OT--> |
-|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` <!-- is this correct for me default was set to OT sensor-->|
-|**Description** * | Editable. The device's description.  |
-| **Device Id** | The device's Azure-assigned ID number. |
-|  **Firmware model** |  Editable<I think!!>. The device's firmware model. |
-| ADDED this is in the details pane, but is called (hardware)Model/ Firmware model in the device inventory - i think the Model is the hardware model,  **Firmware name** |  Editable. The device's firmware name.|
-| **Firmware vendor** |  The vendor of the device's firmware. |
-| **Firmware version** * |Editable.  The device's firmware version. |
-|**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|
-|  ADDED **Hardware model** |  Editable. The device's hardware model. |
-|  ADDED **Hardware model** |  Editable. The device's hardware model. |
-|**Importance** | Editable. The device's important level: `Low`, `Medium`, or `High`.   |
-| **IPv4 Address** | The device's IPv4 address. |
-|**IPv6 Address** | The device's IPv6 address.|
-|**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |
-|**Location** | Editable. The device's physical location.  |
-| **MAC Address** * | The device's MAC address.  |
-|**Model**  *| Editable. The device's hardware model. <See hardware model above. in the details this is called hardware model?>|
+|Name  |Description | Editable|
+|---------|---------|----|
+|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in both Azure and the OT Sensor|
+|**Business Function**     | Describes the device's business function. |Editable in OT Sensor|
+| **Class** | The device's class. <br>Default: `IoT` <!-- is this correct for me default was set to OT--> |Editable in OT Sensor|
+|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` <!-- is this correct for me default was set to OT sensor-->| Not editable|
+|**Description** * |The device's description.  |Editable in both Azure and the OT Sensor|
+| **Device Id** | The device's Azure-assigned ID number. |Not editable|
+|  **Firmware model** |  The device's firmware model. |Editable in OT Sensor|
+| ADDED this is in the details pane, but is called (hardware)Model/ Firmware model in the device inventory - i think the Model is the hardware model,  **Firmware name** |  Editable. The device's firmware name.|Editable in OT Sensor|
+| **Firmware vendor** |  The vendor of the device's firmware. |Not editable?|
+| **Firmware version** * |The device's firmware version. |Editable in both Azure and the OT Sensor|
+|**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|Not editable|
+|  ADDED **Hardware model** | The device's hardware model. |Editable in OT Sensor|
+|**Importance** | The device's important level: `Low`, `Medium`, or `High`.   |Editable in OT Sensor|
+| **IPv4 Address** | The device's IPv4 address. |Not editable|
+|**IPv6 Address** | The device's IPv6 address.|Not editable|
+|**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |Not editable|
+|**Location** | The device's physical location.  |Editable in OT Sensor|
+| **MAC Address** * | The device's MAC address.  |Not editable|
+|**Model**  *| The device's hardware model. <See hardware model above. in the details this is called hardware model?>|Editable in both Azure and the OT Sensor|
 |**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |
-|**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |
-|**OS architecture** | <!Editable!> in sensor?. The device's operating system architecture.  |
-|**OS distribution** | <!Editable.!> in sensor? The device's operating system distribution, such as Android, Linux, and Haiku.   |
-|**OS platform** * | <!Editable.!> in sensor? The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |
-|**OS version** | <!Editable.!>in sensor? The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |
-|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |
-|**Programming device**  *   | Editable.  Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |
-|**Protocols**  *| The protocols that the device uses.  |
-| **Purdue level** | Editable. The Purdue level in which the device exists.|
-|**Scanner device**  * | Editable. Defines whether the device performs scanning-like activities in the network. |
-|**Sensor**| The sensor the device is connected to. |
-|**Serial number**  *| The device's serial number.  |
-| **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |
-| **Slots** | The number of slots the device has.  |
-| **Subtype** | Editable. The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |
-| **Tags** | Editable. The device's tags.  |
-|**Type** * | Editable. The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |
-|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|
-| **VLAN**  * | The device's VLAN.  |
-|**Zone** | The device's zone.  |
+|**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
+|**OS architecture** |The device's operating system architecture.  |Editable in OT Sensor|
+|**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Editable in OT Sensor|
+|**OS platform** * | The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |Editable in both Azure and the OT Sensor|
+|**OS version** | The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |Editable in OT Sensor|
+|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |Not editable|
+|**Programming device**  *   | Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |Editable in both Azure and the OT Sensor|
+|**Protocols**  *| The protocols that the device uses.  |Not editable|
+| **Purdue level** | The Purdue level in which the device exists.|Editable in OT Sensor|
+|**Scanner device**  * |Defines whether the device performs scanning-like activities in the network. |Editable in both Azure and the OT Sensor|
+|**Sensor**| The sensor the device is connected to. |Not editable|
+|**Serial number**  *| The device's serial number.  |Not editable|
+| **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |Not editable|
+| **Slots** | The number of slots the device has.  |Not editable|
+| **Subtype** | The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |Editable in OT Sensor|
+| **Tags** | The device's tags.  |Editable in OT Sensor|
+|**Type** * | The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |Editable in both Azure and the OT Sensor|
+|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|Not editable|
+| **VLAN**  * | The device's VLAN.  |Not editable|
+|**Zone** | The device's zone.  |Not editable|
 
-The following columns are available on OT sensors only:
+The following table lists the columns available in the OT sensors only, a description of each column and whether it is editible.
+
+|Name  |Description | Editable|
+|---------|---------|----|
+|**DHCP Address**| | |
+|**FQDN**| | |
+|**FQDN Last Lookup Time**| | |
+|**Groups**| | |
+|**Module address**| | |
+|**Rack**| The number of racks the device has.| |
+|**Slot**| The number of slots the device has.| |
+| **Unacknowledged Alerts**| The number of **Unacknowledged Alerts** alerts associated with the device| |
 
 - The device's **DHCP Address**
 - The device's **FQDN** address and **FQDN Last Lookup Time**
