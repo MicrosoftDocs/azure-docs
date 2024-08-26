@@ -288,7 +288,7 @@ items:
     - name: Business card
       href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Use Azure AI Document Intelligence with Azure AI Search
-    href: ../../search/cognitive-search-custom-skill-form.md
+    href: /azure/search/cognitive-search-custom-skill-form
   - name: Use Azure AI Document Intelligence with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference

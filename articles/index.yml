@@ -126,7 +126,7 @@ productDirectory:
         - ai-machine-learning
         - mobile
         - web
-      url: search/index.yml
+      url: /azure/search/
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
@@ -149,7 +149,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - iot
-      url: machine-learning/index.yml
+      url: /azure/machine-learning/
     # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
@@ -171,7 +171,7 @@ productDirectory:
       imageSrc: ./media/index/open-datasets.svg
       azureCategories:
         - ai-machine-learning
-      url: open-datasets/index.yml
+      url: /azure/open-datasets/
     # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
@@ -193,7 +193,7 @@ productDirectory:
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - ai-machine-learning
-      url: machine-learning/data-science-virtual-machine/index.yml
+      url: /azure/machine-learning/data-science-virtual-machine/
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors

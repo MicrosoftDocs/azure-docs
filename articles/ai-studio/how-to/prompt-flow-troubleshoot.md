@@ -81,7 +81,7 @@ You may encounter 409 error from Azure OpenAI, it means you have reached the rat
 
 ### Upstream request timeout issue when consuming the endpoint
 
-If you use CLI or SDK to deploy the flow, you may encounter timeout error. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300,000 ms. Following is example showing how to specify request time-out in the deployment yaml file. To learn more, see [deployment schema](../../machine-learning/reference-yaml-deployment-managed-online.md).
+If you use CLI or SDK to deploy the flow, you may encounter timeout error. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300,000 ms. Following is example showing how to specify request time-out in the deployment yaml file. To learn more, see [deployment schema](/azure/machine-learning/reference-yaml-deployment-managed-online).
 
 ```yaml
 request_settings:

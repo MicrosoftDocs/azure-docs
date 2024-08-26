@@ -34,7 +34,7 @@ Typically there are three parameters you need to consider:
 
     * The throughput for custom question answering is currently capped at 10 text records per second for both management APIs and prediction APIs.
 
-    * This should also influence your **Azure AI Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Azure AI Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
+    * This should also influence your **Azure AI Search** SKU selection, see more details [here](/azure/search/search-sku-tier). Additionally, you may need to adjust Azure AI Search [capacity](/azure/search/search-capacity-planning) with replicas.
 
 * **Size and the number of projects**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of projects you need based on number of different subject domains. One subject domain (for a single language) should be in one project.
 
@@ -70,7 +70,7 @@ Use these keys when making requests to the service through APIs.
 |Name|Location|Purpose|
 |--|--|--|
 |Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your project, and publish your project. These keys are created when you create a new resource.<br><br>Find these keys on the **Azure AI services** resource on the **Keys and Endpoint** page.|
-|Azure AI Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure AI Search service deployed in the user’s Azure subscription. When you associate an Azure AI Search resource with the custom question answering feature, the admin key is automatically passed to custom question answering. <br><br>You can find these keys on the **Azure AI Search** resource on the **Keys** page.|
+|Azure AI Search Admin Key|[Azure portal](/azure/search/search-security-api-keys)|These keys are used to communicate with the Azure AI Search service deployed in the user’s Azure subscription. When you associate an Azure AI Search resource with the custom question answering feature, the admin key is automatically passed to custom question answering. <br><br>You can find these keys on the **Azure AI Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
@@ -103,7 +103,7 @@ The language resource with custom question answering feature provides access to 
 
 ### Azure AI Search resource
 
-The [Azure AI Search](../../../../search/index.yml) resource is used to:
+The [Azure AI Search](/azure/search/) resource is used to:
 
 * Store the question and answer pairs
 * Provide the initial ranking (ranker #1) of the question and answer pairs at runtime

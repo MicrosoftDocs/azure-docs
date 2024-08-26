@@ -23,9 +23,9 @@ The resource providers for AI and machine learning services are:
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
-| Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Search | [Azure AI Search](../../search/index.yml) |
+| Microsoft.MachineLearning | [Machine Learning Studio](/azure/machine-learning/classic/) |
+| Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
+| Microsoft.Search | [Azure AI Search](/azure/search/) |
 
 ## Analytics resource providers
 

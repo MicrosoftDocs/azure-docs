@@ -19,7 +19,7 @@ Custom question answering automatically encrypts your data when it is persisted 
 
 By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your resource with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
 
-Custom question answering uses CMK support from Azure search, and associates the provided CMK to encrypt the data stored in Azure search index. Please follow the steps listed in [this article](../../../../search/search-security-manage-encryption-keys.md) to configure Key Vault access for the Azure search service.
+Custom question answering uses CMK support from Azure search, and associates the provided CMK to encrypt the data stored in Azure search index. Please follow the steps listed in [this article](/azure/search/search-security-manage-encryption-keys) to configure Key Vault access for the Azure search service.
 
 > [!NOTE]
 > Whenever the CMK is being rotated, make sure there is a period of overlap between the old and new versions of the key where both are enabled and not expired.
@@ -40,7 +40,7 @@ Follow these steps to enable CMKs:
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
 > [!IMPORTANT]
-> It is recommended to set your CMK in a fresh Azure AI Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure AI Search.
+> It is recommended to set your CMK in a fresh Azure AI Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) in Azure AI Search.
 
 ## Regional availability
 
@@ -52,6 +52,6 @@ Language Studio runs in the user's browser. Every action triggers a direct call 
 
 ## Next steps
 
-* [Encryption in Azure Search using CMKs in Azure Key Vault](../../../../search/search-security-manage-encryption-keys.md)
+* [Encryption in Azure Search using CMKs in Azure Key Vault](/azure/search/search-security-manage-encryption-keys)
 * [Data encryption at rest](../../../../security/fundamentals/encryption-atrest.md)
 * [Learn more about Azure Key Vault](/azure/key-vault/general/overview)

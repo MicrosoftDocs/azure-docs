@@ -34,7 +34,7 @@ A single language resource with the custom question answering feature enabled ca
 When you build a real app, plan sufficient resources for the size of your project and for your expected query prediction requests.
 
 A project size is controlled by the:
-* [Azure AI Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
+* [Azure AI Search resource](/azure/search/search-limits-quotas-capacity) pricing tier limits
 * [Custom question answering limits](./limits.md)
 
 The project query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.

@@ -152,9 +152,9 @@ The following Azure Bot Service **features aren't currently available** in Azure
 
 For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](/azure/machine-learning/reference-machine-learning-cloud-parity).
 
 <a name='cognitive-services-content-moderator'></a>
 

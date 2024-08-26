@@ -10,11 +10,11 @@ ms.date: 12/19/2023
 
 # Project limits and boundaries
 
-Custom question answering limits provided below are a combination of the [Azure AI Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and custom question answering limits. Both sets of limits affect how many projects you can create per resource and how large each project can grow.
+Custom question answering limits provided below are a combination of the [Azure AI Search pricing tier limits](/azure/search/search-limits-quotas-capacity) and custom question answering limits. Both sets of limits affect how many projects you can create per resource and how large each project can grow.
 
 ## Projects
 
-The maximum number of projects is based on [Azure AI Search tier limits](../../../../search/search-limits-quotas-capacity.md).
+The maximum number of projects is based on [Azure AI Search tier limits](/azure/search/search-limits-quotas-capacity).
 
 Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of projects you need based on number of different subject domains. One subject domain (for a single language) should be in one project.
 
@@ -59,7 +59,7 @@ The maximum number of deep-links that can be crawled for extraction of question 
 
 ## Metadata limits
 
-Metadata is presented as a text-based `key:value` pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure AI Search tier limits](../../../../search/search-limits-quotas-capacity.md)**.
+Metadata is presented as a text-based `key:value` pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure AI Search tier limits](/azure/search/search-limits-quotas-capacity)**.
 
 If you choose to projects with multiple languages in a single language resource, there is a dedicated test index per project. So the limit is applied per project in the language service.
 
@@ -94,7 +94,7 @@ Overall limits on the content in the project:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure AI Search tier](../../../../search/search-limits-quotas-capacity.md#document-limits)** chosen. A question and answer pair maps to a document on Azure AI Search index.
+* Maximum number of question-answer pairs: Depends on the **[Azure AI Search tier](/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure AI Search index.
 * URL/HTML page: 1 million characters
 
 ## Create project call limits:

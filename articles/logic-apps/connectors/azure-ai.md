@@ -23,7 +23,7 @@ To integrate enterprise data and services with AI technologies, you can use the 
 This guide provides an overview and examples for how to use the **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
 
 - [What is Azure OpenAI Service](../../ai-services/openai/overview.md)
-- [What is Azure AI Search](../../search/search-what-is-azure-search.md)
+- [What is Azure AI Search](/azure/search/search-what-is-azure-search)
 
 ## Why use Azure Logic Apps with AI services?
 
@@ -110,7 +110,7 @@ For example, you can select from many trigger types to make your automated workf
 
 For more information, see the following resources:
 
-- [Vectors in Azure AI Search](../../search/vector-search-overview.md)
+- [Vectors in Azure AI Search](/azure/search/vector-search-overview)
 - [What are embeddings](/semantic-kernel/memories/embeddings)
 - [Understand embeddings in Azure OpenAI](../../ai-services/openai/concepts/understand-embeddings.md)
 

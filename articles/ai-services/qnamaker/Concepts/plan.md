@@ -36,7 +36,7 @@ The free tier, `F0`, of each resource works and can provide both the authoring a
 When you build a real app, plan sufficient resources for the size of your knowledge base and for your expected query prediction requests.
 
 A knowledge base size is controlled by the:
-* [Cognitive Search resource](../../../search/search-limits-quotas-capacity.md) pricing tier limits
+* [Cognitive Search resource](/azure/search/search-limits-quotas-capacity) pricing tier limits
 * [QnA Maker limits](../limits.md)
 
 The knowledge base query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.

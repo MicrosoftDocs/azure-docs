@@ -129,7 +129,7 @@ The goal with this RAG-based application is to ground the model responses in you
 You need an Azure AI Search service and connection in order to create a search index.
 
 > [!NOTE]
-> Creating an [Azure AI Search service](../../search/index.yml) and subsequent search indexes has associated costs. You can see details about pricing and pricing tiers for the Azure AI Search service on the creation page, to confirm cost before creating the resource.
+> Creating an [Azure AI Search service](/azure/search/) and subsequent search indexes has associated costs. You can see details about pricing and pricing tiers for the Azure AI Search service on the creation page, to confirm cost before creating the resource.
 
 ### Create an Azure AI Search service
 
@@ -152,7 +152,7 @@ Otherwise, you can create an Azure AI Search service using the [Azure portal](ht
 
 1. Open a terminal on your local machine.
 1. Type `az` and then enter to verify that the Azure CLI tool is installed. If it's installed, a help menu with `az` commands appears. If you get an error, make sure you followed the [steps for installing the Azure CLI in the quickstart](../quickstarts/get-started-code.md#install-the-azure-cli-and-sign-in).
-1. Follow the steps to create an Azure AI Search service using the [`az search service create`](../../search/search-manage-azure-cli.md#create-or-delete-a-service) command.
+1. Follow the steps to create an Azure AI Search service using the [`az search service create`](/azure/search/search-manage-azure-cli#create-or-delete-a-service) command.
 
 ---
 

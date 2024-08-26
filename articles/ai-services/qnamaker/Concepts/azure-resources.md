@@ -34,7 +34,7 @@ Typically there are three parameters you need to consider:
 
 * **The throughput you need from the service**:
     * Select the appropriate [App Plan](https://azure.microsoft.com/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](../../../app-service/manage-scale-up.md) or down the App.
-    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
+    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](/azure/search/search-sku-tier). Additionally, you may need to adjust Cognitive Search [capacity](/azure/search/search-capacity-planning) with replicas.
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
@@ -70,7 +70,7 @@ The following table gives you some high-level guidelines.
 |Upgrade|Reason|
 |--|--|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA pairs or document sources in your knowledge base.|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check the Azure AI Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check the Azure AI Search tier and [create Cognitive Search replicas](/azure/search/search-capacity-planning)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-ai-search-service) Azure AI Search service|You plan to have many knowledge bases.|
 
 Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
@@ -162,7 +162,7 @@ When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.
 
 ### Cognitive Search resource
 
-The [Cognitive Search](../../../search/index.yml) resource is used to:
+The [Cognitive Search](/azure/search/) resource is used to:
 
 * Store the QnA pairs
 * Provide the initial ranking (ranker #1) of the QnA pairs at runtime

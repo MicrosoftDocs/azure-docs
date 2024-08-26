@@ -126,7 +126,7 @@ If you delete any of the Azure resources used for your knowledge bases, the know
 
 ## Next steps
 
-Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](/azure/search/).
 
 > [!div class="nextstepaction"]
 > [Learn how to author with others](../index.yml)

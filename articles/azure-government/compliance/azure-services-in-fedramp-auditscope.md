@@ -119,7 +119,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; |
 | [Azure AI Health Bot](/healthbot/) | &#x2705; | &#x2705; |
-| [Azure AI Search](../../search/index.yml) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; |
+| [Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; |
 | [Azure AI services: Anomaly Detector](../../ai-services/anomaly-detector/index.yml) | &#x2705; | &#x2705; |
 | [Azure AI services: Computer Vision](../../ai-services/computer-vision/index.yml) | &#x2705; | &#x2705; |
 | [Azure AI services: Content Moderator](../../ai-services/content-moderator/index.yml) | &#x2705; | &#x2705; |
@@ -181,7 +181,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Lighthouse](../../lighthouse/index.yml) | &#x2705; | &#x2705; |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; |
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; |
-| [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; |
+| [Machine Learning](/azure/machine-learning/) | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; |
 | [Metrics Advisor](../../ai-services/metrics-advisor/index.yml) | &#x2705; | &#x2705; |
@@ -203,7 +203,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Migrate](../../migrate/index.yml) | &#x2705; | &#x2705; |
 | [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; |
 | [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; |
-| [Open Datasets](../../open-datasets/index.yml) | &#x2705; | &#x2705; |
+| [Open Datasets](/azure/open-datasets/) | &#x2705; | &#x2705; |
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; |
 | [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | &#x2705; | &#x2705; |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; |
@@ -327,7 +327,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Azure AI Search](../../search/index.yml) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure AI services: Computer Vision](../../ai-services/computer-vision/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Content Moderator](../../ai-services/content-moderator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI containers](../../ai-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -384,7 +384,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Lighthouse](../../lighthouse/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Machine Learning](/azure/machine-learning/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |

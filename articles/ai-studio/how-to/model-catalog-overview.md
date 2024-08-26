@@ -84,7 +84,7 @@ The capability to deploy models as managed compute builds on platform capabiliti
 
 ### Availability of models for deployment as managed compute  
 
-The models are made available through [Azure Machine Learning registries](../../machine-learning/concept-machine-learning-registries-mlops.md). These registries enable a machine-learning-first approach to [hosting and distributing Azure Machine Learning assets](../../machine-learning/how-to-share-models-pipelines-across-workspaces-with-registries.md). These assets include model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models, and datasets for benchmarks and samples.
+The models are made available through [Azure Machine Learning registries](/azure/machine-learning/concept-machine-learning-registries-mlops). These registries enable a machine-learning-first approach to [hosting and distributing Azure Machine Learning assets](/azure/machine-learning/how-to-share-models-pipelines-across-workspaces-with-registries). These assets include model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models, and datasets for benchmarks and samples.
 
 The registries build on top of a highly scalable and enterprise-ready infrastructure that:
 
@@ -103,7 +103,7 @@ Learn more about deploying models:
 
 ### Building generative AI apps with managed compute
 
-The *prompt flow* feature in Azure Machine Learning offers a great experience for prototyping. You can use models deployed with managed compute in prompt flow with the [Open Model LLM tool](../../machine-learning/prompt-flow/tools-reference/open-model-llm-tool.md). You can also use the REST API exposed by managed compute in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+The *prompt flow* feature in Azure Machine Learning offers a great experience for prototyping. You can use models deployed with managed compute in prompt flow with the [Open Model LLM tool](/azure/machine-learning/prompt-flow/tools-reference/open-model-llm-tool). You can also use the REST API exposed by managed compute in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 ### Content safety for models deployed as managed compute
 

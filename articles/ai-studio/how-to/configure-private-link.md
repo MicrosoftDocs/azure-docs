@@ -246,13 +246,13 @@ A manged identity configuration is required if you make your storage account pri
 
 | Role | Managed Identity | Resource | Purpose | Reference |
 |--|--|--|--|--|
-| `Storage File Data Privileged Contributor` | Azure AI Studio project | Storage Account | Read/Write prompt flow data. | [Prompt flow doc](../../machine-learning/prompt-flow/how-to-secure-prompt-flow.md#secure-prompt-flow-with-workspace-managed-virtual-network) |
+| `Storage File Data Privileged Contributor` | Azure AI Studio project | Storage Account | Read/Write prompt flow data. | [Prompt flow doc](/azure/machine-learning/prompt-flow/how-to-secure-prompt-flow#secure-prompt-flow-with-workspace-managed-virtual-network) |
 | `Storage Blob Data Contributor` | Azure AI Service | Storage Account | Read from input container, write to pre-process result to output container. | [Azure OpenAI Doc](../../ai-services/openai/how-to/managed-identity.md) |
-| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Read blob and write knowledge store | [Search doc](../../search/search-howto-managed-identities-data-sources.md). |
+| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Read blob and write knowledge store | [Search doc](/azure/search/search-howto-managed-identities-data-sources). |
 
 ## Custom DNS configuration
 
-See [Azure Machine Learning custom DNS](../../machine-learning/how-to-custom-dns.md#example-custom-dns-server-hosted-in-vnet) article for the DNS forwarding configurations.
+See [Azure Machine Learning custom DNS](/azure/machine-learning/how-to-custom-dns#example-custom-dns-server-hosted-in-vnet) article for the DNS forwarding configurations.
 
 If you need to configure custom DNS server without DNS forwarding, use the following patterns for the required A records.
 
@@ -275,7 +275,7 @@ If you need to configure custom DNS server without DNS forwarding, use the follo
 
 * `<managed online endpoint name>.<region>.inference.ml.azure.com` - Used by managed online endpoints
 
-To find the private IP addresses for your A records, see the [Azure Machine Learning custom DNS](../../machine-learning/how-to-custom-dns.md#find-the-ip-addresses) article.
+To find the private IP addresses for your A records, see the [Azure Machine Learning custom DNS](/azure/machine-learning/how-to-custom-dns#find-the-ip-addresses) article.
 To check AI-PROJECT-GUID, go to the Azure portal, select your project, settings, properties, and the workspace ID is displayed.
 
 ## Limitations

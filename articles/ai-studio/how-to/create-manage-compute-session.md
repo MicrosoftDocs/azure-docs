@@ -55,13 +55,13 @@ In the advanced settings, you can select the compute type. You can choose betwee
         - Customize the idle time, which saves code by deleting the compute session automatically if it isn't in use.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
             
-        If you don't set the user-assigned identity, prompt flow uses the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+        If you don't set the user-assigned identity, prompt flow uses the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](/azure/machine-learning/how-to-identity-based-service-authentication#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
         :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png":::
 
     - If you choose compute instance, you can only set idle shutdown time. 
         - Since this is an existing compute instance, the VM size is fixed and can't change in a compute session side.
-        - The identity used for this compute session also is defined in the compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
+        - The identity used for this compute session also is defined in the compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](/azure/machine-learning/how-to-create-compute-instance#assign-managed-identity)
         - Idle shutdown time is used to define the life cycle of the compute session. If the compute session is idle for the time you set, it's deleted automatically. If you have idle shutdown enabled on a compute instance, then it shuts down but won't be deleted.
 
             :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-compute-instance-settings.png":::
@@ -104,7 +104,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
    > [!NOTE]
    > If the **Add Users** button isn't visible, you probably don't have the necessary permissions to perform this action.
 
-1. [Add or update user-assigned identities to your project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+1. [Add or update user-assigned identities to your project](/azure/machine-learning/how-to-identity-based-service-authentication#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
 1. Add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`:
 

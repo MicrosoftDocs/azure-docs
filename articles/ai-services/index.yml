@@ -90,7 +90,7 @@ productDirectory:
     - title: Azure AI Search
       imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/search.svg
       summary: Bring AI-powered cloud search to your mobile and web applications.
-      url: ../search/index.yml
+      url: /azure/search/
     # Card
     - title: Video Indexer
       imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/video-indexer.svg
@@ -131,7 +131,7 @@ additionalContent:
         - title: Explore more AI resources
           links:
             - text: Azure Machine Learning
-              url: ../machine-learning/index.yml
+              url: /azure/machine-learning/
             - text: Semantic Kernel
               url: /semantic-kernel/
             - text: AI Builder

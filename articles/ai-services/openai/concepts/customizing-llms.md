@@ -63,8 +63,8 @@ A corporate HR department is looking to provide an intelligent assistant that an
 ### Getting started
 
 - [Retrieval Augmented Generation in Azure AI Studio - Azure AI Studio | Microsoft Learn](../../../ai-studio/concepts/retrieval-augmented-generation.md)
-- [Retrieval Augmented Generation (RAG) in Azure AI Search](../../../search/retrieval-augmented-generation-overview.md)
-- [Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview)](../../../machine-learning/concept-retrieval-augmented-generation.md)
+- [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
+- [Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview)](/azure/machine-learning/concept-retrieval-augmented-generation)
 
 ## Fine-tuning
 

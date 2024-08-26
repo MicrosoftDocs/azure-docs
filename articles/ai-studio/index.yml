@@ -93,6 +93,6 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure Machine Learning
-            url: ../machine-learning/index.yml
+            url: /azure/machine-learning/
           - text: Semantic Kernel
             url: /semantic-kernel/

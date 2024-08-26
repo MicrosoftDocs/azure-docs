@@ -39,7 +39,7 @@ This article uses a Meta Llama model deployment for illustration. However, you c
 
     # [Azure CLI](#tab/cli)
 
-    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](/azure/machine-learning/how-to-configure-cli).
 
     ```azurecli
     az extension add -n ml

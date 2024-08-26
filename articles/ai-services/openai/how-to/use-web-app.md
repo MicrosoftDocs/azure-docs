@@ -427,7 +427,7 @@ You can enable managed identity for the Azure OpenAI resource and the Azure App 
 
 If using On Your Data with Azure Search, you should follow this step.
 
-To enable your Azure OpenAI resource to access your Azure Search resource, you need to enable role-based access control on your Azure Search resource. Learn more about [enabling RBAC roles](../../../search/search-security-enable-roles.md) for your resources.
+To enable your Azure OpenAI resource to access your Azure Search resource, you need to enable role-based access control on your Azure Search resource. Learn more about [enabling RBAC roles](/azure/search/search-security-enable-roles) for your resources.
 
 ### Assign RBAC roles to enable intra-service communication
 

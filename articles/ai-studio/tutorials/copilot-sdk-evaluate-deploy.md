@@ -181,7 +181,7 @@ To deploy your application to a managed endpoint in Azure, create an online endp
 As part of creating the deployment, your copilot_flow folder is packaged as a model and a cloud environment is built. The endpoint is set up with Microsoft Entra ID authentication. You can update the auth mode you want in the code, or in the Azure AI Studio on the endpoint details page.
 
 > [!IMPORTANT]
-> Deploying your application to a managed endpoint in Azure has associated compute cost based on the instance type you choose. Make sure you are aware of the associated cost and have quota for the instance type you specify. Learn more about [online endpoints](../../machine-learning/reference-managed-online-endpoints-vm-sku-list.md).
+> Deploying your application to a managed endpoint in Azure has associated compute cost based on the instance type you choose. Make sure you are aware of the associated cost and have quota for the instance type you specify. Learn more about [online endpoints](/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list).
 
 Create the file **deploy.py** in the **rag-tutorial** folder. Add the following code:
 

@@ -25,7 +25,7 @@ You must have:
 
 - An [AI Studio hub](../../how-to/create-azure-ai-resource.md) and [project](../../how-to/create-projects.md).
 
-- An [Azure AI Search service connection](../../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. If you don't have an Azure AI Search service, you can create one from the [Azure portal](https://portal.azure.com/) or see the instructions [here](../../../search/search-create-service-portal.md).
+- An [Azure AI Search service connection](../../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. If you don't have an Azure AI Search service, you can create one from the [Azure portal](https://portal.azure.com/) or see the instructions [here](/azure/search/search-create-service-portal).
 - Models for embedding:
     - You can use an ada-002 embedding model from Azure OpenAI. The instructions to deploy can be found [here](../deploy-models-openai.md).
     - OR you can use any another embedding model deployed in your AI Studio project. In this example we use Cohere multi-lingual embedding. The instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md).
