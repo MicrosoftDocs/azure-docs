@@ -28,11 +28,11 @@ Microsoft is investing in OpenTelemetry for the following reasons:
 
 See [OpenTelemetry Status](https://opentelemetry.io/status/).
 
-### What is the "Azure Monitor OpenTelemetry Distro"?
+### What is the Azure Monitor OpenTelemetry Distro?
 
 You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure. This wrapper is also called a [distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
 
-### Why should I use the "Azure Monitor OpenTelemetry Distro"?
+### Why should I use the Azure Monitor OpenTelemetry Distro?
 
 There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
 
