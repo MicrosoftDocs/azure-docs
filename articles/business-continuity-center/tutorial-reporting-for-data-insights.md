@@ -25,7 +25,7 @@ The Reporting solution in Azure Business Continuity Center uses Azure Monitor lo
 
 ## Create a Log Analytics workspace or use an existing workspace
 
-Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace, can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure/azure-monitor/logs/quick-create-workspace.md).
+Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace, can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure-monitor/logs/quick-create-workspace.md).
 
 The data in a Log Analytics workspace is kept for *30 days* by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see Configure data retention and archive policies in Azure Monitor Logs.
 
@@ -43,11 +43,11 @@ To learn how to configure diagnostics settings, see [this article](../azure-moni
 
 To generate the reports, see the following options:
 
-- For Azure Site Recovery reports, select [**Azure Site Recovery Jobs**](../azure-monitor/reference/tables/asrjobs.md) and **Azure Site Recovery Replicated Item Details** options to generate the reports.
-- For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../azure/backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](..backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations).
+- For Azure Site Recovery reports, select [**Azure Site Recovery Jobs**](/azure/azure-monitor/reference/tables/asrjobs) and **Azure Site Recovery Replicated Item Details** options to generate the reports.
+- For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations).
 
 >[!Note]
->After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data starts flowing in the Log Analytics workspace, you might not see the data in the reports immediately becauses the data for the current partial day isn't shown in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery#conventions-used-in-site-recovery-reports.md).
+>After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data starts flowing in the Log Analytics workspace, you might not see the data in the reports immediately becauses the data for the current partial day isn't shown in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
 >
 >We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
