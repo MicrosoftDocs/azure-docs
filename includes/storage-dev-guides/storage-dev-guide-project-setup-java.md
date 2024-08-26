@@ -10,7 +10,7 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for Java. For more details, see [Get started with Azure Blob Storage and Java](../../articles/storage/blobs/storage-blob-java-get-started.md).
+If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for Java. For more information, see [Get started with Azure Blob Storage and Java](../../articles/storage/blobs/storage-blob-java-get-started.md).
 
 To work with the code examples in this article, follow these steps to set up your project.
 
