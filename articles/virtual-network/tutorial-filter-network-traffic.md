@@ -689,7 +689,7 @@ The VM takes a few minutes to create. After the VM is created, output similar to
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "203.0.113.24",
+  "publicIpAddress": "",
   "resourceGroup": "test-rg"
 }
 ```
