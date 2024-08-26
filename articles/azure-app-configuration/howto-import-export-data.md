@@ -298,7 +298,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     | Separator          | The separator is the delimiter for flattening the key-values to Json/Yaml. It supports the configuration's hierarchical structure and doesn't apply to property files and feature flags. Select one of the following options: *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*,  or *(No separator)*. | *;*                      |
 
     > [!IMPORTANT]
-    > If you don't select a *From label*, only key-values without labels will be exported. To export a key-value with a label, you must select its label. Note that you can only select one label per export in portal, in case you want to export the key-values with all labels specified please use CLI.
+    > If you don't select a *From label*, only key-values without labels will be exported. To export a key-value with a label, you must select its label. Note that you can only select one label when export with Default *File content profile*, in case you want to export the key-values with multi labels specified please use KVSet *File content profile*.
 
 1. Select **Export** to finish the export.
 
