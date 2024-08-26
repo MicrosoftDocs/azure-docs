@@ -63,7 +63,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Scale up your Azure app's related resources.](./media/web-sites-scale/RGEssentialsLink.png)
 
-2. In the **Summary** part of the **Resource group** page, select a resource that you want to scale. The following screenshot
+2. On the **Overview** page for the resource group, select a resource that you want to scale. The following screenshot
    shows a SQL Database resource.
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
