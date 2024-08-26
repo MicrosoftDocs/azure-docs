@@ -18,20 +18,20 @@ This article describes how to enable and configure OpenTelemetry-based data coll
 * allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry, and
 * supports [Live Metrics](live-stream.md) to monitor and collect more telemetry from live, in-production web applications.
 
-For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the Azure Monitor OpenTelemetry Distro?](#why-should-i-use-the-azure-monitor-opentelemetry-distro).
+For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the Azure Monitor OpenTelemetry Distro](#why-should-i-use-the-azure-monitor-opentelemetry-distro).
 
 To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry release status
 
-OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applications.
-
-> [!NOTE]
-> For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
+OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applications. For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
 ## Enable OpenTelemetry with Application Insights
 
 Follow the steps in this section to instrument your application with OpenTelemetry. Select a tab for langauge-specific instructions.
+
+> [!NOTE]
+> .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), etc.
 
 ### Prerequisites
 
@@ -54,9 +54,6 @@ Follow the steps in this section to instrument your application with OpenTelemet
 > [!div class="checklist"]
 > * Application using a [supported version](https://dotnet.microsoft.com/platform/support/policy) of [.NET](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) 4.6.2 and later.
 
-> [!NOTE]
-> .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), etc.
-
 > [!Tip]
 > If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
 
@@ -76,7 +73,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
 > * Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:<br>• [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)<br>• [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
 > [!NOTE]
-> If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
+> If you don't rely on any properties listed in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), the *ApplicationInsights shim* will be your easiest path forward once out of beta.
+>
+> If you rely on any those properties, proceed with the Azure Monitor OpenTelemetry Distro. We'll provide a migration guide soon.
 
 > [!Tip]
 > If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-nodejs-migrate.md).
@@ -124,13 +123,13 @@ Download the [applicationinsights-agent-3.5.4.jar](https://github.com/microsoft/
 
 #### [Java native](#tab/java-native)
 
-For Spring Boot native applications:
+**For Spring Boot native applications:**
 
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
 * Add the [Spring Cloud Azure Starter Monitor](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-monitor) dependency.
 * Follow [these instructions](/azure//developer/java/spring-framework/developer-guide-overview#configuring-spring-boot-3) for the Azure SDK JAR (Java Archive) files.
 
-For Quarkus native applications:
+**For Quarkus native applications:**
 
 * Add the [Quarkus OpenTelemetry Exporter for Azure](https://mvnrepository.com/artifact/io.quarkiverse.opentelemetry.exporter/quarkus-opentelemetry-exporter-azure) dependency.
 
@@ -224,7 +223,7 @@ Java autoinstrumentation is enabled through configuration changes; no code chang
 
 Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.4.jar"` to your application's JVM args.
 
-> [!TIP]
+> [!NOTE]
 > Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 > [!TIP]
@@ -267,10 +266,10 @@ configure_azure_monitor()
 
 ### Copy the connection string from your Application Insights resource
 
-The connection string is unique and specifies where the distro sends the telemetry it collects.
+The connection string is unique and specifies where the Azure Monitor OpenTelemetry Distro sends the telemetry it collects.
 
 > [!TIP]
-> If you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource). We recommend you create a new one [rather than using an existing Application Insights resource](create-workspace-resource.md#when-to-use-a-single-application-insights-resource).
+> If you don't already have an Application Insights resource, create one following [this guide](create-workspace-resource.md#create-a-workspace-based-resource). We recommend you create a new resource rather than [using an existing one](create-workspace-resource.md#when-to-use-a-single-application-insights-resource).
 
 To copy the connection string:
 
