@@ -208,6 +208,8 @@ From the Azure portal:
     | Resource group | Select a resource group that contains the App Service with configuration to import. | *my-resource-group*  |
     | Resource       | Select the App Service that contains the configuration you want to import.          | *my-app-service*     |
 
+1. The "Update settings to reference" option is used to update settings in App Service. If checked, the configuration settings in your App Services resource will be updated to App Configuration references. That would be helpful to keep consistent between App Configuration key-value pair and App Services configuration settings. If not checked, no changes to your App Services resource.
+
 1. Fill out the next part of the form:
 
     | Parameter    | Description                                                                                                                                                                                                                                          | Example                   |
@@ -446,7 +448,7 @@ From the Azure portal, follow these steps:
 
 1. Select the **Export** radio button and under **Target type**, select **App Services**.
 
-1. The "Export as reference" option is checked by default. This option exports key-values as a reference to the latest revision. 
+1. The "Export as reference" option is checked by default. When it's checked, the exported key-values are indicated as App Configuration references in your App Service resource configuration settings. Since it's a reference, it will always get the latest value from App Configuration.
 
 1. Fill out the form with the following parameters:
 
