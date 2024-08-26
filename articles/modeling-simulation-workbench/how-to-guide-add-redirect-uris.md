@@ -11,11 +11,11 @@ ms.date: 08/20/2024
 ---
 # Add redirect URIs for Modeling and Simulation Workbench
 
-A redirect URI (Uniform Resource Identifier) is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication. The Azure Modeling and Simulation Workbench provides two redirect URIs for each connector that must be registered in Microsoft Entra Id. A single Application Registration handles all the redirects and security tokens for a single workbench.  
+A redirect Uniform Resource Identifier (URI) is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication. Each Connector has two redirect URIs that must be registered in Microsoft Entra ID. A single Application Registration handles all the redirects and security tokens for a workbench.  
 
 ## Prerequisites
 
-* An application registration in Microsoft Entra Id for the Azure Modeling and Simulation Workbench
+* An application registration in Microsoft Entra ID for the Azure Modeling and Simulation Workbench
 * A Workbench instance with a Chamber and Connector created.
 
 ## Add redirect URIs for the application in Microsoft Entra ID

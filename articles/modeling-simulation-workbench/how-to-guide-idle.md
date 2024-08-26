@@ -1,6 +1,6 @@
 ---
 title: "Manage Chamber Idle mode: Azure Modeling and Simulation Workbench"
-description: Place a Chamber into Idle mode to optimize costs
+description: Place a Chamber into Idle mode to optimize cost
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -28,9 +28,9 @@ To place a Chamber into idle, the Connector must be stopped before the Chamber i
 1. Navigate to the Chamber to be placed into idle.
 1. From the **Settings** menu at the left, select **Connector**.
 1. Select the Connector to be stopped.
-1. From the top action bar, select **Stop**. Connectors typically take about 8 minutes to shutdown and dispose of resources.  :::image type="content" source="media/howtoguide-idle/connector-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a Connector.":::  Wait until the Connector has completely stopped before proceeding. The Power state of the Connector will show as Stopped. :::image type="content" source="media/howtoguide-idle/connector-verify-stop.png" alt-text="Power state of Connector confirmed Stopped in Chamber status, highlighted in red.":::
+1. From the top action bar, select **Stop**. Connectors typically take about 8 minutes to shut down and dispose of resources. :::image type="content" source="media/howtoguide-idle/connector-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a Connector."::: Wait until the Connector completely stops and the Power state shows **Stopped**. :::image type="content" source="media/howtoguide-idle/connector-verify-stop.png" alt-text="Power state of Connector confirmed Stopped in Chamber status, highlighted in red.":::
 1. Navigate back to the parent Chamber.
-1. From the top action bar, select **Stop**. Chambers typically take about 8 minutes to shutdown and dispose of resources. :::image type="content" source="media/howtoguide-idle/chamber-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a Chamber.":::  Wait until the Chamber has completely stopped before proceeding. The Power state of the Chamber will show as Stopped. :::image type="content" source="media/howtoguide-idle/chamber-verify-stop.png" alt-text="Power state of Chamber confirmed Stopped in Chamber status, highlighted in red.":::
+1. From the top action bar, select **Stop**. Chambers typically take about 8 minutes to shut down and dispose of resources. :::image type="content" source="media/howtoguide-idle/chamber-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a Chamber."::: Wait until the Chamber completely stops and the Power state shows **Stopped**. :::image type="content" source="media/howtoguide-idle/chamber-verify-stop.png" alt-text="Power state of Chamber confirmed Stopped in Chamber status, highlighted in red.":::
 
 > [!TIP]
 > The Activity log will show successful stop of both Chamber and Connector. :::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing Chamber successfully stopped."::: :::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing Connector successfully stopped.":::

@@ -11,23 +11,23 @@ ms.date: 08/12/2024
 ---
 # VM Offerings in Azure Modeling and Simulation Workbench
 
-Azure Modeling and Simulation Workbench offers a select set of virtual machines (VM) that are optimized for large-scale, complex modeling, simulation, digital twin, semiconductor design, and other scientific or industrial workloads.
+Azure Modeling and Simulation Workbench offer a select set of virtual machines (VM) that are optimized for large-scale, complex modeling, simulation, digital twin, semiconductor design, and other scientific or industrial workloads.
 
-This article presents the VMs that are available in Modeling and Simulation Workbench Chamber Workload VMs, giving an overview of the architecture family and high-level information to enable selecting the right VM for each workload.
+This article provieds an overview of the Azure VM families that are available in Modeling and Simulation Workbench. A summary of the series, common and optimal workloads, and additional information can help you choose the best VM for your scenario.
 
 ## Quotas
 
-VM quotas in Modeling and Simulation Workbench are handled differently than in traditional Azure VM offerings.  Modeling and Simulation Workbench operates in a Microsoft managed environment, therefore VM quotas are not directly associated with the owner's Azure subscription.  Quota requests should be sent through your Microsoft account manager.
+VM quotas in Modeling and Simulation Workbench are handled differently than in traditional Azure VM offerings. Modeling and Simulation Workbench operates in a Microsoft managed environment, therefore VM quotas aren't directly associated with the owner's Azure subscription. Quota requests should be sent through your Microsoft account manager.
 
 ## General purpose
 
-General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.  They make ideal management VMs for managing Chambers, facilitiating file imports or exports, compiling applications, or installing applications to shared storage.
+General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. They make ideal management VMs for managing Chambers, Facilitating file imports or exports, compiling applications, or installing applications to shared storage.
 
 ### Dv4-series
 
-The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're designed for a variety of demanding workloads, such as enterprise applications, web and application servers, development and test environments, and batch processing tasks. They are particularly favored for running enterprise-grade applications, supporting moderate to high-traffic web servers, and performing data-intensive batch processing.
+The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're designed for a variety of demanding workloads, such as enterprise applications, web and application servers, development and test environments, and batch processing tasks. They're favored for running enterprise-grade applications, supporting moderate to high-traffic web servers, and performing data-intensive batch processing.
 
-The Dv4 run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel® Xeon® Platinum 8370C (Ice Lake), or Intel® Xeon® Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads.  Dv4 series do not have local storage.
+The Dv4 run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel® Xeon® Platinum 8370C (Ice Lake), or Intel® Xeon® Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. Dv4 series don't have local storage.
 
 [View the Dv4 family page](/azure/virtual-machines/sizes/general-purpose/dv4-series.md)
 
@@ -55,9 +55,9 @@ Fsv2-series have fixed-sized local storage.
 
 | Size | vCPUs | Memory: GiB | Temp storage (SSD) GiB | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|
-| Standard_F16s_v2 | 16 | 32  | 128 | 12500 |
-| Standard_F32s_v2 | 32 | 64  | 256 | 16000 |
-| Standard_F48s_v2 | 48 | 96  | 384 | 21000 |
+| Standard_F16s_v2 | 16 | 32 | 128 | 12500 |
+| Standard_F32s_v2 | 32 | 64 | 256 | 16000 |
+| Standard_F48s_v2 | 48 | 96 | 384 | 21000 |
 | Standard_F64s_v2 | 64 | 128 | 512 | 28000 |
 | Standard_F72s_v2 | 72 | 144 | 576 | 30000 |
 
@@ -67,36 +67,36 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for rel
 
 ### Esv5-series
 
-Esv5-series virtual machines run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), or Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  Esv5-series virtual machines don't have temporary storage.
+Esv5-series virtual machines run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), or Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz. Esv5-series virtual machines don't have temporary storage.
 
 [View the Esv5 family page](/azure/virtual-machines/ev5-esv5-series)
 
-| Size | vCPU  (Qty.) | Memory: GiB | Max bandwidth (Mbps) |
+| Size | vCPU (Qty.) | Memory: GiB | Max bandwidth (Mbps) |
 |---|---|---|---|
-| Standard_E2s_v5   | 2   | 16  | 12500 |
-| Standard_E4s_v5   | 4   | 32  | 12500 |
-| Standard_E8s_v5   | 8   | 64  | 12500 |
-| Standard_E16s_v5  | 16  | 128 | 12500 |
-| Standard_E20s_v5  | 20  | 160 | 12500 |
-| Standard_E32s_v5  | 32  | 256 | 16000 |
-| Standard_E48s_v5  | 48  | 384 | 24000 |
-| Standard_E64s_v5  | 64  | 512 | 30000 |
-| Standard_E96s_v5  | 96  | 672 | 35000 |
+| Standard_E2s_v5  | 2  | 16 | 12500 |
+| Standard_E4s_v5  | 4  | 32 | 12500 |
+| Standard_E8s_v5  | 8  | 64 | 12500 |
+| Standard_E16s_v5 | 16 | 128 | 12500 |
+| Standard_E20s_v5 | 20 | 160 | 12500 |
+| Standard_E32s_v5 | 32 | 256 | 16000 |
+| Standard_E48s_v5 | 48 | 384 | 24000 |
+| Standard_E64s_v5 | 64 | 512 | 30000 |
+| Standard_E96s_v5 | 96 | 672 | 35000 |
 
 ### M family
 
-The 'M' family of VM size series are one of Azure's ultra memory-optimized VM instances. They're designed for extremely memory-intensive workloads, such as large in-memory databases, data warehousing, and high-performance computing (HPC). Equipped with substantial RAM capacities and high vCPU capabilities, M-family VMs support applications and services that require massive amounts of memory and significant computational power. This makes them particularly well-suited for handling tasks like real-time data processing, complex scientific simulations, and large-scale enterprise resource planning (ERP) systems, ensuring peak performance for the most demanding data-centric applications.
+The 'M' family of VM size series are one of Azure's ultra memory-optimized VM instances. They're designed for memory-intensive workloads, such as large in-memory databases, data warehousing, and high-performance computing (HPC). Equipped with substantial RAM capacities and high vCPU capabilities, M-family VMs support applications and services that require massive amounts of memory and significant computational power. This makes them well-suited for handling tasks like real-time data processing, complex scientific simulations, and large-scale enterprise resource planning (ERP) systems, ensuring peak performance for the most demanding data-centric applications.
 
 M-series VMs have fixed-size temporary storage.
 
 [View the M series page](/azure/virtual-machines/m-series)
 
-| Size           | vCPU | Memory: GiB | Temp storage (SSD) GiB | Expected network bandwidth (Mbps) |
+| Size      | vCPU | Memory: GiB | Temp storage (SSD) GiB | Expected network bandwidth (Mbps) |
 |----------------|------|-------------|------------------------|-----------------------------------|
-| Standard_M64s  | 64   | 1024        | 2048                   | 16000                             |
-| Standard_M128s | 128  | 2048        | 4096                   | 30000                             |
-| Standard_M64m  | 64   | 1792        | 7168                   | 16000                             |
-| Standard_M128m | 128  | 3892        | 14336                  | 32000                             |
+| Standard_M64s | 64  | 1024    | 2048          | 16000               |
+| Standard_M128s | 128 | 2048    | 4096          | 30000               |
+| Standard_M64m | 64  | 1792    | 7168          | 16000               |
+| Standard_M128m | 128 | 3892    | 14336         | 32000               |
 
 ## Next step
 

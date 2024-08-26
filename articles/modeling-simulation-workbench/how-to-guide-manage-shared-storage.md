@@ -11,7 +11,7 @@ ms.date: 08/22/2024
 
 # Manage Shared Storage in Azure Modeling and Simulation Workbench
 
-Shared Storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers.  Chamber Admins and Workbench Owners can manage the Shared storagein Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.  
+Shared Storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers. Chamber Admins and Workbench Owners can manage the Shared storage in Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.
 
 This article explains how Chamber Admins and Workbench Owners manage chamber storage.
 
@@ -34,8 +34,8 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 1. Enter **Modeling and Simulation Workbench** in the global search. Under **Services**, select **Modeling and Simulation Workbench**.
 1. Select your workbench from the resource list.
 1. On the left menu, select **Settings** > **Shared Storage**.
-1. Select **Create** from the action bar. The Create shared storage blade appears.
-1. Fill in a name, set the capacity in 4TiB increments, and select the Chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
+1. Select **Create** from the action bar. The Create shared storage configuration appears.
+1. Fill in a name, set the capacity in 4-TB increments, and select the Chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
 1. Select **Review + Create**. If the validation checks pass, select **Create**.
 
 ## Manage Shared Storage
@@ -48,7 +48,7 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 
 ### Resize chamber storage
 
-If you're a Workbench Owner or Chamber Admin, you can increase or decrease a chamber's storage capacity by changing the storage size.  
+If you're a Workbench Owner or Chamber Admin, you can increase or decrease a chamber's storage capacity by changing the storage size.
 
 You can't change the storage size to less than what you're currently using for that storage instance. In addition, you can't change the storage size to more than the available capacity for the region where your workbench is installed. The default storage quota limit is 25 TB across all workbenches installed in your subscription per region. For more information about resource capacity limits, contact your Microsoft account manager.
 
