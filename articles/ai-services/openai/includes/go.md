@@ -38,6 +38,7 @@ import (
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 )
 
@@ -52,11 +53,7 @@ func main() {
 		return
 	}
 
-	keyCredential, err := azopenai.NewKeyCredential(azureOpenAIKey)
-
-	if err != nil {
-		// TODO: handle error
-	}
+	keyCredential := azcore.NewKeyCredential(azureOpenAIKey)
 
 	client, err := azopenai.NewClientWithKeyCredential(azureOpenAIEndpoint, keyCredential, nil)
 
@@ -65,10 +62,10 @@ func main() {
 	}
 
 	resp, err := client.GetCompletions(context.TODO(), azopenai.CompletionsOptions{
-		Prompt:       []string{"What is Azure OpenAI, in 20 words or less"},
-		MaxTokens:    to.Ptr(int32(2048)),
-		Temperature:  to.Ptr(float32(0.0)),
-		Deployment: modelDeploymentID,
+		Prompt:         []string{"What is Azure OpenAI, in 20 words or less"},
+		MaxTokens:      to.Ptr(int32(2048)),
+		Temperature:    to.Ptr(float32(0.0)),
+		DeploymentName: &modelDeploymentID,
 	}, nil)
 
 	if err != nil {

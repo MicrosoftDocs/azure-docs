@@ -46,6 +46,13 @@ To enable autoscale for an online endpoint, you first define an autoscale profil
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
+If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
+
+   ```azurecli
+   az account set --subscription <subscription ID>
+   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   ```
+
 1. Set the endpoint and deployment names:
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_endpoint_deployment_name" :::
