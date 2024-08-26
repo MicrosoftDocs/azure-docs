@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Set up and view reports
+title: Tutorial - Set up and view reports in Azure Business Continuity Center
 description: This tutorial describes how to set up and view reports in Azure Business Continuity Center.
 ms.topic: tutorial
 ms.date: 11/15/2023
@@ -66,8 +66,8 @@ The following table describes the types of available reports:
 | **Backup Job History** | Azure Backup | Information on your successful and failed backup jobs over a specified duration. | - VM <br> - Backup Agent (MARS) <br> - Backup Server (MABS) <br> - DPM <br> - Azure Database for PostgreSQL Server <br> - Azure Blobs <br> - Azure Disks | Out-of-Box |
 | **Backup Schedule and Retention** | Azure Backup | Information on schedule and retention of all your backup items so that you can verify if they meet the business requirements. | - VM <br>- Azure Files | Out-of-Box |
 **User Triggered Operations** | Azure Backup | Information on user triggered operations on Recovery Services vaults over a specified period.  |  - VM <br>- Backup Agent <br>- Backup Server <br>- DPM <br>- Azure Files <br>- SQL database in Azure VM <br>- SAP HANA in Azure VM | Out-of-Box |
-| **ASR Job History** | Azure Site Recovery | Information on your successful and failed ASR jobs over a specified duration. <br> Currently, only jobs triggered on replicated items and recovery plans are shown in this report. | VM | Out-of-Box |
-| **ASR Replication History** | Azure Site Recovery | Information on your replicated items over a specified duration. | VM | Out-of-Box |
+| **Azure Site Recovery Job History** | Azure Site Recovery | Information on your successful and failed Azure Site Recovery jobs over a specified duration. <br> Currently, only jobs triggered on replicated items and recovery plans are shown in this report. | VM | Out-of-Box |
+| **Azure Site Recovery Replication History** | Azure Site Recovery | Information on your replicated items over a specified duration. | VM | Out-of-Box |
 
 
 [!INCLUDE [backup-conventions-for-reports.md](../../includes/backup-conventions-for-reports.md)]
