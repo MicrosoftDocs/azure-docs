@@ -175,7 +175,7 @@ Because an App Service certificate is a [Key Vault secret](/azure/key-vault/gene
 
 #### [Azure CLI](#tab/cli)
 
-Run the following commands in [Azure Cloud Shell](https://shell.azure.com), or run them locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [bought the App Service certificate](#start-certificate-purchase).
+Run the following commands in [Azure Cloud Shell](https://shell.azure.com), or run them locally if you have [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names that you used when you [bought the App Service certificate](#start-certificate-purchase).
 
 ```azurecli-interactive
 secretname=$(az resource show \
@@ -209,37 +209,37 @@ The downloaded PFX file is a raw PKCS12 file that contains both the public and p
 
 ## Delete an App Service certificate
 
-If you delete an App Service certificate, the delete operation is irreversible and final. The result is a revoked certificate, and any binding in App Service that uses this certificate becomes invalid.
+If you delete an App Service certificate, the delete operation is irreversible and final. The result is a revoked certificate, and any binding in App Service that uses the certificate becomes invalid.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate.
 
 1. From the left menu, select **Overview** > **Delete**.
 
-1. When the confirmation box opens, enter the certificate name, and select **OK**.
+1. When the confirmation box opens, enter the certificate name, and then select **OK**.
 
 ## Frequently asked questions
 
 #### My App Service certificate doesn't have any value in Key Vault
 
-Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. As a key vault secret, it maintains an `Initialize` tag, and its value and content-type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content-type, and the tag changes to `Ready`.
+Your App Service certificate is probably not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. As a Key Vault secret, it maintains an `Initialize` tag, and its value and content-type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content-type, and the tag changes to `Ready`.
 
 #### I can't export my App Service certificate with PowerShell
 
-Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. 
+Your App Service certificate is probably not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. 
 
-#### What changes does the App Service certificate creation process make to my existing Key Vault?
+#### What changes does the App Service certificate creation process make to my existing key vault?
 
 The creation process makes the following changes:
 
 - Adds two access policies in the vault:
     - **Microsoft.Azure.WebSites** (or `Microsoft Azure App Service`)
     - **Microsoft certificate reseller CSM Resource Provider** (or `Microsoft.Azure.CertificateRegistration`)
-- Creates a [delete lock](../azure-resource-manager/management/lock-resources.md) on the vault called: `AppServiceCertificateLock` to prevent accidental deletion of the key vault.
+- Creates a [delete lock](../azure-resource-manager/management/lock-resources.md) called `AppServiceCertificateLock` on the vault to prevent accidental deletion of the key vault.
 
-## More resources
+## Related content
 
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [Frequently asked questions about creating or deleting resources in Azure App Service](./faq-configuration-and-management.yml)
