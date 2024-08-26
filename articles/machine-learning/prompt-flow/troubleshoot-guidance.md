@@ -119,7 +119,7 @@ In prompt flow, on flow page with successful run and run detail page, you can fi
 
 ### How to fix 409 error from Azure OpenAI? 
 
-You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../ai-services/openai/quotas-limits.md).
+You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](/azure/ai-services/openai/quotas-limits).
 
 :::image type="content" source="./media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "./media/faq/429-rate-limit.png":::
 

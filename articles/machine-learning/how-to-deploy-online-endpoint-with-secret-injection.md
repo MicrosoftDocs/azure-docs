@@ -51,7 +51,7 @@ You can choose to store your secrets (such as API keys) using either:
 
 You can create workspace connections to use in your deployment. For example, you can create a connection to Microsoft Azure OpenAI Service by using [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create).
 
-Alternatively, you can create a custom connection by using Azure Machine Learning studio (see [How to create a custom connection for prompt flow](./prompt-flow/tools-reference/python-tool.md#create-a-custom-connection)) or Azure AI Studio (see [How to create a custom connection in AI Studio](../ai-studio/how-to/connections-add.md?tabs=custom#create-a-new-connection)).
+Alternatively, you can create a custom connection by using Azure Machine Learning studio (see [How to create a custom connection for prompt flow](./prompt-flow/tools-reference/python-tool.md#create-a-custom-connection)) or Azure AI Studio (see [How to create a custom connection in AI Studio](/azure/ai-studio/how-to/connections-add?tabs=custom#create-a-new-connection)).
 
 1. Create an Azure OpenAI connection:
 

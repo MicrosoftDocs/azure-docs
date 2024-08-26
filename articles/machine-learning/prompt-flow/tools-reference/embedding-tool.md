@@ -29,7 +29,7 @@ Create OpenAI resources:
 
 - **Azure OpenAI Service**:
 
-    Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
+    Create Azure OpenAI resources with [these instructions](/azure/ai-services/openai/how-to/create-resource).
 
 ## Connections
 

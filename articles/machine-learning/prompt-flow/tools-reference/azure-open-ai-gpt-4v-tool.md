@@ -24,7 +24,7 @@ Azure OpenAI GPT-4 Turbo with Vision tool enables you to leverage your AzureOpen
 
 - Create AzureOpenAI resources
 
-    Create Azure OpenAI resources with [instruction](../../../ai-services/openai/how-to/create-resource.md).
+    Create Azure OpenAI resources with [instruction](/azure/ai-services/openai/how-to/create-resource).
 
 - Create a GPT-4 Turbo with Vision deployment
 

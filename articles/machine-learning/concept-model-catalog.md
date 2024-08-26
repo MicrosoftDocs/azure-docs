@@ -30,7 +30,7 @@ Models are organized by Collections in the model catalog. There are three types 
 
 ## Model catalog capabilities overview 
 
-For information on Azure OpenAI models, refer to [Azure OpenAI Service](../ai-services/openai/overview.md). 
+For information on Azure OpenAI models, refer to [Azure OpenAI Service](/azure/ai-services/openai/overview). 
 
 For models **Curated by Azure AI** and **Open models from the Hugging Face hub**, some of these can be deployed with a managed compute option, and some of these are available to be deployed using serverless APIs with pay-as-you-go billing. These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
@@ -98,7 +98,7 @@ Prompt flow offers capabilities for prototyping, experimenting, iterating, and d
 
 ### Content safety for models deployed with managed compute 
 
-[Azure AI Content Safety (AACS)](../ai-services/content-safety/overview.md) service is available for use with models deployed to managed compute to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the [Content Safety (Text) tool in Prompt Flow](./prompt-flow/tools-reference/content-safety-text-tool.md) to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
+[Azure AI Content Safety (AACS)](/azure/ai-services/content-safety/overview) service is available for use with models deployed to managed compute to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the [Content Safety (Text) tool in Prompt Flow](./prompt-flow/tools-reference/content-safety-text-tool.md) to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
 ### Work with models not in the model catalog 
 
@@ -125,7 +125,7 @@ Deploying a model through MaaS allows users to get access to ready to use infere
 
 ### Fine-tune models through MaaS with Pay-as-you-go 
 
-For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
+For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](/azure/ai-studio/how-to/fine-tune-model-llama) in Azure AI Studio. 
 
 ### RAG with models deployed through MaaS 
 

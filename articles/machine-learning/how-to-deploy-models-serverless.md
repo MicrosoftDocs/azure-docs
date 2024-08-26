@@ -530,7 +530,7 @@ Non-Microsoft models deployed as serverless API endpoints are offered through th
 
 Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 :::image type="content" source="media/how-to-deploy-models-serverless/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-serverless/costs-model-as-service-cost-details.png":::
 

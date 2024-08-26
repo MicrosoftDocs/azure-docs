@@ -13,17 +13,17 @@ ms.date: 01/11/2024
 
 # Attach an Azure AI multi-service resource to a skillset in Azure AI Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/multi-service-resource.md?pivots=azportal). 
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](/azure/ai-services/multi-service-resource?pivots=azportal). 
 
 A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/skillsets/create) and allows Microsoft to charge you for using these services:
 
-+ [Azure AI Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
-+ [Azure AI Language](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
-+ [Azure AI Speech](../ai-services/speech-service/overview.md) for speech to text and text to speech
-+ [Azure AI Translator](../ai-services/translator/translator-overview.md) for machine text translation
++ [Azure AI Vision](/azure/ai-services/computer-vision/overview) for image analysis and optical character recognition (OCR)
++ [Azure AI Language](/azure/ai-services/language-service/overview) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Azure AI Speech](/azure/ai-services/speech-service/overview) for speech to text and text to speech
++ [Azure AI Translator](/azure/ai-services/translator/translator-overview) for machine text translation
 
 > [!TIP]
-> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Azure AI services, see [Plan and manage costs for Azure AI services](../ai-services/plan-manage-costs.md).
+> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Azure AI services, see [Plan and manage costs for Azure AI services](/azure/ai-services/plan-manage-costs).
 
 ## Set the resource key
 
@@ -35,7 +35,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -47,7 +47,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/skillsets/create):
 
@@ -187,7 +187,7 @@ Key-based billing applies when API calls to Azure AI services resources exceed 2
 
 The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to an Azure AI services resource that's located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Azure AI Search also offer other Azure AI services such as Language. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
-Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Azure AI Search to another Azure AI service. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Azure AI services resource to the same VNET](../ai-services/cognitive-services-virtual-networks.md). In this way, you can call Azure AI services resource directly from the custom skill using private endpoints.
+Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Azure AI Search to another Azure AI service. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Azure AI services resource to the same VNET](/azure/ai-services/cognitive-services-virtual-networks). In this way, you can call Azure AI services resource directly from the custom skill using private endpoints.
 
 > [!NOTE]
 > Some built-in skills are based on non-regional Azure AI services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure AI Search region. For more information on non-regional services, see the [Azure AI services product by region](https://aka.ms/allinoneregioninfo) page.

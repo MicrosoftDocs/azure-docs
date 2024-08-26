@@ -54,7 +54,7 @@ Use the following steps to create a hub from the Azure portal:
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-resources.png"::: 
 
-1. Set up Network isolation. Read more on [network isolation](../ai-studio/how-to/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md).
+1. Set up Network isolation. Read more on [network isolation](/azure/ai-studio/how-to/configure-managed-network). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](/azure/ai-studio/how-to/create-secure-ai-hub).
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set network isolation information." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-networking.png":::  
 
@@ -79,7 +79,7 @@ Use the following steps to create a hub from the Azure portal:
 
 ### Manage access control
 
-Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](../ai-studio/concepts/rbac-ai-studio.md).
+Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](/azure/ai-studio/concepts/rbac-ai-studio).
 
 To add grant users permissions: 
 1. Select **+ Add** to add users to your hub.
@@ -98,11 +98,11 @@ To add grant users permissions:
 
 Hub networking settings can be set during resource creation or changed in the **Networking** tab in the Azure portal view. Creating a new hub invokes a managed virtual network. This streamlines and automates your network isolation configuration with a built-in managed virtual network. The managed virtual network settings are applied to all project workspaces created within a hub. 
 
-At hub creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](../ai-studio/how-to/configure-managed-network.md). To create a secure hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md). 
+At hub creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network). To create a secure hub, see [Create a secure Azure AI hub](/azure/ai-studio/how-to/create-secure-ai-hub). 
 
 At hub creation in the Azure portal, creation of associated Azure AI services, Storage account, Key vault, Application insights, and Container registry is given. These resources are found on the Resources tab during creation. 
 
-To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the public network access (PNA) flag is disabled when creating the private endpoint connection. For more about Azure AI services connections, see [Azure AI services and virtual networks](../ai-services/cognitive-services-virtual-networks.md). You can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
+To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the public network access (PNA) flag is disabled when creating the private endpoint connection. For more about Azure AI services connections, see [Azure AI services and virtual networks](/azure/ai-services/cognitive-services-virtual-networks). You can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
 
 ### Encryption
 
@@ -123,4 +123,4 @@ You can configure your hub for these resources during creation or update after c
 
 ## Next steps
 
-Once you have a workspace hub, you can Create a project using [Azure Machine Learning studio](how-to-manage-workspace.md?tabs=mlstudio), [AI Studio](../ai-studio/how-to/create-projects.md), [Azure SDK](how-to-manage-workspace.md?tabs=python), or [Using automation templates](how-to-create-workspace-template.md).
+Once you have a workspace hub, you can Create a project using [Azure Machine Learning studio](how-to-manage-workspace.md?tabs=mlstudio), [AI Studio](/azure/ai-studio/how-to/create-projects), [Azure SDK](how-to-manage-workspace.md?tabs=python), or [Using automation templates](how-to-create-workspace-template.md).

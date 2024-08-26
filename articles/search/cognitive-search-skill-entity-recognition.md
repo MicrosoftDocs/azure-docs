@@ -13,7 +13,7 @@ ms.date: 08/17/2022
 
 # Entity Recognition cognitive skill (v2)
 
-The **Entity Recognition** skill (v2) extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../ai-services/language-service/overview.md) in Azure AI services.
+The **Entity Recognition** skill (v2) extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](/azure/ai-services/language-service/overview) in Azure AI services.
 
 > [!IMPORTANT]
 > The Entity Recognition skill (v2) (**Microsoft.Skills.Text.EntityRecognitionSkill**) is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
@@ -52,7 +52,7 @@ Parameters are case-sensitive and are all optional.
 ## Skill outputs
 
 > [!NOTE]
-> Not all entity categories are supported for all languages. The `"Person"`, `"Location"`, and `"Organization"` entity category types are supported for the full list of languages above. Only _de_, _en_, _es_, _fr_, and _zh-hans_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, and `"Email"` types. For more information, see [Language and region support for the Text Analytics API](../ai-services/language-service/language-detection/overview.md).  
+> Not all entity categories are supported for all languages. The `"Person"`, `"Location"`, and `"Organization"` entity category types are supported for the full list of languages above. Only _de_, _en_, _es_, _fr_, and _zh-hans_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, and `"Email"` types. For more information, see [Language and region support for the Text Analytics API](/azure/ai-services/language-service/language-detection/overview).  
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
@@ -186,7 +186,7 @@ Parameters are case-sensitive and are all optional.
 }
 ```
 
-Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../ai-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../ai-services/language-service/concepts/multilingual-emoji-support.md)
+Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](/azure/ai-services/language-service/overview), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](/azure/ai-services/language-service/concepts/multilingual-emoji-support)
 
 ## Warning cases
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.

@@ -17,9 +17,9 @@ ms.date: 08/05/2024
 > [!IMPORTANT] 
 > This skill is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Vision multimodal embeddings** skill uses Azure AI Vision's [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
+The **Azure AI Vision multimodal embeddings** skill uses Azure AI Vision's [multimodal embeddings API](/azure/ai-services/computer-vision/concept-image-retrieval) to generate embeddings for image or text input.
 
-The skill is only supported in search services located in a region that supports the [Azure AI Vision Multimodal embeddings API](../ai-services/computer-vision/how-to/image-retrieval.md). Review [region availability for multimodal embeddings](../ai-services/computer-vision/overview-image-analysis.md?tabs=4-0#region-availability). Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
+The skill is only supported in search services located in a region that supports the [Azure AI Vision Multimodal embeddings API](/azure/ai-services/computer-vision/how-to/image-retrieval). Review [region availability for multimodal embeddings](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0#region-availability). Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
 
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -33,7 +33,7 @@ Microsoft.Skills.Vision.VectorizeSkill
 
 ## Data limits
 
-The input limits for the skill can be found in [the Azure AI Vision documentation](../ai-services/computer-vision/concept-image-retrieval.md#input-requirements) for images and text respectively. Consider using the [Text Split skill](cognitive-search-skill-textsplit.md) if you need data chunking for text inputs.
+The input limits for the skill can be found in [the Azure AI Vision documentation](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements) for images and text respectively. Consider using the [Text Split skill](cognitive-search-skill-textsplit.md) if you need data chunking for text inputs.
 
 ## Skill parameters
 
@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model, refer to [multimodal embeddings](../ai-services/computer-vision/concept-image-retrieval.md#what-are-vector-embeddings).|
+| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model, refer to [multimodal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#what-are-vector-embeddings).|
 
 ## Skill inputs
 
@@ -191,4 +191,4 @@ For mapping image embeddings to the index, you'll need to use the [Index Project
 + [Extract text and information from images](cognitive-search-concept-image-scenarios.md)
 + [How to define output fields mappings](cognitive-search-output-field-mapping.md)
 + [Index Projections](index-projections-concept-intro.md)
-+ [Azure AI Vision multi-model embeddings API](../ai-services/computer-vision/concept-image-retrieval.md)
++ [Azure AI Vision multi-model embeddings API](/azure/ai-services/computer-vision/concept-image-retrieval)

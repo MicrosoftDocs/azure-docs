@@ -147,15 +147,15 @@ View and change details of your project on the **Details** tab. On this tab, you
 
 ### Projects created in Azure AI services
 
-If your labeling project was created from [Vision Studio](../ai-services/computer-vision/how-to/model-customization.md) or [Language Studio](../ai-services/language-service/custom/azure-machine-learning-labeling.md), you'll see an extra tab on the **Details** page. The tab allows you to switch between labeling in Azure Machine Learning and labeling in Vision Studio or Language Studio.
+If your labeling project was created from [Vision Studio](/azure/ai-services/computer-vision/how-to/model-customization) or [Language Studio](/azure/ai-services/language-service/custom/azure-machine-learning-labeling), you'll see an extra tab on the **Details** page. The tab allows you to switch between labeling in Azure Machine Learning and labeling in Vision Studio or Language Studio.
 
 #### [Image projects](#tab/image)
 
-If your project was created from [Vision Studio](../ai-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab. Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you'll be able to import your labeled data.
+If your project was created from [Vision Studio](/azure/ai-services/computer-vision/how-to/model-customization), you'll also see a **Vision Studio** tab. Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you'll be able to import your labeled data.
 
 #### [Text projects](#tab/text)
 
-If your project was created from [Language Studio](../ai-services/language-service/custom/azure-machine-learning-labeling.md), you'll see a **Language Studio** tab. 
+If your project was created from [Language Studio](/azure/ai-services/language-service/custom/azure-machine-learning-labeling), you'll see a **Language Studio** tab. 
 
 * If labeling is active in Language Studio, you can't label in Azure Machine Learning. In that case, Language Studio is the only tab available. Select **View in Language Studio** to go to the active labeling project in Language Studio. From there, you can switch to labeling in Azure Machine Learning if you wish.
 

@@ -305,13 +305,13 @@ If you know that your data set contains multiple languages and thus you need the
 
 Here are some references for the currently supported languages for each of the skills that can produce this error message:
 
-* [EntityRecognitionSkill supported languages](../ai-services/language-service/named-entity-recognition/language-support.md)
-* [EntityLinkingSkill supported languages](../ai-services/language-service/entity-linking/language-support.md)
-* [KeyPhraseExtractionSkill supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md)
-* [LanguageDetectionSkill supported languages](../ai-services/language-service/language-detection/language-support.md)
-* [PIIDetectionSkill supported languages](../ai-services/language-service/personally-identifiable-information/language-support.md)
-* [SentimentSkill supported languages](../ai-services/language-service/sentiment-opinion-mining/language-support.md)
-* [Translator supported languages](../ai-services/translator/language-support.md)
+* [EntityRecognitionSkill supported languages](/azure/ai-services/language-service/named-entity-recognition/language-support)
+* [EntityLinkingSkill supported languages](/azure/ai-services/language-service/entity-linking/language-support)
+* [KeyPhraseExtractionSkill supported languages](/azure/ai-services/language-service/key-phrase-extraction/language-support)
+* [LanguageDetectionSkill supported languages](/azure/ai-services/language-service/language-detection/language-support)
+* [PIIDetectionSkill supported languages](/azure/ai-services/language-service/personally-identifiable-information/language-support)
+* [SentimentSkill supported languages](/azure/ai-services/language-service/sentiment-opinion-mining/language-support)
+* [Translator supported languages](/azure/ai-services/translator/language-support)
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) supported languages: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>

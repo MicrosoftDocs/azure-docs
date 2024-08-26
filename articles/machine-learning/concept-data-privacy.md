@@ -50,7 +50,7 @@ If a model available for serverless API deployment supports fine-tuning, you can
 
 * Is available exclusively for your use;
 
-* Can be double [encrypted at rest](../ai-services/openai/encrypt-data-at-rest.md) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
+* Can be double [encrypted at rest](/azure/ai-services/openai/encrypt-data-at-rest) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
 
 * Can be deleted by you at any time.
 

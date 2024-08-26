@@ -35,7 +35,7 @@ The goal of hubs is to take away this bottleneck, by letting IT set up a secure,
 
 ## Interoperability between ML studio and AI studio
 
-Hubs can be used as your team's collaboration environment for both ML studio and [AI studio](../ai-studio/what-is-ai-studio.md). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications responsibly.
+Hubs can be used as your team's collaboration environment for both ML studio and [AI studio](/azure/ai-studio/what-is-ai-studio). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications responsibly.
 
 | Workspace Kind | ML Studio | AI Studio |
 | --- | --- | --- |
@@ -69,7 +69,7 @@ Data that is uploaded in one project workspace, is stored in isolation from data
 Once a hub is created, there are multiple ways to create a project workspace using it:
 
 1. [Using ML Studio](how-to-manage-workspace.md?tabs=mlstudio)
-1. [Using AI Studio](../ai-studio/how-to/create-projects.md)
+1. [Using AI Studio](/azure/ai-studio/how-to/create-projects)
 2. [Using Azure SDK](how-to-manage-workspace.md?tabs=python)
 4. [Using automation templates](how-to-create-workspace-template.md)
 
@@ -117,4 +117,4 @@ To learn more about setting up Azure Machine Learning, see:
 
 To learn more about hub workspace support in AI Studio, see:
 
-+ [How to configure a managed network for hubs](../ai-studio/how-to/configure-managed-network.md)
++ [How to configure a managed network for hubs](/azure/ai-studio/how-to/configure-managed-network)

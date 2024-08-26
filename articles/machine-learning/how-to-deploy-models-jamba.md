@@ -308,7 +308,7 @@ Jamba models deployed as a serverless API are offered by AI21 through Azure Mark
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
@@ -320,5 +320,5 @@ Models deployed as a serverless API are protected by Azure AI content safety. Wi
 
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
-- [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md)
+- [Plan and manage costs for Azure AI Studio](/azure/ai-studio/how-to/costs-plan-manage)
 - [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

@@ -16,7 +16,7 @@ ms.date: 08/05/2024
 > [!IMPORTANT] 
 > This vectorizer is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Studio model catalog** vectorizer connects to an embedding model that was deployed via [the Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md) to an Azure Machine Learning endpoint. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
+The **Azure AI Studio model catalog** vectorizer connects to an embedding model that was deployed via [the Azure AI Studio model catalog](/azure/ai-studio/how-to/model-catalog) to an Azure Machine Learning endpoint. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
 
 If you used integrated vectorization to create the vector arrays, the skillset should include an [AML skill pointing to the model catalog in Azure AI Studio (preview)](cognitive-search-aml-skill.md).
 
@@ -96,4 +96,4 @@ The expected field dimensions for a field configured with an AI Studio model cat
 + [Integrated vectorization with models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md)
 + [How to configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
 + [Azure Machine Learning skill](cognitive-search-aml-skill.md)
-+ [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md)
++ [Azure AI Studio model catalog](/azure/ai-studio/how-to/model-catalog)

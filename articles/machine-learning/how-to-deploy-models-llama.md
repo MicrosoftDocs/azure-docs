@@ -588,7 +588,7 @@ Meta Llama 3.1 models deployed as a serverless API are offered by Meta through A
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 :::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offerings and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
@@ -606,5 +606,5 @@ Models deployed as a serverless API are protected by Azure AI content safety. Wh
 
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
-- [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md)
+- [Plan and manage costs for Azure AI Studio](/azure/ai-studio/how-to/costs-plan-manage)
 - [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

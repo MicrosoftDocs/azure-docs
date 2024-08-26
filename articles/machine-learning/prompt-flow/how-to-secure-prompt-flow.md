@@ -86,7 +86,7 @@ Workspace managed virtual network is the recommended way to support network isol
     > [!NOTE]
     > This operation might take several minutes to take effect.
 
-3. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
+3. If you want to communicate with [private Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure Cognitive Services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
@@ -111,7 +111,7 @@ Workspace managed virtual network is the recommended way to support network isol
       no_public_ip: false # Set to true if you don't want to assign public IP to the compute
     ```
 
-- Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
+- Meanwhile, you can follow [private Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks) to make them as private.
 - If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster. Learn more about [How to deploy prompt flow to ASK cluster via code](./how-to-deploy-to-code.md).
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 

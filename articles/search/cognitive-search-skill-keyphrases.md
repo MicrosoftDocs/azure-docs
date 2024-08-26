@@ -12,7 +12,7 @@ ms.date: 12/09/2021
 ---
 #	Key Phrase Extraction cognitive skill
 
-The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the [Key Phrase](../ai-services/language-service/key-phrase-extraction/overview.md) machine learning models provided by [Azure AI Language](../ai-services/language-service/overview.md).
+The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the [Key Phrase](/azure/ai-services/language-service/key-phrase-extraction/overview) machine learning models provided by [Azure AI Language](/azure/ai-services/language-service/overview).
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
@@ -32,16 +32,16 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code isn't specified,  English (en) is used as the default language code. <br/> See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code isn't specified,  English (en) is used as the default language code. <br/> See the [full list of supported languages](/azure/ai-services/language-service/key-phrase-extraction/language-support). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling the key phrase API. It defaults to the latest available when not specified. We recommend you don't specify this value unless it's necessary.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](/azure/ai-services/language-service/concepts/model-lifecycle) to use when calling the key phrase API. It defaults to the latest available when not specified. We recommend you don't specify this value unless it's necessary.  |
 
 ## Skill inputs
 
 | Input	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  A string indicating the language of the records. If this parameter isn't specified, the default language code is used to analyze the records. <br/>See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
+| `languageCode`	|  A string indicating the language of the records. If this parameter isn't specified, the default language code is used to analyze the records. <br/>See the [full list of supported languages](/azure/ai-services/language-service/key-phrase-extraction/language-support). |
 
 ## Skill outputs
 

@@ -35,7 +35,7 @@ You can find the JAIS model in the model catalog by filtering on the JAIS collec
 
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../ai-studio/concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](/azure/ai-studio/concepts/rbac-ai-studio).
 
 
 ### JAIS 30b Chat
@@ -273,16 +273,16 @@ JAIS 30b Chat is deployed as a service are offered by Core42 through the Azure M
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../ai-studio/concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](/azure/ai-services/content-safety/overview). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](/azure/ai-studio/concepts/content-filtering).
 
 ## Next steps
 
-- [What is Azure AI Studio?](../ai-studio/what-is-ai-studio.md)
-- [Azure AI FAQ article](../ai-studio/faq.yml)
+- [What is Azure AI Studio?](/azure/ai-studio/what-is-ai-studio)
+- [Azure AI FAQ article](/azure/ai-studio/faq)
 - [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

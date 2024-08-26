@@ -41,7 +41,7 @@ You can obtain ONNX models in several ways:
 - Train a new ONNX model in Azure Machine Learning (as described in the [examples](#examples) section of this article) or by using [automated machine learning capabilities](concept-automated-ml.md#automl--onnx).
 - Convert an existing model from another format to ONNX as shown in these [tutorials](https://github.com/onnx/tutorials).
 - Get a pretrained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models).
-- Generate a customized ONNX model from [Azure AI Custom Vision service](../ai-services/custom-vision-service/index.yml).
+- Generate a customized ONNX model from [Azure AI Custom Vision service](/azure/ai-services/custom-vision-service/).
 
 Many models, including image classification, object detection, and text processing models can be represented as ONNX models. If you run into an issue with a model that can't be converted successfully, file a GitHub issue in the repository of the converter that you used. You can continue using your existing model format until the issue is addressed.
 

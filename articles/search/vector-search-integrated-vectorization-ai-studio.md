@@ -16,7 +16,7 @@ ms.date: 05/08/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) supports this feature.
 
-In this article, learn how to access the embedding models in the [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md) for vector conversions during indexing and in queries in Azure AI Search.
+In this article, learn how to access the embedding models in the [Azure AI Studio model catalog](/azure/ai-studio/how-to/model-catalog) for vector conversions during indexing and in queries in Azure AI Search.
 
 The workflow includes model deployment steps. The model catalog includes embedding models from Azure OpenAI, Cohere, Facebook, and OpenAI. Deploying a model is billable per the billing structure of each provider. 
 
@@ -157,7 +157,7 @@ This AML skill payload works with the following models from AI Studio:
 
 It assumes that you're chunking your content using the SplitSkill and therefore your text to be vectorized is in the `/document/pages/*` path. If your text comes from a different path, update all references to the `/document/pages/*` path according.
 
-You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You might also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](../ai-studio/how-to/deploy-models-cohere-embed.md).
+You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You might also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](/azure/ai-studio/how-to/deploy-models-cohere-embed).
 
 The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy Cohere Embed models with Azure AI Studio](/azure/ai-studio/how-to/deploy-models-cohere-embed).
 
