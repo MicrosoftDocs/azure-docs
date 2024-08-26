@@ -36,7 +36,7 @@ Before you begin, ensure that you have the following:
     - [Log Analytics Workspace](./relocation-log-analytics.md)
     - Diagnostic Virtual Machine Scale Set
     - [Key Vault](./relocation-key-vault.md)
-    - [Proximity Placement Group](../virtual-machine-scale-sets/proximity-placement-groups.md)
+    - [Proximity Placement Group](/azure/virtual-machine-scale-sets/proximity-placement-groups)
     - Public IP address
     - [Load Balancer](../load-balancer/move-across-regions-external-load-balancer-portal.md). 
     - [Virtual Network](./relocation-virtual-network.md)
@@ -58,7 +58,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
 
 1. Relocate Load balancer, along with the public IP by doing one of the following methods:
 
-    - *Resource Mover*. Associate Load Balancer with public IP in the source region to the target region. For more information, see [Move resources across regions (from resource group) with Azure Resource Mover](../azure/resource-mover/move-region-within-resource-group.md).
+    - *Resource Mover*. Associate Load Balancer with public IP in the source region to the target region. For more information, see [Move resources across regions (from resource group) with Azure Resource Mover](../resource-mover/move-region-within-resource-group.md).
     - *Explort Template*. Relocate the Load balancer along with public IP to the target region using the export template option. For information on how to do this, see [Move an external load balancer to another region using the Azure portal](../load-balancer/move-across-regions-external-load-balancer-portal.md).
 
     >[!IMPORTANT]
