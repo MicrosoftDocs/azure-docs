@@ -290,7 +290,7 @@ To copy the connection string:
 
 To paste your connection string, select from the following options:
 
-A. Set via Environment Variable (Recommended)
+* Set via Environment Variable (Recommended)
 
     Replace `<Your connection string>` in the following command with *your* unique connection string.
     
@@ -298,8 +298,8 @@ A. Set via Environment Variable (Recommended)
     APPLICATIONINSIGHTS_CONNECTION_STRING=<Your connection string>
     ```
 
-B. Set via Configuration File - Java Only (Recommended)
-
+* Set via Configuration File - Java Only (Recommended)
+    
     Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.4.jar` with the following content:
     
     ```json
@@ -307,7 +307,7 @@ B. Set via Configuration File - Java Only (Recommended)
       "connectionString": "<Your connection string>"
     }
     ```
-    
+      
     Replace `<Your connection string>` in the preceding JSON with *your* unique connection string.
 
 <!-- Violates MSFT security guidelines
