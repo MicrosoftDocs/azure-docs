@@ -1,3 +1,4 @@
+# YamlMime:ZonePivotGroups
 groups:
 - id: azure-signalr-service-mode
   title: Azure SignalR Service Mode

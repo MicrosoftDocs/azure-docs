@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/23/2023
 ms.author: lianwei
+zone_pivot_group_filename: azure-signalr/zone-pivot-groups.json
 zone_pivot_groups: azure-signalr-service-mode
 ---
 
@@ -239,7 +240,7 @@ private class CustomRouter : EndpointRouterDecorator
 
 ## Dynamic Scale ServiceEndpoints
 
-From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting a default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change code, and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, refer to [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1&preserve-view=true).
+From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting a default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change code, and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, refer to [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration#environment-variables).
 
 > [!NOTE]
 >
@@ -295,7 +296,7 @@ To enable multiple SignalR Service instances, you should:
     }
     ```
 
-    > * When you configure Azure SignalR endpoints in the App Service on Azure portal, don't forget to replace `":"` with `"__"`, the double underscore in the keys. For reasons, see [Environment variables](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0#environment-variables).
+    > * When you configure Azure SignalR endpoints in the App Service on Azure portal, don't forget to replace `":"` with `"__"`, the double underscore in the keys. For reasons, see [Environment variables](/aspnet/core/fundamentals/configuration/#environment-variables).
     >
     > * Connection string configured with the key `{ConnectionStringSetting}` (defaults to "AzureSignalRConnectionString") is also recognized as a primary service endpoint with empty name. But this configuration style is not recommended for multiple endpoints.
 

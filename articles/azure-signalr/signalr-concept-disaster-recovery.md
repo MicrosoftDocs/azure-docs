@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: lianwei
+zone_pivot_group_filename: azure-signalr/zone-pivot-groups.json
 zone_pivot_groups: azure-signalr-service-mode
 ---
 # Resiliency and disaster recovery in Azure SignalR Service
@@ -135,7 +136,7 @@ To enable multiple SignalR Service instances, you should:
     }
     ```
 
-    > * When you configure Azure SignalR endpoints in the App Service on Azure portal, don't forget to replace `":"` with `"__"`, the double underscore in the keys. For reasons, see [Environment variables](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0#environment-variables).
+    > * When you configure Azure SignalR endpoints in the App Service on Azure portal, don't forget to replace `":"` with `"__"`, the double underscore in the keys. For reasons, see [Environment variables](/aspnet/core/fundamentals/configuration#environment-variables).
     >
     > * Connection string configured with the key `{ConnectionStringSetting}` (defaults to "AzureSignalRConnectionString") is also recognized as a primary service endpoint with empty name. But this configuration style is not recommended for multiple endpoints.
 
