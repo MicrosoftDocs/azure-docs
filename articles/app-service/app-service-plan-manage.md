@@ -23,7 +23,7 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. To start creating an App Service plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
+1. To start creating an App Service plan, go to [Create App Service Plan](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate) on the Azure portal.
 
    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service plan in the Azure portal.":::
 
@@ -90,7 +90,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
+To scale out an app's instance count, see [Scale instance count automatically](../azure-monitor/autoscale/autoscale-get-started.md) or [Scale instance count manually](manage-automatic-scaling.md#disable-automatic-scaling)
 
 <a name="delete"></a>
 
