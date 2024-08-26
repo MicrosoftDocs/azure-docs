@@ -9,7 +9,7 @@
   - name: Quickstarts
     items:
     - name: Create a VM in the portal
-      href: /azure/virtual-machines/windows/quick-create-portal?context=/azure/azure-portal/context/context
+      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
     - name: Create a dashboard
       items:
       - name: Azure CLI
@@ -40,6 +40,8 @@
     href: azure-portal-dashboards.md
   - name: Share an Azure dashboard
     href: azure-portal-dashboard-share-access.md
+  - name: Create and manage dashboards in Dashboard hub
+    href: dashboard-hub.md
   - name: Use a custom markdown tile
     href: azure-portal-markdown-tile.md
   - name: Structure of Azure dashboards
