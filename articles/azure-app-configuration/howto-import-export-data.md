@@ -447,7 +447,7 @@ From the Azure portal, follow these steps:
 
 1. The "Export as reference" option is checked by default. When it's true, the key-values wil be exported as a reference to the latest revision. 
 
-1. Select key-values, fill out the form with the following parameters:
+1. Fill out the form with the following parameters:
 
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
