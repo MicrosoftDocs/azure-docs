@@ -68,7 +68,7 @@ This results in the routing configuration change as seen in the following figure
 
 **Figure 1**
 
-:::image type="content" source="./media/routing-scenarios/custom-isolation/custom.png" alt-text="figure 1":::
+:::image type="content" source="./media/routing-scenarios/custom-isolation/custom.png" alt-text="Topology Showing a Custom Routing Scenario for Isolating Virtual Networks in a Virtual Hub.":::
 
 ## Next steps
 
