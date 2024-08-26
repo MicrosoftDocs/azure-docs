@@ -18,7 +18,7 @@ External Data Sources (EDS) is a capability in [OSDU&reg;](https://osduforum.org
 For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf).  
 
 > [!NOTE]
-> OSDU community shipped EDS as a preview feature in M18 Release, and it is available as a preview feature on Azure Data Manager for Energy in Developer tier only.
+> OSDU community shipped EDS as a preview feature in M23 Release, and it is available as a preview feature on Azure Data Manager for Energy in Developer tier only.
 
 > [!IMPORTANT]
 > Limit your Identity Provider (IdP) token to read operations only.
@@ -53,12 +53,12 @@ To enable External Data Sources Preview on your Azure Data Manager for Energy, c
 - Key Vault name (created in [Prerequisites](#prerequisites)) 
 
 > [!NOTE]
-> EDS does not have [multi data partition support](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51)
+> EDS does not have [multi data partition support for EDS scheduler yet](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51)
 
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
 ## Known issues
-- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M18 release: 
+- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M23 release: 
     - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
     - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
     - Secret service responds with 5xx HTTP response code instead of 4xx in some cases. For example, 
@@ -66,7 +66,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) milestone release.
+Some EDS capabilities like **Naturalization, Reverse Naturalization** are unavailable in the M23 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M23 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) milestone release.
 
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
