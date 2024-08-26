@@ -10,12 +10,12 @@ ms.custom: include file
 ms.date: 01/19/2024
 ---
 
-This Postman-based quickstart walks you through getting an answer from your knowledge base.
+This [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)-based quickstart walks you through getting an answer from your knowledge base.
 
 ## Prerequisites
 
 * You must have
-    * Latest [**Postman**](https://www.getpostman.com/).
+    * Latest [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, QnA resource name you selected when you created the resource.
@@ -26,13 +26,13 @@ This Postman-based quickstart walks you through getting an answer from your know
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
 
-## Set up Postman for requests
+## Set up the Visual Studio Code REST Client extension for requests
 
-This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
+This quickstart uses the same settings for the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
 
-Use this procedure to configure Postman, then read each subsequent section to configure the POST body JSON.
+Use this procedure to configure the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), then read each subsequent section to configure the POST body JSON.
 
-1. From the knowledge base's **Settings** page, select the **Postman** tab to see the configuration used to generate an answer from the knowledge base. Copy the following information to use in Postman.
+1. From the knowledge base's **Settings** page, select the **Postman** tab to see the configuration used to generate an answer from the knowledge base. Copy the following information to use in the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
     |Name|Setting|Purpose and value|
     |--|--|--|
@@ -45,13 +45,13 @@ Use this procedure to configure Postman, then read each subsequent section to co
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). See the Azure AI services [security](../../security-features.md) article for more information.
 
-1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
+1. Use the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
 ## Use metadata to filter answer
 
 In a previous quickstart, metadata was added to two QnA pairs to distinguish between two different questions. Add the metadata to the query to restrict the filter to just the relevant QnA pair.
 
-1. In Postman, change only the query JSON by adding the `strictFilters` property with the name/value pair of `service:qna_maker`. The body JSON should be:
+1. In the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), change only the query JSON by adding the `strictFilters` property with the name/value pair of `service:qna_maker`. The body JSON should be:
 
     ```json
     {
@@ -112,7 +112,7 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 
-1. In Postman, change only the body JSON by adding the `debug` property. The JSON should be:
+1. In the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), change only the body JSON by adding the `debug` property. The JSON should be:
 
     ```json
     {
@@ -218,7 +218,7 @@ Debug information helps you understand how the returned answer was determined. W
 
 If you want to get an answer from the test knowledge base, use the `isTest` body property.
 
-In Postman, change only the body JSON by adding the `isTest` property. The JSON should be:
+In the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), change only the body JSON by adding the `isTest` property. The JSON should be:
 
 ```json
 {
@@ -234,7 +234,7 @@ The JSON response uses the same schema as the published knowledge base query.
 
 ## Query for a Chit-chat answer
 
-1. In Postman, change only the body JSON to a conversation-ending statement from the user. The JSON should be:
+1. In the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), change only the body JSON to a conversation-ending statement from the user. The JSON should be:
 
     ```json
     {
@@ -330,7 +330,7 @@ The JSON response uses the same schema as the published knowledge base query.
 
 You can request a minimum threshold for the answer. If the threshold is not met, the default answer is returned.
 
-1. In Postman, change only the body JSON to a conversation-ending statement from the user. The JSON should be:
+1. In the [Visual Studio Code REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), change only the body JSON to a conversation-ending statement from the user. The JSON should be:
 
     ```json
     {

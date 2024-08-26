@@ -39,7 +39,7 @@ You write code using the Python SDK in this tutorial and learn the following tas
 
 * [!INCLUDE [prereq-workspace](includes/prereq-workspace.md)]
 
-* Python 3.6 or 3.7 are supported for this feature
+* Python 3.9 or 3.10 are supported for this feature
 
 * Download and unzip the [**odFridgeObjects.zip*](https://automlsamplenotebookdata.blob.core.windows.net/image-object-detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook.
 
