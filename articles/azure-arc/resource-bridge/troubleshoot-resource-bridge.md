@@ -265,7 +265,7 @@ To check if the DNS server is able to resolve an address, from a machine where w
 
 ### Not able to connect - i/o timeout
 
-When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` with keywords `i/o timeout` and `read udp`, then the error may be caused by the appliance VM IPs not having reachability to the DNS server(s) to resolve the MOC cloud agent address endpoint specified in the error. 
+When deploying Arc resource bridge, you may receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` with keywords `i/o timeout` and `read udp`. This may be due to the appliance VM IPs being unable to reach DNS servers, so they can't resolve the MOC cloud agent address endpoint specified in the error. 
 
 Error example: 
 
