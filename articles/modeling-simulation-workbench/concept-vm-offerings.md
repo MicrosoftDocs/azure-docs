@@ -11,7 +11,7 @@ ms.date: 08/12/2024
 ---
 # VM Offerings in Azure Modeling and Simulation Workbench
 
-Azure Modeling and Simulation Workbench offer a select set of virtual machines (VM) that are optimized for large-scale, complex modeling, simulation, digital twin, semiconductor design, and other scientific or industrial workloads.
+Azure Modeling and Simulation Workbench offers a select set of virtual machines (VM) optimized for large, complex modeling and simulation workloads, semiconductor design, and other scientific or industrial workloads.
 
 This article provides an overview of the Azure VM families that are available in Modeling and Simulation Workbench. A summary of the series, common and optimal workloads, and additional information can help you choose the best VM for your scenario.
 
@@ -25,21 +25,21 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 ### Dv4-series
 
-The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're designed for a variety of demanding workloads, such as enterprise applications, web and application servers, development and test environments, and batch processing tasks. They're favored for running enterprise-grade applications, supporting moderate to high-traffic web servers, and performing data-intensive batch processing.
+The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're designed for a range of demanding workloads, such as enterprise applications, web and application servers, development and test environments, and batch processing tasks. They're favored for running enterprise-grade applications, supporting moderate to high-traffic web servers, and performing data-intensive batch processing.
 
 The Dv4 run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel® Xeon® Platinum 8370C (Ice Lake), or Intel® Xeon® Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. Dv4 series don't have local storage.
 
 [View the Dv4 family page](/azure/virtual-machines/sizes/general-purpose/dv4-series)
 
-| Size Name | vCPUs (Qty.) | Memory (GB) | Max Bandwidth (Mbps) |
-| --- | --- | --- | --- |
-| Standard_D2_v4 | 2 | 8 | 5000 |
-| Standard_D4_v4 | 4 | 16 | 10000 |
-| Standard_D8_v4 | 8 | 32 | 12500 |
-| Standard_D16_v4 | 16 | 64 | 12500 |
-| Standard_D32_v4 | 32 | 128 | 16000 |
-| Standard_D48_v4 | 48 | 192 | 24000 |
-| Standard_D64_v4 | 64 | 256 | 30000 |
+| Size Name       | vCPUs (Qty.) | Memory (GB) | Max Bandwidth (Mbps) |
+|-----------------|--------------|-------------|----------------------|
+| Standard_D2_v4  | 2            | 8           | 5000                 |
+| Standard_D4_v4  | 4            | 16          | 10000                |
+| Standard_D8_v4  | 8            | 32          | 12500                |
+| Standard_D16_v4 | 16           | 64          | 12500                |
+| Standard_D32_v4 | 32           | 128         | 16000                |
+| Standard_D48_v4 | 48           | 192         | 24000                |
+| Standard_D64_v4 | 64           | 256         | 30000                |
 
 ## Compute optimized
 

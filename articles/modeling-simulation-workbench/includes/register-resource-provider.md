@@ -10,7 +10,7 @@ ms.date: 08/20/2024
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of the Azure portal in a web browser, showing search subscriptions.":::
 
-1. On the **Subscriptions** page, select the subscription you want to view. In the screenshot below, 'Documentation Testing 1' is shown as an example.
+1. On the **Subscriptions** page, select the subscription you want to view. In the following screenshot, 'Documentation Testing 1' is the name of our subscription.
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of the Azure portal in a web browser, showing select subscriptions.":::
 

@@ -1,6 +1,6 @@
 ---
 title: "Connectors: Azure Modeling and Simulation Workbench"
-description: Overview of how the Azure Modeling and Simulation Workbench implements connectors.
+description: Connector implementation in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -16,7 +16,7 @@ Connectors define the network access method between users and the Azure Modeling
 
 ## Public IP access via allowlist
 
-The Workbench can be built to allow users to connect directly from the internet, allowing flexible, open access. When a Public IP Connection is built, connections are permitted using an allowlist. The allowlist uses CIDR notation to conveniently manage access from large network ranges, such as conference centers or corporate exit nodes. Only IPs listed in the allowlist are able to make connections to its associated Chamber.
+The Workbench can be built to allow users to connect directly from the internet, allowing flexible, open access. When a Public IP Connection is built, connections are permitted using an allowlist. The allowlist uses CIDR (Classless Interdomain Routing) notation to conveniently manage access from large network ranges, such as conference centers or corporate exit nodes. Only IPs listed in the allowlist are able to make connections to its associated Chamber.
 
 ## Private Azure networking
 

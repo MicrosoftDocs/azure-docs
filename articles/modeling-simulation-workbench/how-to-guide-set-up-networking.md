@@ -21,17 +21,17 @@ Each chamber has a dedicated connector. Each connector can support either of the
 
 ## Add a VPN or ExpressRoute connection
 
-If your organization already has a presence in Azure or requires that connections to the Workbench be over a private network, the VPN or ExpressRoute Connector should be configured.
+If your organization has a presence in Azure or requires that connections to the Workbench be over a VPN, the VPN or ExpressRoute Connector should be used.
 
 When a Connector is created, the Workbench Owner (Subscription Owner) can link an existing virtual network with a VPN gateway and/or ExpressRoute gateway. This link provides a secure connection between your on-premises network and the Chamber.
 
-### Create a VPN or ExpressRoute connection
+### Create a VPN or ExpressRoute Connector
 
-1. Before you create a [Connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, the Workbench needs a role assignment. Azure Modeling and Simulation Workbench needs the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
+1. Before you create a [Connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, the Workbench needs a role assignment. Azure Modeling and Simulation Workbench requires the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
 
-| Setting          | Value                                   |
-| :--------------- | :-------------------------------------- |
-| **Role**             | **Network Contributor**                 |
+| Setting              | Value                                       |
+|:---------------------|:--------------------------------------------|
+| **Role**             | **Network Contributor**                     |
 | **Assign access to** | **User, group, or service principal**       |
 | **Members**          | **Azure Modeling and Simulation Workbench** |
 
@@ -39,11 +39,11 @@ When a Connector is created, the Workbench Owner (Subscription Owner) can link a
 
 1. When you create your connector, specify **VPN** or **ExpressRoute** as your method to connect to your on-premises network.
 
-1. A list of available virtual network subnets within your subscription appears. Select a non-gateway subnet within the same virtual network that has the gateway subnet for the VPN gateway or ExpressRoute gateway.
+1. A list of available virtual network subnets within your subscription appears. Select a subnet other than the gateway subnet within the same virtual network for the VPN gateway or ExpressRoute gateway.
 
 ## Edit allowed public IP addresses
 
-Using the Azure portal, IP addresses can be allowlisted to connect to a Chamber. When creating a new Workbench and selecting the Public IP Connector, one IP address must be specified. After the Connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
+IP addresses can be allowlisted in the Azure portal to allow connections to a Chamber. Only one IP address can be specified for a Public IP Connector when  creating a new Workbench. After the Connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
 
 Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
 
@@ -54,13 +54,13 @@ To edit the list of allowed IP addresses:
 1. Select **Submit** to save your changes.
 1. Refresh the view for connector networking and confirm that your changes appear.
 
-   :::image type="content" source="./media/resources-troubleshoot/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the allowlist for chamber connector networking.":::
+ :::image type="content" source="./media/resources-troubleshoot/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the allowlist for chamber connector networking.":::
 
 ## Redirect URIs
 
 A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication. Each time you create a new connector, you need to register the redirect URIs for your application registration in Microsoft Entra ID.
 
-Follow these steps to find redirect URIs:
+To find redirect URIs:
 
 1. On the page for your new workbench in Azure Modeling and Simulation Workbench, select **Connector** on the left menu. Then select the connector in the resource list.
 
@@ -70,22 +70,22 @@ Follow these steps to find redirect URIs:
 
    :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page that shows where you select the reply URLs.":::
 
-The redirect URIs must be registered with the Application registration to properly authenticate and redirect users to the workbench.  To learn how to add redirect URIs, see [How to add redirect URIs](./how-to-guide-add-redirect-uris.md).
+The redirect URIs must be registered with the Application registration to properly authenticate and redirect users to the workbench. To learn how to add redirect URIs, see [How to add redirect URIs](./how-to-guide-add-redirect-uris.md).
 
 ## Ports and IP addresses
 
 ### Ports
 
-The Azure Modeling and Simulation Workbench requires certain ports to be accessible from users workstation. Firewalls and VPNs may be blocking access on these ports to certain destinations, when accessed from certain applications, or when connected to different networks. Check with your system administrator to ensure your client can access the service from all locations you will be working in.
+The Azure Modeling and Simulation Workbench require certain ports to be accessible from users workstation. Firewalls and VPNs might block access on these ports to certain destinations, when accessed from certain applications, or when connected to different networks. Check with your system administrator to ensure your client can access the service from all your work locations.
 
 - **53/TCP** and **53/UDP**: DNS queries.
 - **443/TCP**: Standard https port for accessing the VM dashboard and any Azure portal page.
 - **5510/TCP**: Used by the ETX client to provide VDI access for both the native and web-based client.
-- **8443/TCP**: Used by the ETX client to negotiate and authenticate to ETX managment nodes.
+- **8443/TCP**: Used by the ETX client to negotiate and authenticate to ETX management nodes.
 
 ### IP addresses
 
-For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f](https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It is not possible to list all Workbench IP addresses nor ensure that they will come from the same range with the Public IP Connector.
+For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f](https://www.microsoft.com/en-us/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses
 
 > [!CAUTION]
 > The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled when more users are added to the Chamber. Discovery of endpoint IP addresses may be incomplete once the userbase increases.

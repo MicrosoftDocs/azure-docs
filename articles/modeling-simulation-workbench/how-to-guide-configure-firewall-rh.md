@@ -11,14 +11,14 @@ ms.date: 08/18/2024
 ---
 # Configure firewalls in Red Hat
 
-Chamber VMs run Red Hat Enterprise Linux as the operating system. By default, the firewall in these images are configured to deny all inbound connections except to managed services. To allow inbound communication, rules must be added to the firewall to allow traffic to pass. Similarly, if a rule is no longer needed, it should be removed.
+Chamber VMs run Red Hat Enterprise Linux as the operating system. By default, the firewall is configured to deny all inbound connections except to managed services. To allow inbound communication, rules must be added to the firewall to allow traffic to pass. Similarly, if a rule is no longer needed, it should be removed.
 
-This article presents the most common firewall configuration commands. For full documentation or more complex scenarios, see [Chapter 40. Using and configuring firewalld](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking) of the Red Hat Enterprise Linux 8 documentation.
+This article presents the most common firewall configuration commands. For full documentation or more complex scenarios, see [Chapter 40. Using and configuring `firewalld`](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking) of the Red Hat Enterprise Linux 8 documentation.
 
 All the operations referenced here require `sudo` privileges and thus need the Chamber Admin role.
 
 > [!IMPORTANT]
-> Modifying firewall rules only allows the individual VM to communicate with other VMs in the same Chamber. Chamber-to-Chamber traffic is never permitted.
+> VMs can only communicate with other VMs in the same Chamber. Chamber-to-Chamber traffic is never permitted and modifying firewall rules can't enable cross-Chamber traffic.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ All the operations referenced here require `sudo` privileges and thus need the C
 
 ## List all open ports
 
-List all currently open ports. This command will list ports and associated protocol.
+List all currently open ports and associated protocol.
 
 ```bash
 $ sudo firewall-cmd --list-all
@@ -48,18 +48,18 @@ public (active)
 
 ## Open ports for traffic
 
-You can open a single or consecutive range of ports for network traffic. Changes to `firewall-d` are temporary and won't persist if the service is restarted or reloaded unless committed.
+You can open a single or consecutive range of ports for network traffic. Changes to `firewall-d` are temporary and don't persist if the service is restarted or reloaded unless committed.
 
 ### Open a single port
 
-Open a single port with `firewalld` for a given protocol using the `--add-port=portnumber/porttype` option. The following example opens port 5510 for TCP.
+Open a single port with `firewalld` for a given protocol using the `--add-port=portnumber/porttype` option. This example opens port 5510/TCP.
 
 ```bash
 $ sudo firewall-cmd --add-port=33500/tcp
 success
 ```
 
-Commit the rule to the permanent set by executing the following:
+Commit the rule to the permanent set:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent
@@ -68,14 +68,14 @@ success
 
 ### Open a range of ports
 
-Open a range of ports with `firewalld` for a specified protocol with the `--add-port=startport-endport/porttype` otpion. This command is often useful in distributed computing scenarios where workers are dispatched to a large number of nodes and multiple workers may be dispatched to the same physical node. The following example opens 100 consecutive ports starting at port 5000 with the UDP protocol.
+Open a range of ports with `firewalld` for a specified protocol with the `--add-port=startport-endport/porttype` option. This command is useful in distributed computing scenarios where workers are dispatched to a large number of nodes and multiple workers might be on the same physical node. This example opens 100 consecutive ports starting at port 5000 with the UDP protocol.
 
 ```bash
 $ sudo firewall-cmd --add-port=5000-5099/udp
 success
 ```
 
-Commit the rule to the permanent set by executing the following:
+Commit the rule to the permanent set:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent
@@ -84,14 +84,14 @@ success
 
 ## Remove port rules
 
-If rules are no longer needed, they can be removed with the same notation as adding and using the `--remove-port=portnumber/porttype`. The following example removes the single port example we used above.
+If rules are no longer needed, they can be removed with the same notation as adding and using the `--remove-port=portnumber/porttype`. This example removes a single port:
 
 ```bash
 $ sudo firewall-cmd --remove-port=33500/tcp
 success
 ```
 
-Commit the rule to the permanent set by executing the following:
+Commit the rule to the permanent set:
 
 ```bash
 $ sudo firewall-cmd --runtime-to-permanent

@@ -51,7 +51,7 @@ items:
         href: ./how-to-guide-upload-data.md
       - name: Export data
         href: ./how-to-guide-download-data.md
-      - name: Manage chamber storage
+      - name: Manage Chamber Storage
         href: ./how-to-guide-manage-chamber-storage.md
       - name: Manage Shared Storage
         href: ./how-to-guide-manage-shared-storage.md
@@ -67,7 +67,7 @@ items:
         href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
         href: ./how-to-guide-chamber-vm.md
-      - name: Register a resource provider
+      - name: Register a Resource Provider
         href: ./how-to-guide-register-resource-provider.md
   #        - name: Disaster Recovery
   #          href: ./how-to-guide-disaster-recovery.md

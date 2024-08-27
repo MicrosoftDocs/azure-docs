@@ -7,21 +7,21 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench user, I want to understand  workbench components.
+# Customer intent: As a Modeling and Simulation Workbench user, I want to understand workbench components.
 ---
 # Workbench: Azure Modeling and Simulation Workbench
 
-The Azure Modeling and Simulation Workbench is a Platform-as-a-Service (Paas) that provides a secure, managed, cloud-based environment for collaboration and large-scale compute. The Modeling and Simulation Workbench provides conventional cloud resources, such as computing, storage, and networking, in an isolated, managed environment. The components are arranged as a hierarchy of containers, presented in the user's subscription but deployed in Microsoft's manged environment. Multiple enterprises can collaboratively work on projects within a workbench using Modeling and Simulation Workbench's secure design environment.
+The Azure Modeling and Simulation Workbench is a Platform-as-a-Service (PaaS) that provides a secure environment for managed, cloud-based collaboration and access to large-scale compute infrastructure. The Modeling and Simulation Workbench provides conventional cloud resources, such as computing, storage, and networking, in an isolated, managed environment. The components are arranged as a hierarchy of containers, presented in the user's subscription but deployed in Microsoft's manged environment. Multiple enterprises can collaboratively work on projects within a workbench using Modeling and Simulation Workbench's secure design environment.
 
-This article presents an overview of the individual components which make up the Azure Modeling and Simulation Workbench.
+This article presents an overview of the individual components, which make up the Azure Modeling and Simulation Workbench.
 
 ## Workbench
 
-A Workbench is the top-level container for the Azure Modeling and Simulation Workbench. It hosts conventional Azure resources in a closed environment. Workbenches house user and data isolation Chambers, virtual machines, and networking infrastructure.  A Workbench is deployed by a special user role known as Workbench Owner and has no managing controls.
+A Workbench is the top-level container for the Azure Modeling and Simulation Workbench. It hosts conventional Azure resources in a closed environment. Workbenches house user and data isolation Chambers, virtual machines, and networking infrastructure. A Workbench has no managing controls and only a Workbench Owner can deploy.
 
 ## Chambers
 
-[Chambers](./concept-chamber.md) are contained within a Workbench object and host user data and workloads in isolated environments. Users assigned to a Chamber have visibility only to other Chamber users and resources. Compute resources are deployed into a Chamber as Workload VMs. Chambers host and have access to various storage types.
+[Chambers](./concept-chamber.md) are contained within a Workbench object and contain user data and workloads in an isolated environment. Users assigned to a Chamber only have visibility to users and resources in that same Chamber. Compute resources are deployed into a Chamber as Workload VMs and several classes of storage are available.
 
 ### Compute
 
@@ -29,7 +29,7 @@ Chamber Workload VMs are the Workbench's compute resource and the encapsulating 
 
 ## Storage
 
-Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications.  Modeling and Simulation Workbench offers a selection of storage configurations that offer high-performance, shared or isolated access. Storage is pre-configured to be accessible to Chambers or between a select set of Chambers.
+Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications. Modeling and Simulation Workbench offers a range of storage configurations that offer high-performance, shared, or isolated access. Storage is preconfigured to be accessible to Chambers or between a select set of Chambers.
 
 ## Networking
 
