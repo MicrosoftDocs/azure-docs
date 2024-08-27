@@ -18,7 +18,7 @@ We'll walk through the following advanced queries:
 
 - [Show API version for each resource type](#show-api-version-for-each-resource-type)
 - [Get virtual machine scale set capacity and size](#get-virtual-machine-scale-set-capacity-and-size)
-- [Remove columns from results](#remove-columns-from-reults)
+- [Remove columns from results](#remove-columns-from-results)
 - [List all tag names](#list-all-tag-names)
 - [Virtual machines matched by regex](#virtual-machines-matched-by-regex)
 - [List Azure Cosmos DB with specific write locations](#list-azure-cosmos-db-with-specific-write-locations)
