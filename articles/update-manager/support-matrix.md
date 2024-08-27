@@ -93,74 +93,74 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Publisher**| **Offer** | **Plan**|**Unsupported image(s)** |
 |----------|-------------|-----| --- |
+| |ad-dc-2016 | ad-dc-2016|
+| |ad-dc-2019| ad-dc-2019 |
+| |ad-dc-2022 | ad-dc-2022 ||
+| |almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
+| |aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9|
+| |aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10,</br> aviatrix-companion-gateway-v10u|
+| |aviatrix-companion-gateway-v12 | aviatrix-companion-gateway-v12|
+| |aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13,</br> aviatrix-companion-gateway-v13u|
+| |aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14,</br> aviatrix-companion-gateway-v14u |
+| |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16|
+| |aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
 | |centos-ci | 7-ci |
 | |centos-hpc | 7.1, 7.3, 7.4 |
 | |centos-lvm | 7-lvm-gen2 |
 | |centos-lvm | 7-lvm, 8-lvm |
+| |cis-oracle-linux-8-l1 | cis-oracle8-l1||
 | |cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
 | |cis-rhel-7-l2 | cis-rhel7-l2 | |
 | |cis-rhel-8-l1 | | | |
 | |cis-rhel-8-l2 | cis-rhel8-l2 | |
 | |cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
+| |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
+| |cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
+| |cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
+| |cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
+| |cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
+| |debian-10-daily | 10, 10-gen2,</br> 10-backports,</br> 10-backports-gen2|
+| |debian-11 | 11, 11-gen2,</br> 11-backports, </br> 11-backports-gen2 |
+| |debian-11-daily | 11, 11-gen2,</br>  11-backports, </br> 11-backports-gen2 |
+| |dns-ubuntu-2004 | dns-ubuntu-2004|
 | |oracle-database | oracle_db_21 |
 | |oracle-database-19-3 | oracle-database-19-0904 |
+| |rhel-ha | 9_2, 9_2-gen2 |
+| |rhel-sap-apps | 9_0, 90sapapps-gen2, 9_2, 92sapapps-gen2 | 
+| |rhel-sap-ha |  9_2, 92sapha-gen2 |
+| |servercore-2019| servercore-2019|
+| |sftp-2016 | sftp-2016|
 | |sle-hpc-15-sp4 | gen1, gen2 |
+| |sle-hpc-15-sp4-byos | gen1, gen2 |
+| |sle-hpc-15-sp5 |  gen1, gen 2 |
+| |sle-hpc-15-sp5-byos | gen1, gen 2 |
 | |sles-15-sp1-sapcal | gen1, gen2 |
 | |sles-15-sp2-basic  | gen2 |
 | |sles-15-sp2-hpc | gen2 |
 | |sles-15-sp3-sapcal | gen1, gen2 |
 | |sles-15-sp4 | gen1, gen2 |
+| |sles-15-sp4-byos | gen1, gen2 | 
+| |sles-15-sp4-chost-byos | gen1, gen 2|
+| |sles-15-sp4-hardened-byos | gen1, gen2 | 
+| |sles-15-sp5 | gen1, gen2 |
+| |sles-15-sp5-basic | gen1, gen2 |
+| |sles-15-sp5-byos | gen1, gen2| 
+| |sles-15-sp5-hardened-byos | gen1, gen2 |
+| |sles-15-sp5-sapcal | gen1, gen2 |
 | |sles-byos | 12-sp4, 12-sp4-gen2 |
 | |sles-sap | 12-sp4, 12-sp4-gen2 |
+| |sles-sap-15-sp4-byos | gen1, gen2 |
+| |sles-sap-15-sp4-hardened-byos | gen1, gen2 |
+| |sles-sap-15-sp5-byos | gen1, gen2 |
+| |sles-sap-15-sp5-hardened-byos| gen1, gen2 |
 | |sles-sap-byos | 12-sp4, 12-sp4-gen2, gen2-12-sp4 |
 | |sles-sapcal | 12-sp3 |
 | |sles-standard | 12-sp4-gen2 |
 | |sles| 12-sp4-gen2 |
-||ad-dc-2016 | ad-dc-2016|
-||ad-dc-2019| ad-dc-2019 |
-||ad-dc-2022 | ad-dc-2022 ||
-||almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
-||aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9|
-||aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10,</br> aviatrix-companion-gateway-v10u|
-||aviatrix-companion-gateway-v12 | aviatrix-companion-gateway-v12|
-||aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13,</br> aviatrix-companion-gateway-v13u|
-||aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14,</br> aviatrix-companion-gateway-v14u |
-||aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16|
-||aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
-||cis-oracle-linux-8-l1 | cis-oracle8-l1||
-||cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
-||cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
-||cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
-||cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
-||cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
-||debian-10-daily | 10, 10-gen2,</br> 10-backports,</br> 10-backports-gen2|
-||debian-11 | 11, 11-gen2,</br> 11-backports, </br> 11-backports-gen2 |
-||debian-11-daily | 11, 11-gen2,</br>  11-backports, </br> 11-backports-gen2 |
-||dns-ubuntu-2004 | dns-ubuntu-2004|
-||rhel-ha | 9_2, 9_2-gen2 |
-||rhel-sap-apps | 9_0, 90sapapps-gen2, 9_2, 92sapapps-gen2 | 
-||rhel-sap-ha |  9_2, 92sapha-gen2 |
-||servercore-2019| servercore-2019|
-||sftp-2016 | sftp-2016|
-||sle-hpc-15-sp4-byos | gen1, gen2 |
-||sle-hpc-15-sp5 |  gen1, gen 2 |
-||sle-hpc-15-sp5-byos | gen1, gen 2 |
-||sles-15-sp4-byos | gen1, gen2 | 
-||sles-15-sp4-chost-byos | gen1, gen 2|
-||sles-15-sp4-hardened-byos | gen1, gen2 | 
-||sles-15-sp5 | gen1, gen2 |
-||sles-15-sp5-basic | gen1, gen2 |
-||sles-15-sp5-byos | gen1, gen2| 
-||sles-15-sp5-chost-byos | gen1, gen2 |
-||sles-15-sp5-hardened-byos | gen1, gen2 |
-||sles-15-sp5-sapcal | gen1, gen2 |
-||sles-sap-15-sp4-byos | gen1, gen2 |
-||sles-sap-15-sp4-hardened-byos | gen1, gen2 |
-||sles-sap-15-sp5-byos | gen1, gen2 |
-||sles-sap-15-sp5-hardened-byos| gen1, gen2 |
-||squid-ubuntu-2004 | squid-ubuntu-2004|
-||ubuntu-2004 | 2004, 2004-gen2 |
-||ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
+| |squid-ubuntu-2004 | squid-ubuntu-2004|
+| |ubuntu-2004 | 2004, 2004-gen2 |
+| |ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
+| sles-15-sp5-chost-byos | gen1, gen2 |
 |almalinux |almalinux </br> | 8-gen1, 8-gen2, 9-gen1, 9-gen2|
 |almalinux|almalinux-x86_64 | 8-gen1, 8-gen2, 8_7-gen2, 9-gen1, 9-gen2
 |aviatrix-systems |aviatrix-bundle-payg  | aviatrix-enterprise-bundle-byol|
