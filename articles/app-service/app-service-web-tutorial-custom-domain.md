@@ -53,13 +53,13 @@ The DNS record type you need to add with your domain provider depends on the dom
 
     [!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
 
-1. For **Domain**, specify a fully qualified domain name you want based on the domain you own. The **Hostname record type** box defaults to the recommended DNS record to use, depending on whether the domain is a root domain (like `contoso.com`), a subdomain (like `www.contoso.com`, or a wildcard domain `*.contoso.com`).
+1. For **Domain**, specify a fully qualified domain name you want based on the domain you own. The **Hostname record type** box defaults to the recommended DNS record to use, depending on whether the domain is a root domain (like `contoso.com`), a subdomain (like `www.contoso.com`), or a wildcard domain (like `*.contoso.com`).
 
 1. Don't select **Validate** yet.
 
-1. For each custom domain in App Service, you need two DNS records with your domain provider. The **Domain validation** section shows you two DNS records that you must add with your domain provider. Select the respective **Copy** button to help you with the next section.
+1. For each custom domain in App Service, you need two DNS records with your domain provider. The **Domain validation** section shows you two DNS records that you must add with your domain provider. You can use the copy buttons to copy the value or values that you need in the next section.
 
-    The following screenshot shows the default selections for a `www.contoso.com` domain, which shows a CNAME record and a TXT record to add.
+    The following screenshot shows the default selections for a `www.contoso.com` domain. It shows a CNAME record and a TXT record to add.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate." border="true":::
 
@@ -158,7 +158,7 @@ Browse to the DNS names that you configured.
 
 <a name="resolve-404-not-found" aria-hidden="true"></a>
 
-If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most-likely causes are:
+If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most likely causes are:
 
 - The browser client has cached the old IP address of your domain. Clear the cache and test the DNS resolution again. On a Windows machine, you can clear the cache with `ipconfig /flushdns`.
 - You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#2-remap-records-for-ip-based-ssl) in your DNS entries to the new IP address.
