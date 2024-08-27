@@ -12,17 +12,17 @@ ms.author: cshoe
 
 # Deploy Azure Static Web Apps with Bicep
 
-Use a Bicep file to create your Azure Static Web app to Azure. Bicep provides a declarative syntax to define and create Azure resources repeatedly in a consistent manner, which can be automated and repeated.
+Use a Bicep file to create your Azure Static Web Apps resource. Bicep provides a declarative syntax to define and create Azure resources, which can be automated and repeated for consistency.
 
-Your creation process should include all the resources in your application. This article details how to create the resource group that holds all the resources for your application, the Azure Static Web Apps resource, which contains your statically generated client application such as React, Vue, or Svelte, and the linked Azure Functions backend.
+This article details how to create the resource group that holds all the resources for your application, the Azure Static Web Apps resource, which contains your statically generated client application such as React, Vue, or Svelte, and the linked Azure Functions backend.
 
-## Types of resource creation
+## Tools for resource creation
 
- Bicep is one of several types of resource creation. These types include:
+ Bicep is one of several tools of resource creation. These tools include:
 
-* [Azure Resource Management](/azure/azure-resource-manager/) (ARM): implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. This older style is still in use but updated to Bicep or Azure Verified Modules. 
-* [Bicep](/azure/azure-resource-manager/Bicep/): Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
-* [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules): These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVM when possible because it consolidates and set the standards for what a good Infrastructure-as-Code module looks like.
+* [Azure Resource Management](/azure/azure-resource-manager/) (ARM): To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. This older style is still in use. 
+* [Bicep](/azure/azure-resource-manager/Bicep/): Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse.
+* [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules): These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVM when possible because it consolidates and set the standards for what a good infrastructure as code module looks like.
 * [Azure CLI](/cli/azure/)/[PowerShell](/powershell): These command line apps allow you to create resources. They have generally been superseded by Bicep and AVM but are still used for minor or quick fixes while the larger Bicep update may be more time-consuming. Learn to [create resources with the Azure CLI and a Bicep file](/azure/azure-resource-manager/bicep/deploy-cli#deploy-local-bicep-file). 
 * [Azure portal](https://portal.azure.com/): Azure portal is a web-based visual interface for resource creation and configuration.
 
@@ -49,9 +49,11 @@ AVM allows you to use managed Bicep code, which has been built and is maintained
 
 Due to the work involved in owning and maintaining the AVM files, it takes time to specify the module, determine best practices, and find the appropriate owner/maintainer. For this reason, the module you need may not be available at this time. 
 
+If the AVM isn't available, you can use _vanilla_ [Bicep for your resources](/azure/templates/). 
+
 ## Prerequisites
 
-- [Bicep tools](../azure-resource-manager/Bicep/install.md)
+- [Bicep tools](../azure-resource-manager/Bicep/install.md): Learn how to install Bicep tools. 
 - [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep): An optional extension that creates resources for you by running your Bicep file.
 
 ## Create a static web app resource
@@ -98,15 +100,15 @@ This file creates the following resources for you:
 * A resource group for this application
 * A static web app
 
-Save the values of the output variables to a text editor. You'll need these to configure the resources. The next step is to include a linked backend Azure Functions app in the next section.
+Save the values of the output variables to a text editor. You'll need these to find and configure the resources in the Azure portal. The next step is to include a linked backend Azure Functions app, shown in the next section.
 
 ## Link a Functions app
 
 To link a Functions app for your backend, use the Static Web Apps standard plan for your web app and complete the following steps.
 
-To create the Azure Function app, follow the instructions provided in the Create the Azure Function app guide. You'll need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
+To create the Azure Function app, follow the instructions provided in the [Quickstart: Create and deploy Azure Functions resources using Bicep](/azure/azure-functions/functions-create-first-function-bicep) guide. When you're done creating your resource, you'll need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`, in order to link that function app to your static web app.
 
-Next, create the static web app using the Bicep template provided in the previous section. This sets up the necessary resources for your static web app. Finally, link the static web app to the function app to enable seamless integration between your front-end and back-end services.
+Next, create the static web app using the Bicep template provided in the previous section. This sets up the necessary resources for your static web app. Finally, use the following Bicep file to link the static web app to the function app to enable seamless integration between your front-end and back-end services.
 
 Create a file named `config.bicep` file and paste in the following code: 
 
@@ -155,7 +157,7 @@ This file handles the following tasks:
 
 ## Deployment
 
-Deploy your source code with one of the following tools to deploy your app:
+Deploy your source code to the static web app with one of the following tools:
     * [Azure Developer CLI (Recommended)](/azure/developer/azure-developer-cli)
     * [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
     * [GitHub Action](https://docs.github.com/actions)
@@ -169,7 +171,7 @@ To learn more from a full end-to-end application that includes resource creation
 
 ## Speeding up deployments with Azure Developer CLI
 
-Azure Developer CLI (`azd`) uses Bicep files along with deployment configurations to create and provision your application. Since version 1.4, azd checks the Bicep against cloud resources to understand if the underlying infrastructure as code (IaC) state requires updates. If the state hasn't changed, creation and configuration is skipped. Learn more about this [performance improvement](
+Azure Developer CLI (`azd`) uses Bicep files along with deployment configurations to create and provision your application. Since version 1.4, azd checks the Bicep against cloud resources to understand if the underlying infrastructure as code (IaC) state requires updates. If the state hasn't changed, creation and configuration are skipped. Learn more about this [performance improvement](
 https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2023-release/#azd-provision-is-now-faster-when-there-are-no-infrastructure-changes
 ).
 
