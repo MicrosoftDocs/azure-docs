@@ -95,7 +95,7 @@ The backend [circuit breaker](backends.md#circuit-breaker) features dynamic trip
 
 ## Semantic caching policy
 
-Configure [Azure OpenAI semantic caching](azure-openai-enable-semantic-caching.md) policies to optimize token consumption by using semantic caching, which stores completions for prompts with similar meaning. 
+Configure [Azure OpenAI semantic caching](azure-openai-enable-semantic-caching.md) policies to optimize token use by storing completions for similar prompts.
 
 :::image type="content" source="media/genai-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
 
