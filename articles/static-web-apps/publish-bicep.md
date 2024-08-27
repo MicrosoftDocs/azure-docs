@@ -1,8 +1,7 @@
 ---
 title: 'Deploy Azure Static Web Apps with Bicep'
-description: Deploy Azure Static Web Apps using Bicep including resource creation and configuration. Link your own Azure Function to support your static web app.
+description: Deploy Azure Static Web Apps using Bicep including resource creation and configuration. Link your own Azure Functions app to support your static web app.
 services: static-web-apps
-ms.custom: 
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: how-to
@@ -13,20 +12,20 @@ ms.author: cshoe
 
 # Deploy Azure Static Web Apps with Bicep
 
-Use a bicep file to create your Azure Static Web app to Azure. Bicep is a domain-specific language (DSL) that uses declarative syntax to define and create Azure resources repeatedly in a consistent manner.
+Use a Bicep file to create your Azure Static Web app to Azure. Bicep is a domain-specific language (DSL) that uses declarative syntax to define and create Azure resources repeatedly in a consistent manner.
 
 To deploy your static web app, you need to: 
 * Create resources with Bicep
 * Deploy your source code. Use one of the following tools to deploy your app:
     * [Azure Developer CLI](/azure/developer/azure-developer-cli)
     * [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
-    * GitHub Actions
+    * [GitHub Actions](https://docs.github.com/actions)
  
 ## Bicep by example
 
-The bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. You'll be able to recognize AVM because the referenced module includes `avm/res` such as `br/public:avm/res/web/static-site:0.3.0`.
+The Bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [Bicep](/azure/azure-resource-manager/Bicep/) when AVM isn't available. You'll be able to recognize AVM because the referenced module includes `avm/res` such as `br/public:avm/res/web/static-site:0.3.0`.
 
-```bicep
+```Bicep
 module swa 'br/public:avm/res/web/static-site:0.3.0' = {
   name: 'client'
   scope: rg
@@ -39,23 +38,23 @@ module swa 'br/public:avm/res/web/static-site:0.3.0' = {
 }
 ```
 
-AVM allows you to adopt bicep code, which has been built and is maintained by professional engineers fluent in bicep. These modules aren't only supported and maintained, they're opinionated about what proper bicep files look like.
+AVM allows you to adopt Bicep code, which has been built and is maintained by professional engineers fluent in Bicep. These modules aren't only supported and maintained, they're opinionated about what proper Bicep files look like.
 
 ## Prerequisites
 
-- [Bicep](../azure-resource-manager/bicep/install.md)
-- Optional, [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). This extension is used to immediately run your bicep file, which creates your resources.
+- [Bicep](../azure-resource-manager/Bicep/install.md)
+- Optional, [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-Bicep). This extension is used to immediately run your Bicep file, which creates your resources.
 
 ## Create a static web app resource
 
-Create a `main.bicep` file with the bicep code below to:
+Create a `main.Bicep` file with the Bicep code below to:
 
 * Create a unique string, `resourceToken`. 
 * Create tags for the resources. Tags are filterable in the Azure portal. 
 * Create a unique resource group.
 * Create a Static web app.
     
-```bicep
+```Bicep
 targetScope = 'subscription'
 
 @description('The name of the Azure region that will be used for the deployment.')
@@ -65,7 +64,7 @@ param location string ='eastus2'
 var resourceToken = uniqueString(subscription().subscriptionId, location)
 
 @description('Tags to be added to all resources')
-var tags = { 'docs-bicep-example-swa': resourceToken }
+var tags = { 'docs-Bicep-example-swa': resourceToken }
 
 @description('Create a resource group')
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
@@ -99,13 +98,13 @@ Save the values of the output variables. You'll need these to configure the reso
 
 To create a static web app with a linked backend function app, you need to use a standard plan for your static web app and complete the following steps.
 
-* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the `resourceId` for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
-* Create the static web app using the [bicep in the previous section](#create-a-static-web-app-resource).
+* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-Bicep). You need the `resourceId` for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
+* Create the static web app using the [Bicep in the previous section](#create-a-static-web-app-resource).
 * Link the static web app to the function app.
 
-Create a `config.bicep` file to link the static web app to the function app. 
+Create a `config.Bicep` file to link the static web app to the function app. 
 
-```bicep
+```Bicep
 targetScope = 'resourceGroup'
 
 @description('The name of the Azure region that will be used for the deployment.')
