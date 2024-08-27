@@ -298,7 +298,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP307' />BCP307 | Error | The expression can't be evaluated, because the identifier properties of the referenced existing resource including {ToQuotedString(runtimePropertyNames.OrderBy(x => x))} can't be calculated at the start of the deployment. In this situation, {accessiblePropertyNamesClause}{accessibleFunctionNamesClause}. |
 | <a id='BCP308' />BCP308 | Error | The decorator \<decorator-name> may not be used on statements whose declared type is a reference to a user-defined type. |
 | <a id='BCP309' />BCP309 | Error | Values of type "{flattenInputType.Name}" can't be flattened because "{incompatibleType.Name}" isn't an array type. |
-| <a id='BCP311' />[BCP311](./diagnostics/bcp311.md) | Error | The provided index value of <index-value> isn't valid for type <type-name>. Indexes for this type must be between 0 and <zero-based-tuple-index>. |
+| <a id='BCP311' />[BCP311](./diagnostics/bcp311.md) | Error | The provided index value of \<index-value> isn't valid for type \<type-name>. Indexes for this type must be between 0 and \<zero-based-tuple-index>. |
 | <a id='BCP315' />BCP315 | Error | An object type may have at most one additional properties declaration. |
 | <a id='BCP316' />BCP316 | Error | The "{LanguageConstants.ParameterSealedPropertyName}" decorator may not be used on object types with an explicit additional properties type declaration. |
 | <a id='BCP317' />BCP317 | Error | Expected an identifier, a string, or an asterisk at this location. |
