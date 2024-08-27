@@ -275,11 +275,11 @@ The connection string is unique and specifies where the Azure Monitor OpenTeleme
 
 To copy the connection string:
 
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
-
 1. Go to the **Overview** pane of your Application Insights resource.
 2. Find your **connection string**.
 3. Hover over the connection string and select the **Copy to clipboard** icon.
+
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 ### Paste the connection string in your environment
 
