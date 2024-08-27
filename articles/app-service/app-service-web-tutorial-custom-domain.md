@@ -20,8 +20,8 @@ author: msangapu-msft
 The DNS record type you need to add with your domain provider depends on the domain you want to add to App Service.
 
 | Scenario | Example | Recommended DNS record |
-| - | - | - | - |
-| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)). |
+| - | - | - | 
+| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record. (For information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4).) |
 | Subdomain | www.contoso.com, my.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
 | [Wildcard](https://en.wikipedia.org/wiki/Wildcard_DNS_record) | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
 
@@ -30,11 +30,11 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 ## Prerequisites
 
-* [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
+* [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier, not the Free (F1) tier. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 * Make sure you can edit the DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain. Your custom domains must be in a public DNS zone; private DNS zones are not supported.
 * If you don't have a custom domain yet, you can [purchase an App Service domain](manage-custom-dns-buy-domain.md) instead.
 
-## 1. Configure a custom domain
+## Configure a custom domain
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
 1. In the left menu for your app, select **Custom domains**.
@@ -47,17 +47,17 @@ The DNS record type you need to add with your domain provider depends on the dom
     > [!NOTE]
     > To configure an App Service domain, see [Buy a custom domain name for Azure App Service](manage-custom-dns-buy-domain.md).
 
-1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in **Basic** tier or higher. If you want to remain in **Shared** tier, or if you want to use your own certificate, select **Add certificate later**.
+1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in the Basic tier or higher. If you want to remain in the Shared tier, or if you want to use your own certificate, select **Add certificate later**.
 
 1. For **TLS/SSL type**, select the binding type you want.
 
     [!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
 
-1. For Domain, specify a fully qualified domain name you want based on the domain you own. The **Hostname record type** box defaults to the recommended DNS record to use, depending on whether the domain is a root domain (like `contoso.com`), a subdomain (like `www.contoso.com`, or a wildcard domain `*.contoso.com`).
+1. For **Domain**, specify a fully qualified domain name you want based on the domain you own. The **Hostname record type** box defaults to the recommended DNS record to use, depending on whether the domain is a root domain (like `contoso.com`), a subdomain (like `www.contoso.com`, or a wildcard domain `*.contoso.com`).
 
 1. Don't select **Validate** yet.
 
-1. For each custom domain in App Service, you need two DNS records with your domain provider. The **Domain validation** section shows you two DNS records that you must add with your domain provider. Select the respective **Copy** button to help you with the next step.
+1. For each custom domain in App Service, you need two DNS records with your domain provider. The **Domain validation** section shows you two DNS records that you must add with your domain provider. Select the respective **Copy** button to help you with the next section.
 
     The following screenshot shows the default selections for a `www.contoso.com` domain, which shows a CNAME record and a TXT record to add.
 
@@ -74,39 +74,39 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 <a name="cname" aria-hidden="true"></a>
 
-## 2. Create the DNS records
+## Create the DNS records
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service. When your function app is hosted in a [Consumption plan](../azure-functions/consumption-plan.md), only the CNAME option is supported.
 
-### [Root domain (e.g. contoso.com)](#tab/root)
+### [Root domain (for example, contoso.com)](#tab/root)
 
-Create two records according to the following table:
+Create two records, as described in the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| A | `@` | The app's IP address shown in the **Add custom domain** dialog. | The domain mapping itself (`@` typically represents the root domain). |
-| TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | For root domain, App Service accesses `asuid` TXT record to verify your ownership of the custom domain. |
+| A | `@` | The app's IP address shown in the **Add custom domain** dialog. | The domain mapping itself. (`@` typically represents the root domain.) |
+| TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | For the root domain, App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-### [Subdomain (e.g. www.contoso.com)](#tab/subdomain)
+### [Subdomain (for example, www.contoso.com)](#tab/subdomain)
 
 #### With an A record
 
-Create two records according to the following table:
+Create two records, as described in the following table:
 
 |Record type|Host|Value|Comments|
 |--- |--- |--- |--- |
-|A|\<subdomain\> (for example, www)|IP address shown in the **Add custom domain** dialog.| The domain mapping itself. |
-|TXT|asuid.\<subdomain\> (for example, asuid.www)|The domain verification ID shown in the **Add custom domain** dialog.| App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
+|A|`<subdomain>` (for example, `www`)|IP address shown in the **Add custom domain** dialog.| The domain mapping itself. |
+|TXT|`asuid.<subdomain` (for example, `asuid.www`)|The domain verification ID shown in the **Add custom domain** dialog.| App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
 
 #### With a CNAME record
 
-Create two records according to the following table:
+Create two records, as described in the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - |
@@ -128,7 +128,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 -----
 
-## 3. Validate and complete
+## Validate and complete
 
 1. Back in the **Add custom domain** dialog in the Azure portal, select **Validate**.
 
@@ -150,7 +150,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     > [!NOTE]
     > Unless you configure a certificate binding for your custom domain, Any HTTPS request from a browser to the domain will receive an error or warning, depending on the browser.
     
-## 4. Test in a browser
+## Test in a browser
 
 Browse to the DNS names that you configured earlier.
 
