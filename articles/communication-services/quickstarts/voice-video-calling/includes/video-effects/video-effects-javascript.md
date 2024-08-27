@@ -24,9 +24,8 @@ Use the `npm install` command to install the Azure Communication Services Effect
 > [!IMPORTANT]
 > This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equil to `1.0.1`.
 
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 > [!IMPORTANT]
-> Background blur support for Android Chrome mobile browser has been added in build 1.29.1 beta.
+> Background blur for Android Chrome mobile browser is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 ```console
 npm install @azure/communication-calling-effects --save
