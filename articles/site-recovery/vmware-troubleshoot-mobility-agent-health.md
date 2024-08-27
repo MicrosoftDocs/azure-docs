@@ -37,7 +37,7 @@ To troubleshoot mobility agent health errors, follow these recommendations:
     - **Windows**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
 
-### Error 1 - ClientCertificateIsInvalidOrExpired
+#### Error 1 - ClientCertificateIsInvalidOrExpired
 
 If you get the following error in the `svagents_curr<>.log` file:
 
@@ -48,7 +48,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 ---
 
-#### Full error message
+##### Full error message
 
 ```
 <ErrorCategory>ClientError</ErrorCategory>
@@ -60,13 +60,13 @@ If you get the following error in the `svagents_curr<>.log` file:
 <PossibleCauses>The specified client certificate is valid between '6/23/2024 2:46:05 AM' and '6/24/2024 5:00:00 PM'. The current time is '6/26/2024 9:47:26 AM' which is outside certificate validity window.</PossibleCauses>
 ```
 
-#### Resolution
+##### Resolution
 
 Follow these recommendations: 
 1. [Upgrade Azure Site Recovery mobility agent](./upgrade-mobility-service-modernized.md) to the latest version available on the source machine. 
 1. [Generate Mobility Service configuration](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance.
 
-
+3
 ### Error 2 - certificate verification failed
 
 If you get the following error in the `svagents_curr<>.log` file:
@@ -77,14 +77,14 @@ handshake: **certificate verify failed** (SSL routines)
 
 ---
 
-#### Full error message
+##### Full error message
 
 ```
 #~> (06-25-2024 16:17:42):   ERROR  2480 4612 36 TransportStream::Write: Failed to send data with error [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::putFile:609]   (sid: ), remoteName: b0a77692-5c2a-48d5-bb95-35404e10a10d.mon, dataSize: 1048576, moreData: 1, error: [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::connectSocket:1468]   WIN-0LTQUK99R9O : 11001, No such host is known.: handshake: certificate verify failed (SSL routines) [asio.ssl:167772294].  (may want to check server side logs for this sid) cxps
 ```
 
 
-#### Resolution
+##### Resolution
 
 Follow these recommendations:
 1. Navigate to the replication appliance where the process server component health is critical and log in into the appliance.
@@ -92,7 +92,7 @@ Follow these recommendations:
 1. Restart the services - *Process Server* and *Process Server Monitor* and wait for an hour.
 
 
-### Error 3 - SSL peer certificate or SSH remote key wasn't OK
+#### Error 3 - SSL peer certificate or SSH remote key wasn't OK
 
 If you get the following error in the `svagents_curr<>.log` file:
 
@@ -102,7 +102,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 ---
 
-#### Full error message
+##### Full error message
 
 ```
 #~> (06-20-2024 10:03:51):  ERROR  1688 648 16394 Server certificate expired for URL https://<IPAddress>:443/CallRcmApi
@@ -118,7 +118,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 #~> (06-20-2024 10:03:53):   ERROR  1688 648 16404 RcmClientLib::RcmConfigurator::PollReplicationSettings: failed to get settings from RCM with error 20501
 ```
 
-#### Resolution
+##### Resolution
 
 Follow these recommendations:
 
@@ -128,7 +128,7 @@ Follow these recommendations:
 1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance. 
 
 
-### Error 4 - mismatch of fingerprints received
+#### Error 4 - mismatch of fingerprints received
 
 If you get the following error in the `svagents_curr<>.log` file:
 
@@ -139,7 +139,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 ---
 
-#### Full error message
+##### Full error message
 
 ```
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 19 Could not perform curl. Curl error: (6) Couldn't resolve host name 
@@ -155,7 +155,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 ----
 
-#### Resolution
+##### Resolution
 
 Follow this recommendation:
 

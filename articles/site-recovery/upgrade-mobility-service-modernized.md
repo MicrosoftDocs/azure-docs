@@ -73,11 +73,11 @@ To update mobility agent of a protected item, follow these steps:
 
 
 
-### Update mobility agent using command line
+### Update mobility agent using command line or when private endpoint is enabled
 
-#### Update mobility agent when private endpoint is enabled 
+When you enable private endpoints, automatic updates won't be available. You need to manually update mobility agent using command line.
 
-When you enable private endpoints, automatic updates won't be available. To update mobility agent of a protected item, follow these steps:  
+To update mobility agent of a protected item, follow these steps:  
 
 1. Navigate to **Recovery services vault** > **Replicated items**, and select a virtual machine. 
 
