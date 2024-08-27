@@ -4,10 +4,14 @@ This page provides a guide on how to provide access to Machine Configuration pac
 # Prerequisites
 - Azure subscription
 - Azure Storage account with the Machine Configuration package
+  
 # Steps to provide access to the package
-## Using a User Assigned Identity
+## Using a User Assigned Identity 
 
 **1. Obtain a User-Assigned Managed Identity:**
+> [!IMPORTANT]
+> Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities.
+
 To start, you need to obtain the existing resourceId a user-assigned managed identity or create a new. This identity will be used by your VMs to access the Azure storage blob. The following PowerShell command creates a new user-assigned managed identity in the specified resource group:
 ```powershell
 $identity = New-AzUserAssignedIdentity -ResourceGroupName "YourResourceGroup" -Name "YourIdentityName"
@@ -17,7 +21,7 @@ You can also retrieve the resource ID of the user-assigned managed identity that
 $managedIdentityResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName "YourResourceGroup" -Name "YourManagedIdentityName").Id
 ```
 
-**2. Assign the Managed Identity to Your VMs:**
+**2. Assign the Managed Identity to Your Azure VMs:**
 Next, you need to assign the created managed identity to your VMs. This allows the VMs to use the identity for accessing resources. The following command retrieves the VM and assigns the user-assigned identity to it:
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "YourResourceGroup" -Name "YourVMName"
@@ -39,7 +43,7 @@ $context = New-AzStorageContext -StorageAccountName "YourStorageAccountName" -Us
 $blob = Get-AzStorageBlob -Container "YourContainerName" -Blob "YourBlobName" -Context $context
 ```
 
-This setup ensures that your VMs can securely read from the specified blob container using the user-assigned managed identity. 
+This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. 
 
 ## Using a SAS Token 
 While this next step is optional, you should add a shared access signature (SAS) token in the URL to ensure secure access to the package. The below example generates a blob SAS token with read access and returns the full blob URI with the shared access signature token. In this example, the token has a time limit of three years.
