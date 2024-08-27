@@ -18,13 +18,15 @@ Hive Ranger permissions - In 5.1 stack for hive, default hive ranger policies ha
 1. All privileges on default database tables and columns.  
 
 This is different from 4.0 stack where these default policies aren't present.  
-This change has been introduced in OSS (open-source software) ranger: Create Default Policies for Hive Databases -default, Information_schema (https://issues.apache.org/jira/browse/RANGER-2539).
+This change has been introduced in OSS (open-source software) ranger: [Create Default Policies for Hive Databases - default, Information_schema](https://issues.apache.org/jira/browse/RANGER-2539).
 
 Ranger User Interface in HDInsight 4.0 and earlier versions:
-![Ranger_40_1](https://github.com/user-attachments/assets/7d51493c-9d86-41ed-830a-05c96c63ae4e)
+
+:::image type="content" source="./media/hdinsight-ranger-5-1-migration/ranger-user-interface.png" alt-text="Screenshot showing Ranger User Interface in HDInsight 4.0." border="true" lightbox="./media/hdinsight-ranger-5-1-migration/ranger-user-interface.png":::
 
 Ranger User Interface in HDInsight 5.1:
-![Ranger_51_1](https://github.com/user-attachments/assets/9ab95212-a41d-46de-a7a7-b863f4eb9218)
+
+:::image type="content" source="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png" alt-text="Screenshot showing Ranger User Interface in HDInsight 5.1 ." border="true" lightbox="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png":::
 
 > [!NOTE]
 > The default policy **all databases** have public group access enabled by default from HDInsight 5.1.
@@ -35,7 +37,7 @@ They'll start seeing that new users added to the cluster via LDAP sync via AADS 
 
 This behavior Is different from 4.0 clusters. Hence if they need to disallow this behavior and have the default permissions same as 4.0, it's required to:
 
-1. Disable the **all-databases** policy on ranger UI or edit **all-database** policy to remove **public** group from policy. 
+1. Disable the **all-databases** policy on ranger UI or edit **all-database** policy to remove **public** group from policy.
 1. Remove **public** group from **default database tables columns** policy on ranger UI.  
 
 
