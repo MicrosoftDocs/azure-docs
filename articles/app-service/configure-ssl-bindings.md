@@ -5,7 +5,7 @@ tags: buy-ssl-certificates
 ms.custom: devx-track-azurepowershell
 
 ms.topic: article
-ms.date: 04/20/2023
+ms.date: 08/27/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
