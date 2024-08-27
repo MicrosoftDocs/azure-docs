@@ -81,7 +81,7 @@ The Upload Indicators API ingests threat indicators at the workspace level and a
 
     :::image type="content" source="media/connect-threat-intelligence-upload-api/assign-role.png" alt-text="Screenshot that shows the Microsoft Sentinel Contributor role assigned to the application at the workspace level.":::
 
-1. **Select** > **Review + assign**.
+1. Select **Review + assign**.
 
 For more information on assigning roles to applications, see [Assign a role to the application](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 

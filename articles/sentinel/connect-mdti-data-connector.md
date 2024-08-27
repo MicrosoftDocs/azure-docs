@@ -55,7 +55,7 @@ For more information about how to manage the solution components, see [Discover 
 
 1. When Defender Threat Intelligence indicators start populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
 
-At this point, the ingested indicators are now available for use in the **TI map...** analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). 
+At this point, the ingested indicators are now available for use in the `TI map...` analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). 
 
 Find the new indicators on the **Threat intelligence** pane or directly in **Logs** by querying the `ThreatIntelligenceIndicator` table. For more information, see [Work with threat indicators](work-with-threat-indicators.md).
 
