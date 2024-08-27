@@ -66,9 +66,9 @@ There are two changes you need to make, potentially:
 
 - By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app. If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-    Your app's **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address, then [remap the A record](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to this new IP address.
+    Your app's **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address, then [remap the A record](app-service-web-tutorial-custom-domain.md#create-the-dns-records) to this new IP address.
 
-- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
+- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
 ## 3. Test HTTPS
 
