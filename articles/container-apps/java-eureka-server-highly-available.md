@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create a highly-available Eureka server component cluster in Azure Container Apps"
-description: Learn to create a highly-available Eureka service in Azure Container Apps.
+title: "Tutorial: Create a highly available Eureka server component cluster in Azure Container Apps"
+description: Learn to create a highly available Eureka service in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 #customer intent: As a developer, I want to create an Eureka server cluster so that I can ensure there is no downtime of my service registries regardless of load and failures.
 ---
 
-# Tutorial: Create a highly-available Eureka server component cluster in Azure Container Apps
+# Tutorial: Create a highly available Eureka server component cluster in Azure Container Apps
 
 In this tutorial, you learn to create a Eureka service designed to remain operational in the face of failures and high demand. Building a highly available Eureka service ensures the service registry is always available to clients regardless of demand.
 
@@ -210,7 +210,7 @@ With the server components linked together, you can create the container app and
 
     This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you can verify that the Eureka server setup consists of two replicas.
 
-    :::image type="content" source="media/java-components/eureka-highly-available.png" alt-text="Screenshot of the High available Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-highly-available.png":::
+    :::image type="content" source="media/java-components/eureka-highly-available.png" alt-text="Screenshot of a highly available Eureka Server for Spring dashboard.":::
 
 ## Clean up resources
 
