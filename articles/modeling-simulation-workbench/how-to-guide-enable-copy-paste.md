@@ -9,7 +9,6 @@ ms.date: 08/25/2024
 
 #CustomerIntent: As a Workbench administrator, I want to enable copy/paste functionality to allow users to be able to copy and paste into and out of a Workbench VM.
 ---
-
 # Enable copy/paste in Azure Modeling and Simulation Workbench
 
 Copy/paste functionality is disabled by default for all Chambers created in the Azure Modeling and Simulation Workbench. Workbench Owners have the option to enable copy/paste for an entire Chamber. Enabling copy/paste allows users to move text data between their local workstations and Chamber VMs. Enabling copy/paste however does change the security boundary of the service: data egress and ingress are no longer controlled by the data pipeline.
@@ -67,6 +66,6 @@ In the web client, the menu is accessed from the main screen.
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
+* [Manage Connectors](./how-to-guide-set-up-networking.md)
+* [Upload data](./how-to-guide-upload-data.md)
+* [Download data](./how-to-guide-download-data.md)

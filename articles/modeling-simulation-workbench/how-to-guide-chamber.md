@@ -61,7 +61,7 @@ If a Chamber is no longer needed, it can be deleted only if it's empty. All nest
 
 Nested resources of a Chamber must first be deleted before the top-level Chamber can be deleted. A Chamber can't be deleted if it still has a Connector, Chamber Storage, or VM deployed within it. License servers are Chamber infrastructure, aren't user deployable, and don't apply to this requirement.
 
-* [Manage Connectors](./how-to-guide-connector.md)
+* [Manage Connectors](./how-to-guide-set-up-networking.md)
 * [Manage Chamber Storage](./how-to-guide-manage-chamber-storage.md)
 * [Manage Chamber VMs](./how-to-guide-chamber-vm.md)
 
