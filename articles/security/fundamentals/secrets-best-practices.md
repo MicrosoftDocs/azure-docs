@@ -39,7 +39,7 @@ See [Recommendations for protecting application secrets](/azure/well-architected
 
 Leveraging secure key stores ensures that your secrets are stored in a secure, encrypted location. Services like [Azure Key Vault](/azure/key-vault) and [Azure Managed HSM](/azure/key-vault/managed-hsm) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access.
 
-For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key stores in a Hardward Security Model (HSM), which offer enhanced protection compared to software-based secret stores. For an overview of all the key management offering in Azure and guidance on which to choose, see [Key management in Azure](key-management.md) and [How to choose the right key management solution](key-management-choose.md).
+For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key stores in a Hardware Security Model (HSM), which offer enhanced protection compared to software-based secret stores. For an overview of all the key management offering in Azure and guidance on which to choose, see [Key management in Azure](key-management.md) and [How to choose the right key management solution](key-management-choose.md).
 
 ### Implement secret scanning tools
 
@@ -75,13 +75,13 @@ Ensure that your secrets are encrypted both at rest and in transit. [Azure Key V
 
 In Azure, encryption at rest is implemented across various services using AES 256 encryption, while data in transit is secured through TLS and MACsec to prevent unauthorized access during transmission. These encryption practices provide comprehensive protection for your data, whether it’s being stored or transmitted between systems. For more details, see [Encryption at rest and in transit](encryption-atrest.md).
 
-### Safe Distribution of Secrets
+### Safe distribution of secrets
 
 When distributing secrets, ensure they are shared securely within and outside the organization. Use tools designed for secure sharing and include secret recovery procedures in your disaster recovery plans. If a key is compromised or leaked, it should be regenerated immediately. To further enhance security, use distinct keys for each consumer rather than sharing keys, even if they have similar access patterns. This practice simplifies key management and revocation, ensuring that compromised keys can be revoked without affecting other consumers.
 
 ## Service-specific best practices
 
-Individual serives may have additional best practices and guidance for protecting secrets. Here are some examples:
+Individual services may have additional best practices and guidance for protecting secrets. Here are some examples:
 
 - API Management: [Use named values in Azure API Management policies with Key Vault Integration](/azure/api-management/api-management-howto-properties)
 - App Service: [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
