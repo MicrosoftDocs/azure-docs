@@ -24,7 +24,7 @@ run simple actions on bare metal machines without using the Azure console or com
 
 ## Prerequisites
 
-1. Create a [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) to allow ssh access to the bare metal machines. The user must have superuser privilege level.
+1. A [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) must be available to allow ssh access to the bare metal machines. The user must have superuser privilege level.
 1. The platform Kubernetes must be up and running on site.
 
 ## Overview
@@ -69,7 +69,7 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Start a bare metal machine
 
-A single bare metal machine can be started from a power-off state by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be started by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal start --name <machine name>
@@ -85,19 +85,19 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Unmanage a bare metal machine (set to unmanaged state)
 
-A single bare metal machine can be moved from a managed state to an unmanaged state by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be switched to an unmanaged state by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal unmanage --name <machine name>
 ```
 
-While in an unmanaged state, no actions are permitted for that machine, except for returning it to a managed state (see next section). This can be used to keep a bare metal machine powered off in the instance it's caught in a rebooting crash loop.
+While in an unmanaged state, no actions are permitted for that machine, except for returning it to a managed state (see next section). This function can be used to keep a bare metal machine powered off if it's in a rebooting crash loop.
 
 `unmanage` isn't a long-running command, so there's no associated command to check operation status.
 
 ## Manage a bare metal machine (set to managed state)
 
-A single bare metal machine can be moved from an unmanaged state to a managed state by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be switched to a managed state by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal manage --name <machine name>
