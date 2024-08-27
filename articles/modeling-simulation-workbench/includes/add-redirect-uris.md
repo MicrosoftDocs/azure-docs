@@ -8,7 +8,7 @@ ms.date: 08/20/2024
 
 Follow these steps to get register the redirect URIs with the Application Registration:
 
-1. On the overview page for your Modeling and Simulation Workbench workbench, navigate to to the Connector.
+1. On the overview page for your Modeling and Simulation Workbench workbench, navigate to the Connector.
 
 1. On the **Overview** page for the Connector, locate and document the two connector properties, **Dashboard reply URL** and **Authentication reply URL**, using the copy to clipboard icon. If these properties aren't visible, select the **See More** button on page to expand the window. The URLs will be of the form:
    * **Dashboard reply URL**: https://<*dashboardFqdn*>/etx/oauth2/code

@@ -11,7 +11,7 @@ ms.date: 08/25/2024
 ---
 # Enable copy/paste in Azure Modeling and Simulation Workbench
 
-Copy/paste functionality is disabled by default for all Chambers created in the Azure Modeling and Simulation Workbench. Workbench Owners have the option to enable copy/paste for an entire Chamber. Enabling copy/paste allows users to move text data between their local workstations and Chamber VMs. Enabling copy/paste however does change the security boundary of the service: data egress and ingress are no longer controlled by the data pipeline.
+Copy/paste functionality is disabled by default for all Chambers created in the Azure Modeling and Simulation Workbench. Workbench Owners can enable copy/paste for an entire Chamber. Enabling copy/paste allows users to move text data between their local workstations and Chamber VMs. Enabling copy/paste changes the security boundary of the service since data can be directly copied out instead of the data pipeline controls.
 
 The Workbench Owner can enable this copy/paste when the Connector is first created or later when needed. This article shows how to manage copy/paste configuration.
 
@@ -48,19 +48,18 @@ When copying from or pasting to a VM, you must use the ETX client's controls.
 
 #### [Windows client](#tab/windows)
 
-When using the Windows native client, the copy/paste menu can be accessed from the application menu in the upper left.
+In the Windows native ETX client, the copy/paste menu can be accessed from the application menu in the upper left.
 
-1. Click on the application icon at the far left of the title bar.
+1. Select the application icon at the far left of the title bar.
 1. Select **Edit** then either **Copy X Selection** or **Paste to X Selection**.
-1. Highlighting either option will present another flyout menu of sources or destinations.
+1. Highlighting either option produces another flyout menu of sources or destinations.
 :::image type="content" source="media/howtoguide-enable-copy-paste/etx-windows-copy-paste-menu.png" alt-text="Detail of Windows ETX copy/paste menu.":::
 
 #### [Web client](#tab/web)
 
 In the web client, the menu is accessed from the main screen.
 
-1. Click the blue box and white arrow in the left corner.
-1. The menu flies out and a menu icon is displayed.
+1. Select the blue box and white arrow in the left corner. The menu flies out and a menu icon is displayed.
 1. Select the menu icon to reveal copy/paste actions.
 :::image type="content" source="media/howtoguide-enable-copy-paste/etx-web-client-copy-paste.png" alt-text="Detail of ETX web client copy/paste menu.":::
 

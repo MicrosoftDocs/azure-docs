@@ -5,10 +5,6 @@ items:
     items:
       - name: What is Azure Modeling and Simulation Workbench?
         href: modeling-simulation-workbench-overview.md
-  - name: Tutorials
-    items:
-      - name: Create an Azure Modeling and Simulation Workbench
-        href: ./quickstart-create-portal.md
   #- name: Tutorials
   #  items:
   #    - name: Create Azure Modeling and Simulation Workbench
@@ -39,6 +35,10 @@ items:
         items:
           - name: Disaster recovery
             href: ./disaster-recovery.md
+  - name: Tutorials
+    items:
+      - name: Create an Azure Modeling and Simulation Workbench
+        href: ./quickstart-create-portal.md
   - name: How-to guides
     items:
       - name: Manage users
@@ -59,6 +59,8 @@ items:
         href: ./how-to-guide-configure-firewall-rh.md
       - name: Start, stop, and restart Chambers, Connectors, and VMs
         href: ./how-to-guide-start-stop-restart.md
+      - name: Enable copy/paste
+        href: ./how-to-guide-enable-copy-paste.md
       - name: Place a Chamber into Idle mode
         href: ./how-to-guide-idle.md
       - name: Add redirect URIs

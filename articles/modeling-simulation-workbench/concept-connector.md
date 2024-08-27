@@ -20,7 +20,7 @@ The Workbench can be built to allow users to connect directly from the internet,
 
 ## Private Azure networking
 
-A Connector can be created for private network access from Azure virtual networks. This method is best suited where a private or controlled connection is required. Azure ExpressRoutes provide a dedicated connection from an on-premises infrastructure to an Azure data center and can be peered to the Workbench. With a VPN gateway, the Workbench can use the a private network with additional encryption layers.
+A Connector can be created for private network access from Azure virtual networks. This method is best suited where a private or controlled connection is required. Azure ExpressRoutes provide a dedicated connection from an on-premises infrastructure to an Azure data center and can be peered to the Workbench. With a VPN gateway, the Workbench can use a private network with extra encryption layers.
 
 ### VPN
 
