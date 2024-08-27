@@ -89,7 +89,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
     :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot of the Certificate Configuration pane with 'Step 2: Verify' selected.":::
 
-1. Select **App Service Verification**. Because you previously mapped the domain to your web app per the [Prerequisites](#prerequisites), the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
+1. Select **App Service Verification**. Because you mapped the domain to your web app earlier in this section, the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
 
 The following domain verification methods are supported: 
 
