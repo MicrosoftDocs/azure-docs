@@ -20,7 +20,7 @@ To deploy your app to Azure with Static Web Apps, you need to:
 * Deploy your source code. Use one of the following tools to deploy your app:
     * [Azure Developer CLI](/azure/developer/azure-developer-cli)
     * [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
-    * GitHub Action
+    * GitHub Actions
  
 ## Bicep by example
 
