@@ -13,7 +13,7 @@ ms.date: 08/12/2024
 
 Azure Modeling and Simulation Workbench offer a select set of virtual machines (VM) that are optimized for large-scale, complex modeling, simulation, digital twin, semiconductor design, and other scientific or industrial workloads.
 
-This article provieds an overview of the Azure VM families that are available in Modeling and Simulation Workbench. A summary of the series, common and optimal workloads, and additional information can help you choose the best VM for your scenario.
+This article provides an overview of the Azure VM families that are available in Modeling and Simulation Workbench. A summary of the series, common and optimal workloads, and additional information can help you choose the best VM for your scenario.
 
 ## Quotas
 
@@ -29,7 +29,7 @@ The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're 
 
 The Dv4 run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel® Xeon® Platinum 8370C (Ice Lake), or Intel® Xeon® Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. Dv4 series don't have local storage.
 
-[View the Dv4 family page](/azure/virtual-machines/sizes/general-purpose/dv4-series.md)
+[View the Dv4 family page](/azure/virtual-machines/sizes/general-purpose/dv4-series)
 
 | Size Name | vCPUs (Qty.) | Memory (GB) | Max Bandwidth (Mbps) |
 | --- | --- | --- | --- |

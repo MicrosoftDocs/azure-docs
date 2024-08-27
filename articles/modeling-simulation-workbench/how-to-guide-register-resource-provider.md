@@ -49,18 +49,3 @@ Some application issues and certain updates require the resource provider to be 
 1. Select the *Microsoft.ModSimWorkbench* resource provider. Then select **Unregister**, wait for the operation to complete, then select **Register**.
 
    :::image type="content" source="./media/quickstart-create-portal/register-resource-provider.png" alt-text="Screenshot of the Azure portal in a web browser, showing register resource providers.":::
-
-## Next step
-
-TODO: Add your next step link(s)
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-* [Write concepts](article-concept.md)
