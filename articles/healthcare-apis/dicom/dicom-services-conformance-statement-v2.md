@@ -492,8 +492,8 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | ----------- | ------------------- | -------------------------------------------------------------- |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
-| Exact Match | All supported attributes                | `{attributeID}={value1}` |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value |
 
 #### Attribute ID
@@ -594,7 +594,7 @@ If `includefield=all`, these attributes are included along with default attribut
 
 The following attributes are returned.
 
-* All the match query parameters and UIDs in the resource url
+* All the match query parameters and UIDs in the resource URL
 * `IncludeField` attributes supported at that resource level
 * If the target resource is `All Series`, then `Study` level attributes are also returned.
 * If the target resource is `All Instances`, then `Study` and `Series` level attributes are also returned.
@@ -604,13 +604,13 @@ The following attributes are returned.
 
 ### Search response codes
 
-The query API returns one of the following status codes in the response:
+The query API returns one of the following status codes in the response.
 
 | Code | Description |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------- | ------------------------------------------------------------- |
 | `200 (OK)` | The response payload contains all the matching resources. |
 | `204 (No Content)` | The search completed successfully but returned no results. |
-| `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
+| `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
 | `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
@@ -620,7 +620,7 @@ The query API returns one of the following status codes in the response:
 
 * Querying using the `TimezoneOffsetFromUTC (00080201)` isn't supported.
 * The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range is resolved.
-* When target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different `patientName`. In this case, the latest wins and you can search only on the latest data.
+* When the target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different `patientName`. In this case, the latest wins and you can search only on the latest data.
 * Paged results are optimized to return matched _newest_ instance first, possibly resulting in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is _not_ case sensitive, and _not_ accent sensitive for PN VR types.
 * Matching is _not_ case sensitive, and _is_ accent sensitive for other string VR types.
@@ -640,7 +640,7 @@ This transaction isn't part of the official DICOMweb Standard. It uses the DELET
 
 Parameters `study`, `series`, and `instance` correspond to the DICOM attributes `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` respectively.
 
-There are no restrictions on the request's `Accept` header, `Content-Type` header or body content.
+There are no restrictions on the request's `Accept` header, `Content-Type` header, or body content.
 
 > [!NOTE]
 > After a Delete transaction, the deleted instances will not be recoverable.
@@ -726,7 +726,7 @@ A failure response payload contains a message describing the failure.
 
 ### Request cancellation
 
-This transaction enables the user to request cancellation of a nonowned Workitem.
+This transaction enables the user to request cancellation of a non-owned Workitem.
 
 There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.1.1-1):
 
@@ -850,36 +850,36 @@ This transaction is used to change the state of a Workitem. It corresponds to th
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7
 
-If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
+If the Workitem exists on the origin server, the Workitem will be returned in an Acceptable Media Type. The returned Workitem will not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
 
 | Method | Path                          | Description           |
-| :----- | :---------------------------- | :-------------------- |
+| ------ | ----------------------------- | --------------------- |
 | PUT    | ../workitems/{workitem}/state | Change Workitem State |
 
 The `Accept` header is required, and must have the value `application/dicom+json`.
 
-The request payload shall contain the Change UPS State Data Elements. These data elements are:
+The request payload will contain the Change UPS State Data Elements. These data elements are as follows.
 
-* **Transaction UID (0008, 1195)**. The request payload shall include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
-* **Procedure Step State (0074, 1000)**. The legal values correspond to the requested state transition. They are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
+* **Transaction UID (0008, 1195)**. The request payload will include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
+* **Procedure Step State (0074, 1000)**. The legal values correspond to the requested state transition. These are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
 
 #### Change Workitem state response status codes
 
-| Code                        | Description                                                                                                                                                                                                           |
-| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `200 (OK)`                  | Workitem Instance was successfully retrieved.                                                                                                                                                                         |
-| `400 (Bad Request)`         | The request can't be performed for one of the following reasons: (1) the request isn't valid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect |
-| `401 (Unauthorized)`        | The client isn't authenticated.                                                                                                                                                                                       |
-| `403 (Forbidden)`           | The user isn't authorized.                                                                                                                                                                                            |
-| `404 (Not Found)`           | The Target Workitem wasn't found.                                                                                                                                                                                     |
-| `409 (Conflict)`            | The request is inconsistent with the current state of the Target Workitem.                                                                                                                                            |
-| `424 (Failed Dependency)`   | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption.    |
-| `503 (Service Unavailable)` | The service is unavailable or busy. Try again later.                                                                                                                                                                  |
+| Code  | Description |
+| -------------------- | ------------------------------------------ |
+| `200 (OK)` | Workitem Instance was successfully retrieved. |
+| `400 (Bad Request)` | The request can't be performed for one of the following reasons: (1) the request isn't valid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect |
+| `401 (Unauthorized)` | The client isn't authenticated. |
+| `403 (Forbidden)` | The user isn't authorized. |
+| `404 (Not Found)` | The Target Workitem wasn't found. |
+| `409 (Conflict)` | The request is inconsistent with the current state of the Target Workitem. |
+| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption.    |
+| `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Change Workitem state response payload
 
 * Responses include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
-* A success response shall have no payload.
+* A success response will have no payload.
 * A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
 ### Search Workitems
@@ -887,10 +887,10 @@ The request payload shall contain the Change UPS State Data Elements. These data
 This transaction enables you to search for Workitems by attributes.
 
 | Method | Path          | Description          |
-| :----- | :------------ | :------------------- |
+| ------ | ------------- | -------------------- |
 | GET    | ../workitems? | Search for Workitems |
 
-The following `Accept` header(s) are supported for searching:
+The following `Accept` header is supported for searching.
 
 * `application/dicom+json`
 
@@ -898,17 +898,17 @@ The following `Accept` header(s) are supported for searching:
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| :--------------- | :------------------------ | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query.                                                                                                                                                                                                                                                                                                                                                                              |
-| `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
-| `limit=`         | `{value}`                 | 0...1         | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`.                                                                                                                                                                                                                                                                                   |
-| `offset=`        | `{value}`                 | 0...1         | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned.                                                                                                                                                                                                                                                                                   |
-| `fuzzymatching=` | `true` \| `false`         | 0...1         | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match.                                                                                                         |
+| Key | Support Values | Allowed Count | Description |
+| --------- | ------------- | ------------ | --------------------------------------------------------------------- |
+| `{attributeID}=` | `{value}` | 0...N | Search for attribute/value matching in query. |
+| `includefield=`  | `{attributeID}`<br/>`all` | 0...N | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided. See [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
+| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `offset=` | `{value}` | 0...1 | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
+| `fuzzymatching=` | `true` \ `false` | 0...1 | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match. |
 
 ##### Searchable Attributes
 
-We support searching on these attributes:
+We support searching on the following attributes.
 
 | Attribute Keyword                                          |
 | :--------------------------------------------------------- |
@@ -928,20 +928,20 @@ We support searching on these attributes:
 
 ##### Search Matching
 
-We support these matching types:
+We support the following matching types.
 
-| Search Type | Supported Attribute                        | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| :---------- | :----------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Search Type | Supported Attribute | Example |
+| ----------- | ------------------- | ------------------------------------ |
 | Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
-| Exact Match | All supported attributes                   | `{attributeID}={value1}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Fuzzy Match | `PatientName`                              | Matches any component of the name that starts with the value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Exact Match | All supported attributes | `{attributeID}={value1}` |
+| Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
 > [!NOTE]
 > Although we don't support full sequence matching, we do support exact match on the attributes listed that are contained in a sequence.
 
 ##### Attribute ID
 
-Tags can be encoded in many ways for the query parameter. We partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
+Tags can be encoded in many ways for the query parameter. We partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported.
 
 | Value              | Example       |
 | :----------------- | :------------ |
@@ -954,7 +954,7 @@ Example query:
 
 #### Search Response
 
-The response is an array of `0...N` DICOM datasets with the following attributes returned:
+The response is an array of `0...N` DICOM datasets with the following attributes returned.
 
 * All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2
 * All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met
@@ -965,16 +965,16 @@ The response is an array of `0...N` DICOM datasets with the following attributes
 
 The query API returns one of the following status codes in the response:
 
-| Code                        | Description                                                                                                                                                                                                        |
-| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `200 (OK)`                  | The response payload contains all the matching resource.                                                                                                                                                           |
-| `206 (Partial Content)`     | The response payload contains only some of the search results, and the rest can be requested through the appropriate request.                                                                                      |
-| `204 (No Content)`          | The search completed successfully but returned no results.                                                                                                                                                         |
-| `400 (Bad Request)`         | There was a problem with the request. For example, invalid Query Parameter syntax. The response body contains details of the failure.                                                                              |
-| `401 (Unauthorized)`        | The client isn't authenticated.                                                                                                                                                                                    |
-| `403 (Forbidden)`           | The user isn't authorized.                                                                                                                                                                                         |
-| `424 (Failed Dependency)`   | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
-| `503 (Service Unavailable)` | The service is unavailable or busy. Try again later.                                                                                                                                                               |
+| Code | Description |
+| --------------- | --------------------------------------- |
+| `200 (OK)` | The response payload contains all the matching resource. |
+| `206 (Partial Content)` | The response payload contains only some of the search results, and the rest can be requested through the appropriate request. |
+| `204 (No Content)` | The search completed successfully but returned no results. |
+| `400 (Bad Request)` | There was a problem with the request. For example, invalid Query Parameter syntax. The response body contains details of the failure. |
+| `401 (Unauthorized)` | The client isn't authenticated. |
+| `403 (Forbidden)` | The user isn't authorized. |
+| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Additional notes
 
