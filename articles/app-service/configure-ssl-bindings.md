@@ -45,7 +45,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 1. In **TLS/SSL type**, select either **SNI SSL** or **IP based SSL**.
 
     - **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**: Multiple SNI SSL bindings can be added. This option allows multiple TLS/SSL certificates to help secure multiple domains on the same IP address. Most modern browsers (including Microsoft Edge, Chrome, Firefox, and Opera) support SNI. (For more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication).)
-    - **IP based SSL**: Only one IP SSL binding can be added. This option allows only one TLS/SSL certificate to help secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP-based SSL](remap-records-for-ip-based-ssl).<br/>IP-based SSL is supported only in Basic tier or higher.
+    - **IP based SSL**: Only one IP SSL binding can be added. This option allows only one TLS/SSL certificate to help secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP-based SSL](#remap-records-for-ip-based-ssl).<br/>IP-based SSL is supported only in Basic tier or higher.
 
 1. When adding a new certificate, validate the new certificate by selecting **Validate**.
 
@@ -133,4 +133,4 @@ Language-specific configuration guides, such as the [Linux Node.js configuration
 ## Related content
 
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ: App Service Certificates](./faq-configuration-and-management.yml)
+* [Frequently asked questions about creating or deleting resources in Azure App Service](./faq-configuration-and-management.yml)
