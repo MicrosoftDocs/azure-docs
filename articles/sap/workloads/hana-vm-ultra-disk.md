@@ -20,7 +20,7 @@ This document is about HANA storage configurations for Azure Ultra Disk storage 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](/azure/virtual-machines/disks-types#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160,000 IOPS (maximum depends on VM types as well)
@@ -31,7 +31,7 @@ Ultra disk gives you the possibility to define a single disk that fulfills your 
 Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. 
 
 > [!NOTE]
-> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md#ultra-disks).
+> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types#ultra-disks).
 
 > [!IMPORTANT]
 > You have the possibility to define the sector size of Ultra disk as 512 Bytes or 4096 Bytes. Default sector size is 4096 Bytes. Tests conducted with HCMT did not reveal any significant differences in performance and throughput between the different sector sizes. This sector size is different than stripe sizes that you need to define when using a logical volume manager. 

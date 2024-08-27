@@ -12,7 +12,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for Java to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
+Use the Image Analysis client SDK for Java to read text in an image and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/java) | [Maven Package](https://aka.ms/azsdk/image-analysis/package/maven) | [Samples](https://aka.ms/azsdk/image-analysis/samples/java)
 
@@ -52,10 +52,6 @@ Open a console window and create a new folder for your quickstart application.
           <version>1.0.0-beta.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
-        <!-- Optional: provide a slf4j implementation. Here we use a no-op implementation
-        just to make the slf4j console spew warning go away. We can still use the internal
-        logger in azure.core library. See
-        https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis#enable-http-requestresponse-logging -->
         <dependency>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-nop</artifactId>

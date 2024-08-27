@@ -130,7 +130,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use `RunAs` accounts to copy VM extensions)
 
-[Azure Virtual Machines](../../virtual-machines/index.yml):
+[Azure Virtual Machines](/azure/virtual-machines/):
 
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs
 - Use boot diagnostics to troubleshoot Azure VMs
