@@ -33,83 +33,47 @@ Embedding secrets directly into your code or configuration files is a significan
 
 Additionally, integrating secret retrieval into your automated deployment pipeline and using secret injection patterns can prevent secrets from being accidentally exposed in logs or version control, further enhancing the security of your deployment process.
 
-See:
-
-- [Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
+See [Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
 
 ### Use secure key stores
 
 Leveraging secure key stores ensures that your secrets are stored in a secure, encrypted location. Services like [Azure Key Vault](/azure/key-vault) and [Azure Managed HSM](/azure/key-vault/managed-hsm) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access.
 
-For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key stores in a Hardward Security Model (HSM), which offer enhanced protection compared to software-based secret stores. For an overview of all the key management offering in Azure and guidance on which to choose, see [How to choose the right key management solution](key-management-choose.md).
-
-See:
-
-- [Key management in Azure](key-management.md)
-- [How to choose the right key management solution](key-management-choose.md)
+For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key stores in a Hardward Security Model (HSM), which offer enhanced protection compared to software-based secret stores. For an overview of all the key management offering in Azure and guidance on which to choose, see [Key management in Azure](key-management.md) and [How to choose the right key management solution](key-management-choose.md).
 
 ### Implement secret scanning tools
 
 Regularly scanning your codebase for embedded secrets can prevent accidental exposure. Tools like [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning?view=azure-devops) and [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) feature can automatically detect and alert you to any secrets found in your repositories. Integrating these tools into your CI/CD pipeline ensures continuous monitoring. It is crucial to treat any secret found by these scanning tools as compromised, which means it should be immediately revoked and replaced to maintain the integrity of your security posture.
 
-See:
-
-- [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning?view=azure-devops)
-- [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning)
-
 ### Leverage managed identities
 
-Managed identities in Azure provide a secure way for applications to authenticate to Azure services without storing credentials in the code. By enabling managed identities for Azure resources, you can securely access Azure Key Vault and other services, reducing the need to handle secrets manually. This approach not only minimizes the creation of secrets but also reduces the surface area for potential breaches, as the responsibility for managing credentials is delegated to the platform.
-
-See:
-
-- [Azure managed identities](/azure/active-directory/managed-identities-azure-resources/overview)
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) in Azure provide a secure way for applications to authenticate to Azure services without storing credentials in the code. By enabling managed identities for Azure resources, you can securely access Azure Key Vault and other services, reducing the need to handle secrets manually. This approach not only minimizes the creation of secrets but also reduces the surface area for potential breaches, as the responsibility for managing credentials is delegated to the platform.
 
 ### Apply granular access control
 
-Follow the principle of least privilege by applying granular access control to your secrets. Use Azure role-based access control (RBAC) to ensure that only authorized entities have access to specific secrets. Regularly review and update access permissions to prevent unauthorized access. It's also advisable to implement distinct roles such as user, administrator, and auditor to manage access to secrets, ensuring that only trusted identities have the appropriate level of permission.
+Follow the principle of least privilege by applying granular access control to your secrets. Use [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC) to ensure that only authorized entities have access to specific secrets. Regularly review and update access permissions to prevent unauthorized access. It's also advisable to implement distinct roles such as user, administrator, and auditor to manage access to secrets, ensuring that only trusted identities have the appropriate level of permission.
 
-See:
-
-- [Azure role-based access control](/azure/role-based-access-control/overview)
-- [Key Vault: RBAC](/azure/key-vault/general/rbac-guide)
+See the [Azure Key Vault RBAC guide](/azure/key-vault/general/rbac-guide).
 
 ### Rotate secrets regularly
 
-Secrets are susceptible to leakage or exposure over time. Regularly rotating your secrets reduces the risk of unauthorized access. Azure Key Vault supports automatic rotation for certain secrets, but for those that cannot be automatically rotated, establish a manual rotation process and ensure they are purged when no longer in use. Automating the secret rotation process and building redundancy into your secret management can ensure that rotation does not disrupt service availability. Implementing retry logic and concurrent access patterns in your code can help minimize issues during the rotation window.
+Secrets are susceptible to leakage or exposure over time. Regularly rotating your secrets reduces the risk of unauthorized access. You can [rotate secrets in Azure Key Vault](/azure/key-vault/secrets//tutorial-rotation) for certain secrets; for those that cannot be automatically rotated, establish a manual rotation process and ensure they are purged when no longer in use.
 
-See:
-
-- [Rotate secrets in Azure Key Vault](/azure/key-vault/secrets//tutorial-rotation)
+Automating the secret rotation process and building redundancy into your secret management can ensure that rotation does not disrupt service availability. Implementing retry logic and concurrent access patterns in your code can help minimize issues during the rotation window.
 
 ### Monitor and log access
 
-Enable logging and monitoring for your secret management system to track access and usage. Use services like [Azure Monitor](/azure/azure-monitor/overview) and [Azure Event Grid](/azure/event-grid/overview) to monitor all activities related to your secrets. This provides visibility into who accessed your secrets and helps detect any suspicious behavior or potential security incidents. Maintaining detailed audit trails is critical for inspecting and validating access to secrets, which can help prevent identity theft, avoid repudiation, and reduce unnecessary exposure.
-
-See:
-
-- [Key Vault logging](/azure/key-vault/key-vault-logging)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Azure Event Grid](/azure/event-grid/overview)
+Enable logging and monitoring for your secret management system to track access and usage. Use [Key Vault logging](/azure/key-vault/key-vault-logging) and/or services like [Azure Monitor](/azure/azure-monitor/overview) and [Azure Event Grid](/azure/event-grid/overview), to monitor all activities related to your secrets. This provides visibility into who accessed your secrets and helps detect any suspicious behavior or potential security incidents. Maintaining detailed audit trails is critical for inspecting and validating access to secrets, which can help prevent identity theft, avoid repudiation, and reduce unnecessary exposure.
 
 ### Implement network isolation
 
-Reduce the exposure of your secrets by implementing network isolation. Configure firewalls and network security groups to restrict access to your key vaults. Only allow trusted applications and services to access your secrets, minimizing the attack surface and preventing unauthorized access. Additionally, consider using multiple key vaults to create isolation boundaries for different components, ensuring that if one component is compromised, it cannot gain control of other secrets or the entire workload.
-
-See:
-
-- [Isolation in the Azure Public Cloud](isolation-choices.md)
+Reduce the exposure of your secrets by implementing network isolation. Configure [firewalls and network security groups](/azure/key-vault/general/network-security) to restrict access to your key vaults. Only allow trusted applications and services to access your secrets, minimizing the attack surface and preventing unauthorized access. Additionally, consider using multiple key vaults to create isolation boundaries for different components, ensuring that if one component is compromised, it cannot gain control of other secrets or the entire workload.
 
 ### Encrypt secrets at rest and in transit
 
-Ensure that your secrets are encrypted both at rest and in transit. Azure Key Vault securely stores secrets using envelope encryption, where Data Encryption Keys (DEKs) are encrypted by Key Encryption Keys (KEKs), providing an additional layer of security. This approach enhances protection against unauthorized access. Additionally, use secure communication protocols like HTTPS to encrypt data in transit between your applications and the key vault, ensuring that your secrets are safeguarded during both storage and transmission.
+Ensure that your secrets are encrypted both at rest and in transit. [Azure Key Vault](/azure/key-vault/general/overview) securely stores secrets using envelope encryption, where Data Encryption Keys (DEKs) are encrypted by Key Encryption Keys (KEKs), providing an additional layer of security. This approach enhances protection against unauthorized access. Additionally, use secure communication protocols like HTTPS to encrypt data in transit between your applications and the key vault, ensuring that your secrets are safeguarded during both storage and transmission.
 
 In Azure, encryption at rest is implemented across various services using AES 256 encryption, while data in transit is secured through TLS and MACsec to prevent unauthorized access during transmission. These encryption practices provide comprehensive protection for your data, whether it’s being stored or transmitted between systems. For more details, see [Encryption at rest and in transit](encryption-atrest.md).
-
-See:
-
-- [Azure Key Vault](/azure/key-vault/general/overview)
-- [Encryption at rest and in transit](encryption-atrest.md)
 
 ### Safe Distribution of Secrets
 
@@ -119,12 +83,41 @@ When distributing secrets, ensure they are shared securely within and outside th
 
 These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
-- Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets)
-- Azure Key Vault: [Centralize storage of application secrets](/azure/key-vault/general/overview)
-- Azure Communications Service: [Create and manage access tokens](../../communication-services/quickstarts/identity/access-tokens.md)
-- Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](../../service-bus-messaging/authenticate-application.md)
-- Azure App Service: [Learn to configure common settings for an App Service application](../../app-service/configure-common.md)
+- API Management: [Use named values in Azure API Management policies with Key Vault Integration](/azure/api-management/api-management-howto-properties)
+- App Service: [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
+- Application Gateway: [Configure an Application Gateway with TLS termination using the Azure portal](/azure/application-gateway/create-ssl-portal#configuration-tab)
+- Automation: [Manage credentials in Azure Automation](/azure/automation/shared-resources/credentials?tabs=azure-powershell)
+- Azure App Configuration: [Tutorial: Use Key Vault references in an ASP.NET Core app](/azure/azure-app-configuration/use-key-vault-references-dotnet-core)
+- Azure Bot Service: [Azure Bot Service encryption for data at rest](/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0)
+- Azure Center for SAP solutions: [Azure Center for SAP Solutions - Deployment - Prepare network for deployment](/azure/sap/center-sap-solutions/prepare-network#allowlist-key-vault)
+- Azure Communications Gateway: [Create and store secrets](/azure/communications-gateway/prepare-to-deploy#4-create-and-store-secrets)
+- Azure Communications Service: [Create and manage access tokens](/azure/communication-services/quickstarts/identity/access-tokens)
+- Azure Database for PostgreSQL - Flexible Server: [Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key](/azure/postgresql/flexible-server/concepts-data-encryption)
+- Azure Databricks: [Key Vault Integration in Databricks](/azure/databricks/security/secrets/secret-scopes)
+- Azure DevTest Labs: [Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs](/azure/devtest-labs/enable-managed-identities-lab-vms)
+- Azure Front Door: [Azure Front Door Secrets](/azure/frontdoor/create-front-door-portal)
+- Azure HDInsight on AKS: [Resource prerequisites - Create Azure Key Vault](/azure/hdinsight-aks/prerequisites-resources)
+- Azure Information Protection: [Details for Azure Information Protection Key Vault Support](/azure/information-protection/byok-price-restrictions#azure-key-vault-key-storage)
+- Azure Kubernetes Service (AKS): [CSI Secret Store](/azure/aks/csi-secrets-store-driver)
+- Azure Managed Applications: [Access Key Vault secret when deploying Azure Managed Applications](/azure/azure-resource-manager/managed-applications/key-vault-access)
+- Azure OpenAI: [Develop Azure AI services applications with Key Vault](/azure/ai-services/use-key-vault?tabs=azure-cli&pivots=programming-language-csharp)
 - Azure Pipelines: [Protecting secrets in Azure Pipelines](/azure/devops/pipelines/security/secrets)
+- Azure Purview: [Credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
+- Azure SignalR Service: [Key Vault secret reference in URL template settings](/azure/azure-signalr/concept-upstream#key-vault-secret-reference-in-url-template-settings)
+- Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](../../service-bus-messaging/authenticate-application.md)
+- Azure Stack Edge: [Manage Azure Stack Edge secrets using Azure Key Vault](/azure/databox-online/azure-stack-edge-gpu-activation-key-vault)
+- Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets)
+- Azure Web PubSub: [Add a custom certificate](/azure/azure-web-pubsub/howto-custom-domain?tabs=vault-access-policy%2Cazure-powershell#add-a-custom-certificate)
+- Backup: [Configure a vault to encrypt using customer-managed keys](/azure/backup/encryption-at-rest-with-cmk?tabs=portal#configure-a-vault-to-encrypt-using-customer-managed-keys)
+- Cognitive Services: [Develop Azure Cognitive Services applications with Key Vault](/azure/cognitive-services/use-key-vault?tabs=azure-cli&pivots=programming-language-csharp)
+- Data Factory: [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
+- ExpressRoute: [Configure MACsec encryption for ExpressRoute Direct.](/azure/expressroute/expressroute-howto-macsec)
+- Functions: [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json)
+- Key Vault: [About Azure Key Vault secrets](/azure/key-vault/secrets/about-secrets)
+- Logic Apps: [Logic Apps Standard App Settings](/azure/app-service/app-service-key-vault-references?tabs=azure-cli)
+- Machine Learning Service: [Use authentication credential secrets in Azure Machine Learning jobs](/azure/machine-learning/how-to-use-secrets-in-runs?view=azureml-api-2)
+- SQL IaaS: [Configure Azure Key Vault integration for SQL Server on Azure VMs (Resource Manager)](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure?view=azuresql)
+- Storage: [Manage storage account keys with Key Vault and the Azure CLI](/azure/key-vault/secrets/overview-storage-keys)
 
 ## Next steps
 
