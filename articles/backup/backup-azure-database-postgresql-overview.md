@@ -10,6 +10,13 @@ ms.author: v-abhmallick
 
 # About Azure Database for PostgreSQL backup
 
+>[!Note]
+>Azure Database for PostgreSQL - Single Server is on the retirement path and is scheduled for retirement by March 28, 2025. 
+>
+>If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server to the Azure Database for PostgreSQL - Flexible Server. 
+>
+>Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready> database service designed for more granular control and flexibility over database management functions and configuration settings with the enterprise grade [backup solution by Azure Backup](backup-azure-database-postgresql-flex-overview.md). For more information about Azure Database for PostgreSQL - Flexible Server, visit Azure Database for PostgreSQL - Flexible Server.
+
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
 - Customer controlled scheduled and on-demand backups at the individual database level.

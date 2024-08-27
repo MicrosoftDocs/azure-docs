@@ -33,6 +33,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
+- Provide a new and empty blob container as input while installing backup extension in an AKS cluster for the first time. Do not use same blob contianer for more than one AKS cluster. 
+
 - AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
 - Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). The supported Azure Disk SKUs are Standard HDD, Standard SSD, and Premium SSD. The disks belonging to Premium SSD v2 and Ultra Disk SKU are not supported. Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes will be skipped from the backup operation.
@@ -53,7 +55,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - The Backup vault and the AKS cluster should be in the same region and subscription.
 
-- Azure Backup for AKS provides both Operation Tier (Snapshot) and Vault Tier backup. Multiple backups per day can be stored in Operational Tier, with only one backup per day to be stored in the Vault.
+- Azure Backup for AKS provides both Operational Tier (Snapshot) and Vault Tier backup. Multiple backups per day can be stored in Operational Tier, with only one backup per day to be stored in the Vault as per the retention policy defined.
 
 - Currently, the modification of a backup policy and the modification of a snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
 
@@ -70,6 +72,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of backup policies per Backup vault | 5,000 |
   | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
+  | Number of namesapces per backup instance | 800 | 
   | Number of allowed restores per backup instance in a day | 10 |
 
 - Configuration of a storage account with private endpoint is supported.
