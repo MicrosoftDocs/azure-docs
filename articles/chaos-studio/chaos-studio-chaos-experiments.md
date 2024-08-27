@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.reviewer: prashabora
 ms.service: azure-chaos-studio
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 8/27/2024
 ms.custom: template-concept
 ---
 
@@ -33,12 +33,12 @@ Chaos experiments can target resources in a different subscription than the expe
 
 ## Documenting chaos experiments
 
-There are several methods for documenting chaos engineering. One approach is to use work items in Azure DevOps Boards or in GitHub Projects. By creating dedicated work items for each experiment, you can track the details, progress, and outcomes of your experiments in a structured manner. This documentation can include information such as the purpose of the experiment, the expected outcomes, the steps followed, the resources involved, and any observations or learnings from the experiment.
+There are several key aspects of your chaos experimentation process you can track and modify over time. One approach is to use work items in Azure DevOps Boards or in GitHub Projects. By creating dedicated work items for each experiment, you can track the details, progress, and outcomes of your experiments in a structured manner. This documentation can include information such as the purpose of the experiment, the expected outcomes, the steps followed, the resources involved, and any observations or learnings from the experiment.
 
 | Aspect         | Details                                                                                | Description     |
 |----------------|-------------------------------------------------------------------------------------------|-----------------|
 | Hypothesis     | Define the objective and expected outcomes of the experiment                              |                 |
-| Attack Layer   | Identify which part of the system will be subjected to chaos experiments (e.g., network, database, application layer). |                 |
+| Target Scope   | Identify which part of the system will be subjected to chaos experiments (e.g., network, database, application layer). |                 |
 | Duration       | Specify the time frame for the chaos experiment.                                          |                 |
 | Target         | Determine the specific targets or components within the system.                           |                 |
 | Environment    | Define whether the experiment will be conducted in a production, staging, or development environment. |                 |
