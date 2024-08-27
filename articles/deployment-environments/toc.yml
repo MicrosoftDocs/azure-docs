@@ -7,7 +7,7 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
-    - name: KAzure Deployment Environments Roadmap
+    - name: Azure Deployment Environments Roadmap
       displayName: roadmap, future, features, enhancements, coming soon, in development
       href: ade-roadmap.md
 - name: Quickstarts
