@@ -46,7 +46,7 @@ In Azure AI Search’s S3 pricing tier, there's an option for the High Density (
 
 S3 HD allows for the many small indexes to be packed under the management of a single search service by trading the ability to scale out indexes using partitions for the ability to host more indexes in a single service.
 
-An S3 service is designed to host a fixed number of indexes (maximum 200) and allow each index to scale in size horizontally as new partitions are added to the service. Adding partitions to S3 HD services increases the maximum number of indexes that the service can host. The ideal maximum size for an individual S3HD index is around 50 - 80 GB, although there's no hard size limit on each index imposed by the system.
+An S3 service is designed to host a fixed number of indexes (maximum 200) and allow each index to scale in size horizontally as new partitions are added to the service. Adding partitions to S3 HD services increases the number of indexes that the service can host up to a maximum of 3000 indexes. The maximum size of an individual S3HD index is limited to 100 GB.
 
 ## Considerations for multitenant applications
 
