@@ -56,7 +56,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Automation |[Log Analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Azure AI Search | [Cognitive Search monitoring data reference (schemas)](/azure/search/monitor-azure-cognitive-search-data-reference#schemas) |
-| Azure AI services | [Logging for Azure AI services](../../ai-services/diagnostic-logging.md) |
+| Azure AI services | [Logging for Azure AI services](/azure/ai-services/diagnostic-logging) |
 | Azure Container Instances | [Logging for Azure Container Instances](/azure/container-instances/container-instances-log-analytics#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Azure Content Delivery Network | [Diagnostic logs for Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md) |
