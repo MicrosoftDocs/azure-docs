@@ -107,4 +107,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
-- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.
+- Learn more about creating [Linux](/azure/virtual-machines/windows/tutorial-manage-vm?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](/azure/virtual-machines/windows/tutorial-manage-vm?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.

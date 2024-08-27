@@ -15,7 +15,7 @@ ms.reviewer: Xema Pathak
 This guide describes how to use Azure Monitor to monitor the health and performance of virtual machines and their workloads. It includes collection of telemetry critical for monitoring and analysis and visualization of collected data to identify trends. It also shows you how to configure alerting to be proactively notified of critical issues.
 
 > [!NOTE]
-> This guide describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This guide describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm).
 
 ## Types of machines
 
@@ -44,8 +44,8 @@ The following table lists the different steps for configuration of VM monitoring
 | Step | Description |
 |:---|:---|
 | [Deploy Azure Monitor agent](monitor-virtual-machine-agent.md) | Deploy the Azure Monitor agent to your Azure and hybrid virtual machines to collect data from the guest operating system and workloads. |
-| [Configure data collection](monitor-virtual-machine-data-collection.md)) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
-| [Analyze collect data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
+| [Configure data collection](monitor-virtual-machine-data-collection.md) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
+| [Analyze collected data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
 | [Create alert rules](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
 | [Migrate management pack logic](monitor-virtual-machine-management-packs.md) | General guidance for translation the logic from your System Center Operations Manager management packs to Azure Monitor. |
 

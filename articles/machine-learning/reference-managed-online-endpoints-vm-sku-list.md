@@ -19,7 +19,7 @@ The following table shows the virtual machine (VM) stock keeping units (SKUs) th
 
 * The full SKU names listed in the table can be used for Azure CLI or Azure Resource Manager templates (ARM templates) requests to create and update deployments.
 
-* For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [VM sizes](../virtual-machines/sizes.md).
+* For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [VM sizes](/azure/virtual-machines/sizes).
 
 | Relative Size | General Purpose | Compute Optimized | Memory Optimized | GPU |
 | ---           | ---             | ---               | ---              | --- |
