@@ -76,7 +76,7 @@ Browse to `https://<your.custom.domain>` in various browsers to verify that your
 
 :::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot showing an example of browsing to your custom domain. The contoso.com URL is highlighted.":::
 
-Your application code can inspect the protocol via the "x-appservice-proto" header. The header has a value of `http` or `https`. 
+Your application code can inspect the protocol via the `x-appservice-proto` header. The header has a value of `http` or `https`. 
 
 > [!NOTE]
 > If your app gives you certificate validation errors, you're probably using a self-signed certificate.
@@ -118,7 +118,7 @@ Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 b
 
 In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted, inspect the `X-Forwarded-Proto` header.
 
-Language-specific configuration guides, such as the [Linux Node.js configuration](configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
+Language-specific configuration guides, such as the [Linux Node.js configuration](configure-language-nodejs.md#detect-https-session) guide, show how to detect an HTTPS session in your application code.
 
 ## Automate with scripts
 
