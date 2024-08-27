@@ -109,50 +109,50 @@ Create two records, as described in the following table:
 Create two records, as described in the following table:
 
 | Record type | Host | Value | Comments |
-| - | - | - |
-| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
+| - | - | - |-|
+| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net`. (See [the note at the start of this article](#dnl-note).) | The domain mapping itself. |
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
 ### [Wildcard (CNAME)](#tab/wildcard)
 
-For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
+For a wildcard name, like `*` in `*.contoso.com`, create two records, as described in the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| CNAME | `*` | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
+| CNAME | `*` | `<app-name>.azurewebsites.net`. (See [the note at start of this article](#dnl-note).) | The domain mapping itself. |
 | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
 -----
 
-## Validate and complete
+## Validate domain ownership and complete the mapping
 
 1. Back in the **Add custom domain** dialog in the Azure portal, select **Validate**.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-validate.png" alt-text="A screenshot showing how to validate your DNS record settings in the Add a custom domain dialog." border="true":::
 
-1. If the **Domain validation** section shows green check marks next for both domain records, then you've configured them correctly. Select **Add**. If you see any errors or warnings, fix it in the DNS record settings on your domain provider's website.
+1. If the **Domain validation** section shows green check marks next to both domain records, you've configured them correctly. Select **Add**. If you see any errors or warnings, resolve them in the DNS record settings on your domain provider's website.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-add.png" alt-text="A screenshot showing the Add button activated after validation." border="true":::
 
     > [!NOTE]
     > If you configured the TXT record but not the A or CNAME record, App Service treats it as a [domain migration](manage-custom-dns-migrate-domain.md) scenario and allows the validation to succeed, but you won't see green check marks next to the records.
 
-1. You should see the custom domain added to the list. You may also see a red X with **No binding**. 
+1. You should see the custom domain added to the list. You might also see a red X and the text **No binding**. 
 
-    If you selected **App Service Managed Certificate** earlier, wait a few minutes for App Service to create the managed certificate for your custom domain. When the process is complete, the red X becomes a green check mark with **Secured**. If you selected **Add certificate later**, this red X will remain until you [add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
+    If you selected **App Service Managed Certificate** earlier, wait a few minutes for App Service to create the managed certificate for your custom domain. When the process is complete, the red X becomes a green check mark and you see the word **Secured**. If you selected **Add certificate later**, the red X will remain until you [add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain-complete.png" alt-text="A screenshot showing the custom domains page with the new secured custom domain." border="true":::
 
     > [!NOTE]
-    > Unless you configure a certificate binding for your custom domain, Any HTTPS request from a browser to the domain will receive an error or warning, depending on the browser.
+    > Unless you configure a certificate binding for your custom domain, any HTTPS request from a browser to the domain will receive an error or warning, depending on the browser.
     
-## Test in a browser
+## Test the DNS resolution
 
-Browse to the DNS names that you configured earlier.
+Browse to the DNS names that you configured.
 
 ![Screenshot that shows navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -160,7 +160,7 @@ Browse to the DNS names that you configured earlier.
 
 If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most-likely causes are:
 
-- The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+- The browser client has cached the old IP address of your domain. Clear the cache and test the DNS resolution again. On a Windows machine, you can clear the cache with `ipconfig /flushdns`.
 - You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#2-remap-records-for-ip-based-ssl) in your DNS entries to the new IP address.
 
 If you receive a `Page not secure` warning or error, it's because your domain doesn't have a certificate binding yet. [Add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
@@ -172,7 +172,7 @@ If you receive a `Page not secure` warning or error, it's because your domain do
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Purchase an App Service domain](manage-custom-dns-buy-domain.md).
+> [Purchase an App Service domain](manage-custom-dns-buy-domain.md)
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
