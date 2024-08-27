@@ -12,7 +12,7 @@ ms.date: 08/27/2024
 
 # Quickstart: Create a Synapse workspace
 
-In this Quickstart, you will create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
+In this Quickstart, you will create a Synapse workspace, and you can follow along with the rest of the tutorials to create a dedicated SQL pool, and a serverless Apache Spark pool.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Under **Select Data Lake Storage Gen 2**:
 1. By **Account name**, select **Create New** and name the new storage account **contosolake** or similar as the name must be unique.
 
     >[!TIP]
-    >If you get an error reading "The Azure Synapse resource provider (Microsoft.Synapse) needs to be registered with the selected subscription." Open the Azure portal and select **Subscriptions**. Select you subscription. Under the **Settings** list select **Resource providers**. Search for **Microsoft.Synapse**, select it, and select **Register**.
+    >If you get an error reading *"The Azure Synapse resource provider (Microsoft.Synapse) needs to be registered with the selected subscription."* Open the Azure portal and select **Subscriptions**. Select your subscription. Under the **Settings** list select **Resource providers**. Search for **Microsoft.Synapse**, select it, and select **Register**.
 
 1. By **File system name**, select **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Check the **Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account** box. 
@@ -81,7 +81,7 @@ We're going to use a small 100k row sample dataset of NYC Taxi Cab data for many
 1. Download the [NYC Taxi - green trip dataset](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets#additional-information) to your computer: 
     1. Navigate to the [original dataset location](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) from the link, choose a specific year and download the Green taxi trip records in Parquet format.
     1. Rename the downloaded file to *NYCTripSmall.parquet*.
-1. In Synapse Studio, navigate to the **Data** Hub.
+1. In Synapse Studio, navigate to the **Data** hub.
 1. Select **Linked**.
 1. Under the category **Azure Data Lake Storage Gen2**, you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
 1. Select the container named **users (Primary)**.
