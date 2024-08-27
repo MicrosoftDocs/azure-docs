@@ -57,7 +57,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: "Quickstart: With Postman or cURL"
+          - text: "Quickstart: With the Visual Studio Code REST Client extension or cURL"
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
           - text: "Quickstart: Using SDK and REST API"
             url: quickstarts/quickstart-sdk.md
