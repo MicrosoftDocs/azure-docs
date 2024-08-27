@@ -173,7 +173,7 @@ Now that you have an existing environment, you can create your container app and
 
 1. Assign the custom role to your account on managed environment resource.
 
-    Get the resource id of the managed environment:
+    Get the resource ID of the managed environment:
 
     ```azurecli
         export ENVIRONMENT_ID=$(az containerapp env show \
