@@ -41,7 +41,7 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 - [Developer Portal landing page and welcome tour](https://developercommunity.microsoft.com/t/Developer-Portal-landing-page-and-welcom/10720999): as a developer getting onboarded to Dev Box, you get to learn about how to use the product and discover features.
 - [Pin Developer Portal to task view/desktop](https://developercommunity.visualstudio.com/t/Ping-to-task-view-is-not-quite-working-f/10719957): as a developer, you can quickly access your Developer Box by pinning it to your Windows task view.
 
-Enterprise management
+## Enterprise management
 
 Microsoft Dev Box aims to deliver centralized governance based on organizational standards for security, compliance, and cost controls. During this period, we're reducing the time it takes enterprises to get started with Dev Box by making it easier to set up a proof of concept (POC) and then move to production. We're also improving our monitoring, cost control, security, and privacy capabilities.
 
@@ -67,7 +67,7 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 
 [Developer offboarding](https://developercommunity.visualstudio.com/t/Provide-a-means-to-do-external-cleanup/10670632?q=delete+unused+): as a dev center admin, configure your Dev Box service to offload users from Dev Boxes when they leave the organization and switch between teams. 
 
-Fundamental performance & reliability
+## Fundamental performance & reliability
 
 Microsoft Dev Box aims to provide a "like-local" developer experience that is as responsive and seamless as working on a local machine. We're continually enhancing the reliability, speed, and performance of Dev Box by optimizing everything from your favorite Visual Studio development tools to Windows, RDP, and the location of Dev Boxes.
 
