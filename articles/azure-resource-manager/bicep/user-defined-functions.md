@@ -110,7 +110,7 @@ Decorators are written in the format `@expression` and are placed above function
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the function. |
 | [export](#export) | none | Indicates that the function is available for import by another Bicep file. |
-| [metadata](#metadata) | all | object | Custom properties to apply to the function. Can include a description property that is equivalent to the description decorator. |
+| [metadata](#metadata) | object | Custom properties to apply to the function. Can include a description property that is equivalent to the description decorator. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
