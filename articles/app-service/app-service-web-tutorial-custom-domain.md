@@ -100,7 +100,7 @@ Create two records, as described in the following table:
 |Record type|Host|Value|Comments|
 |--- |--- |--- |--- |
 |A|`<subdomain>` (for example, `www`)|IP address shown in the **Add custom domain** dialog.| The domain mapping itself. |
-|TXT|`asuid.<subdomain` (for example, `asuid.www`)|The domain verification ID shown in the **Add custom domain** dialog.| App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
+|TXT|`asuid.<subdomain>` (for example, `asuid.www`)|The domain verification ID shown in the **Add custom domain** dialog.| App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
 
