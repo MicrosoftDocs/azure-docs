@@ -35,7 +35,7 @@ In this scenario:
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
 * Azure API Center applies the following limits for analysis and linting:
     * API definitions linted per 4 hours (Standard tier): 100
-    * API definition linted per 4 hours (Free tier): 10
+    * API definitions linted per 4 hours (Free tier): 10
 
 ## Prerequisites
 
