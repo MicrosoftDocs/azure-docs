@@ -2,7 +2,14 @@
 title: Azure OpenAI assistant post input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant post input binding to query chat bots during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -46,7 +53,7 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="32-50":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="32-50":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

@@ -59,7 +59,9 @@ This table provides a brief description of each alert type. For more information
 
 Alerts can be stateful or stateless.
 - Stateless alerts fire each time the condition is met, even if fired previously.
-- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
+- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
+
+Each alert rule is evaluated individually. There is no validation to check if there is another alert configured for the same conditions. If there is more than one alert rule configured for the same conditions, each of those alerts will fire when the conditions are met. 
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
@@ -69,7 +71,7 @@ Stateless alerts fire each time the condition is met. The alert condition for al
 - All activity log alerts are stateless.
 - The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:
     - **Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent sometime between one and six minutes.
-    - **Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent sometime between 15 to 30 minutes.
+    - **Alert frequency of equal to or more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent sometime between 15 to 30 minutes.
 
 ### Stateful alerts
 Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
@@ -77,7 +79,7 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-Stateful log search alerts have limitations - details [here](/azure/azure-monitor/service-limits#alerts).
+See [service limits](/azure/azure-monitor/service-limits#alerts) for alerts limitations, including limitations for stateful log alerts.
 
 This table describes when a stateful alert is considered resolved:
 

@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/22/2024
+ms.date: 8/20/2024
 ms.author: eur
 ---
 
@@ -15,7 +15,7 @@ ms.author: eur
 [Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure AI Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 > [!TIP]
-> You can try speech to text and text to speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
+> You can also try speech to text and text to speech in [AI Studio](https://ai.azure.com) without signing up or writing any code.
 
 ## Speech Studio scenarios
 
@@ -49,8 +49,6 @@ In Speech Studio, the following Speech service features are available as project
 * [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text to speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for various scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
 
 * [Custom Keyword](https://aka.ms/speechstudio/customkeyword): A custom keyword is a word or short phrase that you can use to voice-activate a product. You create a custom keyword in Speech Studio, and then generate a binary file to [use with the Speech SDK](custom-keyword-basics.md) in your applications.
-
-* [Custom Commands](https://aka.ms/speechstudio/customcommands): Easily build rich, voice-command apps that are optimized for voice-first interaction experiences. Custom Commands provides a code-free authoring experience in Speech Studio, an automatic hosting model, and relatively lower complexity. The feature helps you focus on building the best solution for your voice-command scenarios. For more information, see the [Develop Custom Commands applications](how-to-develop-custom-commands-application.md) guide. Also see [Integrate with a client application by using the Speech SDK](how-to-custom-commands-setup-speech-sdk.md).
 
 ## Next steps
 

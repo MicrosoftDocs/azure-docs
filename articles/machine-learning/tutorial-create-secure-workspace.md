@@ -3,12 +3,12 @@ title: Create a secure workspace with a managed virtual network
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and required Azure services inside a managed virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
-ms.date: 08/11/2023
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 08/09/2024
 ms.topic: how-to
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -84,11 +84,11 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 
 Azure Bastion enables you to connect to the VM desktop through your browser.
 
-1. In the Azure portal, select the VM you created earlier. From the __Operations__ section of the page, select __Bastion__ and then __Deploy Bastion__.
+1. In the Azure portal, select the VM you created earlier. From the __Connect__ section of the page, select __Bastion__ and then __Deploy Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-deploy-bastion.png" alt-text="Screenshot of the deploy Bastion option.":::
 
-1. Once the Bastion service has been deployed, you're presented with a connection page. Leave this dialog for now.
+1. Once the Bastion service is deployed, you arrive at a connection dialog. Leave this dialog for now.
 
 ## Create a workspace
 
@@ -108,11 +108,11 @@ Azure Bastion enables you to connect to the VM desktop through your browser.
 
 1. From the __Create private endpoint__ form, enter a unique value in the __Name__ field. Select the __Virtual network__ created earlier with the VM, and select the default __Subnet__. Leave the rest of the fields at the default values. Select __OK__ to save the endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/private-endpoint-workspace.png" alt-text="Screenshot of the create private endpoint form.":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/private-endpoint-workspace.png" alt-text="Screenshot of the form to create a private endpoint.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-1. Once the workspace has been created, select __Go to resource__.
+1. Once the workspace is created, select __Go to resource__.
 
 ## Connect to the VM desktop
 
@@ -123,7 +123,7 @@ Azure Bastion enables you to connect to the VM desktop through your browser.
 
 ## Connect to studio
 
-At this point, the workspace has been created __but the managed virtual network has not__. The managed virtual network is _configured_ when you create the workspace, but it isn't created until you create the first compute resource or manually provision it.
+At this point, the workspace is created __but the managed virtual network is not__. The managed virtual network is _configured_ when you create the workspace. To _create_ the managed virtual network, create a compute resource or manually provision the network.
 
 Use the following steps to create a compute instance.
 
@@ -142,7 +142,7 @@ Use the following steps to create a compute instance.
 
 ### Enable studio access to storage
 
-Since the Azure Machine Learning studio partially runs in the web browser on the client, the client needs to be able to directly access the default storage account for the workspace to perform data operations. To enable this, use the following steps:
+Since the Azure Machine Learning studio partially runs in the web browser on the client, the client needs to be able to directly access the default storage account for the workspace to perform data operations. To enable direct access, use the following steps:
 
 1. From the [Azure portal](https://portal.azure.com), select the jump box VM you created earlier. From the __Overview__ section, copy the __Public IP address__.
 1. From the [Azure portal](https://portal.azure.com), select the workspace you created earlier. From the __Overview__ section, select the link for the __Storage__ entry.
@@ -177,6 +177,6 @@ To delete all resources created in this tutorial, use the following steps:
 
 ## Next steps
 
-Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
+Now that you have a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 For more information on the managed virtual network, see [Secure your workspace with a managed virtual network](how-to-managed-network.md).

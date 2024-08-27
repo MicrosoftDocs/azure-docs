@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
 
-author: timoklimmer
-ms.author: tklimmer
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: tklimmer
 ms.date: 04/17/2024
 ---
 

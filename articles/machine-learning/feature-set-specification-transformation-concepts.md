@@ -2,12 +2,12 @@
 title: Feature set specification transformation concepts
 titleSuffix: Azure Machine Learning
 description: The feature set specification, transformations, and best practices.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: yogipandey
 ms.date: 12/06/2023
 ms.custom: template-concept
 ---

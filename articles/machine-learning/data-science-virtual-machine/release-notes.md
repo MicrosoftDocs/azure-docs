@@ -2,12 +2,11 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
-author: jesscioffi
 ms.service: data-science-vm
 ms.custom: linux-related-content
-
-ms.author: jcioffi
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: jcioffi
 ms.date: 05/21/2024
 ms.topic: reference
 ---

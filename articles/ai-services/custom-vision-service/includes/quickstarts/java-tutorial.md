@@ -103,7 +103,7 @@ In the application's **CustomVisionQuickstart** class, create variables that ret
 > You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Azure AI services [security](../../../security-features.md) article for more information.
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). See the Azure AI services [security](../../../security-features.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later.
 
@@ -199,7 +199,7 @@ gradle run
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]

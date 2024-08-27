@@ -3,7 +3,7 @@ title: 'Add scale units for host scaling: Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to add more instances (scale units) to Azure Bastion.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc

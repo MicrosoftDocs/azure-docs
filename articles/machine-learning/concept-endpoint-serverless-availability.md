@@ -3,14 +3,13 @@ title: Region availability for models in Serverless API endpoints
 titleSuffix: Azure Machine Learning
 description: Learn about the regions where each model is available for deployment in serverless API endpoints.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
  - serverless
@@ -25,10 +24,10 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-[!INCLUDE [region-availabilitity-serverless-api](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/region-availabilitity-serverless-api.md)]
+Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "Hub/Project Region" columns in the following tables).
 
-> [!NOTE]
-> Models offered through the Azure Marketplace are available for purchase only on [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions), with exception of Cohere family of models, which is also available in Japan.
+[!INCLUDE [region-availability-maas](../ai-studio/includes/region-availability-maas.md)]
+
 
 ## Alternatives to region availability
 

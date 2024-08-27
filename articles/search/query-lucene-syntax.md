@@ -24,7 +24,7 @@ To use full Lucene syntax, set the queryType to `full` and pass in a query expre
 The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term `budget`. Any documents containing the phrase `"recently renovated"` are ranked higher as a result of the term boost value (3).  
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
+POST /indexes/hotels-sample-index/docs/search?api-version=2024-07-01
 {
   "queryType": "full",
   "search": "category:budget AND \"recently renovated\"^3",
@@ -148,7 +148,7 @@ If you get syntax errors in your regular expression, review the [escape rules](#
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
-You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix, infix, and suffix matching. 
+You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix and infix matching. Use [regular expression](#bkmk_regex) syntax for suffix matching. 
 
 Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
@@ -163,7 +163,7 @@ You can combine operators in one expression. For example, `980?2*` matches on `9
 Suffix matching requires the regular expression forward slash `/` delimiters. Generally, you can’t use a `*` or `?` symbol as the first character of a term, without the `/`. It's also important to note that the `*` behaves differently when used outside of regex queries. Outside of the regex forward slash `/` delimiter, the `*` is a wildcard character and matches any series of characters much like `.*` in regex. As an example, `search=/non.*al/` produces the same result set as `search=non*al`.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#optimizing-prefix-and-suffix-queries).
 >
 
 ### Effect of an analyzer on wildcard queries

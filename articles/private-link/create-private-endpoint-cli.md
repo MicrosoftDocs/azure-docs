@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - Azure CLI'
 description: In this quickstart, you learn how to create a private endpoint using the Azure CLI.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 06/14/2023
 ms.author: abell
@@ -50,7 +50,7 @@ az group create \
 A virtual network and subnet is required for to host the private IP address for the private endpoint. You create a bastion host to connect securely to the virtual machine to test the private endpoint. You create the virtual machine in a later section.
 
 >[!NOTE]
->[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 Create a virtual network with **[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)**.
 
@@ -201,7 +201,7 @@ az vm create \
 >[!NOTE]
 >Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test connectivity to the private endpoint
 

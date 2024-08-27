@@ -1,9 +1,9 @@
 ---
 title: Manage disk space in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for managing disk space issues when interacting with Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Manage disk space in Azure HDInsight
@@ -34,7 +34,7 @@ Review the following configurations:
 
 * Ensure that the cluster size is appropriate for the workload. The workload might have changed recently or the cluster might have been resized. [Scale up](../hdinsight-scaling-best-practices.md) the cluster to match a higher workload.
 
-* `/mnt/resource` might be filled with orphaned files (as if resource manager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
+* `/mnt/resource` might be filled with orphaned files (as if Resource Manager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
 
 ## Next steps
 
@@ -42,6 +42,6 @@ If you didn't see your problem, or are unable to solve your issue, visit one of 
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

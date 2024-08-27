@@ -3,12 +3,11 @@ title: Authenticate clients for online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to authenticate clients for an Azure Machine Learning online endpoint.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 04/23/2024
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, sdkv2, devx-track-azurecli, build-2024
@@ -211,7 +210,7 @@ __From an Azure virtual machine__
 
 You can acquire the token based on the managed identity for an Azure VM (when the VM enables a managed identity). 
 
-1. To get the Microsoft Entra token (`aad_token`) for the control plane operation on the Azure VM, submit the request to the [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md) (IMDS) endpoint for the Azure resource endpoint `management.azure.com`:
+1. To get the Microsoft Entra token (`aad_token`) for the control plane operation on the Azure VM, submit the request to the [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service) (IMDS) endpoint for the Azure resource endpoint `management.azure.com`:
 
     ```bash
     export CONTROL_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s | jq -r '.access_token' )`
@@ -581,7 +580,7 @@ ___From an Azure virtual machine___
 
 You can acquire the token based on the managed identities for an Azure VM (when the VM enables a managed identity). 
 
-1. To get the Microsoft Entra token (`aad_token`) for the _data plane_ operation on the Azure VM with managed identity, submit the request to the [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md) (IMDS) endpoint for the Azure resource endpoint `ml.azure.com`:
+1. To get the Microsoft Entra token (`aad_token`) for the _data plane_ operation on the Azure VM with managed identity, submit the request to the [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service) (IMDS) endpoint for the Azure resource endpoint `ml.azure.com`:
 
     ```bash
     export DATA_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s | jq -r '.access_token' )`

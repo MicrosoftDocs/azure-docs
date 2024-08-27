@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 08/19/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -144,15 +144,12 @@ After enabling Microsoft Entra Kerberos authentication, you'll need to explicitl
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
 1. Open **Microsoft Entra ID**.
-2. Select **App registrations** on the left pane.
-3. Select **All Applications**.
-
-   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Microsoft Entra ID is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png":::
-
-4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
-5. Select **API permissions** in the left pane.
-6. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
-7. Select **Yes** to confirm.
+1. In the service menu, under **Manage**, select **App registrations**.
+1. Select **All Applications**.
+1. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
+1. In the service menu, under **Manage**, select **API permissions**.
+1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
+1. Select **Yes** to confirm.
 
   > [!IMPORTANT]
   > If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).

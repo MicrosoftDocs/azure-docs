@@ -20,17 +20,10 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 
 - Obtain the Resource ID of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, clicking `JSON View` in the top right, and copying the value of `Resource ID`. Note this as `APC_IDENTIFIER`.
 - Obtain the URL of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, and obtaining the `Gateway base URL` under Properties. Note this as `APC_URL`.
-
-## Obtain an authentication token
-
-1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
-    - For the step "Assign a role to the application", go to the APC Gateway in the Azure portal and follow the instructions from `3. Select Access Control (IAM)` onwards. Assign the new App registration the `Azure Programmable Connectivity Gateway Dataplane User` role.
-    - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
-    - After you have created the App registration, copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
-2. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
-3. Obtain a token from your App Registration. This can be done using an HTTP request, following the instructions in the [documentation](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret). Alternatively, you can use an SDK (such as those for [Python](/entra/msal/python/), [.NET](/entra/msal/dotnet/), and [Java](/entra/msal/java/)). 
-    - When asked for `client_id`, `client_secret`, and `tenant`, use the values obtained in this process. Use `https://management.azure.com//.default` as the scope. 
-4. Note the value of the token you have obtained as `APC_AUTH_TOKEN`.
+- APC uses [Azure RBAC](/azure/role-based-access-control/overview) to control access. Choose the identity that you are going to use to access APC. This can be your own user identity, a [Service Principal](/entra/identity-platform/app-objects-and-service-principals), or a [Managed Identity](/entra/identity/managed-identities-azure-resources/overview). Add the role assignment `Azure Programmable Connectivity Gateway Dataplane User` for your chosen identity over a scope that includes your APC Gateway (e.g. the APC Gateway itself, the Resource Group that contains it, or the Subscription that contains it). For more details, see the following instructions:
+  - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+  - [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+  - [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
 ## Use an API
 
@@ -40,17 +33,6 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 
 - Phone number: a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
 - Hashed phone number: the SHA-256 hash, in hexadecimal representation, of a phone number
-
-#### Headers
-
-All requests must contain the following headers:
-
-- `Authorization`: This must have the value of `<APC_AUTH_TOKEN>` obtained in [Obtain an authentication token](#obtain-an-authentication-token).
-- `apc-gateway-id`: This must have the value of `<APC_IDENTIFIER>` obtained in [Prerequisites](#prerequisites).
-
-Requests may also contain the following optional header:
-
-- `x-ms-client-request-id`: This is a unique ID to identify the specific request. This is useful for diagnosing and fixing errors.
 
 #### Network identifier
 
@@ -63,17 +45,45 @@ APC can identify the correct Network in one of three ways:
 
 | Operator | NetworkCode |
 | -------- | ----------- |
-| Claro Brazil | Claro_Brazil |
-| Telefonica Brazil | Telefonica_Brazil |
-| TIM Brazil | Tim_Brazil |
-| Orange Spain | Orange_Spain |
 | Telefonica Spain | Telefonica_Spain |
 
-### Retrieve the last time that a SIM card was changed
+### Contact APC using an SDK
 
-Make a POST request to the endpoint `https://<APC_URL>/sim-swap/sim-swap:verify`.
+You can use a .NET SDK to contact APC. For more information and usage samples, see the [documentation](/dotnet/api/overview/azure/communication.programmableconnectivity-readme).
 
-It must contain all common headers specified in [Headers](#headers).
+If you use the .NET SDK, it is recommended that you also use the [.NET Entra Authentication SDK](/entra/msal/dotnet/).
+
+### Contact APC using HTTP requests
+
+#### Obtain an auth token
+
+To contact APC using HTTP requests, you must obtain an auth token, and set the header `Authorization` to the value of this token. There are numerous ways to do this. Some examples are shown below.
+
+# [Obtain a token for a Service Principal](#tab/service-principal) 
+
+To obtain a token for a Service Principal, follow instructions in the [Entra documentation](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#get-a-token)
+
+# [Obtain a token for your own user identity](#tab/user-identity)
+
+Obtain a token for your own user identity using the Azure CLI command [get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true) or the PowerShell command [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken). Set the `--resource` parameter (in Azure CLI) or the `-ResourceUrl` parameter (in PowerShell) to `https://management.azure.com/`.
+
+---
+
+#### Set other headers
+
+All requests must contain the following header:
+
+- `apc-gateway-id`: This must have the value of `<APC_IDENTIFIER>` obtained in [Prerequisites](#prerequisites).
+
+Requests may also contain the following optional header:
+
+- `x-ms-client-request-id`: This is a unique ID to identify the specific request. This is useful for diagnosing and fixing errors.
+
+#### Retrieve the last time that a SIM card was changed
+
+Make a POST request to the endpoint `https://<APC_URL>/sim-swap/sim-swap:retrieve`.
+
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take the following form. Replace the example values with real values.
 
@@ -101,11 +111,11 @@ The response is of the form:
 
 `date` contains the timestamp of the most recent SIM swap in the `date-time` format defined in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6). `date` may be `null`: this means that the SIM has never been swapped, or has not been swapped within the timeframe that the Operator maintains data for.
 
-### Verify that a SIM card has been swapped in a certain time frame
+#### Verify that a SIM card has been swapped in a certain time frame
 
-Make a POST request to the endpoint `https://<APC_URL>/sim-swap/sim-swap:retrieve`.
+Make a POST request to the endpoint `https://<APC_URL>/sim-swap/sim-swap:verify`.
 
-It must contain all common headers specified in [Headers](#headers).
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take the following form. Replace the example values with real values.
 
@@ -136,11 +146,11 @@ The response is of the form:
 
 `verificationResult` is a boolean, which is true if the SIM has been swapped in the specified time period, and false otherwise.
 
-### Verify the location of a device
+#### Verify the location of a device
 
 Make a POST request to the endpoint `https://<APC_URL>/device-location/location:verify`.
 
-It must contain all common headers specified in [Headers](#headers).
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take one of the following forms, which vary on the format used to identify the device. Replace the example values with real values.
 
@@ -234,17 +244,17 @@ The response is of the form:
 
 `verificationResult` is a boolean, which is true if the device is within a certain distance (given by `accuracy`) of the given location, and false otherwise.
 
-### Verify the number of a device
+#### Verify the number of a device
 
 Number verification is different to other APIs, as it requires interaction with a frontend application (i.e. an application running on a device) to verify the number of that device, as part of a flow referred to as "frontend authorization". This means two separate calls to APC must be made: the first to trigger frontend authorization, and the second to request the desired information.
 
 To use number verification functionality, you must expose an endpoint on the backend of your application that is accessible from your application's frontend. This endpoint is used to pass the result of frontend authorization to the backend of your application. Note the full URL to this endpoint as `REDIRECT_URI`.
 
-#### Call 1
+##### Frontend authorization call
 
 Make a POST request to the endpoint `https://<APC_URL>/number-verification/number:verify`.
 
-It must contain all common headers specified in [Headers](#headers).
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take one of the following forms. Replace the example values with real values.
 
@@ -284,13 +294,13 @@ At the end of the authorization flow, the Network returns a 302 redirect. This r
 
 The frontend of your application must follow this `redirectUri`. This delivers the `apcCode` to your application's backend.
 
-#### Call 2
+##### Number Verification call
 
 At the end of Call 1, your frontend made a request to the endpoint exposed at `redirectUri` with a parameter `apcCode`. Your backend must obtain the value of `apcCode` and use it in the second call to APC.
 
 Make a POST request to the endpoint `https://<APC_URL>/number-verification/number:verify`.
 
-It must contain all common headers specified in [Headers](#headers).
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take the following form. Replace the value of `apcCode` with the value obtained as a result of the authorization flow. 
 
@@ -310,11 +320,11 @@ The response is of the form:
 
 `verificationResult` is a boolean, which is true if the device has the number (or hashed number) specified in Call 1, and false otherwise.
 
-### Obtain the Network of a device
+#### Obtain the network of a device
 
 Make a POST request to the endpoint `https://<APC_URL>/device-network/network:retrieve`.
 
-It must contain all common headers specified in [Headers](#headers).
+It must contain a [bearer token](#obtain-an-auth-token) and [other required headers](#set-other-headers).
 
 The body of the request must take the following form. Replace the example values with real values.
 

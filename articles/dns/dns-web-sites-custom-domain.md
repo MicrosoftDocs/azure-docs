@@ -3,7 +3,7 @@ title: 'Tutorial: Create custom Azure DNS records for a web app'
 description: In this tutorial, you learn how to create custom domain DNS records for web apps using Azure DNS.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
 ms.author: greglin 
@@ -46,9 +46,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 > [!NOTE]
 > In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Sign in to Azure
 

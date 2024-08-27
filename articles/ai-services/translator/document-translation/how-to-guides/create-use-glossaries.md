@@ -6,7 +6,7 @@ ms.service: azure-ai-translator
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ---
 
 # Use glossaries with Document Translation
@@ -25,7 +25,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
    To check if your file format is supported, *see* [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
 
-    The following English-source glossary contains words that can have different meanings depending upon the context in which they're used. The glossary provides the expected translation for each word in the file to help ensure accuracy.
+    The following English-source glossary contains words that can have different meanings depending upon the context. The glossary provides the expected translation for each word in the file to help ensure accuracy.
 
    For instance, when the word `Bank` appears in a financial document, it should be translated to reflect its financial meaning. If the word `Bank` appears in a geographical document, it may refer to shore to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a bird or machine.
 

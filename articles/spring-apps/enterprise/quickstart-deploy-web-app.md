@@ -2,7 +2,7 @@
 title: Quickstart - Deploy your first web application to Azure Spring Apps
 description: Describes how to deploy a web application to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 10/31/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
@@ -26,7 +26,7 @@ This application is a typical three-layers web application with the following la
 
 - A frontend bounded [React](https://reactjs.org/) application.
 - A backend Spring web application that uses Spring Data JPA to access a relational database.
-- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PostgreSQL. For more information about Azure Database for PostgreSQL, see [Flexible Server documentation](../../postgresql/flexible-server/overview.md).
+- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PostgreSQL. For more information about Azure Database for PostgreSQL, see [Flexible Server documentation](/azure/postgresql/flexible-server/overview).
 
 The following diagram shows the architecture of the system:
 

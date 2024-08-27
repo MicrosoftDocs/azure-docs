@@ -44,7 +44,7 @@ You need the `synapseml` library and several Azure resources. If possible, use t
 
 <sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For billable tiers, provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#step-2-set-up-dependencies) step further on.
 
-<sup>3</sup> This tutorial uses Azure AI Document Intelligence and Azure AI Translator. In the instructions that follow, provide a [multi-service key](../ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) and the region. The same key works for both services.
+<sup>3</sup> This tutorial uses Azure AI Document Intelligence and Azure AI Translator. In the instructions that follow, provide a [multi-service](../ai-services/multi-service-resource.md?pivots=azportal) key and the region. The same key works for both services.
 
 <sup>4</sup> In this tutorial, Azure Databricks provides the Spark computing platform. We used the [portal instructions](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) to set up the workspace.
 
@@ -258,7 +258,7 @@ This particular example is searching for the word "door" (`"search": "door"`). I
 ```python
 import requests
 
-url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-30".format(search_service, search_index)
+url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2024-07-01".format(search_service, search_index)
 requests.post(url, json={"search": "door", "count": "true", "select": "Description, Translations"}, headers={"api-key": search_key}).json()
 ```
 

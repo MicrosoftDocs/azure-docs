@@ -3,7 +3,7 @@ title: 'Tutorial: Configure an Application Gateway with TLS termination using th
 description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: greglin
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

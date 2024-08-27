@@ -3,9 +3,9 @@ title: 'QuickStart: Create and configure Azure DDoS IP Protection - PowerShell'
 description: Learn how to create Azure DDoS IP Protection using PowerShell
 author: AbdullahBell
 ms.author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 03/18/2024
+ms.date: 07/17/2024
 ms.custom: template-quickstart, devx-track-azurepowershell
 ---
 
@@ -22,9 +22,9 @@ In this QuickStart, you'll enable DDoS IP protection and link it to a public IP 
 - Azure PowerShell installed locally or Azure Cloud Shell 
 - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 9.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 
 ## Enable DDoS IP Protection for a public IP address

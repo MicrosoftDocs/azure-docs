@@ -3,7 +3,7 @@ title: Azure table indexer
 titleSuffix: Azure AI Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure AI Search.
 
-manager: nitinme
+manager: vinodva
 author: mgottein
 ms.author: magottei
 
@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 08/23/2024
 ---
 
 # Index data from Azure Table Storage
@@ -37,7 +37,7 @@ The data source definition specifies the source data to index, credentials, and 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition:
 
    ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2023-11-01 
+    POST https://[service name].search.windows.net/datasources?api-version=2024-07-01 
     {
         "name": "my-table-storage-ds",
         "description": null,
@@ -123,7 +123,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2023-11-01 
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01 
     {
       "name" : "my-search-index",
       "fields": [
@@ -163,7 +163,7 @@ Once you have an index and data source, you're ready to create the indexer. Inde
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     {
         "name" : "my-table-indexer",
         "dataSourceName" : "my-table-storage-ds",
@@ -174,7 +174,6 @@ Once you have an index and data source, you're ready to create the indexer. Inde
             "batchSize" : null,
             "maxFailedItems" : null,
             "maxFailedItemsPerBatch" : null,
-            "base64EncodeKeys" : null,
             "configuration" : { }
         },
         "fieldMappings" : [ ],
@@ -203,7 +202,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```

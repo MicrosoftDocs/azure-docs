@@ -3,17 +3,17 @@ title: 'Configure vender-specific attributes for P2S User Groups - RADIUS'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure RADIUS/NPS for user groups to assign IP addresses from specific address pools based on identity or authentication credentials.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 05/29/2023
+ms.date: 07/16/2024
 ms.author: cherylmc
 
 ---
 # RADIUS - Configure NPS for vendor-specific attributes - P2S user groups
 
-The following section describes how to configure Windows Server Network Policy Server (NPS) to authenticate users to respond to Access-Request messages with the Vendor Specific Attribute (VSA) used for user group support in Virtual WAN point-to-site-VPN. The following steps assume that your Network Policy Server is already registered to Active Directory. The steps may vary depending on the vendor/version of your NPS server.
+The following section describes how to configure Windows Server Network Policy Server (NPS) to authenticate users to respond to Access-Request messages with the Vendor Specific Attribute (VSA) used for user group support in Virtual WAN point-to-site-VPN. The following steps assume that your Network Policy Server is already registered to Active Directory. The steps might vary depending on the vendor/version of your NPS server.
 
-The following steps describe setting up single Network Policy on the NPS server. The NPS server will reply with the specified VSA for all users who match this policy, and the value of this VSA can be used on your point-to-site VPN gateway in Virtual WAN.
+The following steps describe setting up single Network Policy on the NPS server. The NPS server replies with the specified VSA for all users who match this policy, and the value of this VSA can be used on your point-to-site VPN gateway in Virtual WAN.
 
 ## Configure
 
@@ -21,13 +21,13 @@ The following steps describe setting up single Network Policy on the NPS server.
 
    :::image type="content" source="./media/user-groups-radius/network-policy-server.png" alt-text="Screenshot of new network policy." lightbox="./media/user-groups-radius/network-policy-server.png":::
 
-1. In the wizard, select **Access granted** to ensure your RADIUS server can send Access-Accept messages after authentication users. Then, click **Next**.
+1. In the wizard, select **Access granted** to ensure your RADIUS server can send Access-Accept messages after authenticating users. Then, click **Next**.
 
 1. Name the policy and select **Remote Access Server (VPN-Dial up)** as the network access server type. Then, click **Next**.
 
    :::image type="content" source="./media/user-groups-radius/policy-name.png" alt-text="Screenshot of policy name field." lightbox="./media/user-groups-radius/policy-name.png":::
 
-1. On the **Specify Conditions** page, click **Add** to select a condition. Then, select **User Groups** as the condition and click **Add**. You may also use other Network Policy conditions that are supported by your RADIUS server vendor.
+1. On the **Specify Conditions** page, click **Add** to select a condition. Then, select **User Groups** as the condition and click **Add**. You can also use other Network Policy conditions that are supported by your RADIUS server vendor.
 
    :::image type="content" source="./media/user-groups-radius/specify.png" alt-text="Screenshot of specifying conditions for User Groups." lightbox="./media/user-groups-radius/specify.png":::
 

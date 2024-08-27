@@ -3,11 +3,11 @@ title: Attach a secured Azure Databricks compute
 titleSuffix: Azure Machine Learning
 description: Use a private endpoint to attach an Azure Databricks compute to an Azure Machine Learning workspace configured for network isolation.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 06/11/2024
 ms.topic: how-to
 ms.custom: security

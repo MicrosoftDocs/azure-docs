@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/20/2024
 ms.author: duau
@@ -125,9 +125,7 @@ ExpressRoute can't be configured as transit routers. You have to rely on your co
 
 Default routes are permitted only on Azure private peering sessions. In such a case, ExpressRoute routes all traffic from the associated virtual networks to your network. Advertising default routes into private peering results in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
 
-To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
-
-* You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+Some services are not able to be accessed from your corporate edge.  To enable connectivity to other Azure services and infrastructure services, you must use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity for these services.
 
 > [!NOTE]
 > Advertising default routes will break Windows and other VM license activation. For information about a work around, see [use user defined routes to enable KMS activation](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
@@ -138,6 +136,9 @@ To enable connectivity to other Azure services and infrastructure services, you 
 This section provides an overview of how BGP communities get used with ExpressRoute. Microsoft advertises routes in the private, Microsoft and public (deprecated) peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are describe as followed. Microsoft, however, doesn't honor any community values tagged to routes advertised to Microsoft.
 
 For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
+
+> [!NOTE]
+> In order for Azure routes to show regional BGP community values, you first must configure the custom BGP community value for the virtual network.
 
 For Microsoft peering, you're connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region. You also have access to all Microsoft cloud services across all regions within the geopolitical boundary.
 

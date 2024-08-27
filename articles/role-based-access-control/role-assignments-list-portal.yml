@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 01/30/2024
+  ms.date: 08/01/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -19,6 +19,10 @@ introduction: |
 
   > [!NOTE]
   > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.
+
+prerequisites:
+  summary: |
+      `Microsoft.Authorization/roleAssignments/read` permission, such as [Reader](./built-in-roles/general.md#reader)
 
 procedureSection:
   - title: |
@@ -86,6 +90,11 @@ procedureSection:
   - title: |
       List role assignments at a scope
     summary: |
+
+      > [!IMPORTANT]
+      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
       Follow these steps:
     steps:
       - |
@@ -95,11 +104,32 @@ procedureSection:
       - |
         Click **Access control (IAM)**.
       - |
-        Click the **Role assignments** tab to view all the role assignments at this scope.
+        Click the **Role assignments** tab to view the role assignments at this scope.
 
-        ![Screenshot of Access control and Role assignments tab.](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
+        If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, your **Role assignments** tab is similar to the following screenshot.
 
-        On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
+        :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
+
+        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, your **Role assignments** tab is similar to the following screenshot for management group, subscription, and resource group scopes. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+
+        :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
+
+        You see a **State** column with one of the following states:
+
+        | State | Description |
+        | --- | --- | 
+        | Active permanent | A role assignment where a user can always use the role without performing any actions. |
+        | Active time-bound | A role assignment where a user can use the role without performing any actions only within start and end dates. |
+        | Eligible permanent | A role assignment where a user is always eligible to activate the role. |
+        | Eligible time-bound | A role assignment where a user is eligible to activate the role only within start and end dates. |
+
+        It's possible to set the start date in the future.
+
+        If you want to list the start time and end time for role assignments, click **Edit columns** and then select **Start time** and **End time**.
+
+        :::image type="content" source="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png" alt-text="Screenshot of Columns pane showing Start time and End time check boxes." lightbox="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png":::
+
+        Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 
   - title: |
       List role assignments for a user at a scope
@@ -169,7 +199,7 @@ procedureSection:
   - title: | 
       List number of role assignments
     summary: |
-        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
         ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

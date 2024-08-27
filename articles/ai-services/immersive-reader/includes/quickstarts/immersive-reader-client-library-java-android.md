@@ -59,7 +59,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 :::image type="content" source="../../media/android/java/android-studio-assets-and-env-file.png" alt-text="Screenshot of Environment variables in Android Studio.":::
 
 > [!IMPORTANT]
-> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Add dependencies
 

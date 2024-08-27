@@ -3,7 +3,6 @@ title: Troubleshoot the Azure Cosmos DB connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 01/05/2024
@@ -77,7 +76,7 @@ If reducing the *write batch size* value to 1 still doesn't work, change your Az
     Message=Message: {"Errors":["Request rate is large"]}`
 
 - **Cause**: The number of used request units (RUs) is greater than the available RUs configured in Azure Cosmos DB. To learn how
-Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos-db/request-units.md#request-unit-considerations).
+Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units#request-unit-considerations).
 
 - **Resolution**: Try either of the following two solutions:
 
@@ -114,7 +113,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: A problem with the CosmosDbSqlApi operation.  This applies to the Azure Cosmos DB for NoSQL connector specifically.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](../cosmos-db/troubleshoot-dot-net-sdk.md). For further help, contact the Azure Cosmos DB team.
+- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
 
 ## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
 
@@ -122,7 +121,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The data size of each logical partition is limited, and the partition key reached the maximum size of your logical partition.
 
-- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
+- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](/azure/cosmos-db/partitioning-overview#logical-partitions).
 
 ## Related content
 
@@ -134,4 +133,4 @@ For more troubleshooting help, try these resources:
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

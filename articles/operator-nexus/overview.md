@@ -50,11 +50,11 @@ Here are important points about the architecture:
 
 Here are some key features of Azure Operator Nexus.
 
-### CBL-Mariner
+### Azure Linux
 
-Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) on the bare-metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
+Azure Operator Nexus runs Microsoft's own Linux distribution called [Azure Linux (formerly CBL-Mariner)](https://github.com/microsoft/azurelinux) on the bare-metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
 
-CBL-Mariner is a lightweight operating system. It consumes limited system resources and is engineered to be efficient. For example, it has a fast startup time with a small footprint and locked-down packages to reduce the threat landscape.
+Azure Linux is a lightweight operating system. It consumes limited system resources and is engineered to be efficient. For example, it has a fast startup time with a small footprint and locked-down packages to reduce the threat landscape.
 
 When Microsoft identifies a security vulnerability, it makes the latest security patches and fixes available with the goal of fast turnaround time. Running the infrastructure on Linux aligns with NF needs, telecommunication industry trends, and relevant open-source communications.
 
@@ -68,7 +68,7 @@ One important component of the service is the [cluster manager](./howto-cluster-
 
 Azure Operator Nexus includes [network fabric automation](./howto-configure-network-fabric-controller.md), which enables operators to build, operate, and manage carrier-grade network fabrics.
 
-The reliable and distributed cloud services model supports the operators' telco network functions. Operators can interact with Azure Operator Nexus to provision the network fabric via zero-touch provisioning (ZTP). They can also perform complex network implementations via a workflow-driven API model.
+The reliable and distributed cloud services model supports the operators' network functions. Operators can interact with Azure Operator Nexus to provision the network fabric via zero-touch provisioning (ZTP). They can also perform complex network implementations via a workflow-driven API model.
 
 ### Network packet broker
 

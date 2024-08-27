@@ -4,7 +4,7 @@ description: Learn how to import an OpenAPI specification to an API Management i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep
@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 
 * Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## <a name="create-api"> </a>Import a backend API
 

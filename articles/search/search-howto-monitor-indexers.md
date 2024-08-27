@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 06/25/2024
 ---
 
 # Monitor indexer status and results in Azure AI Search
@@ -66,10 +66,10 @@ You can also configure the graph to see the number of skill invocations over the
 
 ## Monitor using Get Indexer Status (REST API)
 
-You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](/rest/api/searchservice/get-indexer-status):
+You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](/rest/api/searchservice/indexers/get-status):
 
 ```http
-GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
+GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2024-07-01
 api-key: [Search service admin key]
 ```
 
@@ -111,7 +111,7 @@ Each run of the indexer also has its own status that indicates whether that spec
 
 When an indexer is reset to refresh its change tracking state, a separate execution history entry is added with a **Reset** status.
 
-For more information about status codes and indexer monitoring data, see [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
+For more information about status codes and indexer monitoring data, see [Get Indexer Status](/rest/api/searchservice/indexers/get-status).
 
 ## Monitor using .NET
 
@@ -171,7 +171,7 @@ When an indexer is reset to refresh its change tracking state, a separate histor
 
 For more information about status codes and indexer monitoring information, see the following API reference:
 
-* [GetIndexerStatus (REST API)](/rest/api/searchservice/get-indexer-status)
+* [Indexers - Get Status (REST API)](/rest/api/searchservice/indexers/get-status)
 * [IndexerStatus](/dotnet/api/azure.search.documents.indexes.models.indexerstatus)
 * [IndexerExecutionStatus](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionstatus)
 * [IndexerExecutionResult](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionresult)

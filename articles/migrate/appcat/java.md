@@ -5,73 +5,91 @@ author: KarlErickson
 ms.author: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
-ms.topic: conceptual
-ms.date: 03/25/2024
+ms.topic: overview
+ms.date: 07/12/2024
+#customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
 # Azure Migrate application and code assessment for Java
 
-This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure.
+This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
-`appcat` is a command-line tool from Azure Migrate to assess Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
+The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
 
-`appcat` discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE 10, Quarkus, Spring, and so on. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
+This tool is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
-`appcat` is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
+## Overview
 
-## When should I use Azure Migrate application and code assessment?
+The tool is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
-`appcat` is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
-
-With `appcat`, you can do the following tasks:
+With it, you can perform the following tasks:
 
 * Discover technology usage: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
-* Assess the code to a specific target: Assess an application for a specific Azure target. Check the effort and the modifications you have to do in order to replatform your applications to Azure.
+* Assess the code to a specific target: Assess an application for a specific Azure target. Check the effort and the modifications you have to do to replatform your applications to Azure.
 
-### Supported Azure targets
+### Supported targets
 
-The tool contains rules for helping you replatform your applications so you can deploy to and use the following Azure services.
+The tool contains rules for helping you replatform your applications so you can deploy to, and use, different Azure services.
 
-You can use the following services as deployment targets:
+The rules used by Azure Migrate application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
 
-* Azure App Service
-* Azure Spring Apps
-* Azure Kubernetes Service
-* Azure Container Apps
-* cloud-readiness
-* discovery
-* linux
-* openjdk11
-* openjdk17
-* openjdk21
+| Target                   | Description                                                            | ID                     |
+|--------------------------|------------------------------------------------------------------------|------------------------|
+| Azure App Service        | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
+| Azure Spring Apps        | Best practices for deploying an app to Azure Spring Apps.              | `azure-spring-apps`    |
+| Azure Kubernetes Service | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
+| Azure Container Apps     | Best practices for deploying an app to Azure Container Apps.           | `azure-container-apps` |
+| Cloud Readiness          | General best practices for making an application Cloud (Azure) ready.  | `cloud-readiness`      |
+| Discovery                | Identifies technology usage such as libraries and frameworks.          | `discovery`            |
+| Linux                    | General best practices for making an application Linux ready.          | `linux`                |
+| OpenJDK 11               | General best practices for running a Java 8 application with Java 11.  | `openjdk11`            |
+| OpenJDK 17               | General best practices for running a Java 11 application with Java 17. | `openjdk17`            |
+| OpenJDK 21               | General best practices for running a Java 17 application with Java 21. | `openjdk21`            |
 
-You can use the following services as resource services:
+When the tool assesses for Cloud Readiness and related Azure services, it can also report useful information for potential usage of different Azure services. The following list shows a few of the services covered:
 
 * Azure Databases
 * Azure Service Bus
 * Azure Storage
-* Azure CDN
+* Azure Content Delivery Network
 * Azure Event Hubs
 * Azure Key Vault
+* Azure Front Door
 
-## Use Azure Migrate application and code assessment for Java
+## Download
 
-To use `appcat`, you must download the ZIP file described in the next section, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
-
-### Download latest release
-
-The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
+To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+> [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
 
-#### Previous release
+For more information, see the [Release notes](#release-notes) section.
 
- - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip)
+#### Known issues
 
-### Run appcat
+Certain rules might not be triggered when parsing specific Lambda expressions. For more information, see [the GitHub issue](https://github.com/konveyor/rulesets/issues/102).
 
-Unzip the zip file in a folder of your choice. You then get the following directory structure:
+Running `appcat` in a non-unicode environment with complex double-byte characters will cause corruption. For workarounds, see [the GitHub issue](https://github.com/Azure/appcat-rulesets/issues/183).
+
+#### Previous releases
+
+The following previous releases are also available for download:
+
+ - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
+ - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
+
+## Get started
+
+To run `appcat`, make sure you have a supported JDK installed. The tool supports the following JDKs:
+
+* Microsoft Build of OpenJDK 11
+* Microsoft Build of OpenJDK 17
+* Eclipse Temurin™ JDK 11
+* Eclipse Temurin™ JDK 17
+
+After you have a valid JDK installed, make sure its installation directory is properly configured in the `JAVA_HOME` environment variable.
+
+To continue, download and unzip the package in a folder of your choice. You then get the following directory structure:
 
 ```
 appcat-cli-<version>    # APPCAT_HOME
@@ -90,7 +108,6 @@ appcat-cli-<version>    # APPCAT_HOME
       ├── run-assessment-openjdk21
       ├── run-assessment-zip-report
       └── run-discovery
-        
 ```
 
 * *docs*: This directory contains the documentation of `appcat`.
@@ -112,23 +129,27 @@ The following guides provide the main documentation for `appcat` for Java:
 * [CLI Usage Guide](https://azure.github.io/appcat-docs/cli/)
 * [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/)
 
-## Discover technology usage without an Azure target in mind
+### Discover technology usage and Cloud readiness without an Azure service in mind
 
-Discovery of technologies is the first stage of application replatform and modernization. During the *discovery* phase, `appcat` scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies. This information is used to create a detailed inventory of the application and its components (see the [Discovery report](#discovery-report) section), which serves as the basis for further analysis and planning.
+Discovery of technologies and Cloud readiness targets provide great insight into application replatform and modernization to the Cloud. The tool scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies. It also finds potential issues that might be challenging in a Cloud environment. The `discovery` target in particular is used to create a detailed inventory of the application and its components. This inventory serves as the basis for further analysis and planning. For more information, see the [Discovery report](#discovery-report) section.
 
-Use the following command to initiate discovery:
+Use the following command to initiate discovery and cloud readiness:
 
 ```bash
 ./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
-    --target discovery
+    --target discovery cloud-readiness
 ```
 
-The discovery phase is useful when you don't have a specific Azure target in mind. Otherwise, `appcat` runs discovery implicitly for any Azure target.
+This type of report is useful when you don't have a specific Azure service in mind to deploy your application to. 
 
-## Assess a Java application for a specific target
+The tool always performs the `discovery` whether or not you include that value in the `--target` parameter.
 
-The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target or OpenJDK target.
+### Assess a Java application
+
+The *assessment* phase is where the `appcat` CLI analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected targets.
+
+You can select multiple targets by using a space-delimited list of values with the `--target` argument.
 
 To check the available targets, run the following command:
 
@@ -152,21 +173,36 @@ Available target technologies:
     openjdk21
 ```
 
-Then, you can run `appcat` using one of the available Azure targets, as shown in the following example:
+Then, you can run `appcat` using one or a combination of available targets, as shown in the following example:
 
 ```bash
 ./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
-    --target azure-appservice
+    --target cloud-readiness linux azure-appservice
 ```
 
-You can run `appcat` using one of the available OpenJDK targets, as shown in the following example:
+You can also run `appcat` with one of the available OpenJDK targets, as shown in the following example:
 
 ```bash
 ./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target openjdk11
 ```
+
+For OpenJDK (Java) targets, we recommend you choose only one at a time.
+
+### Recommendation of targets for Azure assessment
+
+Whenever you assess an application for Azure deployment, we recommend you start with the following targets:
+
+- `discovery`
+- `cloud-readiness`
+
+Also, specify an Azure service for deployment, such as `azure-appservice` or `azure-container-apps`.
+
+If you intend to move an application from a Windows environment into a Linux VM or container, we recommend you also add the `linux` target.
+
+If you intend to move an application from an older version of the JDK to a newer version, we recommend that you pick the next major version compared to the previous version in use by the application. For example, use `openjdk11` when your application is currently deployed with Java 8.
 
 ## Get results from appcat
 
@@ -190,7 +226,7 @@ The dashboard also shows the *story points*. The story points are an abstract me
 
 ### Discovery report
 
-The discovery report is a report generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about the technology that `appcat` discovered.
+The discovery report is a report generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about technology usage that `appcat` discovered.
 
 :::image type="content" source="media/java/report-discovery.png" alt-text="Screenshot of the appcat discovery report." lightbox="media/java/report-discovery.png":::
 
@@ -286,6 +322,25 @@ After executing this rule through `appcat`, rerun the analysis to review the gen
 
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
+## Release notes
+
+### 6.3.0.9
+
+This release contains the following fixes and includes a set of new rules. For more information, see below.
+
+- Resolved an issue with the `localhost-java-00001` rule.
+- Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
+- Updated the `azure-file-system-02000` to now support xml file extensions.
+- Upgraded various libraries to address security vulnerabilities.
+
+### 6.3.0.8
+
+Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many incidents related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
+
+### 6.3.0.7
+
+GA (Generally Available) release of Azure Migrate application and code assessment.
+
 ## License
 
 Azure Migrate application and code assessment for Java is a free, open source tool at no cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
@@ -312,7 +367,7 @@ Q: Where can I get some help when creating custom rules?
 
 The best way to get help is to [create an issue on the appcat-rulesets GitHub repository](https://github.com/azure/appcat-rulesets/issues).
 
-## Next steps
+## Related content
 
 * [CLI usage guide](https://azure.github.io/appcat-docs/cli/)
 * [Rules development guide](https://azure.github.io/appcat-docs/rules-development-guide/)

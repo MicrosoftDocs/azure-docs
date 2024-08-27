@@ -6,4 +6,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Reference documentation](/objectivec/cognitive-services/speech/) | [Package (Download)](https://aka.ms/csspeech/macosbinary) | [Additional Samples on GitHub](https://aka.ms/speech/github-objective-c)
+[Reference documentation](/objectivec/cognitive-services/speech/) | [Package (download)](https://aka.ms/csspeech/macosbinary) | [Additional samples on GitHub](https://aka.ms/speech/github-objective-c)

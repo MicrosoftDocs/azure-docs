@@ -3,7 +3,7 @@ title: Network security group - how it works
 titlesuffix: Azure Virtual Network
 description: Learn how network security groups help you filter network traffic between Azure resources.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: allensu

@@ -4,7 +4,7 @@ description: This article helps you to understand the Traffic Manager subnet ove
 services: traffic-manager
 author: greg-lindsay
 ms.topic: how-to
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.date: 06/03/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
@@ -33,7 +33,7 @@ There are two types of routing profiles that support subnet overrides:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - For this guide you need an App Service and a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

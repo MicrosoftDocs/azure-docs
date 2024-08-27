@@ -61,8 +61,6 @@ The Document translation API now supports two translation operations:
 
 ## July 2023
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 * Document Translation REST API v1.1 is now Generally Available (GA).
 
 ## June 2023

@@ -14,7 +14,7 @@ This article explains how to use the Recovery Services vault **Overview** dashbo
 
 The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
 ## Open a Recovery Services vault
 

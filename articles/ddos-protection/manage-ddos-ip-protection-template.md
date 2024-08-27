@@ -3,11 +3,11 @@ title: 'QuickStart: Create and configure Azure DDoS IP Protection - ARM template
 description: Learn how to create and enable Azure DDoS IP Protection using an Azure Resource Manager template (ARM template).
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 03/18/2024
+ms.date: 07/17/2024
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template
@@ -16,7 +16,7 @@ In this QuickStart, you'll learn how to use an Azure Resource Manager template (
 
 :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address." lightbox="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

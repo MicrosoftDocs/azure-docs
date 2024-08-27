@@ -13,9 +13,6 @@ ms.custom: engagement-fy23, linux-related-content
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
 > [Install BlobFuse2](#how-to-install-blobfuse2)
@@ -67,16 +64,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
-# [CentOS](#tab/CentOS)
-
-As an example, on a CentOS 8 distribution:
-
-```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
-```
-
-Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
-
 # [Ubuntu](#tab/Ubuntu)
 
 Another example on an Ubuntu 20.04 distribution:
@@ -101,11 +88,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-p
 #### Install BlobFuse2
 
 # [RHEL](#tab/RHEL)
-
-```bash
-sudo yum install blobfuse2
-```
-# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse2

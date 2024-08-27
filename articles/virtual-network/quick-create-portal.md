@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.date: 05/29/2024
 ms.topic: quickstart
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: ai-video-concept
 #Customer intent: As a network administrator, I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
@@ -29,7 +29,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [create-two-virtual-machines.md](../../includes/create-two-virtual-machines.md)]
 
@@ -81,7 +81,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. Close the Bastion connection to **vm-2**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

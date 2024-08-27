@@ -3,15 +3,15 @@ title: Develop a flow in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to develop a prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: jinzhong
-ms.author: jinzhong
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: jinzhong
 ms.date: 10/23/2023
 ---
 # Develop a flow

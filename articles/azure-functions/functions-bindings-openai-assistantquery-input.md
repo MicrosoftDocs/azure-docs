@@ -2,7 +2,14 @@
 title: Azure OpenAI assistant query input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant query input binding to access Azure OpenAI Assistants APIs during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -49,7 +56,7 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="57-71":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="57-71":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

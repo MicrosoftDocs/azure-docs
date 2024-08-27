@@ -3,15 +3,15 @@ title: 'CLI (v2) Python feed connection YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Python feed connections YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2024, devx-track-python
 ms.topic: reference
 
-author: AmarBadal
-ms.author: ambadal
+author: Blackmist
+ms.author: larryfr
 ms.date: 05/09/2024
-ms.reviewer: larryfr
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) Python feed connection YAML schema
@@ -43,7 +43,7 @@ While the `az ml connection` commands can be used to manage both Azure Machine L
 
 ## Examples
 
-Visit [this GitHub resource]() for examples. Several are shown here. These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
+These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
 
 ### YAML: Personal access token
 

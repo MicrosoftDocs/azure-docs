@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: engagement-fy24
-ms.date: 05/02/2024
+ms.custom: engagement-fy25
+ms.date: 08/06/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -85,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -110,6 +110,10 @@ A project can have multiple appliances registered to it. However, one appliance 
 1. Select **Change** in the upper-right corner to choose your project.
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
+
+## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
+If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
+
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 
@@ -215,7 +219,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
+    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
 1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
@@ -229,4 +233,4 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](migrate-appliance.md) about the Azure Migrate appliance.

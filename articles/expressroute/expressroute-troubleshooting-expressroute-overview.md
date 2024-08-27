@@ -3,7 +3,7 @@ title: 'Verify Azure ExpressRoute connectivity - troubleshooting guide'
 description: This article provides instructions on troubleshooting and validating end-to-end connectivity of an ExpressRoute circuit.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 08/23/2023
 ms.author: duau

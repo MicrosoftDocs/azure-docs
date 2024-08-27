@@ -3,13 +3,13 @@ title: Deploy models from HuggingFace hub to Azure Machine Learning online endpo
 titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.custom: devx-track-python, update-code
 ms.topic: how-to
-ms.reviewer: ssalgado
-author: ManojBableshwar
-ms.author: swatig
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 12/15/2023
 ---
 

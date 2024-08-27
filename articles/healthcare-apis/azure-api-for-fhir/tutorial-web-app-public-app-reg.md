@@ -2,7 +2,7 @@
 title: Web App Tutorial - Client Application Setup - Azure API for FHIR
 description: This tutorial walks through the steps of registering a public application for getting ready to deploy a web application
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

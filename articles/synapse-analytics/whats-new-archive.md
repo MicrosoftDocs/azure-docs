@@ -3,9 +3,9 @@ title: Previous monthly updates in Azure Synapse Analytics
 description: Archive of the new features and documentation improvements for Azure Synapse Analytics
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: rymajidi, sngun
+ms.reviewer: rymajidi, whhender
 ms.date: 07/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---
@@ -81,7 +81,7 @@ This section is an archive of features and capabilities of Azure Synapse Analyti
 | March 2022 | **sFTP connector for Synapse data flows** | A native sftp connector in Synapse data flows is supported to read and write data from sFTP using the visual low-code data flows interface in Synapse. To learn more, see [Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-sftp.md).|
 | March 2022 | **Data flow improvements to Data Preview** | Review features added to the [Data Preview and debug improvements in Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254?wt.mc_id=azsynapseblog_mar2022_blog_azureeng). |
 | March 2022 | **Pipeline script activity** | You can now [Transform data by using the Script activity](../data-factory/transform-data-using-script.md) to invoke SQL commands to perform both DDL and DML. |
-| December 2021 | **Custom partitions for Synapse link for Azure Cosmos DB** | Improve query execution times for your Spark queries, by creating custom partitions based on fields frequently used in your queries. To learn more, see [Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)](../cosmos-db/custom-partitioning-analytical-store.md). |
+| December 2021 | **Custom partitions for Synapse link for Azure Cosmos DB** | Improve query execution times for your Spark queries, by creating custom partitions based on fields frequently used in your queries. To learn more, see [Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)](/azure/cosmos-db/custom-partitioning-analytical-store). |
 
 ## Database Templates & Database Designer
 
@@ -162,7 +162,7 @@ Azure Data Explorer (ADX) is a fast and highly scalable data exploration service
 
 ## Azure Synapse Link
 
-Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](../cosmos-db/synapse-link.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section is an archive of news about the Azure Synapse Link feature.
+Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](/azure/cosmos-db/synapse-link?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section is an archive of news about the Azure Synapse Link feature.
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
@@ -478,7 +478,7 @@ The following updates are new to Azure Synapse Analytics this month.
 ### Integrate
 
 * Azure Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
-* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
+* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](/azure/cosmos-db/custom-partitioning-analytical-store)
 * Map data tool (Public Preview), a no-code guided ETL experience [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](./database-designer/overview-map-data.md)
 * Quick reuse of spark cluster [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](../data-factory/concepts-integration-runtime-performance.md#time-to-live)
 * External Call transformation [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF9) [article](../data-factory/data-flow-external-call.md)
@@ -534,7 +534,7 @@ The following updates are new to Azure Synapse Analytics this month.
 ### Azure Synapse Link
 
 * Azure Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
-* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
+* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](/azure/cosmos-db/custom-partitioning-analytical-store)
 
 ## October 2021 update
 

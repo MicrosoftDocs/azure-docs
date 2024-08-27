@@ -2,7 +2,7 @@
 title: Register a service app in Microsoft Entra ID - Azure API for FHIR
 description: Learn how to register a service client application in Microsoft Entra ID. 
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023

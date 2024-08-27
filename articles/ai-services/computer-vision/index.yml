@@ -1,16 +1,16 @@
 ### YamlMime:Hub
 
 title: Azure AI Vision documentation # < 60 chars
-summary: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+summary: The cloud-based Azure AI Vision service provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
   title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
-  description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  description: The cloud-based Azure AI Vision service provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
   ms.service: azure-ai-vision
   ms.topic: hub-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 04/30/2024
+  ms.date: 08/21/2024
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -111,7 +111,7 @@ conceptualContent:
           url: /training/modules/detect-analyze-faces/
         - itemType: reference
           text: Face API reference
-          url: /rest/api/face/
+          url: /rest/api/face/operation-groups
       footerLink:
         text: More
         url: overview-identity.md
@@ -170,7 +170,7 @@ additionalContent:
         - text: Image Analysis
           url: https://aka.ms/vision-4-0-ref
         - text: Face
-          url: /rest/api/face/
+          url: /rest/api/face/operation-groups
       - title: Resources
         links:
         - text: Pricing

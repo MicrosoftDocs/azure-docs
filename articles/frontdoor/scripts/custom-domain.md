@@ -2,7 +2,7 @@
 title: "Azure CLI example: Deploy custom domain in Azure Front Door"
 description: Use this Azure CLI example script to deploy a Custom Domain name and TLS certificate on an Azure Front Door front-end.
 services: frontdoor
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
@@ -20,13 +20,13 @@ This Azure CLI script example deploys a custom domain name and TLS certificate o
 > [!IMPORTANT]
 > This script requires that an Azure DNS public zone already exists for domain name. For a tutorial, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Getting started
 
@@ -56,7 +56,7 @@ AZURE_DNS_ZONE_NAME=www.contoso.com AZURE_DNS_ZONE_RESOURCE_GROUP=contoso-rg ./d
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: subject-policy-compliancecontrols, devx-track-java
 ---
 # Azure Policy Regulatory Compliance controls for Azure Spring Apps

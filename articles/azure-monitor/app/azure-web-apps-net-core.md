@@ -12,7 +12,9 @@ ms.reviewer: abinetabate
 
 Enabling monitoring on your ASP.NET Core-based web applications running on [Azure App Service](../../app-service/index.yml) is now easier than ever. Previously, you needed to manually instrument your app. Now, the latest extension/agent is built into the App Service image by default. This article walks you through enabling Azure Monitor Application Insights monitoring. It also provides preliminary guidance for automating the process for large-scale deployments.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Enable autoinstrumentation monitoring
 

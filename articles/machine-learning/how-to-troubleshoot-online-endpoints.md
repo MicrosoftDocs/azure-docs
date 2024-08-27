@@ -3,11 +3,11 @@ title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 10/24/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, sdkv2
@@ -204,6 +204,7 @@ The following list is of common deployment errors that are reported as part of t
 * [ImageBuildFailure](#error-imagebuildfailure)
     * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
     * [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
+    * [Image build timing out](#image-build-timing-out)
     * [Generic or unknown failure](#generic-image-build-failure)
 * [OutOfQuota](#error-outofquota)
     * [CPU](#cpu-quota)
@@ -262,6 +263,13 @@ Container registries that are behind a virtual network may also encounter this e
 #### Image build compute not set in a private workspace with VNet
 
 If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the workspace's Azure Container Registry is private and configured with a private endpoint, you need to [enable Azure Container Registry](how-to-managed-network.md#configure-image-builds) to allow building images in the virtual network. 
+
+### Image build timing out
+
+Image build timeouts are often due to an image becoming too large to be able to complete building within the timeframe of deployment creation.
+To verify if this is your issue, check your image build logs at the location that the error may specify. The logs are cut off at the point that the image build timed out.
+
+To resolve this, please [build your image separately](/azure/devops/pipelines/ecosystems/containers/publish-to-acr?view=azure-devops&tabs=javascript%2Cportal%2Cmsi&preserve-view=true) so that the image only needs to be pulled during deployment creation.
 
 #### Generic image build failure
 
@@ -503,7 +511,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - Readiness or liveness probes aren't set up correctly.
 - Container initialization is taking too long so that readiness or liveness probe fails beyond failure threshold. In this case, adjust [probe settings](reference-yaml-deployment-managed-online.md#probesettings) to allow longer time to initialize the container. Or try a bigger VM SKU among [supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md), which accelerates the initialization.
 - There's an error in the environment set up of the container, such as a missing dependency.
-- When you receive the `TypeError: register() takes 3 positional arguments but 4 were given` error, check the dependency between flask v2 and `azureml-inference-server-http`. For more information, see [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup).
+- When you receive the `TypeError: register() takes 3 positional arguments but 4 were given` error, check the dependency between flask v2 and `azureml-inference-server-http`. For more information, see [FAQs for inference HTTP server](how-to-inference-server-http.md#typeerror-during-server-startup).
 
 ### ERROR: ResourceNotFound
 
@@ -560,7 +568,7 @@ Retrying the operation after waiting several seconds up to a minute might allow 
 Secret retrieval and injection during online deployment creation uses the identity associated with the online endpoint to retrieve secrets from the workspace connections and/or key vaults. This error happens when:
 
 - The endpoint identity doesn't have the Azure RBAC permission to read the secrets from the workspace connections and/or key vaults, even though the secrets were specified by the deployment definition as references (mapped to environment variables). Remember that role assignment may take time for changes to take effect.
-- The format of the secret references are invalid, or the specified secrets do not exist in the workspace connections and/or key vaults.
+- The format of the secret references is invalid, or the specified secrets do not exist in the workspace connections and/or key vaults.
 
 For more information, see [Secret injection in online endpoints (preview)](concept-secret-injection.md) and [Access secrets from online deployment using secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md).
 
@@ -648,7 +656,7 @@ You might get the following error during the Kubernetes model deployments:
 
 To mitigate this error, you can:
 
-* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
 * The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
 
 

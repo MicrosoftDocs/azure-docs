@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions on how to install a
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 09/23/2023
 ---

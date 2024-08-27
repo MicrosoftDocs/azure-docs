@@ -1,14 +1,14 @@
 ---
 title: Create and manage registries
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio
+description: Learn how create registries with the CLI, REST API, Azure portal, and Azure Machine Learning studio
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
-ms.date: 08/24/2023
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
+ms.date: 08/19/2024
 ms.topic: how-to
 ms.custom: build-2023
 ---
@@ -18,7 +18,7 @@ ms.custom: build-2023
 Azure Machine Learning entities can be grouped into two broad categories:
 
 * Assets such as __models__, __environments__, __components__, and __datasets__ are durable entities that are _workspace agnostic_. For example, a model can be registered with any workspace and deployed to any endpoint. 
-* Resources such as __compute__, __job__, and __endpoints__ are _transient entities that are workspace specific_. For example, an online endpoint has a scoring URI that is unique to a specific instance in a specific workspace. Similarly, a job runs for a known duration and generates logs and metrics each time it's run. 
+* Resources such as __compute__, __job__, and __endpoints__ are _transient entities that are workspace specific_. For example, an online endpoint has a scoring URI that is unique to a specific instance in a specific workspace. Similarly, a job runs for a known duration and generates logs and metrics each run. 
 
 Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
@@ -39,16 +39,16 @@ You need to decide the following information carefully before proceeding to crea
 ### Choose a name
 
 Consider the following factors before picking a name.
-* Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or organization. 
-* Registry name is unique with your organization (Microsoft Entra tenant). It's recommended to prefix your team or organization name and avoid generic names. 
-* Registry names can't be changed once created because they're used in IDs of models, environments and components that are referenced in code. 
+* Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division, or organization. 
+* Registry name is unique with your organization (Microsoft Entra tenant). For example, you might prefix your team or organization name and avoid generic names. 
+* Registry names can't be changed once created because they're used in IDs of models, environments, and components that are referenced in code. 
   * Length can be 2-32 characters. 
   * Alphanumerics, underscore, hyphen are allowed. No other special characters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
   * Name can contain underscore or hyphen but can't start with an underscore or hyphen. Needs to start with an alphanumeric. 
 
 ### Choose Azure regions 
 
-Registries enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions. You need to define the list of regions that a registry supports when creating the registry. Create a list of all regions in which you have workspaces today and plan to add in near future. This list is a good set of regions to start with. When creating a registry, you define a primary region and a set of additional regions. The primary region can't be changed after registry creation, but the additional regions can be updated at a later point.
+Registries enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions. You need to define the list of regions that a registry supports when creating the registry. Create a list of all regions in which you have workspaces today and plan to add in near future. This list is a good set of regions to start with. When creating a registry, you define a primary region and a set of other regions. The primary region can't be changed after registry creation, but the other regions can be updated at a later point.
 
 ### Check permissions
 
@@ -104,16 +104,16 @@ You can create registries in Azure Machine Learning studio using the following s
 
     :::image type="content" source="./media/how-to-manage-registries/studio-registry-select-regions.png" alt-text="Screenshot of the registry region selection":::
 
-1. Review the information you provided, and then select __Create__. You can track the progress of the create operation in the Azure portal. Once the registry is successfully created, you can find it listed in the __Manage Registries__ tab.
+1. Review the information you provided, and then select __Create__. You can track the progress of the operation in the Azure portal. Once the registry is successfully created, you can find it listed in the __Manage Registries__ tab.
 
     :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-review.png" alt-text="Screenshot of the create + review tab.":::
 # [Azure portal](#tab/portal)
 
 1. From the [Azure portal](https://portal.azure.com), navigate to the Azure Machine Learning service. You can get there by searching for __Azure Machine Learning__ in the search bar at the top of the page or going to __All Services__ looking for __Azure Machine Learning__ under the __AI + machine learning__ category. 
 
-1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group and primary region, then select __Next__.
+1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group, and primary region, then select __Next__.
     
-1. Select the additional regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
+1. Select the more regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
 
     :::image type="content" source="./media/how-to-manage-registries/create-registry-review.png" alt-text="Screenshot of the review + create tab.":::
 
@@ -153,7 +153,7 @@ To create a registry, use the following command. You can edit the JSON to change
 > We recommend using the latest API version when working with the REST API. For a list of the current REST API versions for Azure Machine Learning, see the [Machine Learning REST API reference](/rest/api/azureml/). The current API versions are listed in the table of contents on the left side of the page.
 
 ```bash
-curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2023-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2024-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
 {
     "properties":
     {
@@ -232,7 +232,7 @@ replication_locations:
 
 ## Add users to the registry 
 
-Decide if you want to allow users to only use assets (models, environments and components) from the registry or both use and create assets in the registry. Review [steps to assign a role](../role-based-access-control/role-assignments-steps.md) if you aren't familiar how to manage permissions using [Azure role-based access control](../role-based-access-control/overview.md).
+Decide if you want to allow users to only use assets (models, environments, and components) from the registry or both use and create assets in the registry. Review [steps to assign a role](../role-based-access-control/role-assignments-steps.md) if you aren't familiar how to manage permissions using [Azure role-based access control](../role-based-access-control/overview.md).
 
 ### Allow users to use assets from the registry
 
@@ -245,7 +245,7 @@ Microsoft.MachineLearningServices/registries/assets/read | Allows the user to br
 
 ### Allow users to create and use assets from the registry
 
-To let the user both read and create or delete assets, grant the following write permission in addition to the above read permissions.
+To let the user both read and create or delete assets, grant the following write permission in addition to the previous read permissions.
 
 Permission | Description 
 --|--
@@ -257,7 +257,7 @@ Microsoft.MachineLearningServices/registries/assets/delete| Delete assets in reg
 
 ### Allow users to create and manage registries
 
-To let users create, update and delete registries, grant them the built-in __Contributor__ or __Owner__ role. If you don't want to use built in roles, create a custom role with the following permissions, in addition to all the above permissions to read, create and delete assets in registry.
+To let users create, update, and delete registries, grant them the built-in __Contributor__ or __Owner__ role. If you don't want to use built-in roles, create a custom role with the following permissions, in addition to all the above permissions to read, create, and delete assets in registry.
 
 Permission | Description 
 --|--
@@ -267,5 +267,5 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 
 ## Next steps
 
-* [Learn how to share models, components and environments across workspaces with registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Learn how to share models, components, and environments across workspaces with registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
 * [Network isolation with registries](./how-to-registry-network-isolation.md)

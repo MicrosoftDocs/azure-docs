@@ -17,6 +17,9 @@ zone_pivot_groups: programming-languages-content-safety
 
 Get started with the Content Safety Studio, REST API, or client SDKs to do basic text moderation. The Azure AI Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
 
+For more information on text moderation, see the [Harm categories concept page](./concepts/harm-categories.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
+
 > [!NOTE]
 > 
 > The sample data and code may contain offensive content. User discretion is advised.
@@ -57,11 +60,11 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
-Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
 
-> [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md)
+## Related content
+
+* [Harm categories](./concepts/harm-categories.md)
+* Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.

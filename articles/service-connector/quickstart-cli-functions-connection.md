@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, build-2024
 
 This quickstart shows you how to connect Azure Functions to other Cloud resources using Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -43,7 +43,7 @@ This quickstart shows you how to connect Azure Functions to other Cloud resource
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Azure AD role assignment](/entra/identity/role-based-access-control/manage-roles-portal). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
 
 Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a system-assigned managed identity, providing the following information:
 

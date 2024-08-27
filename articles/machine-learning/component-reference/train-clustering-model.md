@@ -3,7 +3,7 @@ title:  "Train Clustering Model: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Clustering Model component in Azure Machine Learning to train clustering models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

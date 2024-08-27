@@ -6,4 +6,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Speech to text REST API reference](../../rest-speech-to-text.md) | [Speech to text REST API for short audio reference](../../rest-speech-to-text-short.md) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+[Speech to text REST API reference](../../rest-speech-to-text.md) | [Speech to text REST API for short audio reference](../../rest-speech-to-text-short.md) | [Additional samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)

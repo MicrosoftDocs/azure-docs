@@ -3,7 +3,7 @@ title: Azure API Management - Git configuration retirement (March 2025)
 description: Azure API Management is retiring configuration management using a built-in Git repo as of March 2025. If you use the feature, adopt a configuration management solution such as APIOps.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 05/16/2024
 ms.author: danlep

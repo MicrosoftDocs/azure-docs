@@ -18,7 +18,7 @@ A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and o
 
 - If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Choose a specific Azure subscription
 
@@ -69,8 +69,8 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
-Store login credentials for the VM in a variable. The password must be complex. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
-and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+Store login credentials for the VM in a variable. The password must be complex. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 ```azurepowershell-interactive
 $Cred = Get-Credential

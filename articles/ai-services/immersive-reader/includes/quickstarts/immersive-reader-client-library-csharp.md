@@ -35,7 +35,7 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 Right-click on the project in the **Solution Explorer** and choose **Manage User Secrets**. This opens a file called *secrets.json*. This file isn't checked into source control. To learn more, see [Safe storage of app secrets](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of *secrets.json* with the following, supplying the values given when you created your Immersive Reader resource.
 
 > [!IMPORTANT]
-> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview).
 
 ```json
 {

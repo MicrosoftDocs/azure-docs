@@ -2,10 +2,10 @@
 title: Configure a secure online endpoint with TLS/SSL
 description: Learn about how to use TLS/SSL to configure a secure Kubernetes online endpoint.
 titleSuffix: Azure Machine Learning
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: mopeakande
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: chenlujiao
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 10/10/2022
 ms.topic: how-to

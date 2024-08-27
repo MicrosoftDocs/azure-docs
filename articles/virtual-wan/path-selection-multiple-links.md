@@ -5,7 +5,7 @@ description: Learn how Azure Virtual WAN can include link information to steer t
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc

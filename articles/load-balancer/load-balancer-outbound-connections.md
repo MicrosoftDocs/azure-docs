@@ -4,10 +4,10 @@ titleSuffix: Azure Load Balancer
 description: Learn how Azure Load Balancer is used for outbound internet connectivity using Source Network Address Translation (SNAT).
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 03/06/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ---
 
@@ -84,7 +84,7 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 
 :::image type="content" source="./media/load-balancer-outbound-connections/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
-In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it is insecure and the IP addresses are subject to change.
+In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it's insecure and the IP addresses are subject to change.
 
 >[!Important]
 >On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explict forms of connectivity as shown in options 1-3 above.
@@ -112,11 +112,11 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends will receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
+When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
 
-As an example, with 100 VMs in a backend pool and only one frontend IP, each VM will receive 512 ports. If a second frontend IP is added, each VM will receive an additional 512 ports. This means each VM is allocated a total of 1024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
+As an example, with 100 VMs in a backend pool and only one frontend IP, each VM receives 512 ports. If a second frontend IP is added, each VM receives an extra 512 ports. This means each VM is allocated a total of 1,024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
 
-As a rule of thumb, the number of SNAT ports provided when default port allocation is leveraged can be computed as: MIN(# of default SNAT ports provided based on pool size * number of frontend IPs associated with the pool, 1024)
+As a rule of thumb, the number of SNAT ports provided when default port allocation is applied can be computed as: MIN(# of default SNAT ports provided based on pool size * number of frontend IPs associated with the pool, 1024)
 
 The following <a name="snatporttable"></a>table shows the SNAT port preallocations for a single frontend IP, depending on the backend pool size:
 
@@ -151,7 +151,7 @@ For more information about connection pooling with Azure App Service, see [Troub
 New outbound connections to a destination IP fail when port exhaustion occurs. Connections succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md).  
 
 ### Port reuse
-For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. For connections to the same destination IP, a single SNAT port can be reused as long as the destination port differs. Reuse is not possible when there already exists a connection to the same destination IP and port.
+For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. For connections to the same destination IP, a single SNAT port can be reused as long as the destination port differs. Reuse isn't possible when there already exists a connection to the same destination IP and port.
 
 For UDP connections, the load balancer uses a **port-restricted cone NAT** algorithm, which consumes one SNAT port per destination IP, regardless of the destination port. 
 

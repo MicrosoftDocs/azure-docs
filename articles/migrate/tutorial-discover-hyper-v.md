@@ -68,7 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -111,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 0dd9d0e2774bb8b33eb7ef7d97d44a90a7928a4b1a30686c5b01ebd867f3bd68
+SHA256 | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### Create an account to access servers
 
@@ -188,13 +188,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) |  952e493a63a45f97ecdc0945807d504f4bd2f0f4f8248472b784c3e6bd25eb13
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) | 952e493a63a45f97ecdc0945807d504f4bd2f0f4f8248472b784c3e6bd25eb13 
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### 3. Create an appliance
 
