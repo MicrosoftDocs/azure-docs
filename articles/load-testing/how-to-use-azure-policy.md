@@ -71,7 +71,7 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 	    
 	- Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
-![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
+    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
 1. To specify the policy effect, select the parameters tab at the top of the screen.
 	
@@ -88,9 +88,9 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 - The **Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network** policy is only applicable for load tests that are triggered after the policy assignment. If the "audit" effect is selected, the Azure Load Testing resources with load test runs that are violating the policy will be shown as noncompliant. To remediate, delete the test runs that are violating the policy and reassign the policy. 
 
 - Assigning a policy with a "deny" effect may take from 30 mins (on average) or up to one hour to start denying the creation of non-compliant resources. The delay refers to following scenarios:
-  1. A new policy is assigned.
-  2. An existing policy assignment is modified.
-  3. A new Azure Load Testing resource is created in a scope with existing policies.
+  - A new policy is assigned.
+  - An existing policy assignment is modified.
+  - A new Azure Load Testing resource is created in a scope with existing policies.
 
 - The policy evaluation of existing components in an Azure Load Testing resource may take up to one hour (one average) or up to two hours before compliance results are viewable in the portal.
 
@@ -98,7 +98,7 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
   - The policy evaluation is not completed. Initial evaluation latency can take up to two hours.
   - There are no Azure Load Testing resources in the scope of the policy assignment.
 
-## Next Steps
+## Next steps
 
 - Learn more about the [Azure Policy service](../governance/policy/overview.md)
 - See Key Vault samples: [Azure Load Testing built-in policy definitions](../governance/policy/samples/built-in-policies.md#azure-load-testing)
