@@ -12,9 +12,10 @@ ms.topic: how-to
 
 Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
-Defender EASM provides seven dashboards:
+Defender EASM provides eight dashboards:
 
-- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
+- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface.
+- **Inventory changes**: this dashboard displays any changes to your asset counts, separately listing additions and removals from your inventory. This dashboard also displays assets that have been automatically removed from inventory because the system has determined that the asset is no longer live or owned by your organization. 
 - **Attack surface summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface. This context includes insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
 - **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
@@ -38,6 +39,15 @@ Selecting an individual chart segment opens a drilldown view of the data, listin
 Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, might be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
 
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
+
+
+## Inventory changes 
+
+Your attack surface is constantly changing, which is why Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes, displaying the "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. 
+
+The "Changes by date" section provides more granular context on how your attack surface has changed on a daily basis. This section categorizes removals as "removed by user" or "removed by system." While a user removal requires manual action, system removals occur when Defender EASM has determined that an asset is either no longer live or no longer owned by your organization. Assets are elible for pruning if they have not been observed in a scan for 30-60 days, depending on the asset type. Assets that are manually added to inventory are not eligible for removal. From the "Changes by date" section, you can click on any listed value to see a full list of the assets that were added or removed. 
+
+![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-2.png)
 
 
 ## Attack surface summary
