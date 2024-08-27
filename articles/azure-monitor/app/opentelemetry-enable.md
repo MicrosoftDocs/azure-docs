@@ -31,7 +31,7 @@ OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applic
 Follow the steps in this section to instrument your application with OpenTelemetry. Select a tab for langauge-specific instructions.
 
 > [!NOTE]
-> .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), etc.
+> .NET covers multiple scenarios, including classic ASP.NET, console apps, Windows Forms (WinForms), and more.
 
 ### Prerequisites
 
@@ -174,7 +174,9 @@ pip install azure-monitor-opentelemetry
 Add `UseAzureMonitor()` to your application startup, located in your `program.cs` class:
 
 ```csharp
+// Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
 using Azure.Monitor.OpenTelemetry.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add OpenTelemetry and configure it to use Azure Monitor.
@@ -283,6 +285,9 @@ To copy the connection string:
 
 To paste your connection string, select from the following options:
 
+> [!NOTE]
+> We recommend setting the connection string through code only in local development and test environments. For production, use an environment variable or configuration file (Java only).
+
 * Set via environment variable
 
     Replace `<Your connection string>` in the following command with *your* unique connection string.
@@ -303,14 +308,15 @@ To paste your connection string, select from the following options:
       
     Replace `<Your connection string>` in the preceding JSON with *your* unique connection string.
 
-<!-- Violates MSFT security guidelines
-  C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
+* Set via code - ***ASP.NET Core, Node.js, and Python only***
   
-  See [connection string configuration](opentelemetry-configuration.md#connection-string) for an example of setting connection string via code.
--->
+    See [connection string configuration](opentelemetry-configuration.md#connection-string) for an example of setting connection string via code.
 
 > [!NOTE]
-> If you set the connection string in multiple places, the environment variable will be prioritized over the configuration file.
+> If you set the connection string in multiple places, the environment variable will be prioritized in the following order:
+> 1. Code
+> 2. Environment variable
+> 3. Configuration file
 
 ### Confirm data is flowing
 
