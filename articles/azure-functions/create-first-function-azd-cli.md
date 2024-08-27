@@ -60,8 +60,9 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-dotnet-azd
     cd FunctionHttp
     ```
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-1. Create a file named _local.settings.json_ in the app's root folder (`/FunctionHttp`), and add this JSON data to the file:
+3. Create a file named _local.settings.json_ in the app's root folder (`/FunctionHttp`), and add this JSON data to the file:
 
     ```json
     {
@@ -83,13 +84,15 @@ You can use the `azd init` command to create a local Azure Functions code projec
     cd http
     ```
 
-1. Run this command in the app's root folder (`/http`):
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3. Run this command in the app's root folder (`/http`):
 
     ```command
     func init --worker-runtime java
     ```
     
-    This restores the _local.settings.json_ file in the app's root folder (`/http`), which is required when running locally.
+    This command restores the _local.settings.json_ file in the app's root folder (`/http`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -98,13 +101,15 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-javascript-azd 
     ```
 
-1. Run this command in the root folder: 
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3. Run this command in the root folder: 
 
     ```command
     func init --worker-runtime javascript
     ```
 
-    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
+    This command restores the _local.settings.json_ file in the root folder, which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -113,13 +118,16 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-powershell-azd
     cd src
     ```
-1.  Run this command in the app's root folder (`/src`):
+
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3.  Run this command in the app's root folder (`/src`):
 
     ```command
     func init --worker-runtime powershell
     ```
 
-    This restores the _local.settings.json_ file in the app's root folder (`/src`), which is required when running locally.
+    This command restores the _local.settings.json_ file in the app's root folder (`/src`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -127,13 +135,16 @@ You can use the `azd init` command to create a local Azure Functions code projec
     ```azd
     azd init --template functions-quickstart-typescript-azd
     ```
-1. Run this command in the root folder:
+
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3. Run this command in the root folder:
 
     ```command
     func init --worker-runtime typescript
     ```
 
-    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
+    This command restores the _local.settings.json_ file in the root folder, which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -142,12 +153,14 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-python-http-azd
     ```
 
-1. Run this command in the root folder:
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3. Run this command in the root folder:
 
     ```bash
     func init --worker-runtime python 
     ```
-    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
+    This command restores the _local.settings.json_ file in the root folder, which is required when running locally.
 
 ## Create and activate a virtual environment
 
@@ -220,8 +233,6 @@ py -m venv .venv
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 
-::: zone-end  
-
 ## Review the code (optional)
 
 If you choose to, review the code that defines the two HTTP trigger function endpoints:
@@ -240,7 +251,7 @@ If you choose to, review the code that defines the two HTTP trigger function end
 :::code language="typescript" source="~/functions-quickstart-typescript-azd/src/functions/httpGetFunction.ts" :::
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
-This is the `function.json` file that defines the `httpget` function:
+This code is the `function.json` file that defines the `httpget` function:
 :::code language="json" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/function.json" :::
 This is the `run.ps1` file that implements the function code:
 :::code language="powershell" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/run.ps1" :::
@@ -275,7 +286,7 @@ This is the `run.ps1` file that implements the function code:
 
 ---
 
-After you've verified your functions run locally, it's time to publish them to Azure. 
+After you verified your functions run locally, it's time to publish them to Azure. 
  
 ## Deploy to Azure
 
@@ -294,11 +305,12 @@ This project is configured to use the `azd up` command to deploy this project to
 
 1. When prompted, provide these required deployment parameters:
 
-    + _Environment name_: 
-    +  _Azure location_: Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.
     + _Azure subscription_: Subscription in which your resources are created. 
+    + _Azure location_: Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.
     
-The `azd up` command applies your reponse to these prompts to the Bicep configuration files and create Azure resources. Your response to the prompts are stored, and you can run the `azd up` command as many times as you like to both provision and deploy updates to your application. During subsequent executions, existing resources are skipped, but deployed code files are always overwritten by the latest deployment package. Use the `azd env get-values` command to review all of the variables used when creating your  
+    The `azd up` command applies your response to these prompts to the Bicep configuration files and create Azure resources. 
+
+ 
 
 these deployment tasks:
 
@@ -310,10 +322,12 @@ these deployment tasks:
     * Virtual network to securely run both the function app and the other Azure resources.
 * Package and deploy your code to the deployment container ([`azd deploy`](/azure/developer/azure-developer-cli/reference#azd-deploy)).
 
-1. Create the Azure resources required to host the project in a function app running in the Flex Consmption plan. 
+1. Create the Azure resources required to host the project in a function app running in the Flex Consumption plan. 
 1. Package and deploy this code project to the deployment container after the resources are provisioned. The app is then started and runs in the deployment container. 
 
 After the command completes successfully, you see links to the resources created. 
+
+    Your responses to the prompts are stored, and you can run the `azd up` command as many times as you like to both provision and deploy updates to your application. During subsequent executions, existing resources are skipped, but deployed code files are always overwritten by the latest deployment package. Use the `azd env get-values` command to review all of the variables used when creating Azure resources. 
 
 
 
@@ -335,7 +349,7 @@ Because your function uses an HTTP trigger, you invoke it by making an HTTP requ
 
 ## Clean up resources
 
-When you are done working with your function app and related resources, you can use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
+When you're done working with your function app and related resources, you can use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
 
 ```azd
 azd down
