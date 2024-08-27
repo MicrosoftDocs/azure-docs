@@ -21,7 +21,7 @@ Operations run on an Azure Event Hubs namespace are of two kinds.
 > [!IMPORTANT]
 >  * The Event Hubs Data Explorer doesn't support **management operations**. The event hub must be created before the data explorer can send or view events from that event hub.
 >  * While events payloads (known as **values** in Kafka) sent using the **Kafka protocol** will be visible via the data explorer, the **key** for the specific event will not be visible.
->  * We advice against using the Event Hubs Data Explorer for larger messages, as this may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
+>  * We advise against using the Event Hubs Data Explorer for larger messages, as this may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
 >
 
 ## Prerequisites
@@ -38,7 +38,7 @@ Either navigate to the `Data Explorer` directly where you can pick the event hub
 
 ### Send Events
 
-You can send either custom payloads, or precanned dataset to the selected event hub using the `Send events` experience.
+You can send either custom payloads, or precanned datasets to the selected event hub using the `Send events` experience.
 
 To do so, select the `send events` button, which enables the right pane.
 
@@ -51,9 +51,9 @@ To send a custom payload -
 1. **Select Dataset** - Pick `Custom payload`.
 2. Select the **Content-Type**, from either `Text/Plain`, `JSON`, or `XML`.
 3. Either upload a JSON file, or type out the payload in the **Enter payload** box.
-4. [Optional] Specific system properties.
-5. [Optional] Custom properties - available in key-value pair.
-6. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
+4. **[Optional]** Specify system properties.
+5. **[Optional]** Specify custom properties - available as key-value pair.
+6. **[Optional]** If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
 
 Once the payload details are defined, select **Send** to send the event payload as defined.
 
@@ -64,9 +64,9 @@ Once the payload details are defined, select **Send** to send the event payload 
 
 To send event payloads from a precanned dataset -
 1. **Select Dataset** - Pick an option from the **Pre canned datasets**, for example, Yellow taxi, Weather data, and others.
-2. [Optional] Specific system properties.
-3. [Optional] Custom properties - available in key-value pair.
-4. [Optional] If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
+2. **[Optional]** Specify system properties.
+3. **[Optional]** Specify custom properties - available as key-value pairs.
+4. **[Optional]** If you wish to send multiple payloads, check the **Repeat send** box, and specify the **Repeat send count** (that is, the number of payloads to send) and the **Interval between repeat send in ms**.
 
 Once the payload details are defined, select **Send** to send the event payload as defined.
 
@@ -82,8 +82,8 @@ To view events, you can define the below properties, or rely on the default -
 :::image type="content" source="./media/event-hubs-data-explorer/view-event-menu.png" alt-text="Screenshot showing the data explorer menu with view events selected.":::
 
 
-1. **PartitionID** - pick either a specific partition or select *All partition IDs*.
-2. **Consumer Group** - pick the *$Default* or another consumer group, or create one on the fly.
+1. **PartitionID** - Pick either a specific partition or select *All partition IDs*.
+2. **Consumer Group** - Pick the *$Default* or another consumer group, or create one on the fly.
 3. **Event position** - Pick the *oldest position* (that is, the start of the event hub), *Newest position* (that is, latest), *Custom position* (for a specific offset, sequence number or timestamp).
 4. **Advanced properties** - Specify the *maximum batch size* and *maximum wait time in seconds*.
 
