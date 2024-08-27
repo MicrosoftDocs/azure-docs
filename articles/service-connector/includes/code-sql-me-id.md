@@ -96,7 +96,7 @@ Update your application following the tutorial [Migrate a Java application to us
     database = os.getenv('AZURE_SQL_DATABASE')
     authentication = os.getenv('AZURE_SQL_AUTHENTICATION')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
     # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
@@ -127,7 +127,7 @@ Update your application following the tutorial [Migrate a Java application to us
     const port = parseInt(process.env.AZURE_SQL_PORT);
     const authenticationType = process.env.AZURE_SQL_AUTHENTICATIONTYPE;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned managed identity.
     // const config = {
     //     server,
