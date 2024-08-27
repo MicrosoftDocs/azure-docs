@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 08/08/2024
+ms.date: 08/27/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -168,3 +168,4 @@ The following sections describe the properties for Azure Storage resource logs w
 
 - See [Monitor Azure Blob Storage](monitor-blob-storage.md) for a description of monitoring Azure Blob Storage.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs) for frequently asked questions and answers.
