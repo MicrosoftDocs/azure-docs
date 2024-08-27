@@ -17,7 +17,7 @@ sections:
       - question: |
           I created a new policy. Why do the actions not run immediately?
         answer: |
-          The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
+          Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
       - question: |
           If I update an existing policy, how long does it take for the actions to run?
         answer: |
