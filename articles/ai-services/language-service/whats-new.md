@@ -7,13 +7,20 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
-ms.date: 02/26/2024
+ms.date: 08/22/2024
 ms.author: jboback
 ---
 
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## July 2024
+
+* [Conversational PII redaction](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-conversational-pii-detection-service-s-general/ba-p/4162881) service in English-language contexts is now Generally Available (GA).
+* Conversation Summarization now supports 12 additional languages in preview as listed [here](summarization/language-support.md).
+* Summarization Meeting or Conversation Chapter titles features will now support reduced length to focus on the key topics.
+* Enable support for data augmentation for diacritics to generate variations of training data for diacritic variations used in some natural languages which is especially useful for Germanic and Slavic languages. 
 
 ## February 2024
 

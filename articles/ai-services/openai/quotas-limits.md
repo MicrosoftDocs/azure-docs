@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 08/16/2024
+ms.date: 08/21/2024
 ms.author: mbullwin
 ---
 
@@ -93,7 +93,7 @@ Global Standard deployments use Azure's global infrastructure, dynamically routi
 The Usage Limit determines the level of usage above which customers might see larger variability in response latency. A customer’s usage is defined per model and is the total tokens consumed across all deployments in all subscriptions in all regions for a given tenant.
 
 > [!NOTE]
-> Usage tiers only apply to standard and global standard deployment types. Usage tiers do not apply to global batch deployments.
+> Usage tiers only apply to standard and global standard deployment types. Usage tiers do not apply to global batch and provisioned throughput deployments.
 
 #### GPT-4o global standard & standard
 

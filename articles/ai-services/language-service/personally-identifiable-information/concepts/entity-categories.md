@@ -383,34 +383,9 @@ The entity in this category can have the following subcategories.
 :::row-end:::
 
 
-## Category: Quantity
+## Subcategory: Age
 
-This category contains the following entities:
-
-:::row:::
-    :::column span="":::
-        **Entity**
-
-        Quantity
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        Numbers and numeric quantities.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
-:::row-end:::
-
-#### Subcategories
-
-The entity in this category can have the following subcategories.
+The PII service supports the Age subcategory within the broader Quantity category (since Age is the personally identifiable piece of information). 
 
 :::row:::
     :::column span="":::

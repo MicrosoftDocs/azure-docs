@@ -54,7 +54,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     g. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
-    h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+    h. Toggle [Generation 2](/azure/virtual-machines/generation-2) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
     > [!NOTE]
     > For NCCH100v5 series, only the **Ubuntu Server 22.04 LTS (Confidential VM)** image is currently supported. 
@@ -62,7 +62,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
 
-    j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
+    j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     k. Under **Administrator account**, for **Username**, enter an administrator name for your VM.
 
@@ -144,7 +144,7 @@ There are different methods to connect to [Windows confidential VMs](#connect-to
 
 ### Connect to Windows VMs
 
-To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 ### Connect to Linux VMs
 
@@ -160,7 +160,7 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 1. On your confidential VM's overview page, copy the **Public IP address**.
 
-    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 
 1. Open your SSH client, such as PuTTY.
 
