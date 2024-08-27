@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 08/21/2024
+ms.date: 08/26/2024
 ---
 
 ## Supported client versions
@@ -78,8 +78,6 @@ In this release, we made the following changes:
 
 *Date published: June 11, 2024* 
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bh), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bi), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m0Bd) 
-
 In this release, we made the following changes:
 
 - Fixed an issue where the client crashed when a session is disconnected. 
@@ -101,8 +99,6 @@ In this release, we made the following changes:
 ## Updates for version 1.2.5452
 
 *Date published: May 29, 2024* 
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
@@ -126,8 +122,6 @@ In this release, we made the following changes:
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB76), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kGol), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB75)
-
 In this release, we made the following changes:
 
 - Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
@@ -135,8 +129,6 @@ In this release, we made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5331
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHro), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kK2T), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHrn)
 
 *Date published: April 18, 2024*
 
