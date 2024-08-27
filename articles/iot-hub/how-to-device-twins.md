@@ -13,7 +13,7 @@ zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-## Get started with device twins
+# Get started with device twins
 
 Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
 

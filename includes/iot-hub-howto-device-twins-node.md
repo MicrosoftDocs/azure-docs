@@ -87,7 +87,7 @@ client.open()  //open the connection
 
 ### Retrieve a device twin and examine reported properties
 
-Use [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to assign the twin object. This object can be used to read device twin information.
+Call [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to assign the twin object. This object can be used to read device twin information.
 
 ```javascript
 client.getTwin(function(err, twin) {
@@ -119,7 +119,7 @@ twin.properties.reported.update(patch, function(err) {
 
 ### Receive notice of desired property changes
 
-Use [twin.on](/javascript/api/azure-iot-device/twin?view=azure-node-latest#azure-iot-device-twin-on) to set up a desired property change event listener.
+Use [twin.on](/javascript/api/azure-iot-device/twin?#azure-iot-device-twin-on) to set up a desired property change event listener.
 
 The desired property event listener can take one of the following forms:
 

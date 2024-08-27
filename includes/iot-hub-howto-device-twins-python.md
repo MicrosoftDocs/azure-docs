@@ -78,7 +78,7 @@ You can also call these methods to update device twins:
 
 ### Incoming desired properties patch handler
 
-Use [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?view=azure-python&#azure-iot-device-iothubdeviceclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
+Use [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?&#azure-iot-device-iothubdeviceclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
 
 This example sets up a desired properties patch handler named `twin_patch_handler`.
 
@@ -91,7 +91,7 @@ except:
     client.shutdown()
 ```
 
-The twin_patch_handler receives and prints the JSON patch.
+The `twin_patch_handler` receives and prints the JSON desired property patch.
 
 ```python
     # Define behavior for receiving twin desired property patches

@@ -100,7 +100,7 @@ This example subscribes to desired propery changes. Any desired property changes
 client.subscribeToDesiredProperties(new DesiredPropertiesUpdatedHandler(), null);
 ```
 
-In this example, the `DesiredPropertiesUpdatedHandler` desired property change callback handler calls [getDesiredProperties](https://learn.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getdesiredproperties()) to retrieve the property changes, then prints out the updated twin properties.
+In this example, the `DesiredPropertiesUpdatedHandler` desired property change callback handler calls [getDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getdesiredproperties()) to retrieve the property changes, then prints out the updated twin properties.
 
 ```java
   private static class DesiredPropertiesUpdatedHandler implements DesiredPropertiesCallback
