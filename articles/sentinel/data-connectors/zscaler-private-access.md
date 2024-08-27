@@ -66,15 +66,15 @@ Zscaler Private Access logs are delivered via Log Streaming Service (LSS). Refer
 1. Configure [Log Receivers](https://help.zscaler.com/zpa/configuring-log-receiver). While configuring a Log Receiver, choose **JSON** as **Log Template**.
 2. Download config file [zpa.conf](https://aka.ms/sentinel-ZscalerPrivateAccess-conf) 
 		wget -v https://aka.ms/sentinel-zscalerprivateaccess-conf -O zpa.conf
-3. Login to the server where you have installed Azure Log Analytics agent.
+3. Log in to the server where you have installed Azure Log Analytics agent.
 4. Copy zpa.conf to the /etc/opt/microsoft/omsagent/**workspace_id**/conf/omsagent.d/ folder.
 5. Edit zpa.conf as follows:
 
 	 a. specify port which you have set your Zscaler Log Receivers to forward logs to (line 4)
 
-	 b. zpa.conf uses the port **22033** by default. Ensure this port is not being used by any other source on your server
+	 b. zpa.conf uses the port **22033** by default. Ensure this port isn't being used by any other source on your server
 
-	 c. If you would like to change the default port for **zpa.conf** make sure that it should not get conflict with default AMA agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
+	 c. If you would like to change the default port for **zpa.conf** make sure that it shouldn't get conflict with default AMA agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
 
 	 d. replace **workspace_id** with real value of your Workspace ID (lines 14,15,16,19)
 5. Save changes and restart the Azure Log Analytics agent for Linux service with the following command:
