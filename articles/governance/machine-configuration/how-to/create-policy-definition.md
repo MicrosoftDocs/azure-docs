@@ -105,13 +105,19 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in a hash table.
 - **PolicyVersion**: Policy version.
-- **Path**: Destination path where policy definitions are created.
+- **Path**: Destination path where policy definitions are created. This is NOT a path a local copy of the package.
 - **Platform**: Target platform (Windows/Linux) for machine configuration policy and content
   package.
 - **Mode**: (case sensitive: `ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the policy should audit
   or deploy the configuration. The default is `Audit`.
 - **Tag** adds one or more tag filters to the policy definition
 - **Category** sets the category metadata field in the policy definition
+- **LocalContentPath** (Optional) - The path to the local copy of the `.zip` Machine Configuration package file (Required if you are using a User Assigned Managed Identity to provide access to an Azure Storge blob)
+- **ManagedIdentityResourceId** (Optional) - The resourceId of the User Assigned Managed Identity with read access to the Azure Storage blob containing the `.zip` Machine Configuration package file (Required if you are using a User Assigned Managed Identity to provide access to an Azure Storge blob)
+- **`-ExcludeArcMachines`** (Optional) - A flag to exclude Arc machines from the generated Policy definition (Required if you are using a User Assigned Managed Identity to provide access to an Azure Storge blob)
+
+> [!IMPORTANT]
+> Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities. As a result, the `-ExcludeArcMachines` flag is required to ensure the exclusion of those machines from the policy definition.
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
@@ -132,8 +138,7 @@ $PolicyConfig      = @{
 New-GuestConfigurationPolicy @PolicyConfig
 ```
 
-Create a policy definition that deploys a configuration using a custom configuration package, in a
-specified path:
+Create a policy definition that deploys a configuration using a custom configuration package with a User Assigned Managed Identity:
 
 ```powershell
 $PolicyConfig2      = @{
@@ -148,6 +153,25 @@ $PolicyConfig2      = @{
 }
 
 New-GuestConfigurationPolicy @PolicyConfig2
+```
+
+Create a policy definition that deploys a custom configuration package using a User Assigned Managed Identity:
+
+```powershell
+$PolicyConfig3      = @{
+  PolicyId      = '_My GUID_'
+  ContentUri    = $contentUri
+  DisplayName   = 'My deployment policy'
+  Description   = 'My deployment policy'
+  Path          = './policies/deployIfNotExists.json'
+  Platform      = 'Windows'
+  PolicyVersion = 1.0.0
+  Mode          = 'ApplyAndAutoCorrect'
+  contentLocalPath = "C:\Local\Path\To\Package"
+  managedIdentityResourceId = "YourManagedIdentityResourceId"
+}
+
+New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
 
 The cmdlet output returns an object containing the definition display name and path of the policy
