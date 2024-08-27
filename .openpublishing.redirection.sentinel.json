@@ -3,12 +3,12 @@
         {
             "source_path": "articles/sentinel/best-practices-workspace-architecture.md",
             "redirect_url": "/azure-monitor/logs/workspace-design",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/design-your-workspace-architecture.md",
             "redirect_url": "/azure-monitor/logs/workspace-design",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/notebooks-troubleshoot.md",
