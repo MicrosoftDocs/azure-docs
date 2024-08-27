@@ -50,6 +50,10 @@ If you're the Account Administrator or subscription Owner and you canceled a pay
 
 For other subscription types (for example, Enterprise Subscription), [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
+## Reactivation process time
+
+It can take up to 24 hours for your subscription to get reactivated after you pay your balance.
+
 ## After reactivation
 
 After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart them if, if necessary.

@@ -420,11 +420,7 @@ The Azure portal is useful for managing GitOps configurations and the Flux exten
 Follow these steps to apply a sample Flux configuration to a cluster. As part of this process, Azure installs the `microsoft.flux` extension on the cluster, if it wasn't already installed in a previous deployment.
 
 1. Navigate to your cluster in the Azure portal.
-1. In the left pane, under **Settings**, select **GitOps**.
-1. Select **Create**.
-
-   :::image type="content" source="media/tutorial-use-gitops-flux2/portal-gitops-start.png" alt-text="Screenshot showing the GitOps Create option for a cluster in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-gitops-start.png":::
-
+1. From the service menu, under **Settings**, select **GitOps** > **Create**.
 1. In the **Basics** section:
 
    1. Enter a name for the configuration.
@@ -473,15 +469,13 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 
 #### View configurations and objects
 
-To view all of the configurations for a cluster, navigate to the cluster and select **GitOps** in the left pane.
-
-:::image type="content" source="media/tutorial-use-gitops-flux2/portal-view-configurations.png" alt-text="Screenshot showing all configurations for a cluster in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-view-configurations.png":::
+To view all of the configurations for a cluster, navigate to the cluster and select **GitOps** from the service menu.
 
 Select the name of a configuration to view more details such as the configuration's status, properties, and source. You can then select **Configuration objects** to view all of the objects that were created to enable the GitOps configuration. This lets you quickly see the compliance state and other details about each object.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-objects.png" alt-text="Screenshots showing configuration objects and their state in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-objects.png":::
 
-To see other Kubernetes resources deployed on the cluster, return to the cluster overview page and select **Kubernetes resources** in the left pane.
+To see other Kubernetes resources deployed on the cluster, return to the cluster overview page and select **Kubernetes resources** from the service menu.
 
 To view detailed conditions for a configuration object, select its name.
 
@@ -707,7 +701,7 @@ az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClu
 
 #### Delete the Flux configuration
 
-To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete** again when prompted to confirm.
+To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** from the service menu. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete** again when prompted to confirm.
 
 When you delete a Flux configuration, all of the Flux configuration objects in the cluster are deleted. However, this action doesn't delete the `microsoft.flux` extension itself.
 

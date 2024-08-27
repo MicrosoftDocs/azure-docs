@@ -166,11 +166,12 @@ You can do the following tasks with no downtime:
   > [!IMPORTANT]
   > Changing the SKU from **Standard/Premium** to **Local** is not supported in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
 
-* Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.
+* Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port. 
 
   > [!IMPORTANT]
   > * Downgrading the bandwidth of a circuit is not supported.
-  > * To determine if there is available capacity for a bandwidth upgrade, submit a support request.
+  > * When upgrading the bandwidth of an ExpressRoute circuit, the Azure portal provides a list of available bandwidth options based on the capacity of the port. If the desired bandwidth isn't available, you need to recreate the circuit to get the desired bandwidth.
+  >    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/circuit-bandwidth-upgrade.png" alt-text="Screenshot of the bandwidth upgrade available for an ExpressRoute circuit.":::
 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
 
