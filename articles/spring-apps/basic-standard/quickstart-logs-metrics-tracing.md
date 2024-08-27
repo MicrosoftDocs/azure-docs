@@ -130,6 +130,10 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Log streaming
 
+#### [Azure portal](#tab/azure-portal)
+
+[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+
 #### [CLI](#tab/Azure-CLI)
 
 You can use log streaming in the Azure CLI with the following command.
@@ -172,10 +176,6 @@ To get the logs using Azure Toolkit for IntelliJ:
    :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-log-output.png" alt-text="Screenshot of IntelliJ that shows the Azure Streaming Log pane." lightbox="media/quickstart-logs-metrics-tracing/streaming-log-output.png":::
 
  To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
-
-#### [Azure portal](#tab/azure-portal)
-
-[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
 
 ---
 
