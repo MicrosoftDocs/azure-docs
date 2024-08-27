@@ -120,12 +120,13 @@ spec:
   endpointType: mqtt
   authentication:
     method: systemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      {}
+    systemAssignedManagedIdentitySettings:{
+      audience: "https://eventgrid.azure.net"
+    }
   mqttSettings:
     host: example.westeurope-1.ts.eventgrid.azure.net:8883
     tls:
-      mode: enabled
+      mode: Enabled
 ```
 
 #### Other MQTT brokers
