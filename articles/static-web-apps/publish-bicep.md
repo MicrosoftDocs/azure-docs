@@ -21,6 +21,18 @@ To deploy your static web app, you need to:
     * [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
     * [GitHub Actions](https://docs.github.com/actions)
  
+## Types of resource creation
+
+ Bicep is one of several types of resource creation. These types include:
+
+* [Azure Resource Management](/azure/azure-resource-manager/) (ARM): implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. This older style is still in use but generally updated to Bicep or Azure Verified Modules. 
+* [Bicep](/azure/azure-resource-manager/Bicep/): Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+* [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules): These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVM when possible because it consolidates and set the standards for what a good Infrastructure-as-Code module looks like.
+* [Azure CLI](/cli/azure/)/[PowerShell](/powershell): These command line apps allow you to create resources. They have generally been superceded by Bicep and AVM but are still used for minor or quick fixes while the larger Bicep update may be more time-consuming.
+* [Azure portal](https://portal.azure.com/): Azure portal is a web-based visual interface for resource creation and configuration.
+
+Creation and configuration can be done across all the tools listed above.  
+
 ## Bicep by example
 
 The Bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [Bicep](/azure/azure-resource-manager/Bicep/) when AVM isn't available. You'll be able to recognize AVM because the referenced module includes `avm/res` such as `br/public:avm/res/web/static-site:0.3.0`.
@@ -39,6 +51,8 @@ module swa 'br/public:avm/res/web/static-site:0.3.0' = {
 ```
 
 AVM allows you to adopt Bicep code, which has been built and is maintained by professional engineers fluent in Bicep. These modules aren't only supported and maintained, they're opinionated about what proper Bicep files look like.
+
+Due to the work involved in owning and maintaining the AVM files, it takes time to specify the module, determine best practices, and find the appropriate owner/maintainer. For this reason, the module you need may not be available at this time. 
 
 ## Prerequisites
 
@@ -153,4 +167,4 @@ To learn more from a full end-to-end application that includes resource creation
 ## Related content
 
 * [Awesome AZD](https://azure.github.io/awesome-azd/?tags=swa)
-
+* [Public Bicep Registry](https://github.com/Azure/bicep-registry-modules)
