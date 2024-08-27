@@ -15,14 +15,14 @@ author: msangapu-msft
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure](manage-custom-dns-migrate-domain.md).
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
 
 The DNS record type you need to add with your domain provider depends on the domain you want to add to App Service.
 
 | Scenario | Example | Recommended DNS record |
 | - | - | - | 
-| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record. (For information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4).) |
-| Subdomain | www.contoso.com, my.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
+| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record. (For information, see [RFC 1912, section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4).) |
+| Subdomain |www.contoso.com, my.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
 | [Wildcard](https://en.wikipedia.org/wiki/Wildcard_DNS_record) | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
 
 > [!NOTE]
@@ -121,7 +121,7 @@ For a wildcard name, like `*` in `*.contoso.com`, create two records, as describ
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| CNAME | `*` | `<app-name>.azurewebsites.net`. (See [the note at start of this article](#dnl-note).) | The domain mapping itself. |
+| CNAME | `*` | `<app-name>.azurewebsites.net`. (See [the note at the start of this article](#dnl-note).) | The domain mapping itself. |
 | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
@@ -139,7 +139,7 @@ For a wildcard name, like `*` in `*.contoso.com`, create two records, as describ
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-add.png" alt-text="A screenshot showing the Add button activated after validation." border="true":::
 
     > [!NOTE]
-    > If you configured the TXT record but not the A or CNAME record, App Service treats it as a [domain migration](manage-custom-dns-migrate-domain.md) scenario and allows the validation to succeed, but you won't see green check marks next to the records.
+    > If you configured the TXT record but not the A or CNAME record, App Service treats the change as a [domain migration](manage-custom-dns-migrate-domain.md) scenario and allows the validation to succeed, but you won't see green check marks next to the records.
 
 1. You should see the custom domain added to the list. You might also see a red X and the text **No binding**. 
 
