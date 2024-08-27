@@ -104,6 +104,8 @@
   items:
   - name: Keyboard shortcuts
     href: ./reference/keyboard-shortcuts.md
+  - name: Supported Azure Resource Manager resource types
+    href: ./reference/supported-tables-resources.md 
   - name: CLI and SDK
     items:
     - name: Azure CLI
