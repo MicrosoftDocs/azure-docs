@@ -1,0 +1,38 @@
+---
+ms.service: azure-arc
+ms.topic: include
+ms.date: 08/16/2024
+author: sethmanheim
+ms.author: sethm
+---
+
+1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
+
+   ```bash
+   sysctl fs.inotify.max_user_instances
+   ```
+
+   After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files and reload the **sysctl** settings:
+
+   ```bash
+   echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf
+   sudo sysctl -p
+   ```
+
+1. Install the required NVME over TCP module for your kernel using:
+
+   ```bash
+   sudo apt install linux-modules-extra-`uname -r`
+   ```
+
+   > [!NOTE]
+   > The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
+
+1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
+
+   ```bash
+   HUGEPAGES_NR=512
+   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
+   ```
+
