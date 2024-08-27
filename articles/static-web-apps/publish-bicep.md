@@ -99,7 +99,7 @@ Save the values of the output variables. You'll need these to configure the reso
 
 To create a static web app with a linked backend function app, you need to use a standard plan for your static web app and complete the following steps.
 
-* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
+* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the `resourceId` for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
 * Create the static web app using the [bicep in the previous section](#create-a-static-web-app-resource).
 * Link the static web app to the function app.
 
