@@ -118,6 +118,8 @@ You can add one or more decorators for each of the following elements:
 * [func](#functions)
 * [type](#types)
 
+The decorators include:
+
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
