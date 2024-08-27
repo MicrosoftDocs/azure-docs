@@ -142,11 +142,13 @@ When the resource stacks are all created, return to the browser tab open to the 
 
 Now that the automatic setup process is more reliable, there aren't many good reasons to resort to manual setup. If you must, though, see the [Manual setup instructions](connect-aws.md#manual-setup) in the [Amazon Web Services S3 Connector documentation](connect-aws.md).
 
-## Test the connector
+## Test and monitor the connector
 
-After the connector is set up, go to the **Logs** page (or the **Advanced hunting** page in the Defender portal) and run the following query. If you get any results, the connector is working properly.
+1. After the connector is set up, go to the **Logs** page (or the **Advanced hunting** page in the Defender portal) and run the following query. If you get any results, the connector is working properly.
 
-```kusto
-AWSWAF
-| take 10
-```
+    ```kusto
+    AWSWAF
+    | take 10
+    ```
+
+1. If you haven't already done so, we recommend that you implement **data connector health monitoring** so that you can know when connectors are not receiving data or any other issues with connectors. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
