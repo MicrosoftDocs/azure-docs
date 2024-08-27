@@ -117,6 +117,15 @@ To assist customers with purchasing the correct reservation amounts. The total n
 
 :::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot showing available PTU quota." lightbox="../media/provisioned/available-quota.png":::
 
+Managing Azure Reservations 
+
+After a reservation is created, it is a best practice monitor it to ensure it is receiving the usage you are expecting.  This may be done via the Azure Reservation Portal or Azure Monitor.  Details on these topics and others can be found here: 
+
+* [View Azure reservation utilization](../../../cost-management-billing/reservations/reservation-utilization.md) 
+* [View Azure Reservation purchase and refund transactions](../../../cost-management-billing/reservations/view-purchase-refunds.md) 
+* [View amortized benefit costs](../../../cost-management-billing/reservations/view-amortized-costs.md) 
+* [Charge back Azure Reservation costs](../../../cost-management-billing/reservations/charge-back-usage.md)
+* [Automatically renew Azure reservations](../../../cost-management-billing/reservations/reservation-renew.md)
 
 ## Next steps
 

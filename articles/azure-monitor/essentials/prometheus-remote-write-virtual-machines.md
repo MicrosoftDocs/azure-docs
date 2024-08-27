@@ -362,14 +362,14 @@ remote_write:
   - url: "<metrics ingestion endpoint for your Azure Monitor workspace>"
 # AzureAD configuration.
 # The Azure Cloud. Options are 'AzurePublic', 'AzureChina', or 'AzureGovernment'.
-  azuread:
-    cloud: 'AzurePublic'
-    managed_identity:
-      client_id: "<client-id of the managed identity>"
-    oauth:
-      client_id: "<client-id from the Entra app>"
-      client_secret: "<client secret from the Entra app>"
-      tenant_id: "<Azure subscription tenant Id>"
+    azuread:
+      cloud: 'AzurePublic'
+      managed_identity:
+        client_id: "<client-id of the managed identity>"
+      oauth:
+        client_id: "<client-id from the Entra app>"
+        client_secret: "<client secret from the Entra app>"
+        tenant_id: "<Azure subscription tenant Id>"
 ```
 
 ---

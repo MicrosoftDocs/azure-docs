@@ -19,7 +19,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md) to monitor base-level 
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](./add-user-assigned-identity.md).
 * Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](./shared-resources/modules.md#import-az-modules).
-* An [Azure virtual machine](../virtual-machines/windows/quick-create-powershell.md).
+* An [Azure virtual machine](/azure/virtual-machines/windows/quick-create-powershell).
 * The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 * A general familiarity with [Automation runbooks](./manage-runbooks.md).
 

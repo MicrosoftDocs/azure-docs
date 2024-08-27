@@ -8,7 +8,7 @@ ms.custom: openai
 ms.topic: how-to
 author: ChrisHMSFT
 ms.author: chrhoder
-ms.date: 08/07/2024
+ms.date: 08/23/2024
 recommendations: false
 ---
 
@@ -114,6 +114,12 @@ Learn more about the purchase model and how to purchase a reservation:
 
 * [Azure OpenAI provisioned onboarding guide](./provisioned-throughput-onboarding.md) 
 * [Guide for Azure OpenAI provisioned reservations](../concepts/provisioned-throughput.md) 
+
+## Optionally purchase a reservation 
+
+Following the creation of your deployment, you might want to purchase a term discount via an Azure Reservation.  An Azure Reservation can provide a substantial discount on the hourly rate for users intending to use the deployment beyond a few days.   
+
+For more information on purchasing a reservation, see [Save costs with Microsoft Azure OpenAI service Provisioned Reservations](../../../cost-management-billing/reservations/azure-openai.md).
 
 ## Make your first inferencing calls
 The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model. For your first time using these models programmatically, we recommend starting with our [quickstart guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
