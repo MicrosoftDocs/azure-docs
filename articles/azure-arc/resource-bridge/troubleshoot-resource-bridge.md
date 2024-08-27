@@ -86,7 +86,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. A temporary network issue may not allow the host to reach the Arc resource bridge VM. Once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
+If Arc resource bridge is experiencing a network problem, you may see an `Appliance Network Unavailable` error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as `Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host`. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. A temporary network issue may not allow the host to reach the Arc resource bridge VM. Once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
 
 ### Token refresh error
 
@@ -96,9 +96,9 @@ When you run the Azure CLI commands, the following error might be returned: *The
 
 When using the `az arcappliance createconfig` or `az arcappliance run` command, there's an interactive experience that shows the list of the VMware entities where you can select to deploy the virtual appliance. This list shows all user-created resource pools. along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. We recommend that you don't deploy the appliance in a host resource pool.
 
-### Resource bridge status "Offline" and `provisioningState` "Failed"
+### Resource bridge status `Offline` and `provisioningState` `Failed`
 
-When deploying Arc resource bridge, the bridge might appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you might see status shows as **Offline**, and `az arcappliance show` might show the `provisioningState` as **Failed**. This happens when required providers aren't registered before the bridge is deployed.
+When deploying Arc resource bridge, the bridge might appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you might see status shows as `Offline`, and `az arcappliance show` might show the `provisioningState` as `Failed`. This happens when required providers aren't registered before the bridge is deployed.
 
 To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
 
@@ -139,7 +139,7 @@ When trying to deploy Arc resource bridge, you might see an error that contains 
 
 When trying to deploy Arc resource bridge, you might receive an error message similar to:
 
-`"{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_Timeout occurred due to management machine being unable to reach the appliance VM IP, 10.2.196.170.  Ensure that the requirements are met: https://aka.ms/arb-machine-reqs: dial tcp 10.2.196.170:22: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\_\n}_, _errorMetadata_: { _errorCategory_: __ } "`
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_Timeout occurred due to management machine being unable to reach the appliance VM IP, 10.2.196.170.  Ensure that the requirements are met: https://aka.ms/arb-machine-reqs: dial tcp 10.2.196.170:22: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\_\n}_, _errorMetadata_: { _errorCategory_: __ } `
 
 This occurs when the management machine is trying to reach the ARB VM IP by SSH (Port 22) or API Server (Port 6443) and is unable to. This error may also occur if the Arc resource bridge API server is being proxied - the Arc resource bridge API server needs to be added to the noproxy settings. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md#inbound-connectivity-requirements).
 
