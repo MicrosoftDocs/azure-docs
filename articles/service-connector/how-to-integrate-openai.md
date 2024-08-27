@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure OpenAI Service with Service Connector
+title: Integrate Azure OpenAI Service with service connector
 description: In this document, learn how to integrate Azure OpenAI Service into your application with Service Connector
 author: wchigit
 ms.author: wchi
@@ -49,7 +49,7 @@ Use the connection details below to connect compute services to Azure OpenAI Ser
 
 #### Sample code
 Refer to the steps and code below to connect to Azure OpenAI Service using a system-assigned managed identity.
-[!INCLUDE [code sample for app config](./includes/code-openai-me-id.md)]
+[!INCLUDE [code sample for app config](./includes/code-openai-microsoft-entra-id.md)]
 
 ### User-assigned managed identity
 
@@ -60,7 +60,7 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a sys
 
 #### Sample code
 Refer to the steps and code below to connect to Azure OpenAI Service using a user-assigned managed identity.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-me-id.md)]
+[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Connection string
 
@@ -86,7 +86,7 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a con
 
 #### Sample code
 Refer to the steps and code below to connect to Azure OpenAI Service using a service principaL.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-me-id.md)]
+[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
 
 ## Next steps
 

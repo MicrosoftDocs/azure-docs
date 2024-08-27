@@ -1,5 +1,5 @@
 ---
-title: Integrate an Azure AI multi-service resource with Service Connector
+title: Integrate an Azure AI multi-service resource with service connector
 description: In this document, learn how to integrate an Azure AI multi-service resource into your application with Service Connector
 author: wchigit
 ms.author: wchi
@@ -49,7 +49,7 @@ Use the connection details below to connect compute services to an Azure AI mult
 
 #### Sample code
 Refer to the steps and code below to connect to an Azure AI multi-service resource using a system-assigned managed identity.
-[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-me-id.md)]
+[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-microsoft-entra-id.md)]
 
 ### User-assigned managed identity
 
@@ -60,7 +60,7 @@ Refer to the steps and code below to connect to an Azure AI multi-service resour
 
 #### Sample code
 Refer to the steps and code below to connect to an Azure AI multi-service resource using a user-assigned managed identity.
-[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-me-id.md)]
+[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-microsoft-entra-id.md)]
 
 ### Connection string
 
@@ -86,7 +86,7 @@ Refer to the steps and code below to connect to an Azure AI multi-service resour
 
 #### Sample code
 Refer to the steps and code below to connect to an Azure AI multi-service resource using a service principaL.
-[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-me-id.md)]
+[!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-microsoft-entra-id.md)]
 
 ## Next steps
 

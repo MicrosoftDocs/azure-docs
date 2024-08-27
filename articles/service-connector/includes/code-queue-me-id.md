@@ -86,7 +86,7 @@ ms.author: wchi
     ```
 
 ### [SpringBoot](#tab/springBoot)
-The authentication type is not supported by Spring Boot client type.
+Spring Boot client type doesn't support the authentication type.
 
 ### [Python](#tab/python)
 1. Install dependencies.
