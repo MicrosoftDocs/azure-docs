@@ -33,7 +33,7 @@ Chaos experiments can target resources in a different subscription than the expe
 
 ## Documenting chaos experiments
 
-There are several key aspects of your chaos experimentation process you can track and modify over time. One approach is to use work items in Azure DevOps Boards or in GitHub Projects. By creating dedicated work items for each experiment, you can track the details, progress, and outcomes of your experiments in a structured manner. This documentation can include information such as the purpose of the experiment, the expected outcomes, the steps followed, the resources involved, and any observations or learnings from the experiment.
+There are several key aspects of your chaos experimentation process you can track and modify over time. One approach is to use work items in Azure Boards or in GitHub Projects. By creating dedicated work items for each experiment, you can track the details, progress, and outcomes of your experiments in a structured manner. This documentation can include information such as the purpose of the experiment, the expected outcomes, the steps followed, the resources involved, and any observations or learnings from the experiment.
 
 | Item         | Details                                                                                |
 |----------------|-------------------------------------------------------------------------------------------|
@@ -47,7 +47,7 @@ There are several key aspects of your chaos experimentation process you can trac
 | Action Items   | List any action items or steps to be taken based on the results.                          |
 |                |                                                                                           |
 
-The **hypothesis** is a crucial aspect of a chaos experiment as it defines the objective and expected outcomes of the experiment. It helps in testing the system's ability to handle unexpected disruptions effectively. By formulating a clear hypothesis, you can focus your experiment on specific areas of the system and gather meaningful data to evaluate its resilience. By leveraging the features of Azure DevOps Boards or GitHub Projects, you can collaborate with your team, assign tasks, set due dates, and track the overall progress of your chaos engineering initiatives.
+The **hypothesis** is a crucial aspect of a chaos experiment as it defines the objective and expected outcomes of the experiment. It helps in testing the system's ability to handle unexpected disruptions effectively. By formulating a clear hypothesis, you can focus your experiment on specific areas of the system and gather meaningful data to evaluate its resilience. By leveraging the features of Azure Boards or GitHub Projects, you can collaborate with your team, assign tasks, set due dates, and track the overall progress of your chaos engineering initiatives.
 
 ## Next steps
 Now that you understand what a chaos experiment is you're ready to:
