@@ -42,7 +42,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="apiversion"></a>Show resource types and API versions
+## Show resource types and API versions
 
 Resource Graph primarily uses the most recent non-preview version of a Resource Provider API to
 `GET` resource properties during an update. In some cases, the API version used has been overridden
@@ -78,7 +78,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="vmss-capacity"></a>Get virtual machine scale set capacity and size
+## Get virtual machine scale set capacity and size
 
 This query looks for virtual machine scale set resources and gets various details including the
 virtual machine size and the capacity of the scale set. The query uses the `toint()` function to
@@ -115,7 +115,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="remove-column"></a>Remove columns from results
+## Remove columns from results
 
 The following query uses `summarize` to count resources by subscription, `join` to combine it with
 subscription details from _ResourceContainers_ table, then `project-away` to remove some of the
@@ -150,7 +150,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-all-tags"></a>List all tag names
+## List all tag names
 
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
@@ -183,7 +183,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="vm-regex"></a>Virtual machines matched by regex
+## Virtual machines matched by regex
 
 This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference)
 (known as _regex_). The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`.
@@ -229,7 +229,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="mvexpand-cosmosdb"></a>List Azure Cosmos DB with specific write locations
+## List Azure Cosmos DB with specific write locations
 
 The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
 for **properties.writeLocations**, then project specific fields and limit the results further to
@@ -267,7 +267,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="join"></a>Key vaults with subscription name
+## Key vaults with subscription name
 
 The following query shows a complex use of `join` with **kind** as _leftouter_. The query limits the
 joined table to subscriptions resources and with `project` to include only the original field
@@ -305,7 +305,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="join-sql"></a>List SQL Databases and their elastic pools
+## List SQL Databases and their elastic pools
 
 The following query uses **leftouter** `join` to bring together SQL Database resources and their
 related elastic pools, if they've any.
@@ -344,7 +344,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="join-vmpip"></a>List virtual machines with their network interface and public IP
+## List virtual machines with their network interface and public IP
 
 This query uses two **leftouter** `join` commands to bring together virtual machines created with
 the Resource Manager deployment model, their related network interfaces, and any public IP address
@@ -397,7 +397,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="join-vmextension"></a>List all extensions installed on a virtual machine
+## List all extensions installed on a virtual machine
 
 First, this query uses `extend` on the virtual machines resource type to get the ID in uppercase
 (`toupper()`) the ID, get the operating system name and type, and get the virtual machine size.
@@ -451,7 +451,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="join-findstoragetag"></a>Find storage accounts with a specific tag on the resource group
+## Find storage accounts with a specific tag on the resource group
 
 The following query uses an **inner** `join` to connect storage accounts with resource groups that
 have a specified case-sensitive tag name and tag value.
@@ -530,7 +530,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="unionresults"></a>Combine results from two queries into a single result
+## Combine results from two queries into a single result
 
 The following query uses `union` to get results from the _ResourceContainers_ table and add them to
 results from the _Resources_ table.
@@ -563,7 +563,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="parse-subnets"></a>Get virtual networks and subnets of network interfaces
+## Get virtual networks and subnets of network interfaces
 
 Use a regular expression `parse` to get the virtual network and subnet names from the resource ID
 property. While `parse` enables getting data from a complex field, it's optimal to access properties
@@ -602,7 +602,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
+## Summarize virtual machine by the power states extended property
 
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.

@@ -46,7 +46,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="count-resources"></a>Count Azure resources
+## Count Azure resources
 
 This query returns number of Azure resources that exist in the subscriptions that you have access
 to. It's also a good query to validate your shell of choice has the appropriate Azure Resource
@@ -337,7 +337,7 @@ Try this query in Azure Resource Graph Explorer:
 > property is the incorrect case, a null or incorrect value is returned and the grouping or
 > summarization would be incorrect.
 
-## <a name="show-storage"></a>Show resources that contain storage
+## Show resources that contain storage
 
 Instead of explicitly defining the type to match, this example query finds any Azure resource
 that `contains` the word **storage**.
@@ -369,7 +369,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-subnets"></a>List all Azure virtual network subnets
+## List all Azure virtual network subnets
 
 This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes. Thanks to [Saul Dolgin](https://github.com/sdolgin) for the contribution.
 
@@ -403,7 +403,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-publicip"></a>List all public IP addresses
+## List all public IP addresses
 
 Similar to the previous query, find everything that is a type with the word **publicIPAddresses**.
 This query expands on that pattern to only include results where **properties.ipAddress**
@@ -439,7 +439,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
+## Count resources that have IP addresses configured by subscription
 
 Using the previous example query and adding `summarize` and `count()`, we can get a list by subscription of resources with configured IP addresses.
 
@@ -471,7 +471,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-tag"></a>List resources with a specific tag value
+## List resources with a specific tag value
 
 We can limit the results by properties other than the Azure resource type, such as a tag. In this
 example, we're filtering for Azure resources with a tag name of **Environment** that have a value
@@ -536,7 +536,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="list-specific-tag"></a>List all storage accounts with specific tag value
+## List all storage accounts with specific tag value
 
 Combine the filter functionality of the previous example and filter Azure resource type by **type**
 property. This query also limits our search for specific types of Azure resources with a specific
@@ -573,7 +573,7 @@ Try this query in Azure Resource Graph Explorer:
 > [!NOTE]
 > This example uses `==` for matching instead of the `=~` conditional. `==` is a case sensitive match.
 
-## <a name="list-all-tag-values"></a>List all tags and their values
+## List all tags and their values
 
 This query lists tags on management groups, subscriptions, and resources along with their values.
 The query first limits to resources where tags `isnotempty()`, limits the included fields by only
@@ -623,7 +623,7 @@ Try this query in Azure Resource Graph Explorer:
 
 ---
 
-## <a name="unassociated-nsgs"></a>Show unassociated network security groups
+## Show unassociated network security groups
 
 This query returns Network Security Groups (NSGs) that aren't associated to a network interface or
 subnet.
