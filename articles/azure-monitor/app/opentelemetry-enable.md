@@ -2,9 +2,9 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 07/29/2024
+ms.date: 08/27/2024
 ms.devlang: csharp
-# ms.devlang: csharp, javascript, typescript, python
+# ms.devlang: csharp, java, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
@@ -285,18 +285,20 @@ To copy the connection string:
 
 To paste your connection string, select from the following options:
 
-> [!NOTE]
-> We recommend setting the connection string through code only in local development and test environments. For production, use an environment variable or configuration file (Java only).
+> [!IMPORTANT]
+> We recommend setting the connection string through code only in local development and test environments.
+> 
+> For production, use an environment variable or configuration file (Java only).
 
-* Set via environment variable
+* **Set via environment variable** - *recommended*
 
-    Replace `<Your connection string>` in the following command with *your* unique connection string.
+    Replace `<Your connection string>` in the following command with your connection string.
     
     ```console
     APPLICATIONINSIGHTS_CONNECTION_STRING=<Your connection string>
     ```
 
-* Set via configuration file - ***Java only***
+* **Set via configuration file** - *Java only*
     
     Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.4.jar` with the following content:
     
@@ -308,7 +310,7 @@ To paste your connection string, select from the following options:
       
     Replace `<Your connection string>` in the preceding JSON with *your* unique connection string.
 
-* Set via code - ***ASP.NET Core, Node.js, and Python only***
+* **Set via code** - *ASP.NET Core, Node.js, and Python only*
   
     See [connection string configuration](opentelemetry-configuration.md#connection-string) for an example of setting connection string via code.
 
