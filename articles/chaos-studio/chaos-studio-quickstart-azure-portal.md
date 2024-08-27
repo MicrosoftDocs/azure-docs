@@ -16,7 +16,7 @@ Get started with Azure Chaos Studio by using a virtual machine (VM) shutdown ser
 
 ## Prerequisites
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)] 
-- A Linux VM running an operating system in the [Azure Chaos Studio version compatibility](chaos-studio-versions.md) list. If you don't have a VM, [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+- A Linux VM running an operating system in the [Azure Chaos Studio version compatibility](chaos-studio-versions.md) list. If you don't have a VM, [follow these steps to create one](/azure/virtual-machines/linux/quick-create-portal).
 
 ## Register the Chaos Studio resource provider
 If it's your first time using Chaos Studio, you must first register the Chaos Studio resource provider before you onboard the resources and create an experiment. You must do these steps for each subscription where you use Chaos Studio:

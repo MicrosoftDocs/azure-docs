@@ -6,7 +6,7 @@ author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.date: 8/20/2024
 ms.author: hasshah
 ms.devlang: cpp
 ms.custom: devx-track-csharp
@@ -290,5 +290,6 @@ Microsoft Audio Stack requires the reference channel (also known as loopback cha
 | C#         | Windows, Linux | [C# docs](/dotnet/api/microsoft.cognitiveservices.speech) |
 | Java       | Windows, Linux | [Java docs](/java/api/com.microsoft.cognitiveservices.speech) |
 
-## Next steps
-[Setup development environment](quickstarts/setup-platform.md)
+## Related content
+
+- [Set up development environment](quickstarts/setup-platform.md)
