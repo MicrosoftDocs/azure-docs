@@ -134,9 +134,9 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. For more information, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus#configure-antivirus-file-and-folder-exclusions).
 
-For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions.
+For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions. For more information, see 
 
 ### Install an endpoint detection and response product
 
