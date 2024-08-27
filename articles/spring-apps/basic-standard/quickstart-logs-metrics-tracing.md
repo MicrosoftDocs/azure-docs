@@ -173,6 +173,10 @@ To get the logs using Azure Toolkit for IntelliJ:
 
  To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
+#### [Azure portal](#tab/azure-portal)
+
+[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+
 ---
 
 ### Log Analytics
