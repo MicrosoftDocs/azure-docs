@@ -353,9 +353,10 @@ When Arc resource bridge is deployed, you specify where the appliance VM will be
 ```
 {\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"Cannot retrieve <resource> 'resource-name': <resource> 'resource-name' not found\\\"\\n }\"\n }"
 ```
-You have three options to move the Arc resource bridge VM: 
+These are the options to address the error: 
 
-- You can move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change
+- Move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change.
+- Create a resource with the same name, move Arc resource bridge to that new resource, and then proceed with upgrade.
 - If you're using Arc-enabled VMware, [run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
 - Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
 
