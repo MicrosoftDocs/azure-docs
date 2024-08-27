@@ -1,10 +1,14 @@
 ---
 title: Roadmap for Microsoft Dev Box
-description: Learn about features coming soon and in development.
+description: Learn about features coming soon and in development for Microsoft Dev Box.
 ms.service: dev-box
+ms.topic: concept-article
 author: Taysser-Gherfal
 ms.author: tagherfa
 ms.date: 08/26/2024
+
+#customer intent: As a customer, I want to understand upcoming features and enhancements in Microsoft Dev Box so that I can plan and optimize development and deployment strategies.
+
 ---
 # Microsoft Dev Box Roadmap
 
@@ -82,3 +86,6 @@ Microsoft Dev Box aims to provide a "like-local" developer experience that is as
 
 [Outage notifications:](https://developercommunity.visualstudio.com/t/Outage-notifications-for-Dev-Box/10720453) developers and admins can stay informed about ongoing service outages via outage notification shared within the developer and Azure status portals. 
 
+## Related content
+
+- [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
