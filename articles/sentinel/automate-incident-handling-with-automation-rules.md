@@ -91,7 +91,7 @@ Even without being onboarded to the unified portal, you might anyway decide to u
 
 ### Conditions
 
-Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated, or alert created), the states or values of the incident's properties and [entity properties](entities-reference.md) (for incident trigger only), and also the analytics rule or rules that generated the incident or alert.
+Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated, or alert created), the states or values of the incident's properties and [entity properties](#supported-entity-properties) (for incident trigger only), and also the analytics rule or rules that generated the incident or alert.
 
 When an automation rule is triggered, it checks the triggering incident or alert against the conditions defined in the rule. For incidents, the property-based conditions are evaluated according to **the current state** of the property at the moment the evaluation occurs, or according to **changes in the state** of the property (see below for details). Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule are executed only if all the conditions are satisfied.
 
@@ -167,6 +167,58 @@ In this example, in *Incident 1*:
 - If the condition checks all the tags in the incident as a single unit, then since there's at least one tag that *doesn't satisfy the condition* (that *does* contain "2024"), the overall condition is **false**.
 
 In *Incident 2*, the outcome is the same, regardless of which type of condition is defined.
+
+#### Supported entity properties
+
+The following entities and entity properties can be used as conditions for automation rules:
+
+| Name                          | Type   | Description                                                 |
+|-------------------------------|--------|-------------------------------------------------------------|
+| AccountAadTenantId            | string | The account Microsoft Entra ID tenant ID                    |
+| AccountAadUserId              | string | The account Microsoft Entra ID user ID                      |
+| AccountName                   | string | The account name                                            |
+| AccountNTDomain               | string | The account NetBIOS domain name                             |
+| AccountPUID                   | string | The account Microsoft Entra ID Passport User ID             |
+| AccountSid                    | string | The account security identifier                             |
+| AccountObjectGuid             | string | The account object unique identifier                        |
+| AccountUPNSuffix              | string | The account user principal name suffix                      |
+| AzureResourceResourceId       | string | The Azure resource ID                                       |
+| AzureResourceSubscriptionId   | string | The Azure resource subscription ID                          |
+| CloudApplicationAppId         | string | The cloud application identifier                            |
+| CloudApplicationAppName       | string | The cloud application name                                  |
+| DNSDomainName                 | string | The dns record domain name                                  |
+| FileDirectory                 | string | The file directory full path                                |
+| FileName                      | string | The file name without path                                  |
+| FileHashValue                 | string | The file hash value                                         |
+| HostAzureID                   | string | The host Azure resource ID                                  |
+| HostName                      | string | The host name without domain                                |
+| HostNetBiosName               | string | The host NetBIOS name                                       |
+| HostNTDomain                  | string | The host NT domain                                          |
+| HostOSVersion                 | string | The host operating system                                   |
+| IoTDeviceId                   | string | The IoT device ID                                           |
+| IoTDeviceName                 | string | The IoT device name                                         |
+| IoTDeviceType                 | string | The IoT device type                                         |
+| IoTDeviceVendor               | string | The IoT device vendor                                       |
+| IoTDeviceModel                | string | The IoT device model                                        |
+| IoTDeviceOperatingSystem      | string | The IoT device operating system                             |
+| IPAddress                     | string | The IP address                                              |
+| MailboxDisplayName            | string | The mailbox display name                                    |
+| MailboxPrimaryAddress         | string | The mailbox primary address                                 |
+| MailboxUPN                    | string | The mailbox user principal name                             |
+| MailMessageDeliveryAction     | string | The mail message delivery action                            |
+| MailMessageDeliveryLocation   | string | The mail message delivery location                          |
+| MailMessageRecipient          | string | The mail message recipient                                  |
+| MailMessageSenderIP           | string | The mail message sender IP address                          |
+| MailMessageSubject            | string | The mail message subject                                    |
+| MailMessageP1Sender           | string | The mail message P1 sender                                  |
+| MailMessageP2Sender           | string | The mail message P2 sender                                  |
+| MalwareCategory               | string | The malware category                                        |
+| MalwareName                   | string | The malware name                                            |
+| ProcessCommandLine            | string | The process execution command line                          |
+| ProcessId                     | string | The process ID                                              |
+| RegistryKey                   | string | The registry key path                                       |
+| RegistryValueData             | string | The registry key value in string formatted representation   |
+| Url                           | string | The url                                                     |
 
 #### Alert create trigger
 
