@@ -382,10 +382,10 @@ environment_variables:
 
 This section will show you how to use a docker build context to specify the environment for your deployment, assuming you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md).
 
-1. In your local environment, create a folder named `image_build_with_reqirements` contains following files:
+1. In your local environment, create a folder named `image_build_with_requirements` contains following files:
 
     ```
-    |--image_build_with_reqirements
+    |--image_build_with_requirements
     |  |--requirements.txt
     |  |--Dockerfile
     ```
@@ -404,7 +404,7 @@ This section will show you how to use a docker build context to specify the envi
     ```yaml
     environment: 
       build:
-        path: image_build_with_reqirements
+        path: image_build_with_requirements
         dockerfile_path: Dockerfile
       # deploy prompt flow is BYOC, so we need to specify the inference config
       inference_config:
