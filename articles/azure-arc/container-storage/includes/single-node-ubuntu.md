@@ -8,7 +8,7 @@ ms.author: sethm
 
 ## Prepare Linux with Ubuntu
 
-This section describes how to prepare Linux with Ubuntu if you run a single-node or 2-node cluster.
+This section describes how to prepare Linux with Ubuntu if you run a single-node or two-node cluster.
 
 1. Install Open Service Mesh (OSM) using the following command:
 

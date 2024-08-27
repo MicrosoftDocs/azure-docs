@@ -8,7 +8,7 @@ ms.author: sethm
 
 ## Prepare Linux with AKS Edge Essentials
 
-This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node or 2-node cluster.
+This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node or two-node cluster.
 
 1. For Edge Essentials to support Azure IoT Operations and Azure Container Storage enabled by Azure Arc, the Kubernetes hosts must be modified to support more memory. You can also increase vCPU and disk allocations at this time if you anticipate requiring additional resources for your Kubernetes uses.
 

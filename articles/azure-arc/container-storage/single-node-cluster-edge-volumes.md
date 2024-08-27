@@ -9,14 +9,14 @@ ms.date: 08/26/2024
 zone_pivot_groups: platform-select
 ---
 
-# Prepare Linux for Edge Volumes using a single-node or 2-node cluster (preview)
+# Prepare Linux for Edge Volumes using a single-node or two-node cluster (preview)
 
-This article describes how to prepare Linux using a single-node or 2-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux-edge-volumes.md#prerequisites).
+This article describes how to prepare Linux using a single-node or two-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux-edge-volumes.md#prerequisites).
 
 ::: zone pivot="aks"
 ## Prepare Linux with AKS enabled by Azure Arc
 
-This section describes how to prepare Linux with AKS enabled by Azure Arc if you run a single-node or 2-node cluster.
+This section describes how to prepare Linux with AKS enabled by Azure Arc if you run a single-node or two-node cluster.
 
 1. Install Open Service Mesh (OSM) using the following command:
 
