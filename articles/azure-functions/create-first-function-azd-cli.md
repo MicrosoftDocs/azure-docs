@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 11/08/2022
+ms.date: 08/21/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -47,23 +47,21 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/).
 ::: zone-end  
-+ A secure HTTP test tool for sending HTTP GET and HTTP POST requests to your function endpoints. `<<link to source>>`
++ A secure HTTP test tool for sending HTTP GET and HTTP POST requests to your function endpoints. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
 
 ## Initialize the project
 
-<!--- replace this with `azd init` after the samples make it into awesomeazd -->
-
-The project is maintained in its own GitHub repository. You must first clone the project locally.
+You can use the `azd init` command to create a local Azure Functions code project from a template.
 
 ::: zone pivot="programming-language-csharp"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```command
-    git clone https://github.com/Azure-Samples/functions-quickstart-dotnet-azd
-    cd functions-quickstart-dotnet-azd/FunctionHttp
+    ```azd
+    azd init --template functions-quickstart-dotnet-azd
+    cd FunctionHttp
     ```
 
-1. Create a file named _local.settings.json_ in the function app folder (_FunctionHttp_), and add this data to the file, which is required to run locally:
+1. Create a file named _local.settings.json_ in the app's root folder (`/FunctionHttp`), and add this JSON data to the file:
 
     ```json
     {
@@ -74,96 +72,88 @@ The project is maintained in its own GitHub repository. You must first clone the
         }
     }
     ```
+
+    This file is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```command
-    git clone https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd
-    cd azure-functions-java-flex-consumption-azd
+    ```azd
+    azd init --template azure-functions-java-flex-consumption-azd 
+    cd http
     ```
 
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1. Run this command in the app's root folder (`/http`):
 
     ```command
     func init --worker-runtime java
     ```
+    
+    This restores the _local.settings.json_ file in the app's root folder (`/http`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```command
-    git clone https://github.com/Azure-Samples/functions-quickstart-javascript-azd
-    cd functions-quickstart-javascript-azd
+    ```azd
+    azd init --template functions-quickstart-javascript-azd 
     ```
 
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1. Run this command in the root folder: 
 
     ```command
     func init --worker-runtime javascript
     ```
+
+    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```command
-    git clone https://github.com/Azure-Samples/functions-quickstart-powershell-azd
-    cd functions-quickstart-powershell-azd
+    ```azd
+    azd init --template functions-quickstart-powershell-azd
+    cd src
     ```
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1.  Run this command in the app's root folder (`/src`):
 
     ```command
     func init --worker-runtime powershell
     ```
+
+    This restores the _local.settings.json_ file in the app's root folder (`/src`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```command
-    git clone https://github.com/Azure-Samples/functions-quickstart-typescript-azd
-    cd functions-quickstart-typescript-azd
+    ```azd
+    azd init --template functions-quickstart-typescript-azd
     ```
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1. Run this command in the root folder:
 
     ```command
     func init --worker-runtime typescript
     ```
+
+    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. In your local terminal or command prompt, run these commands to clone the sample repository:
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ### [Command / bash](#tab/cmd+bash)
+    ```azd
+    azd init --template functions-quickstart-python-http-azd
+    ```
+
+1. Run this command in the root folder:
 
     ```bash
-    git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
-    cd functions-quickstart-python-http-azd
-    ```
-    
-    ---
-
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
-
-    ### [Command / bash](#tab/cmd+bash)
-
-    ```command
     func init --worker-runtime python 
     ```
+    This restores the _local.settings.json_ file in the root folder, which is required when running locally.
 
 ## Create and activate a virtual environment
 
-In a suitable folder, run these commands to create and activate a virtual environment named `.venv`:
+In the root folder, run these commands to create and activate a virtual environment named `.venv`:
 
-### [Command](#tab/cmd)
-
-```cmd
-py -m venv .venv
-```
-
-```cmd
-.venv\scripts\activate
-```
-
-### [bash](#tab/bash)
+### [Linux/macOS](#tab/linux)
 
 ```bash
 python -m venv .venv
@@ -178,63 +168,121 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 ```bash
 sudo apt-get install python3-venv
 ```
+
+### [Windows](#tab/windows)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
 ---
 
 ::: zone-end
 
 ## Run in your local environment  
-::: zone pivot="programming-language-csharp"  
-1. From the terminal or command prompt, use this command to start the Azurite storage emulator: 
 
-    ```command
-    start azurite
-    ``` 
+1. In a separate terminal or command prompt, start `azurite`. You need to use a separate terminal because the Azurite process blocks the thread while it runs.
 
-1. In a second terminal or command prompt, run this command in your project's root folder (_FunctionHttp_):
+1. Run this command in your project's root folder:
 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
     ```command
     func start
     ``` 
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"
+    ```console
+    mvn clean package
+    mvn azure-functions:run
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"
+    ```console
+    npm start  
+    ```
+    ::: zone-end  
 
     When the Azure Functions host starts in your local project folder, it displays the URL endpoints of the HTTP triggered functions in your project. 
 
-1. From your HTTP test tool in a second terminal or from a browser, call the HTTP GET endpoint, which should look like this URL:
+1. From your HTTP test tool in a new terminal (or from your browser), call the HTTP GET endpoint, which should look like this URL:
 
     <http://localhost:7071/api/httpget>
 
-1. From your HTTP test tool in a second terminal, send an HTTP POST request like this example:
+1. From your HTTP test tool in a new terminal, send an HTTP POST request with a JSON payload like in this example:
 
-    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/test.http" range="5-11":::
+    :::code language="http" source="~/functions-quickstart-dotnet-azd/FunctionHttp/test.http" range="5-11" :::
 
-You can find examples of both HTTP requests in the test.http project file.  
-::: zone-end
+    You can find examples of both HTTP requests in the _test.http_ project file 
 
-## Review the code (optional)
-::: zone pivot="programming-language-csharp"  
-You can review the code that defines two HTTP triggered function endpoints:
-    
-### `httpget`
+1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 
-:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" :::
-
- ### `httppostbody`
-  
-:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" :::
-::: zone-end
-::: zone pivot="programming-language-java" 
-You can review the code that defines the `httpexample` function:
-:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" :::
 ::: zone-end  
 
+## Review the code (optional)
+
+If you choose to, review the code that defines the two HTTP trigger function endpoints:
+    
+### [`httpget`](#tab/get)
+::: zone pivot="programming-language-csharp"  
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" range="17-28" :::
+::: zone-end  
+::: zone pivot="programming-language-java" 
+:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+:::code language="javascript" source="~/functions-quickstart-javascript-azd/src/functions/httpGetFunction.js" :::
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
+:::code language="typescript" source="~/functions-quickstart-typescript-azd/src/functions/httpGetFunction.ts" :::
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+This is the `function.json` file that defines the `httpget` function:
+:::code language="json" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/function.json" :::
+This is the `run.ps1` file that implements the function code:
+:::code language="powershell" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/run.ps1" :::
+::: zone-end  
+::: zone pivot="programming-language-python" 
+:::code language="python" source="~/functions-quickstart-python-azd/function_app.py" range="6-18" :::
+::: zone-end  
+    
+### [`httppost`](#tab/post)
+ 
+::: zone pivot="programming-language-csharp"   
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" range="19-31":::
+::: zone-end  
+::: zone pivot="programming-language-java" 
+:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="44-71" :::
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+:::code language="javascript" source="~/functions-quickstart-javascript-azd/src/functions/httpPostBodyFunction.js" :::
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
+:::code language="typescript" source="~/functions-quickstart-typescript-azd/src/functions/httpPostBodyFunction.ts" :::
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+This is the `function.json` file that defines the `httppost` function:
+:::code language="json" source="~/functions-quickstart-powershell-azd/src/httpPostBodyFunction/function.json" :::
+This is the `run.ps1` file that implements the function code:
+:::code language="powershell" source="~/functions-quickstart-powershell-azd/src/httpPostBodyFunction/run.ps1" :::
+::: zone-end  
+::: zone pivot="programming-language-python" 
+:::code language="python" source="~/functions-quickstart-python-azd/function_app.py" range="20-40" :::
+::: zone-end  
+
+---
+
+After you've verified your functions run locally, it's time to publish them to Azure. 
+ 
 ## Deploy to Azure
 
-After you've verified your function executions locally, you can publish them to Azure. This project is configured to use the `azd up` command to create the Azure resources required to host the project in a function app running in the Flex Consmption plan. This project uses the best practices for securing an app in the Flex consumption plan, including using only managed identities (instead of stored connection strings) and running in a virtual network.
+This project is configured to use the `azd up` command to deploy this project to a new function app in a Flex Consumption plan in Azure.
 
-1. Before deploying, you must be signed-in to Azure using your account credentials. To sign-in, run this command:
-
-    ```azd
-    azd auth login
-    ```
+>[!TIP]
+>This project uses best practices for securing your app by running in a Flex consumption plan, using only managed identities instead of stored connection strings, and running in a virtual network.
 
 1. Run this command to create the Azure resources and deploy your app to Azure.
 
@@ -242,12 +290,17 @@ After you've verified your function executions locally, you can publish them to 
     azd up
     ```
 
-1. When prompted, provide these parameters, which are required for deployment:
+    If you aren't already signed-in, you're asked to authenticate with your Azure account.
 
-    * _Azure location_: Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.
-    * _Azure subscription_: Subscription in which your resources are created. 
+1. When prompted, provide these required deployment parameters:
+
+    + _Environment name_: 
+    +  _Azure location_: Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.
+    + _Azure subscription_: Subscription in which your resources are created. 
     
-The `azd up` command applies your reponse to these prompts to the Bicep configuration files to perform these two primary tasks:
+The `azd up` command applies your reponse to these prompts to the Bicep configuration files and create Azure resources. Your response to the prompts are stored, and you can run the `azd up` command as many times as you like to both provision and deploy updates to your application. During subsequent executions, existing resources are skipped, but deployed code files are always overwritten by the latest deployment package. Use the `azd env get-values` command to review all of the variables used when creating your  
+
+these deployment tasks:
 
 + Create and configure all required Azure resources for secure deployment ([`azd provision`](/azure/developer/azure-developer-cli/reference#azd-provision)), which includes:
     * Flex Consumption plan and function app.
@@ -257,9 +310,12 @@ The `azd up` command applies your reponse to these prompts to the Bicep configur
     * Virtual network to securely run both the function app and the other Azure resources.
 * Package and deploy your code to the deployment container ([`azd deploy`](/azure/developer/azure-developer-cli/reference#azd-deploy)).
 
+1. Create the Azure resources required to host the project in a function app running in the Flex Consmption plan. 
+1. Package and deploy this code project to the deployment container after the resources are provisioned. The app is then started and runs in the deployment container. 
+
 After the command completes successfully, you see links to the resources created. 
 
-You can run the `azd up` command as many times as you like to both provision and deploy updates to your application. During subsequent executions, existing resources are skipped, but deployed code files are always overwritten by the latest deployment package. 
+
 
 ## Invoke the function on Azure
 
