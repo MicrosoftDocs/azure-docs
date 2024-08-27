@@ -81,7 +81,7 @@ When distributing secrets, ensure they are shared securely within and outside th
 
 ## Service-specific best practices
 
-These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+Individual serives may have additional best practices and guidance for protecting secrets. Here are some examples:
 
 - API Management: [Use named values in Azure API Management policies with Key Vault Integration](/azure/api-management/api-management-howto-properties)
 - App Service: [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
