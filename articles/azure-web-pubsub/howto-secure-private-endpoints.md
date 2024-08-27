@@ -10,7 +10,7 @@ ms.date: 08/16/2024
 
 # Use private endpoints for access control
 
-You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure Web PubSub resource to allow clients in a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Web PubSub resource. Network traffic between the clients on the VNet and your Web PubSub resource traverses a private link on the Microsoft network, eliminating exposure on the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure Web PubSub resource to allow clients in a [virtual network](../virtual-network/virtual-networks-overview.md) (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Web PubSub resource. Network traffic between the clients on the VNet and your Web PubSub resource traverses a private link on the Microsoft network, eliminating exposure on the public internet.
 
 Using private endpoints for your Web PubSub resource helps you:
 
@@ -22,7 +22,7 @@ Using private endpoints for your Web PubSub resource helps you:
 
 :::image type="content" source="./media/howto-secure-private-endpoints/private-endpoint-overview.png" alt-text="Diagram that shows an overview of private endpoints for Azure Web PubSub." lightbox="media/howto-secure-private-endpoints/private-endpoint-overview.png":::
 
-A private endpoint is a special network interface for an Azure service in your [virtual network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your Web PubSub resource, it provides secure connectivity between clients on your VNet and your service. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and Web PubSub uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your Web PubSub resource, it provides secure connectivity between clients on your VNet and your service. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and Web PubSub uses a secure private link.
 
 Applications in the VNet can connect to Web PubSub resources seamlessly by using the private endpoint. The applications *use the same connection strings and authorization mechanisms that they would use otherwise.*
 
@@ -37,7 +37,7 @@ You can manage consent requests and private endpoints for your Web PubSub resour
 
 ### Connect to a private endpoint
 
-Clients on a VNet that uses a private endpoint should use the same connection string for the Web PubSub resource that clients that connect via a public endpoint use. We rely on Domain Naming System (DNS) resolution to automatically route the connections from the VNet to Web PubSub over a private link.
+Clients on a VNet that uses a private endpoint should use the same connection string for the Web PubSub resource that clients that connect via a public endpoint use. We rely on Domain Name System (DNS) resolution to automatically route the connections from the VNet to Web PubSub over a private link.
 
 > [!IMPORTANT]
 > Use the same connection string to connect to Web PubSub by using private endpoints as you would use for a public endpoint. Don't connect to Web PubSub by using its `privatelink` subdomain URL.
