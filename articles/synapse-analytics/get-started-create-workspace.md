@@ -50,7 +50,7 @@ Under **Select Data Lake Storage Gen 2**:
 1. By **Account name**, select **Create New** and name the new storage account **contosolake** or similar as the name must be unique.
 
     >[!TIP]
-    >If you get an error reading *"The Azure Synapse resource provider (Microsoft.Synapse) needs to be registered with the selected subscription."* Open the Azure portal and select **Subscriptions**. Select your subscription. Under the **Settings** list select **Resource providers**. Search for **Microsoft.Synapse**, select it, and select **Register**.
+    >If you get an error reading *"The Azure Synapse resource provider (Microsoft.Synapse) needs to be registered with the selected subscription"*, open the Azure portal and select **Subscriptions**. Select your subscription. Under the **Settings** list select **Resource providers**. Search for **Microsoft.Synapse**, select it, and select **Register**.
 
 1. By **File system name**, select **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Check the **Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account** box. 
