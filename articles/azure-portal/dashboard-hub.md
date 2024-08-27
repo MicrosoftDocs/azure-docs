@@ -32,7 +32,7 @@ Some tiles aren't yet available in the Dashboard hub experience. Currently, the 
 - **Markdown**
 - **Policy**
 
-If your dashboard relies on one of these tiles, we recommend that you don't use the new experience for that dashboard at this time. We'll update this page as we add support for additional tile types.
+If your dashboard relies on one of these tiles, we recommend that you don't use the new experience for that dashboard at this time. We'll update this page as we add more tile types to the new experience.
 
 ## Create a new dashboard
 
@@ -50,7 +50,7 @@ To create a new shared dashboard with an assigned name, follow these steps.
 
 1. If you want to use a template to create your dashboard, select **Select Templates**, then choose an available template to start from. Enter a name and any other applicable information. For example, if you select **SQL database health**, you'll need to specify a SQL database resource. When you're finished, select **Submit**.
 
-1. If you aren't using a template, or if you want to add more tiles, select **Add tile** to open the **Tile Gallery**. The **Tile Gallery** features a variety of tiles that display different types of information. Select a tile, then select **Add**. You can also drag tiles from the **Tile Gallery** onto your grid. Resize or rearrange the tiles as desired.
+1. If you aren't using a template, or if you want to add more tiles, select **Add tile** to open the **Tile Gallery**. The **Tile Gallery** features various tiles that display different types of information. Select a tile, then select **Add**. You can also drag tiles from the **Tile Gallery** onto your grid. Resize or rearrange the tiles as desired.
 
 1. If you haven't already provided a name, or want to change what you entered, select **Rename dashboard** to enter a name that will help you easily identify your dashboard.
 
@@ -59,13 +59,13 @@ To create a new shared dashboard with an assigned name, follow these steps.
 1. When you're finished, select **Publish dashboardV2** in the command bar.
 
 1. Select the subscription and resource group to which the dashboard will be saved.
-1. Enter a name for the dashboard. This name will be used for the dashboard resource in Azure, and it can't be changed after publishing. However, you can edit the displayed title of the dashboard later.
+1. Enter a name for the dashboard. This name is used for the dashboard resource in Azure, and it can't be changed after publishing. However, you can edit the displayed title of the dashboard later.
 1. Select **Submit**.
 
 You'll see a notification confirming that your dashboard has been published. You can continue to [edit your dashboard](#edit-a-dashboard) as needed.
 
 > [!IMPORTANT]
-> Since all dashboards in the new experience are shared by default, anyone with access to the subscription will be able to view the dashboard resource. For more access control options, see [Understand access control](#understand-access-control).
+> Since all dashboards in the new experience are shared by default, anyone with access to the subscription will have access to the dashboard resource. For more access control options, see [Understand access control](#understand-access-control).
 
 ## Create a dashboard based on an existing dashboard
 
@@ -101,7 +101,7 @@ To add tiles to a dashboard by using the Tile Gallery, follow these steps.
 
 ### Resize or rearrange tiles
 
-To change the size of a tile, select the arrow on the bottom right corner of the tile, then drag to resize it. If there's not enough grid space to resize the tile, it will bounce back to its original size.
+To change the size of a tile, select the arrow on the bottom right corner of the tile, then drag to resize it. If there's not enough grid space to resize the tile, it bounces back to its original size.
 
 To change the placement of a tile, select it and then drag it to a new location on the dashboard.
 
@@ -129,7 +129,7 @@ You can then select each tab to make individual edits.
 
 To add filters to your dashboard, select **Parameters** from the command bar to open the **Manage parameters** pane
 
-The options you'll see will vary depending on the tiles in your dashboard. You may see options to filter data for a specific subscription or location.
+The options you see depend on the tiles used in your dashboard. For example, you may see options to filter data for a specific subscription or location.
 
 If your dashboard includes the **Metrics** tile, the default parameters are **Time range** and **Time granularity.**
 
@@ -171,10 +171,10 @@ After you make your selection, you can view the downloaded version in the editor
 
 Published dashboards are implemented as Azure resources, Each dashboard exists as a manageable item contained in a resource group within your subscription. You can manage access control through the Dashboard hub.
 
-Azure RBAC lets you assign users to roles at different levels of scope: management group, subscription, resource group, or resource. Azure RBAC permissions are inherited from higher levels down to the individual resource. In many cases, you may already have users assigned to roles for the subscription that will give them access to the published dashboard.
+Azure role-based access control (Azure RBAC) lets you assign users to roles at different levels of scope: management group, subscription, resource group, or resource. Azure RBAC permissions are inherited from higher levels down to the individual resource. In many cases, you may already have users assigned to roles for the subscription that will give them access to the published dashboard.
 
 For example, users who have the **Owner** or **Contributor** role for a subscription can list, view, create, modify, or delete dashboards within the subscription. Users with a custom role that includes the `Microsoft.Portal/Dashboards/Write` permission can also perform these tasks.
 
 Users with the **Reader** role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read permission`) can list and view dashboards within that subscription, but they can't modify or delete them. These users can make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server.
 
-To expand access to a dashboard beyond the access granted at the subscription level, you can assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as Contributor) for that dashboard only.
+To expand access to a dashboard beyond the access granted at the subscription level, you can assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user has limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as Contributor) for that dashboard only.
