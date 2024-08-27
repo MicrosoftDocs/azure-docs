@@ -43,7 +43,7 @@ For even greater security, particularly for highly sensitive or critical secrets
 
 ### Implement secret scanning tools
 
-Regularly scanning your codebase for embedded secrets can prevent accidental exposure. Tools like [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning?view=azure-devops) and [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) feature can automatically detect and alert you to any secrets found in your repositories. Integrating these tools into your CI/CD pipeline ensures continuous monitoring. It is crucial to treat any secret found by these scanning tools as compromised, which means it should be immediately revoked and replaced to maintain the integrity of your security posture.
+Regularly scanning your codebase for embedded secrets can prevent accidental exposure. Tools like [Azure DevOps Credential Scanner](/azure/devops/repos/security/github-advanced-security-secret-scanning) and [GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) feature can automatically detect and alert you to any secrets found in your repositories. Integrating these tools into your CI/CD pipeline ensures continuous monitoring. It is crucial to treat any secret found by these scanning tools as compromised, which means it should be immediately revoked and replaced to maintain the integrity of your security posture.
 
 ### Leverage managed identities
 
@@ -88,7 +88,7 @@ These best practices are intended to be a resource for IT pros. This might inclu
 - Application Gateway: [Configure an Application Gateway with TLS termination using the Azure portal](/azure/application-gateway/create-ssl-portal#configuration-tab)
 - Automation: [Manage credentials in Azure Automation](/azure/automation/shared-resources/credentials?tabs=azure-powershell)
 - Azure App Configuration: [Tutorial: Use Key Vault references in an ASP.NET Core app](/azure/azure-app-configuration/use-key-vault-references-dotnet-core)
-- Azure Bot Service: [Azure Bot Service encryption for data at rest](/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0)
+- Azure Bot Service: [Azure Bot Service encryption for data at rest](/azure/bot-service/bot-service-encryption)
 - Azure Center for SAP solutions: [Azure Center for SAP Solutions - Deployment - Prepare network for deployment](/azure/sap/center-sap-solutions/prepare-network#allowlist-key-vault)
 - Azure Communications Gateway: [Create and store secrets](/azure/communications-gateway/prepare-to-deploy#4-create-and-store-secrets)
 - Azure Communications Service: [Create and manage access tokens](/azure/communication-services/quickstarts/identity/access-tokens)
@@ -115,8 +115,8 @@ These best practices are intended to be a resource for IT pros. This might inclu
 - Functions: [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json)
 - Key Vault: [About Azure Key Vault secrets](/azure/key-vault/secrets/about-secrets)
 - Logic Apps: [Logic Apps Standard App Settings](/azure/app-service/app-service-key-vault-references?tabs=azure-cli)
-- Machine Learning Service: [Use authentication credential secrets in Azure Machine Learning jobs](/azure/machine-learning/how-to-use-secrets-in-runs?view=azureml-api-2)
-- SQL IaaS: [Configure Azure Key Vault integration for SQL Server on Azure VMs (Resource Manager)](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure?view=azuresql)
+- Machine Learning Service: [Use authentication credential secrets in Azure Machine Learning jobs](/azure/machine-learning/how-to-use-secrets-in-runs)
+- SQL IaaS: [Configure Azure Key Vault integration for SQL Server on Azure VMs (Resource Manager)](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure)
 - Storage: [Manage storage account keys with Key Vault and the Azure CLI](/azure/key-vault/secrets/overview-storage-keys)
 
 ## Next steps
