@@ -144,7 +144,7 @@ When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collec
 In some scenarios, combining this data can result in cost savings. Typically, this situation occurs when you aren't collecting enough security and operational data for each to reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. For more information, see:
 
 - [Design a Log Analytics workspace architecture](workspace-design.md)
-- (Sample workspace planning) [Combining your SOC and non-SOC data](../../sentinel/sample-workspace-designs.md#combining-your-soc-and-non-soc-data)
+- [Sample Log Analytics workspace designs for Microsoft Sentinel](../../sentinel/sample-workspace-designs.md)
 
 ## Workspaces with Microsoft Defender for Cloud
 
