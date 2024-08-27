@@ -240,7 +240,7 @@ New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Nam
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
 
 $expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
-$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+$AdvFilter1=@{operatorType="StringIn"; key="Data.color"; values=@('blue', 'red', 'green')}
 
 New-AzEventGridSubscription `
   -ResourceId $topicid `
