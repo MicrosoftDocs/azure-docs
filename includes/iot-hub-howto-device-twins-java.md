@@ -90,6 +90,40 @@ ReportedPropertiesUpdateResponse response = client.updateReportedProperties(repo
 System.out.println("Successfully set property \"HomeTemp(F)\" to value " + newTemperature);
 ```
 
+### Subscribe to desired property changes
+
+Call [subscribeToDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.device.internalclient?#com-microsoft-azure-sdk-iot-device-internalclient-subscribetodesiredproperties(java-util-map(com-microsoft-azure-sdk-iot-device-devicetwin-property-com-microsoft-azure-sdk-iot-device-devicetwin-pair(com-microsoft-azure-sdk-iot-device-devicetwin-propertycallback(java-lang-string-java-lang-object)-java-lang-object)))) to subscribe to desired properties. This client will receive a callback each time a desired property is updated. That callback will either contain the full desired properties set, or only the updated desired property depending on how the desired property was changed.
+
+This example subscribes to desired propery changes. Any desired property changes will be passed to a handler named `DesiredPropertiesUpdatedHandler`.
+
+```java
+client.subscribeToDesiredProperties(new DesiredPropertiesUpdatedHandler(), null);
+```
+
+In this example, the `DesiredPropertiesUpdatedHandler` desired property change callback handler calls [getDesiredProperties](https://learn.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getdesiredproperties()) to retrieve the property changes, then prints out the updated twin properties.
+
+```java
+  private static class DesiredPropertiesUpdatedHandler implements DesiredPropertiesCallback
+  {
+      @Override
+      public void onDesiredPropertiesUpdated(Twin desiredPropertyUpdateTwin, Object context)
+      {
+          if (twin == null)
+          {
+              // No need to care about this update because these properties will be present in the twin retrieved by getTwin.
+              System.out.println("Received desired properties update before getting current twin. Ignoring this update.");
+              return;
+          }
+
+          // desiredPropertyUpdateTwin.getDesiredProperties() contains all the newly updated desired properties as well as the new version of the desired properties
+          twin.getDesiredProperties().putAll(desiredPropertyUpdateTwin.getDesiredProperties());
+          twin.getDesiredProperties().setVersion(desiredPropertyUpdateTwin.getDesiredProperties().getVersion());
+          System.out.println("Received desired property update. Current twin:");
+          System.out.println(twin);
+      }
+  }
+```
+
 ### SDK sample
 
 The SDK includes this [Device Twin Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
@@ -190,13 +224,13 @@ The [Query](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.query) clas
 
 To create a device query:
 
-* Use [createSqlQuery](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.sqlquery?#com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-createsqlquery(java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-fromtype-java-lang-string-java-lang-string)) to build the twins SQL query.
+1. Use [createSqlQuery](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.sqlquery?#com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-createsqlquery(java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-fromtype-java-lang-string-java-lang-string)) to build the twins SQL query.
 
-* Use [queryTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-querytwin(java-lang-string-java-lang-integer)) to execute the query.
+1. Use [queryTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-querytwin(java-lang-string-java-lang-integer)) to execute the query.
 
-* Use [hasNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-hasnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to check if there's another device twin in the result set.
+1. Use [hasNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-hasnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to check if there's another device twin in the result set.
 
-* Use [getNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-getnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to retrieve the next device twin from the result set.
+1. Use [getNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-getnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to retrieve the next device twin from the result set.
 
 This example queries two IoT hub queries. Each query returns a maximum of 100 devices.
 

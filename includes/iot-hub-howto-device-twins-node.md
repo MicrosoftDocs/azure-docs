@@ -117,7 +117,87 @@ twin.properties.reported.update(patch, function(err) {
 });
 ```
 
+### Receive notice of desired property changes
+
+Use [twin.on](/javascript/api/azure-iot-device/twin?view=azure-node-latest#azure-iot-device-twin-on) to set up a desired property change event listener.
+
+The desired property event listener can take one of the following forms:
+
+#### Receive all patches with a single event handler
+
+This code will output any properties that are received from the service.
+
+```javascript
+twin.on('properties.desired', function (delta) {
+    console.log('new desired properties received:');
+    console.log(JSON.stringify(delta));
+});
+```
+
+#### Receive an event if anything changes under a properties grouping
+
+You can create code to receive an event if anything under a property grouping changes.
+
+For example:
+
+1. The `minTemperature` and `maxTemperature` properties are located under a property grouping named `properties.desired.climate changes`.
+
+1. A backend application applies this patch to update `minTemperature` and `maxTemperature` desired properties:
+
+    ```javascript
+    Example patch document for service API code:
+    const twinPatch1 = {
+    properties: {
+       desired: {
+        climate: { minTemperature: 68, maxTemperature: 76, },
+        },
+      },
+     };
+    ```
+
+1. This code sets up a desired properties change listener that triggers for any changes within the `properties.desired.climate` property grouping. If there is a desired property change within this group, min and max temp change messages will be displayed to the console:
+
+```javascript
+twin.on('properties.desired.climate', function (delta) {
+    if (delta.minTemperature || delta.maxTemperature) {
+        console.log('updating desired temp:');
+        console.log('min temp = ' + twin.properties.desired.climate.minTemperature);
+        console.log('max temp = ' + twin.properties.desired.climate.maxTemperature);
+    }
+});
+```
+
+#### Receive an event for a single property change
+
+You can set up a listener for a single property change. In this example, the code for this event is only fired if the `fanOn` boolean value is part of the patch. The code outputs the new desired fan state whenever the service updates it.
+
+In this example, a backend application applies this desired property patch:
+
+```javascript
+ const twinPatch2 = {
+  properties: {
+    desired: {
+      climate: {
+        hvac: {
+          systemControl: { fanOn: true, },
+        },
+      },
+    },
+  },
+};
+```
+
+The listener triggers only when the `fanOn` property changes:
+
+```javascript
+twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
+    console.log('setting fan state to ' + fanOn);
+});
+```
+
 ### SDK samples
+
+The SDK contains two device twin samples:
 
 * [Simple sample device twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_twin.js)
 
