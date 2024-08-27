@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Enable data partitioning
 
-Data partitioning allows you to set up a lightweight data partition scheme to store multiple copies of the same image with the same unique identifier (UID) in a single DICOM instance. 
+Data partitioning allows you to set up a lightweight data partition scheme to store multiple copies of the same image with the same unique identifier (UID) in a single DICOM&reg; instance. 
 
 Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom/2013/output/chtml/part05/chapter_9.html), it's common practice for healthcare providers to write DICOM files to portable storage media and give them to a patient. The patient then gives the files to another healthcare provider, who transfers the files into a new DICOM storage system. As a result, multiple copies of one DICOM file commonly exist in several isolated DICOM systems. Data partitioning provides an on-ramp for your existing data stores and workflows.
 
@@ -95,3 +95,5 @@ A partition is a unit of logical isolation and data uniqueness.
 | PartitionKey  | int    | System-assigned identifier.                                                       |
 | PartitionName | string | Client-assigned unique name, up to 64 alphanumeric characters, `.`, `-`, or `_`.  |
 | CreatedDate   | string | The date and time when the partition was created. |
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
