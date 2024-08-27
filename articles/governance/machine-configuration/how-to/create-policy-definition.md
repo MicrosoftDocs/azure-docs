@@ -118,6 +118,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
 > [!IMPORTANT]
 > Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities. As a result, the `-ExcludeArcMachines` flag is required to ensure the exclusion of those machines from the policy definition.
+> Additionally, for the Azure VM to download the assigned package and apply the policy, the Guest Configuration Windows Agent Version 1.29.82.0 OR Linux Agent Version 1.26.76.0 is required
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
@@ -173,6 +174,8 @@ $PolicyConfig3      = @{
 
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
+> [!NOTE]
+> You can retrieve the resorceId of a nmanaged identity using the `Get-AzUserAssignedIdentity` Powershell cmdlet.
 
 The cmdlet output returns an object containing the definition display name and path of the policy
 files. Definition JSON files that create audit policy definitions have the name
