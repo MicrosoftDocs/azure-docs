@@ -143,7 +143,7 @@ resource linkedStaticWebAppBackend 'Microsoft.Web/staticSites/linkedBackends@202
 
 ## Deployment
 
-After your resources are created, you'll want to deploy your application to the hosting environment. You may want to be able to deploy from both your local computer as you develop and GitHub Actions for your product workloads. 
+After your resources are created, you can deploy your application to the hosting environment. The following descriptions show you how to work both locally and deploy though GitHub Actions:
 
 * **Local development environment**: Use [Azure Developer CLI](/azure/developer/azure-developer-cli) to deploy from your local machine. When running locally, you define your deployment in an `azure.yml` file. This file includes hooks that plug into the resource creation process at any point to help you during deployment, especially when different parts of your app need to know about each other at build time.
 
