@@ -144,7 +144,7 @@ The [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) 
 
 ### Enable managed identity
 
-To allow your Azure AI Search and Storage Account to recognize your Azure OpenAI service via Microsoft Entra ID authentication, you need to assign a managed identity for your Azure OpenAI service. The easiest way is to toggle on system assigned managed identity on Azure portal.
+To allow your Azure AI Search and Storage Account to recognize your Azure OpenAI Service via Microsoft Entra ID authentication, you need to assign a managed identity for your Azure OpenAI Service. The easiest way is to toggle on system assigned managed identity on Azure portal.
 :::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="A screenshot showing the system assigned managed identity option in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
 
 To set the managed identities via the management API, see [the management API reference documentation](/rest/api/aiservices/accountmanagement/accounts/update#identity).
@@ -175,7 +175,7 @@ This step can be skipped only if you have a [shared private link](#create-shared
 
 You can disable public network access of your Azure OpenAI resource in the Azure portal. 
 
-To allow access to your Azure OpenAI service from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints) that connect to your Azure OpenAI resource.
+To allow access to your Azure OpenAI Service from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints) that connect to your Azure OpenAI resource.
 
 
 ## Configure Azure AI Search
@@ -290,7 +290,7 @@ To enable the developers to use these resources to build applications, the admin
 
 ## Configure gateway and client
 
-To access the Azure OpenAI service from your on-premises client machines, one of the approaches is to configure Azure VPN Gateway and Azure VPN Client.
+To access the Azure OpenAI Service from your on-premises client machines, one of the approaches is to configure Azure VPN Gateway and Azure VPN Client.
 
 Follow [this guideline](/azure/vpn-gateway/tutorial-create-gateway-portal#VNetGateway) to create virtual network gateway for your virtual network.
 

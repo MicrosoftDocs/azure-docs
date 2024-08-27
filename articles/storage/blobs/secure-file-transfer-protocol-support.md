@@ -65,7 +65,7 @@ You can't set custom passwords, rather Azure generates one for you. If you choos
 
 #### SSH key pairs
 
-A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the public key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
+A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the public key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](/azure/virtual-machines/linux/ssh-from-windows#).
 
 If you choose to authenticate with private-public key pair, you can either generate one, use one already stored in Azure, or provide Azure the public key of an existing public-private key pair. You can have a maximum of 10 public keys per local user.
 

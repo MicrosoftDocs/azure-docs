@@ -33,7 +33,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a VM in the portal
-            url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+            url: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
       - linkListType: learn
         links:
           - text: Module - Manage services with the Azure portal

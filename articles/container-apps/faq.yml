@@ -39,6 +39,10 @@ sections:
         answer:
           Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, go to the "Continuous deployment" window under your container app.
       - question: |
+          Why is the URL my app receives different than the URL specified in the request?
+        answer:
+          Azure Container Apps decodes the URL to protect your app against [URL confusion attacks](https://snyk.io/blog/url-confusion-vulnerabilities/). A request URL that has encoded portions, such as `http://mysite.com/archive/http%3A%2F%2Fmysite.com%2Farchive%2F123`, is sent to your app as `http://mysite.com/archive/http%3A/mysite.com/archive/123`.
+      - question: |
           Do Consumption only environments support custom user-defined routes?
         answer:
           For Consumption only environments, express routes are unsupported, and limited UDR when configured as follows is supported. The UDR configuration must have a route configured for `Azure.<REGION_NAME>` Service tag with Next Hop = "Internet". In addition, the rules in the [NSG documentation](./firewall-integration.md?tabs=consumption-only) must be configured for the Consumption only environment to be operational. These limitations do not apply for workload profiles, and for full featured UDR and Express Route support, use workload profile environments.
@@ -60,7 +64,7 @@ sections:
 
           - **Scaling apps vs environments**: There are many different quotas available to increase. Use these descriptions to help identify your needs:
             - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
-            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: A detailed business context might be required if your request involves increasing environment-level quotas.
+            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: A detailed business context might be required if your request involves increasing environment-level quotas. When you request a change to your regional environment quota, you should request a corresponding change to your global environment quota.
 
           - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
 

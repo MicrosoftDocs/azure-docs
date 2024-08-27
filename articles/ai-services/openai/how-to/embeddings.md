@@ -139,7 +139,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-* Store your embeddings and perform vector (similarity) search using your choice of Azure service:
+* Store your embeddings and perform vector (similarity) search using your choice of service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/vector-search)
   * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
@@ -147,3 +147,4 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
   * [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/howto-use-pgvector)
   * [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector)  
   * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)
+  * [Use Eventhouse as a vector database - Real-Time Intelligence in Microsoft Fabric](/fabric/real-time-intelligence/vector-database)
