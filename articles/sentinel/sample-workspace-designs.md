@@ -1,15 +1,15 @@
 ---
-title: Sample Microsoft Sentinel workspace designs
-description: Learn from samples of Microsoft Sentinel architecture designs with multiple tenants, clouds or regions.
-author: limwainstein
-ms.author: lwainstein
+title: Sample Log Analytics workspace designs for Microsoft Sentinel
+description: Learn from samples of Log Analytics workspace designs for Microsoft Sentinel with multiple tenants, clouds or regions.
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 08/27/2024
 ---
 
-# Microsoft Sentinel sample workspace designs
+# Sample Log Analytics workspace designs for Microsoft Sentinel
 
-This article describes suggested workspace designs for organizations with the following sample requirements:
+This article describes suggested Log Analytics workspace designs for organizations with the following sample requirements:
 
 - Multiple-tenants and regions, with European Data Sovereignty requirements
 - Single tenant with multiple clouds
@@ -63,22 +63,22 @@ The Contoso Operations team needs to have access to all the logs that they curre
 Constoso's solution includes the following considerations:
 
 - Contoso already has an existing workspace, and they'd like to explore enabling Microsoft Sentinel in that same workspace.
-- Contoso has [regulatory requirements](/azure/azure-monitor/logs/workspace-design#azure-regions), so we need at least one Microsoft Sentinel workspace in Europe.
+- Contoso has [regulatory requirements](/azure/azure-monitor/logs/workspace-design#azure-regions), so we need at least one Log Analytics workspace enabled for Microsoft Sentinel in Europe.
 - Most of Contoso's VMs are the EU North region, where they already have a workspace. Therefore, in this case, bandwidth costs aren't a concern.
 - Contoso has [two different Microsoft Entra tenants](/azure/azure-monitor/logs/workspace-design#multiple-tenant-strategies), and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, and we need at least one workspace per tenant.
 - Contoso does need to collect [non-SOC data](/azure/azure-monitor/logs/workspace-design#operational-and-security-data), although there isn't any overlap between SOC and non-SOC data. Also, SOC data accounts for approximately 250 GB/day, so they should use separate workspaces for the sake of cost efficiency.
 - Contoso has a single SOC team that will be using Microsoft Sentinel, so no extra separation is needed.
 - All members of Contoso's SOC team will have access to all the data, so no extra separation is needed.
 
-The resulting Microsoft Sentinel workspace design for Contoso is illustrated in the following image:
+The resulting workspace design for Contoso is illustrated in the following image:
 
 :::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false"::: <!--update diagram to read microsoft sentinel-->
 
 The suggested solution includes:
 
 - A separate Log Analytics workspace for the Contoso Operations team. This workspace will only contain data that's not needed by Contoso’s SOC team, such as the **Perf**, **InsightsMetrics**, or **ContainerLog** tables.
-- Two Microsoft Sentinel workspaces, one in each Microsoft Entra tenant, to ingest data from Office 365, Azure Activity, Microsoft Entra ID, and all Azure PaaS services.
-- All other data, coming from on-premises data sources, can be routed to one of the two Microsoft Sentinel workspaces.
+- Two Log Analytics workspaces enabled for Microsoft Sentinel, one in each Microsoft Entra tenant, to ingest data from Office 365, Azure Activity, Microsoft Entra ID, and all Azure PaaS services.
+- All other data, coming from on-premises data sources, can be routed to one of the two workspaces.
 
 
 ## Sample 2: Single tenant with multiple clouds
@@ -134,15 +134,15 @@ Fabrikam's solution includes the following considerations:
 
 - However, Fabrikam will need separate workspaces for their [SOC and Operations teams](/azure/azure-monitor/logs/workspace-design#operational-and-security-data).
 
-    The Fabrikam Operations team needs to collect performance data, from both VMs and AKS. Since AKS is based on diagnostic settings, they can select specific logs to send to specific workspaces. Fabrikam can choose to send AKS audit logs to the Microsoft Sentinel workspace, and all AKS logs to a separate workspace, where Microsoft Sentinel isn't enabled. In the workspace where Microsoft Sentinel isn't enabled, Fabrikam will enable the Container Insights solution.
+    The Fabrikam Operations team needs to collect performance data, from both VMs and AKS. Since AKS is based on diagnostic settings, they can select specific logs to send to specific workspaces. Fabrikam can choose to send AKS audit logs to the Log Analytics workspace enabled for Microsoft Sentinel, and all AKS logs to a separate workspace, where Microsoft Sentinel isn't enabled. In the workspace where Microsoft Sentinel isn't enabled, Fabrikam will enable the Container Insights solution.
 
-    For Windows VMs, Fabrikam can use the [Azure Monitoring Agent (AMA)](connect-windows-security-events.md#connector-options) to split the logs, sending security events to the Microsoft Sentinel workspace, and performance and Windows events to the workspace without Microsoft Sentinel.
+    For Windows VMs, Fabrikam can use the [Azure Monitoring Agent (AMA)](connect-windows-security-events.md#connector-options) to split the logs, sending security events to the workspace, and performance and Windows events to the workspace without Microsoft Sentinel.
 
     Fabrikam chooses to consider their overlapping data, such as security events and Azure activity events, as SOC data only, and sends this data to the workspace with Microsoft Sentinel.
 
 - Fabrikam needs to control access for overlapping data, including security events and Azure activity events, but there's no row-level requirement. Since security events and Azure activity events aren't custom logs, Fabrikam can use [table-level RBAC](/azure/azure-monitor/logs/workspace-design#data-access-control) to grant access to these two tables for the Operations team.
 
-The resulting Microsoft Sentinel workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
+The resulting workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
 :::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" :::
 
@@ -151,7 +151,7 @@ The suggested solution includes:
 - **Two separate workspaces in the US region**: one for the SOC team with Microsoft Sentinel enabled, and another for the Operations team, without Microsoft Sentinel.
 - **The [Azure Monitoring Agent (AMA)](connect-windows-security-events.md#connector-options)**, used to determine which logs are sent to each workspace from Azure and on-premises VMs.
 - **Diagnostic settings**, used to determine which logs are sent to each workspace from Azure resources such as AKS.
-- **Overlapping data being sent to the Microsoft Sentinel workspace**, with table-level RBAC to grant access to the Operations team as needed.
+- **Overlapping data being sent to the Log Analytics workspace enabled for Microsoft Sentinel**, with table-level RBAC to grant access to the Operations team as needed.
 
 ## Sample 3: Multiple tenants and regions and centralized security
 
@@ -200,17 +200,17 @@ The Adventure Works solution includes the following considerations:
 
 - Adventure Works has no regulatory requirements that requires them to keep data separate.
 
-- Adventure Works has three Microsoft Entra tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least Microsoft Sentinel workspaces, one for each tenant.
+- Adventure Works has three Microsoft Entra tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least one Log Analytics workspace enabled for Microsoft Sentinel in each tenant.
 
 - While all data considered in this decision will be used by the Adventure Works SOC team, they do need to segregate data by ownership, as each SOC team needs to access only data that is relevant to that team. Each SOC team also needs access to the full Microsoft Sentinel portal. Adventure Works doesn't need to control data access by table.
 
-The resulting Microsoft Sentinel workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
+The resulting workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
 :::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false":::
 
 The suggested solution includes:
 
-- A separate Microsoft Sentinel workspace for each Microsoft Entra tenant. Each workspace collects data related to its tenant for all data sources.
+- A separate Log Analytics workspace enabled for Microsoft Sentinel for each Microsoft Entra tenant. Each workspace collects data related to its tenant for all data sources.
 - Each continent's SOC team has access only to the workspace in its own tenant, ensuring that only logs generated within the tenant boundary are accessible by each SOC team.
 - The central SOC team can still operate from a separate Microsoft Entra tenant, using Azure Lighthouse to access each of the different Microsoft Sentinel environments. If there's no other tenant, the central SOC team can still use Azure Lighthouse to access the remote workspaces.
 - The central SOC team can also create another workspace if it needs to store artifacts that remain hidden from the continent SOC teams, or if it wants to ingest other data that isn't relevant to the continent SOC teams.

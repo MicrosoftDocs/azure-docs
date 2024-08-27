@@ -80,14 +80,14 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 ## Manage multiple workspaces using automation
 
-To configure and manage multiple Microsoft Sentinel workspaces, you need to automate the use of the Microsoft Sentinel management API. 
+To configure and manage multiple Log Analytics workspaces enabled for Microsoft Sentinel, you need to automate the use of the Microsoft Sentinel management API. 
 
 - Learn how to [automate the deployment of Microsoft Sentinel resources](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885), including alert rules, hunting queries, workbooks and playbooks.
 - Learn how to [deploy custom content from your repository](ci-cd.md). This resource provides a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps or GitHub repository.
 
 ## Manage workspaces across tenants using Azure Lighthouse
 
-As mentioned above, in many scenarios, the different Microsoft Sentinel workspaces can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Microsoft Sentinel workspaces across all tenants. 
+As mentioned above, in many scenarios, the different Log Analytics workspaces enabled for Microsoft Sentinels can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on workspaces across all tenants. 
 
 Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-microsoft-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they'll all be available in the different workspace selectors in the portal.
 

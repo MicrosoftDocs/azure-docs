@@ -29,7 +29,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
 - The Log Analytics workspace must not have a resource lock applied, and the workspace pricing tier must be Pay-as-You-Go or a commitment tier. Log Analytics legacy pricing tiers and resource locks aren't supported when enabling Microsoft Sentinel. For more information about pricing tiers, see [Simplified pricing tiers for Microsoft Sentinel](enroll-simplified-pricing-tier.md#prerequisites).
 
-- To reduce complexity, we recommend a dedicated [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) for your Microsoft Sentinel workspace. This resource group should only contain the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
+- To reduce complexity, we recommend a dedicated [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) for your Log Analytics workspace enabled for Microsoft Sentinel. This resource group should only contain the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
 
   A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to dependent resources. With a dedicated resource group, access management of Microsoft Sentinel is efficient and less prone to improper permissions. Reducing permission complexity ensures users and service principals have the permissions required to complete actions and makes it easier to keep less privileged roles from accessing inappropriate resources.
 
