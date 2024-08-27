@@ -107,6 +107,8 @@ Arc resource bridge supports the following Azure regions:
 * South Central US
 * Canada Central
 * Australia East
+* Australia SouthEast
+
 * West Europe
 * North Europe
 * UK South

@@ -4,12 +4,12 @@ titleSuffix: Azure AI Search
 description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate indexing of content and metadata for full text search in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: vinodva
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/19/2024
+ms.date: 08/23/2024
 ---
 
 # Index data from Azure Data Lake Storage Gen2
@@ -166,7 +166,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
-   Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+   Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. The indexer automatically encodes the key metadata property, with no configuration or field mapping required.
 
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
@@ -189,7 +189,6 @@ Once the index and data source have been created, you're ready to create the ind
           "batchSize": null,
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
-          "base64EncodeKeys": null,
           "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",

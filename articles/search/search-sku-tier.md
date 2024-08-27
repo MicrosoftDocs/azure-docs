@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 08/22/2024
 
 ---
 
@@ -50,6 +50,21 @@ Some tiers are designed for certain types of work:
 + **Storage Optimized (L1, L2)** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. These tiers are designed for large indexes that don't change very often. The primary tradeoff is higher query latency, which you should validate for your specific application requirements. 
 
 You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure AI Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
+
+## Region availability by tier
+
+Currently, several regions are at capacity for Basic and Standard (S1) tiers and can't be used for new search services. If you use the Azure portal to create a search service, the portal excludes any region-tier combinations that aren't available.
+
+| Region | Disabled tier (SKU) due to over-capacity |
+|--------|------------------------------------------|
+| Japan East | Basic, Standard (S1) |
+| Qatar Central | Basic, Standard (S1) |
+| North Europe | Basic, Standard (S1) |
+| West Europe | All tiers |
+| Central US | Basic, Standard (S1) |
+| South Central US | Basic, Standard (S1) |
+| West US 2 | Basic, Standard (S1) |
+| West US 3| Basic, Standard (S1) |
 
 <a name="premium-features"></a>
 

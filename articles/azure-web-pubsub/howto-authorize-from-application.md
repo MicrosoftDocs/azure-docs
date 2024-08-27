@@ -18,7 +18,7 @@ This article shows you how to configure your Web PubSub resource and code to aut
 
 The first step is to register an Azure application.
 
-1. In the [Azure portal](https://portal.azure.com/), search for and then select **Microsoft Entra ID**
+1. In the [Azure portal](https://portal.azure.com/), search for and then select **Microsoft Entra ID**.
 1. On the left menu under **Manage**, select **App registrations**.
 1. Select **New registration**.
 1. For **Name**, enter a name to use for your application.
@@ -136,6 +136,15 @@ To learn more about how to assign and manage Azure role assignments, see these a
    1. Select **resource**, and then enter `https://webpubsub.azure.com` for the value.
 
    :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png" alt-text="Screenshot that shows the Body tab parameters when you use Postman to get the token.":::
+
+   For an OAuth2/v2.0/token endpoint, pass the value for `scope` instead of the value for `resource`:
+
+   ```json
+   client_id: *your client ID*
+   client_secret: *your client secret*
+   grant_type: client_credentials
+   scope: https://webpubsub.azure.com/.default
+   ```
 
 1. Select **Send** to send the request to get the token. The value for `access_token` is the access token.
 

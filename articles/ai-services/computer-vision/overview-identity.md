@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 08/21/2024
 ms.author: pafarley
 ms.custom:
   - ignite-2023
@@ -18,8 +18,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 # What is the Azure AI Face service?
 
-
-The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identification, touchless access control, and face blurring for privacy.
+The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
 
 You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
 
@@ -45,9 +44,11 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details on verification with liveness, see the [liveness tutorial](./Tutorials/liveness.md). For identity verification without liveness, follow the [quickstart](./quickstarts-sdk/identity-client-library.md).
+The following are common use cases for the Face service:
 
-**Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Liveness tutorial](./Tutorials/liveness.md)
+**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details on verification with liveness, see the [liveness tutorial](./Tutorials/liveness.md). For identity verification without liveness, follow the [quickstart](./quickstarts-sdk/identity-client-library.md).
+
+**Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, recorded video, or a 3D mask of the user's face. [Liveness tutorial](./Tutorials/liveness.md)
 
 **Touchless access control**: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.
 
@@ -93,7 +94,7 @@ Face liveness SDK reference docs:
 - [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
 - [JavaScript (Web)](https://aka.ms/liveness-sdk-web)
 
-## Face recognition
+## Face recognition operations
 
 Modern enterprises and apps can use the Face recognition technologies, including Face verification ("one-to-one" matching) and Face identification ("one-to-many" matching) to confirm that a user is who they claim to be.
 
@@ -132,13 +133,13 @@ And these images are the candidate faces:
 
 ![Five images of people smiling. Images A and B show the same person.](./media/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar) reference documentation.
+To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar) reference documentation.
 
 ## Group faces
 
 The Group operation divides a set of unknown faces into several smaller groups based on similarity. Each group is a disjoint proper subset of the original set of faces. It also returns a single "messyGroup" array that contains the face IDs for which no similarities were found.
 
-All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Group API](/rest/api/face/face-recognition-operations/group) reference documentation.
+All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Group API](/rest/api/face/face-recognition-operations/group) reference documentation.
 
 ## Input requirements
 
@@ -160,4 +161,6 @@ As with all of the Azure AI services resources, developers who use the Face serv
 
 Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
 
-- [Face quickstart](quickstarts-sdk/identity-client-library.md)
+> [!div class="nextstepaction"]
+> [Quickstart](quickstarts-sdk/identity-client-library.md)
+
