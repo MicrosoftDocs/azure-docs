@@ -346,14 +346,19 @@ To resolve this issue, manually delete the existing template. Then run [`az arca
 
 When deploying Arc resource bridge on VMware, you specify the folder in which the template and VM are created. The selected folder must be a VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
 
-### Cannot retrieve resource - not found
+### Cannot retrieve resource - not found or does not exist
 
-When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the one below when upgrading: 
+When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the ones below when upgrading: 
 
-```
+`
 {\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"Cannot retrieve <resource> 'resource-name': <resource> 'resource-name' not found\\\"\\n }\"\n }"
-```
-These are the options to address the error: 
+`
+
+`
+{\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"The specified vSphere Datacenter '/VxRail-Datacenter' does not exist\\\"\\n }\"\n }"
+`
+
+These are the options to address either error: 
 
 - Move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change.
 - Create a resource with the same name, move Arc resource bridge to that new resource, and then proceed with upgrade.
