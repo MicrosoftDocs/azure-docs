@@ -18,17 +18,18 @@ run simple actions on bare metal machines without using the Azure console or com
 > Do not perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 > [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break the healthy quorum threshold of the Kubernetes Control Plane.
+> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become non-operational at once due to simultaneous disruptive actions. If multiple nodes become non-operational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
 >
 > Powering off a KCP node is the only nexusctl action considered disruptive in the context of this check.
 
 ## Prerequisites
 
-1. Create a [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) to allow ssh access to the bare metal machines.
+1. Create a [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) to allow ssh access to the bare metal machines. The user must have superuser privilege level.
+1. The platform Kubernetes must be up and running on site.
 
 ## Overview
 
-`nexusctl` is a stand-alone program that can be run using `nc-toolbox` from an `ssh` session on any management node. Since `nexusctl` is contained in the `nc-toolbox-breakglass` container image and isn't installed directly on the host, it must be run with a command-line like:
+`nexusctl` is a stand-alone program that can be run using `nc-toolbox` from an `ssh` session on any control-plane or management-plane node. Since `nexusctl` is contained in the `nc-toolbox-breakglass` container image and isn't installed directly on the host, it must be run with a command-line like:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl <command> [subcommand] [options]
@@ -46,9 +47,13 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --help
 
 etc.
 
+> [!NOTE]
+>
+> > There is no bulk execution against multiple machines. Commands are executed on a machine by machine basis.
+
 ## Power off a bare metal machine
 
-A single bare metal machine can be powered off by connecting to a management node via ssh and running the command:
+A single bare metal machine can be powered off by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --name <machine name>
@@ -64,7 +69,7 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Start a bare metal machine
 
-A single bare metal machine can be started from a power-off state by connecting to a management node via ssh and running the command:
+A single bare metal machine can be started from a power-off state by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal start --name <machine name>
@@ -80,19 +85,19 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Unmanage a bare metal machine (set to unmanaged state)
 
-A single bare metal machine can be moved from a managed state to an unmanaged state by connecting to a management node via ssh and running the command:
+A single bare metal machine can be moved from a managed state to an unmanaged state by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal unmanage --name <machine name>
 ```
 
-While in an unmanaged state, no actions are permitted for that machine, except for returning it to a managed state (see next section).
+While in an unmanaged state, no actions are permitted for that machine, except for returning it to a managed state (see next section). This can be used to keep a bare metal machine powered off in the instance it's caught in a rebooting crash loop.
 
 `unmanage` isn't a long-running command, so there's no associated command to check operation status.
 
 ## Manage a bare metal machine (set to managed state)
 
-A single bare metal machine can be moved from an unmanaged state to a managed state by connecting to a management node via ssh and running the command:
+A single bare metal machine can be moved from an unmanaged state to a managed state by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal manage --name <machine name>
@@ -102,7 +107,7 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal manage --name <machine 
 
 ## Create users on storage appliances
 
-User accounts can be created on the Pure storage appliance by connecting to a management node via ssh and running the command:
+User accounts can be created on the Pure storage appliance by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users create --file <user-file> --keyvault <keyvault>
@@ -122,7 +127,7 @@ If a user in the given list already exists on the appliance, their account and p
 
 ## Delete users on storage appliances
 
-User accounts can be deleted on the Pure storage appliance by connecting to a management node via ssh and running the command:
+User accounts can be deleted on the Pure storage appliance by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users delete --file <user-file> --keyvault <keyvault>
@@ -132,7 +137,7 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users delete --file <user
 
 ## List users on storage appliances
 
-The current user accounts on the storage appliance can be listed by connecting to a management node via ssh and running the command:
+The current user accounts on the storage appliance can be listed by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users get
@@ -140,7 +145,7 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users get
 
 ## Rotate passwords for users on storage appliances
 
-Passwords can be rotated for users on the Pure storage appliance by connecting to a management node via ssh and running the command:
+Passwords can be rotated for users on the Pure storage appliance by connecting to a control-plane or management-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl storage users rotate --file <user-file> --keyvault <keyvault>
