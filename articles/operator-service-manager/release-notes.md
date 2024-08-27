@@ -74,7 +74,7 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 * NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled. For guidance on the impact of this change, see our [best practice recommendations](best-practices-onboard-deploy.md#considerations-if-your-nf-runs-cert-manager).
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the preupgrade job to safeguard against modifications to the existing network function extension service account.
-* RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SP's that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
+* RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SPs that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
 * CVE	- A total of five CVEs are addressed in this release.
 
 
@@ -136,14 +136,14 @@ kubectl delete crd orders.acme.cert-manager.io
 
 ### Release Highlights
 #### Cluster Registry & Webhook – High Availability 
-This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO will use custom mehtods of certificate management. High availability, along with changes to rotate certs will be restored in a future releases.
+This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO will use custom methods of certificate management. High availability, along with changes to rotate certs will be restored in a future release.
 
 ### Issues Resolved in This Release 
 
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO	- Cert-manager service is removed from from NFO installation and operational use.
+* NFO	- Cert-manager service is removed from NFO installation and operational use.
    
 #### Security Related Updates
 
