@@ -424,46 +424,46 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 1. In the **Basics** section:
 
    1. Enter a name for the configuration.
-   2. Enter the namespace within which the Flux custom resources will be installed. This can be an existing namespace or a new one that will be created when the configuration is deployed.
-   3. Under **Scope**, select **Cluster** so that the Flux operator has access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
-   4. Select **Next** to continue to the **Source** section.
+   1. Enter the namespace within which the Flux custom resources will be installed. This can be an existing namespace or a new one that will be created when the configuration is deployed.
+   1. Under **Scope**, select **Cluster** so that the Flux operator has access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
+   1. Select **Next** to continue to the **Source** section.
 
    :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-basics.png" alt-text="Screenshot showing the Basics options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-basics.png":::
 
 1. In the **Source** section:
 
    1. In **Source type**, select **Git Repository.**
-   2. Enter the URL for the repository where the Kubernetes manifests are located: `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
-   3. For reference type, select **Branch**. Leave **Branch** set to **main**.
-   4. For **Repository type**, select **Public**.
-   5. Leave the other options set to the default, then select **Next**.
+   1. Enter the URL for the repository where the Kubernetes manifests are located: `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
+   1. For reference type, select **Branch**. Leave **Branch** set to **main**.
+   1. For **Repository type**, select **Public**.
+   1. Leave the other options set to the default, then select **Next**.
 
    :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-source.png" alt-text="Screenshow showing the Source options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-source.png":::
 
 1. In the **Kustomizations** section, create two [kustomizations](gitops-flux2-parameters.md#kustomization): `infrastructure` and `staging`. These kustomizations are Flux resources, each associated with a path in the repository, that represent the set of manifests that Flux should reconcile to the cluster.
 
    1. Select **Create**.
-   2. In the **Create a Kustomization** screen:
+   1. In the **Create a Kustomization** screen:
 
       1. For **Instance name**, enter **infrastructure**.
-      2. For **Path**, enter **./infrastructure**.
-      3. Check the box for **Prune**. This setting ensures that the objects that Flux deployed to the cluster are cleaned up if they're removed from the repository, or if the Flux configuration or kustomizations are deleted.
-      4. Leave the other options as is, then select **Save** to create the `infrastructure` kustomization.
+      1. For **Path**, enter **./infrastructure**.
+      1. Check the box for **Prune**. This setting ensures that the objects that Flux deployed to the cluster are cleaned up if they're removed from the repository, or if the Flux configuration or kustomizations are deleted.
+      1. Leave the other options as is, then select **Save** to create the `infrastructure` kustomization.
 
          :::image type="content" source="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png" alt-text="Screenshot showing the options to create the infrastructure kustomization in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png":::
 
-   3. You'll see the `infrastructure` kustomization in the **Kustomizations** section. To create the next kustomization, select **Create**.
-   4. In the **Create a Kustomization** screen:
+   1. You'll see the `infrastructure` kustomization in the **Kustomizations** section. To create the next kustomization, select **Create**.
+   1. In the **Create a Kustomization** screen:
 
       1. For **Instance name**, enter **staging**.
-      2. For **Path**, enter **./apps/staging**.
-      3. Check the box for **Prune**.
-      4. In the **Depends on** box, select **infrastructure**.
-      5. Leave the other options as is, then select **Save** to create the `staging` kustomization.
+      1. For **Path**, enter **./apps/staging**.
+      1. Check the box for **Prune**.
+      1. In the **Depends on** box, select **infrastructure**.
+      1. Leave the other options as is, then select **Save** to create the `staging` kustomization.
 
          :::image type="content" source="media/tutorial-use-gitops-flux2/portal-kustomization-staging.png" alt-text="Screenshot showing the options to create the staging kustomization in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-kustomization-staging.png":::
 
-   5. You now should see both kustomizations shown in the **Kustomizations** section. Select **Next** to continue.
+   1. You now should see both kustomizations shown in the **Kustomizations** section. Select **Next** to continue.
 
 1. Review the options you selected in the previous steps. Then select **Create** to finish creating your GitOps configuration.
 
