@@ -13,7 +13,7 @@ ms.author: mmitrik
 
 Data partitioning allows you to set up a lightweight data partition scheme to store multiple copies of the same image with the same unique identifier (UID) in a single DICOM instance. 
 
-Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom/2013/output/chtml/part05/chapter_9.html), it's common practice for healthcare providers to write DICOM files to portable storage media and then give them to a patient. The patient then gives the files to another healthcare provider, who then transfers the files into a new DICOM storage system. Therefore, multiple copies of one DICOM file do commonly exist in isolated DICOM systems. Data partitioning provides an on-ramp for your existing data stores and workflows. 
+Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom/2013/output/chtml/part05/chapter_9.html), it's common practice for healthcare providers to write DICOM files to portable storage media and give them to a patient. The patient then gives the files to another healthcare provider, who transfers the files into a new DICOM storage system. As a result, multiple copies of one DICOM file commonly exist in several isolated DICOM systems. Data partitioning provides an on-ramp for your existing data stores and workflows.
 
 ## Limitations
 
@@ -60,7 +60,7 @@ GET /partitions
 After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and worklist requests must include a data partition URI segment after the base URI, with the form `/partitions/{partitionName}`, where `partitionName` is:
 
  - Up to 64 characters long.
- - Any combination of alphanumeric characters, `.`, `-`, and `_`, to allow both DICOM UID and GUID formats, as well as human-readable identifiers.
+ - Any combination of alphanumeric characters, `.`, `-`, and `_` (to allow both DICOM UID and GUID formats), as well as human-readable identifiers.
 
 | Action  | Example URI                                                         |
 | ------- | ------------------------------------------------------------------- |
