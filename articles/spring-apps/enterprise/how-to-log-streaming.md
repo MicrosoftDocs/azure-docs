@@ -25,7 +25,31 @@ This article describes how to enable log streaming in the Azure CLI to get real-
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.0.0 or higher. You can install the extension by using the following command: `az extension add --name spring`
 - An instance of Azure Spring Apps with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
-## Use the Azure CLI to produce tail logs
+## Stream logs
+
+[Azure portal](#tab/azure-portal)
+
+Use the following steps to stream logs in Azure portal:
+
+1. Select the Azure Spring Apps service instance.
+
+1. Select the **Apps** blade.
+
+1. Find your target app and select the context menu in the right side
+
+1. Select **View log stream" in the pop up context menu
+
+1. By default, it will randomly stream logs for the first application instance, you can select yours afterwards.
+
+1. For convenience, there are many entrypoints to stream logs. You can find them in following blades:
+
+   1. App list blade
+
+   1. Deployment list blade
+
+   1. App instance list blade
+
+[Azure CLI](#tab/azure-CLI)
 
 This section provides examples of using the Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, use the following commands to set your default resource group name and cluster name:
 
@@ -137,6 +161,8 @@ Single vip registry refresh property : null
 > ```format
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
+
+---
 
 ## Stream an Azure Spring Apps app log in a virtual network injection instance
 
