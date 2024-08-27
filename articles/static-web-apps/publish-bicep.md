@@ -149,9 +149,7 @@ After your resources are created, you'll want to deploy your application to the 
 
 * **Production environment**: The ability to deploy from a GitHub Actions workflow file is a built-in feature when you create your static web app. Once the file is in your repository, you can edit the file as needed. Deployment from [other source code providers](external-providers.md) is also supported.
 
-Learn more from a full end-to-end application, which provides resource creation and application deployment: 
-
-* [Serverless AI Chat with RAG using LangChain.js](https://github.com/Azure-Samples/serverless-chat-langchainjs)
+To learn more from a full end-to-end application that includes resource creation and application deployment, see [Serverless AI Chat with RAG using LangChain.js](https://github.com/Azure-Samples/serverless-chat-langchainjs).
 
 ## Related content
 
