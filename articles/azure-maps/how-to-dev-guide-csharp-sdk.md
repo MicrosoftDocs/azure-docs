@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 27/08/2024
+ms.date: 08/27/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
