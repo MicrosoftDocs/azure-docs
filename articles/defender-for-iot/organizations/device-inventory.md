@@ -101,7 +101,7 @@ The following table lists the columns available in the Defender for IoT device i
 
 |Name  |Description | Editable|
 |---------|---------|----|
-|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in both Azure and the OT Sensor|
+|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in OT Sensor|
 |**Business Function**     | Describes the device's business function. |Editable in OT Sensor|
 | **Class** | The device's class. <br>Default: `IoT` <!-- is this correct for me default was set to OT--> |Editable in OT Sensor|
 |**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` <!-- is this correct for me default was set to OT sensor-->| Not editable|
@@ -122,15 +122,15 @@ The following table lists the columns available in the Defender for IoT device i
 |**Model**  *| The device's hardware model. <See hardware model above. in the details this is called hardware model?>|Editable in both Azure and the OT Sensor|
 |**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |
 |**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
-|**OS architecture** |The device's operating system architecture.  |Editable in OT Sensor|
-|**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Editable in OT Sensor|
-|**OS platform** * | The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |Editable in both Azure and the OT Sensor|
-|**OS version** | The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |Editable in OT Sensor|
-|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |Not editable|
+|**OS architecture** |The device's operating system architecture.  |Not editable|
+|**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Not editable|
+|**OS platform** * | The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |Editable in the OT Sensor|
+|**OS version** | The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |Not editable|
+|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |Editable in the OT Sensor|
 |**Programming device**  *   | Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |Editable in both Azure and the OT Sensor|
 |**Protocols**  *| The protocols that the device uses.  |Not editable|
 | **Purdue level** | The Purdue level in which the device exists.|Editable in OT Sensor|
-|**Scanner device**  * |Defines whether the device performs scanning-like activities in the network. |Editable in both Azure and the OT Sensor|
+|**Scanner device**  * |Defines whether the device performs scanning-like activities in the network. |Editable in the OT Sensor|
 |**Sensor**| The sensor the device is connected to. |Not editable|
 |**Serial number**  *| The device's serial number.  |Not editable|
 | **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |Not editable|
@@ -138,7 +138,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **Subtype** | The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |Editable in OT Sensor|
 | **Tags** | The device's tags.  |Editable in OT Sensor|
 |**Type** * | The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |Editable in both Azure and the OT Sensor|
-|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|Not editable|
+|**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|Editable in Azure |
 | **VLAN**  * | The device's VLAN.  |Not editable|
 |**Zone** | The device's zone.  |Not editable|
 
