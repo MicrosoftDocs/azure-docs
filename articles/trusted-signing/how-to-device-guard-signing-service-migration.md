@@ -10,19 +10,19 @@ ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
 
-# Device Guard Signing Service (DGSSv2) Migration to Trusted Signing for code integrity policy
+# Device Guard Signing Service (DGSSv2) migration to Trusted Signing for code integrity policy
 
 Device Guard Signing Service is being deprecated at the beginning of December 2024. All existing DGSSv2 customers who plan to continue using the service must transition to Trusted Signing.
-The root that issues the code signing and CI policy signing certificates remains the same between DGSSv2 and Trusted Signing. Since Trusted Signing is an Azure service, you now need to have Azure Tenant Id and Subscription Id to access signing, and a new dedicated EKU for signing. Steps you need to take include:
+The root that issues the code signing and CI policy signing certificates remains the same between DGSSv2 and Trusted Signing. Since Trusted Signing is an Azure service, you now need to have Azure Tenant ID and Subscription ID to access signing, and a new dedicated EKU for signing. Steps you need to take include:
 
-- Get an Azure account
-- Set up access to signing control (controlled through Azure portal and Azure identities)
-- Choose a pricing tier (Trusted Signing is a paid service – learn more about pricing [here](https://azure.microsoft.com/pricing/details/trusted-signing/))
-- Follow the steps dependent on your migration scenarios
+1. Get an Azure account
+2. Set up access to signing control (controlled through Azure portal and Azure identities)
+3. Choose a pricing tier (Trusted Signing is a paid service – learn more about pricing [here](https://azure.microsoft.com/pricing/details/trusted-signing/))
+4. Follow the steps dependent on your migration scenarios
 
 This guide outlines the steps needed to migrate to Trusted Signing. **Read the entirety of this document and note these steps must be followed carefully; missing a step may cause damage to the OS image.**
 
-## Migration Scenarios
+## Migration scenarios
 
 - Scenario 1: Signed CI Policy Migration & Deployment
     - You have an existing CI policy signed with DGSSv2 and now wish to migrate it to Trusted Signing.
@@ -44,7 +44,7 @@ This guide outlines the steps needed to migrate to Trusted Signing. **Read the e
 > Migration isn't possible without creating a Trusted Signing account, Private Trust identity validation, and Private Trust CI policy signing certificate profile using these steps: [Quickstart: Set up Trusted Signing | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal).
 
 
-## Scenario 1: Signed CI Policy Migration & Deployment
+## Scenario 1: Signed CI Policy Migration and Deployment
 
 The migration of the signed CI policy is applicable only to customers who have already implemented a DGSSv2 signed CI policy in their environment. To ensure a smooth transition and deployment, carefully follow the next two steps:
 
@@ -75,11 +75,11 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 5.	Deploy this signed policy .bin file. For more information, refer to [Deploy Windows Defender Application Control polices](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy).
 6.	Reboot the machine and confirm the Code Integrity event 3099 shows that the policy is activated.
     - Open Event Viewer (Select Start, type Event Viewer) &rarr; Applications and Services Logs &rarr; Microsoft &rarr; Windows &rarr; CodeIntegrity &rarr; Operational
-    - Filter by event Id 3099
+    - Filter by event ID 3099
 >[!NOTE]
 > If you don't see event 3099, DON'T proceed to step 7. Restart from No.1 and make sure your CI policy file is well formed and successfully signed. 
-        - Well formed: Compare the xml with the [default CI policy xml](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/example-wdac-base-policies) to verify the format.
-        - Successfully signed: To verify, use SignTool; refer to this [link](https://docs.microsoft.com/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
+>  - Well formed: Compare the xml with the [default CI policy xml](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/example-wdac-base-policies) to verify the format.
+>  - Successfully signed: To verify, use SignTool; refer to this [link](https://docs.microsoft.com/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
     
 7. Run the command to delete this CI policy: `del SiPolicy.p7b` from both folders: C:\Windows\System32\CodeIntegrity and S:\EFI\Microsoft\Boot.  
     1. If there's no S: drive, run the command:   
@@ -89,10 +89,10 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 8. Reboot the machine once deletion is completed. 
 9. Reboot the machine twice more, to ensure the CI policy is properly removed, before moving on or deploying this change to other machines. 
 
-### Step 2: Deploy and Test the new CI policy on the same machine. 
+### Step 2: Deploy and test the new CI policy on the same machine 
 1. Continue to the steps outlined in Scenario 2. 
 
-## Scenario 2: Unsigned to Signed CI Policy Migration & Deployment 
+## Scenario 2: Unsigned to Signed CI Policy Migration and Deployment 
 
 ### Step 1: Determine your new EKUs 
 
@@ -116,7 +116,7 @@ private string CalculateEkuValue(string CustomerEku)
 } 
 ```
 
-### Step 2: Deploy and Test the new CI policy. 
+### Step 2: Deploy and test the new CI policy
 
 1. Now that you have your two EKUs, it is time to edit your CI policy. If you have an existing CI policy, you can proceed to the next section. To create a new one go to: [Policy creation for common WDAC usage scenarios - Windows Security | Microsoft Learn](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/common-wdac-use-cases).
 2. Add the new EKU in the EKU section of your policy, using the two EKU values from Step 1. 
@@ -160,14 +160,15 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 6. Deploy this signed policy .bin file; refer to this [link](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide) for instructions. 
 
 7. Reboot the machine and confirm that Code Integrity event 3099 is showing, which means the new CI policy is activated.
-    1. **Note**: If you don't see event 3099, DON'T proceed to step 8. Restart from No.1 and make sure your CI policy file is well formed and successfully signed.  
+> [!NOTE]
+> If you don't see event 3099, DON'T proceed to step 8. Restart from No.1 and make sure your CI policy file is well formed and successfully signed.  
         1. Well formed: Compare the xml with the default CI policy xml to verify the format. 
         2. Successfully signed: To verify, use SignTool; refer to this [link](https://docs.microsoft.com/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature). 
 8. Reboot the machine again to ensure a successful boot. 
 9. Reboot the machine twice more, to ensure the CI policy is properly enabled, before moving on or deploying this change to other machines. 
 
 
-### Step 3: Perform testing to validate that the new policy does not break any expected scenarios. 
+### Step 3: Perform testing to validate that the new policy does not break any expected scenarios
 
 1. Verify that any files signed with Trusted Signing still behave as expected.  
 2. Sign a catalog file with Trusted Signing and make sure it can run on your test machine with the Trusted Signing (new) CI policy. 
@@ -180,18 +181,18 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 
 3. After confirming the CI policy is activated on this machine and all scenarios work as expected, repeat steps on the rest of the desired machines in your environment.  
 
- ## Scenario 3: Unsigned to Unsigned CI Policy Migration & Deployment 
+ ## Scenario 3: Unsigned to Unsigned CI Policy Migration and Deployment 
 
 You need to add the Trusted Signing EKUs to your existing CI policy by following the steps in Scenario 2 to locate and update the EKUs. 
 
- ## Scenario 4: No Existing CI Policy 
+ ## Scenario 4: No existing CI policy 
 
 If isolation is desired, deploy a new CI policy by following steps outlined in Scenario 2. 
 
 
-## Related Content
+## Related content
 
-1. [Understand Windows Defender Application Control (WDAC) policy rules and file rules](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create).
-2. [Deploy catalog files to support Windows Defender Application Control (Windows 10) - Windows security](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-catalog-files-to-support-windows-defender-application-control#:~:text=%20Deploy%20catalog%20files%20to%20support%20Windows%20Defender,signing%20certificate%20to%20a%20Windows%20Defender...%20More%20).
-3. [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
-4. [Use multiple Windows Defender Application Control Policies (Windows 10)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
+- [Understand Windows Defender Application Control (WDAC) policy rules and file rules](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create).
+- [Deploy catalog files to support Windows Defender Application Control (Windows 10) - Windows security](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-catalog-files-to-support-windows-defender-application-control#:~:text=%20Deploy%20catalog%20files%20to%20support%20Windows%20Defender,signing%20certificate%20to%20a%20Windows%20Defender...%20More%20).
+- [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
+- [Use multiple Windows Defender Application Control Policies (Windows 10)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
