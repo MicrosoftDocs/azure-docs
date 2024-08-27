@@ -1,7 +1,7 @@
 ---
 title: Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
 titlesuffix: Azure Load Balancer
-description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure CLI.
+description: This article shows how to deploy IPv6 addresses to an existing application in an Azure virtual network for a Standard Load Balancer using Azure CLI.
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
