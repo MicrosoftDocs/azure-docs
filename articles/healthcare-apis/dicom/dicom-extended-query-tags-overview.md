@@ -91,7 +91,7 @@ The following VR types are supported:
 
 ### List extended query tags
 
-Lists of all extended query tag(s).
+Lists of all extended query tags.
 
 ```http
 GET .../extendedquerytags
@@ -229,7 +229,7 @@ GET .../operations/{operationId}
 
 ### Tag status
 
-The [Status](#extended-query-tag-status) of extended query tag indicates current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement-v2.md#search-qido-rs). 
+The [Status](#extended-query-tag-status) of extended query tag indicates the current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement-v2.md#search-qido-rs). 
 
 For example, if the tag Manufacturer Model Name (0008,1090) is added, and in `Ready` status, hereafter the following queries can be used to filter stored instances by the Manufacturer Model Name.
 
