@@ -33,7 +33,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
 1. Next to the custom domain, select **Add binding**.
 
-    :::image type="content" source="media/configure-ssl-bindings/secure-domain-launch.png" alt-text="A screenshot showing how to launch the Add TLS/SSL Binding dialog.":::
+    :::image type="content" source="media/configure-ssl-bindings/secure-domain-launch.png" alt-text="A screenshot showing how to launch the Add TLS/SSL Binding dialog." lightbox="media/configure-ssl-bindings/secure-domain-launch.png":::
 
 1. If your app already has a certificate for the selected custom domain, you can select it in **Certificate**. If not, you must add a certificate using one of the selections in **Source**.
 
