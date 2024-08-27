@@ -1,5 +1,5 @@
 ---
-title: 'Upgrade public IP addresses attached to a VM in an Availability Set from Basic to Standard'
+title: 'Upgrade public IP addresses attached to virtual machines in an Availability Set from Basic to Standard'
 titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade all public IP address attached to a VMs in an Availability Set to a standard public IP address
 author: mbender-ms
@@ -19,9 +19,9 @@ For more information about the retirement of Basic SKU Public IPs and the benefi
 
 ## Upgrade overview
 
-This script upgrades any Public IP Addresses attached to the Virtual Machines (VMs) in an Availability Set from Basic to Standard SKU. In order to perform the upgrade, the Public IP Address allocation method is set to static before being disassociated from each VM. Once disassociated, the Public IP SKU is upgraded to Standard, then the IP is re-associated with original VM until all IPs are upgraded.
+This script upgrades any Public IP Addresses attached to the Virtual Machines (VMs) in an Availability Set from Basic to Standard SKU. In order to perform the upgrade, the Public IP Address allocation method is set to static before being disassociated from each VM. Once disassociated, the Public IP SKU is upgraded to Standard, then the IP is reassociated with original VM until all IPs are upgraded.
 
-Because the Public IP allocation is set to 'Static' before detaching from the VMs, the IP address don't change during the upgrade process, even in the event of a script failure. The module double-checks that the Public IP allocation method is 'Static' before detaching the Public IP from the VM. 
+Because the Public IP allocation is set to 'Static' before detaching from the VMs, the IP addresses don't change during the upgrade process, even in the event of a script failure. The module double-checks that the Public IP allocation method is 'Static' before detaching the Public IP from the VM. 
 
 The module logs all upgrade activity to a file named `AvSetPublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
@@ -29,7 +29,7 @@ The module logs all upgrade activity to a file named `AvSetPublicIPUpgrade.log`,
 
 * **VMs with network interfaces associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's network interfaces are also associated with a Load Balancer, either through Backend Pool or NAT Pool membership. Use the scripts [Upgrade a Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade both the Load Balancer and Public IPs as the same time.
 
-* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
+* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default," meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
 ### Prerequisites
 
@@ -71,7 +71,7 @@ Evaluate VMs in a single Availability Set, without making any changes
 Start-AzAvSetPublicIPUpgrade -availabilitySetName 'myAvSet' -resourceGroupName 'myRG' -WhatIf
 ```
 
-Attempt upgrade of VMs in a every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs will be skipped.
+Attempt upgrade of VMs in a every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs are skipped.
 ```powershell
         Get-AzAvailabilitySet -resourceGroupName 'myRG' | Start-AzAvSetPublicIPUpgrade -skipVMMissingNSG
 ```
@@ -84,7 +84,7 @@ Recover from a failed migration, passing the name and resource group of the Avai
 
 ### Recovering from a failed migration
 
-If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `AvSetPublicIPUpgrade.log` created in the location where the script was executed.
+If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be retried to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `AvSetPublicIPUpgrade.log` created in the location where the script was executed.
 
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the Availability Set to recover with the `-AvailabilitySetName` parameter, as shown in this example.
 
