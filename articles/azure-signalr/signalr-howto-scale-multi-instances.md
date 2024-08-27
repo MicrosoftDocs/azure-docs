@@ -271,9 +271,8 @@ To enable multiple SignalR Service instances, you should:
         "AzureSignalRServiceTransportType":"Persistent"
     }
     ```
-    >Notes for switching from `Transient` mode to `Persistent` mode on **Azure Functions runtime V3 and above** :
-    >
-    > Under `Transient` mode, `Newtonsoft.Json` library is used to serialize arguments of hub methods, however, under `Persistent` mode, `System.Text.Json` library is used as default on Azure Functions runtime V3 or above. `System.Text.Json` has some key differences in default behavior with `Newtonsoft.Json`. If you want to use `Newtonsoft.Json` under `Persistent` mode, you can add a configuration item: `"Azure:SignalR:HubProtocol":"NewtonsoftJson"` in `local.settings.json` file or `Azure__SignalR__HubProtocol=NewtonsoftJson` on Azure portal.
+    > [!NOTE]
+    > When switching from `Transient` mode to `Persistent` mode, there may be JSON serialization behavior change, because under `Transient` mode, `Newtonsoft.Json` library is used to serialize arguments of hub methods, however, under `Persistent` mode, `System.Text.Json` library is used as default. `System.Text.Json` has some key differences in default behavior with `Newtonsoft.Json`. If you want to use `Newtonsoft.Json` under `Persistent` mode, you can add a configuration item: `"Azure:SignalR:HubProtocol":"NewtonsoftJson"` in `local.settings.json` file or `Azure__SignalR__HubProtocol=NewtonsoftJson` on Azure portal.
 
 
 2. Configure multiple SignalR Service endpoints entries in your configuration.
@@ -296,6 +295,7 @@ To enable multiple SignalR Service instances, you should:
     }
     ```
 
+    > [!NOTE]
     > * When you configure Azure SignalR endpoints in the App Service on Azure portal, don't forget to replace `":"` with `"__"`, the double underscore in the keys. For reasons, see [Environment variables](/aspnet/core/fundamentals/configuration/#environment-variables).
     >
     > * Connection string configured with the key `{ConnectionStringSetting}` (defaults to "AzureSignalRConnectionString") is also recognized as a primary service endpoint with empty name. But this configuration style is not recommended for multiple endpoints.
