@@ -33,9 +33,9 @@ In this scenario:
 * Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
 * By default, you enable analysis with the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To learn more about the built-in rules, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
-* Azure API Center applies the following limits for linting:
-    * Linting operations per 4 hours (Standard tier): 100
-    * Linting operations per 4 hours (Free tier): 10
+* Azure API Center applies the following limits for analysis and linting:
+    * API definitions linted per 4 hours (Standard tier): 100
+    * API definition linted per 4 hours (Free tier): 10
 
 ## Prerequisites
 
