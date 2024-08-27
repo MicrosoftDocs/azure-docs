@@ -117,8 +117,8 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **`-ExcludeArcMachines`** (Optional) - A flag to exclude Arc machines from the generated Policy definition (Required if you are using a User Assigned Managed Identity to provide access to an Azure Storge blob)
 
 > [!IMPORTANT]
-> Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities. As a result, the `-ExcludeArcMachines` flag is required to ensure the exclusion of those machines from the policy definition.
-> Additionally, for the Azure VM to download the assigned package and apply the policy, the Guest Configuration Windows Agent Version 1.29.82.0 OR Linux Agent Version 1.26.76.0 is required
+> - Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities. As a result, the `-ExcludeArcMachines` flag is required to ensure the exclusion of those machines from the policy definition.
+> - Additionally, for the Azure VM to download the assigned package and apply the policy, the Guest Configuration Windows Agent Version 1.29.82.0 OR Linux Agent Version 1.26.76.0 is required
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
