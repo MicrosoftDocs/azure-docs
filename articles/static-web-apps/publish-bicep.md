@@ -173,12 +173,6 @@ Azure Developer CLI (`azd`) uses Bicep files along with deployment configuration
 https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2023-release/#azd-provision-is-now-faster-when-there-are-no-infrastructure-changes
 ).
 
-## Azure samples 
-
-The following samples create and deploy Azure Static Web apps with Azure Developer CLI:
-
-* 
-
 ## Related content
 
 * [Awesome AZD](https://azure.github.io/awesome-azd/?tags=swa)
