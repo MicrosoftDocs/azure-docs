@@ -123,13 +123,13 @@ Download the [applicationinsights-agent-3.5.4.jar](https://github.com/microsoft/
 
 #### [Java native](#tab/java-native)
 
-**For Spring Boot native applications:**
+For *Spring Boot* native applications:
 
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
 * Add the [Spring Cloud Azure Starter Monitor](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-monitor) dependency.
 * Follow [these instructions](/azure//developer/java/spring-framework/developer-guide-overview#configuring-spring-boot-3) for the Azure SDK JAR (Java Archive) files.
 
-**For Quarkus native applications:**
+For *Quarkus* native applications:
 
 * Add the [Quarkus OpenTelemetry Exporter for Azure](https://mvnrepository.com/artifact/io.quarkiverse.opentelemetry.exporter/quarkus-opentelemetry-exporter-azure) dependency.
 
@@ -171,7 +171,7 @@ pip install azure-monitor-opentelemetry
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Add `UseAzureMonitor()` to your application startup, located in your `program.cs` class:
+Import the `Azure.Monitor.OpenTelemetry.AspNetCore` namespace, add OpenTelemetry, and configure it to use Azure Monitor in your `program.cs` class:
 
 ```csharp
 // Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
@@ -221,7 +221,7 @@ var loggerFactory = LoggerFactory.Create(builder =>
 
 #### [Java](#tab/java)
 
-Java autoinstrumentation is enabled through configuration changes; no code changes are required.
+Autoinstrumentation is enabled through configuration changes. *No code changes are required.*
 
 Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.4.jar"` to your application's JVM args.
 
@@ -236,7 +236,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 
 #### [Java native](#tab/java-native)
 
-Several automatic instrumentations are enabled through configuration changes. *No code changes are required.*
+Autoinstrumentation is enabled through configuration changes. *No code changes are required.*
 
 #### [Node.js](#tab/nodejs)
 
