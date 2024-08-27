@@ -16,20 +16,20 @@ to understand how to compose requests for the resources you're looking for.
 
 We'll walk through the following advanced queries:
 
-- [Show API version for each resource type](#apiversion)
-- [Get virtual machine scale set capacity and size](#vmss-capacity)
-- [Remove columns from results](#remove-column)
-- [List all tag names](#list-all-tags)
-- [Virtual machines matched by regex](#vm-regex)
-- [List Azure Cosmos DB with specific write locations](#mvexpand-cosmosdb)
-- [Key vaults with subscription name](#join)
-- [List SQL Databases and their elastic pools](#join-sql)
-- [List virtual machines with their network interface and public IP](#join-vmpip)
-- [List all extensions installed on a virtual machine](#join-vmextension)
-- [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
-- [Combine results from two queries into a single result](#unionresults)
-- [Get virtual networks and subnets of network interfaces](#parse-subnets)
-- [Summarize virtual machine by the power states extended property](#vm-powerstate)
+- [Show API version for each resource type](#show-api-version-for-each-resource-type)
+- [Get virtual machine scale set capacity and size](#get-virtual-machine-scale-set-capacity-and-size)
+- [Remove columns from results](#remove-columns-from-reults)
+- [List all tag names](#list-all-tag-names)
+- [Virtual machines matched by regex](#virtual-machines-matched-by-regex)
+- [List Azure Cosmos DB with specific write locations](#list-azure-cosmos-db-with-specific-write-locations)
+- [Key vaults with subscription name](#key-vaults-with-subscription-name)
+- [List SQL Databases and their elastic pools](#list-sql-databases-and-their-elastic-pools)
+- [List virtual machines with their network interface and public IP](#list-virtual-machines-with-their-network-interface-and-public-ip)
+- [List all extensions installed on a virtual machine](#list-all-extensions-installed-on-a-virtual-machine)
+- [Find storage accounts with a specific tag on the resource group](#find-storage-accounts-with-a-specific-tag-on-the-resource-group)
+- [Combine results from two queries into a single result](#combine-results-from-two-queries-into-a-single-result)
+- [Get virtual networks and subnets of network interfaces](#get-virtual-networks-and-subnets-of-network-interfaces)
+- [Summarize virtual machine by the power states extended property](#summarize-virtual-machine-by-the-power-states-extended-property)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -42,7 +42,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
-## Show resource types and API versions
+## Show API version for each resource type
 
 Resource Graph primarily uses the most recent non-preview version of a Resource Provider API to
 `GET` resource properties during an update. In some cases, the API version used has been overridden
