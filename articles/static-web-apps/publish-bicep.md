@@ -13,7 +13,7 @@ ms.author: cshoe
 
 # Deploy Azure Static Web Apps with Bicep
 
-Use a bicep file to create your Azure Static Web app to Azure. Bicep is a domain-specific language (DSL) that uses declarative syntax to define and create Azure resources define repeatedly in a consistent manner.
+Use a bicep file to create your Azure Static Web app to Azure. Bicep is a domain-specific language (DSL) that uses declarative syntax to define and create Azure resources repeatedly in a consistent manner.
 
 To deploy your app to Azure with Static Web Apps, you need to: 
 * Create resources with Bicep
