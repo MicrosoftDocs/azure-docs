@@ -104,7 +104,7 @@ Save the values of the output variables to a text editor. You'll need these to c
 
 To link a Functions app for your backend, use the Static Web Apps standard plan for your web app and complete the following steps.
 
-To create the Azure Function app, follow the instructions provided in the Create the Azure Function app guide. You'll need the resourceId for the Function app, which looks like: /subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>.
+To create the Azure Function app, follow the instructions provided in the Create the Azure Function app guide. You'll need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
 
 Next, create the static web app using the Bicep template provided in the previous section. This sets up the necessary resources for your static web app. Finally, link the static web app to the function app to enable seamless integration between your front-end and back-end services.
 
