@@ -15,10 +15,7 @@ ms.custom:
 This article explains how to enable API analysis in [Azure API Center](overview.md) without having to manage it yourself (preview). API analysis offers linting capabilities to analyze API definitions in your organization's API center. Linting ensures your API definitions adhere to organizational style rules, generating both individual and summary reports. Use API analysis to identify and correct common errors and inconsistencies in your API definitions.
 
 > [!IMPORTANT]
-> Managed API analysis in API Center sets up a linting engine and necessary dependencies automatically. You can also enable linting and analysis [manually](enable-api-analysis-linting.md) with a custom Azure function. **Disable any function used for manual linting before enabling managed linting.**
-
-> [!NOTE]
-> Managed API analysis in API Center sets up a linting engine and necessary dependencies automatically. You can also enable linting and analysis [manually](enable-api-analysis-linting.md) with a custom Azure function. **Disable any function used for manual linting before enabling managed linting.**
+> Managed API analysis in API Center sets up a linting engine and necessary dependencies automatically. You can also enable linting and analysis [manually](enable-api-analysis-linting.md) using a custom Azure function. **Disable any function used for manual linting before enabling managed API analysis.**
 
 
 In this scenario:
@@ -33,9 +30,9 @@ In this scenario:
 * Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
 * By default, you enable analysis with the [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). To learn more about the built-in rules, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
-* Azure API Center applies the following limits for analysis and linting:
-    * API definitions linted per 4 hours (Standard tier): 100
-    * API definitions linted per 4 hours (Free tier): 10
+* hTe following are limits for maximum number of API definitions linted per 4 hours:
+    * Free tier: 10
+    * Standard tier: 100
 
 ## Prerequisites
 
