@@ -96,11 +96,11 @@ For a full working example, see the [TopicFilters sample](https://github.com/Azu
 The following entities are accessible through the Java message service (JMS) 2.0 API.
 
 * Temporary queues
-  * Temporary topics
-  * Shared durable subscriptions
-  * Unshared durable subscriptions
-  * Shared non-durable subscriptions
-  * Unshared non-durable subscriptions
+* Temporary topics
+* Shared durable subscriptions
+* Unshared durable subscriptions
+* Shared non-durable subscriptions
+* Unshared non-durable subscriptions
 
 Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [use them](how-to-use-java-message-service-20.md).
 
