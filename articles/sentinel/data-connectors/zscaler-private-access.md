@@ -3,13 +3,15 @@ title: "Zscaler Private Access connector for Microsoft Sentinel"
 description: "Learn how to install the connector Zscaler Private Access to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 08/27/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
 # Zscaler Private Access connector for Microsoft Sentinel
+
+[!INCLUDE [data-connector-deprecation](../includes/data-connector-deprecation.md)]
 
 The [Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa/what-zscaler-private-access) data connector provides the capability to ingest [Zscaler Private Access events](https://help.zscaler.com/zpa/log-streaming-service) into Microsoft Sentinel. Refer to [Zscaler Private Access documentation](https://help.zscaler.com/zpa) for more information.
 
