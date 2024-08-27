@@ -346,7 +346,7 @@ To resolve this issue, manually delete the existing template. Then run [`az arca
 
 When deploying Arc resource bridge on VMware, you specify the folder in which the template and VM are created. The selected folder must be a VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
 
-### Cannot retrieve resource
+### Cannot retrieve resource - not found
 
 When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the one below when upgrading: 
 
