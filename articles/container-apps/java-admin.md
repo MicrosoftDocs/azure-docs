@@ -108,7 +108,7 @@ Now that you have an existing environment, you can create your container app and
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME
       --min-replicas 1 \
-      --max-replicas 1 \
+      --max-replicas 1
     ```
 
 1. Update the Admin for Spring Java component.
@@ -119,7 +119,7 @@ Now that you have an existing environment, you can create your container app and
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME
       --min-replicas 2 \
-      --max-replicas 2 \
+      --max-replicas 2
     ```
 
 1. Create the container app and bind to the Admin for Spring.
