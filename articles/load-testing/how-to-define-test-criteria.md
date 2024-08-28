@@ -12,14 +12,14 @@ ms.topic: how-to
 
 # Define fail criteria for load tests by using Azure Load Testing
 
-In this article, you learn how to define fail criteria or auto stop criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria, such as error rate or response time. Auto stop criteria enable you to automatically stop your load test when the error rate surpasses a given threshold.
+In this article, you learn how to define fail criteria or auto stop criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client and server metrics for defining fail criteria, such as error rate or CPU percentage for an Azure resource. Auto stop criteria enable you to automatically stop your load test when the error rate surpasses a given threshold.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-## Load test fail criteria
+## Load test fail criteria 
 
 Load test fail criteria are conditions for client-side metrics, that your test should meet. You define test criteria at the load test level in Azure Load Testing. A load test can have one or more test criteria. When at least one of the test criteria evaluates to true, the load test gets the *failed* status.
 
