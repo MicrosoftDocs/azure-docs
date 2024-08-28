@@ -22,7 +22,7 @@ Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/over
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
 
 The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
@@ -66,9 +66,9 @@ Information about every request is logged into the access log. Each access log e
 |----------|-------------| 
 | TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The tracking reference is sent to the client and to the origin by using the `X-Azure-Ref` headers. Use the tracking reference when searching for a specific request in the access or WAF logs. |
 | Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). |
-| HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT. |
+| HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST or PUT. |
 | HttpVersion | The HTTP version that the client specified in the request. |
-| RequestUri | The URI of the received request. This field contains the full scheme, port, domain, path, and query string. |
+| RequestUri | The URI of the received request. This field contains the full scheme, port, domain, path and query string. |
 | HostName | The host name in the request from client. If you enable custom domains and have wildcard domain (`*.contoso.com`), the HostName log field's value is `subdomain-from-client-request.contoso.com`. If you use the Azure Front Door domain (`contoso-123.z01.azurefd.net`), the HostName log field's value is `contoso-123.z01.azurefd.net`. |
 | RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. |
 | ResponseBytes | The size of the HTTP response message in bytes. |
