@@ -173,6 +173,8 @@ Bicep automatically manages dependencies between resources. You can avoid settin
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
 
+[!INCLUDE [Request ARM template support](../../../includes/template-support.md)]
+
 ## Next steps
 
 Get started with the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md).

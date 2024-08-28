@@ -168,6 +168,8 @@ After creating your template, you may wish to share it with other users in your 
 
 This approach means you can safely share templates that meet your organization's standards.
 
+[!INCLUDE [Request ARM template support](../../../includes/template-support.md)]
+
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
