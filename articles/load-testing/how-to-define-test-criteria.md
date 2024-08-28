@@ -13,7 +13,7 @@ ms.topic: how-to
 # Define fail criteria for load tests by using Azure Load Testing
 
 In this article, you learn how to define fail criteria or auto stop criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client and server metrics for defining fail criteria, such as error rate or CPU percentage for an Azure resource. Auto stop criteria enable you to automatically stop your load test when the error rate surpasses a given threshold.
-Saloni
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -21,23 +21,18 @@ Saloni
 
 ## Load test fail criteria 
 
-Load test fail criteria are conditions for client-side metrics, that your test should meet. You define test criteria at the load test level in Azure Load Testing. A load test can have one or more test criteria. When at least one of the test criteria evaluates to true, the load test gets the *failed* status.
+Load test fail criteria are conditions for metrics, that your test should meet. You define test criteria at the load test level in Azure Load Testing. A load test can have one or more test criteria. When at least one of the test criteria evaluates to true, the load test gets the *failed* status.
 
-You can define test criteria at two levels. A load test can combine criteria at the different levels.
+You can define a maximum of 50 test criteria for a load test. If there are multiple criteria for the same metric, the criterion with the lowest threshold value is used.
 
-- At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold.
-- At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request.
-
-You can define a maximum of 50 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
-
-### Fail criteria structure
+### Fail criteria structure for client metrics
 
 The format of fail criteria in Azure Load Testing follows that of a conditional statement for a [supported metric](#supported-client-metrics-for-fail-criteria). For example, ensure that the average number of requests per second is greater than 500.
 
-Fail criteria have the following structure:
+For client-side metrics, you can define test criteria at two levels. A load test can combine criteria at the different levels.
 
-- Test criteria at the load test level: `Aggregate_function (client_metric) condition threshold`.
-- Test criteria applied to specific JMeter requests: `Request: Aggregate_function (client_metric) condition threshold`.
+- At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold. The structure for the criteria is: `Aggregate_function (client_metric) condition threshold`.
+- At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request. The structure for the criteria is: `Request: Aggregate_function (client_metric) condition threshold`.
 
 The following table describes the different components:
 
@@ -61,11 +56,11 @@ Azure Load Testing supports the following client metrics:
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 
-## Define load test fail criteria
+## Define load test fail criteria for client metrics
 
 # [Azure portal](#tab/portal)
 
-In this section, you configure test criteria for a load test in the Azure portal.
+In this section, you configure test criteria for client metric for a load test in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
@@ -95,7 +90,7 @@ In this section, you configure test criteria for a load test in the Azure portal
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-In this section, you configure test criteria for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
+In this section, you configure test criteria for a client metric for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
 For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
 
