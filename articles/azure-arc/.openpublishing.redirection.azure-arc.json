@@ -209,11 +209,6 @@
             "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/third-party-monitoring.md",
             "redirect_url": "/azure/azure-arc/container-storage/third-party-monitoring",
             "redirect_document_id": false
-        },        
-        {
-            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/extensions-release.md",
-            "redirect_url": "/azure/azure-arc/container-storage/extensions-release",
-            "redirect_document_id": false
         }
     ]
 }

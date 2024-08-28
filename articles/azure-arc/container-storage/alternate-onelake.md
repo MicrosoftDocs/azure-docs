@@ -22,11 +22,11 @@ This configuration is an alternative option that you can use with key-based auth
 1. Create or navigate to your workspace.
    :::image type="content" source="media/onelake-workspace.png" alt-text="Screenshot showing workspace ribbon in portal." lightbox="media/onelake-workspace.png":::
 1. Select **Manage Access**.
-   :::image type="content" source="media/onelake-manage-access.png" alt-text="Scrrenshot showing manage access screen in portal." lightbox="media/onelake-manage-access.png":::
+   :::image type="content" source="media/onelake-manage-access.png" alt-text="Screenshot showing manage access screen in portal." lightbox="media/onelake-manage-access.png":::
 1. Select **Add people or groups**.
 1. Enter your extension name from your Azure Container Storage enabled by Azure Arc installation. This must be unique within your tenant.
    :::image type="content" source="media/add-extension-name.png" alt-text="Screenshot showing add extension name screen." lightbox="media/add-extension-name.png":::
-1. Change the drop down for permissions from **Viewer** to **Contributor**.
+1. Change the drop-down for permissions from **Viewer** to **Contributor**.
    :::image type="content" source="media/onelake-set-contributor.png" alt-text="Screenshot showing set contributor screen." lightbox="media/onelake-set-contributor.png":::
 1. Select **Add**.
 
@@ -78,7 +78,7 @@ You can use the following process to create a sub-volume using Extension Identit
    - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
    - `spec::path`: Optional - create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: Details of your One Lake Data Lake Lakehouse (for example, `<WORKSPACE>/<DATA_LAKE>/Files`).
-   - `spec::storageaccountendpoint`: Your storage account endpoint is the prefix of your PowerBI web link. For example, if your OneLake page is `https://contoso-motors.powerbi.com/`, then your endpoint is `https://contoso-motors.dfs.fabric.microsoft.com`.
+   - `spec::storageaccountendpoint`: Your storage account endpoint is the prefix of your Power BI web link. For example, if your OneLake page is `https://contoso-motors.powerbi.com/`, then your endpoint is `https://contoso-motors.dfs.fabric.microsoft.com`.
 
     ```yaml
     apiVersion: "arcstorage.azure.net/v1"
@@ -90,7 +90,7 @@ You can use the following process to create a sub-volume using Extension Identit
       path: exampleSubDir # If you change this path, line 33 in deploymentExample.yaml must to be updated. Don't use a preceding slash.
       auth:
         authType: MANAGED_IDENTITY
-      storageaccountendpoint: "https://<Your AZ Site>.dfs.fabric.microsoft.com/" # Your AZ site is the root of your PowerBI OneLake interface URI, such as https://contoso-motors.powerbi.com
+      storageaccountendpoint: "https://<Your AZ Site>.dfs.fabric.microsoft.com/" # Your AZ site is the root of your Power BI OneLake interface URI, such as https://contoso-motors.powerbi.com
       container: "<WORKSPACE>/<DATA_LAKE>/Files" # Details of your One Lake Data Lake Lakehouse
       ingestPolicy: edgeingestpolicy-default # Optional: See the following instructions if you want to update the ingestPolicy with your own configuration
     ```

@@ -25,7 +25,7 @@ az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-na
 ::: zone-end
 
 ::: zone pivot="aks-ee"
-[!INCLUDE [multi-node](includes/multi-node-ee.md)]
+[!INCLUDE [multi-node](includes/multi-node-edge-essentials.md)]
 
 ::: zone-end
 

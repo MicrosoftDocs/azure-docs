@@ -6,6 +6,8 @@ ms.author: sethm
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 08/26/2024
+ms.custom: references_regions
+
 ---
 
 # Prepare Linux (preview)

@@ -27,7 +27,7 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 ::: zone-end
 
 ::: zone pivot="aks-ee"
-[!INCLUDE [single-node-ee](includes/single-node-ee.md)]
+[!INCLUDE [single-node-edge-essentials](includes/single-node-edge-essentials.md)]
 ::: zone-end
 
 ::: zone pivot="ubuntu"

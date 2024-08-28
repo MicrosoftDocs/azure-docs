@@ -267,7 +267,7 @@ A connection string can contain a storage key or SAS.
    - `metadata::name`: Create a name for your **ingestPolicy**. This name must be updated and referenced in the spec::ingestPolicy section of your `edgeSubvolume.yaml`.
    - `spec::ingest::order`: The order in which dirty files are uploaded. This is best effort, not a guarantee (defaults to **oldest-first**). Options for order are: **oldest-first** or **newest-first**.
    - `spec::ingest::minDelaySec`: The minimum number of seconds before a dirty file is eligible for ingest (defaults to 60). This number can range between 0 and 31536000.
-   - `spec::eviction::order`: How files aer evicted (defaults to **unordered**). Options for eviction order are: **unordered** or **never**.
+   - `spec::eviction::order`: How files are evicted (defaults to **unordered**). Options for eviction order are: **unordered** or **never**.
    - `spec::eviction::minDelaySec`: The number of seconds before a clean file is eligible for eviction (defaults to 300). This number can range between 0 and 31536000.
 
     ```yaml

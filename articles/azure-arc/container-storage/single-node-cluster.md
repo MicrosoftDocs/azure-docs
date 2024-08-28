@@ -36,9 +36,9 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 ::: zone-end
 
 ::: zone pivot="aks-ee"
-[!INCLUDE [single-node-ee](includes/single-node-ee.md)]
+[!INCLUDE [single-node-ee](includes/single-node-edge-essentials.md)]
 
-1. Disable **ACStor** by creating a file named **config.json** with the following contents:
+5. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
    {
@@ -52,7 +52,7 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 ::: zone pivot="ubuntu"
 [!INCLUDE [single-node-ubuntu](includes/single-node-ubuntu.md)]
 
-1. Disable **ACStor** by creating a file named **config.json** with the following contents:
+3. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
    {

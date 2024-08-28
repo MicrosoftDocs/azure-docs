@@ -1,5 +1,5 @@
 ---
-title: Cache Volumes Overview
+title: Cache Volumes overview
 description: Learn about the Cache Volumes offering from Azure Container Storage enabled by Azure Arc.
 author: sethmanheim
 ms.author: sethm
@@ -8,7 +8,11 @@ ms.date: 08/26/2024
 
 ---
 
-# How do Cache Volumes work?
+# Overview of Cache Volumes
+
+This article describes the Cache Volumes offering from Azure Container Storage enabled by Azure Arc.
+
+## How do Cache Volumes work?
 
 :::image type="content" source="media/edge-storage-accelerator-overview.png" alt-text="Diagram of Azure Container Storage enabled by Azure Arc architecture." lightbox="media/edge-storage-accelerator-overview.png":::
 

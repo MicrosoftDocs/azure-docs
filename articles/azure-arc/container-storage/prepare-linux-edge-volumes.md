@@ -6,6 +6,8 @@ ms.author: sethm
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 08/26/2024
+ms.custom: references_regions
+
 ---
 
 # Prepare Linux for Edge Volumes (preview)
@@ -22,7 +24,7 @@ The article describes how to prepare Linux for Edge Volumes using AKS enabled by
 
 ### Uninstall previous instance of Azure Container Storage enabled by Azure Arc extension
 
-If you previously installed Azure Container Storage enabled by Azure Arc as part of the private preview, you must uninstall the previous instance.
+If you previously installed Azure Container Storage enabled by Azure Arc, you must uninstall the previous instance.
 
 1. Before you delete the extension, delete your configPod, Persistent Volume Claim (PVC), and Persistent Volume (PV) using the following commands. You must maintain the order of these delete commands. Replace `YOUR_POD_FILE_NAME_HERE`, `YOUR_PVC_FILE_NAME_HERE`, and `YOUR_PV_FILE_NAME_HERE` with your respective file names:
 

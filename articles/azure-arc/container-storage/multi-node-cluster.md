@@ -26,7 +26,7 @@ kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featu
 ::: zone-end
 
 ::: zone pivot="aks-ee"
-[!INCLUDE [multi-node](includes/multi-node-ee.md)]
+[!INCLUDE [multi-node](includes/multi-node-edge-essentials.md)]
 
 1. Create a file named **config.json** with the following contents:
 
