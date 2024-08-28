@@ -69,7 +69,7 @@ This transaction uses the POST or PUT method to store representations of studies
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
-The following `Accept` headers for the response are supported:
+The following is the only response `Accept` header supported:
 
 * `application/dicom+json`
 
@@ -461,6 +461,7 @@ The following parameters for each query are supported:
 | `limit=`         | `{value}`                 | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100 |
 | `offset=`        | `{value}`                 | 0..1          | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
 | `fuzzymatching=` | `true` / `false`          | 0..1          | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However "ohn" doesn't match. |
+
 
 #### Searchable attributes
 
@@ -932,7 +933,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | ----------- | ------------------- | ------------------------------------ |
-| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
+| Range Query | `ScheduledProcedureStepStartDateTime` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
