@@ -107,6 +107,8 @@ Log Analytics has rich analytical tools that operators can use for troubleshooti
 
 ### Regions Available
 
+Nexus service is available in numerous regions to ensure users can access resources with minimal latency, regardless of their location.
+
 Use the commands below to verify Nexus availability in an Azure region. The output includes a list of resources supported by Network Cloud and Managed Network Fabric, the available API versions, and the locations where these resources can be created.
 
 ```azurecli
