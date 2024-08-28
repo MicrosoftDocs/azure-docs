@@ -63,6 +63,7 @@ grant_type=client_credentials
 &resource={{fhirurl}}
 &client_id={{clientid}}
 &client_secret={{clientsecret}}
+&scope={{fhirurl}}/.default
 
 ### Extract access token from getAADToken request
 @token = {{getAADToken.response.body.access_token}}
