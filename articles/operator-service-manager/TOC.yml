@@ -33,7 +33,7 @@
   - name: Safe Upgrade Practices
     expanded: false
     items:
-      - name: Getting Started with Safe Upgrade Practices
+      - name: Get Started with Safe Upgrade Practices
         href: safe-upgrade-practices.md
 - name: Quickstarts
   expanded: false
