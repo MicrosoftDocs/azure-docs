@@ -18,11 +18,6 @@ The steps in this article show you how to use Bicep to create a resource group a
 
 You can use Bicep along with Azure Verified Modules (AVM) to deploy your static web apps.
 
-| Tool | Description |
-|---|---|
-| [Bicep](/azure/azure-resource-manager/Bicep/) | Bicep is a domain-specific language (DSL) that uses a declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse. |
-| [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules) | These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVMs when possible as they represent best practices for infrastructure as code. |
-
 ## Verified modules
 
 The Bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [Bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. AVM modules are recognizable because they reference modules that include `avm/res`, such as `br/public:avm/res/web/static-site:0.3.0`.
