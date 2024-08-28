@@ -11,6 +11,8 @@ ms.collection: sentinel-data-connector
 
 # [Deprecated] Akamai Security Events via Legacy Agent connector for Microsoft Sentinel
 
+[!INCLUDE [data-connector-deprecation](../includes/data-connector-deprecation.md)]
+
 Akamai Solution for Microsoft Sentinel provides the capability to ingest [Akamai Security Events](https://www.akamai.com/us/en/products/security/) into Microsoft Sentinel. Refer to [Akamai SIEM Integration documentation](https://developer.akamai.com/tools/integrations/siem) for more information.
 
 ## Connector attributes
