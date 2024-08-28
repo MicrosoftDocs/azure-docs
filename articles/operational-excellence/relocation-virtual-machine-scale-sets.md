@@ -103,7 +103,7 @@ When the relocation is complete, validate the Virtual Machine Scale Set in the t
 
  - Virtual Machine Scale Set doesn't keep the same IP after relocation to new target location. However, make sure to validate the private IP configuration.
 
- - Run a smoke test and integration test (either through a script or manually) to validate that all configurations and dependent resources have been properly linked and all configured data are accessible.
+ - Run a scripted or manual smoke test and integration test to validate that all configurations and dependent resources have been properly linked and all configured data are accessible.
 
 - Validate Virtual Machine Scale Set components and integration.
 
