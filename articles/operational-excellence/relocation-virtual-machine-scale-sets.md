@@ -109,4 +109,4 @@ When the relocation is complete, validate the Virtual Machine Scale Set in the t
 
 ## Related content
 
-- To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- To move registry resources to a new resource group either in the same subscription or a new subscription, see [Move Azure resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
