@@ -132,7 +132,7 @@ The new primary region is configured to be locally redundant (LRS) after the fai
 
 You also might experience file or data inconsistencies if your storage accounts have one or more of the following enabled:
 
-- [Hierarchical namespace (Azure Data Lake Storage)](#file-consistency-for-azure-data-lake-storage-gen2)
+- [Hierarchical namespace (Azure Data Lake Storage)](#file-consistency-for-azure-data-lake-storage)
 - [Change feed](#change-feed-and-blob-data-inconsistencies)
 - [Point-in-time restore for block blobs](#point-in-time-restore-inconsistencies)
 

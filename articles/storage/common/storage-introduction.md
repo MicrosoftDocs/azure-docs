@@ -35,7 +35,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
 - [Azure managed Disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
-- [Azure Container Storage](/azure/container-storage/container-storage-introduction): A volume management, deployment, and orchestration service built natively for containers.
+- [Azure Container Storage](/storage/container-storage/container-storage-introduction): A volume management, deployment, and orchestration service built natively for containers.
 
 Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
 
