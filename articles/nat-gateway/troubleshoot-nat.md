@@ -14,16 +14,6 @@ ms.author: allensu
 
 This article provides guidance on how to correctly configure your NAT gateway and troubleshoot common configuration and deployment related issues.  
 
-* [NAT gateway configuration basics](#nat-gateway-configuration-basics) 
-
-* [NAT gateway in a failed state](#nat-gateway-in-a-failed-state) 
-
-* [Add or remove NAT gateway](#add-or-remove-nat-gateway) 
-
-* [Add or remove subnet](#add-or-remove-subnet) 
-
-* [Add or remove public IPs](#add-or-remove-public-ip-addresses) 
-
 ## NAT gateway configuration basics
 
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
