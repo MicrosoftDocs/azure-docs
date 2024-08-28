@@ -110,7 +110,11 @@ Continue by updating the relevant setting directly on the OT network sensor. For
 
 ## Sensor setting reference
 
-Use the following sections to learn more about the individual OT sensor settings available from the Azure portal:
+Use the following sections to learn more about the individual OT sensor settings available from the Azure portal.
+<!-- Should we add the general instructions here that apply to all of the items below. and change local subnets or take from the and add here. then each section below is rewritten if needed to add the instructions for that particular option? - Limor-->
+To add each of the settings <!-- In the Azure portal, Do we need this or is it clear on the page that this is in the portal?-->go to **Sites and sensors** > **Sensor settings**. Select the type, for example:
+
+:::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-type.png" alt-text="The screenshot shows the sensor settings page with the type dropdoan list options.":::
 
 ### Active Directory
 
@@ -147,15 +151,13 @@ To configure an NTP server for your sensor from the Azure portal, define an IP/D
 
 ### Local subnets
 
-To focus the Azure device inventory on devices that are in your OT scope, you need to manually edit the subnet list to include only the locally monitored subnets that are in your OT scope. 
+To focus the Azure device inventory on devices that are in your OT scope, you need to manually edit the subnet list to include only the locally monitored subnets that are in your OT scope.
 
 Subnets in the subnet list are automatically configured as ICS subnets, which means that Defender for IoT recognizes these subnets as OT networks. You can edit this setting when you [configure the subnets](#configure-subnets-in-the-azure-portal).
 
 Once the subnets are configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list are displayed as *routed*.
 
 #### Configure subnets in the Azure portal
-
-1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
 
 1. Under **Local subnets**, review the configured subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
 
@@ -164,7 +166,7 @@ Once the subnets are configured, the network location of the devices is shown in
     - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
 
     - Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
-    
+
     - **ICS Subnet** is on by default, which means that Defender for IoT recognizes the subnet as an OT network. To mark a subnet as non-ICS, toggle off **ICS Subnet**.
 
 ### VLAN naming
@@ -172,6 +174,20 @@ Once the subnets are configured, the network location of the devices is shown in
 To define a VLAN for your OT sensor, enter the VLAN ID and a meaningful name.
 
 Select **Add VLAN** to add more VLANs as needed.
+
+### Public addresses
+
+Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data<!-- Theo is this correct? OR-->.
+Excluded public IP addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
+
+1. In the **Settings** tab, type the **IP address** and **Mask** address.
+
+    :::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-ip-addresses.png" alt-text="The screenshot shows the Settings tab for adding public addresses to the sensor settings.":::
+
+1. Select **Next**.
+1. In the **Apply** tab, select sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
+1. Select **Next**.
+1. Review the details and select **Create** to add the address to the public addresses list.
 
 ## Next steps
 
