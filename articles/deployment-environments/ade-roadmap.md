@@ -41,7 +41,7 @@ While the extensibility model already allows for customized deployments, we're c
 
 Balancing developer productivity with security, compliance, and cost management is crucial for organizations. Deployment Environments boosts productivity while upholding organizational security and compliance standards by centralizing environment management and governance for platform engineers.  
 
-We're committed to further investing in capabilities that strengthen both security and cost controls, ensuring a secure and efficient development ecosystem –  
+We're committed to further investing in capabilities that strengthen both security and cost controls, ensuring a secure and efficient development ecosystem. 
 
 - Ability to configure a private virtual network for the runner executing the template deployments puts enterprises in control while accessing confidential data and resources from internal systems. 
 - Default autodeletion eliminates orphaned cloud resources, safeguarding enterprises from unnecessary costs and ensuring budget efficiency.  
