@@ -59,7 +59,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     >
     > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
     > service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your 
-    > certificate might not have the **Key Usage** property set to **Data Encipherment**, If not, you might have to recreate the certificate 
+    > certificate might not have the **Key Usage** property set to **Data Encipherment**. If not, you might have to recreate the certificate 
     > with the **Key Usage** property set to **Data Encipherment**. To check your certificate, open the certificate, select the 
     > **Details** tab, and review the **Key Usage** property.
 
