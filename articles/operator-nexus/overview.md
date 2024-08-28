@@ -105,6 +105,16 @@ Azure Operator Nexus automatically streams the metrics and logs from the operato
 
 Log Analytics has rich analytical tools that operators can use for troubleshooting or correlating for operational insights. Operators can also use Azure Monitor to specify alerts.
 
+### Regions Available
+
+Nexus, within Azure, is designed for global distribution and is accessible in numerous regions. This global availability ensures users can access Nexus services with minimal latency, regardless of their location.
+
+The public accessibility of Nexus in specific regions is strategically determined to balance broad geographic coverage, service availability, and cost. To verify Nexus availability in different Azure regions, use the following command. It displays the availability of each region along with its associated resource type.
+
+```azurecli
+az provider show -n Microsoft.NetworkCloud -o json
+```
+
 ## Next steps
 
 * Learn more about Azure Operator Nexus [resource models](./concepts-resource-types.md).
