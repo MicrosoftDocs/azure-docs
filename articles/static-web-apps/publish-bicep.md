@@ -16,7 +16,7 @@ You can use a Bicep file to create an instance of Azure Static Web Apps. Bicep p
 
 The steps in this article show you how to use Bicep to create a resource group and a Static Web Apps instance. After your static web app is created you still need to deploy your code using the typical methods of GitHub Actions, or using Azure Pipelines.
 
-## Tools for resource creation
+## Resource creation tool
 
  Bicep is one of several tools you can use to create resources in Azure. These tools include:
 
@@ -100,7 +100,7 @@ The code in the previous section demonstrates how to create a static web app usi
 
 To link your Functions app to your static web app, you need the `resourceId` of your Functions App. You can get this value from the Azure portal, or you can use the following command to return your Functions app `resourceId`.
 
-```bash
+```azurecli
 az functionapp show -n <FUNCTION-APP-NAME> -g <RESOURCE-GROUP-NAME> --query id --output tsv
 ```
 
