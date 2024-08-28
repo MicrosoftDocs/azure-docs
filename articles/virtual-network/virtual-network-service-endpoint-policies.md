@@ -1,12 +1,18 @@
 ---
 title: Create and associate service endpoint policies
 titlesuffix: Azure Virtual Network
-description: In this article, learn how to set up and associated service endpoint policies.
+description: In this article, learn how to set up and associate service endpoint policies.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/20/2024
 ms.author: allensu
+ms.custom: 
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Create and associate service endpoint policies
@@ -24,13 +30,36 @@ Service endpoint policies enable you to filter virtual network traffic to specif
 * Confirm access to the allowed storage account from the subnet.
 * Confirm access is denied to the non-allowed storage account from the subnet.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-## Sign in to Azure 
+### [Portal](#tab/portal)
 
-Sign in to the [Azure portal](https://portal.azure.com).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+### [PowerShell](#tab/powershell)
+
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+### [CLI](#tab/cli)
+
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
+
 
 ## Create a virtual network
+
+Create a virtual network to contain the resources you create in this tutorial.
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Virtual networks**. Select **Virtual networks** in the search results.
 
@@ -67,9 +96,19 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 ## Restrict network access for the subnet
 
+Create a network security group and rules to restrict network access for the subnet.
+
 ### Create a network security group
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Network security groups**. Select **Network security groups** in the search results.
 
@@ -150,9 +189,19 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **OK**.
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 ## Restrict network access to Azure Storage accounts
 
+The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this article includes steps to restrict network access for an Azure Storage account, as an example.
+
 ### Create two storage accounts
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Storage accounts**. Select **Storage accounts** in the search results.
 
@@ -181,7 +230,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | -------| ------- |
     | Storage account name | Enter **deniedaccount(random-number)**. |
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 ### Create file shares
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Storage accounts**. Select **Storage accounts** in the search results.
 
@@ -203,7 +260,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Repeat the steps above to create a file share in **deniedaccount(random-number)**.
 
-### Deny all network access to a storage accounts
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
+### Deny all network access to storage accounts
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Storage accounts**. Select **Storage accounts** in the search results.
 
@@ -229,9 +294,21 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Repeat the steps above to deny network access to **deniedaccount(random-number)**.
 
+### [PowerShell](#tab/portal)
+
+### Enable network access only from the VNet subnet
+
+### [CLI](#tab/cli)
+
+---
+
 ## Apply policy to allow access to valid storage account
 
+To make sure the users in the virtual network can only access the Azure Storage accounts that are safe and allowed, you can create a service endpoint policy with the list of allowed storage accounts in the definition. This policy is then applied to the virtual network subnet which is connected to storage via service endpoints.
+
 ### Create a service endpoint policy
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
 
@@ -268,7 +345,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 ## Associate a service endpoint policy to a subnet
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Service endpoint policy**. Select **Service endpoint policies** in the search results.
 
@@ -282,6 +367,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Apply**.
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 >[!WARNING] 
 > Ensure that all the resources accessed from the subnet are added to the policy definition before associating the policy to the given subnet. Once the policy is associated, only access to the *allow listed* resources will be allowed over service endpoints. 
 >
@@ -291,7 +382,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Validate access restriction to Azure Storage accounts
 
+To test network access to a storage account, deploy a VM in the subnet.
+
 ### Deploy the virtual machine
+
+### [Portal](#tab/portal)
 
 1. In the search box in the portal, enter **Virtual machines**. Select **Virtual machines** in the search results.
 
@@ -331,7 +426,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
+
 ### Confirm access to the *allowed* storage account
+
+1. Sign-in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search box in the portal, enter **Storage accounts**. Select **Storage accounts** in the search results.
 
@@ -415,7 +518,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
     ```
 1. The drive map is denied because of the service endpoint policy that restricts access to the storage account.
 
+### [Portal](#tab/portal)
+
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
+
+### [PowerShell](#tab/portal)
+
+### [CLI](#tab/cli)
+
+---
 
 ## Next steps
 In this tutorial, you created a service endpoint policy and associated it to a subnet. To learn more about service endpoint policies, see [service endpoint policies overview.](virtual-network-service-endpoint-policies-overview.md)
