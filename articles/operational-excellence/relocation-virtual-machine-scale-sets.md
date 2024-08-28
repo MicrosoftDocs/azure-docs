@@ -72,7 +72,7 @@ In this section, follow the instructions to prepare for relocating a Virtual Mac
     
     1. In the [Azure portal](https://portal.azure.com), navigate to your source Virtual Machine Scale Set.
     1. In the menu, under **Automation**, select **Export template** > **Download**.
-    1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+    1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains the .json files that include the template and scripts to deploy the template.
     
 
 1. Edit the template:
