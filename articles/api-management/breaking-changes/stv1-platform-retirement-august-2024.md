@@ -16,7 +16,7 @@ ms.author: danlep
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. **The infrastructure associated with the API Management `stv1` compute platform version will be retired effective 31 August 2024 in the global Microsoft Azure cloud.** A more current compute platform version (`stv2`) is already available, and provides enhanced service capabilities.
 
 > [!NOTE]
-> For API Management instances deployed in Microsoft Azure Government cloud or Microsoft Azure operated by 21Vianet cloud (Azure in China), the retirement date for the `stv1` platform is 28 February 2025. [Learn more](stv1-platform-retirement-sovereign-clouds-february-2025.md)
+> For API Management instances deployed in Microsoft Azure Government cloud or Microsoft Azure operated by 21Vianet cloud (Azure in China), the retirement date for the `stv1` platform is 24 February 2025. [Learn more](stv1-platform-retirement-sovereign-clouds-february-2025.md)
 
 The following table summarizes the compute platforms currently used for instances in the different API Management service tiers. 
 
