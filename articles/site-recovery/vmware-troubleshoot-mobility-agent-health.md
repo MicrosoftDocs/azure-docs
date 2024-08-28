@@ -41,12 +41,9 @@ To troubleshoot mobility agent health errors, follow these recommendations:
 
 If you get the following error in the `svagents_curr<>.log` file:
 
-# [Error message](#tab/error-message)
+***ClientCertificateIsInvalidOrExpired***
+***The specified client certificate is invalid or already expired.***
 
-**ClientCertificateIsInvalidOrExpired**
-**The specified client certificate is invalid or already expired.**
-
----
 
 ##### Full error message
 
@@ -66,16 +63,12 @@ Follow these recommendations:
 1. [Upgrade Azure Site Recovery mobility agent](./upgrade-mobility-service-modernized.md) to the latest version available on the source machine. 
 1. [Generate Mobility Service configuration](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance.
 
-3
+
 ### Error 2 - certificate verification failed
 
 If you get the following error in the `svagents_curr<>.log` file:
+*handshake: **certificate verify failed** (SSL routines)*
 
-# [Error message](#tab/error-message)
-
-handshake: **certificate verify failed** (SSL routines)
-
----
 
 ##### Full error message
 
@@ -95,12 +88,8 @@ Follow these recommendations:
 #### Error 3 - SSL peer certificate or SSH remote key wasn't OK
 
 If you get the following error in the `svagents_curr<>.log` file:
+***Server certificate expired***
 
-# [Error message](#tab/error-message)
-
-**Server certificate expired**
-
----
 
 ##### Full error message
 
@@ -131,13 +120,7 @@ Follow these recommendations:
 #### Error 4 - mismatch of fingerprints received
 
 If you get the following error in the `svagents_curr<>.log` file:
-
-
-# [Error message](#tab/error-message)
-
-**Mismatch of fingerprints between received:**
-
----
+***Mismatch of fingerprints between received:***
 
 ##### Full error message
 

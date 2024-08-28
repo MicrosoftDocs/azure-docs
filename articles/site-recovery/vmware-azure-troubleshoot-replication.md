@@ -173,7 +173,7 @@ Search for the string "vacpError"  by opening the vacp.log file in an editor
 
 `Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
-In the preceeding  example **2147754994** is the error code that tells you about the failure as shown:
+In the preceding  example **2147754994** is the error code that tells you about the failure as shown:
 
 #### VSS writer is not installed - Error 2147221164
 
