@@ -147,7 +147,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
     While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
     > [!NOTE]
-    > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](configure-language-nodejs.md&pivots=platform-windows#you-do-not-have-permission-to-view-this-directory-or-page).
+    > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](configure-language-nodejs.md&pivots=platform-windows#you-do-not-have-permission-to-view-this-directory-or-page&preserve-view=true).
     > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](configure-language-nodejs.md#you-do-not-have-permission-to-view-this-directory-or-page).
 
 1. In the **App Service** explorer in Visual Studio Code, expand the node for the new app, right-click **Application Settings**, and select **Add New Setting**:
@@ -263,7 +263,7 @@ Azure App Service supports [two types of credentials](deploy-configure-credentia
 
 1. From the App Service app page, select **Deployment Center** in the left-hand menu and then select the **FTPS credentials** tab.
 
-    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="Screenshot that shows the FTPS deployment credentials tab." lightbox="./media/quickstart-nodejs/ftps-deployment-credentials.png":::
+    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="Screenshot that shows the FTPS deployment credentials tab.":::
 
 1. Open FileZilla and create a new site.
 
@@ -458,13 +458,13 @@ You can delete the resource group, App service, and all related resources when t
 Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
-> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Deploy a Node.js + MongoDB web app to Azure](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure Node.js app](configure-language-nodejs.md)
+> [Configure a Node.js app](configure-language-nodejs.md)
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Secure your Azure App Service app with a custom domain and a managed certificate](tutorial-secure-domain-certificate.md)
 
 Check out the other Azure extensions.
 
