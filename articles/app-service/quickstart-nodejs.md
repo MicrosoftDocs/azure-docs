@@ -41,7 +41,7 @@ The steps in the video are also described in the following sections.
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to create and configure Azure resources.
+- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in a shell to create and configure Azure resources.
 
 ::: zone-end
 
@@ -109,7 +109,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 1. In the **App Service** explorer, select **Sign in to Azure** and follow the instructions.
 
-    In Visual Studio Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE APP SERVICE** explorer.
+    In Visual Studio Code, you should see your Azure email address in the Status Bar and your subscription in the **App Service** explorer.
 
     ![Screensnot of the Sign in to Azure option.](./media/quickstart-nodejs/sign-in.png)
 
@@ -301,7 +301,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 2. In the **App Service** explorer, select the **Deploy to Web App** icon again, and confirm by selecting **Deploy** again.
 
-1. Wait for deployment to complete, then select **Browse Website** in the notification popup. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Wait for deployment to complete, then select **Browse Website** in the notification popup. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure`.
 
 ::: zone-end
 
@@ -315,7 +315,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
     
     This command uses values that are cached locally in the *.azure/config* file, such as the app name, resource group, and App Service plan.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [the note at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [the note at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure`.
 
 ::: zone-end
 
@@ -323,7 +323,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 2. Save your changes, then redeploy the app using your FTP client.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [note the at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [note the at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure`.
 
 ::: zone-end
 
