@@ -11,9 +11,36 @@ Log Analytics workspaces offer a high degree of reliability. The ingestion pipel
 Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering. The table below summarizes and compares these features. 
 
 
-### Availability zones
+### Overview of Azure Monitor Logs resilience features
+
+#### In-region protection using availability zones
 
 [!INCLUDE [logs-availability-zones](includes/logs-availability-zones.md)]
+
+#### Backup of data from specific tables using continuous export 
+
+You can [continuously export data sent to specific tables in your Log Analytics workspace](../logs/logs-data-export.md) to Azure storage accounts or Azure Event Hubs. 
+
+The destination storage account you export data to must be in the same region as your Log Analytics workspace, but you can replicate the storage account to another region, so your ingested logs remain safe and available even if the workspace region is down. 
+
+We recommend that you use a geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) account to keep your data safe even if an entire region becomes unavailable. To make your data readable from the other regions, configure your storage account for read access to the secondary region. For more information see [Azure Storage redundancy on a secondary region](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) and [Azure Storage read access to data in the secondary region](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region). 
+
+The export mechanism doesn’t provide protection from incidents impacting the ingestion pipeline or the export process itself. 
+
+You can access data in a storage account from Azure Monitor Logs using the [externaldata operator](/kusto/query/externaldata-operator?view=azure-monitor). However, the exported data is stored in five-minute blobs and analyzing data spanning multiple blobs can be cumbersome. Therefore, exporting data to a storage account is a good data backup mechanism, but having the backed up data in a storage account is not ideal if you need in for analysis in Azure Monitor Logs. You can query a large volumes of blob data using [Azure Data Explorer](/azure/data-explorer/query-exported-azure-monitor-data), [Azure Data Factory](/azure/data-factory/introduction#connect-and-collect), or any other storage access tool. 
+
+#### Protection against regional failure using workspace replication (preview) 
+
+Workspace replication (preview) is the most extensive resilience solution, as it creates an active-passive setup for your workspace by replicating the workspace itself and incoming logs, to another region. Once enabled, you can choose to switch your workspace operation from the primary workspace location to the secondary without any additional configuration to any of your agents or other clients.  
+
+When workspace replication is enabled, an empty copy of your workspace is created on another region, with the same configuration as your main, primary workspace. Any changes to your workspace configuration are automatically synced to the secondary workspaces. Note that you can’t manage or directly access the secondary workspace, which is why we sometimes refer to it as “shadow workspace”. It’s only used for resiliency purposes. 
+
+Once replication is enabled, all logs ingested to your primary workspace are immediately replicated to your secondary region. Note that logs already ingested to your primary workspace before enabling this capability are not copied over. 
+ 
+If an incident impacts your primary workspace, you can switch to use your secondary workspace, located on another region. This operation is also called Failover. Failover makes your secondary region active, instead of the primary, and reroutes all ingestion and query requests to your secondary workspace (while still replicating to your primary workspace in the background). When the issues is resolved, you can switch back to your primary workspace. 
+
+Workspace replication protects both your logs and the service operations, allowing you to continue monitoring your systems even when faced with region-wide incidents, whether they stem from the infrastructure or the application layer. 
+
 
 ### Compare Azure Monitor Logs resilience features
 
@@ -29,10 +56,7 @@ Azure Monitor Logs offers a number of features that can make your workspaces mor
 ### Design checklist
 
 > [!div class="checklist"]
-> - If you collect enough data for a dedicated cluster, create a dedicated cluster in an availability zone.
-> - If you require the workspace to be available in the case of a region failure, or you don't collect enough data for a dedicated cluster, configure data collection to send critical data to multiple workspaces in different regions.
 > - If you require data to be protected in the case of datacenter or region failure, configure data export from the workspace to save data in an alternate location.
-> - For mission-critical workloads requiring high availability, consider implementing a federated workspace model.
 > - Monitor the health of your Log Analytics workspaces.
  
 ### Configuration recommendations
