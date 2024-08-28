@@ -25,12 +25,12 @@ Use the `npm install` command to install the Azure Communication Services Effect
 > This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equil to `1.0.1`.
 
 > [!IMPORTANT]
-> Background blur for Android Chrome mobile browser is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> Background blur for Android Chrome mobile browser is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms/).
 
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
 
 > [!NOTE]
 > Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
@@ -125,7 +125,7 @@ await videoEffectsFeatureApi.startEffects(backgroundBlurEffect);
 await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect);
 ```
 
-At anytime if you want to check what effects are active, you can use the `activeEffects` property.
+At any time if you want to check what effects are active, you can use the `activeEffects` property.
 The `activeEffects` property returns an array with the names of the current active effects, and returns an empty array if there are no effects active.
 ```js
 // Using the video effects feature api
