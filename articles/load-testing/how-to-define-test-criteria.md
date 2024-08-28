@@ -130,6 +130,47 @@ To specify fail criteria in the YAML configuration file:
     :::image type="content" source="media/how-to-define-test-criteria/azure-pipelines-log.png" alt-text="Screenshot that shows the test criteria in the CI/CD workflow log.":::
 
 ---
+### Fail criteria structure for server metrics
+
+### Grant access to your app component
+
+When you set failure criteria on a metric in your app component, your load testing resource uses a managed identity for accessing that component. After you configure the manage identity, you need to grant the managed identity of your load testing resource permissions to read these values from the app component.
+
+To grant your Azure load testing resource permissions to read the metrics from your app component:
+
+1.	In the Azure portal, go to your app component.
+   
+2.	On the left pane, select Access Control(IAM), then select + Add, and then select Add role assignment.
+   
+3.	On the Role tab, under Job functions roles, search for Monitoring Reader or Monitoring Contributor.
+   
+4.	On the Members tab, under Assign access to, select Managed Identity.
+   
+5.	Click on Select members, search for and select the managed identity for the load testing resource, and then select Next.
+If you're using a system-assigned managed identity, the managed identity name matches that of your Azure load testing resource.
+
+6.	Select Review + assign to assign the identity the permission.
+When your test runs, the managed identity that's associated with your load testing resource can now read the metrics for your load test from your app component.
+
+## Define load test fail criteria for client metrics
+
+In this section, you configure test failure criteria on server-side metrics for a load test in the Azure portal.
+
+1.	In the Azure portal, go to your Azure Load Testing resource.
+   
+3.	Click on Create Test.
+   
+5.	Under the Monitoring Tab, configure the app components  you want to monitor during the test.
+   
+7.	Configure the Metrics reference identity. The identity can be the system-assigned identity of the load testing resource, or one of the user-assigned identities. Make sure you use the same identity you've granted access previously.
+   
+9.	On the Test criteria pane, fill the Resource ID, Namespace, Metric, Aggregation, Condition, Threshold values for your test. You can set failure criteria only for those resources/app components that you are monitoring during the test.
+
+10.	Select Apply to save the changes.
+When you now run the load test, Azure Load Testing uses the test criteria to determine the status of the load test run.
+
+7.	Run the test and view the status in the load test dashboard.
+The dashboard shows each of the test criteria and their status. The overall test status is failed if at least one criterion was met.
 
 ## Auto stop configuration
 
