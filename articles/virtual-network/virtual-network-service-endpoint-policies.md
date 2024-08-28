@@ -54,8 +54,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-
-## Create a virtual network
+## Create a virtual network and enable service endpoint
 
 Create a virtual network to contain the resources you create in this tutorial.
 
@@ -97,6 +96,40 @@ Create a virtual network to contain the resources you create in this tutorial.
 1. Select **Create**.
 
 ### [PowerShell](#tab/portal)
+
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg*: 
+
+```azurepowershell-interactive
+$rg = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+}
+New-AzResourceGroup @rg
+```
+
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *vnet-1* with the address prefix *10.0.0.0/16*.
+
+```azurepowershell-interactive
+$vnet = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "vnet-1"
+    AddressPrefix = "10.0.0.0/16"
+}
+$virtualNetwork = New-AzVirtualNetwork @vnet
+```
+
+Create a subnet in the virtual network. In this example, a subnet named *subnet-1* is created with a service endpoint for *Microsoft.Storage*: 
+
+```azurepowershell-interactive
+$subnetpriv = @{
+    Name = "subnet-1"
+    AddressPrefix = "10.0.0.0/24"
+    VirtualNetwork = $virtualNetwork
+    ServiceEndpoint = "Microsoft.Storage"
+}
+$virtualNetwork | Set-AzVirtualNetwork @subnetpriv
+```
 
 ### [CLI](#tab/cli)
 
@@ -191,6 +224,69 @@ Create a network security group and rules to restrict network access for the sub
 
 ### [PowerShell](#tab/portal)
 
+Create network security group security rules with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+
+```azurepowershell-interactive
+$r1 = @{
+    Name = "Allow-Storage-All"
+    Access = "Allow"
+    DestinationAddressPrefix = "Storage"
+    DestinationPortRange = "*"
+    Direction = "Outbound"
+    Priority = 100
+    Protocol = "*"
+    SourceAddressPrefix = "VirtualNetwork"
+    SourcePortRange = "*"
+}
+$rule1 = New-AzNetworkSecurityRuleConfig @r1
+```
+
+The following rule denies access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+
+```azurepowershell-interactive
+$r2 = @{
+    Name = "Deny-Internet-All"
+    Access = "Deny"
+    DestinationAddressPrefix = "Internet"
+    DestinationPortRange = "*"
+    Direction = "Outbound"
+    Priority = 110
+    Protocol = "*"
+    SourceAddressPrefix = "VirtualNetwork"
+    SourcePortRange = "*"
+}
+$rule2 = New-AzNetworkSecurityRuleConfig @r2
+```
+
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *nsg-1*.
+
+```azurepowershell-interactive
+$securityRules = @($rule1, $rule2)
+
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "nsg-1"
+    SecurityRules = $securityRules
+}
+$nsg = New-AzNetworkSecurityGroup @nsgParams
+```
+
+Associate the network security group to the *subnet-1* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network. The following example associates the *nsg-1* network security group to the *subnet-1* subnet:
+
+```azurepowershell-interactive
+$subnetConfig = @{
+    VirtualNetwork = $VirtualNetwork
+    Name = "subnet-1"
+    AddressPrefix = "10.0.0.0/24"
+    ServiceEndpoint = "Microsoft.Storage"
+    NetworkSecurityGroup = $nsg
+}
+Set-AzVirtualNetworkSubnetConfig @subnetConfig
+
+$virtualNetwork | Set-AzVirtualNetwork
+```
+
 ### [CLI](#tab/cli)
 
 ---
@@ -232,6 +328,33 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### [PowerShell](#tab/portal)
 
+Create the allowed Azure storage account with [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+
+```azurepowershell-interactive
+$storageAcctParams = @{
+    Location = 'westus2'
+    Name = 'allowedaccount'
+    ResourceGroupName = 'test-rg'
+    SkuName = 'Standard_LRS'
+    Kind = 'StorageV2'
+}
+New-AzStorageAccount @storageAcctParams
+```
+
+Use the same command to create the denied Azure storage account, but change the name to *deniedaccount*.
+
+```azurepowershell-interactive
+$storageAcctParams = @{
+    Location = 'westus2'
+    Name = 'deniedaccount'
+    ResourceGroupName = 'test-rg'
+    SkuName = 'Standard_LRS'
+    Kind = 'StorageV2'
+}
+New-AzStorageAccount @storageAcctParams
+```
+
+
 ### [CLI](#tab/cli)
 
 ---
@@ -262,11 +385,63 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### [PowerShell](#tab/portal)
 
+### Create allowed storage account
+
+Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the allowed storage account.
+
+```azurepowershell-interactive
+$storageAcctName1 = "allowedaccount"
+$storageAcctParams1 = @{
+    ResourceGroupName = "test-rg"
+    AccountName = $storageAcctName1
+}
+$storageAcctKey1 = (Get-AzStorageAccountKey @storageAcctParams1).Value[0]
+```
+
+Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key.
+
+```azurepowershell-interactive
+$storageContext1 = New-AzStorageContext $storageAcctName1 $storageAcctKey1
+``
+
+Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare).
+
+```azurepowershell-interactive
+$share1 = New-AzStorageShare file-share -Context $storageContext1
+```
+
+### Create denied storage account
+
+Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the denied storage account.
+
+```azurepowershell-interactive
+$storageAcctName2 = "deniedaccount"
+$storageAcctParams2 = @{
+    ResourceGroupName = "test-rg"
+    AccountName = $storageAcctName2
+}
+$storageAcctKey2 = (Get-AzStorageAccountKey @storageAcctParams1).Value[0]
+```
+
+Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key.
+
+```azurepowershell-interactive
+$storageContext12= New-AzStorageContext $storageAcctName2 $storageAcctKey2
+``
+
+Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare).
+
+```azurepowershell-interactive
+$share2 = New-AzStorageShare file-share -Context $storageContext2
+```
+
 ### [CLI](#tab/cli)
 
 ---
 
 ### Deny all network access to storage accounts
+
+By default, storage accounts accept network connections from clients in any network. To restrict network access to the storage accounts, you can configure the storage account to accept connections only from specific networks. In this example, you configure the storage account to accept connections only from the virtual network subnet you created earlier.
 
 ### [Portal](#tab/portal)
 
@@ -296,7 +471,54 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### [PowerShell](#tab/portal)
 
-### Enable network access only from the VNet subnet
+Use [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset) to deny access to the storage accounts except from the virtual network and subnet you created eariler. Once network access is denied, the storage account is not accessible from any network.
+
+```azurepowershell-interactive
+$storageAcctParams1 = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName1
+    DefaultAction = "Deny"
+}
+Update-AzStorageAccountNetworkRuleSet @storageAcctParams1
+
+$storageAcctParams2 = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName2
+    DefaultAction = "Deny"
+}
+Update-AzStorageAccountNetworkRuleSet @storageAcctParams2
+```
+
+### Enable network access only from the virtual network subnet
+
+Retrieve the created virtual network with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and then retrieve the private subnet object into a variable with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+
+```azurepowershell-interactive
+$privateSubnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-1"
+}
+$privateSubnet = Get-AzVirtualNetwork @privateSubnetParams | Get-AzVirtualNetworkSubnetConfig -Name "subnet-1"
+```
+
+Allow network access to the storage account from the *subnet-1* subnet with [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+
+```azurepowershell-interactive
+$networkRuleParams1 = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName1
+    VirtualNetworkResourceId = $privateSubnet.Id
+}
+Add-AzStorageAccountNetworkRule @networkRuleParams1
+
+$networkRuleParams2 = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName2
+    VirtualNetworkResourceId = $privateSubnet.Id
+}
+Add-AzStorageAccountNetworkRule @networkRuleParams2
+```
+
 
 ### [CLI](#tab/cli)
 
@@ -307,6 +529,8 @@ The steps necessary to restrict network access to resources created through Azur
 To make sure the users in the virtual network can only access the Azure Storage accounts that are safe and allowed, you can create a service endpoint policy with the list of allowed storage accounts in the definition. This policy is then applied to the virtual network subnet which is connected to storage via service endpoints.
 
 ### Create a service endpoint policy
+
+This section creates the policy definition with the list of allowed resources for access over service endpoint.
 
 ### [Portal](#tab/portal)
 
@@ -347,11 +571,47 @@ To make sure the users in the virtual network can only access the Azure Storage 
 
 ### [PowerShell](#tab/portal)
 
+Use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) to retrieve the resource ID for the first (allowed) storage account.
+
+```azurepowershell-interactive
+$storageAcctParams1 = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName1
+}
+$resourceId = (Get-AzStorageAccount @storageAcctParams1).id
+```
+
+Use [New-AzServiceEndpointPolicyDefinition](/powershell/module/az.network/new-azserviceendpointpolicydefinition) to create the policy definition to allow the above resource.
+
+```azurepowershell-interactive
+$policyDefinitionParams = @{
+    Name = "policy-definition"
+    Description = "Service Endpoint Policy Definition"
+    Service = "Microsoft.Storage"
+    ServiceResource = $resourceId
+}
+$policyDefinition = New-AzServiceEndpointPolicyDefinition @policyDefinitionParams
+```
+
+Use [New-AzServiceEndpointPolicy](/powershell/module/az.network/new-azserviceendpointpolicy) to create the service endpoint policy with the policy definition.
+
+```azurepowershell-interactive
+$sepolicyParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "mysepolicy"
+    Location = "westus2"
+    ServiceEndpointPolicyDefinition = $policyDefinition
+}
+$sepolicy = New-AzServiceEndpointPolicy @sepolicyParams
+```
+
 ### [CLI](#tab/cli)
 
 ---
 
 ## Associate a service endpoint policy to a subnet
+
+After creating the service endpoint policy, you'll associate it with the target subnet with the service endpoint configuration for Azure Storage.
 
 ### [Portal](#tab/portal)
 
@@ -368,6 +628,22 @@ To make sure the users in the virtual network can only access the Azure Storage 
 1. Select **Apply**.
 
 ### [PowerShell](#tab/portal)
+
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the service endpoint policy to the subnet.
+
+```azurepowershell-interactive
+$subnetConfigParams = @{
+    VirtualNetwork = $VirtualNetwork
+    Name = "subnet-1"
+    AddressPrefix = "10.0.0.0/24"
+    NetworkSecurityGroup = $nsg
+    ServiceEndpoint = "Microsoft.Storage"
+    ServiceEndpointPolicy = $sepolicy
+}
+Set-AzVirtualNetworkSubnetConfig @subnetConfigParams
+
+$virtualNetwork | Set-AzVirtualNetwork
+```
 
 ### [CLI](#tab/cli)
 
@@ -427,6 +703,21 @@ To test network access to a storage account, deploy a VM in the subnet.
 1. Select **Create**.
 
 ### [PowerShell](#tab/portal)
+
+Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
+
+```azurepowershell-interactive
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-1"
+    Name = "vm-1"
+}
+New-AzVm @vmParams
+```
+
+Wait for the virtual machine to finish deploying before continuing on to the next steps.
 
 ### [CLI](#tab/cli)
 
@@ -523,6 +814,16 @@ To test network access to a storage account, deploy a VM in the subnet.
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ### [PowerShell](#tab/portal)
+
+When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
+
+```azurepowershell-interactive
+$params = @{
+    Name = "test-rg"
+    Force = $true
+}
+Remove-AzResourceGroup @params
+```
 
 ### [CLI](#tab/cli)
 
