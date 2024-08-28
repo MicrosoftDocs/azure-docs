@@ -7,7 +7,7 @@ author: akashdubey-ms
 
 ms.service: azure-queue-storage
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/28/2024
 ms.author: akashdubey
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 

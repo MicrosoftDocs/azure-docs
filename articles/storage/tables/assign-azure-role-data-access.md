@@ -7,7 +7,7 @@ author: akashdubey-ms
 
 ms.service: azure-table-storage
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 08/28/2024
 ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
