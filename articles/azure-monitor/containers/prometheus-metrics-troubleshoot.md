@@ -20,7 +20,7 @@ If you encounter an error while you attempt to enable monitoring for your AKS cl
 
 ## Metrics Throttling
 
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
+In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics`, click on the `Add Metric` dropdown and then click on the `Add with builder` option to verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
 
