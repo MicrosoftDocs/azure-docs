@@ -42,8 +42,8 @@
         displayName: users, user
     - name: Device inventories
       href: device-inventory.md
-    - name: Vulnerabilty-management
-      href: Vulnerabilty-management.md
+    - name: Vulnerability-management
+      href: vulnerability-management.md
     - name: Alerts
       href: alerts.md
     - name: Zero Trust and your OT/IoT networks
