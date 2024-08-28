@@ -74,7 +74,7 @@ It has a `set` property and a `delete` property. The `set` property specifies th
 
 ### BGP Regex Support in Route Policies
 
-BGP communities are configured using the `IPCommunity` and `IPExtendedCommunity` BGP configuration properties. Currently, these take a list of exact match values. For example, the bold string `1234:2345` in the ARM JSON snippet below matches an IP extended community.
+BGP communities are configured using the `IPCommunity` and `IPExtendedCommunity` BGP configuration properties. These take a list of exact match values. For example, the string `1234:2345` in the ARM JSON snippet below matches an IP extended community.
 
 ```json
 {
@@ -90,7 +90,9 @@ BGP communities are configured using the `IPCommunity` and `IPExtendedCommunity`
 }
 ```
 
-This feature adds regex matching of BGP communities, allowing more concise and flexible route policies.
+#### BGP Regex Matching
+
+Enhanced BGP community matching using regular expressions, enabling more concise and flexible route policies.
 
 The following table shows examples of the community member property under IPCommunityRules and route targets under IPExtendedCommunityRules, which can be specified in the formats below.
 
