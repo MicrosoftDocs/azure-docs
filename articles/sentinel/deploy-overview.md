@@ -64,7 +64,7 @@ Depending on which phase you're in, choose the appropriate next steps:
 
 - Plan and prepare - [Prerequisites to deploy Azure Sentinel](prerequisites.md)
 - Deploy - [Enable Microsoft Sentinel and initial features and content](enable-sentinel-features-content.md)
-- Fine tune and review - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)[Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+- Fine tune and review - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
 
 When you're finished with your deployment of Microsoft Sentinel, continue to explore Microsoft Sentinel capabilities by reviewing tutorials that cover common tasks:  
 
