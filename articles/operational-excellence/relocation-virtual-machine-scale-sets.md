@@ -19,11 +19,11 @@ This article covers the recommended approach, guidelines, and practices for relo
 
 ## Prerequisites
 
-Before you begin, ensure that you have the following:
+Before you begin, ensure that you have the following prerequisites:
 
 - If the source VM supports availability zones, then the target region must also support availability zones. To see which regions support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-- The subscription in the destination region needs enough quota to create the resources. If you have exceeded the quota, you can request an increase. For more information, see [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md).
+- The subscription in the destination region needs enough quota to create the resources. If you exceeded the quota, request an increase. For more information, see [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md).
 
 - Consolidate all the associated extensions from source Virtual Machine Scale Set, as some need to be reconfigured after relocation.
 
@@ -41,15 +41,15 @@ Before you begin, ensure that you have the following:
     - [Load Balancer](../load-balancer/move-across-regions-external-load-balancer-portal.md)
     - [Virtual Network](./relocation-virtual-network.md)
 
-- Ensure that you have have Network Contributor role or higher in order to configure and deploy a Load Balancer template in another region.
+- Ensure that you have a Network Contributor role or higher in order to configure and deploy a Load Balancer template in another region.
 
-- Identify the networking layout of the solution in the source region including NSGs, Public IPs, VNet address spaces, etc.
+- Identify the networking layout of the solution in the source region, such as NSGs, Public IPs, VNet address spaces, and more.
 
 
 
 ## Prepare
 
-In this section, follow the steps below to prepare for relocating a Virtual Machine Scale Set to another region.
+In this section, follow the instructions to prepare for relocating a Virtual Machine Scale Set to another region.
 
 
 1. Locate the image reference used by the source Virtual Machine Scale Set and replicate it to the Image Gallery in the target region.
@@ -59,7 +59,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
 1. Relocate the Load Balancer, along with the public IP by doing one of the following methods:
 
     - *Resource Mover*. Associate Load Balancer with public IP in the source region to the target region. For more information, see [Move resources across regions (from resource group) with Azure Resource Mover](../resource-mover/move-region-within-resource-group.md).
-    - *Explort Template*. Relocate the Load balancer along with public IP to the target region using the export template option. For information on how to do this, see [Move an external load balancer to another region using the Azure portal](../load-balancer/move-across-regions-external-load-balancer-portal.md).
+    - *Export Template*. Relocate the Load Balancer along with public IP to the target region using the export template option. For information on how to do this, see [Move an external load balancer to another region using the Azure portal](../load-balancer/move-across-regions-external-load-balancer-portal.md).
 
     >[!IMPORTANT]
     > Because Public IP’s are a regional resource, Azure Resource Mover recreates Load Balancer at the target region with a new public IP address. 
@@ -70,7 +70,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
 
 1. Export the source Virtual Machine Scale Set template from Azure portal:
     
-    1. In the [Azure portal](https://portal.azure.com), navigate to your source Virtual Machine Scale Set .
+    1. In the [Azure portal](https://portal.azure.com), navigate to your source Virtual Machine Scale Set.
     1. In the menu, under **Automation**, select **Export template** > **Download**.
     1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
     
@@ -82,7 +82,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
 
     1. Make any necessary changes to the template, such as updating all occurrences of the name and the location for the relocated source Virtual Machine Scale Set.
 
-    1. Update the parameter file with the below inputs:
+    1. Update the parameter file with these inputs:
         - Source Virtual Machine Scale set `name`.
         - Image Gallery `Resource id`.
         - Virtual network `subnet Id`. Also, make the necessary ARM code changes to the subnet section so that it can call the Virtual Network `subnet Id`.
