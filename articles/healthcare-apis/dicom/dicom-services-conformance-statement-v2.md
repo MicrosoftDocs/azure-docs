@@ -297,15 +297,15 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 
 | Method | Path | Description |
 | ------ | ------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| GET    | ../studies/{study} | Retrieves all instances within a study. |
-| GET    | ../studies/{study}/metadata  | Retrieves the metadata for all instances within a study |
-| GET    | ../studies/{study}/series/{series} | Retrieves all instances within a series |
-| GET    | ../studies/{study}/series/{series}/metadata | Retrieves the metadata for all instances within a series |
-| GET    | ../studies/{study}/series/{series}/instances/{instance} | Retrieves a single instance |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/rendered | Retrieves an instance rendered into an image format |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, a comma separate each frame to return. For example, `/studies/1/series/2/instance/3/frames/4,5,6`. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frame}/rendered | Retrieves a single frame rendered into an image format |
+| GET | ../studies/{study} | Retrieves all instances within a study. |
+| GET | ../studies/{study}/metadata  | Retrieves the metadata for all instances within a study |
+| GET | ../studies/{study}/series/{series} | Retrieves all instances within a series |
+| GET | ../studies/{study}/series/{series}/metadata | Retrieves the metadata for all instances within a series |
+| GET | ../studies/{study}/series/{series}/instances/{instance} | Retrieves a single instance |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/rendered | Retrieves an instance rendered into an image format |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, a comma separate each frame to return. For example, `/studies/1/series/2/instance/3/frames/4,5,6`. |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/frames/{frame}/rendered | Retrieves a single frame rendered into an image format |
 
 #### Retrieve instances within study or series
 
