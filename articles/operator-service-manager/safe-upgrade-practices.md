@@ -33,8 +33,6 @@ To ensure outcomes, NfApp testing is supported using helm, either helm upgrade p
 ## Safe Upgrade Practices - Prerequisites
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
 
-![iFigre 2 - Prerequisites for Upgrades](media/sup2.png)
-
 - Onboard updated artifacts using publisher and/or designer workflows.
   - Publisher, store, network service design (NSDg), and network function design group (NFDg) are static and do not need to change.
     - A new artifact manifest is needed to store the new charts and images. For more information, see onboarding documentation for details on uploading new charts and images.
@@ -64,21 +62,15 @@ Helm chart versions can be updated, or Helm values can be updated or parameteriz
 
 #### Update NFDV for desired NfApp order using UpdateDependsOn
 
-UpdateDependsOn is a NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used. See following dependsOnProfile example.
-
-![iFigre 3 - UpdateDependsOn](media/sup3.png)
+UpdateDependsOn is a NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
 
 #### Update NFDV roleOverrideValues for desired upgrade behavior.
 
 Make sure to set any desired CNF application timeouts, the atomic parameter, and rollbackOnTestFailure parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
 
-![iFigre 4 - roleOverrides](media/sup4.png)
-
 #### Issue SNS Re-Put
 
 With onboarding complete, the Re-Put operation is submitted. Depending on the number, size and complexity of the NfApps, the reput operation could take some time to complete (multiple hours).
-
-![iFigre 5 - SNS Re-put](media/sup5.png)
 
 #### Examine Re-Put Results
 
@@ -117,15 +109,11 @@ In the NFDV resource, under deployParametersMappingRuleProfile there is the prop
 
 ### Publisher
 
-For the applicationEnablement property, the publisher has two options: either provide a default value or parameterize it. In the following example, applicationEnablement is parameterized for the NfApp testroletwoso so that it's value is provided by the operator at run-time.
-
-![iFigre 6 - applicationEnablement Publisher](media/sup6.png)
+For the applicationEnablement property, the publisher has two options: either provide a default value or parameterize it. 
 
 ### Operator
 
-Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at run-time. The following example shows deploymentValues enableRoleTwoDeployment property set. Also show is how Operators can override any applicationEnablement value using the roleOverrideValues property.
-
-![iFigre 7 - applicationEnablement Operator](media/sup7.png)
+Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at run-time. 
 
 ## Appendix B - Support for In-Service upgrades (ISSU)
 
