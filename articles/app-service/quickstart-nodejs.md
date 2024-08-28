@@ -147,7 +147,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
     While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
     > [!NOTE]
-    > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see **You do not have permission to view this directory or page** in [Configure a Node.js](configure-language-nodejs.md&pivots=platform-windows&preserve-view=true).
+    > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see **You do not have permission to view this directory or page** in [Configure a Node.js](configure-language-nodejs.md?view=platform-windows&preserve-view=true).
 
 1. In the **App Service** explorer in Visual Studio Code, expand the node for the new app, right-click **Application Settings**, and select **Add New Setting**:
 
