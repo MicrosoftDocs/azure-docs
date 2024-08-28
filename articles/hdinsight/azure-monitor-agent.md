@@ -64,7 +64,7 @@ The following sections describe how customers can use the new Azure Monitor Agen
 > [!NOTE]
 > Customers using Azure Monitor Classic will no longer work after 31 August, 2024.  
 > Customers using New Azure Monitor experience (preview) are required to migrate to Azure Monitor Agent (AMA) before January 31, 2025.
-> Clusters with mage **2407260448** with the latest HDInsight API [2024-08-01-preview](/rest/api/hdinsight/extensions/enable-azure-monitor-agent?view=rest-hdinsight-2024-08-01-preview) will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using image **2407260448**. 
+> Clusters with image **2407260448** with the latest HDInsight API [2024-08-01-preview](/rest/api/hdinsight/extensions/enable-azure-monitor-agent?view=rest-hdinsight-2024-08-01-preview) will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using image **2407260448**. 
 
 ### Activate a new Azure Monitor Agent integration 
 
