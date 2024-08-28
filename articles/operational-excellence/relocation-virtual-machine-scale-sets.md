@@ -56,7 +56,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
 
     :::image type="content" source="media\relocation\virtual-machine-scale-sets\image-replication.png" alt-text="Screenshot showing how to locate image of virtual machine.":::
 
-1. Relocate Load balancer, along with the public IP by doing one of the following methods:
+1. Relocate the Load Balancer, along with the public IP by doing one of the following methods:
 
     - *Resource Mover*. Associate Load Balancer with public IP in the source region to the target region. For more information, see [Move resources across regions (from resource group) with Azure Resource Mover](../resource-mover/move-region-within-resource-group.md).
     - *Explort Template*. Relocate the Load balancer along with public IP to the target region using the export template option. For information on how to do this, see [Move an external load balancer to another region using the Azure portal](../load-balancer/move-across-regions-external-load-balancer-portal.md).
