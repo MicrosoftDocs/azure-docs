@@ -1,5 +1,5 @@
 ---
-title: Restrict data exfiltration to Azure Storage - Azure PowerShell
+title: Create and associate service endpoint policies - Azure PowerShell
 description: In this article, you learn how to limit and restrict virtual network data exfiltration to Azure Storage resources with virtual network service endpoint policies using Azure PowerShell.
 services: virtual-network
 author: asudbring
@@ -331,9 +331,11 @@ A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer
 On the *myVmPrivate* VM, map the Azure file share from allowed storage account to drive Z using PowerShell. 
 
 ```powershell
+## Enter the storage account key for the allowed storage account that you recorded earlier.
+$storageAcctKey1 =
 $acctKey = ConvertTo-SecureString -String $storageAcctKey1 -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList ("Azure\allowedaccount"), $acctKey
-New-PSDrive -Name Z -PSProvider FileSystem -Root "\\allowedaccount.file.core.windows.net\my-file-share" -Credential $credential
+New-PSDrive -Name Z -PSProvider FileSystem -Root "\\allowedaccount8675.file.core.windows.net\file-share" -Credential $credential
 ```
 
 PowerShell returns output similar to the following example output:
