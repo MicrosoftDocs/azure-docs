@@ -38,7 +38,7 @@ Before you begin, ensure that you have the following:
     - [Key Vault](./relocation-key-vault.md)
     - [Proximity Placement Group](/azure/virtual-machine-scale-sets/proximity-placement-groups)
     - Public IP address
-    - [Load Balancer](../load-balancer/move-across-regions-external-load-balancer-portal.md). 
+    - [Load Balancer](../load-balancer/move-across-regions-external-load-balancer-portal.md)
     - [Virtual Network](./relocation-virtual-network.md)
 
 - Ensure that you have have Network Contributor role or higher in order to configure and deploy a Load Balancer template in another region.
