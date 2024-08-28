@@ -24,13 +24,13 @@ This article contains links to tutorials that show you how to use various Azure 
 | Azure Databricks | [Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
 | Azure Databricks | [Access Data Lake Storage Gen2 data with Azure Databricks using Spark](data-lake-storage-use-databricks-spark.md)|
 | Azure Event Grid | [Implement the data lake capture pattern to update a Databricks Delta table](data-lake-storage-events.md) |
-| Azure Machine Learning | [Access data in Azure storage services](../../machine-learning/how-to-access-data.md) |
+| Azure Machine Learning | [Access data in Azure storage services](/azure/machine-learning/how-to-access-data) |
 | Azure Data Box | [Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
 | HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | HDInsight | [Extract, transform, and load data by using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md) |
 | Power BI | [Analyze data in Data Lake Storage Gen2 using Power BI](/power-query/connectors/datalakestorage) |
 | Azure Data Explorer | [Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data) |
-| Azure Cognitive Search | [Index and search Azure Data Lake Storage Gen2 documents (preview)](../../search/search-howto-index-azure-data-lake-storage.md) |
+| Azure Cognitive Search | [Index and search Azure Data Lake Storage Gen2 documents (preview)](/azure/search/search-howto-index-azure-data-lake-storage) |
 
 > [!NOTE]
 > This table doesn't reflect the complete list of Azure services that support Data Lake Storage Gen2. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). To see how services organized into categories such as ingest, download, process, and visualize, see [Ingest, process, and analyze](./data-lake-storage-best-practices.md#ingest-process-and-analyze).

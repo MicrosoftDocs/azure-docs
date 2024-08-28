@@ -142,7 +142,7 @@ public static async Task Run(
 
 ## Machine learning and AI
 
-Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions.
+Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](/azure/ai-services/openai/overview) into your function code executions.
 
 Functions can connect to an OpenAI resources to enable text and chat completions, use assistants, and leverage embeddings and semantic search.   
 
