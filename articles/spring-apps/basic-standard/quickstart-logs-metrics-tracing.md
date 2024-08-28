@@ -38,6 +38,12 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Log streaming
 
+#### [Azure portal](#tab/azure-portal)
+
+[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+
+#### [CLI](#tab/Azure-CLI)
+
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
@@ -62,6 +68,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 > [!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionality.
+
+---
 
 ### Log Analytics
 
