@@ -295,7 +295,7 @@ Azure Monitor provides extensive support for querying application logs by using 
 
 ### Convenient entrypoints in Azure portal
 
-In order to provide convenience, following steps will navigate you to Log Analytics blade with pre-defined queries:
+Use following steps to navigate to Log Analytics blade with pre-defined queries:
 
 1. Go to the **Overview** page for your Azure Spring Apps service instance and select **Apps** in the left section.
 
