@@ -76,7 +76,7 @@ You can use the following process to create a sub-volume using Extension Identit
 
    - `metadata::name`: Create a name for your sub-volume.
    - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
-   - `spec::path`: Optional - create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
+   - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: Details of your One Lake Data Lake Lakehouse (for example, `<WORKSPACE>/<DATA_LAKE>/Files`).
    - `spec::storageaccountendpoint`: Your storage account endpoint is the prefix of your Power BI web link. For example, if your OneLake page is `https://contoso-motors.powerbi.com/`, then your endpoint is `https://contoso-motors.dfs.fabric.microsoft.com`.
 
@@ -143,7 +143,7 @@ You can use the following process to create a sub-volume using Extension Identit
    apiVersion: apps/v1
    kind: Deployment
    metadata:
-     name: cloudingestedgevol-deployment ### This will need to be unique for every volume you choose to create
+     name: cloudingestedgevol-deployment ### This must be unique for each deployment you choose to create.
    spec:
      replicas: 2
      selector:

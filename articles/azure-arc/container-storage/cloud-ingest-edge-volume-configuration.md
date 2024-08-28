@@ -120,7 +120,7 @@ To create a sub-volume using extension identity to connect to your storage accou
 
    - `metadata::name`: Create a name for your sub-volume.
    - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
-   - `spec::path`: Optional - create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
+   - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: The container name in your storage account.
    - `spec::storageaccountendpoint`: Navigate to your storage account in the Azure portal. On the **Overview** page, near the top right of the screen, select **JSON View**. You can find the `storageaccountendpoint` link under **properties::primaryEndpoints::blob**. Copy the entire link (for example, `https://mytest.blob.core.windows.net/`).
 
@@ -187,7 +187,7 @@ To create a sub-volume using extension identity to connect to your storage accou
    apiVersion: apps/v1
    kind: Deployment
    metadata:
-     name: cloudingestedgevol-deployment ### This must be unique for every volume you choose to create.
+     name: cloudingestedgevol-deployment ### This must be unique for each deployment you choose to create.
    spec:
      replicas: 2
      selector:

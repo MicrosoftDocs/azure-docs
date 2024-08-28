@@ -228,7 +228,7 @@ A connection string can contain a storage key or SAS.
 
    - `metadata::name`: Create a name for your sub-volume.
    - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
-   - `spec::path`: Optional - create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
+   - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::auth::authType`: Depends on what authentication method you used in the previous steps. Accepted inputs include `sas`, `connection_string`, and `key`.
    - `spec::auth::secretName`: If you used storage key authentication, your `secretName` is `{your_storage_account_name}-secret`. If you used connection string or SAS authentication, your `secretName` was specified by you.
    - `spec::auth::secretNamespace`: Matches your intended consuming pod, or `default`.
