@@ -5,7 +5,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: quickstart
-ms.date: 07/17/2023
+ms.date: 08/28/2024
 ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
 ms.custom: mvc, devcenter, devdivchpfy22, devx-track-js, ai-video-demo
