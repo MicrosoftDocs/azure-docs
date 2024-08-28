@@ -111,7 +111,7 @@ az containerapp env java-component admin-for-spring create \
   --resource-group $RESOURCE_GROUP \
   --name $ADMIN_COMPONENT_NAME \
   --min-replicas 1 \
-  --max-replicas 2 \
+  --max-replicas 1 \
   --bind $EUREKA_COMPONENT_NAME
 ```
 

@@ -167,7 +167,7 @@ Now that you have a Container Apps environment, you can create your container ap
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
       --min-replicas 1 \
-      --max-replicas 2 \
+      --max-replicas 1 \
       --configuration spring.cloud.config.server.git.uri=$URI
     ```
 
