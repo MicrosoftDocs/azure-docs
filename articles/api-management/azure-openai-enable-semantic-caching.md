@@ -152,4 +152,4 @@ For example, if the cache was used, the **Output** section includes entries simi
 
 * [Caching policies](api-management-policies.md#caching)
 * [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md)
-* [GenAI gateway capabilities](getnai-gateway-capabilities.md) in Azure API Management
+* [GenAI gateway capabilities](genai-gateway-capabilities.md) in Azure API Management
