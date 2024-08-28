@@ -12,7 +12,7 @@ ms.date: 08/26/2024
 
 This article describes the Cache Volumes offering from Azure Container Storage enabled by Azure Arc.
 
-## How do Cache Volumes work?
+## How does Cache Volumes work?
 
 :::image type="content" source="media/edge-storage-accelerator-overview.png" alt-text="Diagram of Azure Container Storage enabled by Azure Arc architecture." lightbox="media/edge-storage-accelerator-overview.png":::
 

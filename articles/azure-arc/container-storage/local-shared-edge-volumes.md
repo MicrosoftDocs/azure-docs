@@ -16,7 +16,7 @@ This article describes the configuration for Local Shared Edge Volumes (highly a
 
 The *Local Shared Edge Volumes* feature provides highly available, failover-capable storage, local to your Kubernetes cluster. This shared storage type remains independent of cloud infrastructure, making it ideal for scratch space, temporary storage, and locally persistent data that might be unsuitable for cloud destinations.
 
-## Create a Local Shared Edge Volume Persistent Volume Claim (PVC) and configure a pod against the PVC
+## Create a Local Shared Edge Volumes Persistent Volume Claim (PVC) and configure a pod against the PVC
 
 1. Create a file named `localSharedPVC.yaml` with the following contents. Modify the `metadata::name` value with a name for your Persistent Volume Claim. Then, in line 8, specify the namespace that matches your intended consuming pod. The `metadata::name` value is referenced on the last line of `deploymentExample.yaml` in the next step.
 

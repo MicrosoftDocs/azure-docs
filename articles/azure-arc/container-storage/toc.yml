@@ -15,7 +15,7 @@ items:
       href: single-node-cluster-edge-volumes.md
     - name: Prepare Linux using a multi-node cluster
       href: multi-node-cluster-edge-volumes.md
-    - name: Install Extension
+    - name: Install extension
       href: install-edge-volumes.md
     - name: Configure your volumes
       items:
@@ -47,7 +47,7 @@ items:
         href: single-node-cluster.md
       - name: Prepare Linux using a multi-node cluster
         href: multi-node-cluster.md
-    - name: Install Extension
+    - name: Install extension
       href: install-cache-volumes.md
     - name: Attach applications
       items:

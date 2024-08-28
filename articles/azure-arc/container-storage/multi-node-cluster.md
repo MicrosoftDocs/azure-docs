@@ -28,7 +28,7 @@ kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featu
 ::: zone pivot="aks-ee"
 [!INCLUDE [multi-node](includes/multi-node-edge-essentials.md)]
 
-1. Create a file named **config.json** with the following contents:
+5. Create a file named **config.json** with the following contents:
 
    ```json
    {
@@ -37,7 +37,7 @@ kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featu
    ```
 
    > [!NOTE]
-   > The location/path of this file is referenced later, when installing the Cache Volumes Arc extension.
+   > The location/path of this file is referenced later, when you install the Cache Volumes Arc extension.
 
 ::: zone-end
 

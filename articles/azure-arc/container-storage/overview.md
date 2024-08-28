@@ -36,15 +36,15 @@ The original Azure Container Storage enabled by Azure Arc offering is [*Cache Vo
 
 ## What are Azure Container Storage enabled by Azure Arc Edge Volumes?
 
-The first addition to the Edge Volumes offering is *Local Shared Edge Volume*, providing highly available, failover-capable storage, local to your Kubernetes cluster. This shared storage type remains independent of cloud infrastructure, making it ideal for scratch space, temporary storage, and locally persistent data unsuitable for cloud destinations.
+The first addition to the Edge Volumes offering is *Local Shared Edge Volumes*, providing highly available, failover-capable storage, local to your Kubernetes cluster. This shared storage type remains independent of cloud infrastructure, making it ideal for scratch space, temporary storage, and locally persistent data unsuitable for cloud destinations.
 
-The second new offering is *Cloud Ingest Edge Volume*, which facilitates limitless data ingestion from edge to Blob, including ADLSgen2 and OneLake. Files written to this storage type are seamlessly transferred to Blob storage and subsequently purged from the local cache once confirmed uploaded, ensuring space availability for new data. Moreover, this storage option supports data integrity in disconnected environments, enabling local storage and synchronization upon reconnection to the network.
+The second new offering is *Cloud Ingest Edge Volumes*, which facilitates limitless data ingestion from edge to Blob, including ADLSgen2 and OneLake. Files written to this storage type are seamlessly transferred to Blob storage and subsequently purged from the local cache once confirmed uploaded, ensuring space availability for new data. Moreover, this storage option supports data integrity in disconnected environments, enabling local storage and synchronization upon reconnection to the network.
 
 Tailored for IoT applications, Edge Volumes not only eliminates local storage concerns and ingest limitations, but also optimizes local resource utilization and reduces storage requirements.
 
 ### How does Edge Volumes work?
 
-You write to Edge Volumes as if it was your local file system. For a *Local Shared Edge Volume*, your data is stored and left untouched. For a *Cloud Ingest Edge Volume*, the volume checks for new data to mark for upload every minute, and then uploads that new data to your specified cloud destination. Five minutes after the confirmed upload to the cloud, the local copy is purged, allowing you to keep your local volume clear of old data and continue to receive new data.
+You write to Edge Volumes as if it was your local file system. For a Local Shared Edge Volume, your data is stored and left untouched. For a Cloud Ingest Edge Volume, the volume checks for new data to mark for upload every minute, and then uploads that new data to your specified cloud destination. Five minutes after the confirmed upload to the cloud, the local copy is purged, allowing you to keep your local volume clear of old data and continue to receive new data.
 
 Get started with [Edge Volumes](prepare-linux-edge-volumes.md).
 

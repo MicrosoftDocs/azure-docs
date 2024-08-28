@@ -10,7 +10,7 @@ ms.date: 08/26/2024
 
 # Blob index and metadata tags
 
-**Cloud Ingest Edge Volumes** now supports the ability to generate blob index tags and blob metadata tags directly from Azure Container Storage enabled by Azure Arc. This process involves incorporating extended attributes to the files within your **Cloud Ingest Edge Volume**, where Edge Volumes translates that into your selected index or metadata tag.
+Cloud Ingest Edge Volumes now supports the ability to generate blob index tags and blob metadata tags directly from Azure Container Storage enabled by Azure Arc. This process involves incorporating extended attributes to the files within your Cloud Ingest Edge Volume, where Edge Volumes translates that into your selected index or metadata tag.
 
 ## Blob index tags
 
