@@ -56,7 +56,7 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 - Update templates to ensure that upgrade parameters are set based on confidence in the upgrade and desired failure behavior.
   - Settings used for production may suppress failures details, while settings used for debugging, or testing, may choose to expose these details.
 
-## Step by step upgrade procedure
+## Upgrade procedure
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
 ### Create new NFDV template
@@ -77,7 +77,7 @@ With onboarding complete, the reput operation is submitted. Depending on the num
 ### Examine reput results
 If the reput is reporting a successful result, the upgrade is complete and the user should validate the state and availability of the service. If the reput is reporting a failure, follow the steps in the upgrade failure recovery section to continue.
 
-## Step by Step retry procedure
+## Retry procedure
 In cases where a reput update fails, the following process can be followed to retry the operation.
 
 ### Diagnose failed NfApp
