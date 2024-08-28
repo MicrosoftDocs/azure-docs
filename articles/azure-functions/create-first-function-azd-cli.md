@@ -56,11 +56,11 @@ You can use the `azd init` command to create a local Azure Functions code projec
  
     ```azd
     azd init --template functions-quickstart-dotnet-azd
-    cd FunctionHttp
+    cd http
     ```
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Create a file named _local.settings.json_ in the app's root folder (`/FunctionHttp`), and add this JSON data to the file:
+3. Create a file named _local.settings.json_ in the app's root folder (`/http`), and add this JSON data to the file:
 
     ```json
     {
@@ -84,13 +84,13 @@ You can use the `azd init` command to create a local Azure Functions code projec
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Run this command in the app's root folder (`/http`):
+3. Run this command in the app's root folder (`http`):
 
-    ```command
+    ```console
     func init --worker-runtime java
     ```
     
-    This command restores the _local.settings.json_ file in the app's root folder (`/http`), which is required when running locally.
+    This command restores the _local.settings.json_ file in the app's root folder (`http`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -103,7 +103,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 
 3. Run this command in the root folder: 
 
-    ```command
+    ```console
     func init --worker-runtime javascript
     ```
 
@@ -119,13 +119,13 @@ You can use the `azd init` command to create a local Azure Functions code projec
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3.  Run this command in the app's root folder (`/src`):
+3.  Run this command in the app's root folder (`src`):
 
-    ```command
+    ```console
     func init --worker-runtime powershell
     ```
 
-    This command restores the _local.settings.json_ file in the app's root folder (`/src`), which is required when running locally.
+    This command restores the _local.settings.json_ file in the app's root folder (`src`), which is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -138,7 +138,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 
 3. Run this command in the root folder:
 
-    ```command
+    ```console
     func init --worker-runtime typescript
     ```
 
@@ -193,7 +193,7 @@ py -m venv .venv
 1. Run this command from your project's root folder in a terminal or command prompt:
 
     ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
-    ```command
+    ```console
     func start
     ``` 
     ::: zone-end  
@@ -217,7 +217,7 @@ py -m venv .venv
 
 1. From your HTTP test tool in a new terminal, send an HTTP POST request with a JSON payload like in this example:
 
-    :::code language="http" source="~/functions-quickstart-dotnet-azd/FunctionHttp/test.http" range="5-11" :::
+    :::code language="http" source="~/functions-quickstart-dotnet-azd/http/test.http" range="5-11" :::
 
     You can find examples of both HTTP requests in the _test.http_ project file. 
 
@@ -232,7 +232,7 @@ You can review the code that defines the two HTTP trigger function endpoints:
     
 ### [`httpget`](#tab/get)
 ::: zone pivot="programming-language-csharp"  
-:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" range="17-28" :::
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpGetFunction.cs" range="17-28" :::
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
@@ -256,7 +256,7 @@ This `run.ps1` file implements the function code:
 ### [`httppost`](#tab/post)
  
 ::: zone pivot="programming-language-csharp"   
-:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" range="19-31":::  
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpPostBodyFunction.cs" range="19-31":::  
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="44-71" :::
@@ -323,7 +323,7 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
 
 1. In your local terminal or command prompt, run this `func azure functionapp list-functions` command:
  
-    ```command
+    ```console
     func azure functionapp list-functions <APP_NAME> --show-keys 
     ``` 
     
