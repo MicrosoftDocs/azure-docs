@@ -1,79 +1,59 @@
 ---
 title: 'Deploy Azure Static Web Apps with Bicep'
-description: Deploy Azure Static Web Apps using Bicep including resource creation and configuration. Link your own Azure Functions app to support your static web app.
+description: Deploy Azure Static Web Apps using Bicep, and optionally link an existing Azure Functions app as the backend to your static web app.
 services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 08/28/2024
 ms.author: cshoe
 #customer intent: As a developer, I want create a Static Web App on Azure with a Bicep file so that the process can to automated.
 ---
 
 # Deploy Azure Static Web Apps with Bicep
 
-Use a Bicep file to create your Azure Static Web Apps resource. Bicep provides a declarative syntax to define and create Azure resources, which can be automated and repeated for consistency.
+You can use a Bicep file to create an instance of Azure Static Web Apps. Bicep provides a declarative syntax to define and create Azure resources, which can be automated and repeated for consistency.
 
-This article details how to create the resource group that holds all the resources for your application, the Azure Static Web Apps resource, which contains your statically generated client application such as React, Vue, or Svelte, and the linked Azure Functions backend.
+The steps in this article show you how to use Bicep to create a resource group and a Static Web Apps instance. After your static web app is created you still need to deploy your code using the typical methods of GitHub Actions, or using Azure Pipelines.
 
-## Tools for resource creation
+You can use Bicep along with Azure Verified Modules (AVM) to deploy your static web apps.
 
- Bicep is one of several tools of resource creation. These tools include:
+| Tool | Description |
+|---|---|
+| [Bicep](/azure/azure-resource-manager/Bicep/) | Bicep is a domain-specific language (DSL) that uses a declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse. |
+| [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules) | These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVMs when possible as they represent best practices for infrastructure as code. |
 
-* [Azure Resource Management](/azure/azure-resource-manager/) (ARM): To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. This older style is still in use. 
-* [Bicep](/azure/azure-resource-manager/Bicep/): Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse.
-* [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules): These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVM when possible because it consolidates and set the standards for what a good infrastructure as code module looks like.
-* [Azure CLI](/cli/azure/)/[PowerShell](/powershell): These command line apps allow you to create resources. They have generally been superseded by Bicep and AVM but are still used for minor or quick fixes while the larger Bicep update may be more time-consuming. Learn to [create resources with the Azure CLI and a Bicep file](/azure/azure-resource-manager/bicep/deploy-cli#deploy-local-bicep-file). 
-* [Azure portal](https://portal.azure.com/): Azure portal is a web-based visual interface for resource creation and configuration.
+## Verified modules
 
-Creation and configuration can be done across all the tools listed above.  
+The Bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [Bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. AVM modules are recognizable because they reference modules that include `avm/res`, such as `br/public:avm/res/web/static-site:0.3.0`.
 
-## Bicep by example
-
-The bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. AVM modules are recognizable because they reference modules that include `avm/res`, such as `br/public:avm/res/web/static-site:0.3.0`.
-
-```Bicep
-module swa 'br/public:avm/res/web/static-site:0.3.0' = {
-  name: 'client'
-  scope: rg
-  params: {
-    name: 'swa-${resourceToken}'
-    location: location
-    sku: 'Free'
-    tags: union(tags, { 'service-name': 'client' })
-  }
-}
-```
-
-AVM allows you to use managed Bicep code, which has been built and is maintained by professional engineers fluent in Bicep. These modules aren't only supported and maintained, they're opinionated about what proper Bicep files look like.
-
-Due to the work involved in owning and maintaining the AVM files, it takes time to specify the module, determine best practices, and find the appropriate owner/maintainer. For this reason, the module you need may not be available at this time. 
-
-If the AVM isn't available, you can use _vanilla_ [Bicep for your resources](/azure/templates/). 
+Using a verified module allows you to use opinionated managed Bicep code maintained by professional engineers fluent in Bicep. Since verified modules require support and dedicated attention, sometimes a module you need might not be available. If an AVM isn't available, you can code your [Bicep files](/azure/templates/) by hand.
 
 ## Prerequisites
 
-- [Bicep tools](../azure-resource-manager/Bicep/install.md): Learn how to install Bicep tools. 
+- [Bicep tools](../azure-resource-manager/Bicep/install.md): Learn how to install Bicep tools.
 - [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep): An optional extension that creates resources for you by running your Bicep file.
 
 ## Create a static web app resource
 
-Create a file named `main.bicep` file and paste in the following code:
+The following code creates a new resource group and a Static Web Apps resource and then outputs the default host name and static web app name.
+
+Create a file named `main.bicep` file and paste in the following code.
+
+Before you run this code, make sure to replace the `<REGION_NAME>` placeholder with your region name.
 
 ```Bicep
 targetScope = 'subscription'
 
-@description('The name of the Azure region that will be used for the deployment.')
-param location string ='eastus2'
+param location string ='<REGION_NAME>'
 
-@description('Random string to make resource names unique')
+@description('String to make resource names unique')
 var resourceToken = uniqueString(subscription().subscriptionId, location)
 
 @description('Create a resource group')
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: 'rg-swa-app-${resourceToken}'
   location: location
-  tags: tags
 }
 
 @description('Create a static web app')
@@ -87,99 +67,94 @@ module swa 'br/public:avm/res/web/static-site:0.3.0' = {
   }
 }
 
-@description('Put the default hostname in an output')
+@description('Output the default hostname')
 output endpoint string = swa.outputs.defaultHostname
 
-@description('Save the static web app name in an output')
+@description('Output the static web app name')
 output staticWebAppName string = swa.outputs.name
 ```
 
-This file creates the following resources for you:
-* An application name as the `resourceToken` value
-* Tags associated with your app to help you find and filter resources in the Azure portal
-* A resource group for this application
-* A static web app
+This code:
 
-Save the values of the output variables to a text editor. You'll need these to find and configure the resources in the Azure portal. The next step is to include a linked backend Azure Functions app, shown in the next section.
+- Scopes the action to the current Azure subscription.
+- Generates a unique string to ensure the static web app name is globally unique.
+- Creates a new resource group.
+- Creates a new Static Web Apps instance using the free tier.
+- Outputs the web app's URL.
+- Outputs the static web app name.
+
+After you execute this file, save the values of the output variables to a text editor.
+
+See the next section if you want to link an existing Azure Functions app to your static web app.
 
 ## Link a Functions app
 
-To link a Functions app for your backend, use the Static Web Apps standard plan for your web app and complete the following steps.
+The code in the previous section demonstrates how to create a static web app using the free tier. If you want to link a managed backend to your static web app, you need to change to the [Standard hosting plan](/azure/static-web-apps/plans).
 
-To create the Azure Function app, follow the instructions provided in the [Quickstart: Create and deploy Azure Functions resources using Bicep](/azure/azure-functions/functions-create-first-function-bicep) guide. When you're done creating your resource, you'll need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`, in order to link that function app to your static web app.
+To link your Functions app to your static web app, you need the `resourceId` of your Functions App. You can get this value from the Azure portal, or you can use the following command to return your Functions app `resourceId`.
 
-Next, create the static web app using the Bicep template provided in the previous section. This sets up the necessary resources for your static web app. Finally, use the following Bicep file to link the static web app to the function app to enable seamless integration between your front-end and back-end services.
+```azurecli
+az functionapp show -n <FUNCTION-APP-NAME> -g <RESOURCE-GROUP-NAME> --query id --output tsv
+```
 
-Create a file named `config.bicep` file and paste in the following code: 
+Create a file named `config.bicep` file and paste in the following code.
+
+Before you run this code, make sure to replace the placeholders surrounded by `<>` with your values.
 
 ```Bicep
 targetScope = 'resourceGroup'
 
-@description('The name of the Azure region that will be used for the deployment.')
-param location string = 'eastus2'
+param location string = '<REGION_NAME>'
+param staticWebAppName string = '<STATIC_WEB_APP_NAME>'
+param functionsAppResourceId = '<FUNCTIONS_APP_RESOURCE_ID>'
 
-@description('The Subscription ID')
-param subscriptionId string = '<SUBSCRIPTION-ID>'
-
-@description('The name of the Azure resource group.')
-param resourceGroup string = '<RESOURCE-GROUP-NAME>'
-
-@description('Azure Statoc web app name')
-param staticWebAppName string = '<STATIC-WEB-APP-NAME>'
-
-@description('Azure Function App name')
-param functionAppName string = '<FUNCTION-APP-NAME>'
-
-@description('Get reference to static web app')
+@description('Get reference to the static web app')
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' existing = {
   name: staticWebAppName
 }
-
-param functionAppResourceId string = '/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Web/sites/${functionAppName}'
 
 @description('Link backend to static web app')
 resource linkedStaticWebAppBackend 'Microsoft.Web/staticSites/linkedBackends@2023-12-01' = {
   parent: staticWebApp
   name: 'linkedBackend'
   properties: {
-    backendResourceId: functionAppResourceId
+    backendResourceId: functionsAppResourceId
     region: location
   }
 }
 ```
 
-This file handles the following tasks:
+This code:
 
-* Creates variables to use in resource configuration.
-* Create a reference to the existing static web app.
-* Create a reference string for the existing functions app.
-* Configure the static web app to link to the functions app.
+- Scopes the action to the Azure resource group.
+- Gets access to the existing static web app by name.
+- Links the static web app to a Functions app using the Functions app `resourceId`.
 
 ## Deployment
 
-Deploy your source code to the static web app with one of the following tools:
-    * [Azure Developer CLI (Recommended)](/azure/developer/azure-developer-cli)
-    * [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
-    * [GitHub Action](https://docs.github.com/actions)
-    * [Azure DevOps](/azure/devops/pipelines/overview-azure)
+Now that your Azure Static Web Apps instance is created, you can deploy your source code to the static web app with one of the following tools:
 
-* **Local development environment**: Use [Azure Developer CLI](/azure/developer/azure-developer-cli) to deploy from your local machine. When running locally, you define your deployment in an `azure.yml` file. This file includes hooks that plug into the resource creation process at any point to help you during deployment, especially when different parts of your app need to know about each other at build time.
+- [Azure Developer CLI (Recommended)](/azure/developer/azure-developer-cli)
+- [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
+- [GitHub Actions](https://docs.github.com/actions)
+- [Azure Pipelines](/azure/devops/pipelines/overview-azure)
 
-* **Production environment**: The ability to deploy from a GitHub Actions workflow file is a built-in feature when you create your static web app. Once the file is in your repository, you can edit the file as needed. Deployment from [other source code providers](external-providers.md) is also supported.
+- **Local development environment**: Use [Azure Developer CLI](/azure/developer/azure-developer-cli) to deploy from your local machine. When running locally, you define your deployment in an `azure.yml` file. This file includes hooks that plug into the resource creation process at any point. These extensibility points help you during deployment, especially when different parts of your app need to know about each other at build time.
+
+- **Production environment**: The ability to deploy from a GitHub Actions workflow file is a built-in feature when you create your static web app. Once the file is in your repository, you can edit the file as needed. Deployment from [other source code providers](external-providers.md) is also supported.
 
 To learn more from a full end-to-end application that includes resource creation and application deployment, see [Serverless AI Chat with RAG using LangChain.js](https://github.com/Azure-Samples/serverless-chat-langchainjs).
 
-## Speeding up deployments with Azure Developer CLI
+## Faster deployments with the Azure Developer CLI
 
-Azure Developer CLI (`azd`) uses Bicep files along with deployment configurations to create and provision your application. Since version 1.4, azd checks the Bicep against cloud resources to understand if the underlying infrastructure as code (IaC) state requires updates. If the state hasn't changed, creation and configuration are skipped. Learn more about this [performance improvement](
+Azure Developer CLI (`azd`) uses Bicep files along with deployment configurations to create your application. Since version 1.4, `azd` checks the Bicep against cloud resources to determine if the underlying infrastructure as code (IaC) state requires updates. If the state remains unchanged, creation and configuration are skipped. To learn more about this performance improvement, see [azd provision is now faster when there are no infrastructure changes](
 https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2023-release/#azd-provision-is-now-faster-when-there-are-no-infrastructure-changes
 ).
 
 ## Related content
 
-* [Awesome AZD](https://azure.github.io/awesome-azd/?tags=swa)
-* [Public Bicep Registry](https://github.com/Azure/bicep-registry-modules)
-* [Azure Developer CLI](/azure/developer/azure-developer-cli)
-* [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
-* [GitHub Actions](https://docs.github.com/actions)
- 
+- [Awesome AZD](https://azure.github.io/awesome-azd/?tags=swa)
+- [Public Bicep Registry](https://github.com/Azure/bicep-registry-modules)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+- [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
+- [GitHub Actions](https://docs.github.com/actions)
