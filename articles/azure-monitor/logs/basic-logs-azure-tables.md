@@ -28,7 +28,7 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
 | Bare Metal Machines | [NCBMSecurityDefenderLogs](/azure/azure-monitor/reference/tables/ncbmsecuritydefenderlogs)<br>[NCBMSystemLogs](/azure/azure-monitor/reference/tables/NCBMSystemLogs)<br>[NCBMSecurityLogs](/azure/azure-monitor/reference/tables/NCBMSecurityLogs) <br>[NCBMBreakGlassAuditLogs](/azure/azure-monitor/reference/tables/ncbmbreakglassauditlogs)|
 | Chaos Experiments | [ChaosStudioExperimentEventLogs](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
-| Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs) |
+| Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs)<br>[CHSMServiceOperationAuditLogs](/azure/azure-monitor/reference/tables/chsmserviceoperationauditlogs)|
 | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
 | Container Insights | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) |
 | Container Apps Environments | [AppEnvSpringAppConsoleLogs](/azure/azure-monitor/reference/tables/AppEnvSpringAppConsoleLogs) |
