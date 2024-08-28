@@ -72,9 +72,9 @@ Client secret | Sometimes called an application password, a client secret is a s
 
    [![Screenshot of the tab for specifying tags in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
-1. Move to the **Resource Sharing (CORS)** tab and configure cross-origin resource sharing as needed. [Learn more about cross-origin resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md).
+1. Move to the **Advanced Settings** tab to configure **cross-origin resource sharing** and, if available to you as a customer in the limited preview for the feature, **reference data values settings**. To learn more about cross-origin resource sharing (CORS), see [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md). To learn more about reference data values, see [Syncing Reference Data Values](../energy-data-services/concepts-referencedatavalues.md)
 
-   [![Screenshot of the tab for configuring cross-origin resource sharing in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png#lightbox)
+   [![Screenshot of the tab for configuring cross-origin resource sharing in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/rdv-cors-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/rdv-cors-tab.png#lightbox)
 
 1. Move to the **Review + Create** tab.
 
