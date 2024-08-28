@@ -402,7 +402,7 @@ You can connect to these resources via Azure ExpressRoute or network-to-network 
 
 ### Can I enable virtual network peering if my virtual networks belong to subscriptions within different Microsoft Entra tenants?
 
-Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the [Azure portal](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-portal), [PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-powershell), or the [Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-cli).
+Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the [Azure portal](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-portal), [PowerShell](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-powershell), or the [Azure CLI](https://learn.microsoft.com/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-cli).
 
 ### My virtual network peering connection is in an Initiated state. Why can't I connect?
 
@@ -539,7 +539,7 @@ Yes, it's possible when you're using service endpoints for Azure Storage and Azu
 
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from on-premises or ExpressRoute. You can add these IP addresses through the IP firewall configuration for the Azure service resources.
 
-Alternatively, you can implement [private endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview) for supported services.
+Alternatively, you can implement [private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) for supported services.
 
 ### Can I use virtual network service endpoints to secure Azure services to multiple subnets within a virtual network or across multiple virtual networks?
 
