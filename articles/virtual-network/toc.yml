@@ -190,14 +190,6 @@
     items:
     - name: Create virtual network with encryption
       href: how-to-create-encryption.md
-    - name: Filter network traffic
-      items:
-      - name: Azure portal
-        href: tutorial-filter-network-traffic.md
-      - name: Azure PowerShell
-        href: tutorial-filter-network-traffic-powershell.md
-      - name: Azure CLI
-        href: tutorial-filter-network-traffic-cli.md
     - name: Network isolation
       items:
       - name: Using private endpoints
@@ -235,9 +227,9 @@
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
-        href: ../virtual-machines/windows/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/windows/multiple-nics?toc=/azure/virtual-network/toc.json
       - name: Azure CLI
-        href: ../virtual-machines/linux/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/linux/multiple-nics?toc=/azure/virtual-network/toc.json
     - name: Accelerated Networking (AccelNet)
       items:
       - name: Accelerated Networking overview

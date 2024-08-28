@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, devx-track-python, update-code2
+ms.custom: cliv2, devx-track-python, update-code
 author: Blackmist
 ms.author: larryfr
 ms.date: 07/25/2024

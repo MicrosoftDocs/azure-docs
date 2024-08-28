@@ -2,7 +2,7 @@
 title: Collect logs from a JSON file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a JSON file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 07/12/2024
+ms.date: 08/23/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -88,6 +88,10 @@ $tableParams = @'
                     {
                         "name": "FilePath",
                         "type": "string"
+                    },
+                    {
+                        "name": "Computer",
+                        "type": "string"
                     }
               ]
         }
@@ -117,6 +121,7 @@ JSON files include a property name with each value, and the incoming stream in t
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace if it's not included in the incoming stream.  |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer with the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 ### Transformation
 The [transformation](../essentials/data-collection-transformations.md) potentially modifies the incoming stream to filter records or to modify the schema to match the target table. If the schema of the incoming stream is the same as the target table, then you can use the default transformation of `source`. If not, then modify the `transformKql` section of tee ARM template with a KQL query that returns the required schema.

@@ -18,6 +18,18 @@ ms.author: pafarley
 
 Learn what's new in Azure AI Vision. Check this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
 
+## August 2024
+
+### New detectable Face attributes
+
+The glasses, occlusion, blur, and exposure attributes are available with the latest Detection 03 model. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+
+## May 2024
+
+### New Face SDK 1.0.0-beta.1 (breaking changes)
+
+The Face SDK was rewritten in version 1.0.0-beta.1 to better meet the guidelines and design principles of Azure SDKs. C#, Python, Java, and JavaScript are the supported languages. Follow the [QuickStart](./quickstarts-sdk/identity-client-library.md) to get started.
+
 ## February 2024
 
 #### Multimodal embeddings GA: new multi-language model

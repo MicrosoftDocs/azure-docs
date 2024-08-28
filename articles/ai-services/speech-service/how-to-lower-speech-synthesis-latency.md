@@ -318,15 +318,17 @@ For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
-## Text streaming
+## Input text streaming
 
 Text streaming allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This feature minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
 
 ### How to use text streaming
 
-To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
+Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
 
 ::: zone pivot="programming-language-csharp"
+
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
 
 See the sample code for setting the endpoint:
 
@@ -360,6 +362,8 @@ For detailed implementation, see the [sample code on GitHub](https://github.com/
 
 ::: zone pivot="programming-language-python"
 
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
+
 See the sample code for setting the endpoint:
 
 ```python
@@ -382,6 +386,33 @@ speech_config = speechsdk.SpeechConfig(endpoint=f"wss://{os.getenv('AZURE_TTS_RE
 1. **Close the stream**: Once the GPT model completes its output, close the stream using `request.input_stream.close()`.
 
 For detailed implementation, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream).
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+The C++ sample code isn't available now. For the sample code that shows how to use text streaming, see:
+
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+For the sample code that shows how to use text streaming, see:
+
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+For the sample code that shows how to use text streaming, see:
+
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
 
 ::: zone-end
 

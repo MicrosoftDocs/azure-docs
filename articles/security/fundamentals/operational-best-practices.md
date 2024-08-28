@@ -216,7 +216,7 @@ Ensuring that an application is resilient enough to handle a denial of service t
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../../cloud-services/cloud-services-choose-me.md).
 
-For [Azure Virtual Machines](../../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using Virtual Machine Scale Sets for autoscaling capabilities.
+For [Azure Virtual Machines](/azure/virtual-machines/windows/overview), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/windows/tutorial-availability-sets). We recommend using Virtual Machine Scale Sets for autoscaling capabilities.
 
 **Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
 **Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using an approval list to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) and [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)).
