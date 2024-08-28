@@ -174,7 +174,7 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **A**: [Azure OpenAI Service](/azure/ai-services/openai/overview) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
 
-[ChatGPT](https://openai.com/blog/chatgpt) is built by [Open AI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
+[ChatGPT](https://openai.com/blog/chatgpt) is built by [OpenAI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
 
 ## Next steps
 
