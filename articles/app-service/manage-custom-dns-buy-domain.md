@@ -194,7 +194,7 @@ After you purchase the App Service domain, you can update the domain contact inf
 
 1. Select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, select **Edit contact**.
+1. From the left navigation of the domain, select **Advanced domain management (preview)**. To update your contact information, select **Edit contact**.
 
     :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png" alt-text="Screenshot showing where to update contact information for a purchased domain." border="true" lightbox="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png":::
 
@@ -211,7 +211,7 @@ After you purchase the App Service domain, you can update the domain contact inf
 > Once you disable privacy protection, you can no longer re-enable privacy protection again.
 >
 
-Privacy protection hides your domain registration contact information from the WHOIS database. If it's enabled during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering the domain out, where you need to disable privacy protection, you can do that by:
+Privacy protection hides your domain registration contact information from the WHOIS database. If it's enabled during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transferring the domain out, where you need to disable privacy protection, you can do that by:
 
 
 1. In the search bar, search for and select **App Service Domains**.
@@ -220,7 +220,7 @@ Privacy protection hides your domain registration contact information from the W
 
 1. Select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, select **Disable** in the **Domain Privacy** section.
+1. From the left navigation of the domain, select **Advanced domain management (preview)**. To disable privacy protection, select **Disable** in the **Domain Privacy** section.
 
     :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a purchased domain." lightbox="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" border="true":::
 
