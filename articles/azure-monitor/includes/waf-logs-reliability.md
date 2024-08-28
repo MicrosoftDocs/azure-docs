@@ -11,6 +11,21 @@ Log Analytics workspaces offer a high degree of reliability. The ingestion pipel
 Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering. The table below summarizes and compares these features. 
 
 
+### Availability zones
+
+[!INCLUDE [logs-availability-zones](includes/logs-availability-zones.md)]
+
+### Compare Azure Monitor Logs resilience features
+
+| Feature                | Service resilience | Data backup | High availability | Scope of protection  | Setup                     | Cost    |
+|------------------------|--------------------|-------------|-------------------|-------------------|--------------------------|------------------------------------------------------------------------------|
+| [Workspace replication]     | :white_check_mark:            | :white_check_mark: |  :white_check_mark:           | Cross-region protection against region-wide incidents                                                       | 1. Enable on the workspace and related data collection rules (DCRs).<br>2. Switch between regions as needed.                                               | Based on the amount of replicated GBs and region.  |
+| Availability zones     | :white_check_mark: <br>In supported regions           |  :white_check_mark: |  :white_check_mark:           | In-region                                                      |    Automatically enabled on dedicated clusters in supported regions.                                              | No cost |
+| Continuous data export |                              | :white_check_mark:  |  |  Protection from regional failure <sup>1</sup>                                 | Enable per table.                                           | Cost of data export + Storage blob or Event Hubs |
+
+
+<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. In the event of an incident, previously exported data is backed up and readily available; however, further export might fail, depending on the nature of the incident.
+
 ### Design checklist
 
 > [!div class="checklist"]
@@ -30,13 +45,3 @@ Azure Monitor Logs offers a number of features that can make your workspaces mor
 | If you require data to be protected in the case of datacenter or region failure, configure data export from the workspace to save data in an alternate location. | The [data export feature of Azure Monitor](../logs/logs-data-export.md) allows you to continuously export data sent to specific tables to Azure storage where it can be retained for extended periods. Use [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), including GRS and GZRS, to replicate this data to other regions. If you require export of [tables that aren't supported by data export](../logs/logs-data-export.md?tabs=portal#limitations), you can use other methods of exporting data, including Logic apps, to protect your data. This is primarily a solution to meet compliance for data retention since the data can be difficult to analyze and restore to the workspace.<br><br>This option is similar to the previous option of multicasting the data to different workspaces, but has a lower cost because the extra data is written to storage.<br><br> Data export is susceptible to regional incidents because it relies on the stability of the Azure Monitor ingestion pipeline in your region. It doesn't provide resiliency against incidents impacting the regional ingestion pipeline.|
 | Monitor the health of your Log Analytics workspaces. | Use [Log Analytics workspace insights](../logs/workspace-design.md) to track failed queries and create [health status alert](../logs/log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts) to proactively notify you if a workspace becomes unavailable because of a datacenter or regional failure. |
 
-### Compare resilience features and capabilities
-
-| Feature                | Service resilience | Data backup | High availability | Scope of protection  | Setup                     | Cost    |
-|------------------------|------------------------------|------------------|-----|---------------------------------|--------------------------|------------------------------------------------------------------------------|--------------------------------------------------|---------|
-| Availability zones     | :white_check_mark: <br>In supported regions           |  :white_check_mark: |  :white_check_mark:           | In-region                                                      |    Automatically enabled on dedicated clusters in supported regions.                                              | No cost |
-| Continuous data export |                              | :white_check_mark:  |  |  Protection from regional failure <sup>1</sup>                                 | Enable per table.                                           | Cost of data export + Storage blob or Event Hubs |
-| Dual ingestion         | :white_check_mark:           | :white_check_mark:   |  :white_check_mark: | Protection from regional failure                                                                       | Enable per monitored resource.         | Up to twice the cost of retention (depending on how much data you dual ingest) + egress charges. |
-
-
-<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. In the event of an incident, previously exported data is backed up and readily available; however, further export might fail, depending on the nature of the incident.
