@@ -107,10 +107,11 @@ Log Analytics has rich analytical tools that operators can use for troubleshooti
 
 ### Regions Available
 
-Use the commands below to verify Nexus availability in an Azure region.
+Use the commands below to verify Nexus availability in an Azure region. The output includes a list of resources supported by Network Cloud and Managed Network Fabric, the available API versions, and the locations where these resources can be created.
 
 ```azurecli
 az provider show -n Microsoft.NetworkCloud -o json
+az provider show -n Microsoft.ManagedNetworkFabric -o json
 ```
 
 ## Next steps
