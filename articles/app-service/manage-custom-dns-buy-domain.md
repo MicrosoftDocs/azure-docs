@@ -154,7 +154,7 @@ If you want to configure automatic renewal, or if you want to manually renew you
 
 1. Select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Domain renewal**. To start renewing your domain automatically, select **On**, otherwise select **Off**. The setting takes effect immediately. If automatic renewal is enabled, on the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
+1. From the left navigation of the domain, select **Domain renewal**. To start renewing your domain automatically, select **On**. Otherwise select **Off**. The setting takes effect immediately. If automatic renewal is enabled, on the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
 
     :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png" alt-text="Screenshot that shows the option to automatically renew your domain." border="true":::
 
@@ -170,7 +170,7 @@ If your domain renewal is successful, you receive an email notification within 2
 
 ## Manage custom DNS records
 
-In Azure, DNS records for an App Service Domain are managed using [Azure DNS](https://azure.microsoft.com/services/dns/). You can add, remove, and update DNS records, just like for an externally purchased domain. To manage custom DNS records:
+In Azure, DNS records for an App Service domain are managed using [Azure DNS](https://azure.microsoft.com/services/dns/). You can add, remove, and update DNS records just as you would for an externally purchased domain. To manage custom DNS records:
 
 1. In the search bar, search for and select **App Service Domains**.
 
@@ -186,7 +186,7 @@ For information on how to edit DNS records, see [How to manage DNS Zones in the 
 
 ## Update contact information
 
-After you purchase the App Service Domain, you can still update the domain contact information if needed. It is important to keep this contact information up to date so that you can receive notifications about your domain and receive verification emails if you decide to transfer out your domain. To update your contact information:
+After you purchase the App Service domain, you can update the domain contact information if you need to. It's important to keep this contact information up to date so that you can receive notifications about your domain and receive verification emails if you decide to transfer out your domain. To update your contact information:
 
 1. In the search bar, search for and select **App Service Domains**.
 
@@ -194,16 +194,16 @@ After you purchase the App Service Domain, you can still update the domain conta
 
 1. Select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, click on **Edit contact**.
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, select **Edit contact**.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png" alt-text="Screenshot showing where to update contact information for a purchased domain." border="true":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png" alt-text="Screenshot showing where to update contact information for a purchased domain." border="true" lightbox="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png":::
 
-1. A rightside plane will pop up and you will need to update the necessary fields then click on **Submit**.
+1. In the pane that appears, update the necessary fields and then select **Submit**.
 
 1. Once you submit the request, it might take some time for your contact information to update.
 
     > [!NOTE]
-    > If you have Privacy disabled and have updated the name or organization information, an email verification will be sent to the email address on file for confirmation. Additionally, if you updated your email address, a verification email will be sent first to the previous email on file for confirmation, and once that is completed, another email would be sent to the new email on file for confirmation. The contact information will not update until after you have confirmed via email.
+    > If you have privacy protection disabled and update name or organization information, an email verification is sent to the email address on file for confirmation. Additionally, if you update your email address, a verification email is sent first to the previous email on file for confirmation. Once that's completed, another email is sent to the new email on file for confirmation. The contact information won't update until after you have confirmed via email.
     > 
 ## Disable privacy protection
 
@@ -211,7 +211,7 @@ After you purchase the App Service Domain, you can still update the domain conta
 > Once you disable privacy protection, you can no longer re-enable privacy protection again.
 >
 
-Privacy protection hides your domain registration contact information from the WHOIS database. If opted-in during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering domain out, where you would need to Disable privacy protection, you can do that by:
+Privacy protection hides your domain registration contact information from the WHOIS database. If it's enabled during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering the domain out, where you need to disable privacy protection, you can do that by:
 
 
 1. In the search bar, search for and select **App Service Domains**.
@@ -220,13 +220,13 @@ Privacy protection hides your domain registration contact information from the W
 
 1. Select the domain you want to configure.
 
-1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, click on **Disable** in the **Domain Privacy** section.
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, select **Disable** in the **Domain Privacy** section.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a purchased domain." border="true":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a purchased domain." lightbox="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" border="true":::
 
-## Cancel purchase (delete domain)
+## Cancel the purchase
 
-After you purchase the App Service Domain, you have five days to cancel your purchase for a full refund. After five days, you can delete the App Service Domain, but can't receive a refund.
+After you purchase the App Service domain, you have five days to cancel your purchase and get a full refund. After five days, you can delete the App Service domain but can't receive a refund.
 
 1. In the search bar, search for and select **App Service Domains**.
 
