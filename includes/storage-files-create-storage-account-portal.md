@@ -23,7 +23,7 @@ To create a storage account using the Azure portal:
 1. In **Performance**, keep the default value of **Standard**.
 1. In **Redundancy**, select **Locally redundant storage (LRS)**.
 
-   :::image type="content" source="media/storage-files-create-storage-account-portal/create-new-storage-account.png" alt-text="Screenshot showing how to enter the project and instance details for a storage account using the Azure portal." lightbox="media/storage-files-create-storage-account-portal/create-new-storage-account.png":::
+   :::image type="content" source="media/storage-files-create-storage-account-portal/create-storage-account.png" alt-text="Screenshot showing how to enter the project and instance details for a storage account using the Azure portal." lightbox="media/storage-files-create-storage-account-portal/create-storage-account.png":::
 
 1. Select **Review + create** to review your settings. Azure will run a final validation.
 1. When validation is complete, select **Create**. You should see a notification that deployment is in progress.
