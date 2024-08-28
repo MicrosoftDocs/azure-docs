@@ -6,11 +6,10 @@ ms.topic: include
 ms.date: 08/24/2023
 ---
 
-Log Analytics workspaces offer a high degree of reliability. Conditions where a temporary loss of access to the workspace can result in data loss are often mitigated by features such as data buffering with the Azure Monitor Agent and protection mechanisms built into the ingestion pipeline.
+Log Analytics workspaces offer a high degree of reliability. The ingestion pipeline, which sends collected data to the Log Analytics workspace, validates that the Log Analytics workspace successfully processes each log record before it removes the record from the pipe. If the ingestion pipeline isn’t available, the agents that send the data buffer and retry sending the logs for many hours.
 
-The resiliency features described in this section can provide additional protection from data loss and business continuity. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering. The table below summarizes and compares these features. 
+Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering. The table below summarizes and compares these features. 
 
-Some availability features require a dedicated cluster, which currently requires a commitment of at least 100 GB per day from all workspaces linked to this cluster (aggregated).
 
 ### Design checklist
 
