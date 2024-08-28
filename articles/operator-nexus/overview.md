@@ -107,9 +107,7 @@ Log Analytics has rich analytical tools that operators can use for troubleshooti
 
 ### Regions Available
 
-Nexus, within Azure, is designed for global distribution and is accessible in numerous regions. This global availability ensures users can access Nexus services with minimal latency, regardless of their location.
-
-The public accessibility of Nexus in specific regions is strategically determined to balance broad geographic coverage, service availability, and cost. To verify Nexus availability in different Azure regions, use the following command. It displays the availability of each region along with its associated resource type.
+Use the commands below to verify Nexus availability in an Azure region.
 
 ```azurecli
 az provider show -n Microsoft.NetworkCloud -o json
