@@ -30,7 +30,7 @@ The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Stan
   * [Request Cancellation](#request-cancellation)
   * [Search Workitems](#search-workitems)
 
-Additionally, these nonstandard API(s) are supported:
+Additionally, these nonstandard APIs are supported:
 
 * [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
@@ -69,11 +69,11 @@ This transaction uses the POST or PUT method to store representations of studies
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
-The following `Accept` header(s) for the response are supported:
+The following is the only response `Accept` header supported:
 
 * `application/dicom+json`
 
-The following `Content-Type` header(s) are supported:
+The following `Content-Type` headers are supported:
 
 * `multipart/related; type="application/dicom"`
 * `application/dicom`
@@ -309,7 +309,7 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 
 #### Retrieve instances within study or series
 
-The following `Accept` header(s) are supported for retrieving instances within a study or a series:
+The following `Accept` headers are supported for retrieving instances within a study or a series:
 
 
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
@@ -320,7 +320,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 
 #### Retrieve an Instance
 
-The following `Accept` header(s) are supported for retrieving a specific instance:
+The following `Accept` headers are supported for retrieving a specific instance:
 
 * `application/dicom; transfer-syntax=*`
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
@@ -387,7 +387,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 
 ### Retrieve rendered image (for instance or frame)
 
-The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
+The following `Accept` headers are supported for retrieving a rendered image an instance or a frame:
 
 - `image/jpeg`
 - `image/png`
@@ -440,7 +440,7 @@ Query based on ID for DICOM Objects (QIDO) enables you to search for studies, se
 | GET                    | ../studies/{study}/instances?...                 | Search for instances in a study  |
 | GET                    | ../studies/{study}/series/{series}/instances?... | Search for instances in a series |
 
-The following `Accept` header(s) are supported for searching:
+The following is the only `Accept` header supported for searching:
 
 * `application/dicom+json`
 
@@ -456,7 +456,7 @@ An attribute can be corrected in the following ways:
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description                                                                                                                                                                                                                                                                                |
+| Key              | Support values          | Allowed Count | Description                                                                                                                                                                                                                                                                                |
 | :--------------- | :------------------------ | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query.                                                                                                                                                                                                                                             |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
@@ -751,7 +751,7 @@ The request payload might include Action Information as [defined in the DICOM St
 
 | Code                           | Description                                                                                                                                                                                                        |
 | :----------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `202 (Accepted)`               | The request was accepted by the server, but the Target Workitem state isn't changed yet.                                                                                                                           |
+| `202 (Accepted)`               | Server has accepted the request, but the Target Workitem state isn't changed yet.                                                                                                                           |
 | `400 (Bad Request)`            | There was a problem with the syntax of the request.                                                                                                                                                                |
 | `401 (Unauthorized)`           | The client isn't authenticated.                                                                                                                                                                                    |
 | `403 (Forbidden)`              | The user isn't authorized.                                                                                                                                                                                         |
@@ -892,7 +892,7 @@ This transaction enables you to search for Workitems by attributes.
 | :----- | :------------ | :------------------- |
 | GET    | ../workitems? | Search for Workitems |
 
-The following `Accept` header(s) are supported for searching:
+The following is the only `Accept` header supported for searching:
 
 * `application/dicom+json`
 
@@ -900,7 +900,7 @@ The following `Accept` header(s) are supported for searching:
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Key              | Support values          | Allowed Count | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | :--------------- | :------------------------ | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query.                                                                                                                                                                                                                                                                                                                                                                              |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
@@ -937,6 +937,7 @@ We support these matching types:
 | Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
 | Exact Match | All supported attributes                   | `{attributeID}={value1}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Fuzzy Match | `PatientName`                              | Matches any component of the name that starts with the value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| WildCard Match | `PatientID`, <br/> `ReferencedRequestSequence.AccessionNumber`, <br/> `ReferencedRequestSequence.RequestedProcedureID`, <br/> `ProcedureStepState`, <br/> `ScheduledStationNameCodeSequence.CodeValue`, <br/> `ScheduledStationClassCodeSequence.CodeValue`, <br/> `ScheduledStationGeographicLocationCodeSequence.CodeValue`                              | Following wildcard characters are supported: <br/> `*` - Matches zero or more characters. For example - `{attributeID}={val*}` matches "val", "valid", "value" but not "evaluate". <br/> `?` - Matches a single character. For example - `{attributeID}={valu?}` matches "value", "valu1" but not "valued" or "valu"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 > [!NOTE]
 > Although we don't support full sequence matching, we do support exact match on the attributes listed that are contained in a sequence.

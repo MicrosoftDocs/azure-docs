@@ -195,15 +195,6 @@ productDirectory:
         - ai-machine-learning
       url: machine-learning/data-science-virtual-machine/index.yml
     # Card
-    - title: Kinect DK
-      summary: Build computer vision and speech models using a developer kit with advanced AI sensors
-      imageSrc: ./media/index/kinect-viewer.svg
-      azureCategories:
-        - ai-machine-learning
-        - iot
-        - mixed-reality
-      url: kinect-dk/index.yml
-    # Card
     - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
       imageSrc: ./media/index/energy-data-services.svg
