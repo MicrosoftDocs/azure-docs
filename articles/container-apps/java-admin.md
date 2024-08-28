@@ -106,7 +106,7 @@ Now that you have an existing environment, you can create your container app and
     az containerapp env java-component admin-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME
+      --name $JAVA_COMPONENT_NAME \
       --min-replicas 1 \
       --max-replicas 1
     ```
@@ -117,7 +117,7 @@ Now that you have an existing environment, you can create your container app and
     az containerapp env java-component admin-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME
+      --name $JAVA_COMPONENT_NAME \
       --min-replicas 2 \
       --max-replicas 2
     ```
