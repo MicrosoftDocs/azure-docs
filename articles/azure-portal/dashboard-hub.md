@@ -7,9 +7,9 @@ ms.date: 08/28/2024
 
 # Create and manage dashboards in Dashboard hub (preview)
 
-Dashboards are a focused and organized view of your cloud resources in the Azure portal. The new Dashboard hub (preview) experience offers editing features such as tabs, a rich set of tiles with support for different data sources, and dashboard access in the latest version of the Azure mobile app.
+Dashboards are a focused and organized view of your cloud resources in the Azure portal. The new Dashboard hub (preview) experience offers editing features such as tabs, a rich set of tiles with support for different data sources, and dashboard access in the latest version of the [Azure mobile app](mobile-app/overview.md).
 
-Currently, Dashboard hub can only be used to create and manage shared dashboards. These shared dashboards are implemented as Azure resources in your subscription. They're visible in the Azure portal or the Azure mobile app to all users who have subscription-level access.
+Currently, Dashboard hub can only be used to create and manage shared dashboards. These shared dashboards are implemented as Azure resources in your subscription. They're visible in the Azure portal or the Azure mobile app, to all users who have subscription-level access.
 
 > [!IMPORTANT]
 > Dashboard hub is currently in PREVIEW.
