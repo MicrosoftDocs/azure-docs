@@ -16,7 +16,7 @@ This article introduces Azure Operator Service Manager (AOSM) safe upgrade pract
 
 A given network service supported by Azure Operator Service Manager will be composed of one-to-many container-based network functions (CNFs) which, over time, will require frequent software updates. For each CNF update, it is necessary to run one-to-many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service. At Azure Operator Service Manager, Safe Upgrade Practices represents a set of features, which can automate the CNF operations required to update a network service on Azure Operator Nexus.
   
-![iFigre 1 - Overview Of Current Features](media/sup1.png)
+![iFigre 1 - Overview Of Current Features](media/safe-upgrades-current-features.png)
 
 ## Safe Upgrade Practices Overview
 
