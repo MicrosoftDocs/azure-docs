@@ -10,7 +10,7 @@ ms.date: 08/14/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps (preview)
+# Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps
 
 Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Available as an Azure Container Apps component, you can bind your container app to a Eureka Server for Spring for automatic registration with the Eureka server.
 
