@@ -258,32 +258,32 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Get FTPS credentials
 
-Azure App Service supports [**two types of credentials**](deploy-configure-credentials.md) for FTP/S deployment. These credentials aren't the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
+Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials aren't the same as your Azure subscription credentials. In this section, you get the application-scope credentials to use with FileZilla.
 
-1. From the App Service app page, select **Deployment Center** in the left-hand menu and select **FTPS credentials** tab.
+1. From the App Service app page, select **Deployment Center** in the left-hand menu and then select the **FTPS credentials** tab.
 
-    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS deployment credentials":::
+    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="Screenshot that shows the FTPS deployment credentials tab." lightbox="./media/quickstart-nodejs/ftps-deployment-credentials.png":::
 
-1. Open **FileZilla** and create a new site.
+1. Open FileZilla and create a new site.
 
-1. From the **FTPS credentials** tab, under **Application scope**, copy **FTPS endpoint**, **FTPS Username**, and **Password** into FileZilla.
+1. From the **FTPS credentials** tab, copy the **FTPS endpoint**, **Username**, and **Password** into FileZilla.
 
-    :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="Screenshot of the FTPS connection details.":::
 
 1. Select **Connect** in FileZilla.
  
 ### Deploy files with FTPS
 
-1. Copy all files and directories files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
+1. Copy all files and directories files to the [/site/wwwroot directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
     
-    :::image type="content" source="./media/quickstart-nodejs/filezilla-deploy-files.png" alt-text="FileZilla deploy files":::
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-deploy-files.png" alt-text="Screenshot of the /site/wwwroot directory.":::
 
 1. Browse to your app's URL to verify the app is running properly.
 
 ::: zone-end
 ## Redeploy updates
 
-You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then redeploy to your Azure app. For example:
+You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then redeploying to your Azure app. For example:
 
 1. From the sample project, open *views/index.ejs* and change
 
@@ -299,7 +299,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-2. In the **App Service** explorer, select the **Deploy to Web App** icon again, confirm by clicking **Deploy** again.
+2. In the **App Service** explorer, select the **Deploy to Web App** icon again, and confirm by selecting **Deploy** again.
 
 1. Wait for deployment to complete, then select **Browse Website** in the notification popup. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
@@ -315,7 +315,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
     
     This command uses values that are cached locally in the *.azure/config* file, such as the app name, resource group, and App Service plan.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)). You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [the note at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
 ::: zone-end
 
@@ -323,11 +323,11 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 2. Save your changes, then redeploy the app using your FTP client.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)). You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. (See [note the at the start of this article](#dnl-note).) You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
 ::: zone-end
 
-## Stream Logs
+## Stream logs
 
 :::zone target="docs" pivot="development-environment-vscode"
 
@@ -364,11 +364,11 @@ az webapp log tail
 
 The command uses the resource group name cached in the *.azure/config* file.
 
-You can also include the `--logs` parameter with then [az webapp up](/cli/azure/webapp#az-webapp-up) command to automatically open the log stream on deployment.
+You can also include the `--logs` parameter with the [az webapp up](/cli/azure/webapp#az-webapp-up) command to automatically open the log stream on deployment.
 
 Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
 
-To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
+To stop log streaming at any time, select **Ctrl**+**C** in the terminal.
 
 ::: zone-end
 
@@ -376,7 +376,7 @@ To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
 You can access the console logs generated from inside the app and the container in which it runs. You can stream log output (calls to `console.log()`) from the Node.js app directly in the Azure portal.
 
-1. In the same **App Service** page for your app, use the left menu to scroll to the *Monitoring* section and select **Log stream**.
+1. In the same **App Service** page for your app, use the left menu to scroll to the **Monitoring** section and select **Log stream**.
 
     :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Screenshot of Log stream in Azure App service.":::
 
@@ -406,7 +406,7 @@ You can access the console logs generated from inside the app and the container 
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-In the preceding steps, you created Azure resources in a resource group. The create steps in this quickstart put all the resources in this resource group. To clean up, you just need to remove the resource group.
+In the preceding steps, you created Azure resources in a resource group. The steps in this quickstart put all the resources in this resource group. To clean up, you just need to remove the resource group.
 
 
 1. In the Azure extension of Visual Studio, expand the **Resource Groups** explorer.
@@ -424,7 +424,7 @@ In the preceding steps, you created Azure resources in a resource group. The cre
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location.
+In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS," depending on your location.
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command:
 
@@ -440,7 +440,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-When no longer needed, you can delete the resource group, App service, and all related resources.
+You can delete the resource group, App service, and all related resources when they're no longer needed.
 
 1. From your App Service *overview* page, select the *resource group* you created in the [Create Azure resources](#create-azure-resources) step.
 
@@ -448,7 +448,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 
 1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
-    :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group":::
+    :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group.":::
 
 ::: zone-end
 
