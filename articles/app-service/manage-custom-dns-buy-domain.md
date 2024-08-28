@@ -33,7 +33,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain wizard." border="true":::
 
     > [!NOTE]
-    > You can also create an App Service domain independently of an app by going to the App Service Domains view and selecting **Add**, or by navigating to [the create page directly](https://portal.azure.com/#create/Microsoft.Domain). But since the domain is independent from your app, you won't be able to assign hostnames like `www` to your app, which you can do if you create the domain from your app's **Custom domains** page.
+    > You can also create an App Service domain independently of an app by going to the App Service Domains view and selecting **Create**, or by navigating to [the create page directly](https://portal.azure.com/#create/Microsoft.Domain). But since the domain is independent from your app, you won't be able to assign hostnames like `www` to your app, which you can do if you create the domain from your app's **Custom domains** page.
 
 1. In the **Basics** tab, configure the following settings:
 
@@ -262,7 +262,7 @@ Free subscriptions, which don't require a confirmed credit card, don't have the 
 
 #### Why do I get a SubscriptionExceededMaxDomainLimit error when creating an App Service domain?
 
-The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of one App Service domain. To increase your limit, convert to a pay-per-use subscription.
+The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like the Visual Studio Enterprise subscription, have a limit of one App Service domain. To increase your limit, convert to a pay-per-use subscription.
 
 #### How do I direct the default URL to a custom directory?
 
