@@ -374,7 +374,7 @@ The object you get from `SignalRNegotiation` binding is in the following format:
 }
 ```
 
-Here's a Javascript usage sample of `SignalRNegotiation` binding:
+Here's a JavaScript usage sample of `SignalRNegotiation` binding:
 ```js
 module.exports = function (context, req, negotiationContext) {
     var userId = req.query.userId;
@@ -414,7 +414,7 @@ The object you get from `SignalREndpoints` is an array of endpoints each of whic
 ```
 
 
-After you get the target endpoint array, add an `endpoints` property to the output binding object. This is a Javascript example:
+After you get the target endpoint array, add an `endpoints` property to the output binding object. This is a JavaScript example:
 ```js
 module.exports = function (context, req, endpoints) {
     var targetEndpoints = endpoints.filter(endpoint => endpoint.name.startsWith("east-"));
