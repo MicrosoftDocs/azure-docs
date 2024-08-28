@@ -183,7 +183,7 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
   * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address or addresses. This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
 
-  * If you're still having trouble, [open a support case](#more-troubleshooting-guidance) for further troubleshooting.
+  * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance). 
 
 * Custom routes directing 0.0.0.0/0 traffic to an NVA will take precedence over NAT gateway for routing traffic to the internet. To have NAT gateway route traffic to the internet instead of the NVA, [remove the custom route](/azure/virtual-network/manage-route-table#delete-a-route) for 0.0.0.0/0 traffic going to the virtual appliance. The 0.0.0.0/0 traffic resumes using the default route to the internet and NAT gateway is used instead.
 
@@ -285,16 +285,6 @@ The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed 
 
 Use an authenticated SMTP relay service to send email from Azure VMs or from Azure App Service. For more information, see [troubleshoot outbound SMTP connectivity problems](/azure/virtual-network/troubleshoot-outbound-smtp-connectivity).
 
-## More troubleshooting guidance
-
-### Extra network captures
-
-If your investigation is inconclusive, open a support case for further troubleshooting and collect the following information for a quicker resolution. Choose a single virtual machine in your NAT gateway configured subnet and perform the following tests:
-
-* Test the probe port response using **`ps ping`** from one of the backend VMs within the virtual network and record results (example: **`ps ping 10.0.0.4:3389`**).
-
-* If no response is received in these ping tests, run a simultaneous `netsh` trace on the backend virtual machine, and the virtual network test virtual machine while you run PsPing then stop the `netsh` trace.
-
 ## Outbound connectivity best practices
 
 Azure monitors and operates its infrastructure with great care. However, transient failures can still occur from deployed applications, and there's no guarantee of lossless transmissions. NAT gateway is the preferred option for establishing highly reliable and resilient outbound connectivity from Azure deployments. For optimizing application connection efficiency, refer to the guidance later in the article.
@@ -330,6 +320,16 @@ To create a Private Link, see the following Quickstart guides to get started:
 * [Create a Private Endpoint](../private-link/create-private-endpoint-portal.md?tabs=dynamic-ip)
 
 * [Create a Private Link](../private-link/create-private-link-service-portal.md)
+
+## More troubleshooting guidance
+
+### Extra network captures
+
+If your investigation is inconclusive, open a support case for further troubleshooting and collect the following information for a quicker resolution. Choose a single virtual machine in your NAT gateway configured subnet and perform the following tests:
+
+* Test the probe port response using **`ps ping`** from one of the backend VMs within the virtual network and record results (example: **`ps ping 10.0.0.4:3389`**).
+
+* If no response is received in these ping tests, run a simultaneous `netsh` trace on the backend virtual machine, and the virtual network test virtual machine while you run PsPing then stop the `netsh` trace.
 
 ## Next steps
 
