@@ -15,7 +15,7 @@ ms.custom:
 
 # Relocate Azure Virtual Machine Scale Sets to another region
 
-This article covers the recommended approach, guidelines and practices for relocating Virtual Machine Scale Sets to another region.
+This article covers the recommended approach, guidelines, and practices for relocating Virtual Machine Scale Sets to another region.
 
 ## Prerequisites
 
