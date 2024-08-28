@@ -23,7 +23,9 @@ Before you run the following command, replace placeholders surrounded by `<>` wi
 az containerapp env java-component admin-for-spring show \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --name <JAVA_COMPONENT_NAME>
+  --name <JAVA_COMPONENT_NAME> \
+  --min-replicas 1 \
+  --max-replicas 1
 ```
 
 ## Update
