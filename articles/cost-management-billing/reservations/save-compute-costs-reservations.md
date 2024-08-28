@@ -103,7 +103,7 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 
 Software plans:
 
-- **SUSE Linux** (***temporarily unavailable***) - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
+- **SUSE Linux** - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
 - **Red Hat Plans** (***temporarily unavailable***) - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
 - **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs.
 
@@ -128,5 +128,5 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
 Learn more about reservations for software plans:
-    - [Red Hat software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges) - ***Temporarily unavailable***
+    - [Red Hat software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
     - [SUSE software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
