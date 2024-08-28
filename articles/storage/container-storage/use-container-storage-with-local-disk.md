@@ -29,7 +29,7 @@ Due to the ephemeral nature of these disks, Azure Container Storage supports the
 
 Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3** is required.
 
-You can run the following command to get the VM type that's used with your node pool.
+Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
 ```azurecli-interactive
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table

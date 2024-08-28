@@ -2,14 +2,14 @@
 title: Azure Files indexer (preview)
 titleSuffix: Azure AI Search
 description: Set up an Azure Files indexer to automate indexing of file shares in Azure AI Search.
-manager: nitinme
+manager: vinodva
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 08/23/2024
 ---
 
 # Index data from Azure Files
@@ -105,7 +105,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     }
     ```
 
-1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. The indexer automatically encodes the key metadata property, with no configuration or field mapping required.
 
    + **`metadata_storage_path`** (default) full path to the object or file
 
@@ -141,7 +141,6 @@ Once the index and data source have been created, you're ready to create the ind
          "batchSize": null,
          "maxFailedItems": null,
          "maxFailedItemsPerBatch": null,
-         "base64EncodeKeys": null,
          "configuration": {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 

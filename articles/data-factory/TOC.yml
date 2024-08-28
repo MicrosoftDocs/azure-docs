@@ -1396,6 +1396,10 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
+  - name: Important changes (deprecations) coming
+    items: 
+    - name: Connector upgrade and deprecations
+      href: connector-deprecation-plan.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
