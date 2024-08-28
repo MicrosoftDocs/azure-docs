@@ -258,11 +258,11 @@ After you purchase the App Service domain, you have five days to cancel your pur
 
 #### Why do I see "This subscription does not have the billing support to purchase an App Service domain"?
 
-Free subscriptions, which don't require a confirmed credit card, do not have the permissions to buy App Service domains in Azure.
+Free subscriptions, which don't require a confirmed credit card, don't have the permissions to buy App Service domains in Azure.
 
 #### Why do I get a SubscriptionExceededMaxDomainLimit error when creating an App Service domain?
 
-The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of 1 App Service domain. To increase your limit, convert to a pay-per-use subscription.
+The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of one App Service domain. To increase your limit, convert to a pay-per-use subscription.
 
 #### How do I direct the default URL to a custom directory?
 
@@ -270,7 +270,7 @@ This is not a DNS resolution scenario. By default, App Service directs web reque
 
 ## Next step
 
-Learn how to bind a custom TLS/SSL certificate to App Service.
+Learn how to bind a custom TLS/SSL certificate to help secure App Service.
 
 > [!div class="nextstepaction"]
-> [Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)
+> [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
