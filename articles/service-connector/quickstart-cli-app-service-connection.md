@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, build-2024
 
 This quickstart describes the steps for creating a service connection in Azure App Service with the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -42,7 +42,7 @@ This quickstart describes the steps for creating a service connection in Azure A
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
 
 Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
 

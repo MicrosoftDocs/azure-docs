@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) with Apache Flink® on HDInsight on AKS
 description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/28/2023
 ---
@@ -103,8 +103,7 @@ You can read more details about DAGs, Control Flow, SubDAGs, TaskGroups, etc. di
 
 Example code is available on the [git](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code); download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-workflow-orchestration-manager-work#steps-to-import) to import DAG into your workflow created during setup.
 
-The wordcount.py is an example of orchestrating a Flink job submission using Apache Airflow with HDInsight on AKS. The example is based on the wordcount example provided on [Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/dataset/examples/).  
-
+The wordcount.py is an example of orchestrating a Flink job submission using Apache Airflow with HDInsight on AKS.
 The DAG has two tasks: 
 
 - get `OAuth Token` 
@@ -164,11 +163,9 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 ## Example code 
 
- This is an example of orchestrating data pipeline using Airflow with HDInsight on AKS 
+ This is an example of orchestrating data pipeline using Airflow with HDInsight on AKS.
  
- The example is based on wordcount example provided on [Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/dataset/examples/) 
- 
- The DAG expects to have setup for Service Principal for the OAuth Client credential and pass following input configuration for the execution
+ The DAG expects to have setup for Service Principal for the OAuth Client credential and pass following input configuration for the execution:
  ```JSON
  {
   'jarName':'WordCount.jar',

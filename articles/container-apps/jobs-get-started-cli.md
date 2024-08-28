@@ -3,10 +3,10 @@ title: Create a job with Azure Container Apps
 description: Learn to create an on-demand or scheduled job in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 08/17/2023
+ms.date: 08/09/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-job-types
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: container-apps-job-types
 
 Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
 
-Jobs are best suited to for tasks such as data processing, machine learning, or any scenario that requires on-demand processing.
+Jobs are best suited to for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires on-demand processing.
 
 In this quickstart, you create a manual or scheduled job. To learn how to create an event-driven job, see [Deploy an event-driven job with Azure Container Apps](tutorial-event-driven-jobs.md).
 
@@ -103,21 +103,21 @@ Job executions output logs to the logging provider that you configured for the C
 1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
 
     ```azurecli
-    LOG_ANALYTICS_WORKSPACE_ID=`az containerapp env show \
+    LOG_ANALYTICS_WORKSPACE_ID=$(az containerapp env show \
         --name "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --query "properties.appLogsConfiguration.logAnalyticsConfiguration.customerId" \
-        --output tsv`
+        --output tsv)
     ```
 
 1. Save the name of the most recent job execution to a variable.
 
     ```azurecli
-    JOB_EXECUTION_NAME=`az containerapp job execution list \
+    JOB_EXECUTION_NAME=$(az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --query "[0].name" \
-        --output tsv`
+        --output tsv)
     ```
 
 1. Run a query against Log Analytics for the job execution using the following command.

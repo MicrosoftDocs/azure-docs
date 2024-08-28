@@ -11,7 +11,7 @@ ms.date: 03/22/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 

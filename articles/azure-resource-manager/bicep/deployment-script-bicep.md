@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/06/2024
 ---
 
 # Use deployment scripts in Bicep
@@ -24,7 +24,7 @@ The benefits of deployment scripts include:
 - You can allow passing command-line arguments to the script.
 - You can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md).
+The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability).
 
 > [!WARNING]
 > The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
@@ -493,11 +493,11 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptExecutionFailed` | An unknown error occurred during execution of the deployment script. |
 | `DeploymentScriptContainerInstancesServiceUnavailable` | During creation of a container instance, the Azure Container Instances service threw a "service unavailable" error. |
 | `DeploymentScriptContainerGroupInNonterminalState` | During creation of a container instance, another deployment script was using the same container instance name in the same scope (same subscription, resource group name, and resource name). |
-| `DeploymentScriptContainerGroupNameInvalid` | The specified container instance name doesn't meet the Azure Container Instances requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
+| `DeploymentScriptContainerGroupNameInvalid` | The specified container instance name doesn't meet the Azure Container Instances requirements. See [Troubleshoot common issues in Azure Container Instances](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-deployment).|
 
 ## Access a private virtual network
 
-You can run deployment scripts in private networks with some additional configurations. For more information, see [Access a private virtual network](./deployment-script-vnet.md).
+You can run deployment scripts in private networks with some additional configurations. For more information, see [Access a private virtual network using service endpoint](./deployment-script-vnet.md) or [Run Bicep deployment script privately over a private endpoint](./deployment-script-vnet-private-endpoint.md).
 
 ## Next steps
 
@@ -505,5 +505,6 @@ In this article, you learned how to use deployment scripts. To learn more, see:
 
 - [Training module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
 - [Develop deployment script resources](./deployment-script-develop.md)
-- [Access a private virtual network](./deployment-script-vnet.md)
+- [Access a private virtual network using service endpoint](./deployment-script-vnet.md)
+- [Run Bicep deployment script privately over a private endpoint](./deployment-script-vnet-private-endpoint.md)
 - [Create script development environments](./deployment-script-bicep-configure-dev.md)

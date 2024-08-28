@@ -3,7 +3,7 @@ title: 'Configure custom BGP communities for Azure ExpressRoute private peering'
 description: Learn how to apply or update BGP community value for a new or an existing virtual network.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/05/2023

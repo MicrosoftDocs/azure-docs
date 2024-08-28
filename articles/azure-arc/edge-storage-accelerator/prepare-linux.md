@@ -4,8 +4,8 @@ description: Learn how to prepare Linux in Edge Storage Accelerator using AKS en
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 04/08/2024
-
 ---
 
 # Prepare Linux (preview)

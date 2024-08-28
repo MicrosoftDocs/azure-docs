@@ -3,15 +3,15 @@ title: Model training on serverless compute
 titleSuffix: Azure Machine Learning
 description: You no longer need to create your own compute cluster to train your model in a scalable way.  You can now use a compute cluster that Azure Machine Learning has made available for you.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 10/23/2023
 ---
 
@@ -81,7 +81,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID. 
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID.
 
     # [Python SDK](#tab/python)
 
@@ -122,7 +122,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
     ---
 
-* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity with the serverless job for storage access.
+* **User-assigned managed identity** : When you have a workspace configured with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), you can use that identity with the serverless job for storage access. To access secrets, see [Use authentication credential secrets in Azure Machine Learning jobs](how-to-use-secrets-in-runs.md).  
 
     # [Python SDK](#tab/python)
 

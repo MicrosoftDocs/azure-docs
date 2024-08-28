@@ -3,13 +3,13 @@ title: Manage a compute instance
 titleSuffix: Azure Machine Learning
 description: Learn how to manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: jesscioffi
-ms.author: jcioffi
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/03/2024
 ---
 

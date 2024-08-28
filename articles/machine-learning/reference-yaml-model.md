@@ -3,15 +3,15 @@ title: 'CLI (v2) model YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) model YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 
-author: fkriti
-ms.author: kritifaujdar
+author: Blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
-ms.reviewer: larryfr
+ms.reviewer: kritifaujdar
 ---
 
 # CLI (v2) model YAML schema

@@ -4,12 +4,10 @@ titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI Studio hubs.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom:
-  - ignite-2023
-  - build-2024
+ms.custom: ignite-2023, build-2024, devx-track-azurecli
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: jhirono
+ms.reviewer: meerakurup 
 ms.author: larryfr
 author: Blackmist
 zone_pivot_groups: azure-ai-studio-sdk-cli
@@ -17,7 +15,7 @@ zone_pivot_groups: azure-ai-studio-sdk-cli
 
 # How to configure a managed network for Azure AI Studio hubs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI Studio hub. Another is the network isolation of computing resources for both your hub and project (such as compute instance, serverless and managed online endpoint.) This document explains the latter highlighted in the diagram. You can use hub built-in network isolation to protect your computing resources.
 
@@ -29,6 +27,7 @@ You need to configure following network isolation configurations.
 - Create private endpoint outbound rules to your private Azure resources. Private Azure AI Search isn't supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
+- If you use one of the open-source models with allow only approved outbound mode, create FQDN outbound rules described in the [curated by Azure AI](#scenario-curated-by-azure-ai) section.
 
 ## Network isolation architecture and isolation modes
 
@@ -50,7 +49,7 @@ There are three different configuration modes for outbound traffic from the mana
     > While you can create a private endpoint for Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
 
 * You must add rules for each outbound connection you need to allow.
-* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
+* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your hub, the hub's default storage, container registry, and key vault if they're configured as private or the hub isolation mode is set to allow only approved outbound. After choosing the isolation mode, you only need to consider other outbound requirements you might need to add.
@@ -149,6 +148,7 @@ Before following the steps in this article, make sure you have the following pre
 * The managed virtual network is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Using FQDN outbound rules increases the cost of the managed virtual network because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* FQDN outbound rules only support ports 80 and 443.
 * When using a compute instance with a managed network, use the `az ml compute connect-ssh` command to connect to the compute using SSH.
 
 ### Connectivity to other services
@@ -248,7 +248,7 @@ You can configure a managed virtual network using either the `az ml workspace cr
 
 * __Update an existing hub__:
 
-    [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example updates an existing hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
@@ -381,9 +381,6 @@ To configure a managed virtual network that allows internet outbound communicati
 
         If the destination type is __FQDN__, provide the following information:
 
-        > [!WARNING]
-        > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
-
         * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
         Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
@@ -415,9 +412,6 @@ You can also define _outbound rules_ to define approved outbound communication. 
 > [!IMPORTANT]
 > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
 > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
-
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 ```yaml
 managed_network:
@@ -467,7 +461,7 @@ You can configure a managed virtual network using either the `az ml workspace cr
 
 * __Update an existing hub__
 
-    [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network for an existing hub:
 
@@ -476,9 +470,6 @@ You can configure a managed virtual network using either the `az ml workspace cr
     ```
 
     The following YAML file defines a managed virtual network for the hub. It also demonstrates how to add an approved outbound to the managed virtual network. In this example, an outbound rule is added for both a service tag:
-
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
     ```yaml
     name: myhub_dep
@@ -522,9 +513,6 @@ To configure a managed virtual network that allows only approved outbound commun
     > [!IMPORTANT]
     > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
     > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
-
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
     ```python
     # Basic managed VNet configuration
@@ -588,9 +576,6 @@ To configure a managed virtual network that allows only approved outbound commun
 
     > [!TIP]
     > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
-
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
     
     ```python
     # Get the existing hub
@@ -644,6 +629,52 @@ To configure a managed virtual network that allows only approved outbound commun
 
 ---
 
+## Manually provision a managed VNet
+
+The managed VNet is automatically provisioned when you create a compute instance. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute instance as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute instance creation to time out.
+
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute instance.
+
+> [!NOTE]
+> To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
+
+# [Azure portal](#tab/portal)
+
+Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet.
+
+# [Azure CLI](#tab/azure-cli)
+
+The following example shows how to provision a managed VNet.
+
+```azurecli
+az ml workspace provision-network -g my_resource_group -n my_ai_hub_name
+```
+
+To verify that the provisioning has completed, use the following command:
+
+```azurecli
+az ml workspace show -n my_ai_hub_name -g my_resource_group --query managed_network
+```
+
+# [Python SDK](#tab/python)
+
+The following example shows how to provision a managed VNet:
+
+```python
+# Connect to a workspace named "myworkspace"
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myAIHubName")
+
+provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ai_hub_name).result()
+```
+
+To verify that the AI Hub has been provisioned, use `ml_client.workspaces.get()` to get the AI Hub information. The `managed_network` property contains the status of the managed network.
+
+```python
+ws = ml_client.workspaces.get()
+print(ws.managed_network.status)
+```
+
+--- 
 
 ## Manage outbound rules
 
@@ -729,9 +760,6 @@ __Inbound__ service tag rules:
 
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
-
 > [!NOTE]
 > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
@@ -748,9 +776,6 @@ Visual Studio Code relies on specific hosts and ports to establish a remote conn
 
 #### Hosts
 If you plan to use __Visual Studio Code__ with the hub, add outbound _FQDN_ rules to allow traffic to the following hosts:
-
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 * `*.vscode.dev`
 * `vscode.blob.core.windows.net`
@@ -774,9 +799,6 @@ You must allow network traffic to ports 8704 to 8710. The VS Code server dynamic
 
 If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
-
 * docker.io
 * *.docker.io
 * *.docker.com
@@ -784,29 +806,42 @@ If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rule
 * cnd.auth0.com
 * cdn-lfs.huggingface.co
 
+### Scenario: Curated by Azure AI
+
+These models involve dynamic installation of dependencies at runtime, and reequire outbound _FQDN_ rules to allow traffic to the following hosts:
+
+*.anaconda.org
+*.anaconda.com
+anaconda.com
+pypi.org
+*.pythonhosted.org
+*.pytorch.org
+pytorch.org
+
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
 
 * AI Studio hub
+* Azure AI Search
+* Azure AI services
+* Azure API Management
+* Azure Container Registry
+* Azure Cosmos DB (all sub resource types)
+* Azure Data Factory
+* Azure Database for MariaDB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL Single Server
+* Azure Database for PostgreSQL Flexible Server
+* Azure Databricks
+* Azure Event Hubs
+* Azure Key Vault
 * Azure Machine Learning
 * Azure Machine Learning registries
-* Azure Storage (all sub resource types)
-* Azure Container Registry
-* Azure Key Vault
-* Azure AI services
-* Azure AI Search
-* Azure SQL Server
-* Azure Data Factory
-* Azure Cosmos DB (all sub resource types)
-* Azure Event Hubs
 * Azure Redis Cache
-* Azure Databricks
-* Azure Database for MariaDB
-* Azure Database for PostgreSQL Single Server
-* Azure Database for MySQL
-* Azure SQL Managed Instance
-* Azure API Management
+* Azure SQL Server
+* Azure Storage (all sub resource types)
+
 
 > [!IMPORTANT]
 > While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).

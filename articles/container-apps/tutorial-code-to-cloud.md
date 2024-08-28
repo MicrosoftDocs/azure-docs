@@ -3,7 +3,7 @@ title: "Tutorial: Build and deploy your app to Azure Container Apps"
 description: Build and deploy your app to Azure Container Apps with az containerapp create command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
@@ -317,7 +317,7 @@ az containerapp create \
   --environment $ENVIRONMENT \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port 8080 \
-  --ingress 'external' \
+  --ingress external \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
 ```

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Microsoft Entra ID to access Azure Private 5G Core's local monitoring tools.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 12/29/2022
 ms.custom: template-how-to

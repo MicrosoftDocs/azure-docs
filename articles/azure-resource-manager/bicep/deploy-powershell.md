@@ -3,7 +3,7 @@ title: Deploy resources with PowerShell and Bicep
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
-ms.date: 03/22/2024
+ms.date: 06/14/2024
 ---
 
 # Deploy resources with Bicep and Azure PowerShell
@@ -101,6 +101,19 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
+You can use the `TemplateParameterObject` parameter to pass through a hashtable that contains the parameters for the template.
+
+```powershell
+$params = @{
+  exampleString = "inline string"
+  exampleArray = "value1", "value2"
+}
+
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile <path-to-bicep> `
+  -TemplateParameterObject $params
+```
+
 You can also get the contents of file and provide that content as an inline parameter.
 
 ```powershell
@@ -111,7 +124,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](../../virtual-machines/linux/using-cloud-init.md).
+Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](/azure/virtual-machines/linux/using-cloud-init).
 
 If you need to pass in an array of objects, create hash tables in PowerShell and add them to an array. Pass that array as a parameter during deployment.
 

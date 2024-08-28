@@ -3,15 +3,15 @@ title: 'CLI (v2) core YAML syntax'
 titleSuffix: Azure Machine Learning
 description: Overview CLI (v2) core YAML syntax.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, update-code2
+ms.custom: cliv2, update-code7
 
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 11/16/2022
-ms.reviewer: larryfr
+ms.reviewer: balapv
 ---
 
 # CLI (v2) core YAML syntax

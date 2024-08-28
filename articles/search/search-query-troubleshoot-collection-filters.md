@@ -202,7 +202,7 @@ This limitation shouldn't be a problem in practice since it's always possible to
 
 The following table summarizes the rules for constructing valid filters for each collection data type.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](./includes/search-query-odata-lambda-limitations.md)]
 
 For examples of how to construct valid filters for each case, see [How to write valid collection filters](#bkmk_examples).
 

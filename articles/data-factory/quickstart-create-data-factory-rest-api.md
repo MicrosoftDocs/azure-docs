@@ -2,7 +2,6 @@
 title: Create an Azure Data Factory using REST API
 description: Create an Azure Data Factory pipeline to copy data from one location in Azure Blob storage to another location.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
@@ -24,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.

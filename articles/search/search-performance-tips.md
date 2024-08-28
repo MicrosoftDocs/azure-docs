@@ -5,15 +5,13 @@ description: Learn about tips and best practices for maximizing performance on a
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 06/06/2024
 ---
 
 # Tips for better performance in Azure AI Search
 
-This article is a collection of tips and best practices for boosting query and indexing performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
+This article is a collection of tips and best practices for boosting query and indexing performance for keyword search. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
 + Query design

@@ -40,6 +40,8 @@ The voice that speaks is determined in order of priority as follows:
 - If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
 - If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
+[!INCLUDE [Voice Priority Summary](voice-priority.md)]
+
 ## Synthesize speech to a file
 
 Create a [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) object. This object shown in the following snippets runs text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
@@ -198,7 +200,11 @@ While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthes
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=cpp), but replace the contents of that *main.cpp* file with the following code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=cpp), but replace the contents of that *main.cpp* file with the following code:
 
 ```cpp
 #include <iostream> 

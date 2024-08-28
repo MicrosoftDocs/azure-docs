@@ -32,33 +32,15 @@ Conditions that maximize the integrity of data measurement include:
 
 Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one-minute window. One-minute intervals (TimeGrain = "PT1M") for metrics is fixed within the system.
 
-It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in metrics.
-
-| Aggregation Type | Description |
-|------------------|-------------|
-| Average | The average number of seconds within a minute during which query execution occurred.|
-| Count | The number of metrics emitted to the log within the one-minute interval. |
-| Maximum | The highest number of search queries per second registered during a minute. |
-| Minimum | The lowest number of search queries per second registered during a minute.  |
-| Sum | The sum of all queries executed within the minute.  |
-
-For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
-
-Another example: if a node emits 100 metrics, where the value of each metric is 40, then "Count" is 100, "Sum" is 4000, "Average" is 40, and "Max" is 40.
+To learn more about the SearchQueriesPerSecond metric, see [Search queries per second](monitor-azure-cognitive-search-data-reference.md#search-queries-per-second).
 
 ## Query performance
 
-Service-wide, query performance is measured as search latency (how long a query takes to complete) and throttled queries that were dropped as a result of resource contention.
+Service-wide, query performance is measured as *search latency* and *throttled queries*.
 
 ### Search latency
 
-| Aggregation Type | Latency | 
-|------------------|---------|
-| Average | Average query duration in milliseconds. | 
-| Count | The number of metrics emitted to the log within the one-minute interval. |
-| Maximum | Longest running query in the sample. | 
-| Minimum | Shortest running query in the sample.  | 
-| Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
+Search latency indicates how long a query takes to complete. To learn more about the SearchLatency metric, see [Search latency](monitor-azure-cognitive-search-data-reference.md#search-latency).
 
 Consider the following example of **Search Latency** metrics: 86 queries were sampled, with an average duration of 23.26 milliseconds. A minimum of 0 indicates some queries were dropped. The longest running query took 1000 milliseconds to complete. Total execution time was 2 seconds.
 
@@ -66,29 +48,7 @@ Consider the following example of **Search Latency** metrics: 86 queries were sa
 
 ### Throttled queries
 
-Throttled queries refers to queries that are dropped instead of processed. In most cases, throttling is a normal part of running the service. It isn't necessarily an indication that there's something wrong.
-
-Throttling occurs when the number of requests in execution exceed capacity. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
-
-The service determines whether to drop requests based on resource consumption. The percentage of resources consumed across memory, CPU, and disk IO are averaged over a period of time. If this percentage exceeds a threshold, all requests to the index are throttled until the volume of requests is reduced. 
-
-Depending on your client, a throttled request is indicated in these ways:
-
-+ A service returns an error `"You are sending too many requests. Please try again later."` 
-+ A service returns a 503 error code indicating the service is currently unavailable. 
-+ If you're using the portal (for example, Search Explorer), the query is dropped silently and you need to select **Search** again.
-
-To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that didn't execute.
-
-| Aggregation Type | Throttling |
-|------------------|-----------|
-| Average | Percentage of queries dropped within the interval. |
-| Count | The number of metrics emitted to the log within the one-minute interval. |
-| Maximum | Percentage of queries dropped within the interval.|
-| Minimum | Percentage of queries dropped within the interval. |
-| Total | Percentage of queries dropped within the interval. |
-
-For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+Throttled queries refers to queries that are dropped instead of processed. In most cases, throttling is a normal part of running the service. It isn't necessarily an indication that there's something wrong. To learn more about the ThrottledSearchQueriesPercentage metric, see [Throttled search queries percentage](monitor-azure-cognitive-search-data-reference.md#throttled-search-queries-percentage).
 
 In the following screenshot, the first number is the count (or number of metrics sent to the log). Other aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
 
@@ -126,11 +86,11 @@ When you enable resource logging, the system captures query requests in the **Az
       AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2023-07-01-preview&search=*"
+   | where Query_s != "?api-version=2024-07-01&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2023-11-01&search=*&%24filter=HotelName`.
+1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2024-07-01&search=*&%24filter=HotelName`.
 
    ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
 
@@ -155,7 +115,7 @@ Add the duration column to get the numbers for all queries, not just those that 
 
 ## Create a metric alert
 
-A  metric alert establishes a threshold for sending a notification or triggering a corrective action that you define in advance. You can create alerts related to query execution, but you can also create them for resource health, search service configuration changes, skill execution, and document processing (indexing).
+A [metric alert](/azure/azure-monitor/alerts/alerts-types#metric-alerts) establishes a threshold for sending a notification or triggering a corrective action that you define in advance. You can create alerts related to query execution, but you can also create them for resource health, search service configuration changes, skill execution, and document processing (indexing).
 
 All thresholds are user-defined, so you should have an idea of what activity level should trigger the alert.
 

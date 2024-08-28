@@ -1,7 +1,6 @@
 ---
 title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility
 description: Learn how to execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -68,7 +67,7 @@ The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsof
 > AzureDTExec.exe  ^
   /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx  ^
   /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig  ^
-  /Conn "MyConnectionManager;Data Source=server-name.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"  ^
+  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"  ^
   /Set \package.variables[MyVariable].Value;MyValue  ^
   /De MyEncryptionPassword
 ```

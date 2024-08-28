@@ -3,12 +3,12 @@ title: Troubleshoot environment images
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot issues with environment image builds and package installations.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-author: edebar01
-ms.author:  ericadebarge
-ms.reviewer: larryfr
-ms.date: 06/09/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: ericadebarge
+ms.date: 06/10/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 monikerRange: 'azureml-api-1 || azureml-api-2'
@@ -76,9 +76,9 @@ There are some ways to decrease the impact of vulnerabilities:
 
 ### Scan for Vulnerabilities 
 
-You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
+You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure) to help scan images for vulnerabilities. 
 
-To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.yml).
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](/azure/defender-for-cloud/workflow-automation).
 
 ### Vulnerabilities vs Reproducibility
 
@@ -1702,7 +1702,7 @@ This issue can happen when building wheels for mpi4py fails.
 
 Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI built with shared/dynamic libraries) 
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
-* If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
+* If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/develop.html#building)
 
 Ensure that you're using a compatible python version
 * Python 3.8+ is recommended due to older versions reaching end-of-life

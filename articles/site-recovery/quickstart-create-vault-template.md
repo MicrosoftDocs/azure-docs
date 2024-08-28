@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template
@@ -17,7 +17,7 @@ continuity and disaster recovery (BCDR) strategy so your business applications s
 planned and unplanned outages. Site Recovery manages disaster recovery of on-premises machines and
 Azure virtual machines (VM), including replication, failover, and recovery.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 To protect VMware or physical server, see [Modernized architecture](./physical-server-azure-architecture-modernized.md).
 

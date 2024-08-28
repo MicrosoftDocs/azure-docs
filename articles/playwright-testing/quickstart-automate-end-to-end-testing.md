@@ -234,7 +234,7 @@ Once you have access to the reporting tool, use the following steps to set up yo
         | Parameter | Value |
         | ----------- | ------------ |
         | **Name** | *PAT_TOKEN_PACKAGE* |  
-        | **Value** | Paste the workspace access token you copied previously. |
+        | **Value** | Paste the GitHub personal access token you copied previously. |
     
     1. Select **OK** to create the workflow secret.
 
@@ -249,13 +249,20 @@ Once you have access to the reporting tool, use the following steps to set up yo
         | Parameter | Value |
         | ----------- | ------------ |
         | **Name** | *PAT_TOKEN_PACKAGE* |
-        | **Value** | Paste the workspace access token you copied previously. |
+        | **Value** | Paste the GitHub personal access token you copied previously. |
         | **Keep this value secret** | Check this value |
     
     1. Select **OK**, and then **Save** to create the workflow secret.
     
     ---
-4.  Update the Playwright config file.
+1. Update package.json file with the package.
+    
+    ```json
+        "dependencies": {
+            "@microsoft/mpt-reporter": "0.1.0-19072024-private-preview"
+        }
+    ```
+5. Update the Playwright config file.
 
     Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
 
@@ -314,7 +321,7 @@ Once you have access to the reporting tool, use the following steps to set up yo
         targetType: 'inline'
         script: |
             'npm config set @microsoft:registry=https://npm.pkg.github.com'
-            'npm set //npm.pkg.github.com/:_authToken ${{secrets PAT_TOKEN_PACKAGE}}'
+            'npm set //npm.pkg.github.com/:_authToken ${PAT_TOKEN_PACKAGE}'
             'npm install'
         workingDirectory: path/to/playwright/folder # update accordingly
     

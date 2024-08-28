@@ -3,7 +3,7 @@ title: Connect a lab plan to a virtual network
 titleSuffix: Azure Lab Services
 description: Learn how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. Advanced networking uses VNET injection to add lab virtual machines in your virtual network.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 06/20/2023
 ---
 
 # Connect a lab plan to a virtual network with advanced networking
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article describes how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. With advanced networking, you have more control over the virtual network configuration of your labs. For example, to connect to on-premises resources such as licensing servers, or to use user-defined routes (UDRs). Learn more about the [supported networking scenarios and topologies for advanced networking](./concept-lab-services-supported-networking-scenarios.md).
 

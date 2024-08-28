@@ -2,12 +2,12 @@
 title: What are events in Azure Health Data Services?
 description: Learn how to use events in Azure Health Data Services to subscribe to and receive notifications of changes to health data in the FHIR and DICOM services, and trigger other actions or services based on health data changes.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: overview
 ms.date: 01/29/2024
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # What are events?

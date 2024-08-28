@@ -2,12 +2,12 @@
 title: Migrate from Bing Maps to Azure Maps overview
 titleSuffix: Microsoft Azure Maps
 description: Overview for the migration guides that show how to migrate code from Bing Maps to Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: jkebeck
+ms.author: jokebeck
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Migrate from Bing Maps to Azure Maps overview
@@ -75,7 +75,7 @@ When migrating to Azure Maps from Bing Maps for Enterprise, the following aspect
 - Unlike Bing Maps for Enterprise, Azure Maps is a pay-as-you-go offering – you only pay for the services that you use.
 - With Azure Maps, billing (invoicing) happens monthly and doesn’t require an annual commitment.
 - Azure Maps has a free monthly allotment of transactions. For more information, see the [Azure Maps pricing].
-- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every fifteen 15 map tiles loaded.
+- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every 15 map tiles loaded.
 - The Azure Maps web control (SDK) uses 512 x 512 pixels map tiles, and typically generates one or less transactions per map load.
 
 Licensing and billing related resources for Azure Maps:

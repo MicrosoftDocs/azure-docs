@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot ARM template JSON deployments
 description: Learn how to troubleshoot Azure Resource Manager template (ARM template) JSON deployments.
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ---
@@ -10,7 +10,7 @@ ms.custom: mode-arm, devx-track-arm-template
 
 This quickstart describes how to troubleshoot Azure Resource Manager template (ARM template) JSON deployment errors. You'll set up a template with errors and learn how to fix the errors.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 There are three types of errors that are related to a deployment:
 

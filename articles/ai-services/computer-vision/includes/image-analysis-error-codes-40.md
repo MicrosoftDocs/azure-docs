@@ -95,7 +95,7 @@ List of common errors:
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
   * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
   * `InvalidRequest - Image format is not valid`
-    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](../overview-image-analysis.md?tabs=4-0#image-requirements) section for supported image formats.
+    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](../overview-image-analysis.md?tabs=4-0#input-requirements) section for supported image formats.
   * `InvalidRequest - Analyze query is invalid`
     * `NotSupportedVisualFeature - Specified feature type is not valid`. Make sure the **features** query string has a valid value.
     * `NotSupportedLanguage - The input language is not supported`. Make sure the **language** query string has a valid value for the selected visual feature, based on the [following table](https://aka.ms/cv-languages).

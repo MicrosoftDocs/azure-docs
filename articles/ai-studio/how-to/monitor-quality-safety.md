@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 7/31/2024
 ms.reviewer: alehughes
 reviewer: ahughes-msft
 ms.author: mopeakande
@@ -17,7 +17,7 @@ author: msakande
 
 # Monitor quality and token usage of deployed prompt flow applications
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Monitoring applications that are deployed to production is an essential part of the generative AI application lifecycle. Changes in data and consumer behavior can influence your application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputation risks. 
 
@@ -38,7 +38,7 @@ Integrations for monitoring a prompt flow deployment allow you to:
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+- An Azure subscription with a valid payment method. Free or trial Azure subscriptions aren't supported for this scenario. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 
 - An [Azure AI Studio hub](create-azure-ai-resource.md).
 
@@ -152,7 +152,7 @@ In this section, you learn how to configure monitoring for your deployed prompt 
 # [Studio](#tab/azure-studio)
 
 1. From the left navigation bar, go to **Components** > **Deployments**.
-1. Select the prompt flow deployment you just created.
+1. Select the prompt flow deployment that you created.
 1. Select **Enable** within the **Enable generation quality monitoring** box. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png" alt-text="Screenshot of the deployment page highlighting generation quality monitoring." lightbox = "../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png":::
@@ -204,7 +204,7 @@ credential = DefaultAzureCredential()
 # Update your azure resources details
 subscription_id = "INSERT YOUR SUBSCRIPTION ID"
 resource_group = "INSERT YOUR RESOURCE GROUP NAME"
-workspace_name = "INSERT YOUR WORKSPACE NAME" # This is the same as your AI Studio project name
+project_name = "INSERT YOUR PROJECT NAME" # This is the same as your AI Studio project name
 endpoint_name = "INSERT YOUR ENDPOINT NAME" # This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
@@ -225,7 +225,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id=subscription_id,
     resource_group_name=resource_group,
-    workspace_name=workspace_name,
+    workspace_name=project_name,
 )
 
 spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
@@ -259,7 +259,7 @@ production_data = LlmData(
 )
 
 gsq_signal = GenerationSafetyQualitySignal(
-    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{project_name}/connections/{aoai_connection_name}",
     metric_thresholds=generation_quality_thresholds,
     production_data=[production_data],
     sampling_rate=1.0,
@@ -297,7 +297,7 @@ ml_client.schedules.begin_create_or_update(model_monitor)
 
 ## Consume monitoring results 
 
-After you've created your monitor, it will run daily to compute the token usage and generation quality metrics.
+After you create your monitor, it will run daily to compute the token usage and generation quality metrics.
 
 1. Go to the **Monitoring (preview)** tab from within the deployment to view the monitoring results. Here, you see an overview of monitoring results during the selected time window. You can use the date picker to change the time window of data you're monitoring. The following metrics are available in this overview:
 
@@ -371,8 +371,8 @@ credential = DefaultAzureCredential()
 # Update your azure resources details
 subscription_id = "INSERT YOUR SUBSCRIPTION ID"
 resource_group = "INSERT YOUR RESOURCE GROUP NAME"
-workspace_name = "INSERT YOUR WORKSPACE NAME" # This is the same as your AI Studio project name
-endpoint_name = "INSERT YOUR ENDPOINT NAME" This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
+project_name = "INSERT YOUR PROJECT NAME" # This is the same as your AI Studio project name
+endpoint_name = "INSERT YOUR ENDPOINT NAME" # This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 
 # These variables can be renamed but it is not necessary
@@ -387,7 +387,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id=subscription_id,
     resource_group_name=resource_group,
-    workspace_name=workspace_name,
+    workspace_name=project_name,
 )
 
 spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
@@ -448,7 +448,7 @@ credential = DefaultAzureCredential()
 # Update your azure resources details
 subscription_id = "INSERT YOUR SUBSCRIPTION ID"
 resource_group = "INSERT YOUR RESOURCE GROUP NAME"
-workspace_name = "INSERT YOUR WORKSPACE NAME" # This is the same as your AI Studio project name
+project_name = "INSERT YOUR PROJECT NAME" # This is the same as your AI Studio project name
 endpoint_name = "INSERT YOUR ENDPOINT NAME" # This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
@@ -468,7 +468,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id=subscription_id,
     resource_group_name=resource_group,
-    workspace_name=workspace_name,
+    workspace_name=project_name,
 )
 
 spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
@@ -502,7 +502,7 @@ production_data = LlmData(
 )
 
 gsq_signal = GenerationSafetyQualitySignal(
-    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{project_name}/connections/{aoai_connection_name}",
     metric_thresholds=generation_quality_thresholds,
     production_data=[production_data],
     sampling_rate=1.0,
@@ -533,9 +533,9 @@ model_monitor = MonitorSchedule(
 ml_client.schedules.begin_create_or_update(model_monitor)
 ```
 
-After you've created your monitor from the SDK, you can [consume the monitoring results](#consume-monitoring-results) in AI Studio. 
+After you create your monitor from the SDK, you can [consume the monitoring results](#consume-monitoring-results) in AI Studio. 
 
 ## Related content
 
-- Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
-- Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
+- Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md).
+- Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).

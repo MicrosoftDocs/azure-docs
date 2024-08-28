@@ -5,7 +5,6 @@ description: The Filter activity filters the inputs to Azure Data Factory and Sy
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

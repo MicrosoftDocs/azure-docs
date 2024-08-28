@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -27,7 +27,7 @@ This article shows how to list blobs using the [Azure Storage client module for 
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs](/rest/api/storageservices/list-blobs#authorization).
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 
@@ -149,3 +149,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

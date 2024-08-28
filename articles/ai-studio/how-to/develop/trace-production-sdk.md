@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Enable tracing and collect feedback for a flow deployment
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 After deploying a Generative AI APP in production, you might want to enhance your understanding and optimize performance. Trace data for each request, aggregated metrics, and user feedback play critical roles.
 

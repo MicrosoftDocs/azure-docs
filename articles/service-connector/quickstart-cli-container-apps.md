@@ -20,7 +20,7 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - At least one application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
@@ -54,7 +54,7 @@ Create a connection using a managed identity or an access key.
 ### [Managed identity](#tab/using-managed-identity)
 
 > [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
+> To use a managed identity, you must have the permission to modify [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
 
 1. Run the `az containerapp connection create` command to create a service connection from Container Apps to a Blob Storage with a system-assigned managed identity.
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ---
 
@@ -20,13 +20,9 @@ Azure AI Content Safety automatically encrypts your data when it's persisted to 
 
 Azure AI Content Safety is part of Azure AI services. Azure AI services data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
-
 ## About encryption key management
 
 By default, your subscription uses Microsoft-managed encryption keys. There's also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
-
-> [!IMPORTANT]
-> For blocklist names, only MMK encryption is applied by default. Using CMK or not will not change this behavior. All the other data will use either MMK or CMK depending on what you've selected.
 
 ## Customer-managed keys with Azure Key Vault
 
@@ -54,7 +50,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 After you enable customer-managed keys, you can specify a key to associate with the Azure AI services resource.
 
-### Specify a key as a URI
+#### [Specify a key as a URI](#tab/uri)
 
 To specify a key as a URI, follow these steps:
 
@@ -82,7 +78,7 @@ To specify a key as a URI, follow these steps:
 
 
 
-### Specify a key from a key vault
+#### [Specify a key from a key vault](#tab/vault)
 
 To specify a key from a key vault, first make sure that you have a key vault that contains a key. Then follow these steps:
 
@@ -98,14 +94,15 @@ To specify a key from a key vault, first make sure that you have a key vault tha
 
 5. Save your changes.
 
+---
 
 ## Update the key version
 
 When you create a new version of a key, update the Azure AI services resource to use the new version. Follow these steps:
 
 1. Go to your Azure AI services resource, and then select **Encryption**.
-2. Enter the URI for the new key version. Alternately, you can select the key vault and then select the key again to update the version.
-3. Save your changes.
+1. Enter the URI for the new key version. Alternately, you can select the key vault and then select the key again to update the version.
+1. Save your changes.
 
 
 ## Use a different key
@@ -113,8 +110,8 @@ When you create a new version of a key, update the Azure AI services resource to
 To change the key that you use for encryption, follow these steps:
 
 1. Go to your Azure AI services resource, and then select **Encryption**.
-2. Enter the URI for the new key. Alternately, you can select the key vault and then select a new key.
-3. Save your changes.
+1. Enter the URI for the new key. Alternately, you can select the key vault and then select a new key.
+1. Save your changes.
 
 
 ## Rotate customer-managed keys
@@ -134,7 +131,7 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 When you disable customer-managed keys, your Azure AI services resource is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
 
 1. Go to your Azure AI services resource, and then select **Encryption**.
-2. Select **Microsoft Managed Keys** > **Save**.
+1. Select **Microsoft Managed Keys** > **Save**.
 
 When you previously enabled customer managed keys this also enabled a system assigned managed identity, a feature of Microsoft Entra ID. Once the system assigned managed identity is enabled, this resource will be registered with Microsoft Entra ID. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview).
 

@@ -2,9 +2,9 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/14/2024
+ms.date: 06/18/2024
 ms.custom: references_regions, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -19,7 +19,7 @@ Other support matrices are available:
 - Support matrix for backup by using [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Support matrix for backup by using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Vault support
 
@@ -29,7 +29,7 @@ The following table describes the features of Recovery Services vaults:
 
 **Feature** | **Details**
 --- | ---
-**Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
+**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
@@ -175,7 +175,7 @@ Azure Backup now supports zone-redundant storage (ZRS).
 
 - Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
 
-- ZRS support for Azure Disk is generally available in the following regions: UK South, Southeast Asia, Australia East, North Europe, Central US, South Central US, West Europe, West US 2, Japan East, East US, US Gov Virginia, Qatar, and West US 3.
+- ZRS support for Azure Disk is generally available in the following regions: South Africa North, East Asia, Southeast Asia, Australia East, US Gov Virginia, Brazil South, Canada Central, China North 3, North Europe, West Europe, France Central, Germany West Central, Central India, Israel Central, Italy North, Japan East, Korea Central,Norway East, Poland Central, Qatar Central, Sweden Central, Switzerland North, UAE North, UK South, East US, East US 2, South Central US, West US 2, West US 3.
 
 ### Supported scenarios
 

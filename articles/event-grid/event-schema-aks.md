@@ -114,4 +114,4 @@ The data object contains the following properties:
 | `latestPreviewKubernetesVersion`   | string | The latest preview version of Kubernetes available.          |
 
 ## Next steps
-See the following tutorial: [Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid](../aks/quickstart-event-grid.md).
+See the following tutorial: [Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid](/azure/aks/quickstart-event-grid).

@@ -4,7 +4,7 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 

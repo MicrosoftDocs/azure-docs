@@ -1,7 +1,7 @@
 ---
 title: Use PowerShell to back up DPM workloads
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
 ms.date: 03/29/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
@@ -33,7 +33,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 ## Setup and Registration
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To begin, [download the latest Azure PowerShell](/powershell/azure/install-azure-powershell).
 
@@ -319,12 +319,12 @@ Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 
 Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-In the example above, ```$onlineSch``` is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:
+In the example above, `$onlineSch` is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:
 
-1. ```$onlineSch[0]``` contains the daily schedule
-2. ```$onlineSch[1]``` contains the weekly schedule
-3. ```$onlineSch[2]``` contains the monthly schedule
-4. ```$onlineSch[3]``` contains the yearly schedule
+1. `$onlineSch[0]` contains the daily schedule
+2. `$onlineSch[1]` contains the weekly schedule
+3. `$onlineSch[2]` contains the monthly schedule
+4. `$onlineSch[3]` contains the yearly schedule
 
 So if you need to modify the weekly schedule, you need to refer to the ```$onlineSch[1]```.
 

@@ -3,9 +3,9 @@ title: Azure Network Watcher overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: overview
-ms.date: 04/24/2024
+ms.date: 06/12/2024
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -23,7 +23,7 @@ Network Watcher consists of three major sets of tools and capabilities:
 :::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 > [!NOTE] 
-> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
+> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. You must manually enable Network Watcher if you previously chose to opt out of Network Watcher automatic enablement. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
 
 ## Monitoring
 
@@ -34,7 +34,7 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Topology
 
-**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [Topology overview](network-insights-topology.md).
+**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [View topology](network-insights-topology.md).
 
 ### Connection monitor
 

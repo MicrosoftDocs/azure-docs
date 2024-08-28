@@ -3,7 +3,6 @@ title: Managed virtual network and managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
@@ -184,6 +183,8 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 > [!NOTE]
 > You can get the **groupId** of other data sources from a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
+> [!NOTE]
+> The referenceName should only be set as "default" if you create via PowerShell Command.
 
 ## Outbound connection
 

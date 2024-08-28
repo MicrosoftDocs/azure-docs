@@ -3,10 +3,10 @@ title: Troubleshoot designer component errors
 titleSuffix: "Azure Machine Learning"
 description: Learn how you can read and troubleshoot automated component error codes in Azure Machine Learning designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: troubleshooting, devx-track-python
+ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
@@ -1607,18 +1607,21 @@ If the component enabled distributed training fails without any `70_driver` logs
 
   The following example shows that the **Node count** of run settings is larger than available node count of compute cluster.
   
-  [![Screenshot showing node count error](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
+  [![Screenshot showing node count error.](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
 
   The following example shows that **Process count per node** is larger than **Processing Unit** of the compute.
 
-  [ ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
+  [![Screenshot showing mpi log.](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
 
 Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is for master process.
 
-  [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)
+  [![Screenshot showing driver log.](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox)
 
-### Sample dataset not found in pipeline
-If you encounter this error, please follow the steps below to resolve the issue:
+### Fail to mount sample data in pipeline
+
+:::image type="content" source="./media/module/global-datasets-error.png" alt-text="Screenshot of error of sample datastore." lightbox = "./media/module/global-datasets-error.png":::
+
+If you encounter above error, please follow the steps below to resolve the issue:
 
 - Double click data node to go to detail page of datastore.
   :::image type="content" source="./media/module/sample-data-datastore.png" alt-text="Screenshot of datastore of sample data." lightbox = "./media/module/sample-data-datastore.png":::

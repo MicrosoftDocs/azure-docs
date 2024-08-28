@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -27,7 +27,7 @@ When you list the containers in an Azure Storage account from your code, you can
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to list blob containers. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [List Containers](/rest/api/storageservices/list-containers2#authorization).
+The authorization mechanism must have the necessary permissions to list blob containers. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [List Containers (REST API)](/rest/api/storageservices/list-containers2#authorization).
 
 ## About container listing options
 
@@ -92,3 +92,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 ## See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

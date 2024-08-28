@@ -155,5 +155,5 @@ relatedContent:
     url: role-assignments-portal.yml
   - text: Organize your resources with Azure management groups
     url: ../governance/management-groups/overview.md
-  - text: lert on privileged Azure role assignments
+  - text: Alert on privileged Azure role assignments
     url: role-assignments-alert.md

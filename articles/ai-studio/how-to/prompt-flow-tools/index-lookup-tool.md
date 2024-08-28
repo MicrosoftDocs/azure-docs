@@ -15,12 +15,13 @@ author: lgayhardt
 
 # Index Lookup tool for Azure AI Studio
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Index Lookup tool enables the use of common vector indices (such as Azure AI Search, Faiss, and Pinecone) for retrieval augmented generation in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow.
 
 ## Build with the Index Lookup tool
 
+1. If you have a flow that contains one of the deprecated legacy index tools ( the Vector Index Lookup tool, Vector DB Lookup tool, and Faiss Index Lookup tool) you will first need to [upgrade your flow](#upgrade-your-tools).
 1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 
@@ -140,7 +141,6 @@ The following JSON format response is an example returned by the tool that inclu
 ]
 
 ```
-
 ## Migrate from legacy tools to the Index Lookup tool
 
 The Index Lookup tool looks to replace the three deprecated legacy index tools: the Vector Index Lookup tool, the Vector DB Lookup tool, and the Faiss Index Lookup tool.

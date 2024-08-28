@@ -3,9 +3,10 @@ title: Read real time app data with .NET Aspire Dashboard in Azure Container App
 description: Use real time log data with .NET Aspire Dashboard in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-azurecli, devx-track-dotnet
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 07/18/2024
 ms.author: cshoe
 zone_pivot_groups: azure-azd-cli-portal
 ---
@@ -45,7 +46,7 @@ You can enable the .NET Aspire Dashboard on any existing container app using the
 
 ::: zone pivot="azurecli"
 
-You can enable the .NET Aspire Dashboard on any existing container app using the following commands.
+You can enable the .NET Aspire Dashboard on any existing container app environment by using the following commands. 
 
 ```azurecli
 az containerapp env dotnet-component create \
@@ -65,7 +66,7 @@ You can enable the .NET Aspire Dashboard on any existing container app using the
 ```azurecli
 dotnet new aspire-starter
 azd init --location westus2
-azd config set alpha.aspire.dashboard on
+azd config set aspire.dashboard on
 azd up
 ```
 

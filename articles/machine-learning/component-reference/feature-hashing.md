@@ -3,7 +3,7 @@ title: "Feature Hashing component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Feature Hashing component in the Azure Machine Learning designer to featurize text data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -3,9 +3,9 @@ title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 06/21/2024
 ms.author: cherylmc
 
 ---
@@ -24,9 +24,6 @@ The following sections outline considerations, limitations, and prerequisites fo
 * Session recording isn't available via native client at this time.
 * Session recording supports one container/storage account at a time.
 * When session recording is enabled on a bastion host, Bastion records ALL sessions that go through the recording-enabled bastion host.
-
-> [!NOTE]
-> The Session Recording (Preview) feature is currently rolling out.
 
 **Prerequisites**
 
@@ -74,7 +71,7 @@ In this section, you set up and specify the container for session recordings.
     * For **Max Age**, use ***86400***.
     * You can leave the other fields blank.
 
-      :::image type="content" source="./media/session-recording/blob-service.png" alt-text="Screenshot shows the Resource sharing page for Blob service configuration." lightbox="./media/session-recording/blob-service.png":::
+      :::image type="content" source="./media/session-recording/service.png" alt-text="Screenshot shows the Resource sharing page for Blob service configuration." lightbox="./media/session-recording/service.png":::
 1. **Save** your changes at the top of the page.
 
 ## Add or update the SAS URL
@@ -101,7 +98,7 @@ Sessions are automatically recorded when Session Recording is enabled on the bas
 
 1. In the Azure portal, go to your **Bastion** host.
 1. In the left pane, under **Settings**, select **Session recordings**.
-1. The SAS URL should already be configured (earlier in this exercise). However, if your SAS URL has expired, or you need to add the SAS URL, use the previous steps to acquire and upload the Blob SAS URL.
+1. The SAS URL should already be configured (earlier in this exercise). However, if your SAS URL expired, or you need to add the SAS URL, use the previous steps to acquire and upload the Blob SAS URL.
 1. Select the VM and recording link that you want to view, then select **View recording**.
 
 ## Next steps

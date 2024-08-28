@@ -128,7 +128,7 @@ After you [get started in Simple mode](#get-started-in-simple-mode), you can exp
 
 By default, Simple mode lists the latest 1,000 entries in the table from the last 24 hours. 
 
-To change the time range and number of records displayed, use the **Time range** and **Limit** selectors. For more information about result limit, see [Configure query result limit](#configure-query-result-limit)
+To change the time range and number of records displayed, use the **Time range** and **Limit** selectors. For more information about result limit, see [Configure query result limit](#configure-query-result-limit).
     
 :::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-time-range-limit.png":::
 

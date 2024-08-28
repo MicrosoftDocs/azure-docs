@@ -4,7 +4,7 @@ titleSuffix: Azure Route Server
 description: Learn about Azure Route Server routing preference feature to change how the Route Server can learn routes.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 11/15/2023
 

@@ -3,7 +3,7 @@ title: 'Tutorial: Create an application gateway with a Web Application Firewall 
 description: In this tutorial, you learn how to create an application gateway with a Web Application Firewall by using the Azure portal.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: tutorial
 ms.date: 05/23/2024
 ms.author: victorh
@@ -23,9 +23,9 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
 
-:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example.":::
+:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/application-gateway-web-application-firewall-portal/scenario-waf.png":::
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 <!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
 
@@ -187,7 +187,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
 1. Ensure your bash session is set for your subscription:
    
-   `account set --subscription "<your subscription name>"`
+   `az account set --subscription "<your subscription name>"`
 
 2. Run the following command to install NGINX on the virtual machine: 
 
@@ -228,7 +228,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 Although NGINX isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use the web service to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.
-    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
 
    Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 1. Copy the public IP address, and then paste it into the address bar of your browser.

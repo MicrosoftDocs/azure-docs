@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a load balancer from basic to standard SKU for Virtual Machine or Virtual Machine Scale Sets backends using a PowerShell module.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/03/2023
 ms.author: mbender
@@ -54,7 +54,7 @@ The PowerShell module performs the following functions:
 ### Unsupported Scenarios
 
 - Basic Load Balancers with IPv6 frontend IP configurations
-- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](../aks/load-balancer-standard.md#moving-from-a-basic-sku-load-balancer-to-standard-sku)
+- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
@@ -151,7 +151,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: migrate multiple, related Load Balancers
@@ -297,7 +297,7 @@ For internal Load Balancers, Outbound Rules are not an option because there is n
 - **NAT Gateway**: NAT Gateways are Azure's [recommended approach](../virtual-network/ip-services/default-outbound-access.md#if-i-need-outbound-access-what-is-the-recommended-way) for outbound traffic in most cases. However, NAT Gateways require that the attached subnet has no basic SKU network resources--meaning you will need to have migrated all your Load Balancers and Public IP Addresses before you can use them. For this reason, we recommend using a two step approach where you first use one of the following approaches for outbound connectivity, then [switch to NAT Gateways](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md) once your basic SKU migrations are complete. 
 - **Network Virtual Appliance**: Route your traffic through a Network Virtual Appliance, such as an Azure Firewall, which will in turn route your traffic to the internet. This option is ideal if you already have a Network Virtual Appliance configured.
 - **Secondary External Load Balancer**: By adding a secondary external Load Balancer to your backend resources, you can use the external Load Balancer for outbound traffic by configuring outbound rules. If this external Load Balancer does not have any load balancing rules, NAT rules, or inbound NAT pools configured, your backend resources will remain isolated to your internal network for inbound traffic--see [outbound-only load balancer configuration](./egress-only.md). With this option, the external Load Balancer can be configured prior to migrating from basic to standard SKU and migrated at the same time as the internal load balancer using [using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers)
-- **Public IP Addresses**: Lastly, Public IP addresses can be added directly to your [Virtual Machines](../virtual-network/ip-services/associate-public-ip-address-vm.md) or [Virtual Machine Scale Set instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine). However, this option is not recommended due to the additional security surface area and expense of adding Public IP Addresses.  
+- **Public IP Addresses**: Lastly, Public IP addresses can be added directly to your [Virtual Machines](../virtual-network/ip-services/associate-public-ip-address-vm.md) or [Virtual Machine Scale Set instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine). However, this option is not recommended due to the additional security surface area and expense of adding Public IP Addresses.  
 
 ### What happens if my upgrade fails mid-migration?
 

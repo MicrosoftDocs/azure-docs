@@ -1,17 +1,17 @@
 ---
 title: Prevent accidental deletion of Azure file shares
-description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of SMB file shares.
+description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 07/10/2024
 ms.author: kendownie
 services: storage
 ---
 
 # Use soft delete to prevent accidental deletion of Azure file shares
 
-Azure Files offers soft delete for SMB file shares. Soft delete allows you to recover your file share when it's mistakenly deleted by an application or other storage account user.
+Azure Files offers soft delete, which allows you to recover your file share when it's mistakenly deleted by an application or other storage account user.
 
 ## Applies to
 
@@ -19,15 +19,15 @@ Azure Files offers soft delete for SMB file shares. Soft delete allows you to re
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
 
 ## How soft delete works
 
 When soft delete for Azure file shares is enabled on a storage account, if a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. After being undeleted, the share and all of contents, including snapshots, will be restored to the state it was in prior to deletion. Soft delete only works on a file share level. Individual files that are deleted will still be permanently erased.
 
-Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
+Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete.
 
-To permanently delete a file share in a soft delete state before its expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should re-enable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
+To permanently delete a file share in a soft delete state before its expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should re-enable soft delete, because any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
 
 For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
 

@@ -10,7 +10,7 @@ ms.custom: template-reference
 ---
 
 # Azure Operator Nexus frequently asked questions (FAQ)
-The following sections covers some of the frequently asked questions for Azure Operator Nexus:
+The following sections cover some of the frequently asked questions for Azure Operator Nexus:
 
 ## Platform - General
 
@@ -24,13 +24,13 @@ You can interact with Operator Nexus like any other Azure services using AZ CLI,
 Yes, there are some resources that customer needs to create in the respective region under their Azure subscriptions. Some of these include creation of a pair of Network Fabric Controller and Cluster Manager resource, Log Analytics Workspace, a storage account. For more details, please refer to [Azure Operator Nexus documentation](howto-azure-operator-nexus-prerequisites.md).
 
 ### Does Azure Operator Nexus rely on connectivity with Azure? What happens when there's a disconnection?
-Yes, you need an ExpressRoute connection for its connectivity back to Azure and for Orchestration, Management and Operation purposes. During disconnection, the workloads will continue to run as is but you may lose the capability to orchestrate any new resources.
+Yes, you need an ExpressRoute connection for its connectivity back to Azure and for Orchestration, Management, and Operation purposes. During disconnection, the workloads continue to run as is but you may lose the capability to orchestrate any new resources.
 
 ### Do I have to use the BOM (Bill of Material) specified by Microsoft?
-Yes, to ensure carrier-grade performance and high degrees of automation, you'll need to use equipment specified as per one of our BOMs.
+Yes, to ensure carrier-grade performance and high degrees of automation, you need to use equipment specified as per one of our BOMs.
 
 ### How should I plan for a resilient Operator Nexus instance? How does Operator Nexus handle disaster recovery?
-Customers should design their services with Intra-rack redundancy, Inter-rack redundancy and globally load balancing across multiple instances. Also, for high availability, plan to spread your instances across multiple Azure regions.
+Customers should design their services with Intra-rack redundancy, Inter-rack redundancy, and globally load balancing across multiple instances. Also, for high availability, plan to spread your instances across multiple Azure regions.
 
 ### How do updates work to on-premises and to Azure components?
 Upgrades to Operator Nexus are made in two phases - Management bundle upgrades and Runtime bundle upgrades. Management bundle upgrades deals with the upgrades of Controllers in Azure, Cluster Managers in customer subscription and on-premises instances. In on-premises instances, it includes the Kubernetes controllers responsible for maintaining the state of infra resources. 
@@ -57,9 +57,21 @@ Yes, all you need is ExpressRoute connectivity to an Azure region. ExpressRoute 
 Currently, we don't support resource moves. If you need to move resources, you can consider deleting the existing controllers and using the ARM template to create another one in another location.
 
 ### How many instances can be associated to a cluster manager/fabric controller pair? 
-The number of Azure Operator Nexus instances, a single pair of Network Fabric Controller and Cluster Manager can manage depends on multiple factors. It can be influenced by factors like size of Operator Nexus instances, ExpressRoute circuit bandwidth, number and frequency of optional metrics collection, number of workloads running in Instance, destination for workload telemetry data collection and other factors. 
+The number of Azure Operator Nexus instances, a single pair of Network Fabric Controller and Cluster Manager can manage depends on multiple factors. It can be influenced by factors like size of Operator Nexus instances, ExpressRoute circuit bandwidth, number, and frequency of optional metrics collection, number of workloads running in Instance, destination for workload telemetry data collection and other factors. 
           
 For more information, see [limits & quotas](reference-limits-and-quotas.md).
+
+### Is it viable to redeploy a cluster that is currently running? If so, what safeguards are in place to prevent accidental deployments?
+A running cluster can't undergo redeployment; instead, the user must delete and then redeploy it. If the cluster is already running, the deployment action prevents any new actions on the cluster, thereby mitigating the risk of accidental deployments.
+
+### Is it possible for the Azure Operator Nexus to enable the creation of clusters with the option to choose specific racks or subsets of instances within a rack?
+The Azure Operator Nexus doesn't offer the capability to select specific racks or subsets of instances within a rack as part of cluster deployment.
+
+### In the event of a network disruption between the cluster manager and on-premises servers during deployment, can the process be resumed once connectivity is restored?
+It depends on the cluster's status: if the cluster is failed, it needs to be deleted and redeployed. However, if the cluster is still deploying, it undergoes a reconcile process, allowing the deployment process to continue.
+
+### Does cluster deploy wait for all the compute nodes provisioned?
+The deployment process will continuously retry the provisioning of compute nodes until all nodes are successfully provisioned. When the cluster reaches the defined threshold, cluster status changes to running. However, the remaining nodes continue undergoing the provisioning process until they too are successfully provisioned.
 
 ## Compute
 

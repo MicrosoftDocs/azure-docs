@@ -10,7 +10,7 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-This section shows how to set up your project to work with the Azure Blob Storage client module for Go. The steps include module installation, adding `import` paths, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and Go](../../articles/storage/blobs/storage-blob-go-get-started.md).
+If you don't have an existing project, this section shows how to set up a project to work with the Azure Blob Storage client module for Go. The steps include module installation, adding `import` paths, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and Go](../../articles/storage/blobs/storage-blob-go-get-started.md).
 
 #### Install modules
 
@@ -36,7 +36,7 @@ import (
 )
 ```
 
-Some code examples in this article might require additional import paths. For specific details and example usage, see [Code samples](#code-samples).
+These import paths represent the minimum needed to get started. Some code examples in this article might require additional import paths. For specific details and example usage, see [Code samples](#code-samples).
 
 #### Create a client object
 

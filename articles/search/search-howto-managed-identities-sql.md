@@ -70,7 +70,7 @@ In this section you'll, give your Azure AI Search service permission to read dat
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select the appropriate **Reader** role.
 
@@ -97,7 +97,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -115,16 +115,16 @@ api-key: [admin key]
 
 ### User-assigned managed identity (preview)
 
-The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
+The 2021-04-30-preview and later preview REST APIs support connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
 
 * First, the format of the "credentials" property is an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database. This is the same format as the system-assigned managed identity.
 
 * Second, add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
-Here's an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
+Here's an example of how to create an indexer data source object using the most recent preview API version for [Create or Update Data Source](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true):
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+POST https://[service name].search.windows.net/datasources?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: [admin key]
 
@@ -148,10 +148,10 @@ api-key: [admin key]
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
-Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `booktitle` field:   
+Here's a [Create Index](/rest/api/searchservice/indexes/create) REST API call with a searchable `booktitle` field:   
 
 ```http
-POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -168,10 +168,10 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer. If the indexer is successful, the connection syntax and role assignments are valid.
 
-Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure SQL indexer definition. The indexer runs when you submit the request.
+Here's a [Create Indexer](/rest/api/searchservice/indexers/create) REST API call with an Azure SQL indexer definition. The indexer runs when you submit the request.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

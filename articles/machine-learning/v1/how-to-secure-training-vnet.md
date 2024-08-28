@@ -3,13 +3,13 @@ title: Secure training environments with virtual networks (v1)
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. SDK v1
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 08/29/2022
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 07/26/2024
 ms.custom: UpdateFrequency5, tracking-python, references_regions, build-2023
 ---
 

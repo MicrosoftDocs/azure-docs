@@ -11,6 +11,8 @@ zone_pivot_groups: app-spaces-component-types
 
 # Manage components in App Spaces
 
+[!include [preview note](./includes/preview-note.md)]
+
 You can manage the components of your App Spaces by selecting the component on the __App Space__ page. 
 
 [!include [component types](./includes/component-types-table.md)]

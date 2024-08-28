@@ -69,7 +69,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
    * Select the verb `GET`
 
-   * For the URL, enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2023-11-01`. Omit the `https://` prefix.
+   * For the URL, enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2024-07-01`. Omit the `https://` prefix.
 
    * For Headers, type `Content-Type application/json`.
 
@@ -89,7 +89,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Select parameter metadata" border="true":::
 
-1. For *api-version*: Set `2023-11-01` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
+1. For *api-version*: Set `2024-07-01` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
@@ -101,7 +101,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2023-11-01',
+      - {name: api-version, in: query, required: true, type: string, default: '2024-07-01',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```

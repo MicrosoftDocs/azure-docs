@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure Spring Apps
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.topic: hub-page
   author: KarlErickson
   ms.author: karler
@@ -135,9 +135,6 @@ conceptualContent:
             - text: Use custom DNS names
               url: enterprise/how-to-custom-domain.md
               itemType: how-to-guide
-            - text: Java memory management
-              url: enterprise/concepts-for-java-memory-management.md
-              itemType: concept
             - text: Use structured application logs
               url: enterprise/structured-app-log.md
               itemType: how-to-guide
@@ -327,7 +324,7 @@ conceptualContent:
         - title: Manage and monitor apps
           links:
             - text: Java memory management
-              url: enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              url: basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
               itemType: concept
             - text: Analyze logs and metrics
               url: consumption-dedicated/quickstart-analyze-logs-and-metrics-standard-consumption.md

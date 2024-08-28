@@ -1893,6 +1893,185 @@ Allows read/write access to most objects in a namespace. This role does not allo
 }
 ```
 
+## Azure Kubernetes Service Arc Cluster Admin Role
+
+Lists cluster admin credential actions.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action | Lists the admin credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "List cluster admin credential action.",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+    "name": "b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action",
+          "Microsoft.Kubernetes/connectedClusters/Read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Cluster Admin Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Cluster User Role
+
+Lists cluster user credential actions.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action | Lists the AAD user credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "List cluster user credential action.",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/233ca253-b031-42ff-9fba-87ef12d6b55f",
+    "name": "233ca253-b031-42ff-9fba-87ef12d6b55f",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action",
+          "Microsoft.Kubernetes/connectedClusters/Read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Cluster User Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Contributor Role
+
+Grants access to read and write Azure Kubernetes Services Arc clusters.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/Locations/operationStatuses/read | Read operationStatuses |
+> | Microsoft.HybridContainerService/Operations/read | Read Operations |
+> | Microsoft.HybridContainerService/kubernetesVersions/read | Get the supported kubernetes versions from the underlying custom location |
+> | Microsoft.HybridContainerService/kubernetesVersions/write | Put the kubernetes version resource type |
+> | Microsoft.HybridContainerService/kubernetesVersions/delete | Delete the kubernetes versions resource type |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Get the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/write | Create the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/delete | Delete the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read | Get the agent pools in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write | Create and update the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete | Delete the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read | read operationStatuses |
+> | Microsoft.HybridContainerService/skus/read | Get the supported VM skus from the underlying custom location |
+> | Microsoft.HybridContainerService/skus/write | Puts the VM SKUs resource type |
+> | Microsoft.HybridContainerService/skus/delete | Deletes the Vm Sku resource type |
+> | Microsoft.HybridContainerService/virtualNetworks/read | List the Hybrid AKS virtual networks by resource group and subscription |
+> | Microsoft.HybridContainerService/virtualNetworks/write | Put and patch the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/delete | Deletes the Hybrid AKS virtual network |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/Write | Writes connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/Delete | Deletes connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
+> | Microsoft.AzureStackHCI/clusters/read | Gets clusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Grants access to read and write Azure Kubernetes Services Arc clusters",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/5d3f1697-4507-4d08-bb4a-477695db5f82",
+    "name": "5d3f1697-4507-4d08-bb4a-477695db5f82",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/Locations/operationStatuses/read",
+          "Microsoft.HybridContainerService/Operations/read",
+          "Microsoft.HybridContainerService/kubernetesVersions/read",
+          "Microsoft.HybridContainerService/kubernetesVersions/write",
+          "Microsoft.HybridContainerService/kubernetesVersions/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/write",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read",
+          "Microsoft.HybridContainerService/skus/read",
+          "Microsoft.HybridContainerService/skus/write",
+          "Microsoft.HybridContainerService/skus/delete",
+          "Microsoft.HybridContainerService/virtualNetworks/read",
+          "Microsoft.HybridContainerService/virtualNetworks/write",
+          "Microsoft.HybridContainerService/virtualNetworks/delete",
+          "Microsoft.ExtendedLocation/customLocations/deploy/action",
+          "Microsoft.ExtendedLocation/customLocations/read",
+          "Microsoft.Kubernetes/connectedClusters/Read",
+          "Microsoft.Kubernetes/connectedClusters/Write",
+          "Microsoft.Kubernetes/connectedClusters/Delete",
+          "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action",
+          "Microsoft.AzureStackHCI/clusters/read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Contributor Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions",
+}
+```
+
 ## Kubernetes Agentless Operator
 
 Grants Microsoft Defender for Cloud access to Azure Kubernetes Services

@@ -1,7 +1,7 @@
 ---
 title: Use firewall to restrict outbound traffic on HDInsight on AKS using Azure CLI 
 description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure CLI
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/19/2024
@@ -10,6 +10,7 @@ ms.date: 02/19/2024
 # Use firewall to restrict outbound traffic using Azure CLI
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 When an enterprise wants to use their own virtual network for the cluster deployments, securing the traffic of the virtual network becomes important.
 This article provides the steps to secure outbound traffic from your HDInsight on AKS cluster via Azure Firewall using [Azure CLI](/azure/cloud-shell/quickstart?tabs=azurecli).
@@ -216,7 +217,7 @@ The following steps provide details about the specific network and application r
     az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'dfs' --source-addresses '*' --protocols 'https=443' --target-fqdns "*.dfs.core.windows.net"
     ```
   
-   **Change the `Sql.<Region> `in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
+   **Change the `Sql.<Region>` in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
 
    ```azurecli
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'mysql' --protocols 'TCP' --source-addresses '*' --destination-addresses "Sql.<Region>" --destination-ports '11000-11999'

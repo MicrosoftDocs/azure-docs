@@ -3,7 +3,7 @@ title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 05/01/2023
 ms.author: mbender
@@ -15,9 +15,9 @@ ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-f
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
@@ -32,7 +32,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 ```azurecli-interactive
     az group create \
       --name CreateIntLBQS-rg \
-      --location westus3
+      --location westus2
 ```
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer.
@@ -46,7 +46,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 ```azurecli-interactive
   az network vnet create \
     --resource-group CreateIntLBQS-rg \
-    --location westus3 \
+    --location westus2 \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name myBackendSubnet \
@@ -58,7 +58,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 In this example, you create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
  > [!IMPORTANT]
- > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+ > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ### Create a bastion public IP address
 
@@ -88,12 +88,14 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host.
 
 ```azurecli-interactive
+az config set extension.use_dynamic_install=yes_without_prompt
+
 az network bastion create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location westus3
+    --location westus2
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
@@ -237,7 +239,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
     --resource-group CreateIntLBQS-rg \
     --name myVM$n \
     --nics myNicVM$n \
-    --image win2019datacenter \
+    --image win2022datacenter \
     --admin-username azureuser \
     --zone $n \
     --no-wait
@@ -246,7 +248,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
 It can take a few minutes for the VMs to deploy.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Add virtual machines to the backend pool
 

@@ -39,7 +39,7 @@ You can't use identity-based authentication to mount Azure File shares on Linux 
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- A Linux VM (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure. The VM must have at least one network interface on the VNET containing the Microsoft Entra Domain Services, or an on-premises Linux VM with AD DS synced to Microsoft Entra ID.
+- A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. If running on Azure, the VM must have at least one network interface on the VNET containing Microsoft Entra Domain Services. If using an on-premises VM, your AD DS must be synced to Microsoft Entra ID.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
 - A Microsoft Entra tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.

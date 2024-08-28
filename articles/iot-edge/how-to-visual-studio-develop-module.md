@@ -4,7 +4,7 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/13/2023
+ms.date: 07/17/2024
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -79,6 +79,16 @@ This article assumes that you use a machine running Windows as your development 
 ## Create an Azure IoT Edge project
 
 The IoT Edge project template in Visual Studio creates a solution to deploy to IoT Edge devices. First, you create an Azure IoT Edge solution. Then, you create a module in that solution. Each IoT Edge solution can contain more than one module.
+
+> [!WARNING]
+> The Azure IoT Edge tools for Visual Studio extension is missing the project templates for C and C# modules. We are working to resolve the issue. If you can't create IoT Edge modules using the extension, use the following workaround.
+>
+> Download the following files and place them in the listed Visual Studio template directory:
+> 
+> | Template file | Add to directory |
+> |---------------|------------------|
+> | [azureiotedgemodule-v0.0.4.zip](https://github.com/Azure/iot-edge-visual-studio-templates/raw/master/templates/vs2022/CSharp/azureiotedgemodule-v0.0.4.zip) | `%userprofile%\Documents\Visual Studio 2022\Templates\ProjectTemplates\Visual C#` |
+> | [azureiotedgevcmodulevs17-v0.0.9.zip](https://github.com/Azure/iot-edge-visual-studio-templates/raw/master/templates/vs2022/vc/azureiotedgevcmodulevs17-v0.0.9.zip) | `%userprofile%\Documents\Visual Studio 2022\Templates\ProjectTemplates\Visual C++ Project` |
 
 In our solution, we're going to build three projects. The main module that contains *EdgeAgent* and *EdgeHub*, in addition to the temperature sensor module. Next, you add two more IoT Edge modules.
 
@@ -240,9 +250,6 @@ Typically, you want to test and debug each module before running it within an en
       IoT Hub module client initialized.
       Received message: 1, Body: [hello world]
       ```
-
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 

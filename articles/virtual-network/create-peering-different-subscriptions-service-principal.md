@@ -4,12 +4,11 @@ titleSuffix: Azure Virtual Network
 description: Learn how to peer virtual networks in different subscriptions using service principal names.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
+ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 04/18/2024
-
 #customer intent: As a network administrator, I want to connect virtual networks in different subscriptions using service principal names so that I can allow resources in different subscriptions to communicate with each other.
-
 ---
 # Connect virtual networks in different subscriptions with service principal names
 

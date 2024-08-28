@@ -260,7 +260,7 @@ az iot dps certificate create -g {resource_group_name} --dps-name {dps_name} --c
 
 ## Register your device
 
-You call the [Register Device](/rest/api/iot-dps/device/device-registration-state) REST API to provision your device through DPS.
+You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) REST API to provision your device through DPS.
 
 Use the following curl command:
 
@@ -386,7 +386,7 @@ Note down the device ID and the assigned IoT hub. You'll use them to send a tele
 
 ## Send a telemetry message
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/rest/api/iothub/device/device/send-device-event) REST API to send telemetry to the device.
 
 Use the following curl command:
 

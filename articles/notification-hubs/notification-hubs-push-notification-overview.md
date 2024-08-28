@@ -7,7 +7,7 @@ editor: tjsomasundaram
 services: notification-hubs
 
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: multiple
 ms.topic: overview
 ms.custom: mvc

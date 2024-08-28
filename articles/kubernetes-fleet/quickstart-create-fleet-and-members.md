@@ -16,7 +16,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * Read the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configuration options.
@@ -54,7 +54,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
   az aks install-cli
   ```
 
-* The AKS clusters that you want to join as member clusters to the Fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy).
+* The AKS clusters that you want to join as member clusters to the Fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy).
 
 ## Create a resource group
 

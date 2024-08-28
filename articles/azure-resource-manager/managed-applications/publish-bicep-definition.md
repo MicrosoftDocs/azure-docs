@@ -3,7 +3,7 @@ title: Use Bicep to create and publish an Azure Managed Application definition
 description: Describes how to use Bicep to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/24/2024
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Use Bicep to create and publish an Azure Managed Application definition
@@ -379,12 +379,12 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
 $pkgstorageparms = @{
   ResourceGroupName = "packageStorageGroup"
   Name = "<pkgstorageaccountname>"
-  Location = "westus3"
+  Location = "westus"
   SkuName = "Standard_LRS"
   Kind = "StorageV2"
   MinimumTlsVersion = "TLS1_2"
@@ -435,12 +435,12 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
   --name <pkgstorageaccountname> \
   --resource-group packageStorageGroup \
-  --location westus3 \
+  --location westus \
   --sku Standard_LRS \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
@@ -619,7 +619,7 @@ Create a resource group named _bicepDefinitionGroup_ and deploy the managed appl
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name bicepDefinitionGroup -Location westus3
+New-AzResourceGroup -Name bicepDefinitionGroup -Location westus
 
 $deployparms = @{
   ResourceGroupName = "bicepDefinitionGroup"
@@ -634,7 +634,7 @@ New-AzResourceGroupDeployment @deployparms
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name bicepDefinitionGroup --location westus3
+az group create --name bicepDefinitionGroup --location westus
 
 az deployment group create \
   --resource-group bicepDefinitionGroup \

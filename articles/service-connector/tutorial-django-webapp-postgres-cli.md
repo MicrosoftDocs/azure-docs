@@ -14,7 +14,7 @@ ms.date: 05/13/2024
 > [!NOTE]
 > In this tutorial, you use Service Connector that simplifies the process of connecting a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](../postgresql/flexible-server/index.yml) database.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/) database.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 

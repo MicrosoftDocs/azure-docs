@@ -4,7 +4,7 @@ description: Recommendations and examples for indexing tables in dedicated SQL p
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/02/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -126,7 +126,7 @@ SELECT
 ,       MAX(CASE WHEN rg.[State] = 3 THEN rg.[total_rows]     ELSE NULL END)    AS [COMPRESSED_rowgroup_rows_MAX]
 ,       AVG(CASE WHEN rg.[State] = 3 THEN rg.[total_rows]     ELSE NULL END)    AS [COMPRESSED_rowgroup_rows_AVG]
 ,       'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;'             AS [Rebuild_Index_SQL]
-FROM    sys.[sys.dm_pdw_nodes_db_column_store_row_group_physical_stats] rg
+FROM    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg
 JOIN    sys.[pdw_nodes_tables] nt                   ON  rg.[object_id]          = nt.[object_id]
                                                     AND rg.[pdw_node_id]        = nt.[pdw_node_id]
                                                     AND rg.[distribution_id]    = nt.[distribution_id]

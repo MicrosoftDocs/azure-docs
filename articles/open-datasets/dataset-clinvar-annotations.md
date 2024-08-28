@@ -1,45 +1,40 @@
 ---
 title: ClinVar Annotations
 description: Learn how to use the ClinVar Annotations dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
-ms.date: 04/16/2021
+ms.reviewer: franksolomon
+ms.date: 06/13/2024
 ---
 
 # ClinVar Annotations
 
-[ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) is a freely accessible, public archive of reports of the relationships among human variations and phenotypes, with supporting evidence. It facilitates access to and communication about the relationships asserted between human variation and observed health status, and the history of that interpretation. It provides access to a broader set of clinical interpretations that can be incorporated into genomics workflows and applications.
+The [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) resource is a freely accessible, public archive of reports - with supporting evidence - about the relationships among human variations and phenotypes. It facilitates access to and communication about the claimed relationships between human variation and observed health status, and about the history of that interpretation. It provides access to a broader set of clinical interpretations that researchers can incorporate into genomics workflows and applications.
 
-For more information on the data, see the [Data Dictionary](https://www.ncbi.nlm.nih.gov/projects/clinvar/ClinVarDataDictionary.pdf) and [FAQ](https://www.ncbi.nlm.nih.gov/clinvar/docs/faq/).
+Visit the [Data Dictionary](https://www.ncbi.nlm.nih.gov/projects/clinvar/ClinVarDataDictionary.pdf) and the [FAQ resource](https://www.ncbi.nlm.nih.gov/clinvar/docs/faq/) for more information about the data.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 
-This dataset is a mirror of ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/
+This dataset is a mirror of the National Library of Medicine ClinVar [FTP resource](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/).
 
-## Data volumes and update frequency
+## Data update frequency
 
-This dataset contains approximately 56 GB of data and is updated daily.
-
-## Storage location
-
-This dataset is stored in the West US 2 and West Central US Azure regions. Allocating compute resources in West US 2 or West Central US is recommended for affinity.
+This dataset receives daily updates.
 
 ## Data Access
 
-West US 2: 'https://datasetclinvar.blob.core.windows.net/dataset'
+[FTP resource](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/)
 
-West Central US: 'https://datasetclinvar-secondary.blob.core.windows.net/dataset'
-
-[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
+[FTP Overview](https://www.ncbi.nlm.nih.gov/clinvar/docs/ftp_primer/)
 
 ## Use Terms
 Data is available without restrictions. More information and citation details, see [Accessing and using data in ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/).
 
 ## Contact
 
-For any questions or feedback about this dataset, contact clinvar@ncbi.nlm.nih.gov.
+For any questions or feedback about this dataset, contact [clinvar@ncbi.nlm.nih.gov](mailto:clinvar@ncbi.nlm.nih.gov).
 
 ## Data access
 
@@ -49,17 +44,9 @@ For any questions or feedback about this dataset, contact clinvar@ncbi.nlm.nih.g
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-clinvar -->
 
-
 ## Getting the ClinVar data from Azure Open Dataset
 
-Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open dataset. You can find examples of data calling procedure from Azure Open Dataset for `ClinVar` dataset in below:
-
-Users can call and download the following path with this notebook: 'https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5'
-
-> [!NOTE]
-> Users needs to log-in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
-
-For more information on installing the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli)
+Several public genomics data resources were uploaded as Azure Open Dataset at [this](https://azure.microsoft.com/services/open-datasets/catalog/) resource.
 
 ### Calling the data from  'ClinVar Data Set'
 

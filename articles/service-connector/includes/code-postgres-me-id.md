@@ -15,7 +15,7 @@ using Azure.Identity;
 using Azure.Core;
 using Npgsql;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned identity.
 // var sqlServerTokenProvider = new DefaultAzureCredential();
 
@@ -37,7 +37,7 @@ using Npgsql;
 AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
     new TokenRequestContext(scopes: new string[]
     {
-        "https://server-name.database.windows.net/.default"
+        "https://ossrdbms-aad.database.windows.net/.default"
     }));
 
 // Combine the token with the connection string from the environment variables provided by Service Connector.
@@ -83,7 +83,7 @@ For more information, see the following resources:
 
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
 * [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
 
 #### [SpringBoot](#tab/springBoot)
@@ -108,7 +108,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
      
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # cred = DefaultAzureCredential()
 
@@ -123,7 +123,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 
     # Acquire the access token
-    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     
     # Combine the token with the connection string from the environment variables added by Service Connector to establish the connection.
     conn_string = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
@@ -142,7 +142,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # credential = DefaultAzureCredential()
 
@@ -157,7 +157,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 
     # Acquire the access token.
-    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     ```
 
 1. In setting file, get Azure PostgreSQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
@@ -205,7 +205,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	_ "github.com/lib/pq"
     )    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -228,7 +228,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // Acquire the access token
     ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
     token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-        Scopes: []string("https://server-name.database.windows.net/.default"),
+        Scopes: []string("https://ossrdbms-aad.database.windows.net/.default"),
     })
 
     // Combine the token with the connection string from the environment variables added by Service Connector to establish the connection.
@@ -255,7 +255,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 
@@ -271,7 +271,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
 
     // Acquire the access token.
-    var accessToken = await credential.getToken('https://server-name.database.windows.net/.default');
+    var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
     
     // Use the token and the connection information from the environment variables added by Service Connector to establish the connection.
     (async () => {
@@ -296,9 +296,9 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
 1. In code, get the access token using REST API with your favorite library.
 
     For user-assigned identity and system-assigned identity, App Service and Container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
-    Get the access token by making an HTTP GET request to the identity endpoint, and use `https://server-name.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
+    Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
 
-    For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://server-name.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
+    For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
 
 1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
     ```php
@@ -325,13 +325,13 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     require 'net/http'
     require 'json'
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
-    # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://server-name.database.windows.net&api-version=2019-08-01')
+    # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
 
     # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://server-name.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
     # For service principal
@@ -340,7 +340,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     #     :grant_type => 'client_credentials',
     #     :client_id: => ENV['AZURE_POSTGRESQL_CLIENTID'],
     #     :client_secret => ENV['AZURE_POSTGRESQL_CLIENTSECRET'],
-    #     :scope => 'https://server-name.database.windows.net/.default'
+    #     :scope => 'https://ossrdbms-aad.database.windows.net/.default'
     # }
     # req = Net::HTTP::POST.new(uri)
     # req.set_form_data(params)

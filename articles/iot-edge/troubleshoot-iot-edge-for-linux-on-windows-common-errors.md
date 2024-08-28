@@ -1,10 +1,10 @@
 ---
-title: Common issues and resolutions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
-description: Use this article to resolve common issues encountered when deploying an IoT Edge for Linux on Windows (EFLOW) solution
+title: Common issues - Azure IoT Edge for Linux on Windows
+description: Learn how to resolve common issues encountered when deploying an IoT Edge for Linux on Windows (EFLOW) solution.
 author: PatAltimore
-ms.author: fcabrera
-ms.date: 07/26/2022
-ms.topic: conceptual
+ms.author: patricka
+ms.date: 06/06/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, linux-related-content

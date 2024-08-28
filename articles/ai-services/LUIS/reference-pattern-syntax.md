@@ -105,7 +105,7 @@ The words of the book title are not confusing to LUIS because LUIS knows where t
 
 ## Explicit lists
 
-create an [Explicit List](/rest/api/cognitiveservices-luis/authoring/model/add-explicit-list-item?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) through the authoring API to allow the exception when:
+create an [Explicit List](/rest/api/luis/model/add-explicit-list-item) through the authoring API to allow the exception when:
 
 * Your pattern contains a [Pattern.any](concepts/entities.md#patternany-entity)
 * And that pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance.
@@ -123,7 +123,7 @@ In the following utterances, the **subject** and **person** entity are extracted
 
 In the preceding table, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted.
 
-To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](/rest/api/cognitiveservices-luis/authoring/model/add-explicit-list-item?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true).
+To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](/rest/api/luis/model/add-explicit-list-item).
 
 ## Syntax to mark optional text in a template utterance
 

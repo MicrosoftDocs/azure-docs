@@ -125,7 +125,7 @@ QnA Maker uses _active learning_ to improve your knowledge base by suggesting al
 
 ### Providing a default answer
 
-If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page in the QnA Maker portal or in the [APIs](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page in the QnA Maker portal or in the [APIs](/rest/api/qnamaker/knowledgebase/update#request-body).
 
 This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold isn't met.
 

@@ -1,7 +1,7 @@
 ---
 title: Table API and SQL in Apache Flink® clusters on HDInsight on AKS
 description: Learn about Table API and SQL in Apache Flink® clusters on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
@@ -62,7 +62,7 @@ CREATE TABLE student_information (
     PRIMARY KEY (id) NOT ENFORCED
   ) WITH (
      'connector' = 'jdbc',
-     'url' = 'jdbc:sqlserver://server-name.database.windows.net;database=dbname;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30',
+     'url' = 'jdbc:sqlserver://servername.database.windows.net;database=dbname;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30',
      'table-name' = 'students',
      'username' = 'username',
      'password' = 'password'

@@ -15,12 +15,12 @@ To create a project in [Azure AI Studio](https://ai.azure.com), follow these ste
 1. Go to the **Home** page of [Azure AI Studio](https://ai.azure.com). 
 1. Select **+ New project**.
 1. Enter a name for the project.
-1. Select a hub from the dropdown to host your project. If you don't have access to a hub yet, select **Create a new hub**.
+1. Select a hub from the dropdown to host your project. For information about the relationship between hubs and projects, see the [hubs and projects overview](../concepts/ai-resources.md) documentation. If you don't yet have a hub, select **Create a new hub**.
 
     :::image type="content" source="../media/how-to/projects/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects/projects-create-details.png":::
 
     > [!NOTE]
-    > To create a hub, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share a hub with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend. For more options to create a hub, see [how to create and manage an Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
+    > To create a hub, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share a hub with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend. For more options to create a hub, see [how to create and manage an Azure AI Studio hub](../how-to/create-azure-ai-resource.md). A project name must be unique between projects that share the same hub.
 
 1. If you're creating a new hub, enter a name.
 

@@ -84,7 +84,7 @@ Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include h
 
 By running a blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 <a name="PartsOfBlobToIndex"></a> 
 
@@ -95,7 +95,7 @@ You can control which blobs are indexed, and which are skipped, by the blob's fi
 Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
 
 ```http
-PUT /indexers/[indexer name]?api-version=2023-11-01
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
     "parameters" : { 
         "configuration" : { 

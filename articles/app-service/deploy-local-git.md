@@ -20,7 +20,7 @@ This how-to guide shows you how to deploy your app to [Azure App Service](overvi
 
 To follow the steps in this how-to guide:
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
   
 - [Install Git](https://www.git-scm.com/downloads).
 
@@ -153,15 +153,15 @@ When you push commits to your App Service repository, App Service deploys the fi
 
 You might see the following common error messages when you use Git to publish to an App Service app in Azure:
 
-|Message|Cause|Resolution
----|---|---|
+|Message|Cause|Resolution|
+|---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|The app isn't up and running.|Start the app in the Azure portal. Git deployment isn't available when the web app is stopped.|
 |`Couldn't resolve host 'hostname'`|The address information for the `azure` remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the `azure` remote is correct. If needed, remove and recreate this remote using the correct URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the main branch: `git push azure main`.|
 |`Error - Changes committed to remote repository but deployment to website failed.`|You pushed a local branch that doesn't match the app deployment branch on `azure`.|Verify that current branch is `master`. To change the default branch, use `DEPLOYMENT_BRANCH` application setting (see [Change deployment branch](#change-deployment-branch)). |
 |`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the `azure` remote.|Run `git push` again, specifying the main branch: `git push azure main`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make \|\| gmake\` |
 
 ## More resources
 

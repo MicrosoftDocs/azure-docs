@@ -6,4 +6,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Reference documentation](/cpp/cognitive-services/speech/) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) | [Additional Samples on GitHub](https://aka.ms/speech/github-cpp)
+[Reference documentation](/cpp/cognitive-services/speech/) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) | [Additional samples on GitHub](https://aka.ms/speech/github-cpp)

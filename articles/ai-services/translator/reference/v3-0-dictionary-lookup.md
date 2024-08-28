@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 06/06/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD033 -->
 
 # Translator 3.0: Dictionary Lookup
 
-Provides alternative translations for a word and a few idiomatic phrases. Each translation has a part-of-speech and a list of back-translations. The back-translations enable a user to understand the translation in context. The [Dictionary Example](./v3-0-dictionary-examples.md) operation allows further drill down to see example uses of each translation pair.
+Provides alternative translations for a word and a few idiomatic phrases. Each translation has a part-of-speech and a list of back-translations. The back-translations enable a user to understand the translation in context. The [Dictionary Example](./v3-0-dictionary-examples.md) operation includes example uses of each translation pair.
 
 ## Request URL
 
@@ -42,9 +42,9 @@ Request headers include:
 
 | Headers  | Description |
 | ------ | ----------- |
-| Authentication header(s) | **Required request header**.<br/>See [Authentication](v3-0-reference.md#authentication).|
+| Authentication headers | **Required request header**.<br/>See [Authentication](v3-0-reference.md#authentication).|
 | Content-Type | **Required request header**.<br>Specifies the content type of the payload. Possible values are: `application/json`. |
-| Content-Length   | **Required request header**.<br>The length of the request body. |
+| Content-Length   | **Optional**.<br>The length of the request body. |
 | X-ClientTraceId   | **Optional**.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body
@@ -80,30 +80,30 @@ A successful response is a JSON array with one result for each string in the inp
 
     | Tag name | Description  |
     |----------|--------------|
-    | ADJ      | Adjectives   |
-    | ADV      | Adverbs      |
-    | CONJ     | Conjunctions |
-    | DET      | Determiners  |
-    | MODAL    | Verbs        |
-    | NOUN     | Nouns        |
-    | PREP     | Prepositions |
-    | PRON     | Pronouns     |
-    | VERB     | Verbs        |
-    | OTHER    | Other        |
+    | `ADJ`      | Adjectives   |
+    | `ADV`      | Adverbs      |
+    | `CONJ`     | Conjunctions |
+    | `DET`     | Determiners  |
+    | `MODAL`    | Verbs        |
+    | `NOUN`     | Nouns        |
+    | `PREP`     | Prepositions |
+    | `PRON`     | Pronouns     |
+    | `VERB`     | Verbs        |
+    | `OTHER`    | Other        |
 
-    As an implementation note, these tags are part-of-speech tagging the English side, and then taking the most frequent tag for each source/target pair. So if people frequently translate a Spanish word to a different part-of-speech tag in English, tags may end up being wrong (with respect to the Spanish word).
+    As an implementation note, these tags are part-of-speech tagging the English side, and then taking the most frequent tag for each source/target pair. So if people frequently translate a Spanish word to a different part-of-speech tag in English, tags cab end up being wrong (with respect to the Spanish word).
 
-* `confidence`: A value between 0.0 and 1.0 that represents the "confidence" (or more accurately, "probability in the training data") of that translation pair. The sum of confidence scores for one source word may or may not sum to 1.0.
+* `confidence`: A value between 0.0 and 1.0 that represents the "confidence" (or more accurately, "probability in the training data") of that translation pair. The sum of confidence scores for one source word can or can't sum to 1.0.
 
-* `prefixWord`: A string giving the word to display as a prefix of the translation. Currently, this property is the gendered determiner of nouns, in languages that have gendered determiners. For example, the prefix of the Spanish word `mosca` is `la`, since `mosca` is a feminine noun in Spanish. This value is only dependent on the translation, and not on the source. If there's no prefix, it's the empty string.
+* `prefixWord`: A string giving the word to display as a prefix of the translation. Currently, this property is the gendered determiner of nouns, in languages that have gender determiners. For example, the prefix of the Spanish word `mosca` is `la`, since `mosca` is a feminine noun in Spanish. This value is only dependent on the translation, and not on the source. If there's no prefix, it's the empty string.
 
-* `backTranslations`: A list of "back translations" of the target. For example, source words that the target can translate to. The list is guaranteed to contain the source word that was requested (for example, if the source word being looked up is `fly`, then it's guaranteed that `fly` is in the `backTranslations` list). However, it isn't guaranteed to be in the first position, and often isn't. Each element of the `backTranslations` list is an object described by the following properties:
+* `backTranslations`: A list of "back translations" of the target. For example, source words that the target can translate to. The list is guaranteed to contain the source word that was requested (for example, if the source word being looked up is `fly`, then  `fly` is included in the `backTranslations` list). However, it isn't guaranteed to be in the first position, and often isn't. Each element of the `backTranslations` list is an object described by the following properties:
 
   * `normalizedText`: A string giving the normalized form of the source term that is a back-translation of the target. This value should be used as input to [lookup examples](./v3-0-dictionary-examples.md).
 
   * `displayText`: A string giving the source term that is a back-translation of the target in a form best suited for end-user display.
 
-  * `numExamples`: An integer representing the number of examples that are available for this translation pair. Actual examples must be retrieved with a separate call to [lookup examples](./v3-0-dictionary-examples.md). The number is mostly intended to facilitate display in a UX. For example, a user interface may add a hyperlink to the back-translation if the number of examples is greater than zero. Then the back-translation is shown as plain text if there are no examples. The actual number of examples returned by a call to [lookup examples](./v3-0-dictionary-examples.md) may be less than `numExamples`, because more filtering may be applied on the fly to remove "bad" examples.
+  * `numExamples`: An integer representing the number of examples that are available for this translation pair. Actual examples must be retrieved with a separate call to [lookup examples](./v3-0-dictionary-examples.md). The number is mostly intended to facilitate display in a UX. For example, a user interface can add a hyperlink to the back-translation if the number of examples is greater than zero. Then the back-translation is shown as plain text if there are no examples. The actual number of examples returned by a call to [lookup examples](./v3-0-dictionary-examples.md) can be less than `numExamples`, because more filtering can be applied on the fly to remove "bad" examples.
 
   * `frequencyCount`: An integer representing the frequency of this translation pair in the data. The main purpose of this field is to provide a user interface with a means to sort back-translations so the most frequent terms are first.
 

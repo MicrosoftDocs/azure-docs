@@ -9,14 +9,14 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: eur
+ms.reviewer: estraight
 ms.author: ssalgado
 author: ssalgadodev
 ---
 
 # How to build and consume vector indexes in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to create and use a vector index for performing [Retrieval Augmented Generation (RAG)](../concepts/retrieval-augmented-generation.md).
 

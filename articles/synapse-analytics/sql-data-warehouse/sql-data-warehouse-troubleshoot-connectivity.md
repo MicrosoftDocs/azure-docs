@@ -4,7 +4,7 @@ description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 03/27/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -92,7 +92,7 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 JDBC connection string
 
 ```Java
-jdbc:sqlserver://server-name.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
 ## Intermittent connection issues

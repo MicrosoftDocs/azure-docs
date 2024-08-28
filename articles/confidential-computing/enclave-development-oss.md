@@ -2,8 +2,8 @@
 title: Develop application enclaves with open-source solutions in Azure Confidential Computing
 description: Learn how to use tools to develop Intel SGX applications for Azure confidential computing.
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: jushiman #, raginjup, ananyagarg

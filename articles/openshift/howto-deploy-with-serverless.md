@@ -361,7 +361,7 @@ When you're finished with the application, you can run the following command to 
 oc delete project demoserverless
 ```
 
-You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md).
+You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./delete-cluster.md).
 
 ## Next steps
 

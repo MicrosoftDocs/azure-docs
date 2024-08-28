@@ -3,10 +3,10 @@ title: Secure web services using TLS
 titleSuffix: Azure Machine Learning
 description: Learn how to enable HTTPS with TLS version 1.2 to secure a web service that's deployed through Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, cliv1, sdkv1
@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, cliv1, sdkv1
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 
-You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer (SSL)*, which was the predecessor of TLS.
 
 > [!TIP]
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.

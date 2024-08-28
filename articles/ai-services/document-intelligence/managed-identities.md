@@ -48,7 +48,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a multi-service resource](../../ai-services/multi-service-resource.md?pivots=azportal).
+* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource in the Azure portal. For detailed steps, _see_ [Create an Azure AI services resource](../../ai-services/multi-service-resource.md?pivots=azportal).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Document Intelligence resource. You also need to create containers to store and organize your blob data within your storage account.
 

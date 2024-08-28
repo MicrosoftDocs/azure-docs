@@ -1,0 +1,92 @@
+- name: Azure Monitor SCOM Managed Instance
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Monitor SCOM Managed Instance
+    href: overview.md
+  - name: What's new in SCOM Managed Instance
+    href: whats-new-scom-managed-instance.md
+- name: Quickstarts
+  items:
+  - name: Migrate from Operations Manager on-premises to SCOM Managed Instance
+    href: migrate-to-operations-manager-managed-instance.md
+- name: Tutorials
+  items:
+  - name: Create SCOM Managed Instance
+    href: tutorial-create-scom-managed-instance.md
+- name: Concepts
+  items:
+  - name: SCOM Managed Instance Service Health Dashboard
+    href: monitor-health-scom-managed-instance.md
+  - name: Customizations on Azure Monitor SCOM Managed Instance management servers
+    href: customizations-on-scom-managed-instance-management-servers.md
+- name: How-to guides
+  items:
+  - name: Create SCOM Managed Instance
+    items:
+    - name: Step 1. Register the SCOM Managed Instance resource provider
+      href: register-scom-managed-instance-resource-provider.md
+    - name: Step 2. Create separate subnet in a VNet
+      href: create-separate-subnet-in-vnet.md
+    - name: Step 3. Create a SQL MI
+      href: create-sql-managed-instance.md
+    - name: Step 4. Create a Key vault
+      href: create-key-vault.md
+    - name: Step 5. Create a user assigned identity
+      href: create-user-assigned-identity.md
+    - name: Step 6. Create a computer group and gMSA account
+      href: create-group-managed-service-account.md
+    - name: Step 7. Store domain credentials in Key vault
+      href: store-domain-credentials-key-vault.md
+    - name: Step 8. Create a static IP
+      href: create-static-ip.md
+    - name: Step 9. Configure the network firewall
+      href: configure-network-firewall.md
+    - name: Step 10. Verify Azure and internal GPO policies
+      href: verify-azure-internal-group-policy-object-policies.md
+    - name: Step 11. SCOM Managed Instance self-verification of steps
+      href: self-verification-steps.md
+    - name: Step 12. Create a SCOM Managed Instance
+      href: create-operations-manager-managed-instance.md
+  - name: Post Deployment
+    items:
+    - name: Connect to the Ops Console
+      href: connect-managed-instance-ops-console.md
+    - name: Scale SCOM Managed Instance
+      href: scale-scom-managed-instance.md
+    - name: Patch SCOM Managed Instance
+      href: patch-scom-managed-instance.md
+    - name: Report using Power BI
+      href: create-reports-power-bi.md
+    - name: Dashboards on Azure Managed Grafana
+      href: dashboards-on-azure-managed-grafana.md
+    - name: Query SCOM Managed Instance data on Azure Managed Grafana
+      href: query-scom-managed-instance-data-on-grafana.md
+    - name: View System Center Operations Manager's alerts in Azure Monitor
+      href: view-operations-manager-alerts-azure-monitor.md
+    - name: Monitor Azure and Off-Azure Virtual machines with SCOM Managed Instance extensions
+      href: monitor-azure-off-azure-vm-with-scom-managed-instance.md
+    - name: Monitor Off-Azure Virtual machines
+      href: monitor-off-azure-vm-with-scom-managed-instance.md
+    - name: Monitor Linux machines
+      href: monitor-linux-machines.md
+- name: Logs
+  items:
+   - name: Activity Log
+     href: scom-mi-activity-log.md
+   - name: Configure Log Analytics for Azure Monitor SCOM Managed Instance
+     href: configure-log-analytics-for-scom-managed-instance.md
+- name: Troubleshoot
+  items:
+   - name: Troubleshoot issues with Azure Monitor SCOM Managed Instance
+     href: troubleshoot-scom-managed-instance.md
+   - name: Troubleshoot commonly encountered errors while validating input parameters
+     href: troubleshooting-input-parameters-scom-managed-instance.md
+   - name: FAQs
+     href: scom-managed-instance-faq.yml
+- name: Security
+  items:
+   - name: Managed Identity
+     href: use-managed-identities-with-scom-mi.md
+   - name: Encryption at rest
+     href: scom-mi-data-encryption-at-rest.md

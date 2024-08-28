@@ -3,11 +3,11 @@ title: Azure OpenAI Service Assistants API concepts
 titleSuffix: Azure OpenAI Service
 description: Learn about the concepts behind the Azure OpenAI Assistants API.
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 08/21/2024
 ms.service: azure-ai-openai
 manager: nitinme
-author: mrbullwinkle
-ms.author: mbullwin
+author: aahill
+ms.author: aahi
 recommendations: false
 ---
 
@@ -71,13 +71,13 @@ The Assistants API has support for several parameters that let you customize the
 
 ## Context window management
 
-Assistants automatically truncates text to ensure it stays within the model's maximum context length. You can customize this behavior by specifying the maximum tokens you'd like a run to utilize and/or the maximum number of recent messages you'd like to include in a run.
+Assistants automatically truncate text to ensure it stays within the model's maximum context length. You can customize this behavior by specifying the maximum tokens you'd like a run to utilize and/or the maximum number of recent messages you'd like to include in a run.
 
 ### Max completion and max prompt tokens
 
 To control the token usage in a single Run, set `max_prompt_tokens` and `max_completion_tokens` when you create the Run. These limits apply to the total number of tokens used in all completions throughout the Run's lifecycle.
 
-For example, initiating a Run with `max_prompt_tokens` set to 500 and `max_completion_tokens` set to 1000 means the first completion will truncate the thread to 500 tokens and cap the output at 1000 tokens. If only 200 prompt tokens and 300 completion tokens are used in the first completion, the second completion will have available limits of 300 prompt tokens and 700 completion tokens.
+For example, initiating a Run with `max_prompt_tokens` set to 500 and `max_completion_tokens` set to 1000 means the first completion will truncate the thread to 500 tokens and cap the output at 1,000 tokens. If only 200 prompt tokens and 300 completion tokens are used in the first completion, the second completion will have available limits of 300 prompt tokens and 700 completion tokens.
 
 If a completion reaches the `max_completion_tokens` limit, the Run will terminate with a status of incomplete, and details will be provided in the `incomplete_details` field of the Run object.
 
@@ -85,7 +85,7 @@ When using the File Search tool, we recommend setting the `max_prompt_tokens` to
 
 ## Truncation strategy
 
-You may also specify a truncation strategy to control how your thread should be rendered into the model's context window. Using a truncation strategy of type `auto` will use OpenAI's default truncation strategy. Using a truncation strategy of type `last_messages` will allow you to specify the number of the most recent messages to include in the context window.
+You can also specify a truncation strategy to control how your thread should be rendered into the model's context window. Using a truncation strategy of type `auto` will use OpenAI's default truncation strategy. Using a truncation strategy of type `last_messages` will allow you to specify the number of the most recent messages to include in the context window.
 
 ## See also
 * Learn more about Assistants and [File Search](../how-to/file-search.md)

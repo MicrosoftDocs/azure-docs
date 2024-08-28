@@ -1,10 +1,10 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Spark app - HDInsight'
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster

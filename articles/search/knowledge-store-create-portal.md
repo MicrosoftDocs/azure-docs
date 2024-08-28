@@ -146,7 +146,7 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
 1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) used to create the knowledge store.
 
-1. In the storage account's left navigation pane, select **Storage browser (preview)** to view the new tables. 
+1. In the storage account's left navigation pane, select **Storage browser** to view the new tables. 
 
    You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 

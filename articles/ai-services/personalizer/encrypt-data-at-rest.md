@@ -24,4 +24,4 @@ Personalizer is a service in Azure AI services that uses a machine learning mode
 
 ## Next steps
 
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+* [Learn more about Azure Key Vault](/azure/key-vault/general/overview)

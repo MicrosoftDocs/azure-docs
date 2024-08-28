@@ -11,11 +11,13 @@ ms.author: msangapu
 
 # Monitor App Service instances using Health check
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging every minute a path of your web application of your choice. 
 
 ![Health check failure][1]
 
-Note that _/api/health_ is just an example added for illustration purposes. We do not create a Health Check path by default. You should make sure that the path you are selecting is a valid path that exists within your application
+Note that _/api/health_ is just an example added for illustration purposes. We don't create a Health Check path by default. You should make sure that the path you are selecting is a valid path that exists within your application
 
 ## What App Service does with Health checks
 
@@ -141,9 +143,9 @@ function envVarMatchesHeader(headerValue) {
 
 Once Health Check is enabled, you can restart and monitor the status of your application instances through the instances tab. The instances tab shows your instance's name, the status of that application's instance and gives you the option to manually restart the instance.
 
-If the status of your application instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they are listed on the opening blade from the restart button.
+If the status of your application instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they're listed on the opening blade from the restart button.
 
-If you restart the instance and the restart process fails, you will then be given the option to replace the worker (only 1 instance can be replaced per hour).  This will also affect any applications using the same App Service Plan.
+If you restart the instance and the restart process fails, you'll then be given the option to replace the worker (only one instance can be replaced per hour).  This will also affect any applications using the same App Service Plan.
 
 Windows applications will also have the option to view processes via the Process Explorer.  This gives you further insight on the instance's processes including thread count, private memory, and total CPU time.
 
@@ -155,13 +157,13 @@ Once diagnostic collection is enabled, you can create or choose an existing stor
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and option to create a new alert rule. Health check metrics aggregate the successful pings & display failures only when the instance was deemed unhealthy based on the health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** in the top toolbar. This opens a new blade where you can see the site's historical health status and option to create a new alert rule. Health check metrics aggregate the successful pings & display failures only when the instance was deemed unhealthy based on the health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
 ## Limitations
 
-- Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
+- Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
 - The App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
-- There's a non-configurable limit on the total number of instances replaced by Health Check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
+- There's a nonconfigurable limit on the total number of instances replaced by Health Check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
 
 ## Frequently Asked Questions
 
@@ -175,11 +177,11 @@ The Health check requests are sent to your site internally, so the request won't
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
-On Windows App Service, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and can't be sent over HTTP**S** at this time.
+On Windows and Linux App Service, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP.
 
 ### Is Health check following the application code configured redirects between the default domain and the custom domain?
 
-No, the Health check feature is pinging the path of the default domain of the web application. If there is a redirect from the default domain to a custom domain, then the status code that Health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
+No, the Health check feature is pinging the path of the default domain of the web application. If there's a redirect from the default domain to a custom domain, then the status code that Health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
 
 
 ### What if I have multiple apps on the same App Service Plan?
@@ -188,7 +190,7 @@ Unhealthy instances will always be removed from the load balancer rotation regar
 
 #### Example 
 
-Imagine you have two applications (or one app with a slot) with Health check enabled, called App A and App B. They are on the same App Service Plan and that the Plan is scaled out to four instances. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances assuming App B is healthy. If App A remains unhealthy for over an hour on those two instances, those instances are only replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instance isn't replaced.
+Imagine you have two applications (or one app with a slot) with Health check enabled, called App A and App B. They're on the same App Service Plan and that the Plan is scaled out to four instances. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances assuming App B is healthy. If App A remains unhealthy for over an hour on those two instances, those instances are only replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instance isn't replaced.
 
 ![Visual diagram explaining the example scenario above.][2]
 

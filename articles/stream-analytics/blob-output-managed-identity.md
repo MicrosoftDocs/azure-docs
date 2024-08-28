@@ -3,7 +3,7 @@ title: Authenticate blob output with Managed Identity Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Blob storage output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.custom: subject-rbac-steps, devx-track-arm-template
@@ -184,7 +184,7 @@ Unless you need the job to create containers on your behalf, you should choose *
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 #### Account level access
 
@@ -202,7 +202,7 @@ Unless you need the job to create containers on your behalf, you should choose *
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ### Grant access via the command line
 

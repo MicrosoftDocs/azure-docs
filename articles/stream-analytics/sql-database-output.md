@@ -3,7 +3,7 @@ title: Azure SQL Database output from Azure Stream Analytics
 description: This article describes Azure SQL Database as output for Azure Stream Analytics.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/21/2022
 ---
@@ -22,7 +22,7 @@ The following table lists the property names and their description for creating 
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The logical SQL server name or managed instance name. For SQL Managed Instance, it's required to specify the port 3342. For example, `sampleserver.server-name.database.windows.net,3342`. |
+| Server name | The logical SQL server name or managed instance name. For SQL Managed Instance, it's required to specify the port 3342. For example, `sampleserver.public.database.windows.net,3342`. |
 | Username | The username that has write access to the database. Stream Analytics supports three authentication mode: SQL server authentication, system assigned managed identity and use assigned managed identity |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
@@ -42,6 +42,10 @@ Partitioning needs to enabled and is based on the PARTITION BY clause in the que
 ## Output batch size
 
 You can configure the max message size by using **Max batch count**. The default maximum is 10,000 and the default minimum is 100 rows per single bulk insert. For more information, see [Azure SQL limits](/azure/azure-sql/database/resource-limits-logical-server). Every batch is initially bulk inserted with maximum batch count. Batch is split in half (until minimum batch count) based on retryable errors from SQL.
+
+## Output data type mappings
+
+As the schema of the target table in your SQL database must exactly match the fields and their types in your job's output, you can refer to [Data Types (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics) for detailed type mappings between ASA and SQL.
 
 ## Limitation
 

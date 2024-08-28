@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy and transform data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/26/2024
 ---
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -82,25 +81,40 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-This SQL server connector supports the following authentication types. See the corresponding sections for details.
+The SQL Server **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-sql-server-version) to upgrade your SQL Server linked service if you use **Legacy** version. For the property details, see the corresponding sections.
 
-- [SQL authentication](#sql-authentication)
-- [Windows authentication](#windows-authentication)
+- [Recommended version](#recommended-version)
+- [Legacy version](#legacy-version)
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
 
-### SQL authentication
+### Recommended version
 
-To use SQL authentication, the following properties are supported:
+These generic properties are supported for a SQL server linked service when you apply **Recommended** version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes |
-| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. Refer to the following samples. | Yes |
-| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| server | The name or network address of the SQL server instance you want to connect to. | Yes |
+| database | The name of the database. | Yes |
+| authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**Windows**](#windows-authentication) and [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication) (only for [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines)). Go to the relevant authentication section on specific properties and prerequisites. | Yes |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: mandatory (for true, default)/optional (for false)/strict. | No |
+| trustServerCertificate | Indicate whether the channel will be encrypted while bypassing the certificate chain to validate trust. | No |
+| hostNameInCertificate | The host name to use when validating the server certificate for the connection. When not specified, the server name is used for certificate validation. | No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
+
+[!INCLUDE [SQL connector additional connection properties](includes/sql-connector-addtional-connection-properties.md)]
+
+#### SQL authentication
+
+To use SQL authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| userName | The user name to be used when connecting to server. | Yes |
+| password | The password for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 
 **Example: Use SQL authentication**
 
@@ -110,7 +124,16 @@ To use SQL authentication, the following properties are supported:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -119,6 +142,7 @@ To use SQL authentication, the following properties are supported:
     }
 }
 ```
+
 **Example: Use SQL authentication with a password in Azure Key Vault**
 
 ```json
@@ -127,7 +151,12 @@ To use SQL authentication, the following properties are supported:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -152,7 +181,16 @@ To use SQL authentication, the following properties are supported:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "alwaysEncryptedSettings": {
             "alwaysEncryptedAkvAuthType": "ServicePrincipal",
@@ -170,18 +208,14 @@ To use SQL authentication, the following properties are supported:
 }
 ```
 
-### Windows authentication
+#### Windows authentication
 
-To use Windows authentication, the following properties are supported:
+To use Windows authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **SqlServer**. | Yes |
-| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Refer to the following samples.
 | userName | Specify a user name. An example is **domainname\\username**. |Yes |
 | password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
 
 > [!NOTE]
 > Windows authentication is not supported in data flow.
@@ -194,7 +228,11 @@ To use Windows authentication, the following properties are supported:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "Windows",
             "userName": "<domain\\username>",
             "password": {
                 "type": "SecureString",
@@ -218,7 +256,11 @@ To use Windows authentication, the following properties are supported:
         "annotations": [],
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "Windows",
             "userName": "<domain\\username>",
             "password": {
                 "type": "AzureKeyVaultSecret",
@@ -236,6 +278,100 @@ To use Windows authentication, the following properties are supported:
     }
 }
 ```
+
+#### User-assigned managed identity authentication 
+
+>[!Note]
+>The user-assigned managed identity authentication only applies to [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines).
+
+A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines) authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+
+To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+You also need to follow the steps below:
+
+1. [Grant permissions to your user-assigned managed identity](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#grant-permissions).
+
+1. [Enable Microsoft Entra authentication](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#enable-microsoft-entra-authentication) to your [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines).
+
+1. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+  
+    ```sql
+    CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
+    ```
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+
+    ```sql
+    ALTER ROLE [role name] ADD MEMBER [your_resource_name];
+    ```
+1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+1. Configure a SQL Server linked service.
+
+**Example**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "UserAssignedManagedIdentity",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Legacy version
+
+These generic properties are supported for a SQL server linked service when you apply **Legacy** version:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **SqlServer**. | Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
+
+This SQL server connector supports the following authentication types. See the corresponding sections for details.
+
+- [SQL authentication for the legacy version](#sql-authentication-for-the-legacy-version)
+- [Windows authentication for the legacy version](#windows-authentication-for-the-legacy-version)
+
+#### SQL authentication for the legacy version
+
+To use SQL authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. | Yes |
+| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+
+#### Windows authentication for the legacy version
+
+To use Windows authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. | Yes |
+| userName | Specify a user name. An example is **domainname\\username**. |Yes |
+| password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 
 ## Dataset properties
 
@@ -410,7 +546,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | WriteBehavior | Specify the write behavior for copy activity to load data into SQL Server Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| useTempDB | Specify whether to use the global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
 | interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
@@ -607,7 +743,7 @@ See the respective sections for how to configure and best practices.
 
 ### Append data
 
-Appending data is the default behavior of this SQL Server sink connector. the service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
+Appending data is the default behavior of this SQL Server sink connector. The service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
@@ -811,7 +947,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](/azure/key-vault/general/overview). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
 2. Make sure to grant access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 
@@ -830,7 +966,7 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 
 ## Native change data capture
 
-Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store.  What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
+Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store. What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own Checkpoint key in dataflow activity to achieve that.
 
@@ -912,6 +1048,18 @@ derivedColumn1 sink(allowSchemaDrift: true,
 4. Switch to the **IP Addresses** tab. Scroll down to see the **IPAll** section. Write down the **TCP Port**. The default is **1433**.
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port. 
 6. **Verify connection**: To connect to SQL Server by using a fully qualified name, use SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
+
+## Upgrade the SQL Server version
+
+To upgrade the SQL Server version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
+
+## Differences between the recommended and the legacy version
+
+The table below shows the differences between SQL Server using the recommended and the legacy version.
+
+| Recommended version | Legacy version | 
+|:--- |:--- |
+| Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

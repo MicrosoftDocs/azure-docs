@@ -5,7 +5,7 @@ services: active-directory, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 05/16/2024
 ms.author: ryanwi
@@ -16,6 +16,8 @@ ms.subservice: web-apps
 ---
 
 # Quickstart: Add app authentication to your web app running on Azure App Service
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/intro.md)]
 

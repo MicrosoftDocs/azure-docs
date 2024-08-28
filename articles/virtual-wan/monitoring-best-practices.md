@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: This article helps you learn Monitoring best practices for Virtual WAN.
 author: cherylmc
 ms.author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.custom: subject-monitoring
 ms.date: 01/12/2024

@@ -36,7 +36,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a multi-service resource](../../ai-services/multi-service-resource.md?pivots=azportal).
+* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource in the Azure portal. For detailed steps, _see_ [Create an Azure AI services resource](../../ai-services/multi-service-resource.md?pivots=azportal).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Document Intelligence resource. Create containers to store and organize your blob data within your storage account.
 
@@ -114,7 +114,7 @@ To ensure that the Document Intelligence resource can access the training datase
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assign-role.png" alt-text="Screenshot of add role assignment window.":::
 
-1. On the **Role** tab, search for and select the **Storage Blob Data Reader** permission and select **Next**.
+1. On the **Role** tab, search for and select the **Storage Blob Data Contributor** permission and select **Next**.
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of choose a role tab.":::
 
@@ -279,13 +279,13 @@ That's it! You can now configure secure access for your Document Intelligence re
 
    :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Screenshot of content source not accessible error.":::
 
-    **Resolution**: Make sure you grant your Document Intelligence managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
+    **Resolution**: Make sure you grant your Document Intelligence managed identity the role of **Storage Blob Data Contributor** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you might need to allow the client IP address in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 ## Next steps
 

@@ -22,8 +22,15 @@
     "location": {
       "value": "eastus"
     },
-    "sshPublicKey": {
-      "value": "ssh-rsa AAAAB...."
+    "sshPublicKeys": {
+      "value": [
+        {
+          "keyData": "ssh-rsa AAAAA...."
+        },
+        {
+          "keyData": "ssh-rsa BBBBB...."
+        }
+      ]
     }
   }
 }

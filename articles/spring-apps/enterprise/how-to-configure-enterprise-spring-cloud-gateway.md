@@ -3,7 +3,7 @@ title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -816,6 +816,44 @@ The following list shows the supported add-on configurations for the add-on key 
         }
     }
     ```
+
+- Pod configuration
+  - Key name: `PodOverrides`, which is used to specify overrides for the default pod configuration.
+  - Value type: Object
+  - Properties
+    - `Containers`: This array contains the configuration for individual containers within the pod. Only the container named `gateway` is supported currently.
+      - `Name`: Specifies the name of the container. The container should be named `gateway`.
+      - `Lifecycle`: `PreStop` is a lifecycle hook that's executed when a container is about to be terminated. This hook enables you to perform any necessary cleanup before the container stops.
+    - `TerminationGracePeriodSeconds`: Specifies the amount of time Kubernetes waits for a pod to terminate gracefully before forcibly killing it.
+  - Example:
+
+    ```json
+    {
+        "PodOverrides": {
+            "Containers": [
+                {
+                    "Name": "gateway",
+                    "Lifecycle": {
+                        "PreStop": {
+                            "Exec": {
+                                "Command": [
+                                    "/bin/sh",
+                                    "-c",
+                                    "sleep 20"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "TerminationGracePeriodSeconds": 120
+        }
+    }
+    ```
+    
+    When a pod containing this container is being terminated, the `PreStop` hook executes the command `/bin/sh -c 'sleep 20'`, causing the container to sleep for 20 seconds. This pause gives the container some time to complete any ongoing tasks or cleanup before it actually stops.
+    
+    The `TerminationGracePeriodSeconds` setting provides a total of 120 seconds for the pod to terminate gracefully, including the time taken by any lifecycle hooks, such as `PreStop`.
 
 Use the following steps to update the add-on configuration.
 

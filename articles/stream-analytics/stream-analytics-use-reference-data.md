@@ -1,7 +1,7 @@
 ---
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/26/2024
 ---
@@ -120,7 +120,7 @@ You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-m
 |---------|---------|
 |Input alias|A friendly name used in the job query to reference this input.|
 |Subscription|Your subscription.|
-|Database|The SQL Database instance that contains your reference data. For SQL Managed Instance, you must specify the port 3342. An example is `sampleserver.server-name.database.windows.net,3342`.|
+|Database|The SQL Database instance that contains your reference data. For SQL Managed Instance, you must specify the port 3342. An example is `sampleserver.public.database.windows.net,3342`.|
 |Username|The username associated with your SQL Database instance.|
 |Password|The password associated with your SQL Database instance.
 |Refresh periodically|This option allows you to select a refresh rate. Select **On** to specify the refresh rate in DD:HH:MM.|

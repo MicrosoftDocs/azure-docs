@@ -3,13 +3,13 @@ title: "Tutorial: Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 08/17/2023
+ms.date: 07/22/2024
 adobe-target: true
 ms.custom: mode-other
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
@@ -31,7 +31,7 @@ Other ways to create a workspace are via the [Azure portal or SDK](how-to-manage
 For other ways to create a compute instance, see [Create a compute instance](how-to-create-compute-instance.md).
 
 This video shows you how to create a workspace and compute instance in Azure Machine Learning studio. The steps are also described in the sections below.
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0e901d2-e82a-4e96-9c7f-3b5467859969]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=9c6141c9-07f7-4661-ad77-6129297ddc0c]
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
-If you don't yet have a workspace, create one now: 
+If you don't yet have a workspace, create one now:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
@@ -52,28 +52,35 @@ If you don't yet have a workspace, create one now:
    Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
+   Friendly name | This name is not restricted by Azure naming rules. You can use spaces and special characters in this name.
+   Hub | A hub allows you to group related workspaces together and share resources. If you have access to a hub, select it here.  If you don't have access to a hub, leave this blank.
+
+1. If you did not select a hub, provide the advanced information.  If you selected a hub, these values are taken from the hub.
+
+    Field|Description
+    ---|---
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group. For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
+
 1. Select **Create** to create the workspace
 
 > [!NOTE]
-> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+> This creates a workspace along with all required resources. If you would like to more customization, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.  See [Create a workspace](how-to-manage-workspace.md) for more information.
 
 ## Create a compute instance
 
 You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials. If you don't yet have a compute instance, create one now:
 
-1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page. 
+1. Select your workspace.
+1. On the top right, select **New**.
+1. Select **Compute instance** in the list.
 
-    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the middle of the screen.":::
+    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the New list.":::
 
-    > [!TIP]
-    > You'll only see this option if you don't yet have a compute instance in your workspace.
-
-1. Supply a name. Keep all the defaults on the first page.
+1. Supply a name.
 1. Keep the default values for the rest of the page.
+1. Select **Review + Create**.
 1. Select **Create**.
 
 ## Quick tour of the studio

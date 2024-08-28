@@ -3,7 +3,8 @@ title: Set dynamic logger level to troubleshoot Java applications in Azure Conta
 description: Learn how to use dynamic logger level settings to debug your Java applications running on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/10/2024
 ms.author: cshoe
@@ -37,7 +38,6 @@ To update an existing container app, use the following command:
 
 ```azurecli
 az containerapp update --enable-java-agent \
-  --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
 ```
@@ -54,7 +54,6 @@ Use the following command to adjust log levels for a specific logger:
 az containerapp java logger set \
   --logger-name "org.springframework.boot" \
   --logger-level "info"
-  --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
 ```
@@ -66,23 +65,23 @@ It may take up to two minutes for the logger level change to take effect. Once c
 The following Java logging frameworks are supported:
 
 - [Log4j2](https://logging.apache.org/log4j/2.x/) (only version 2.*)
-- [SLF4J](https://slf4j.org/)
+- [Logback](https://logback.qos.ch/)
 - [jboss-logging](https://github.com/jboss-logging/jboss-logging)
 
 ### Supported log levels by different logging frameworks
 
 Different logging frameworks support different log levels. In the JVM diagnostics platform, some frameworks are better supported than others. Before changing logging levels, make sure the log levels you're using are supported by both the framework and platform.
 
-| Framework     | Off   | Fatal | Error | Warn | Info | Debug | Trace | All |
+| Framework     | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
 |---------------|-------|-------|-------|------|------|-------|-------|-----|
 | Log4j2        | Yes   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
-| SLF4J         | Yes   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
+| Logback       | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
 | jboss-logging | No    | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | No  |
 | **Platform**  | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   | No  |
 
 ### General visibility of log levels
 
-| Log Level | Fatal | Error | Warn | Info | Debug | Trace | All |
+| Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
 |-----------|-------|-------|------|------|-------|-------|-----|
 | **OFF**   |       |       |      |      |       |       |     |
 | **FATAL** | Yes   |       |      |      |       |       |     |
@@ -92,6 +91,8 @@ Different logging frameworks support different log levels. In the JVM diagnostic
 | **DEBUG** | Yes   | Yes   | Yes  | Yes  | Yes   |       |     |
 | **TRACE** | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |     |
 | **ALL**   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
+
+For example, if you set log level to `DEBUG`, your app will print logs with level `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG` and will NOT print logs with level `TRACE` AND `ALL`.
 
 ## Related content
 

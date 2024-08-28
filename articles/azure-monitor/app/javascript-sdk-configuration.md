@@ -51,7 +51,7 @@ For instructions on how to add SDK configuration, see [Add SDK configuration](./
 | disableIkeyDeprecationMessage<br><br>Disable instrumentation Key deprecation error message. If true, error messages are NOT sent. | boolean | true |
 | disableInstrumentationKeyValidation<br><br>If true, instrumentation key validation check is bypassed. Default value is false. | boolean | false |
 | disableTelemetry<br><br>If true, telemetry isn't collected or sent. Default is false. | boolean | false |
-| disableXhr<br><br>Don't use XMLHttpRequest or XDomainRequest (for IE < 9) by default instead attempt to use fetch() or sendBeacon. If no other transport is available, it uses XMLHttpRequest | boolean | false |
+| disableXhr<br><br>Don't use XMLHttpRequest or XDomainRequest (for Internet Explorer < version 9) by default instead attempt to use fetch() or sendBeacon. If no other transport is available, it uses XMLHttpRequest | boolean | false |
 | distributedTracingMode<br><br>Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) are generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services. | numeric or `DistributedTracingModes` | `DistributedTracing Modes.AI_AND_W3C` |
 | enableAjaxErrorStatusText<br><br>Default false. If true, include response error data text boolean in dependency event on failed AJAX requests. | boolean | false |
 | enableAjaxPerfTracking<br><br>Default false. Flag to enable looking up and including extra browser window.performance timings in the reported Ajax (XHR and fetch) reported metrics. | boolean | false |
@@ -337,9 +337,8 @@ In this scenario, a 502 or 503 response might be returned to a client because of
 
 ## Next steps
 
-* [Track usage](usage-overview.md)
+* [Track usage](usage.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
-* [Build-measure-learn](usage-overview.md)
 * [Azure file copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 <!-- Remote URLs -->

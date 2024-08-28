@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Node.js'
 description: In this quickstart, learn how to use Azure Cache for Redis with Node.js and node_redis.
-author: flang-msft
-ms.service: cache
+
+
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 02/16/2023
-ms.author: franlanglois
+ms.date: 06/04/2024
+
 ms.custom: mvc, devx-track-js, mode-api, engagement-fy23
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
@@ -23,13 +23,13 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
-```powershell
+```cmd
 set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
 set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -40,15 +40,14 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
 
 ## Create a new Node.js app
 
-1. Create a new script file named *redistest.js*. 
+1. Create a new script file named *redistest.js*.
 1. Use the command to install a redis package.
 
     ```bash
     `npm install redis`
     ```
 
-1. Add the following example JavaScript to the file. 
-
+1. Add the following example JavaScript to the file.
 
     ```javascript
     const redis = require("redis");
@@ -64,8 +63,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
         // Connection configuration
         const cacheConnection = redis.createClient({
-            // rediss for TLS
-            url: `rediss://${cacheHostName}:6380`,
+            // redis for TLS
+            url: `redis://${cacheHostName}:6380`,
             password: cachePassword
         });
     
@@ -101,9 +100,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
     testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
     ```
-    
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
 1. Run the script with Node.js.
 
@@ -111,7 +109,7 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     node redistest.js
     ```
 
-1. Example the output. 
+1. Example the output.
 
     ```console
     Cache command: PING

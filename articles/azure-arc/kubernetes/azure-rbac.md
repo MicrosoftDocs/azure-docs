@@ -1,6 +1,6 @@
 ---
 title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters"
-ms.date: 05/22/2024
+ms.date: 05/28/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
@@ -33,8 +33,11 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
-
+> Azure RBAC is not available for Red Hat OpenShift or managed Kubernetes offerings where user access to the API server is restricted (ex: Amazon Elastic Kubernetes Service (EKS), Google Kubernetes Engine (GKE)).
+>
+> Azure RBAC does not currently support Kubernetes clusters operating on ARM64 architecture. Please use [Kubernetes RBAC](identity-access-overview.md#kubernetes-rbac-authorization) to manage access control for ARM64-based Kubernetes clusters. 
+> 
+> For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](/azure/aks/manage-azure-rbac) and doesn't require the AKS cluster to be connected to Azure Arc.
 ## Enable Azure RBAC on the cluster
 
 1. Get the cluster MSI identity by running the following command:
@@ -43,17 +46,16 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
    az connectedk8s show -g <resource-group> -n <connected-cluster-name>
    ```
 
-1. Get the ED (`identity.principalId`) from the output and run the following command to assign the **Connected Cluster Managed Identity CheckAccess Reader** role to the cluster MSI:
+1. Get the ID (`identity.principalId`) from the output and run the following command to assign the **Connected Cluster Managed Identity CheckAccess Reader** role to the cluster MSI:
 
    ```azurecli
    az role assignment create --role "Connected Cluster Managed Identity CheckAccess Reader" --assignee "<Cluster MSI ID>" --scope <cluster ARM ID>
    ```
 
-
 1. Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
    ```azurecli
-   az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
+   az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac
    ```
 
    > [!NOTE]
@@ -344,12 +346,12 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-1. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
+1. Kubelogin can be used to authenticate with Azure Arc-enabled clusters by requesting a proof-of-possession (PoP) token. [Convert](https://azure.github.io/kubelogin/concepts/azure-arc.html) the kubeconfig using kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
 
-   kubelogin convert-kubeconfig
+   kubelogin convert-kubeconfig --pop-enabled --pop-claims 'u=<ARM ID of cluster>"
    ```
 
 ### [Kubernetes < v1.26](#tab/Kubernetes-earlier)

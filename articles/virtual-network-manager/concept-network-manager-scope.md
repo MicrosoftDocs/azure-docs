@@ -3,7 +3,7 @@ title: Understand and work with Azure Virtual Network Manager scopes
 description: Learn about Azure Virtual Network Manager scopes and the effects that they have on managing virtual networks.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 03/22/2024
 ms.custom: template-concept
@@ -12,8 +12,6 @@ ms.custom: template-concept
 # Understand and work with Azure Virtual Network Manager scopes
 
 In this article, you learn how scopes enable management groups or subscriptions to use certain features of Azure Virtual Network Manager. You also learn about the concept of hierarchy and how it can affect Azure Virtual Network Manager users.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Virtual Network Manager resources
 

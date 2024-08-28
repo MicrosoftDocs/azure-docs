@@ -2,19 +2,19 @@
 title: 'ML Studio (classic): Migrate Execute R Script'
 description: Rebuild Studio (classic) Execute R script modules to run on Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
-ms.reviewer: sgilley
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: sdgilley
+ms.author: sgilley
 ms.date: 03/08/2021
 ---
 
 
 # Migrate Execute R Script modules in Studio (classic)
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to rebuild a Studio (classic) **Execute R Script** module in Azure Machine Learning.
 

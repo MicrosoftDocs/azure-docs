@@ -7,7 +7,7 @@ ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Pull images from a connected registry on IoT Edge device

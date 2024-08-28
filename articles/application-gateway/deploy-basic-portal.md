@@ -7,8 +7,8 @@ author: greg-lindsay
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: greglin
-ms.service: application-gateway
-ms.custom: mvc, mode-ui
+ms.service: azure-application-gateway
+ms.custom: mvc, mode-ui, devx-track-azurepowershell
 ---
 
 # Deploy Application Gateway Basic (Preview)

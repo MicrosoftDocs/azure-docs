@@ -3,14 +3,14 @@ title: 'CLI (v2) Spark component YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Spark component YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2023, build-2023
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 05/11/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ---
 
 # CLI (v2) Spark component YAML schema
