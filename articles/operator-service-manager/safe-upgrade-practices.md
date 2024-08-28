@@ -9,11 +9,9 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with safe upgrade practices
-
 This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables an end user to safely execute complex upgrades of CNF workloads hosted on Azure Operator Nexus, in compliance with partner ISSU requirements, where applicable. Look for future articles in these services to expand on SUP features and capabilities.
 
 ## Introduction
-
 A given network service supported by Azure Operator Service Manager will be composed of one to many container based network functions (CNFs) which, over time, will require  software updates. For each  update, it is necessary to run one to many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service. At Azure Operator Service Manager, Safe Upgrade Practices represents a set of features, which can automate the CNF operations required to update a network service on Azure Operator Nexus.
   
 * SNS Reput update - Execute helm upgrade operation across all NfApps in NFDV.
@@ -25,7 +23,6 @@ A given network service supported by Azure Operator Service Manager will be comp
 * Refactored SNS Reput - Improved methods, adds update order and cleanup check.
 
 ## Overview 
-
 To update an existing Azure Operator Service Manager site network service (SNS), the Operator executes a reput update request against the deployed SNS resource. Where the SNS contains CNFs with multiple NfApps, the request is fanned out across all NfApps defined in the network function definition version (NFDV). By default, in the order, which they appear, or optionally in the order defined by UpdateDependsOn parameter.
 
 For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
@@ -37,7 +34,6 @@ For each NfApp, the reput update request supports increasing a helm chart versio
 To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm tests, the rollbackOnTestFailure parameter us honored. With rollbackOnTestFailure/true, the failed chart is rolled back. With rollbackOnTestFailure/false, no rollback is executed.
 
 ## Prerequisites
-
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
 
 - Onboard updated artifacts using publisher and/or designer workflows.
@@ -98,7 +94,7 @@ For the applicationEnablement property, the publisher has two options: either pr
 ### Operator changes
 Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at runtime. 
 
-## Support for in service upgrades (ISSU)
+## Support for in service upgrades
 Azure Operator Service Manager, where possible, supports in service upgrades, an upgrade method which advances a deployment version without interrupting the service. However, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities.
 
 ## Forwarding looking objectives
