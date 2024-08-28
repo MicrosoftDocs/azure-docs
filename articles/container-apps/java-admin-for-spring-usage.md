@@ -37,8 +37,8 @@ az containerapp env java-component admin-for-spring update \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <JAVA_COMPONENT_NAME> \
-  --min-replicas 2 \
-  --max-replicas 2 \
+  --min-replicas <REPLICA_COUNT> \
+  --max-replicas <REPLICA_COUNT> \
   --configuration <CONFIGURATION_KEY>="<CONFIGURATION_VALUE>"
 ```
 
