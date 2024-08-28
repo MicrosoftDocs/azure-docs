@@ -69,7 +69,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
-### <a name="routeserver"></a>Route Server
+### <a name="routeserver"></a>Azure Route Server
 
 [Azure Route Server](../../route-server/overview.md) simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables.
 
