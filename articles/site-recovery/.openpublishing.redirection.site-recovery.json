@@ -351,16 +351,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/site-recovery/physical-azure-disaster-recovery.md" ,
-            "redirect_url": "site-recovery-deployment-planner-history",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/site-recovery/move-azure-VMs-cross-region.md" ,
-            "redirect_url": "site-recovery-deployment-planner-history",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/site-recovery/configure-mobility-service-proxy-settings.md" ,
             "redirect_url": "site-recovery-deployment-planner-history",
             "redirect_document_id": false
