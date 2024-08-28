@@ -16,7 +16,7 @@ Microsoft provides hyper-scale services for traditional resellers and distributo
 ExpressRoute is composed of a pair of circuits for high availability that are attached to a single customer's subscription(s) and can't be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
 
 > [!NOTE]
-> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation.
+> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation. For more information, please refer to https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fexpressroute%2Ftoc.json#expressroute-limits
 > 
 
 Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high-speed low latency access to the Microsoft Azure environment.
@@ -65,7 +65,7 @@ The choices between these two options are based on your customer’s needs and y
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
 
 > [!NOTE]
-> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed.  
+> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed. For more information, please refer to  https://learn.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#modify
 > 
 > 
 
