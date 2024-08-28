@@ -1,12 +1,19 @@
+---
+title: How to publish custom machine configuration package artifacts
+description: Learn how to provide access to a machine configuration package file in Azure blob storage .
+ms.date: 08/28/2024
+ms.topic: how-to
+ms.custom: devx-track-azurepowershell
+---
 
 # How to provide secure access to custom machine configuration packages
 This page provides a guide on how to provide access to Machine Configuration packages stored in Azure storage by using the resource ID of a user-assigned managed identity or a Shared Access Signature (SAS) token. 
-# Prerequisites
+## Prerequisites
 - Azure subscription
 - Azure Storage account with the Machine Configuration package
   
-# Steps to provide access to the package
-## Using a User Assigned Identity 
+## Steps to provide access to the package
+### Using a User Assigned Identity 
 
 **1. Obtain a User-Assigned Managed Identity:**
 > [!IMPORTANT]
@@ -45,7 +52,7 @@ $blob = Get-AzStorageBlob -Container "YourContainerName" -Blob "YourBlobName" -C
 
 This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. 
 
-## Using a SAS Token 
+### Using a SAS Token 
 While this next step is optional, you should add a shared access signature (SAS) token in the URL to ensure secure access to the package. The below example generates a blob SAS token with read access and returns the full blob URI with the shared access signature token. In this example, the token has a time limit of three years.
 
 ```powershell
@@ -64,10 +71,10 @@ $tokenParams = @{
 $contentUri = New-AzStorageBlobSASToken @tokenParams
 ```
 
-# Summary
+## Summary
 By using the resource ID of a user-assigned managed identity or SAS token, you can securely provide access to Machine Configuration packages stored in Azure storage. The additional parameters and flags ensure that the package is retrieved using the managed identity and that Azure Arc machines are not included in the policy scope.
 
-# Next Steps
+## Next Steps
 - After creating the policy definition, you can assign it to the appropriate scope (e.g., management group, subscription, resource group) within your Azure environment.
 - Remember to monitor the policy compliance status and make any necessary adjustments to your Machine Configuration package or policy assignment to meet your organizational requirements.
 
