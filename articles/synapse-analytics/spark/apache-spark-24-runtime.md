@@ -16,8 +16,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 
 > [!CAUTION]
 > Disablement notification for Azure Synapse Runtime for Apache Spark 2.4
-> * Effective September 23, 2024, __Azure Synapse Runtime for Apache Spark 2.4 has been disabled.__  
-> * Azure Synapse Runtime for Apache Spark 2.4 has been replaced with a **more recent version of the runtime ([Azure Synapse Runtime for Apache Spark 3.4 (GA)](/azure/synapse-analytics/spark/apache-spark-34-runtime).**
+> * Effective August 23, 2024, __Azure Synapse Runtime for Apache Spark 2.4 has been disabled.__  
+* Azure Synapse Runtime for Apache Spark 2.4 has been replaced with a **more recent version of the runtime ([Azure Synapse Runtime for Apache Spark 3.4 (GA)](/azure/synapse-analytics/spark/apache-spark-34-runtime).**
 * On July 29, 2022, we announced that Azure Synapse Runtime for Apache Spark 2.4 would become deprecated as of September 29, 2023.
 
 * Post September 29, 2023, support ended. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk.
