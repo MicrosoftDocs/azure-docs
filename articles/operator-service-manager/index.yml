@@ -82,6 +82,18 @@ landingContent:
             url: troubleshoot-cli-common-issues.md
 
   # Card
+  - title: Safe Upgrade Practices
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Get started with safe upgrades
+            url: safe-upgrade-practices.md
+      - linkListType: concept
+        links:
+          - text: NF level rollback
+            url: safe-upgrades-nf-level-rollback.md
+            
+  # Card
   - title: Additional Resources
     linkLists:
       - linkListType: architecture
