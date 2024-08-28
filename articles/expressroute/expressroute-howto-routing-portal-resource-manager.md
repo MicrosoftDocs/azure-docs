@@ -86,7 +86,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 1. Configure Microsoft peering. **Save** the configuration once you've specified all parameters. The following image shows an example configuration:
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
+   Replace with an image that does not include Public IP Prefix from another company (This one has Equinix Public IP Prefix)
 
     > [!IMPORTANT]
     > Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
@@ -108,7 +108,7 @@ You can view the properties of Microsoft peering by selecting the row for the pe
 
 You can select the row for the peering that you want to modify, then modify the peering properties and save your modifications.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png" alt-text="Screenshot showing how to update Microsoft peering configuration.":::
+Replace with an image that does not include Public IP Prefix from another company (This one has Equinix Public IP Prefix)
 
 ## <a name="private"></a>Azure private peering
 
