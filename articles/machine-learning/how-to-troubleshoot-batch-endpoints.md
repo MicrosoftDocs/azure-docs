@@ -208,7 +208,7 @@ During script execution for batch deployment, if the `init()` or `run()` functio
 
 ### ValueError: No objects to concatenate
 
-For batch deployment to succeed, each file in a mini-batch must be valid and implement a supported file type. Keep in mind that MLflow models support only a subset of file types. For more information, see [Considerations when deploying to batch inference](how-to-mlflow-batch.md?#considerations-when-deploying-to-batch-inference).
+For batch deployment to succeed, each file in a mini-batch must be valid and implement a supported file type. Keep in mind that MLflow models support only a subset of file types. For more information, see [Considerations when deploying to batch inference](how-to-mlflow-batch.md#review-considerations-for-batch-inference).
 
 **Message logged**: "ValueError: No objects to concatenate."
 
@@ -222,7 +222,7 @@ For batch deployment to succeed, each file in a mini-batch must be valid and imp
    
    1. Look for entries that describe the file input failure, such as "ERROR:azureml:Error processing input file."
    
-   If the file type isn't supported, review the list of supported files. You might need to change the file type of the input data, or customize the deployment by providing a scoring script. For more information, see [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#customizing-mlflow-models-deployments-with-a-scoring-script).
+   If the file type isn't supported, review the list of supported files. You might need to change the file type of the input data, or customize the deployment by providing a scoring script. For more information, see [Using MLflow models with a scoring script](how-to-mlflow-batch.md#customize-model-deployment-with-scoring-script).
 
 ### No succeeded mini-batch
 

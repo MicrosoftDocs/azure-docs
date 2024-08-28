@@ -16,7 +16,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 ## Prerequisites 
 
 - An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
-- An existing [Virtual Machine](../virtual-machines/windows/quick-create-portal.md)
+- An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.

@@ -68,7 +68,24 @@ Publishing locations for individual SDK packages:
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
-- **Android Auto (AAOS)** and **IoT devices running Android** are currently not supported
+
+##### Android platform support
+
+The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the Android platforms currently available:
+
+| Devices                | Description                                                                              | Support          |
+| -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
+| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Fully support with [the video resolution](./voice-video-calling/calling-sdk-features.md?#supported-video-resolutions).       |
+| TV apps or gaming    |  Apps running running [Android TV](https://developer.android.com/tv), optimized for the TV experience, focused on streaming services and gaming.               |Audio-only support        |
+| Smartwatches or wearables devices | Simple user interface and lower power consumption, designed to operate on small screens with limited hardware, using [Wear OS](https://wearos.google.com/). |Audio-only support        |
+| Automobile              | Car head units running [Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive).                     |Audio-only support        |
+| Mirror auto applications          | Apps that allow driver to mirror their phone to a car’s built-in screens, running [Android Auto](https://www.android.com/auto/).          | Audio-only support        |
+| Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     |Audio-only support        |
+
+> [!NOTE]
+> We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
+
+In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#accessing-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 
@@ -133,7 +150,7 @@ In the future we may retire versions of the Communication Services SDKs, and we 
 
 **You've integrated the v24 version of the SMS REST API into your application. Azure Communication releases v25.**
 
-You'll get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
+You get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
