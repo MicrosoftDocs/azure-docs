@@ -4,9 +4,8 @@ description: Learn how to prepare Linux in Azure Container Storage enabled by Az
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.custom: linux-related-content
+ms.custom: linux-related-content, references_regions
 ms.date: 08/26/2024
-ms.custom: references_regions
 
 ---
 

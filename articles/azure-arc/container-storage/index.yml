@@ -22,17 +22,25 @@ landingContent:
         links:
           - text: Install Extension
             url: install-edge-volumes.md
+          - text: Install Cache Volumes
+            url: install-cache-volumes.md
+  - title: Resources
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: FAQ and release notes
+            url: release-notes.md
+          - text: Support and feedback
+            url: support-feedback.md
   - title: Get started
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Prepare Linux
-            url: prepare-linux.md
-          - text: Install Extension
-            url: install-cache-volumes.md
-          - text: Create a persistent volume
-            url: create-pv.md
-          - text: Create a persistent volume claim
-            url: create-pvc.md
-          - text: Attach your application
-            url: attach-app.md
+          - text: Install Edge Volumes
+            url: install-edge-volumes.md
+          - text: Local shared Edge Volumes
+            url: local-shared-edge-volumes.md
+          - text: Cloud Ingest Edge Volumes configuration
+            url: cloud-ingest-edge-volume-configuration.md
+          - text: Monitor deployment
+            url: monitor-deployment-edge-volumes.md
