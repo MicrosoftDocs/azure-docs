@@ -110,7 +110,7 @@ $contentUri = New-AzStorageBlobSASToken @tokenParams
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Sign a custom machine configuration package](./5-sign-package.md)
+> [Sign a custom machine configuration package](./6-sign-package.md)
 
 <!-- Reference link definitions -->
 [01]: ../../overview.md
