@@ -57,7 +57,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     > If you're using access policies with your key vault, considering
     > [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
     >
-    > If you receive error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
+    > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
     > service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your 
     > certificate may have missed the Data Encipherment usuage and you may need to re-create the certificate with the Data 
     > Encipherment usage included. 
