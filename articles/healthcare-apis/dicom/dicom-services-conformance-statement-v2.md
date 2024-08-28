@@ -30,7 +30,7 @@ The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Stan
   * [Request Cancellation](#request-cancellation)
   * [Search Workitems](#search-workitems)
 
-Additionally, these nonstandard API(s) are supported:
+Additionally, these nonstandard APIs are supported:
 
 * [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
@@ -69,11 +69,11 @@ This transaction uses the POST or PUT method to store representations of studies
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
-The following `Accept` header(s) for the response are supported:
+The following `Accept` headers for the response are supported:
 
 * `application/dicom+json`
 
-The following `Content-Type` header(s) are supported:
+The following `Content-Type` headers are supported:
 
 * `multipart/related; type="application/dicom"`
 * `application/dicom`
@@ -120,7 +120,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported.                                                                                                                                                                     |
 | `409 (Conflict)`               | None of the instances in the store transaction request were stored.                                                                                                                                                |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported.                                                                                                                                                                       |
-| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)`      | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
@@ -400,7 +400,7 @@ When specifying a particular frame to return, frame indexing starts at 1.
 The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) might be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve original version
-Using the [bulk update](update-files.md) operation allows you to retrieve either the original or latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default.  The original version might be returned by setting the `msdicom-request-original` header to `true`.  Here is an example request:
+Using the [bulk update](update-files.md) operation allows you to retrieve either the original or latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default.  The original version might be returned by setting the `msdicom-request-original` header to `true`.  Here's an example request:
 
 ```http
 GET ../studies/{study}/series/{series}/instances/{instance}
@@ -414,13 +414,13 @@ Content-Type: application/dicom
 | Code | Description |
 | -------------------------- | ------------------------------------------------------- |
 | `200 (OK)` | All requested data was retrieved. |
-| `304 (Not Modified)` | The requested data is unchanged since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| `304 (Not Modified)` | The requested data is unchanged since the last request. Content isn't added to the response body in such case. For more information, see the preceding section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
 | `400 (Bad Request)` | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
 | `404 (Not Found)` | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data. |
 | `406 (Not Acceptable)` | The specified `Accept` header isn't supported, or for rendered and transcodes requests the file requested was too large. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)
@@ -454,7 +454,7 @@ An attribute can be corrected in the following ways.
 
 The following parameters for each query are supported:
 
-| Key              | Support Value(s)          | Allowed Count | Description |
+| Key              | Support Values          | Allowed Count | Description |
 | ---------------- | ------------------------- | ------------- |------------------------------------------------- |
 | `{attributeID}=` | `{value}`                 | 0...N         | Search for attribute/ value matching in query |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N         | The other attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all` |
@@ -492,7 +492,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | ----------- | ------------------- | -------------------------------------------------------------- |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value |
 
@@ -613,7 +613,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 ### Notes
@@ -654,7 +654,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
 | `404 (Not Found)` | When the specified series wasn't found within a study or the specified instance wasn't found within the series. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 ### Delete response payload
@@ -715,7 +715,7 @@ found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | `403 (Forbidden)` | The user isn't authorized. |
 | `409 (Conflict)` | The Workitem already exists. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Create response payload
@@ -756,7 +756,7 @@ The request payload might include Action Information as [defined in the DICOM St
 | `404 (Not Found)` | The Target Workitem wasn't found. |
 | `409 (Conflict)` | The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the `SCHEDULED` or `COMPLETED` state. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
-| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)`      | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Request cancellation response payload
@@ -771,7 +771,7 @@ This transaction retrieves a Workitem. It corresponds to the UPS DIMSE N-GET ope
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.5
 
-If the Workitem exists on the origin server, the Workitem will be returned in an Acceptable Media Type. The returned Workitem will not contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve this Attribute's role as an access lock.
+If the Workitem exists on the origin server, the Workitem is returned in an Acceptable Media Type. The returned Workitem won't contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve the Attribute's role as an access lock.
 
 | Method | Path                    | Description                    |
 | ------ | ----------------------- | ------------------------------ |
@@ -788,7 +788,7 @@ The `Accept` header is required and must have the value `application/dicom+json`
 | 401 (Unauthorized) | The client isn't authenticated. |
 | 403 (Forbidden) | The user isn't authorized. |
 | 404 (Not Found) | The Target Workitem wasn't found. |
-| 424 (Failed Dependency)   | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| 424 (Failed Dependency)   | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | 503 (Service Unavailable) | The service is unavailable or busy. Try again later. |
 
 #### Retrieve Workitem response payload
@@ -833,14 +833,14 @@ found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | `404 (Not Found)` | The Target Workitem wasn't found. |
 | `409 (Conflict)` | The request is inconsistent with the current state of the Target Workitem. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Update Workitem transaction response payload
 
-The origin server will support header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
+The origin server supports header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
 
-A success response will have either no payload, or a payload containing a Status Report document.
+A success response has either no payload, or a payload containing a Status Report document.
 
 A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
@@ -850,7 +850,7 @@ This transaction is used to change the state of a Workitem. It corresponds to th
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7
 
-If the Workitem exists on the origin server, the Workitem will be returned in an Acceptable Media Type. The returned Workitem will not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
+If the Workitem exists on the origin server, the Workitem is returned in an Acceptable Media Type. The returned Workitem won't contain the Transaction UID (0008,1195) attribute. This is necessary to preserve the Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
 
 | Method | Path                          | Description           |
 | ------ | ----------------------------- | --------------------- |
@@ -858,9 +858,9 @@ If the Workitem exists on the origin server, the Workitem will be returned in an
 
 The `Accept` header is required, and must have the value `application/dicom+json`.
 
-The request payload will contain the Change UPS State Data Elements. These data elements are as follows.
+The request payload contains the Change UPS State Data Elements. These data elements are as follows.
 
-* **Transaction UID (0008, 1195)**. The request payload will include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
+* **Transaction UID (0008, 1195)**. The request payload includes a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
 * **Procedure Step State (0074, 1000)**. The legal values correspond to the requested state transition. These are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
 
 #### Change Workitem state response status codes
@@ -873,13 +873,13 @@ The request payload will contain the Change UPS State Data Elements. These data 
 | `403 (Forbidden)` | The user isn't authorized. |
 | `404 (Not Found)` | The Target Workitem wasn't found. |
 | `409 (Conflict)` | The request is inconsistent with the current state of the Target Workitem. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption.    |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption.    |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Change Workitem state response payload
 
 * Responses include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
-* A success response will have no payload.
+* A success response has no payload.
 * A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
 ### Search Workitems
@@ -932,7 +932,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | ----------- | ------------------- | ------------------------------------ |
-| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
+| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
@@ -973,7 +973,7 @@ The query API returns one of the following status codes in the response:
 | `400 (Bad Request)` | There was a problem with the request. For example, invalid Query Parameter syntax. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
-| `424 (Failed Dependency)` | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
+| `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Additional notes
