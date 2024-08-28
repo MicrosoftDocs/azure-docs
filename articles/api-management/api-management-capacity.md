@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to detect use of system capacity, helping you make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
+API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to detect use of system capacity, helping you troubleshoot gateway problems and make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
 
 This article explains the capacity metrics and how they behave, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
 
@@ -40,8 +40,12 @@ In the v2 tiers, the following metrics are available:
 
 * **Memory Percentage of Gateway** - The percentage of memory used by the gateway units.
 
-[!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
+Available aggregations for these metrics are as follows.
 
+    * **Avg** - Average percentage of gateway capacity consumed across every [unit](upgrade-and-scale.md) of an API Management instance. 
+    * **Max** - Percentage of gateway capacity of the process with the greatest consumption.  
+
+[!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
 
 #### [Classic tiers](#tab/classic)
 
@@ -57,10 +61,6 @@ Total **capacity** is an average of its own values from every [unit](upgrade-and
 
 [!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
 
-Total **capacity** is an average of its own values from every [unit](upgrade-and-scale.md) of an API Management instance.
-
-Although the **capacity metric** is designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in the **capacity metric**.
-
 ---
 
 ## Capacity metric behavior
@@ -71,7 +71,7 @@ In real life capacity metrics can be impacted by many variables, for example:
 + size of a request and response
 + policies configured on each API or number of clients sending requests.
 
-The more complex operations on the requests are, the higher the capacity consumption will be. For example, complex transformation policies consume much more CPU than a simple request forwarding. Slow backend service responses will increase it, too.
+The more complex operations on the requests are, the higher the capacity consumption is. For example, complex transformation policies consume much more CPU than a simple request forwarding. Slow backend service responses increase it, too.
 
 > [!IMPORTANT]
 > Capacity metrics are not direct measures of the number of requests being processed.
@@ -79,6 +79,8 @@ The more complex operations on the requests are, the higher the capacity consump
 ![Capacity metric spikes](./media/api-management-capacity/capacity-spikes.png)
 
 Capacity metrics can also spike intermittently or be greater than zero even if no requests are being processed. It happens because of system- or platform-specific actions and should not be taken into consideration when deciding whether to scale an instance.
+
+Although capacity metrics are designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in these metrics.
 
 Low capacity metrics don't necessarily mean that your API Management instance isn't experiencing any problems.
 
@@ -125,8 +127,8 @@ Use capacity metrics for making decisions whether to scale an API Management ins
 
 + Look at a long-term trend and average.
 + Ignore sudden spikes that are most likely not related to an increase in load (see [Capacity metric behavior](#capacity-metric-behavior) section for explanation).
-+ As a general rule, upgrade or scale your instance when the **capacity** value exceeds **60% - 70%** for a long period of time (for example, 30 minutes). Different values may work better for your service or scenario.
-+ If your instance is configured with only 1 unit, upgrade or scale your instance when the **capacity** value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
++ As a general rule, upgrade or scale your instance when a capacity metric value exceeds **60% - 70%** for a long period of time (for example, 30 minutes). Different values may work better for your service or scenario.
++ If your instance is configured with only 1 unit, upgrade or scale your instance when a capacity metric value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
 
 >[!TIP]  
 > If you are able to estimate your traffic beforehand, test your API Management instance on workloads you expect. You can increase the request load on your tenant gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
