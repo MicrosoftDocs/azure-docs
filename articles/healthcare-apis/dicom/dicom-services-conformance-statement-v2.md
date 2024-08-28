@@ -69,7 +69,7 @@ This transaction uses the POST or PUT method to store representations of studies
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
-The following `Accept` headers for the response are supported:
+The following is the only response `Accept` header supported:
 
 * `application/dicom+json`
 
@@ -440,7 +440,7 @@ Query based on ID for DICOM Objects (QIDO) enables you to search for studies, se
 | GET                    | ../studies/{study}/instances?...                 | Search for instances in a study  |
 | GET                    | ../studies/{study}/series/{series}/instances?... | Search for instances in a series |
 
-The following `Accept` headers are supported for searching:
+The following is the only `Accept` header supported for searching:
 
 * `application/dicom+json`
 
@@ -892,7 +892,7 @@ This transaction enables you to search for Workitems by attributes.
 | :----- | :------------ | :------------------- |
 | GET    | ../workitems? | Search for Workitems |
 
-The following `Accept` headers are supported for searching:
+The following is the only `Accept` header supported for searching:
 
 * `application/dicom+json`
 
@@ -937,7 +937,7 @@ We support these matching types:
 | Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
 | Exact Match | All supported attributes                   | `{attributeID}={value1}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Fuzzy Match | `PatientName`                              | Matches any component of the name that starts with the value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| WildCard Match | `PatientID`, <br/> `ReferencedRequestSequence.AccessionNumber`, <br/> `ReferencedRequestSequence.RequestedProcedureID`, <br/> `ProcedureStepState`, <br/> `ScheduledStationNameCodeSequence.CodeValue`, <br/> `ScheduledStationClassCodeSequence.CodeValue`, <br/> `ScheduledStationGeographicLocationCodeSequence.CodeValue`                              | Following wildcard characters are supported - <br/> `*` - Matches zero or more characters. For example - `{attributeID}={val*}` matches "val", "valid", "value" but not "evaluate". <br/> `?` - Matches a single character. For example - `{attributeID}={valu?}` matches "value", "valu1" but not "valued" or "valu"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| WildCard Match | `PatientID`, <br/> `ReferencedRequestSequence.AccessionNumber`, <br/> `ReferencedRequestSequence.RequestedProcedureID`, <br/> `ProcedureStepState`, <br/> `ScheduledStationNameCodeSequence.CodeValue`, <br/> `ScheduledStationClassCodeSequence.CodeValue`, <br/> `ScheduledStationGeographicLocationCodeSequence.CodeValue`                              | Following wildcard characters are supported: <br/> `*` - Matches zero or more characters. For example - `{attributeID}={val*}` matches "val", "valid", "value" but not "evaluate". <br/> `?` - Matches a single character. For example - `{attributeID}={valu?}` matches "value", "valu1" but not "valued" or "valu"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 > [!NOTE]
 > Although we don't support full sequence matching, we do support exact match on the attributes listed that are contained in a sequence.
