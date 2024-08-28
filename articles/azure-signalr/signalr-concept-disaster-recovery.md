@@ -98,7 +98,7 @@ You can configure multiple primary or secondary instances. If there are multiple
 :::zone-end
 :::zone pivot="serverless-mode"
 
-### For SignalR Functions extensions
+### For Azure Functions SignalR bindings
 
 To enable multiple SignalR Service instances, you should:
 
@@ -117,7 +117,7 @@ To enable multiple SignalR Service instances, you should:
 
 2. Configure multiple SignalR Service endpoints entries in your configuration.
 
-    We use a [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) object to represent a SignalR Service instance. You can define an service endpoint with its `<EndpointName>` and `<EndpointType>` in the entry key, and the connection string in the entry value. The keys are in the following format :
+    We use a [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) object to represent a SignalR Service instance. You can define a service endpoint with its `<EndpointName>` and `<EndpointType>` in the entry key, and the connection string in the entry value. The keys are in the following format :
 
     ```
     Azure:SignalR:Endpoints:<EndpointName>:<EndpointType>

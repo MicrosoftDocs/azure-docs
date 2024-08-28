@@ -277,7 +277,7 @@ To enable multiple SignalR Service instances, you should:
 
 2. Configure multiple SignalR Service endpoints entries in your configuration.
 
-    We use a [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) object to represent a SignalR Service instance. You can define an service endpoint with its `<EndpointName>` and `<EndpointType>` in the entry key, and the connection string in the entry value. The keys are in the following format :
+    We use a [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) object to represent a SignalR Service instance. You can define a service endpoint with its `<EndpointName>` and `<EndpointType>` in the entry key, and the connection string in the entry value. The keys are in the following format:
 
     ```
     Azure:SignalR:Endpoints:<EndpointName>:<EndpointType>
@@ -313,9 +313,9 @@ By default, the functions binding uses the [DefaultEndpointRouter](https://githu
 ##### C# in-process model
 
 Here are the steps:
-* Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that Http trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
+1. Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that Http trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
 
-* Register the router to DI container.
+1. Register the router to DI container.
 ```cs
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Azure.SignalR;
@@ -339,7 +339,7 @@ namespace SimpleChatV3
 For functions running on isolated-process model, we support specifying target endpoints in each request. You will use new binding types to get endpoint information.
 
 ###### Client routing
-The `SignalRConnectionInfo` binding selects one endpoint according the default routing rule. If you want to customize routing rule, you should use `SignalRNegotiation` binding instead of `SignalRConnectionInfo` binding.
+The `SignalRConnectionInfo` binding selects one endpoint according to the default routing rule. If you want to customize routing rule, you should use `SignalRNegotiation` binding instead of `SignalRConnectionInfo` binding.
 
 `SignalRNegotiation` binding configuration properties are the same as `SignalRConnectionInfo`. Here's a `function.json` file sample:
 ```json
@@ -468,11 +468,11 @@ By default, the SDK uses the [DefaultEndpointRouter](https://github.com/Azure/az
 
 #### Default behavior
 
-1. Client request routing:
+* Client request routing:
 
     When client `/negotiate` with the app server. By default, SDK **randomly selects** one endpoint from the set of available service endpoints.
 
-2. Server message routing:
+* Server message routing:
 
     When sending a message to a specific *connection* and the target connection is routed to the current server, the message goes directly to that connected endpoint. Otherwise, the messages are broadcasted to every Azure SignalR endpoint.
 
@@ -569,4 +569,4 @@ When no `primary` endpoint is available, the client's `/negotiate` picks from th
 You can use multiple endpoints in high availability and disaster recovery scenarios.
 
 > [!div class="nextstepaction"]
-> [Setup SignalR Service for disaster recovery and high availability](./signalr-concept-disaster-recovery.md)
+> [Set up SignalR Service for disaster recovery and high availability](./signalr-concept-disaster-recovery.md)
