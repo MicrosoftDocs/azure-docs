@@ -1,6 +1,6 @@
 ---
 title: 'Deploy Azure Static Web Apps with Bicep'
-description: Deploy Azure Static Web Apps using Bicep including resource creation and configuration. Link your own Azure Functions app to support your static web app.
+description: Deploy Azure Static Web Apps using Bicep, and optionally link an existing Azure Functions app as the backend to your static web app.
 services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
@@ -16,19 +16,12 @@ You can use a Bicep file to create an instance of Azure Static Web Apps. Bicep p
 
 The steps in this article show you how to use Bicep to create a resource group and a Static Web Apps instance. After your static web app is created you still need to deploy your code using the typical methods of GitHub Actions, or using Azure Pipelines.
 
-## Resource creation tools
-
- Bicep is one of several tools you can use to create resources in Azure. These tools include:
+You can use Bicep along with Azure Verified Modules (AVM) to deploy your static web apps.
 
 | Tool | Description |
 |---|---|
-| [Azure Resource Manager (ARM)](/azure/azure-resource-manager/) | To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. This older style is still in use. |
-| [Bicep](/azure/azure-resource-manager/Bicep/) | Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse. |
-| [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules) | These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVM when possible because it consolidates and set the standards for what a good infrastructure as code module looks like. |
-| [Azure CLI](/cli/azure/)/[PowerShell](/powershell) | These command line apps allow you to create resources. Bicep and AVM are often used in favor of these tools, but are still used for minor or quick fixes while the larger Bicep update might be more time-consuming. Learn to [create resources with the Azure CLI and a Bicep file](/azure/azure-resource-manager/bicep/deploy-cli#deploy-local-bicep-file). |
-| [Azure portal](https://portal.azure.com/) | Azure portal is a web-based visual interface for resource creation and configuration. |
-
-You can create and configure resources using any of the listed tools. 
+| [Bicep](/azure/azure-resource-manager/Bicep/) | Bicep is a domain-specific language (DSL) that uses a declarative syntax to deploy Azure resources. Bicep provides concise syntax, reliable type safety, and support for code reuse. |
+| [Azure verified modules (AVM)](https://azure.github.io/Azure-Verified-Modules) | These modules represent the only standard from Microsoft for Bicep modules in the [Bicep Public Registry](https://github.com/Azure/bicep-registry-modules/tree/main/avm). Use AVMs when possible as they represent best practices for infrastructure as code. |
 
 ## Verified modules
 
@@ -143,7 +136,7 @@ Now that your Azure Static Web Apps instance is created, you can deploy your sou
 
 - [Azure Developer CLI (Recommended)](/azure/developer/azure-developer-cli)
 - [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)
-- [GitHub Action](https://docs.github.com/actions)
+- [GitHub Actions](https://docs.github.com/actions)
 - [Azure Pipelines](/azure/devops/pipelines/overview-azure)
 
 - **Local development environment**: Use [Azure Developer CLI](/azure/developer/azure-developer-cli) to deploy from your local machine. When running locally, you define your deployment in an `azure.yml` file. This file includes hooks that plug into the resource creation process at any point. These extensibility points help you during deployment, especially when different parts of your app need to know about each other at build time.
