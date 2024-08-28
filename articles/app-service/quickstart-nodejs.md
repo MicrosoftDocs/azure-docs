@@ -134,7 +134,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 # [Deploy to Windows](#tab/windows)
 
-2. Right-click App **Services** and select **Create new Web App... Advanced**.
+2. Right-click **App Services** and select **Create new Web App... Advanced**.
 1. Type a globally unique name for your web app and select **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-'). See [the note at start of this article](#dnl-note).
 1. Select **Create a new resource group**, and then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An LTS version is recommended.
