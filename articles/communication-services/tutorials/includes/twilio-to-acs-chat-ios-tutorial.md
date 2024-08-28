@@ -2,7 +2,7 @@
 title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat iOS
 description: Guide describes how to migrate iOS apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
-ms.date: 07/22/2024
+ms.date: 08/28/2024
 ms.topic: include
 author: RinaRish
 ms.author: ektrishi
@@ -13,10 +13,10 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-1. **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
-2. **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
-3. **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
-4. **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
+- **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
+- **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
+- **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
+- **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"

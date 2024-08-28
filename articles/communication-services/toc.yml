@@ -422,6 +422,9 @@ items:
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
+          - name: How to migrate from Twilio Conversations Chat to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-chat.md
+          displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS

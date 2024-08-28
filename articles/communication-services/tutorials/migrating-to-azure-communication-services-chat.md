@@ -6,7 +6,7 @@ author: RinaRish
 services: azure-communication-services
 
 ms.author: ektrishi
-ms.date: 07/22/2024
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: chat

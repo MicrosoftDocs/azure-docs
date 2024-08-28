@@ -2,7 +2,7 @@
 title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat C#
 description: Guide describes how to migrate C# apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
-ms.date: 07/22/2024
+ms.date: 08/28/2024
 ms.topic: include
 author: RinaRish
 ms.author: ektrishi
@@ -13,10 +13,10 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-3. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
-4. A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). Record your resource **endpoint and connection string**.
+- A [User Access Token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"

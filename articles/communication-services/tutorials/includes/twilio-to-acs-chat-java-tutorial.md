@@ -2,7 +2,7 @@
 title: Migrating from Twilio Conversations Chat to Azure Communication Services Chat Java
 description: Guide describes how to migrate Java apps from Twilio Conversations Chat to Azure Communication Services Chat SDK. 
 services: azure-communication-services
-ms.date: 07/22/2024
+ms.date: 08/28/2024
 ms.topic: include
 author: RinaRish
 ms.author: ektrishi
