@@ -153,7 +153,7 @@ Use the following ARM template to create a DCR for collecting text log files, ma
                 "description": "Unique name for the DCR. "
             }
         },
-        "dceResourceId": {
+        "dataCollectionEndpointResourceId": {
             "type": "string",
             "metadata": {
               "description": "Resource ID of the data collection endpoint (DCE)."
@@ -194,7 +194,7 @@ Use the following ARM template to create a DCR for collecting text log files, ma
             "name": "[parameters('dataCollectionRuleName')]",
             "location": "[parameters('location')]",
             "properties": {
-                "dataCollectionEndpointId": "[parameters('dceResourceId')]",
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
                     "Custom-Json-stream": {
                         "columns": [
