@@ -110,7 +110,8 @@ To send app-level metrics to Log Analytics:
 Replace \<PLACEHOLDERS\> with your values:
 
 ```azurecli
-az monitor diagnostic-settings create --name "AllMetricsToLogAnalytics" \
+az monitor diagnostic-settings create \
+--name "AllMetricsToLogAnalytics" \
 --resource <APP_ARM_RESOURCE_ID> \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --workspace <LOG_ANALYTICS_ARM_RESOURCE_ID>
