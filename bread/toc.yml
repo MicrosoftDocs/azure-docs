@@ -143,9 +143,9 @@ items:
     - name: Arc-enabled servers
       tocHref: /azure/azure-arc/servers/
       topicHref: /azure/azure-arc/servers/
-    - name: Edge Storage Accelerator
-      tocHref: /azure/azure-arc/edge-storage-accelerator/
-      topicHref: /azure/azure-arc/edge-storage-accelerator/index
+    - name: Azure Container Storage enabled by Azure Arc
+      tocHref: /azure/azure-arc/container-storage/
+      topicHref: /azure/azure-arc/container-storage/index
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
