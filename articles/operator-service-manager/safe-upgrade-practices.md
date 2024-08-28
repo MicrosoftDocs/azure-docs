@@ -14,15 +14,21 @@ This article introduces Azure Operator Service Manager (AOSM) safe upgrade pract
 
 ## What Are Safe Upgrade Practices 
 
-A given network service supported by Azure Operator Service Manager will be composed of one-to-many container-based network functions (CNFs) which, over time, will require frequent software updates. For each CNF update, it is necessary to run one-to-many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service. At Azure Operator Service Manager, Safe Upgrade Practices represents a set of features, which can automate the CNF operations required to update a network service on Azure Operator Nexus.
+A given network service supported by Azure Operator Service Manager will be composed of one-to-many container-based network functions (CNFs) which, over time, will require  software updates. For each  update, it is necessary to run one-to-many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service. At Azure Operator Service Manager, Safe Upgrade Practices represents a set of features, which can automate the CNF operations required to update a network service on Azure Operator Nexus.
   
-![iFigre 1 - Overview Of Current Features](media/safe-upgrades-current-features.png)
+* SNS Reput update - Execute helm upgrade operation across all NfApps in NFDV.
+* Nexus Platform - Support SNS reput operations on Nexus platform targets. 
+* Operation Timeouts - Ability to set operational timeouts for each NfApp operation.
+* Synchronous Operations - Ability to run one serial NfApp operation at a time.
+* Pause-On-Failure - Based on flag, set failure behavior to rollback only last NfApp operation.
+* Single Chart Test Validation - Running a helm test operation after a create or update.
+* Refactored SNS Re-put - Improved methods, adds update order and cleanup check.
 
 ## Safe Upgrade Practices Overview
 
 To update an existing Azure Operator Service Manager site network service (SNS), the Operator executes a reput update request against the deployed SNS resource. Where the SNS contains CNFs with multiple NfApps, the request is fanned out across all NfApps defined in the network function definition version (NFDV). By default, in the order, which they appear, or optionally in the order defined by UpdateDependsOn parameter.
 
-For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. When processing each NfApp, the reput update applies the following logic:
+For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
 
 * For an NFApp with applicationEnablement set to false, skip.
 * For an NFApp, which is common between old and new network function definition version (NFDV), trigger upgrade component.
@@ -39,11 +45,11 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
   - New NFDV and network service design version (NSDV) are needed, under existing NFDg and NSDg.
     - We cover basic changes to the NFDV in the step-by-step section.
     - New NSDV is only required if a new configuration group schema (CGS) version is being introduced.
-  - If neccesary, new CGS.
+  - If necessary, new CGS.
     - Required if an upgrade introduces new exposed configuration parameters. 
 
 - Create updated artifacts using Operator workflow.
-  - If neccesary, create new configuration group values (CGVs) based on new CGS.
+  - If necessary, create new configuration group values (CGVs) based on new CGS.
   - Reuse and craft payload by confirming the existing site and site network service objects.
 
 - Update templates to ensure that upgrade parameters are set based on confidence in the upgrade and desired failure behavior.
@@ -54,7 +60,7 @@ Follow the following process to trigger an upgrade with Azure Operator Service M
 
 #### Create new NFDV template with higher version.
 
-When selecting a new NFDV version, it must be a valid SemVer format, where only incrementing values of patch and minor versions updates are allowed. A lower NFDV version is not allowed. Given a CNF deployed using NFDV 2.0.0, the new NFDV can be of version 2.0.1, or 2.1.0, but not 1.0.0, or 3.0.0. 
+For new NFDV versions, it must be a valid SemVer format, where only incrementing values of patch and minor versions updates are allowed. A lower NFDV version is not allowed. Given a CNF deployed using NFDV 2.0.0, the new NFDV can be of version 2.0.1, or 2.1.0, but not 1.0.0, or 3.0.0. 
 
 #### Update new NFDV Helm parameters to desired target version.
 
@@ -62,7 +68,7 @@ Helm chart versions can be updated, or Helm values can be updated or parameteriz
 
 #### Update NFDV for desired NfApp order using UpdateDependsOn
 
-UpdateDependsOn is a NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
+UpdateDependsOn is an NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
 
 #### Update NFDV roleOverrideValues for desired upgrade behavior.
 
@@ -86,7 +92,7 @@ Resolve the root cause for NfApp failure by analyzing logs and other debugging i
 
 #### Manually skip completed charts using applicationEnablement parameter.
 
-After fixing the failed NfApp, but before attempting an upgrade retry, consider changing the applicationEnablement parameter to accelerate retry behavior. This parameter can be set false, where an NfApp should be skipped. This parameter can be usefuel where an NfApp does not require an upgraded. See the appendix for more information on manipulating the applicationEnablement flag.
+After fixing the failed NfApp, but before attempting an upgrade retry, consider changing the applicationEnablement parameter to accelerate retry behavior. This parameter can be set false, where an NfApp should be skipped. This parameter can be useful where an NfApp does not require an upgraded. See the appendix for more information on manipulating the applicationEnablement flag.
 
 #### Issue SNS Re-Put retry (repeat until success)
 
@@ -98,14 +104,14 @@ Azure Operator Service Manager continues to grow the Safe Upgrade Practice featu
 
 * Improve Upgrade Options Control - Expose parameters more effectively.
 * Skip NfApp on No Change - Skip processing of NfApps where no changes result.
-* Exeute NFDV Rollback On Failure - Based on flag, rollback all completed NfApps on failure.
+* Execute NFDV Rollback On Failure - Based on flag, rollback all completed NfApps on failure.
 * Operate Asynchronously - Ability to run multiple NfApp operations at a time.
 * Download Images- Ability to preload images to edge repository.
 * Target Charts for Validation - Ability to run a helm test only on a specific NfApp.
 
 ## Appendix A - Using applicationEnablement
 
-In the NFDV resource, under deployParametersMappingRuleProfile there is the property applicationEnablement of type enum, which take values: Unknown, Enabled, or disabled. It can be used to exclude NfApp operations during NF deployment.
+In the NFDV resource, under deployParametersMappingRuleProfile there is the property applicationEnablement of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude NfApp operations during NF deployment.
 
 ### Publisher
 
