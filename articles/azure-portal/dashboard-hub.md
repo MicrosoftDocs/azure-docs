@@ -1,15 +1,15 @@
 ---
 title: Create and manage dashboards in Dashboard hub
-description: This article describes how to create and customize a dashboard in Dashboard Hub in the Azure portal.
+description: This article describes how to create and customize a shared dashboard in Dashboard hub in the Azure portal.
 ms.topic: how-to
-ms.date: 08/27/2024
+ms.date: 08/28/2024
 ---
 
 # Create and manage dashboards in Dashboard hub (preview)
 
-Dashboards are a focused and organized view of your cloud resources in the Azure portal. The new Dashboard hub (preview) experience offers editing features such as tabs, a rich set of tiles with support for different data sources, and support in the Azure mobile app.
+Dashboards are a focused and organized view of your cloud resources in the Azure portal. The new Dashboard hub (preview) experience offers editing features such as tabs, a rich set of tiles with support for different data sources, and dashboard access in the latest version of the Azure mobile app.
 
-Currently, Dashboard Hub can only be used to create and manage shared dashboards. These shared dashboards are implemented as Azure resources in your subscription and are visible to all users who have subscription-level access.
+Currently, Dashboard hub can only be used to create and manage shared dashboards. These shared dashboards are implemented as Azure resources in your subscription. They're visible in the Azure portal or the Azure mobile app to all users who have subscription-level access.
 
 > [!IMPORTANT]
 > Dashboard hub is currently in PREVIEW.
@@ -135,7 +135,7 @@ If your dashboard includes the **Metrics** tile, the default parameters are **Ti
 
 :::image type="content" source="media/dashboard-hub/dashboard-hub-parameters.png" alt-text="Screenshot of the Manage parameters pane in the Dashboard hub in the Azure portal.":::
 
-To edit a parameter, select the pencil icon. 
+To edit a parameter, select the pencil icon.
 
 To add a new parameter, select **Add**, then configure the parameter as desired.
 
@@ -175,6 +175,6 @@ Azure role-based access control (Azure RBAC) lets you assign users to roles at d
 
 For example, users who have the **Owner** or **Contributor** role for a subscription can list, view, create, modify, or delete dashboards within the subscription. Users with a custom role that includes the `Microsoft.Portal/Dashboards/Write` permission can also perform these tasks.
 
-Users with the **Reader** role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read permission`) can list and view dashboards within that subscription, but they can't modify or delete them. These users can make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server.
+Users with the **Reader** role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read permission`) can list and view dashboards within that subscription, but they can't modify or delete them. These users can make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server. These users can also view these dashboards in the Azure mobile app.
 
 To expand access to a dashboard beyond the access granted at the subscription level, you can assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user has limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as Contributor) for that dashboard only.
