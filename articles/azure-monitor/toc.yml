@@ -1000,13 +1000,6 @@ items:
                 href: logs/delete-workspace.md
           - name: Replicate workspace across regions
             href: logs/workspace-replication.md          
-          - name: Manage access
-            displayName: Manage access to a Log Analytics workspace
-            href: logs/manage-access.md
-          - name: Change pricing tier
-            href: logs/change-pricing-tier.md
-          - name: Set a daily cap
-            href: logs/daily-cap.md
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:
