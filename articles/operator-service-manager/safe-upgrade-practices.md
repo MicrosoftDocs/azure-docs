@@ -56,37 +56,37 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 - Update templates to ensure that upgrade parameters are set based on confidence in the upgrade and desired failure behavior.
   - Settings used for production may suppress failures details, while settings used for debugging, or testing, may choose to expose these details.
 
-### Step by step upgrade procedure
+## Step by step upgrade procedure
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
-#### Create new NFDV template
+### Create new NFDV template
 For new NFDV versions, it must be in a valid SemVer format, where only higher incrementing values of patch and minor versions updates are allowed. A lower NFDV version is not allowed. Given a CNF deployed using NFDV 2.0.0, the new NFDV can be of version 2.0.1, or 2.1.0, but not 1.0.0, or 3.0.0. 
 
-#### Update new NFDV parameters
+### Update new NFDV parameters
 Helm chart versions can be updated, or Helm values can be updated or parameterized as necessary. New NfApps can also be added where they did not exist in deployed version.
 
-#### Update NFDV for desired NfApp order
+### Update NFDV for desired NfApp order
 UpdateDependsOn is an NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
 
-#### Update NFDV for desired upgrade behavior
+### Update NFDV for desired upgrade behavior
 Make sure to set any desired CNF application timeouts, the atomic parameter, and rollbackOnTestFailure parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
 
-#### Issue SNS reput
+### Issue SNS reput
 With onboarding complete, the reput operation is submitted. Depending on the number, size and complexity of the NfApps, the reput operation could take some time to complete (multiple hours).
 
-#### Examine reput results
+### Examine reput results
 If the reput is reporting a successful result, the upgrade is complete and the user should validate the state and availability of the service. If the reput is reporting a failure, follow the steps in the upgrade failure recovery section to continue.
 
-### Step by Step retry procedure
+## Step by Step retry procedure
 In cases where a reput update fails, the following process can be followed to retry the operation.
 
-#### Diagnose failed NfApp
+### Diagnose failed NfApp
 Resolve the root cause for NfApp failure by analyzing logs and other debugging information.
 
-#### Manually skip completed charts
+### Manually skip completed charts
 After fixing the failed NfApp, but before attempting an upgrade retry, consider changing the applicationEnablement parameter to accelerate retry behavior. This parameter can be set false, where an NfApp should be skipped. This parameter can be useful where an NfApp does not require an upgraded. 
 
-#### Issue SNS reput retry (repeat until success)
+### Issue SNS reput retry (repeat until success)
 By default, the reput retries NfApps in the declared update order, unless they are skipped using applicationEnablement flag.
 
 ## How to use applicationEnablement
