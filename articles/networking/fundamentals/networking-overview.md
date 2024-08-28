@@ -170,8 +170,6 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 [Azure Peering Service](../../peering-service/about.md) enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Private Link, Firewall, Web Application Firewall, Network Security Groups, and Virtual Network Service Endpoints.
-
 ## <a name="security"></a>Network security
 
 This section describes networking services in Azure that protects and monitor your network resources - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
