@@ -132,11 +132,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost to write 1000 blobs to the hot tier**<sup>1                                                    | **$3.53**       | **$3.53**       | **$3.53**       | **$3.53**       |
 | Number of blobs in the hot tier after monthly ingest                                                                       | 1000            | 2000            | 2100            | 2155            |
 | Number of blobs to move to the cool tier                                                              | 0               | 1000            | 1050            | 1078            |
-| **Cost to set blobs to the cool tier (billed as a write operation)**                                  | **$0.00000000** | **$0.01000000** | **$0.01050000** | **$0.01077500** |
+| **Cost to set blobs to the cool tier (billed as a write operation)**                                  | **$0.00** | **$0.01** | **$0.0105** | **$0.010775** |
 | Number of blobs in the cool tier                                                                      | 0               | 1000            | 1050            | 1078            |
 | Total size of blobs in the cool tier (GB)                                                             | 0               | 5000            | 5250            | 5388            |
 | Number of blobs read from the cool tier then moved back to the hot tier                                      | 0               | 100             | 105             | 108             |
-| **Cost to read blobs from the cool tier and then to move them to the hot tier (2 read operations per blob)** | **$0.00000000** | **$0.00020000** | **$0.00021000** | **$0.00021550** |
+| **Cost to read blobs from the cool tier and then to move them to the hot tier (2 read operations per blob)** | **$0.00** | **$0.0002** | **$0.00021** | **$0.0002155** |
 | Number of blobs that remain in the cool tier                                                          | 0               | 900             | 945             | 970             |
 | Total size of blobs that remain in the cool tier (GB)                                                 | 0               | 4500            | 4725            | 4849            |
 | **Cost to store blobs in the cool tier**                                                              | **$0.00**       | **$51.75**      | **$54.34**      | **$55.76**      |
@@ -145,8 +145,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Total size of blobs that remain in the hot tier (GB)                                                  | 5000            | 5500            | 5775            | 5926            |
 | **Cost to store blobs in hot tier**                                                                   | **$104.00**     | **$114.40**     | **$120.12**     | **$123.27**     |
 | Number of blobs read from the hot tier                                                                | 500             | 550             | 578             | 593             |
-| **Cost to read blobs from the hot tier**                                                              | **$0.00022000** | **$0.00024200** | **$0.00025410** | **$0.00026076** |
-| **Monthly total**                                                                                     | **$107.53**     | **$169.69**     | **$178.00**     | **$182.57**     |
+| **Cost to read blobs from the hot tier**                                                              | **$0.00022** | **$0.000242** | **$0.0002541** | **$0.00026076** |
+| **Monthly total**                                                                                     | **$107.53**     | **$169.69**     | **$178.00**     | **$182.98**     |
 
 <sup>1</sup>The number of operations required to complete each monthly upload is **641,000**. The formula to calculate that number is 1000 blobs * 5 GB / 8-MiB block + the write operation that is required to assemble all of the blocks into a blob.<br />
 
