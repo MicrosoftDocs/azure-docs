@@ -43,6 +43,7 @@ landingContent:
         links:
           - text: Troubleshooting Azure Native Dynatrace Service
             url: dynatrace-troubleshoot.md
+            
 
   # Card
   - title: Explore reference content

@@ -20,7 +20,7 @@ TODO: List the prerequisites
 
 1. To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Dynatrace environment configurations** section of the Resource menu.
 
-<!-- ![](media/image1.png){width="6.5in" height="2.1666666666666665in"} -->
+    <!-- ![](media/image1.png){width="6.5in" height="2.1666666666666665in"} -->
 
 1. From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have *Owner* role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource.
 
@@ -28,11 +28,11 @@ TODO: List the prerequisites
 
 1. Select the subscriptions you want to monitor through the Dynatrace resource and select **Add**.
 
-<!-- ![](media/image2.png){width="6.5in" height="3.375in"} -->
+    <!-- ![](media/image2.png){width="6.5in" height="3.375in"} -->
 
 1. If the list doesn't get updated automatically, select **Refresh** to view the subscriptions and their monitoring status. You might see an intermediate status of *In Progress* while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
-<!-- \<Screenshot TBD\> -->
+    <!-- \<Screenshot TBD\> -->
 
 The set of tag rules for metrics and logs defined for the Dynatrace resource applies to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn\'t supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Dynatrace resource.
 

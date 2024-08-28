@@ -20,6 +20,8 @@ items:
     href: dynatrace-how-to-configure-prereqs.md
   - name: Manage Dynatrace
     href: dynatrace-how-to-manage.md
+  - name: Multiple subscriptions 
+    href: dynatrace-multiple-subscriptions.md
   - name: Troubleshoot
     items:
     - name: Get support
