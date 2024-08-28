@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Virtual WAN
 description: This article contains important reference material you need when you monitor Azure Virtual WAN by using Azure Monitor.
-ms.date: 07/25/2024
+ms.date: 08/28/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
@@ -28,7 +28,7 @@ This table contains more information about some of the metrics in the preceding 
 
 | Metric | Description |
 |:-------|:------------|
-| **Data Processed by the Virtual Hub Router** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+| **Data Processed by the Virtual Hub Router** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. *Same hub* and *interhub* refer to virtual network to virtual network traffic. These were previously described as *VNet to VNet* for *same hub and interhub* and *VPN/ExpressRoute branch to VNet* for *interhub*.|
 | **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more information on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
 | **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2, which supports 2,000 spoke VMs, and 1,000 VMs are deployed across spoke virtual networks, this metric's value is approximately 50%.  |
 
@@ -186,6 +186,28 @@ This table contains more information about the preceding table.
 | **Tunnel Diagnostic Logs** | IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and other diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device. |
 | **Route Diagnostic Logs** | Logs related to events for static routes, BGP, route updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
+
+### Log Analytics sample query
+
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries, such as the following example, to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
+
+The following example contains a query to obtain site-to-site route diagnostics.
+
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+Replace the following values, after the `==`, as needed based on the tables in this article.
+
+- GatewayDiagnosticLog
+- IKEDiagnosticLog
+- P2SDiagnosticLog
+- TunnelDiagnosticLog
+- RouteDiagnosticLog
+
+In order to run the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
+
+:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
+
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

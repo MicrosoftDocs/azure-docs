@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Virtual WAN
 description: Start here to learn how to monitor availability and performance for Azure Virtual WAN by using Azure Monitor.
-ms.date: 07/25/2024
+ms.date: 08/28/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
@@ -15,7 +15,7 @@ ms.service: azure-virtual-wan
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-Virtual WAN uses Network Insights to provide users and operators with the ability to view the state and status of a virtual WAN, presented through an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the virtual WAN. You can navigate resources on the map by using one-click access to the resource configuration pages of the Virtual WAN portal. For more information, see [Azure Monitor Network Insights for Virtual WAN](azure-monitor-insights.md).
+Virtual WAN uses Network Insights to provide users and operators with the ability to view the state and status of a Virtual WAN, presented through an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the Virtual WAN. You can navigate resources on the map by using one-click access to the resource configuration pages of the Virtual WAN portal. For more information, see [Azure Monitor Network Insights for Virtual WAN](azure-monitor-insights.md).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
@@ -27,27 +27,21 @@ For more information about the resource types for Virtual WAN, see [Azure Virtua
 
 For a list of available metrics for Virtual WAN, see [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#metrics).
 
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
-
 <a name="metrics-steps"></a>
 
-You can view metrics for Virtual WAN by using the Azure portal.
+You can view metrics for Virtual WAN by using the Azure portal. The following steps help you locate and view metrics:
 
-The following steps help you locate and view metrics:
+1. Select **Monitor Gateway** and then **Metrics**. You can also select **Metrics** at the bottom to view a dashboard of the most important metrics for site-to-site and point-to-site VPN.
 
-Select **Monitor Gateway** and then **Metrics**. You can also select **Metrics** at the bottom to view a dashboard of the most important metrics for site-to-site and point-to-site VPN.
+   :::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png":::
 
-:::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png":::
+1. On the **Metrics** page, you can view the metrics.
 
-On the **Metrics** page, you can view the metrics.
+   :::image type="content" source="./media/monitor-virtual-wan-reference/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted." lightbox="./media/monitor-virtual-wan-reference/metrics-page.png":::
 
-:::image type="content" source="./media/monitor-virtual-wan-reference/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted." lightbox="./media/monitor-virtual-wan-reference/metrics-page.png":::
+1. To see metrics for the virtual hub router, you can select **Metrics** from the virtual hub **Overview** page.
 
-To see metrics for the virtual hub router, you can select **Metrics** from the virtual hub **Overview** page.
-
-:::image type="content" source="./media/monitor-virtual-wan-reference/hub-metrics.png" alt-text="Screenshot that shows the virtual hub page with the metrics button." lightbox="./media/monitor-virtual-wan-reference/hub-metrics.png":::
+   :::image type="content" source="./media/monitor-virtual-wan-reference/hub-metrics.png" alt-text="Screenshot that shows the virtual hub page with the metrics button." lightbox="./media/monitor-virtual-wan-reference/hub-metrics.png":::
 
 For more information, see [Analyze metrics for an Azure resource](../azure-monitor/essentials/tutorial-metrics.md).
 
@@ -85,30 +79,6 @@ When you review any metrics through Log Analytics, the output contains the follo
 |Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
 |Average|real|Equal to (Minimum + Maximum)/2|
 |Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
-
-
-
-### Log Analytics sample query
-
-If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries, such as the following example, to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
-
-The following example contains a query to obtain site-to-site route diagnostics.
-
-`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
-
-Replace the following values, after the `==`, as needed based on the tables reported in the previous section of this article.
-
-- GatewayDiagnosticLog
-- IKEDiagnosticLog
-- P2SDiagnosticLog
-- TunnelDiagnosticLog
-- RouteDiagnosticLog
-
-In order to run the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
-
-:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
-
-For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
 
 ### <a name="create-diagnostic"></a>Create diagnostic setting to view logs
 
@@ -154,8 +124,6 @@ You can monitor the Secured Hub using Azure Firewall logs and metrics. You can a
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
-
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
@@ -163,8 +131,6 @@ You can monitor the Secured Hub using Azure Firewall logs and metrics. You can a
 ### Virtual WAN alert rules
 
 You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md).
-
-[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Monitoring Azure Virtual WAN - Best practices
 
@@ -174,7 +140,7 @@ Most of the recommendations in this article suggest creating Azure Monitor alert
 
 ### Virtual WAN gateways
 
-This section describes best practices for WAN gateways.
+This section describes best practices for Virtual WAN gateways.
 
 #### Site-to-site VPN gateway
 
