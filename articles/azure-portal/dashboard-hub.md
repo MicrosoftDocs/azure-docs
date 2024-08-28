@@ -115,7 +115,7 @@ To remove a tile from the dashboard, hover in the upper right corner of the tile
 
 The new dashboard experience lets you create multiple tabs where you can group information. To create tabs:
 
-1. Select **Manage tabs.** from the command bar to open the **Manage tabs** pane.
+1. Select **Manage tabs** from the command bar to open the **Manage tabs** pane.
 
    :::image type="content" source="media/dashboard-hub/dashboard-hub-manage-tabs.png" alt-text="Screenshot of the Manage tabs page in the Dashboard hub in the Azure portal.":::
 
