@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-app-configuration/rest-api-postman.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/rest-api-fiddler.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-fiddler",
+      "redirect_document_id": false
+    },
+    { 
       "source_path": "articles/kinect-dk/index.yml",
       "redirect_url": "/previous-versions/azure/kinect-dk/index",
       "redirect_document_id": false
