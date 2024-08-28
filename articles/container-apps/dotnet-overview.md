@@ -3,7 +3,7 @@ title: .NET on Azure Container Apps overview
 description: Learn about the tools and resources needed to run .NET and ASP.NET Core applications on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: cshoe
@@ -111,6 +111,8 @@ For a chance to implement custom logic to determine the health of your applicati
 ### Autoscaling considerations
 
 By default, Azure Container Apps automatically scales your ASP.NET Core apps based on the number of incoming HTTP requests. You can also configure custom autoscaling rules based on other metrics, such as CPU or memory usage. To learn more about scaling, see [Set scaling rules in Azure Container Apps](scale-app.md).
+
+In .NET 8.0.4 and later, ASP.NET Core apps that use [data protection](/aspnet/core/security/data-protection/introduction) are automatically configured to keep protected data accessible to all replicas as the application scales. When your app begins to scale, a key manager handles the writing and sharing keys across multiple revisions. As the app is deployed, the environment variable `autoConfigureDataProtection` is automatically set `true` to enable this feature.  For more information on this auto configuration, see [this GitHub pull request](https://github.com/Azure/azure-rest-api-specs/pull/28001).
 
 Autoscaling changes the number of replicas of your app based on the rules you define. By default, Container Apps randomly routes incoming traffic to the replicas of your ASP.NET Core app. Since traffic can split among different replicas, your app should be stateless so your application doesn't experience state-related issues.
 

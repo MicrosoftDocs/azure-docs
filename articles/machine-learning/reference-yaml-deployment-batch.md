@@ -3,16 +3,16 @@ title: 'CLI (v2) batch deployment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) batch deployment YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom:
   - cliv2
   - ignite-2023
   - update-code
-ms.reviewer: mopeakande
-author: ccrestana
-ms.author: cacrest
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 11/15/2023
 ---
 

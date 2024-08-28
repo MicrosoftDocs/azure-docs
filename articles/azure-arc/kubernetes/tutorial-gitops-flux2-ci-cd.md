@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
 * Verify you have:
   * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
-  * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
+  * A connected Azure Container Registry with either [AKS integration](/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
 * Install the latest versions of these Azure Arc-enabled Kubernetes and Kubernetes Configuration CLI extensions:
 
   ```azurecli

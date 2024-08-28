@@ -12,7 +12,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for C++ to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
+Use the Image Analysis client SDK for C++ to read text from an image and generate an image caption. This quickstart calls a function, `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
 [Reference documentation](/cpp/cognitive-services/vision) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/cpp/image-analysis)
 
@@ -140,7 +140,7 @@ Text:
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

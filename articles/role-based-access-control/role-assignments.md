@@ -4,7 +4,7 @@ description: Learn about Azure role assignments in Azure role-based access contr
 author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 08/01/2024
 ms.author: jodowns
 ---
 # Understand Azure role assignments
@@ -147,6 +147,34 @@ You typically build conditions using a visual condition editor, but here's what 
 The preceding condition allows users to read blobs with a blob index tag key of *Project* and a value of *Cascade*.
 
 For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
+
+## Integration with Privileged Identity Management (Preview)
+
+> [!IMPORTANT]
+> Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is integrated into role assignment steps. For example, you can assign roles to users for a limited period of time. You can also make users eligible for role assignments so that they must activate to use the role, such as request approval. Eligible role assignments provide just-in-time access to a role for a limited period of time. You can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+
+The assignment type options available to you might vary depending or your PIM policy. For example, PIM policy defines whether permanent assignments can be created, maximum duration for time-bound assignments, roles activations requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
+
+:::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
+
+To better understand PIM, you should review the following terms.
+
+| Term or concept | Role assignment category | Description |
+| --- | --- | --- |
+| eligible | Type | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
+| active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the privileges assigned to the role. |
+| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multifactor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
+| permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
+| permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
+| time-bound eligible | Duration | A role assignment where a user is eligible to activate the role only within start and end dates. |
+| time-bound active | Duration | A role assignment where a user can use the role only within start and end dates. |
+| just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
+| principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they're authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
+
+For more information, see [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ## Next steps
 

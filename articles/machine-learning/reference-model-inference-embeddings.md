@@ -3,14 +3,13 @@ title: Azure AI Model Inference Embeddings API
 titleSuffix: Azure Machine Learning
 description: Reference for Azure AI Model Inference Embeddings API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -28,6 +27,14 @@ POST /embeddings?api-version=2024-04-01-preview
 | Name          | In    | Required | Type   | Description                                                                |
 | ------------- | ----- | -------- | ------ | -------------------------------------------------------------------------- |
 | `api-version` | query | True     | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
+
+## Request Header
+
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| extra-parameters | | string | The behavior of the API when extra parameters are indicated in the payload. Using `pass-through` makes the API to pass the parameter to the underlying model. Use this value when you want to pass parameters that you know the underlying model can support. Using `ignore` makes the API to drop any unsupported parameter. Use this value when you need to use the same payload across different models, but one of the extra parameters may make a model to error out if not supported. Using `error` makes the API to reject any extra parameter in the payload. Only parameters specified in this API can be indicated, or a 400 error is returned. |
+| azureml-model-deployment |     | string | Name of the deployment you want to route the request to. Supported for endpoints that support multiple deployments. |
 
 ## Request Body
 
@@ -125,21 +132,23 @@ Status code: 200
 | Name                                                    | Description                                                                                                                                                             |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ContentFilterError](#contentfiltererror)               | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.                                                            |
-| [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings |
-| [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request |
-| [Detail](#detail)                                       | Details of the errors |
+| [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings. |
+| [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request. |
+| [Detail](#detail)                                       | Details of the errors. |
 | [Embedding](#embedding)                                 | Represents the embedding object generated.                                                                                                                                          |
 | [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
 | [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 | [EmbeddingObject](#embeddingobject)                     | The object type, which is always "embedding".                                                                                                                           |
 | [ListObject](#listobject)                               | The object type, which is always "list".                                                                                                                                |
-| [NotFoundError](#notfounderror)                         |                                                                                                                                                                         |
-| [TooManyRequestsError](#toomanyrequestserror)           |                                                                                                                                                                         |
-| [UnauthorizedError](#unauthorizederror)                 |                                                                                                                                                                         |
-| [UnprocessableContentError](#unprocessablecontenterror) |                                                                                                                                                                         |
+| [NotFoundError](#notfounderror)                         | The route is not valid for the deployed model.                                                                                                       |
+| [TooManyRequestsError](#toomanyrequestserror)           | You have hit your assigned rate limit and your requests need to be paced.                                                                                                                                                                        |
+| [UnauthorizedError](#unauthorizederror)                 | Authentication is missing or invalid.                                                                                                                                                                        |
+| [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.                                                                                                                                                                        |
 | [Usage](#usage)                                         | The usage information for the request.                                                                                                                                  |
 
 ### ContentFilterError
+
+The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -151,6 +160,8 @@ Status code: 200
 
 ### CreateEmbeddingRequest
 
+Request for creating embeddings.
+
 | Name            | Required | Type                                                | Description                                                                                                                                                             |
 | --------------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | input           | True     | string[]                                            | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
@@ -159,6 +170,8 @@ Status code: 200
 | input_type      |          | [EmbeddingInputType](#embeddinginputtype)           | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 
 ### CreateEmbeddingResponse
+
+Response from an embeddings request.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -169,6 +182,7 @@ Status code: 200
 
 ### Detail
 
+Details for the [UnprocessableContentError](#unprocessablecontenterror) error.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -255,6 +269,7 @@ The object type, which is always "list".
 
 ### UnprocessableContentError
 
+The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.
 
 | Name | Type | Description |
 | --- | --- | --- |

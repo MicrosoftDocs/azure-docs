@@ -3,7 +3,7 @@ title: Manage hub workspaces in portal
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning hub workspaces in the Azure portal.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: deeikele

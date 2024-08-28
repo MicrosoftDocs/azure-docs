@@ -3,7 +3,7 @@ title: "Graph search query syntax"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the search query syntax in Azure Machine Learning designer to search for nodes in pipeline graph.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

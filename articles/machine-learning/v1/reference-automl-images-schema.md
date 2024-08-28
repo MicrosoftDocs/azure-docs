@@ -3,12 +3,12 @@ title: JSONL format for computer vision tasks (v1)
 titleSuffix: Azure Machine Learning
 description: Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks (v1).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: reference
 ms.reviewer: nibaccam
-ms.author: rvadthyavath
-author: vadthyavath
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/13/2021
 ---
 

@@ -3,11 +3,11 @@ title: Share data across workspaces with registries (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams by sharing data through registries.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
 ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2, build-2023

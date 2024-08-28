@@ -3,10 +3,10 @@ title: 'Quickstart: Create an Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure and create a Data Science Virtual Machine for Linux (Ubuntu) to do analytics and machine learning.
 ms.service: data-science-vm
-author: jeff-shepherd
-ms.author: jeffshep
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: quickstart
-ms.reviewer: franksolomon
+ms.reviewer: jeffshep
 ms.date: 04/23/2024
 ms.custom: mode-other, linux-related-content
 #Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
@@ -38,7 +38,7 @@ To create an instance of either the Ubuntu 20.04 DSVM or the Azure DSVM for PyTo
       * **Virtual machine name**: Enter the name of the VM. This name is used in your Azure portal.
       * **Region**: Select the datacenter that's most appropriate. For fastest network access, the datacenter that hosts most of your data or is located closest to your physical location is the best choice. For more information, refer to [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Image**: Don't change the default value.
-      * **Size**: This option should autopopulate with a size that's appropriate for general workloads. For more information, refer to [Linux VM sizes in Azure](../../virtual-machines/sizes.md).
+      * **Size**: This option should autopopulate with a size that's appropriate for general workloads. For more information, refer to [Linux VM sizes in Azure](/azure/virtual-machines/sizes).
       * **Authentication type**: For quicker setup, select **Password**.
 
          > [!NOTE]
@@ -69,10 +69,10 @@ You can access the Ubuntu DSVM in one of four ways:
 
 ### SSH
 
-If you configured your VM with SSH authentication, you can sign in with the account credentials that you created in the **Basics** section of step 4 for the text shell interface. For more information, refer to [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect.md).
+If you configured your VM with SSH authentication, you can sign in with the account credentials that you created in the **Basics** section of step 4 for the text shell interface. For more information, refer to [Learn more about connecting to a Linux VM](/azure/virtual-machines/linux-vm-connect).
 
 ### xrdp
-The standard tool for accessing Linux graphical sessions is xrdp. While the distribution doesn't include this tool by default, [these instructions](../../virtual-machines/linux/use-remote-desktop.md) explain how to install it.
+The standard tool for accessing Linux graphical sessions is xrdp. While the distribution doesn't include this tool by default, [these instructions](/azure/virtual-machines/linux/use-remote-desktop) explain how to install it.
 
 ### X2Go
 > [!NOTE]

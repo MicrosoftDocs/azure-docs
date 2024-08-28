@@ -41,9 +41,12 @@ Use these steps to update the project on your local computer:
 
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. See [Target frameworks](/dotnet/standard/frameworks) for specifics related to the chosen version.
 
+    Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that may exist outside of your project code, as part of build steps or a CI/CD pipeline.
+
 1. Make any updates to your project code that are required by the new .NET version. Check the version's release notes for specifics. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help you update your code in response to changes across major versions.
 
-After you've made those changes, rebuild your project and test it to confirm your app runs as expected. 
+After you've made those changes, rebuild your project and test it to confirm your app runs as expected.
+
 ::: zone-end  
 
 ### 2. Move to the latest Functions runtime

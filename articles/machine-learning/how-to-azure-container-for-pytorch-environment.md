@@ -3,10 +3,10 @@ title: How to create Azure Container for PyTorch Custom Curated environment
 titleSuffix: Azure Machine Learning
 description: Create custom curated Azure Container for PyTorch environments in Azure Machine Learning studio to run your machine learning models and reuse it in different scenarios.
 services: machine-learning
-author: sheetalarkadam
-ms.author: parinitarahi
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: parinitarahi
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to

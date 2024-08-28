@@ -1,7 +1,7 @@
 ---
 title: Apache Spark core concepts
 description: Introduction to core concepts for Apache Spark in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
 author: guyhay

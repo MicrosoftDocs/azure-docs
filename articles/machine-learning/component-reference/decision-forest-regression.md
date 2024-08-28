@@ -3,7 +3,7 @@ title:  "Decision Forest Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Decision Forest Regression component in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

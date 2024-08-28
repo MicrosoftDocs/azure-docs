@@ -3,11 +3,11 @@ title: How to use workspace diagnostics
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning workspace diagnostics in the Azure portal or with the Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.author: jhirono 
-author: jhirono 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: jhirono
 ms.date: 03/27/2024
 ms.topic: how-to
 ms.custom: sdkv2, devx-track-python

@@ -1,6 +1,6 @@
 ---
  author: wtnlee
- ms.service: virtual-wan
+ ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 11/02/2023
  ms.author: wellee

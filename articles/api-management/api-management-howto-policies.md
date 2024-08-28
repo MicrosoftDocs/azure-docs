@@ -4,7 +4,7 @@ description: Introduction to API Management policies, which change API behavior 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 10/18/2023
 ms.author: danlep

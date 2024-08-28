@@ -4,10 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 04/24/2024
-ms.custom: references_regions
+ms.date: 08/10/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -57,7 +56,7 @@ Virtual network flow logs simplify the scope of traffic monitoring because you c
 
 Virtual network flow logs also avoid the need to enable multiple-level flow logging, such as in [network security group flow logs](nsg-flow-logs-overview.md#best-practices). In network security group flow logs, network security groups are configured at both the subnet and the network interface (NIC).
 
-In addition to existing support to identify traffic that [network security group rules](../virtual-network/network-security-groups-overview.md) allow or deny, Virtual network flow logs support identification of traffic that [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md) allow or deny. Virtual network flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
+In addition to existing support to identify traffic that [network security group rules](../virtual-network/network-security-groups-overview.md) allow or deny, Virtual network flow logs support identification of traffic that [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md) allow or deny. Virtual network flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md?toc=/azure/network-watcher/toc.json).
 
 > [!IMPORTANT]
 > We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging (both network security group flow logs and virtual network flow logs generated for all supported workloads in that particular subnet).
@@ -77,7 +76,7 @@ Key properties of virtual network flow logs include:
 Virtual network flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
-- `flowLogVersion`: Version of the flow log schema.
+- `flowLogVersion`: Version of the flow log.
 - `flowLogGUID`: Resource GUID of the `FlowLog` resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
@@ -121,7 +120,7 @@ Virtual network flow logs have the following properties:
 | `NX_LOCAL_DST` | **Destination is on the same host**. Encryption is configured, but the source and destination virtual machines are running on the same Azure host. In this case, the connection isn't encrypted by design. |
 | `NX_FALLBACK` | **Fall back to no encryption**. Encryption is configured with the **Allow unencrypted** policy for both source and destination endpoints. The system attempted encryption but had a problem. In this case, the connection is allowed but isn't encrypted. For example, a virtual machine initially landed on a node that supports encryption, but this support was removed later. |
 
-Traffic in your virtual networks is unencrypted (`NX`) by default. For encrypted traffic, see [Virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
+Traffic in your virtual networks is unencrypted (`NX`) by default. For encrypted traffic, see [Virtual network encryption](../virtual-network/virtual-network-encryption-overview.md?toc=/azure/network-watcher/toc.json).
 
 ## Sample log record
 
@@ -216,12 +215,25 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 - Virtual network flow logs are charged per gigabyte of ***Network flow logs collected*** and come with a free tier of 5 GB/month per subscription.
 
-    > [!NOTE]
-    > Virtual network flow logs will be billed effective June 1, 2024.
-
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Supported scenarios
+
+The following table outlines the support scope of flow logs.
+
+| Scope | Network security group flow logs | Virtual network flow logs |
+| --- | --- | --- |
+| Bytes and packets in stateless flows | Not supported | Supported |
+| Identification of virtual network encryption  | Not supported | Supported |
+| Azure API management  | Not supported | Supported |
+| Azure Application Gateway | Not supported | Supported |
+| Azure Bastion | Supported | Supported |
+| Azure Virtual Network Manager | Not supported | Supported |
+| ExpressRoute gateway | Not supported | Supported |
+| Virtual machine scale sets | Supported | Supported |
+| VPN gateway | Not supported | Supported |
 
 ## Availability
 

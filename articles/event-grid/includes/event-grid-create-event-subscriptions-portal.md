@@ -1,9 +1,8 @@
 ---
  title: Create a subscription to an Event Grid namespace topic
  description: Include file with steps to create a subscription to an Azure Event Grid namespace topic. 
- services: event-grid
  author: sonalika-roy
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 06/19/2024
  ms.author: sonalikaroy

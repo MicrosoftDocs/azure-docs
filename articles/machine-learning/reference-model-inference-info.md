@@ -3,14 +3,13 @@ title: Azure AI Model Inference Get Info
 titleSuffix: Azure Machine Learning
 description: Reference for Azure AI Model Inference Get Info API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---

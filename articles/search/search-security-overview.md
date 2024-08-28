@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/28/2024
+ms.date: 06/28/2024
 ---
 
 # Security overview for Azure AI Search
@@ -23,7 +23,7 @@ An Azure AI Search service is hosted on Azure and is typically accessed by clien
 
 Azure AI Search has three basic network traffic patterns:
 
-+ Inbound requests made by a client to the search service (the predominant pattern)
++ Inbound requests made by a user or client to the search service (the predominant pattern)
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
@@ -52,12 +52,12 @@ Internal requests are secured and managed by Microsoft. You can't configure or c
 Internal traffic consists of:
 
 + Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and [private endpoint connections](service-create-private-endpoint.md) that utilize Azure Private Link.
-+ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
++ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md)
 + Requests made to the machine learning models that support [semantic ranking](semantic-search-overview.md#availability-and-pricing).
 
 ### Outbound traffic
 
-Outbound requests can be secured and managed by you. Outbound requests originate from a search service to other applications. These requests are typically made by indexers for text-based indexing, skills-based AI enrichment, and vectorizations at query time. Outbound requests include both read and write operations.
+Outbound requests can be secured and managed by you. Outbound requests originate from a search service to other applications. These requests are typically made by indexers for text-based indexing, custom skills-based AI enrichment, and vectorizations at query time. Outbound requests include both read and write operations.
 
 The following list is a full enumeration of the outbound requests for which you can configure secure connections. A search service makes requests on its own behalf, and on the behalf of an indexer or custom skill.
 

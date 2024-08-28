@@ -155,9 +155,9 @@ sections:
         answer: |
           Training a model with audio data can be a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it can't be finished within one week, the service might abort the training operation and report the model as failed.
           
-          In general, Speech service processes approximately 10 hours of audio data per day in regions that have dedicated hardware. It can process only about 1 hour of audio data per day in other regions. Training with text only is faster and ordinarily finishes within minutes.
+          In general, Speech service processes approximately 10 hours of audio data per day in regions that have dedicated hardware. Training with text only is faster and ordinarily finishes within minutes.
           
-          Use one of the regions where dedicated hardware is available for training. The Speech service uses up to 20 hours of audio for training in these regions. In other regions, the Speech service uses up to 8 hours.
+          Use one of the regions where dedicated hardware is available for training. The Speech service uses up to 100 hours of audio for training in these regions. 
           
   - name: Accuracy testing
     questions:

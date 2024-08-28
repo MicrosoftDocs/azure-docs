@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 06/19/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 ---
 
@@ -52,7 +52,7 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 | Request|Method| Description|API path|
 |---------|:-------|-------|-----|
 |***Single*** |***Synchronous***|***Document***|***Translation***|
-|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?sourceLanguage={source language}&targetLanguage={target language}&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"`|
+|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?sourceLanguage={source language}&targetLanguage={target language}&api-version=2024-05-01" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"`|
 |||||
 |***Batch***|***Asynchronous***|***Documents***| ***Translation***|
 |[**Start translation**](start-translation.md)|POST|Start a batch document translation job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`|

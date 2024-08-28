@@ -3,12 +3,12 @@ title: Use a template to create a secure workspace
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and associated required Azure services inside a secure virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: build-2023
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 06/18/2024
 ms.topic: tutorial
 monikerRange: 'azureml-api-2 || azureml-api-1'

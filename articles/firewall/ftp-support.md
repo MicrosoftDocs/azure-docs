@@ -3,7 +3,7 @@ title: Azure Firewall FTP support
 description: By default, Active FTP is disabled on Azure Firewall. You can enable it using PowerShell, CLI, and ARM template.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/02/2023

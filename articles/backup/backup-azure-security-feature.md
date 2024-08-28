@@ -4,7 +4,7 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.reviewer: utraghuv
 ms.topic: how-to
 ms.date: 11/07/2023
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

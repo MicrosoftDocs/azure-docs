@@ -3,13 +3,12 @@ title: Endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints simplify deployments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom:
   - devplatv2
   - ignite-2023
@@ -109,7 +108,7 @@ The following table shows a summary of the different features available to serve
 | Swagger support                       | Yes                                              | Yes                                             | No                                            |
 | Authentication                        | Key                                              | Key and Microsoft Entra ID (preview)            | Microsoft Entra ID                            |
 | Private network support (legacy)      | No                                               | Yes                                             | Yes                                           |
-| Managed network isolation             | Yes                                              | Yes                                             | Yes [(see required additional configuration)](how-to-managed-network.md#scenario-use-batch-endpoints) |
+| Managed network isolation             | Yes                                              | Yes                                             | Yes [(see required additional configuration)](how-to-managed-network.md#scenario-use-batch-endpoints-or-parallelrunstep) |
 | Customer-managed keys                 | NA                                               | Yes                                             | Yes                                           |
 | Cost basis                            | Per endpoint, per minute<sup>1</sup>             | None                                            | None                                          |
 

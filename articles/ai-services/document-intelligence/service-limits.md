@@ -9,7 +9,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 06/26/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -49,6 +49,29 @@ This article contains both a quick reference and detailed description of Azure A
 
 ✔️ = supported
 ✖️ = Not supported
+
+## Billing
+
+Document Intelligence billing is calculated monthly based on the model type and the number of pages analyzed. You can find usage metrics on the metrics dashboard in the Azure portal. The dashboard displays the number of pages that Azure AI Document Intelligence processes. You can check the estimated cost spent on the resource by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For detailed instructions, see [Check usage and estimate cost](how-to-guides/estimate-cost.md). Here are some details:
+
+- When you submit a document for analysis, the service analyzes all pages unless you specify a page range by using the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents through the read, OCR, or layout model, it counts each Excel worksheet and PowerPoint slide as one page.
+
+- When the service analyzes PDF and TIFF files, it counts each page in the PDF file or each image in the TIFF file as one page with no maximum character limits.
+
+- When the service analyzes Microsoft Word and HTML files that the read and layout models support, it counts pages in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters add up to a total of three pages.
+
+- The read and layout models don't support analysis of embedded or linked images in Microsoft Word, Excel, PowerPoint, and HTML files. Therefore, service doesn't count them as added images.
+
+- Training a custom model is always free with Document Intelligence. Charges are incurred only when the service uses a model to analyze a document.
+
+- Container pricing is the same as cloud service pricing.
+
+- Document Intelligence offers a free tier (F0) where you can test all the Document Intelligence features.
+
+- Document Intelligence has a commitment-based pricing model for large workloads.
+
+- The Layout model is required to generate labels for your dataset for custom training. If the dataset that you use for custom training doesn't have label files available, the service generates them for you and bills you for layout model usage.
+
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -87,7 +110,80 @@ This article contains both a quick reference and detailed description of Azure A
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range=">=doc-intel-4.0.0"
+
+## Custom model usage
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Custom neural model**](concept-custom-neural.md)
+> * [**Custom generative model**](concept-custom-generative.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
+> * [**Composed custom models**](concept-composed-models.md)
+
+|Quota|Free (F0) <sup>1</sup>|Standard (S0)|
+|--|--|--|
+| **Compose Model limit** | 5 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Neural and Generative** | 1 GB <sup>3</sup> | 1 GB (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Template** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Neural and Generative** | 50,000 | 50,000 (default value) |
+| Adjustable | No | No |
+| **Custom neural model train** | 10 hours per month <sup>5</sup> | no limit (pay by the hour) |
+| Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| **Max number of document types (classes) * Classifier** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Classifier** | 1GB | 2GB (default value) |
+| Adjustable | No | No |
+| **Min number of samples per class * Classifier** | 5 | 5 (default value) |
+| Adjustable | No | No |
+
+::: moniker-end
+
+::: moniker range="=doc-intel-3.0.0"
+
+## Custom model usage
+
+> [!div class="checklist"]
+>
+> * [**Custom template model**](concept-custom-template.md)
+> * [**Custom neural model**](concept-custom-neural.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
+> * [**Composed custom models**](concept-composed-models.md)
+
+|Quota|Free (F0) <sup>1</sup>|Standard (S0)|
+|--|--|--|
+| **Compose Model limit** | 5 | 200 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Template** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training) * Neural** | 50,000 | 50,000 (default value) |
+| Adjustable | No | No |
+| **Custom neural model train** | 10 per month | 20 per month |
+| Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| **Max number of document types (classes) * Classifier** | 500 | 500 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| Adjustable | No | No |
+| **Min number of samples per class * Classifier** | 5 | 5 (default value) |
+| Adjustable | No | No |
+
+::: moniker-end
+
+::: moniker range="=doc-intel-3.1.0"
 
 ## Custom model usage
 
@@ -146,11 +242,14 @@ This article contains both a quick reference and detailed description of Azure A
 ::: moniker range=">=doc-intel-2.1.0"
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
-> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
+> <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions](#create-and-submit-support-request).</br>
 > <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
 ::: moniker range=">=doc-intel-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
+::: moniker-end
+::: moniker range=">=doc-intel-4.0.0"
+> <sup>5</sup> This limit applies for `v 4.0 (2024-07-31)` custom neural models only. Starting from `v 4.0`, we support training larger documents for longer durations (up to 10 hours for free, and incurring charges after). For more information, please refer to [custom nerual model page](concept-custom-neural.md).
 ::: moniker-end
 
 ## Detailed description, Quota adjustment, and best practices
@@ -182,36 +281,35 @@ If you would like to increase your transactions per second, you can enable auto 
 
 #### Have the required information ready
 
-* Document Intelligence Resource ID
-* Region
+- Document Intelligence Resource ID
+- Region
 
-* **How to get information (Base model)**:
-  * Sign in to the [Azure portal](https://portal.azure.com)
-  * Select the Document Intelligence Resource for which you would like to increase the transaction limit
-  * Select *Properties* (*Resource Management* group)
-  * Copy and save the values of the following fields:
-    * **Resource ID**
-    * **Location** (your endpoint Region)
+- Base model information:
+  - Sign in to the [Azure portal](https://portal.azure.com)
+  - Select the Document Intelligence Resource for which you would like to increase the transaction limit
+  - Select -Properties- (-Resource Management- group)
+  - Copy and save the values of the following fields:
+    - Resource ID
+    - Location (your endpoint Region)
 
 #### Create and submit support request
 
 Initiate the increase of transactions per second(TPS) limit for your resource by submitting the Support Request:
 
-* Ensure you have the [required information](#have-the-required-information-ready)
-* Sign in to the [Azure portal](https://portal.azure.com)
-* Select the Document Intelligence Resource for which you would like to increase the TPS limit
-* Select *New support request* (*Support + troubleshooting* group)
-* A new window appears with autopopulated information about your Azure Subscription and Azure Resource
-* Enter *Summary* (like "Increase Document Intelligence TPS limit")
-* In Problem type,* select "Quota or usage validation"
-* Select *Next: Solutions*
-* Proceed further with the request creation
-* Under the *Details* tab, enter the following information in the *Description* field:
-  * a note, that the request is about **Document Intelligence** quota.
-  * Provide a TPS expectation you would like to scale to  meet.
-  * Azure resource information you [collected](#have-the-required-information-ready).
-  * Complete entering the required information and select *Create* button in *Review + create* tab
-  * Note the support request number in Azure portal notifications. You're contacted shortly for further processing
+- Ensure you have the [required information](#have-the-required-information-ready)
+- Sign in to the [Azure portal](https://portal.azure.com)
+- Select the Document Intelligence Resource for which you would like to increase the TPS limit
+- Select -New support request- (-Support + troubleshooting- group). A new window appears with autopopulated information about your Azure Subscription and Azure Resource
+- Enter -Summary- (like "Increase Document Intelligence TPS limit")
+- Select "Quota or usage validation" for problem type field.
+- Select -Next: Solutions-
+- Proceed further with the request creation
+- Enter the following information in the -Description- field, under the Details tab:
+  - a note, that the request is about Document Intelligence quota.
+  - Provide a TPS expectation you would like to scale to  meet.
+  - Azure resource information you [collected](#have-the-required-information-ready).
+  - Complete entering the required information and select -Create- button in -Review + create- tab
+  - Note the support request number in Azure portal notifications. Look for Support to contact you shortly for further processing.
 
 ## Example of a workload pattern best practice
 

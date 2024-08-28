@@ -2,11 +2,10 @@
 title: Model packages for deployment (preview)
 titleSuffix: Azure Machine Learning
 description:  Learn how the use of model packages in Azure Machine Learning is useful for deploying models in a reliable and reproducible way.
-author: ccrestana
-ms.author: cacrest
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: cacrest
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 12/08/2023
 ms.topic: concept-article

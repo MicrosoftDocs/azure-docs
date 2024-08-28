@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 06/04/2024
+ms.date: 07/29/2024
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
@@ -34,23 +34,29 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
-### [ASP.NET Core](#tab/aspnetcore)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 - [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET](https://dotnet.microsoft.com/download/dotnet)
+
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
 
 ### [.NET](#tab/net)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
+
 ### [Java](#tab/java)
 
 - A Java application using Java 8+
 
-### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 - A Java application using GraalVM 17+
 
-### [Node.js](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 > [!NOTE]
 > If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
@@ -59,9 +65,15 @@ Follow the steps in this section to instrument your application with OpenTelemet
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-nodejs-migrate.md).
+
 ### [Python](#tab/python)
 
 - Python Application using Python 3.8+
+
+> [!Tip]
+> If you're migrating from OpenCensus, see our [migration documentation](./opentelemetry-python-opencensus-migrate.md).
 
 ---
 
@@ -75,7 +87,7 @@ Install the latest `Azure.Monitor.OpenTelemetry.AspNetCore` [NuGet package](http
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore 
 ```
 
-### [.NET](#tab/net)
+#### [.NET](#tab/net)
 
 Install the latest `Azure.Monitor.OpenTelemetry.Exporter` [NuGet package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter):
 
@@ -85,7 +97,7 @@ dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.5.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.3/applicationinsights-agent-3.5.3.jar) file.
+Download the [applicationinsights-agent-3.5.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.4/applicationinsights-agent-3.5.4.jar) file.
 
 > [!WARNING]
 >
@@ -96,12 +108,11 @@ Download the [applicationinsights-agent-3.5.3.jar](https://github.com/microsoft/
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 
-
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 For Spring Boot native applications:
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
-* Add the [Spring Cloud Azure Starter Monitor](https://mvnrepository.com/artifact/com.azure.spring/cloud-starter-azure-monitor) dependency.
+* Add the [Spring Cloud Azure Starter Monitor](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-monitor) dependency.
 * Follow [these instructions](/azure//developer/java/spring-framework/developer-guide-overview#configuring-spring-boot-3) for the Azure SDK JAR (Java Archive) files.
 
 For Quarkus native applications:
@@ -206,7 +217,7 @@ var loggerFactory = LoggerFactory.Create(builder =>
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
-Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.3.jar"` to your application's JVM args.
+Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.4.jar"` to your application's JVM args.
 
 > [!TIP]
 > Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
@@ -217,8 +228,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 > [!TIP]
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
-
-##### [Java Native](#tab/java-native)
+##### [Java native](#tab/java-native)
 
 Several automatic instrumentations are enabled through configuration changes; no code changes are required
 
@@ -277,7 +287,7 @@ To paste your Connection String, select from the following options:
 
   B. Set via Configuration File - Java Only (Recommended)
   
-  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.3.jar` with the following content:
+  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.4.jar` with the following content:
 
    ```json
    {
@@ -315,27 +325,27 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 Azure Monitor OpenTelemetry sample applications are available for all supported languages.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 - [ASP.NET Core sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
 
-##### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 - [NET sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo)
 
-##### [Java](#tab/java)
+### [Java](#tab/java)
 
 - [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
 
-##### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
 
 - [Java GraalVM native sample apps](https://github.com/Azure-Samples/java-native-telemetry)
 
-##### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 - [Node.js sample app](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js)
 
-##### [Python](#tab/python)
+### [Python](#tab/python)
 
 - [Python sample apps](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples)
 
@@ -353,7 +363,7 @@ Azure Monitor OpenTelemetry sample applications are available for all supported 
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 - For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md).
@@ -372,7 +382,7 @@ Azure Monitor OpenTelemetry sample applications are available for all supported 
 - Enable usage experiences by seeing [Enable web or browser user monitoring](javascript.md).
 - Review the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
-### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
 - See [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md) for details on adding and modifying Azure Monitor OpenTelemetry.
 - Review the source code in the [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor) and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
 - Learn more about OpenTelemetry and its community in the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).

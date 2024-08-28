@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations of Azure Dat
 ms.topic: conceptual
 ms.date: 09/07/2023
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL server backup is available in all regions, except 
 
 |Scenarios  | Details  |
 |---------| ---------|
-|Deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
+|Deployments   |  [Azure Database for PostgreSQL - Single Server](/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |Azure PostgreSQL versions    |   9.5, 9.6, 10, 11    |
 
 ## Feature considerations and limitations

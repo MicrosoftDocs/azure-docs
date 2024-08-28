@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to use an Azure Resource Manager template to create an Azure virtual network.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 05/29/2024
 ms.author: allensu

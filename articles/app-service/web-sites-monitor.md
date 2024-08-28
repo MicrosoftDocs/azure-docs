@@ -1,5 +1,5 @@
 ---
-title: Monitor apps
+title: Quotas and alerts
 description: Learn how to monitor apps in Azure App Service by using the Azure portal. Understand the quotas and metrics that are reported.
 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
@@ -8,7 +8,7 @@ ms.date: 06/29/2023
 ms.author: msangapu
 author: msangapu-msft
 ---
-# Monitor apps in Azure App Service
+# Azure App Service quotas and alerts
 [Azure App Service](./overview.md) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
@@ -64,61 +64,10 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 
 Metrics provide information about the app or the App Service plan's behavior.
 
-For an app, the available metrics are:
-
-| Metric | Description |
-| --- | --- |
-| **Response Time** | The time taken for the app to serve requests, in seconds. |
-| **Average Response Time (deprecated)** | The average time taken for the app to serve requests, in seconds. |
-| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
-| **Connections** | The number of bound sockets existing in the sandbox (w3wp.exe and its child processes).  A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket(). |
-| **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |
-| **Current Assemblies** | The current number of Assemblies loaded across all AppDomains in this application. |
-| **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
-| **Data Out** | The amount of outgoing bandwidth consumed by the app, in MiB. |
-| **File System Usage** | The amount of usage in bytes by storage share. |
-| **Gen 0 Garbage Collections** | The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
-| **Gen 1 Garbage Collections** | The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
-| **Gen 2 Garbage Collections** | The number of times the generation 2 objects are garbage collected since the start of the app process.|
-| **Handle Count** | The total number of handles currently open by the app process.|
-| **Health Check Status** | The average health status across the application's instances in the App Service Plan.|
-| **Http 2xx** | The count of requests resulting in an HTTP status code ≥ 200 but < 300. |
-| **Http 3xx** | The count of requests resulting in an HTTP status code ≥ 300 but < 400. |
-| **Http 401** | The count of requests resulting in HTTP 401 status code. |
-| **Http 403** | The count of requests resulting in HTTP 403 status code. |
-| **Http 404** | The count of requests resulting in HTTP 404 status code. |
-| **Http 406** | The count of requests resulting in HTTP 406 status code. |
-| **Http 4xx** | The count of requests resulting in an HTTP status code ≥ 400 but < 500. |
-| **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. |
-| **IO Other Bytes Per Second** | The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations.|
-| **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that aren't read or write operations.|
-| **IO Read Bytes Per Second** | The rate at which the app process is reading bytes from I/O operations.|
-| **IO Read Operations Per Second** | The rate at which the app process is issuing read I/O operations.|
-| **IO Write Bytes Per Second** | The rate at which the app process is writing bytes to I/O operations.|
-| **IO Write Operations Per Second** | The rate at which the app process is issuing write I/O operations.|
-| **Memory working set** | The current amount of memory used by the app, in MiB. |
-| **Private Bytes** | Private Bytes is the current size, in bytes, of memory that the app process has allocated that can't be shared with other processes.|
-| **Requests** | The total number of requests regardless of their resulting HTTP status code. |
-| **Requests In Application Queue** | The number of requests in the application request queue.|
-| **Thread Count** | The number of threads currently active in the app process.|
-| **Total App Domains** | The current number of AppDomains loaded in this application.|
-| **Total App Domains Unloaded** | The total number of AppDomains unloaded since the start of the application.|
-
-
-For an App Service plan, the available metrics are:
+For a list of available metrics for apps or for App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoftweb).
 
 > [!NOTE]
 > App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.
-> 
-
-| Metric | Description |
-| --- | --- |
-| **CPU Percentage** | The average CPU used across all instances of the plan. |
-| **Memory Percentage** | The average memory used across all instances of the plan. |
-| **Data In** | The average incoming bandwidth used across all instances of the plan. |
-| **Data Out** | The average outgoing bandwidth used across all instances of the plan. |
-| **Disk Queue Length** | The average number of both read and write requests that were queued on storage. A high disk queue length is an indication of an app that might be slowing down because of excessive disk I/O. |
-| **Http Queue Length** | The average number of HTTP requests that had to sit on the queue before being fulfilled. A high or increasing HTTP Queue length is a symptom of a plan under heavy load. |
 
 ### CPU time vs CPU percentage
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
@@ -151,7 +100,8 @@ Clicking on any of those charts will take you to the metrics view where you can 
 To learn more about metrics, see [Monitor service metrics](../azure-monitor/data-platform.md).
 
 ## Alerts and autoscale
-Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../azure-monitor/alerts/alerts-classic-portal.md).
+
+Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Alerts](monitor-app-service.md#alerts).
 
 App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 

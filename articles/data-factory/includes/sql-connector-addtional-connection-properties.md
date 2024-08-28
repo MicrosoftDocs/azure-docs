@@ -1,6 +1,5 @@
 ---
 author: jianleishen
-ms.service: data-factory
 ms.topic: include
 ms.date: 05/11/2024
 ms.author: jianleishen

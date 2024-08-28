@@ -4,7 +4,7 @@ description: Reference for the required and optional settings to configure the A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/12/2024
 ms.author: danlep
@@ -120,7 +120,7 @@ This guidance helps you provide the required information to define how to authen
 
 | Name  | Description | Required | Default | Availability |
 | ------------- | ------------- | ------------- | ----| ----|
-| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls13 | Indication whether or not SSL 3.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls13 | Indication whether or not TLS 1.3 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
 | Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls12 | Indication whether or not TLS 1.2 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
 | Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11 | Indication whether or not TLS 1.1 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
 | Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10 | Indication whether or not TLS 1.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |

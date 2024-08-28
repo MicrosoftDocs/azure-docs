@@ -5,7 +5,7 @@ description: How to build and upload parallel documents (two documents where one
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.topic: how-to
 ---
@@ -16,13 +16,13 @@ ms.topic: how-to
 
 [Parallel documents](../concepts/parallel-documents.md) are pairs of documents where one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
 
-Before uploading your documents, review the [document formats and naming convention guidance](../concepts/document-formats-naming-convention.md) to make sure your file format is supported by Custom Translator.
+Before uploading your documents, review the [document formats and naming convention guidance](../concepts/document-formats-naming-convention.md) to make sure Custom Translator supports your file format.
 
 ## How to create document sets
 
 Finding in-domain quality data is often a challenging task that varies based on user classification. Here are some questions you can ask yourself as you evaluate what data may be available to you:
 
-- Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
+- Does your company have previous translation data available that you can use? Enterprises often have a wealth of translation data accumulated over many years of using human translation.
 
 - Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
 
@@ -32,11 +32,11 @@ Finding in-domain quality data is often a challenging task that varies based on 
 
 | Source | What it does | Rules to follow |
 |---|---|---|
-| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](../concepts/bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
+| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [`BLEU` score](../concepts/bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
 | Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translation in the future. |
-| Test documents | Calculate the [BLEU score](../beginners-guide.md#what-is-a-bleu-score).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
+| Test documents | Calculate the [`BLEU` score](../beginners-guide.md#what-is-a-bleu-score).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
 | Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
-| Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |
+| Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry doesn't match. |
 
 ## How to upload documents
 
@@ -72,7 +72,7 @@ Document types are associated with the language pair selected when you create a 
 
 1. Select **Upload**.
 
-At this point, Custom Translator is processing your documents and attempting to extract sentences as indicated in the upload notification. Once done processing, you'll see the upload successful notification.
+At this point, Custom Translator is processing your documents and attempting to extract sentences as indicated in the upload notification. Once done processing, you see the upload successful notification.
 
    :::image type="content" source="../media/quickstart/document-upload-notification.png" alt-text="Screenshot illustrating the upload document processing dialog window.":::
 
@@ -80,18 +80,17 @@ At this point, Custom Translator is processing your documents and attempting to 
 
 In workspace page you can view history of all document uploads details like document type, language pair, upload status etc.
 
-1. From the [Custom Translator](https://portal.customtranslator.azure.ai) portal workspace page,
-    click Upload History tab to view history.
+1. The upload history tab shows history from the [Custom Translator](https://portal.customtranslator.azure.ai) portal workspace page.
+
 
    :::image type="content" source="../media/how-to/upload-history-tab.png" alt-text="Screenshot showing the upload history tab.":::
 
 2. This page shows the status of all of your past uploads. It displays
-    uploads from most recent to least recent. For each upload, it shows the document name, upload status, the upload date, the number of files uploaded, type of file uploaded, the language pair of the file, and created by. You can use Filter to quickly find documents by name, status, language, and date range.
+    uploads from most recent to least recent. Each upload status shows document name, created by, upload status, upload date, number of files uploaded, type of file uploaded, and language pairs. You can use filter to quickly find documents by name, status, language, and date range.
 
    :::image type="content" source="../media/how-to/upload-history-page.png" alt-text="Screenshot showing the upload history page.":::
 
-3. Select any upload history record. In upload history details page,
-    you can view the files uploaded as part of the upload, uploaded status of the file, language of the file and error message (if there is any error in upload).
+3. The upload history details page shows the files uploaded as part of the uploaded status of the file, language of the file, and error message (if there's an error in upload).
 
 ## Next steps
 

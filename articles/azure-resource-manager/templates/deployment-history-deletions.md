@@ -2,7 +2,7 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 06/28/2024
+ms.date: 08/28/2024
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -56,7 +56,7 @@ If the current user doesn't have the required permissions, automatic deletion is
 
 You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
 
-To disable automatic deletions at the tenant or the management group scope, open a support ticket with the deployment resource provider (RP) team.
+To disable automatic deletions at the tenant or the management group scope, open a support ticket from the Azure portal by selecting **Help**, and then **Support + troubleshooting** from the main menu.
 
 To disable automatic deletions at the subscription scope, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group. To reenable automatic deletions, unregister the feature flag.
 

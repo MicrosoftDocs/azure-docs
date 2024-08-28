@@ -3,14 +3,13 @@ title: Consume deployed serverless API endpoints from a different workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to consume a serverless API endpoint from a different workspace than the one where it was deployed. 
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
  - serverless
@@ -179,7 +178,7 @@ Follow these steps to create a connection:
     # [Python SDK](#tab/python)
 
     ```python
-    client.connections.create(ServerlessConnection(
+    client.connections.create_or_update(ServerlessConnection(
         name="meta-llama3-8b-connection",
         endpoint="https://meta-llama3-8b-qwerty-serverless.inference.ai.azure.com",
         api_key="1234567890qwertyuiop"

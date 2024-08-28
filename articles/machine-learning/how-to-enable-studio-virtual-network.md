@@ -3,12 +3,12 @@ title: Use Azure Machine Learning studio in a virtual network
 titleSuffix: Azure Machine Learning
 description: Learn how to configure Azure Machine Learning studio to access data stored inside of a virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/06/2024
 ms.custom: tracking-python, security
 monikerRange: 'azureml-api-2 || azureml-api-1'

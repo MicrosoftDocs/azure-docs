@@ -69,7 +69,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### 3. Run the Azure Migrate installer script
 
@@ -163,7 +163,7 @@ To complete the registration of the scale-out appliance, click **import** to get
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
 
     Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 

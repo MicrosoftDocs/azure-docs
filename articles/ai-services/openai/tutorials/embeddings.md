@@ -41,7 +41,7 @@ Using this approach, you can use embeddings as a search mechanism across documen
 
 If you created an Azure OpenAI resource solely for completing this tutorial and want to clean up and remove an Azure OpenAI resource, you'll need to delete your deployed models, and then delete the resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
@@ -52,8 +52,8 @@ Learn more about Azure OpenAI's models:
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
-  * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/vector-search)
   * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
-  * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
-  * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
+  * [Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search)
+  * [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/howto-use-pgvector)
   * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)

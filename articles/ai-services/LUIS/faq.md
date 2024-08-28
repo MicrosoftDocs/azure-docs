@@ -59,7 +59,7 @@ Yes, it is good to train your  **None**  intent with utterances, especially as y
 
 ## How do I edit my LUIS app programmatically?
 
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](luis-how-to-azure-subscription.md).
+To edit your LUIS app programmatically, use the [Authoring API](/rest/api/luis/operation-groups). See [Call LUIS authoring API](get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](luis-how-to-azure-subscription.md).
 
 ## Should variations of an example utterance include punctuation?
 
@@ -115,7 +115,7 @@ To get the same top intent between all the apps, make sure the intent prediction
 
 When training these apps, make sure to [train with all data](how-to/train-test.md).
 
-Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) website or the authoring API for a [single utterance](/rest/api/cognitiveservices-luis/authoring/examples/add) or for a [batch](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true).
+Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) website or the authoring API for a [single utterance](/rest/api/luis/examples/add) or for a [batch](/rest/api/luis/examples/batch?).
 
 Schedule a periodic review, such as every two weeks, of [endpoint utterances](how-to/improve-application.md) for active learning, then retrain and republish the app.
 

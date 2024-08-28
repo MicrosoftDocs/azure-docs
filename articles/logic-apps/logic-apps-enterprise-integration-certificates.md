@@ -48,14 +48,14 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * For private certificates, you must meet the following prerequisites:
 
-  * Add a private key in [Azure Key Vault](../key-vault/general/overview.md) and have the **Key Name**. For more information, review [Add your private key to Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate).
+  * Add a private key in [Azure Key Vault](/azure/key-vault/general/overview) and have the **Key Name**. For more information, review [Add your private key to Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios#import-a-certificate).
 
-  * Authorize the Azure Logic Apps service to perform operations on your key vault. To grant access to the Azure Logic Apps service principal, use Azure role-based access control to manage access to your key vault. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md).
+  * Authorize the Azure Logic Apps service to perform operations on your key vault. To grant access to the Azure Logic Apps service principal, use Azure role-based access control to manage access to your key vault. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
     > [!NOTE]
     >
     > If you're using access policies with your key vault, considering
-    > [migrating to the Azure role-based access control permission model](../key-vault/general/rbac-migration.md).
+    > [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
 
   * [Add the corresponding public certificate](#add-public-certificate) to your key vault. This certificate appears in your [agreement's **Send** and **Receive** settings for signing and encrypting messages](logic-apps-enterprise-integration-agreements.md). For example, review [Reference for AS2 messages settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
 

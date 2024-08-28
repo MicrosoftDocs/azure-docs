@@ -129,7 +129,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Inte
 
 ### Recorded Future Security Intelligence Platform
 
-- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf) necessary to take full advantage of the complete offering.
+- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 

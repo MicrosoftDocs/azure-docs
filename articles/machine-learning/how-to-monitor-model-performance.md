@@ -3,13 +3,12 @@ title: Monitor performance of models deployed to production
 titleSuffix: Azure Machine Learning
 description: Monitor the performance of models deployed to production in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ahughes-msft
-ms.author: alehughes
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: alehughes
 ms.date: 01/29/2024
 ms.custom: devplatv2, update-code, devx-track-azurecli
 ---

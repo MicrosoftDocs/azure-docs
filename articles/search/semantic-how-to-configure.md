@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 08/05/2024
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -55,7 +55,7 @@ You can only specify one title field, but you can have as many content and keywo
 Across all semantic configuration properties, the fields you assign must be:
 
 + Attributed as `searchable` and `retrievable`
-+ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of  `Collection(Edm.ComplexType)`
++ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of `Edm.ComplexType`
 
 ### [**Azure portal**](#tab/portal)
 
@@ -157,7 +157,7 @@ SearchIndex searchIndex = new(indexName)
 
 If your semantic ranking code is using preview APIs, this section explains how to migrate to stable versions. You can check the change logs for verification of general availability:
 
-+ [2023-11-01 (REST)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&preserve-view=true)
++ [2024-07-01 (REST)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-07-01&preserve-view=true)
 + [Azure SDK for .NET (11.5) change log](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.5.1/sdk/search/Azure.Search.Documents/CHANGELOG.md#1150-2023-11-10)
 + [Azure SDK for Python (11.4) change log](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#1140-2023-10-13)
 + [Azure SDK for Java (11.6) change log](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.6.1/sdk/search/azure-search-documents/CHANGELOG.md#1160-2023-11-13)

@@ -55,7 +55,7 @@ Because most problems with this HA solution stem from inaccurate OS-level file l
 
 ## I'm running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despites using the *SMB* protocol?
 
-The general industry recommendation is to [not run your KahaDB shared storage on CIFS/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you're having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
+The general industry recommendation is to [not run your KahaDB shared storage on CIFS [Common Internet File System]/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you're having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 
 ## I’m running Boomi on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events?
 

@@ -5,7 +5,7 @@ author: expekesheth
 ms.author: kesheth
 ms.date: 09/27/2023
 ms.topic: reference
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ---
 # Configure cross-origin resource sharing in Azure API for FHIR

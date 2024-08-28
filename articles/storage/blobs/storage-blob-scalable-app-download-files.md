@@ -4,7 +4,7 @@ description: Learn how to use the Azure SDK to download large amounts of random 
 author: akashdubey-ms
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/07/2024
 ms.author: akashdubey
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -98,7 +98,7 @@ dotnet run
 
 The `DownloadFilesAsync` task is shown in the following example:
 
-The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs using the [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) method and downloads them to the local machine using the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method.
+The application reads the containers located in the storage account. It iterates through the blobs using the [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) method and downloads them to the local machine using the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
 

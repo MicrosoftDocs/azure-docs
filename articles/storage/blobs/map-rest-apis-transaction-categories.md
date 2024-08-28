@@ -14,7 +14,7 @@ ms.custom: subject-cost-optimization
 
 This article helps you find the price of each REST operation that clients can execute against the Azure Blob Storage service.
 
-Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. REST operations are not billed for requests with unsuccessful authentication.
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. REST operations are not billed for requests with unsuccessful authentication. After an identity is authenticated, all operations and requests made by that identity are billed, including those that don’t succeed.
 
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. Use the tables in this article as a guide.
 

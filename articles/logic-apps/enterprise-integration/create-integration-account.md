@@ -2,7 +2,7 @@
 title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -274,7 +274,7 @@ Before you can link your integration account to a Standard logic app resource, y
        "IsEncrypted": false,
        "Values": {
            "AzureWebJobStorage": "UseDevelopmentStorage=true",
-           "FUNCTIONS_WORKER_RUNTIME": "node",
+           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
            "WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL": "https://prod-03.westus.logic.azure.com:443/integrationAccounts/...."
        }
    }

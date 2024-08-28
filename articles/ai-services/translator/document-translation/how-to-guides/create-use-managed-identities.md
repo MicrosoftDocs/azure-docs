@@ -38,7 +38,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Azure AI services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create a multi-service resource](../../../multi-service-resource.md).
+* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Azure AI services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create an Azure AI services resource](../../../multi-service-resource.md).
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.yml) using the Azure portal.
 

@@ -222,8 +222,6 @@ let locator = .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode: 
 
 ### Set up a Room call
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 To set up an Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
 While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 

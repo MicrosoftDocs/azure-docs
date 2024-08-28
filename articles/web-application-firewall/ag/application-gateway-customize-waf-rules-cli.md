@@ -3,7 +3,7 @@ title: Customize rules using CLI - Azure Web Application Firewall
 description: This article provides information on how to customize Web Application Firewall rules in Application Gateway with the Azure CLI.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurecli
 ms.date: 08/25/2023
 ms.author: victorh

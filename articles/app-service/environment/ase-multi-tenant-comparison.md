@@ -2,7 +2,7 @@
 title: 'App Service Environment v3 and App Service public multitenant comparison'
 description: This article provides an overview of the difference between App Service Environment v3 and the public multitenant offering of App Service.
 author: seligj95
-ms.date: 6/14/2024
+ms.date: 7/8/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -16,17 +16,17 @@ An App Service Environment is an Azure App Service feature that provides a fully
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
 |Hosting environment|[Fully isolated and dedicated compute](overview.md)|[Shared environment](../../app-service/overview.md). Workers running your apps are dedicated, but the supporting infrastructure is shared with other customers. |
-|Hardware|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|
+|Hardware|[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)|[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)|
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2        |Free, Basic, Standard, Premium v2, Premium v3        |
 |Dedicated host group|[Available](overview.md#dedicated-environment) |No |
 |Remote file storage|Fully dedicated to the App Service Environment |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server |
 |Private inbound configuration|Yes, using ILB App Service Environment variation |Yes, via private endpoint |
-|Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md). Maintenance is nondisruptive to your apps. |The platform handles maintenance and is nondisruptive to your apps |
+|Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md) |[The platform handles maintenance](../../app-service/routine-maintenance.md) |
 |Aggregate remote file share storage limit|1 TB for all apps in an App Service Environment v3|250 GB for all apps in a single App Service plan. 500 GB for all apps across all App Service plans in a single resource group.|
 
 ### Scaling
 
-Both App Service Environment v3 and the public multitenant offering run on [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md), which means that both offerings benefit from the capabilities that scale sets provide. However, App Service Environment v3 is a dedicated environment, which means that even though it can scale out to more instances than the public multitenant offering, scaling out to multiple instances can be slower than the public multitenant offering.
+Both App Service Environment v3 and the public multitenant offering run on [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which means that both offerings benefit from the capabilities that scale sets provide. However, App Service Environment v3 is a dedicated environment, which means that even though it can scale out to more instances than the public multitenant offering, scaling out to multiple instances can be slower than the public multitenant offering.
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|

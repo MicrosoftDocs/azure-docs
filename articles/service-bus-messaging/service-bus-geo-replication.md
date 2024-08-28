@@ -48,20 +48,20 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 The Geo-replication feature can be used to implement different scenarios, as described here.
 
 ### Disaster recovery
-Data and metadata are continuously synchronized between the primary and secondary regions. If a region lags or is unavailable, it is possible to promote a secondary region as the primary. This promotion allows for the uninterrupted operation of workloads in the newly promoted region. Such a promotion may be necessitated by degradation of Service Bus or other services within your workload, particularly if you aim to run the various components together. Depending on the severity and impacted services, the promotion could either be planned or forced. In case of planned promotion in-flight messages are replicated before finalizing the promotion, while with forced promotion this is immediately executed.
+Data and metadata are continuously synchronized between the primary and secondary regions. If a region lags or is unavailable, it's possible to promote a secondary region as the primary. This promotion allows for the uninterrupted operation of workloads in the newly promoted region. Such a promotion may be necessitated by degradation of Service Bus or other services within your workload, particularly if you aim to run the various components together. Depending on the severity and impacted services, the promotion could either be planned or forced. In case of planned promotion in-flight messages are replicated before finalizing the promotion, while with forced promotion this is immediately executed.
 
 ### Region migration
 There are times when you want to migrate your Service Bus workloads to run in a different region. For example, when Azure adds a new region that is geographically closer to your location, users, or other services. Alternatively, you might want to migrate when the regions where most of your workloads run is shifted. The Geo-Replication feature also provides a good solution in these cases. In this case, you would set up Geo-Replication on your existing namespace with the desired new region as secondary region and wait for the synchronization to complete. At this point, you would start a planned promotion, allowing any in-flight messages to be replicated. Once the promotion is completed you can now optionally remove the old region, which is now the secondary region, and continue running your workloads in the desired region.
 
 ## Basic concepts
 
-The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it is not possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. The Geo-Replication feature is available for the [Premium tier](service-bus-premium-messaging.md).
+The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it isn't possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. The Geo-Replication feature is available for the [Premium tier](service-bus-premium-messaging.md).
 
 Some of the key aspects of Geo-Replication feature are: 
 - Service Bus services perform fully managed replication of metadata, message data, and message state and property changes across regions adhering to the replication consistency configured at the namespace.
 - Single namespace hostname; Upon successful configuration of a Geo-Replication enabled namespace, users can use the namespace hostname in their client application. The hostname behaves agnostic of the configured primary and secondary regions, and always points to the primary region.
 - When a customer initiates a promotion, the hostname points to the region selected to be the new primary region. The old primary becomes a secondary region.
-- It is not possible to read or write on the secondary regions.
+- It isn't possible to read or write on the secondary regions.
 - Synchronous and asynchronous replication modes, further described [here](#replication-modes).
 - Customer-managed promotion from primary to secondary region, providing full ownership and visibility for outage resolution. Metrics are available, which can help to automate the promotion from customer side.
 - Secondary regions can be added or removed at the customer's discretion.
@@ -102,7 +102,7 @@ As such, it doesn’t have the absolute guarantee that all regions have the data
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
 
 > [!NOTE]
-> In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It is possible to add additional secondary regions at any time.
+> In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It's possible to add additional secondary regions at any time.
 
 ## Secondary region selection
 
@@ -120,7 +120,9 @@ The Geo-Replication feature enables customers to configure a secondary region to
 
 ## Setup
 
-The following section is an overview to set up the Geo-Replication feature on a new namespace.
+### Using Azure portal
+
+The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
 > [!NOTE]
 > This experience might change during public preview. We'll update this document accordingly.
 
@@ -129,6 +131,42 @@ The following section is an overview to set up the Geo-Replication feature on a 
 1. Click on the **Add secondary region** button, and choose a region.
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
+
+### Using Bicep template
+
+To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
+
+```bicep
+param serviceBusName string
+param primaryLocation string
+param secondaryLocation string
+param maxReplicationLagInSeconds int
+
+resource sb 'Microsoft.ServiceBus/namespaces@2023-01-01-preview' = {
+  name: serviceBusName
+  location: primaryLocation
+  sku: {
+    name: 'Premium'
+    tier: 'Premium'
+    capacity: 1
+  }
+  properties: {
+    geoDataReplication: {
+      maxReplicationLagDurationInSeconds: maxReplicationLagInSeconds
+      locations: [
+        {
+          locationName: primaryLocation
+          roleType: 'Primary'
+        }
+        {
+          locationName: secondaryLocation
+          roleType: 'Secondary'
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Management
 
@@ -146,14 +184,10 @@ To remove a secondary region, click on the **...**-ellipsis next to the region, 
 
 ### Promotion flow
 
-A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. In the portal, click on the **Promote** icon, and follow the instructions in the pop-up blade to delete the region. 
-
-When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
+A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
 
 > [!IMPORTANT]
 > When using **Forced** promotion, any data that has not been replicated may be lost.
-
-:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
 After the promotion is initiated:
 
@@ -163,10 +197,24 @@ After the promotion is initiated:
     > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
+
 :::image type="content" source="./media/service-bus-geo-replication/promotion-flow.png" alt-text="Screenshot of the portal showing the flow of promotion from primary to secondary region." lightbox="./media/service-bus-geo-replication/promotion-flow.png":::
 
-
 You can automate promotion either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
+
+### Using Azure portal
+
+In the portal, click on the **Promote** icon, and follow the instructions in the pop-up blade to delete the region. 
+
+:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
+
+### Using Azure CLI
+
+Execute the Azure CLI command to initiate the promotion. The **Force** property is optional, and defaults to **false**.
+
+```azurecli
+az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
+```
 
 ### Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Log Analytics.
@@ -199,7 +247,7 @@ Note the following considerations to keep in mind with this release:
 - Promoting a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
 ## Pricing
-The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, secondary regions run on the same number of MUs as the primary region, and the pricing is calculated over the total number of MUs. Additionally, there is a charge for based on the published bandwidth times the number of secondary regions. During the early public preview, this charge is waived.
+The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, secondary regions run on the same number of MUs as the primary region, and the pricing is calculated over the total number of MUs. Additionally, there's a charge for based on the published bandwidth times the number of secondary regions. During the early public preview, this charge is waived.
 
 ## Next steps
 
