@@ -1,6 +1,6 @@
 ---
 title: Safe Upgrade Practices NF Level Rollback
-description: Revert all prior completed operations in case of safe upgrade failure.
+description: Revert all prior completed operations during safe upgrade failure.
 author: msftadam
 ms.author: adamdor
 ms.date: 08/28/2024
@@ -8,34 +8,37 @@ ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
 ---
 
-#  Rollback on CNF upgrade failure
-A guide to understand and use the optional rollback feature for CNF upgrade
+# Rollback on upgrade failure
+A guide to understand and use the optional rollback feature for container network function (CNF) upgrade
 
-## Introduction
-CNF upgrade workflow via AOSM currently executes as follows,
-* The new and existing NF (network function) apps from the newly referenced NFDV are either created or upgraded in the order based on the ‘updateDependsOn’ property or in the sequential order if former is not provided.
-* Will skip processing NF apps those have ‘applicationEnabled’ roleoverride set as ‘Disabled’.
-* NF Apps which are present in the CNF before upgrade but are not available as part of the newly referenced NFDV will be deleted.
-* The execution is paused if any of the NF app upgrade fails. 
+## Current state
+CNF upgrade workflow via Azure Operator Service Manager (AOSM) currently executes as follows,
+* The network function applications (NfApps) are created or upgraded following either updateDependsOn ordering, if provided, or in the sequential order they appear.
+* NfApps with parameter ‘applicationEnabled’ roleoverride set to ‘Disabled’ are skipped.
+* NFApps present before upgrade, but not referenced by the new network function definition version (NFDV) are deleted.
+* The execution is stopped if any of the NfApp upgrades fail.
+* The failure leaves the NF resource in a failed state.
 
-The upgrade failure leaves the NF resource in the failed state. Although AOSM does not supports rollback on the entire NF level, it currently supports rollback at the NF app level, which means that if an update fails for a single NF app within a CNF, that NF app will be rolled back to its previous state. This feature is supported via one of the “testOptions”, “installOptions” and “upgradeOptions” available at per NF app level. 
-However, this may cause inconsistency or dependency issues among the NF apps within a CNF. To bring a consistent experience, going forward, AOSM will support NF level rollback for CNF upgrade, which means that if a CNF upgrade fails, the entire CNF will be rolled back to its state before the upgrade was issued, optionally. This needs all the changes applied to be rolled back at per NF app level.
+### Pause on failure 
+With pause on failure, AOSM can rollback the failed NfApp, via the testOptions, installOptions or upgradeOptions parameters. This allows the end user to troubleshoot the failed NfApp and then restart the upgrade from that point forward.  As the default behavior, this is the most effecient upgrade method, but may cause network function (NF) inconsistencies while in a mixed version state. 
 
-## How the optional rollback feature works
-The optional rollback feature for CNF upgrade works as follows:
-* When a user initiates a CNF upgrade via AOSM, the user can specify whether to enable or disable the optional rollback feature.
-* If the user enables the optional rollback feature, AOSM will create a snapshot of all the NF apps under the CNF, before the upgrade and stores it.
-* The snapshot is used to decide whether to do install or upgrade of the individual NF apps from the newly referenced NFDV during the CNF upgrade; and on CNF upgrade failure we again use this information to decide the reversing action
+
+## Rollback on failure
+To address risk of mismatched NfApp versions, AOSM now supports NF level rollback on failure. With this option enabled, if an NfApp upgrade fails, both the failed NfApp, and all prior completed NfApps, are rolled back to initial version state. This minimzes, or eliminates, the amount of time the NF is exposed to NfApp version mismatches.  The optional rollback on failure feature works as follows:
+* When a user initiates an upgrade, they enable or disable the rollback on failure feature.
+* If enabled, before the upgrade starts, AOSM captures and stores a snapshot of NfApp versoins.
+* The snapshot is used to determine the individual NfApp actions taken to reverse actions that completed successfully.
   - helm install action on deleted components,
   - helm rollback action on upgraded components,
-  - elm delete action on newly installed components
+  - helm delete action on newly installed components
+* If a NfApp failure occurs, AOSM restores the NfApps to the snapshot version state before the upgrade with most recent actions reverted first.
+* If no NfApp failure occures, AOSM deletes the snapshot and completes the CNF upgrade.
 
-In the reverse order of actions that happened in the CNF upgrade.
-* If any of the NF app updates fails, AOSM will trigger the optional rollback feature and restore the CNF to its state before the upgrade using the snapshot. This will be done by unwinding the stack by rolling back the most recent change first.
-* If all the updates succeed, AOSM will delete the snapshot and complete the CNF upgrade.
-* If the user did not enable the optional rollback feature, AOSM will not create a snapshot; and will only perform rollback at the NF app level, only if mentioned via one of the “testOptions”, “installOptions” and “upgradeOptions”.
-* AOSM will not rollback the currently failed NF app during the upgrade, it rolls back only the successfully completed (1 ... n-1) NF Apps which got upgraded before the current failure (n), to rollback the current NF app as well, please mention one of the above mentioned app level roll back option for each app that might fail. 
-* Customer should be getting the operation status and message as follows for the respective scenarios
+**Notes:**
+* If a user does not enable rollback on failure, AOSM will not create a snapshot.
+* Rollback on failure only applies to the successfully completed NFApps. To additionally rollback the failed NfApp use the testOptions, installOptions or upgradeOptions parameters.
+* AOSM will return the following operationsl status and messages, given the respective results:
+```
   - Upgrade Succeeded
     - Provisioning State: Succeeded
     - Message: <empty>
@@ -44,10 +47,12 @@ In the reverse order of actions that happened in the CNF upgrade.
     - Message: Application(<ComponentName>) : <Failure Reason>; 	Rollback succeeded
   - Upgrade Failed, Rollback Failed
     - Provisioning State: Failed
-    - Message: Application(<ComponentName>) : <Failure reason>; 	Rollback Failed (<RollbackComponentName>) : 			<Rollback Failure reason>
+    - Message: Application(<ComponentName>) : <Failure reason>; 	Rollback Failed (<RollbackComponentName>) : <Rollback Failure reason>
+```
 
-## How to set optional rollback for NF
-Operator will be able to provide their input by using the ‘roleOverrideValues’ parameter in the NetworkFunction Payload. The operator can use CGV, CGS to propagate the value to the ‘roleOverrideValues’. The ‘roleOverrideValues’ currently accepts an array of serialized JSONs, with each entry configuring the behaviour override of the NF apps in the referenced NFDV; after the availability of this feature the ‘roleOverrideValues’ will also accept another entry matching the JSON schema 
+## Configure rollback on failure
+Operator will be able to provide their input by using the roleOverrideValues parameter in the NF payload. The operator can use configuration group value (CGV) or configuration group schema (CGS) to propagate the value in the roleOverrideValues. The roleOverrideValues currently accepts an array of serialized JSONs, with each entry configuring the behaviour override of the NfAapps in the referenced NFDV; after the availability of this feature the roleOverrideValues will also accept another entry matching the JSON schema. 
+
 ```
 {
   "description": "NF configuration",
@@ -67,6 +72,7 @@ Operator will be able to provide their input by using the ‘roleOverrideValues�
   }
 }
 ```
+**Notes:**
 * If the ‘nfConfiguration’ is not provided through the roleOverrideValues parameter by default the rollback will be set disabled and is enabled only when the ‘rollbackEnabled’ is set to true (Boolean)
 * If multiple entries of ‘nfConfiguration’ are found in the roleOverrideValues then the NF PUT will be returned as BadRequest.
 
