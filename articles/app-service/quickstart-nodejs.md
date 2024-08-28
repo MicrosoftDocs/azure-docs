@@ -188,7 +188,7 @@ az webapp up --sku F1 --name <app-name> --os-type Windows
 
 - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
 - Replace `<app_name>` with a name that's unique across all of Azure. (*Valid characters are `a-z`, `0-9`, and `-`*.) See [the note at the start of this article](#dnl-note). A good pattern is to use a combination of your company name and an app identifier.
-- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
+- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs no cost.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 - The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
 - If you see the error, "Could not auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md).)
