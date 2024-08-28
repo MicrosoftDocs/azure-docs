@@ -36,14 +36,14 @@ Different capacity metrics are available in the [v2 service tiers](v2-service-ti
 
 In the v2 tiers, the following metrics are available:
 
-* **CPU Percentage of Gateway** - The percentage of CPU used by the gateway units.
+* **CPU Percentage of Gateway** - The percentage of CPU capacity used by the gateway units.
 
-* **Memory Percentage of Gateway** - The percentage of memory used by the gateway units.
+* **Memory Percentage of Gateway** - The percentage of memory capacity used by the gateway units.
 
 Available aggregations for these metrics are as follows.
 
-    * **Avg** - Average percentage of gateway capacity consumed across every [unit](upgrade-and-scale.md) of an API Management instance. 
-    * **Max** - Percentage of gateway capacity of the process with the greatest consumption.  
+* **Avg** - Average percentage of capacity used across gateway processes in every [unit](upgrade-and-scale.md) of an API Management instance. 
+* **Max** - Percentage of capacity in gateway process with the greatest consumption.  
 
 [!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
 
@@ -51,9 +51,14 @@ Available aggregations for these metrics are as follows.
 
 In the Developer, Basic, Standard, and Premium tiers, the **Capacity** metric is available for making decisions about scaling or upgrading an API Management instance. Its construction is complex and imposes certain behavior.
 
-Total **capacity** is an average of its own values from every [unit](upgrade-and-scale.md) of an API Management instance.
+Available aggregations for this metric are as follows.
+
+* **Avg** - Average percentage of capacity used across gateway processes in every [unit](upgrade-and-scale.md) of an API Management instance. 
+* **Max** - Percentage of capacity in gateway process with the greatest consumption.  
 
 [!INCLUDE [availability-capacity.md](../../includes/api-management-availability-capacity.md)]
+
+### What the Capacity metric indicates
 
 ![Diagram that explains the Capacity metric.](./media/api-management-capacity/capacity-ingredients.png)
 
@@ -80,12 +85,12 @@ The more complex operations on the requests are, the higher the capacity consump
 
 Capacity metrics can also spike intermittently or be greater than zero even if no requests are being processed. It happens because of system- or platform-specific actions and should not be taken into consideration when deciding whether to scale an instance.
 
-Although capacity metrics are designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in these metrics.
-
-Low capacity metrics don't necessarily mean that your API Management instance isn't experiencing any problems.
+Although capacity metrics are designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in these metrics. Additionally, low capacity metrics don't necessarily mean that your API Management instance isn't experiencing any problems.
 
   
 ## Use the Azure portal to examine capacity metrics
+
+Access metrics in the portal to understand how much capacity is used over time.
 
 #### [v2 tiers](#tab/v2-tiers) 
 
@@ -94,9 +99,12 @@ Low capacity metrics don't necessarily mean that your API Management instance is
 1. Select the **CPU Percentage of Gateway** or **Memory Percentage of Gateway** metric from the available metrics. Choose the default **Avg** aggregation or select the **Max** aggregation to see the peak usage.
 1. Pick a desired timeframe from the top bar of the section.
 
+> [!IMPORTANT]
+> Currently, the **Capacity** metric also appears in the portal for instances in v2 tiers. However, it's not supported for use in the v2 tiers and shows a value of 0.
 
 > [!NOTE]
 > You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your API Management instance has exceeded its expected peak CPU or Memory usage for more than 20 minutes.
+  
 
 #### [Classic tiers](#tab/classic)
   
@@ -112,12 +120,17 @@ Low capacity metrics don't necessarily mean that your API Management instance is
 1. To split the metric by location, from the section at the top, select **Apply splitting** and then select **Location**.
 1. Pick a desired timeframe from the top bar of the section.
 
-    You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your API Management instance has exceeded its expected peak capacity for more than 20 minutes.
+> [!IMPORTANT]
+> Currently, the **CPU Percentage of Gateway** and **Memory Consumption of Gateway** metrics also appear in the portal for instances in classic tiers. However, they're not supported for use in classic tiers and show a value of 0.
 
 
-> [!TIP]
-> You can use Azure Monitor [autoscaling](api-management-howto-autoscale.md) to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
-> In multi-region deployments, only scaling the master location is allowed.
+
+
+
+> [!NOTE]
+> * You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your API Management instance has exceeded its expected peak capacity for more than 20 minutes.
+> * You can use Azure Monitor [autoscaling](api-management-howto-autoscale.md) to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
+> * In multi-region deployments, only scaling the primary location is allowed.
 
 ---
 
