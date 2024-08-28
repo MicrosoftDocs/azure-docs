@@ -11,7 +11,7 @@ ms.date: 08/27/2024
 
 This article describes suggested Log Analytics workspace designs for organizations with the following sample requirements:
 
-- Multiple-tenants and regions, with European Data Sovereignty requirements
+- Multiple tenants and regions, with European Data Sovereignty requirements
 - Single tenant with multiple clouds
 - Multiple tenants, with multiple regions and centralized security
 
@@ -155,7 +155,7 @@ The suggested solution includes:
 
 ## Sample 3: Multiple tenants and regions and centralized security
 
-Adventure Works is a multinational company with headquarters in Tokyo. Adventure Works has 10 different sub-entities , based in different countries/regions around the world.
+Adventure Works is a multinational company with headquarters in Tokyo. Adventure Works has 10 different sub-entities, based in different countries/regions around the world.
 
 Adventure Works is Microsoft 365 E5 customer, and already has workloads in Azure.
 
