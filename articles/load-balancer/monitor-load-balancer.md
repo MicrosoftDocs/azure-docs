@@ -240,7 +240,7 @@ az monitor diagnostic-settings create \
 
 ## Analyzing Load Balancer Traffic with VNet flow logs
 
-[Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. Flow data is sent to Azure Storage from where you can access it and export it to a visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
+[Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
 For general guidance to create and manage virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md). Once you have created your virtual network flow log, you can access the data on [Log Analytics workspaces](../azure-monitor/logs/logs-analytics-overview.md) where you can also query and filter the data to identify traffic flow through your Load Balancer. See [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md) for more details on the virtual network flow logs schema.
 
