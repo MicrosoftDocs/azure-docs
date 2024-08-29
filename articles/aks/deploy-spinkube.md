@@ -160,7 +160,7 @@ hello-spinkube   2       2         containerd-shim-spin
 
 Upon deployment, the `spin-operator` creates underlying Kubernetes primitives such as a *Service*, a *Deployment* and corresponding *Pods*:
 
-```bash
+```azurecli-interactive
 # Retrieve Kubernetes primitives created by the spin-operator
 kubectl get service
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
