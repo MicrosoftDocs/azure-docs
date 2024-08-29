@@ -1,6 +1,6 @@
 ---
-title: "Manage Shared Storage: Azure Modeling and Simulation Workbench"
-description: Learn how to manage Shared Storage in Azure Modeling and Simulation Workbench.
+title: "Manage shared storage: Azure Modeling and Simulation Workbench"
+description: Learn how to manage shared storage in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -9,9 +9,9 @@ ms.date: 08/22/2024
 # Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to manage shared storage.
 ---
 
-# Manage Shared Storage in Azure Modeling and Simulation Workbench
+# Manage shared storage in Azure Modeling and Simulation Workbench
 
-Shared Storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers. Chamber Admins and Workbench Owners can manage the Shared storage in Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.
+Shared storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers. Chamber Admins and Workbench Owners can manage the Shared storage in Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.
 
 This article explains how Chamber Admins and Workbench Owners manage chamber storage.
 
@@ -38,7 +38,7 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 1. Fill in a name, set the capacity in 4-TB increments, and select the Chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
 1. Select **Review + Create**. If the validation checks pass, select **Create**.
 
-## Manage Shared Storage
+## Manage shared storage
 
 If you're a Workbench Owner or Chamber Admin, complete the following steps to access the chamber storage options:
 
