@@ -28,9 +28,9 @@ Azure Device Registry Preview registers assets and asset endpoints as Azure reso
 
 An *asset endpoints* is a profile that describes southbound edge connectivity information for one or more assets.
 
-In Azure IoT Operations, an asset endpoint is the OPC UA server that provides the connection to one or more assets.
+Currently, an asset endpoint in Azure IoT Operations is an OPC UA server that provides the connection to one or more assets.
 
-When you defin an asset endpoint using either the operations experience or Azure IoT Operations CLI, you configure the target address for the endpoint and connection information.
+When you define an asset endpoint using either the operations experience or Azure IoT Operations CLI, you configure the target address for the endpoint and connection information.
 
 The following table highlights some important properties that are included in an asset endpoint definition.
 
@@ -44,7 +44,9 @@ The following table highlights some important properties that are included in an
 
 An *asset* is a logical entity in the cloud that represents a real device or component. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
 
-In Azure IoT Operations, an asset is anything that connects to an OPC UA server. When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *tags* and *events* for each asset.
+Currently, an asset in Azure IoT Operations is anything that connects to an OPC UA server.
+
+When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *tags* and *events* for each asset.
 
 The following table highlights some important properties that are included in an asset definition.
 
@@ -57,7 +59,7 @@ The following table highlights some important properties that are included in an
 
 ### Asset tags
 
-A *tag* is a description of a data point that can be collected from an asset. Tags include the following properties:
+A *tag* is a description of a data point that can be collected from an asset. OPC UA tags provide real-time or historical data about an asset. Tags include the following properties:
 
 | Property | Description |
 | -------- | ----------- |
@@ -69,7 +71,7 @@ A *tag* is a description of a data point that can be collected from an asset. Ta
 
 ### Asset events
 
-An *event* is a notification from an OPC UA server that can inform you about changes to your asset including state changes, alarms, conditions, and more. Events include the following properties:
+An *event* is a notification from an OPC UA server that can inform you about state changes to your asset. Events include the following properties:
 
 | Property | Description |
 | -------- | ----------- |
