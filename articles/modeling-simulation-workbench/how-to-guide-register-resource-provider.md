@@ -26,7 +26,7 @@ To install the Azure Modeling and Simulation Workbench, the resource provider mu
 
 * A Microsoft Entra tenant.
 
-## Register Azure Modeling and Simulation Workbench Resource Provider
+## Register Azure Modeling and Simulation Workbench resource provider
 
 [!INCLUDE [register-resource-provider](includes/register-resource-provider.md)]
 
