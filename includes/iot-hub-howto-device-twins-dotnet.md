@@ -13,7 +13,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 ## Create a device application
 
-Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that are set by a backend application or IoT Hub.
 
 This section describes how to use device application code to:
 
@@ -23,7 +23,7 @@ This section describes how to use device application code to:
 
 ### Add device NuGet Package
 
-Device client applications requre the **Microsoft.Azure.Devices.Client** NuGet package.
+Device client applications require the **Microsoft.Azure.Devices.Client** NuGet package.
 
 To install the **Microsoft.Azure.Devices.Client** NuGet package:
 
@@ -94,13 +94,13 @@ catch (Exception ex)
 
 You can create a desired property update callback handler that executes when the desired property is changed in the device by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
 
-For example, this call will set up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired property is changed.
+For example, this call sets up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired property is changed.
 
 ```csharp
 await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChangedAsync, null);
 ```
 
-The twin properties are passed to the callback method as a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection?view=azure-dotnet&branch=main) and can be examined as `KeyValuePair` structures.
+The twin properties are passed to the callback method as a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) and can be examined as `KeyValuePair` structures.
 
 This example receives the desired property updates as a `TwinCollection`, then loops through and prints the `KeyValuePair` collection updates. After looping through the `KeyValuePair` collection, the code calls `UpdateReportedPropertiesAsync` to update the `DateTimeLastDesiredPropertyChangeReceived` reported property to keep the last updated time up to date.
 
@@ -143,7 +143,7 @@ This section describes how to create backend application code to:
 
 ### Add service NuGet Package
 
-Backend service applications requre the **Microsoft.Azure.Devices** NuGet package.
+Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
 
 To install the **Microsoft.Azure.Devices** NuGet package:
 
@@ -164,7 +164,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 ### Read and update device twin fields
 
-You can retrieve current device twin fields into a into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
+You can retrieve current device twin fields into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
 
 The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`.
 
@@ -209,7 +209,7 @@ catch (Exception e)
 
 ##### Write using a JSON string
 
-You can also create and apply a device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub will parse and apply the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields will not be applied.
+You can also create and apply a device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub parses and applies the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields are not be applied.
 
 This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, creates a JSON-formatted `tag` patch with region and plant location information, then calls `UpdateTwinAsync` to apply the patch to update the device twin. An error message is displayed if `UpdateTwinAsync` failed.
 

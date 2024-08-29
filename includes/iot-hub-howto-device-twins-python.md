@@ -21,7 +21,7 @@ This section describes how to use the Python SDK to create device and backend se
 
 Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
 
-The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be use to work with device twins.
+The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with device twins.
 
 This section describes how to create device application code that:
 
@@ -52,7 +52,7 @@ await device_client.connect()
 
 ### Retrieve a device twin and examine reported properties
 
-You can retrieve and examine device twin information including tags and properties. The device twin information retrieved matches device twin schema that you can view for a device in the Auzre portal.
+You can retrieve and examine device twin information including tags and properties. The device twin information retrieved matches device twin schema that you can view for a device in the Azure portal.
 
 Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-get-twin) to get the device  twin from the Azure IoT Hub service. The twin information is placed into a variable that can be printed or examined. This is a synchronous call, meaning that this function does not return until the twin is retrieved from the service.
 
@@ -158,7 +158,7 @@ You can update device twin tags and desired properties from a backend applicatio
     * properties are stored in a [TwinProperties](/en-us/python/api/azure-iot-hub/azure.iot.hub.protocol.models.twinproperties) object
 1. Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags for a device twin.
 
-This example updates `region` and `plant` tag information. and sets a `power_level` desired property to `1`.
+This example updates `region` and `plant` tag information, and sets a `power_level` desired property to `1`.
 
 ```python
 new_tags = {

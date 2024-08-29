@@ -54,7 +54,7 @@ This article shows you how to:
 
 * Retrieve a device twin and update reported properties
 * Update device twin tags
-* Create a device desired property update notificaiton callback
+* Create a device desired property update notificaton callback
 * Use a backend application to update tags and desired properties
 * Query devices from your back-end app using filters on the tags and properties previously created
 
@@ -71,7 +71,7 @@ This article shows you how to:
 
 * IoT Hub service connection string
 
-  In this article, you create a back-end service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. Your service needs the **service connect** permission to modify desired properties of a device twin, and it needs the **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one.
+  In this article you create a back-end service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. Your service needs the **service connect** permission to modify desired properties of a device twin, and it needs the **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one.
 
   To create a shared access policy that grants **service connect** and **registry read** permissions and get a connection string for this policy, follow these steps:
 
