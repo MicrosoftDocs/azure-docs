@@ -91,7 +91,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
      name: edge-storage-configuration
    spec:
      defaultDiskStorageClasses:
-       - acstor-arcstorage-storage-pool
+       - acstor-azuredisk-internal
      serviceMesh: "osm"
    ---
    apiVersion: arccontainerstorage.azure.net/v1
