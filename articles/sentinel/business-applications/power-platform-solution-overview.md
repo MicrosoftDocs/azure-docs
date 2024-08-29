@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/28/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to monitor and detect suspicious activities in my Power Platform environment so that I can protect my organization from potential threats and data breaches.
+#Customer intent: [AI]As a security operations manager, I want to understand how I can use Microsoft Sentinel to monitor and detect suspicious activities in my Power Platform environment so that I can protect my organization from potential threats and data breaches.
 
 ---
 

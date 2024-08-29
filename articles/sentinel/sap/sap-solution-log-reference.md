@@ -8,7 +8,7 @@ ms.custom: mvc
 ms.date: 01/15/2024
 
 
-#Customer intent: [AI]As an advanced SAP user, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
+#Customer intent: [AI]As a security analyst, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
 
 ---
 

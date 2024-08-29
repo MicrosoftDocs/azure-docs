@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a security operations analyst, I want to extract and utilize non-native entity information from incidents so that I can enhance my investigative and remedial actions.
+#Customer intent: [AI]As a security operations analyst, I want to extract and use non-native entity information from incidents so that I can enhance my investigative and remedial actions.
 
 ---
 # Tutorial: Extract incident entities with non-native actions 

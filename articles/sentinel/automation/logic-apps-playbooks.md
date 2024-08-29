@@ -13,7 +13,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a security operations analyst, I want to create and manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
+#Customer intent: [AI]As a security operations analyst, I want to manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
 
 ---
 

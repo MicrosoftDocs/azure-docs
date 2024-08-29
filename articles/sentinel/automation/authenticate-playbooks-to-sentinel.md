@@ -12,7 +12,7 @@ ms.collection: usx-security
 #customerIntent: As a SOC engineer, I want to understand my options when authenticating from playbooks to Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to authenticate playbooks to Microsoft Sentinel using various identity types so that I can automate and orchestrate security tasks efficiently.
+#Customer intent: [AI]As a security operations analyst, I want to authenticate playbooks to Microsoft Sentinel so that I can automate and orchestrate security tasks efficiently.
 
 ---
 

@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/03/2022
 
-# CustomerIntent: As an SAP admin and Microsoft Sentinel user, I want to know how to use SNC to deploy the Microsoft Sentinel for SAP data connector over a secure connection.
 
 
 #Customer intent: [AI]As a security engineer, I want to deploy a secure data connector for SAP logs using SNC so that I can ensure encrypted and authenticated data transmission between SAP systems and my monitoring solution.

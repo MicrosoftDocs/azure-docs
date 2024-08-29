@@ -12,7 +12,7 @@ ms.collection: usx-security
 #customer-intent: As a SOC engineer, I want to understand how to create playbooks in Microsoft Sentinel so that my team can automate threat responses in our environment.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to create and manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
+#Customer intent: [AI]As a security operations analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
 
 ---
 

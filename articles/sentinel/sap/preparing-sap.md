@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/27/2024
 
 
-#Customer intent: [AI]As a SOC engineer, I want to configure SAP authorizations and deploy optional SAP Change Requests so that I can ensure proper connectivity and log retrieval from SAP systems for security monitoring.
+#Customer intent: [AI]As an SAP BASIS team member, I want to configure SAP authorizations and deploy optional SAP Change Requests so that I can ensure proper connectivity and log retrieval from SAP systems for security monitoring.
 
 ---
 
