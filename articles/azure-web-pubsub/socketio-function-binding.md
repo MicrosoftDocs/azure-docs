@@ -19,11 +19,61 @@ This artical explains how to use Socket.IO serverless integrate with Azure Funct
 | Triggered by messages from the service | [Trigger binding](#trigger-binding) |
 | Invoke service to send messages or manage clients | [Output binding](#output-binding) |
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
-[Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
-[API reference documentation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/api/Microsoft.Azure.WebJobs.Extensions.WebPubSub.netstandard2.0.cs) |
+[Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
+[Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
+[API reference documentation](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.webjobs.extensions.webpubsubforsocketio?view=azure-dotnet-preview) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
+
+### Authenticate and Connection String
+
+In order to let the extension work with Web PubSub for Socket.IO, you will need to provide either access keys or identity based configuration to authenticate with the service. 
+
+#### Access key based configuration
+
+| Configuration Name | Description|
+|---------|----------|
+|WebPubSubForSocketIOConnectionString| Required. Key based connection string to the service|
+
+
+You can find the connection string in **Keys** blade in you Web PubSub for Socket.IO in the [Azure Portal](https://portal.azure.com/).
+
+For the local development, use the `local.settings.json` file to store the connection string. Set `WebPubSubForSocketIOConnectionString` to the connection string copied from the previous step:
+
+```json
+{
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "WebPubSubForSocketIOConnectionString": "Endpoint=https://<webpubsub-name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;"
+  }
+}
+```
+
+When deployed use the [application settings](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) to set the connection string.
+
+#### Identity based configuration
+
+| Configuration Name | Description|
+|---------|----------|
+|WebPubSubForSocketIOConnectionString__endpoint| Required. The Endpoint of the service. E.g. https://mysocketio.webpubsub.azure.com|
+|WebPubSubForSocketIOConnectionString__credential |  Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment.|
+|WebPubSubForSocketIOConnectionString__clientId | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity is used.|
+
+The function binding follows the common properties for identity based configuration. See [Common properties for identity-based connections](https://learn.microsoft.com/azure/azure-functions/functions-reference?tabs=blob&pivots=programming-language-csharp#common-properties-for-identity-based-connections) for more unmentioned properties.
+
+For the local development, use the `local.settings.json` file to store the connection string. Set `WebPubSubForSocketIOConnectionString` to the connection string copied from the previous step:
+
+```json
+{
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "WebPubSubForSocketIOConnectionString__endpoint": "https://<webpubsub-name>.webpubsub.azure.com",
+    "WebPubSubForSocketIOConnectionString__tenant": "<tenant id you're in>",
+  }
+}
+```
+
+For using idnentity based configuration and running online, the `AzureWebJobsStorage` should refer to [Connecting to host storage with an identity](https://learn.microsoft.com/azure/azure-functions/functions-reference?tabs=blob&pivots=programming-language-csharp#connecting-to-host-storage-with-an-identity)
 
 ## Input Binding
 
@@ -35,7 +85,7 @@ Socket.IO Input binding generates a `SocketIONegotiationResult` to the client ne
 [FunctionName("SocketIONegotiate")]
 public static IActionResult Negotiate(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req,
-    [SocketIONegotiation(Hub = "hub")] SocketIONegotiationResult result)
+    [SocketIONegotiation(Hub = "hub", UserId = "userId")] SocketIONegotiationResult result)
 {
     return new OkObjectResult(result);
 }
@@ -152,6 +202,12 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 | Namespace | The namespace of the socket. Default: "/" |
 | EventName | The event name that the function triggers for. Some event name are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are feel to defined by user and it need to match the event name sent by client side. |
 | ParameterNames | The parameter name list of the event. The length of list should be consitent with event sent from client. And the name will use the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by the same-name function parameter. |
+
+### Binding Data
+
+`[SocketIOTrigger]` binds some variable to binding data. You can learn more about it from [Azure Functions binding expression patterns](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns)
+
+
 
 #### SocketIOAttribute
 
