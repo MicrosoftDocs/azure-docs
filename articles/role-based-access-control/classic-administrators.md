@@ -1,12 +1,12 @@
 ---
 title: Azure classic subscription administrators
-description: Describes how to prepare for the retirement of the Co-Administrator and Service Administrator roles and how to replace and remove these role assignments.
+description: Describes the retirement of the Co-Administrator and Service Administrator roles and how to replace or remove these role assignments.
 author: rolyon
 manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/31/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -14,15 +14,15 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Replace or remove classic administrators and use Azure RBAC instead for fine-grained access control.
+> Classic resources and classic administrators are [retired as of August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Replace or remove classic administrators and use Azure RBAC instead for fine-grained access control.
 
-Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you're still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
+Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
-If you still have classic administrators, you should replace or remove these role assignments before the retirement date. This article describes how to prepare for the retirement of the Co-Administrator and Service Administrator roles and how to replace or remove these role assignments.
+If you still have classic administrators, you should replace or remove these role assignments. This article describes the retirement of the Co-Administrator and Service Administrator roles and how to replace or remove these role assignments.
 
 ## Frequently asked questions
 
-Will Co-Administrators and Service Administrator lose access after August 31, 2024?
+Do Co-Administrators and Service Administrator lose access after August 31, 2024?
 
 - Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators and Service Administrator.
 
@@ -40,7 +40,7 @@ What is the equivalent Azure role I should assign for Service Administrator?
 
 Why do I need to migrate to Azure RBAC?
 
-- Classic administrators will be retired. Azure RBAC offers fine grained access control, compatibility with Microsoft Entra Privileged Identity Management (PIM), and full audit logs support. All future investments will be in Azure RBAC.
+- Classic administrators are retired. Azure RBAC offers fine grained access control, compatibility with Microsoft Entra Privileged Identity Management (PIM), and full audit logs support. All future investments will be in Azure RBAC.
 
 What about the Account Administrator role?
 
@@ -48,7 +48,7 @@ What about the Account Administrator role?
 
 What should I do if I lose access to a subscription?
 
-- If you remove your classic administrators without having at least one Owner role assignment for a subscription, you will lose access to the subscription and the subscription will be orphaned. To regain access to a subscription, you must do the following:
+- If you remove your classic administrators without having at least one Owner role assignment for a subscription, you will lose access to the subscription and the subscription will be orphaned. To regain access to a subscription, you can do the following:
 
     - Follow steps to [elevate access to manage all subscriptions in a tenant](elevate-access-global-admin.md).
     - Assign the Owner role at subscription scope for a user.
@@ -110,9 +110,9 @@ Follow these steps to list the number of Service Administrator and Co-Administra
 
 ---
 
-## Prepare for Co-Administrators retirement
+## Co-Administrators retirement
 
-If you still have classic administrators, use the following steps to help you prepare for the Co-Administrator role retirement.
+If you still have classic administrators, use the following steps to help you replace or remove Co-Administrator role assignments.
 
 ### Step 1: Review your current Co-Administrators
 
@@ -124,15 +124,15 @@ If you still have classic administrators, use the following steps to help you pr
 
 ### Step 2: Remove Co-Administrators that no longer need access
 
-1. If user is no longer in your enterprise, [remove Co-Administrator](#remove-a-co-administrator).
+1. If user is no longer in your enterprise, [remove Co-Administrator](#how-to-remove-a-co-administrator).
 
-1. If user was deleted, but their Co-Administrator assignment wasn't removed, [remove Co-Administrator](#remove-a-co-administrator).
+1. If user was deleted, but their Co-Administrator assignment wasn't removed, [remove Co-Administrator](#how-to-remove-a-co-administrator).
 
     Users that have been deleted typically include the text **(User was not found in this directory)**.
 
     :::image type="content" source="media/classic-administrators/user-not-found.png" alt-text="Screenshot of user not found in directory and with Co-Administrator role." lightbox="media/classic-administrators/user-not-found.png":::
 
-1. After reviewing activity of user, if user is no longer active, [remove Co-Administrator](#remove-a-co-administrator).
+1. After reviewing activity of user, if user is no longer active, [remove Co-Administrator](#how-to-remove-a-co-administrator).
 
 ### Step 3: Replace Co-Administrators with job function roles
 
@@ -144,7 +144,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 1. Follow steps to [assign a job function role to user](role-assignments-portal.yml).
 
-1. [Remove Co-Administrator](#remove-a-co-administrator).
+1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
 ### Step 4: Replace Co-Administrators with Owner role and constraints
 
@@ -154,7 +154,7 @@ Some users might need more access than what a job function role can provide. If 
 
     For example, assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.yml). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
-1. [Remove Co-Administrator](#remove-a-co-administrator).
+1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
 ### Step 5: Replace Co-Administrators with Owner role
 
@@ -162,7 +162,7 @@ If a user must be an administrator for a subscription, assign the [Owner](built-
 
 - Follow the steps in [Replace a Co-Administrator with Owner role](#replace-a-co-administrator-with-owner-role).
 
-### Replace a Co-Administrator with Owner role
+### How to replace a Co-Administrator with Owner role
 
 The easiest way to replace a Co-Administrator role assignment with the [Owner](built-in-roles.md#owner) role at subscription scope is to use the **Remediate** steps.
 
@@ -182,7 +182,7 @@ The easiest way to replace a Co-Administrator role assignment with the [Owner](b
 
 1. Select **Review + assign** to remove the Co-Administrator role assignment and assign the Owner role.
 
-### Remove a Co-Administrator
+### How to remove a Co-Administrator
 
 Follow these steps to remove a Co-Administrator.
 
@@ -202,9 +202,9 @@ Follow these steps to remove a Co-Administrator.
 
     :::image type="content" source="./media/classic-administrators/remove-coadmin.png" alt-text="Screenshot of message box when removing a Co-Administrator." lightbox="./media/classic-administrators/remove-coadmin.png":::
 
-## Prepare for Service Administrator retirement
+## Service Administrator retirement
 
-If you still have classic administrators, use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have at least one user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+If you still have classic administrators, use the following steps to help you replace or remove Service Administrator role assignment. Before you remove the Service Administrator, you must have at least one user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
 ### Step 1: Review your current Service Administrator
 
@@ -230,9 +230,9 @@ Your Service Administrator might be a Microsoft account or a Microsoft Entra acc
 
 1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [replace the Service Administrator with Owner role](#replace-the-service-administrator-with-owner-role).
 
-1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.yml) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#remove-the-service-administrator).
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.yml) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#how-to-remove-the-service-administrator).
 
-### Replace the Service Administrator with Owner role
+### How to replace the Service Administrator with Owner role
 
 The easiest way to replace the Service Administrator role assignment with the [Owner](built-in-roles.md#owner) role at subscription scope is to use the **Remediate** steps.
 
@@ -252,7 +252,7 @@ The easiest way to replace the Service Administrator role assignment with the [O
 
 1. Select **Review + assign** to remove the Service Administrator role assignment and assign the Owner role.
 
-### Remove the Service Administrator
+### How to remove the Service Administrator
 
 > [!IMPORTANT]
 > To remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
