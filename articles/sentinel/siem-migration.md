@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Migrate security monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel. 
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/11/2024
+ms.date: 9/01/2024
 ms.author: austinmc
 appliesto: 
 - Microsoft Sentinel in the Azure portal
