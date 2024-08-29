@@ -55,6 +55,8 @@ Through continued use of an instance hosted on the `stv1` platform beyond 1 Sept
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
+> [!NOTE]
+> Azure support can't extend the timeline for SLA support of `stv1` instances.
 
 ## Related content
 

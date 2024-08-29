@@ -60,6 +60,9 @@ Starting 1 September 2024, we'll automatically migrate remaining `stv1` service 
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
+> [!NOTE]
+> Azure support can't extend the timeline for automatic migration or for SLA support of `stv1` instances after the retirement date.
+
 ## Related content
 
 * [Migrate from stv1 platform to stv2](../migrate-stv1-to-stv2.md)
