@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for Python developers who use 
 
 You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI for configuration:
 
-- **Azure portal**, use the app's **Settings** > **Configuration** page as described on [Configure an App Service app in the Azure portal](configure-common.md).
+- **Azure portal**, use the app's **Settings** > **Configuration** page as described in [Configure an App Service app in the Azure portal](configure-common.md).
 
 - **Azure CLI**: you have two options.
 
@@ -33,7 +33,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 ## Configure Python version
 
-- **Azure portal**: use the **General settings** tab on the **Configuration** page as described on [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**: use the **General settings** tab on the **Configuration** page as described in [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
 - **Azure CLI**:
 
@@ -105,7 +105,7 @@ Existing web applications can be redeployed to Azure as follows:
 
 1. **Database**: If your app depends on a database, create the necessary resources on Azure as well.
 
-1. **App service resources**: Create a resource group, App Service plan, and App Service web app to host your application. You can do this easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp?az-webapp-up). Or, you can create and deploy resources as shown in [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL](tutorial-python-postgresql-app.md). Replace the names of the resource group, App Service plan, and web app to be more suitable for your application.
+1. **App service resources**: Create a resource group, App Service plan, and App Service web app to host your application. You can do this easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or, you can create and deploy resources as shown in [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL](tutorial-python-postgresql-app.md). Replace the names of the resource group, App Service plan, and web app to be more suitable for your application.
 
 1. **Environment variables**: If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
     - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app.md#2-verify-connection-settings).
