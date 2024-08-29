@@ -15,7 +15,7 @@ ms.subservice: chat
 
 #  Translating chats to enable users to communicate in their preferred language
 
-In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
+In this guide, learn how you can use [Azure AI APIs](/azure/ai-services/) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
@@ -26,7 +26,7 @@ exchanged by other participants [1], calling Azure AI APIs to translate content 
 
 [![Screenshot showing Azure AI services interacting with Communication Services.](./media/ai-services.png)](./media/ai-services.png#lightbox)
 
-This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
+This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](/azure/ai-services/translator/quickstart-text-rest-api) to understand how to use AI APIs to translate text to different languages. 
 
 ## Sentiment analysis 
 
