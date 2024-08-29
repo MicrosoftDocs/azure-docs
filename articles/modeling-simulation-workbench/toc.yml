@@ -59,7 +59,7 @@ items:
         href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
         href: ./how-to-guide-chamber-vm.md
-      - name: Register a Resource Provider
+      - name: Register a resource provider
         href: ./how-to-guide-register-resource-provider.md
   - name: Resources
     items:
