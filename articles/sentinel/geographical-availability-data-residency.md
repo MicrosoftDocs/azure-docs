@@ -38,7 +38,7 @@ Microsoft Sentinel can run on workspaces in the following regions:
 |Continent | Country | Region |
 |---------|---------|---------|
 | **North America**| **Canada** | • Canada Central<br>• Canada East |
-| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West <br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia|
+| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West|
 |**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
 |**Asia** | |• East Asia<br>• Southeast Asia |
 | | **China 21Vianet**| • China East 2<br>• China North 3|
