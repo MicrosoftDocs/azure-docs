@@ -24,11 +24,11 @@ Service endpoint policies enable you to filter virtual network traffic to specif
 > [!div class="checklist"]
 * Create a virtual network.
 * Add a subnet and enable service endpoint for Azure Storage.
-* Create two Azure Storage accounts and allow network access to it from the subnet created above.
+* Create two Azure Storage accounts and allow network access to it from the subnet in the virtual network.
 * Create a service endpoint policy to allow access only to one of the storage accounts.
 * Deploy a virtual machine (VM) to the subnet.
 * Confirm access to the allowed storage account from the subnet.
-* Confirm access is denied to the non-allowed storage account from the subnet.
+* Confirm access is denied to the nonallowed storage account from the subnet.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Create a virtual network to contain the resources you create in this tutorial.
     | -------| ------- |
     | **Project details** | |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **test-rg** in **Name**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **test-rg** in **Name**.</br> Select **OK**. |
     | Name | Enter **vnet-1**. |
     | Region | Select **West US 2**. |
 
@@ -152,7 +152,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-In this example, a service endpoint for *Microsoft.Storage* is created for the subnet *subnet-1*:
+In this example, a service endpoint for `Microsoft.Storage` is created for the subnet *subnet-1*:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -163,12 +163,11 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-
 ---
 
 ## Restrict network access for the subnet
 
-Create a network security group and rules to restrict network access for the subnet.
+Create a network security group and rules that restrict network access for the subnet.
 
 ### Create a network security group
 
@@ -178,7 +177,7 @@ Create a network security group and rules to restrict network access for the sub
 
 1. Select **+ Create** to create a new network security group.
 
-1. In the **Basics** tab of **Create network security group**, enter or select the following information.
+1. In the **Basics** tab of **Create network security group**, enter, or select the following information.
 
     | Setting | Value |
     | -------| ------- |
@@ -394,7 +393,7 @@ The steps necessary to restrict network access to resources created through Azur
     | Subscription | Select your subscription. |
     | Resource group | Select **test-rg**. |
     | **Instance details** | |
-    | Storage account name | Enter **allowedaccount(random-number)**. </br> **Note: The storage account name must be unique. Add a random number to the end of the name allowedaccount**. |
+    | Storage account name | Enter **allowedaccount(random-number)**.</br> **Note: The storage account name must be unique. Add a random number to the end of the name `allowedaccount`**. |
     | Region | Select **West US 2**. |
     | Performance | Select **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
@@ -407,7 +406,7 @@ The steps necessary to restrict network access to resources created through Azur
 
 1. Select **Create**.
 
-1. Repeat the steps above to create another storage account with the following information.
+1. Repeat the previous steps to create another storage account with the following information.
 
     | Setting | Value |
     | -------| ------- |
@@ -428,7 +427,7 @@ $storageAcctParams = @{
 New-AzStorageAccount @storageAcctParams
 ```
 
-Use the same command to create the denied Azure storage account, but change the name to *deniedaccount*.
+Use the same command to create the denied Azure storage account, but change the name to `deniedaccount`.
 
 ```azurepowershell-interactive
 $storageAcctParams = @{
@@ -455,7 +454,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Use the same command to create the denied Azure storage account, but change the name to *deniedaccount*.
+Use the same command to create the denied Azure storage account, but change the name to `deniedaccount`.
 
 ```azurecli-interactive
 storageAcctName2="deniedaccount"
@@ -491,13 +490,13 @@ az storage account create \
 
 1. Select **Create**.
 
-1. Repeat the steps above to create a file share in **deniedaccount(random-number)**.
+1. Repeat the previous steps to create a file share in **deniedaccount(random-number)**.
 
 ### [PowerShell](#tab/powershell)
 
 ### Create allowed storage account file share
 
-Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the allowed storage account.
+Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You'll use this key in the next step to create a file share in the allowed storage account.
 
 ```azurepowershell-interactive
 $storageAcctName1 = "allowedaccount"
@@ -522,7 +521,7 @@ $share1 = New-AzStorageShare file-share -Context $storageContext1
 
 ### Create denied storage account file share
 
-Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the denied storage account.
+Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You'll use this key in the next step to create a file share in the denied storage account.
 
 ```azurepowershell-interactive
 $storageAcctName2 = "deniedaccount"
@@ -619,11 +618,11 @@ By default, storage accounts accept network connections from clients in any netw
 
 1. Select **Save**.
 
-1. Repeat the steps above to deny network access to **deniedaccount(random-number)**.
+1. Repeat the previous steps to deny network access to **deniedaccount(random-number)**.
 
 ### [PowerShell](#tab/powershell)
 
-Use [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset) to deny access to the storage accounts except from the virtual network and subnet you created eariler. Once network access is denied, the storage account is not accessible from any network.
+Use [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset) to deny access to the storage accounts except from the virtual network and subnet you created earlier. Once network access is denied, the storage account isn't accessible from any network.
 
 ```azurepowershell-interactive
 $storageAcctParams1 = @{
@@ -673,7 +672,7 @@ Add-AzStorageAccountNetworkRule @networkRuleParams2
 
 ### [CLI](#tab/cli)
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account is not accessible from any network.
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account isn't accessible from any network.
 
 ```azurecli-interactive
 az storage account update \
@@ -709,7 +708,7 @@ az storage account network-rule add \
 
 ## Apply policy to allow access to valid storage account
 
-To make sure the users in the virtual network can only access the Azure Storage accounts that are safe and allowed, you can create a service endpoint policy with the list of allowed storage accounts in the definition. This policy is then applied to the virtual network subnet which is connected to storage via service endpoints.
+You can create a service endpoint policy. The policy ensures users in the virtual network can only access safe and allowed Azure Storage accounts. This policy contains a list of allowed storage accounts applied to the virtual network subnet that is connected to storage via service endpoints.
 
 ### Create a service endpoint policy
 
@@ -754,7 +753,7 @@ This section creates the policy definition with the list of allowed resources fo
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) to retrieve the resource ID for the first (allowed) storage account.
+To retrieve the resource ID for the first (allowed) storage account, use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount).
 
 ```azurepowershell-interactive
 $storageAcctParams1 = @{
@@ -764,7 +763,7 @@ $storageAcctParams1 = @{
 $resourceId = (Get-AzStorageAccount @storageAcctParams1).id
 ```
 
-Use [New-AzServiceEndpointPolicyDefinition](/powershell/module/az.network/new-azserviceendpointpolicydefinition) to create the policy definition to allow the above resource.
+To create the policy definition to allow the previous resource, use [New-AzServiceEndpointPolicyDefinition](/powershell/module/az.network/new-azserviceendpointpolicydefinition) .
 
 ```azurepowershell-interactive
 $policyDefinitionParams = @{
@@ -790,7 +789,7 @@ $sepolicy = New-AzServiceEndpointPolicy @sepolicyParams
 
 ### [CLI](#tab/cli)
 
-Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be approved for this subnet
+Service endpoint policies are applied over service endpoints. Start by creating a service endpoint policy. Then create the policy definitions under this policy for Azure Storage accounts to be approved for this subnet
 
 Use [az storage account show](/cli/azure/storage/account) to get the resource ID for the storage account that is allowed.
 
@@ -888,7 +887,7 @@ To test network access to a storage account, deploy a VM in the subnet.
 
 1. In the search box in the portal, enter **Virtual machines**. Select **Virtual machines** in the search results.
 
-1. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+1. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | -------| ------- |
@@ -900,7 +899,7 @@ To test network access to a storage account, deploy a VM in the subnet.
     | Region | Select **(US) West US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter** - x64 Gen2**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
     | Size | Select a size. |
     | **Administrator account** | |
     | Username | Enter a username. |
@@ -916,7 +915,7 @@ To test network access to a storage account, deploy a VM in the subnet.
     | -------| ------- |
     | **Network interface** | |
     | Virtual network | Select **vnet-1**. |
-    | Subnet | Select **subnet-1* (10.0.0.0/24)*. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **None**. |
 
@@ -926,7 +925,7 @@ To test network access to a storage account, deploy a VM in the subnet.
 
 ### [PowerShell](#tab/powershell)
 
-Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
+Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you're prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
 
 ```azurepowershell-interactive
 $vmParams = @{
@@ -967,7 +966,7 @@ az vm create \
 
 1. Expand **Security + networking** and select **Access keys**.
 
-1. Copy the **key1** value. You will use this key to map a drive to the storage account from the virtual machine you created earlier.
+1. Copy the **key1** value. You use this key to map a drive to the storage account from the virtual machine you created earlier.
 
 1. In the search box in the portal, enter **Virtual machines**. Select **Virtual machines** in the search results.
 
@@ -1007,7 +1006,7 @@ az vm create \
 
 1. Expand **Security + networking** and select **Access keys**.
 
-1. Copy the **key1** value. You will use this key to map a drive to the storage account from the virtual machine you created earlier.
+1. Copy the **key1** value. You use this key to map a drive to the storage account from the virtual machine you created earlier.
 
 1. In the search box in the portal, enter **Virtual machines**. Select **Virtual machines** in the search results.
 
@@ -1031,7 +1030,7 @@ az vm create \
 
 1. Select **Run**.
 
-1. You will receive the following error message in the **Output** box:
+1. You receive the following error message in the **Output** box:
 
     ```output
     New-PSDrive : Access is denied
