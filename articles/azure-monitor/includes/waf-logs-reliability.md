@@ -13,10 +13,6 @@ Log Analytics workspaces offer a high degree of reliability. The ingestion pipel
 
 Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering.  
 
-This video provides an overview of the reliability and resilience options available for Log Analytics workspaces, as described below:
-
-> [!VIDEO https://www.youtube.com/embed/CYspm1Yevx8?cc_load_policy=1&cc_lang_pref=auto]
-
 #### In-region protection using availability zones
 
 [!INCLUDE [logs-availability-zones](../includes/logs-availability-zones.md)]
