@@ -76,18 +76,19 @@ The free certificate comes with the following limitations:
 - Doesn't support usage as a client certificate by using certificate thumbprint, which is planned for deprecation and removal.
 - Doesn't support private DNS.
 - Isn't exportable.
-- Isn't supported on apps that aren't publicly accessible.
 - Isn't supported in an App Service Environment (ASE).
 - Only supports alphanumeric characters, dashes (-), and periods (.).
 - Only custom domains of length up to 64 characters are supported. 
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
+- Must be publicly accessible.
 - Isn't supported with root domains that are integrated with Traffic Manager.
 - Must meet all the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
 - Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+- Must be publicly accessible.
 - Must meet all the above for successful certificate issuance and renewals.
 
 ---
