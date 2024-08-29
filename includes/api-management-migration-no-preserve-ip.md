@@ -7,4 +7,4 @@ ms.author: danlep
 ---
 
 > [!IMPORTANT]
-> As of August 2024, the option to migrate and preserve the VIP address is temporarily available for VNet-injected instances. All migrations during this time to the `stv2` platform must use a new VIP address.
+> As of August 2024, the option to migrate and preserve the VIP address is temporarily available for VNet-injected instances. All migrations to the `stv2` platform during this time must use a new VIP address.

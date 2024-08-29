@@ -105,8 +105,6 @@ When migrating a VNet-injected instance and keeping the same subnet configuratio
 |Internal     |    Preserve VIP     |  Downtime for approximately 20 minutes during migration while the existing IP address is assigned to the new `stv2` deployment.       | No retention |
 |Internal     |  New VIP       |   No downtime | Retained by default for 4 hours to allow you to update network dependencies   |
 
-[!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
-
 ### Migration script
 
 [!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
