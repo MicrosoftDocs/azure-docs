@@ -11,7 +11,7 @@ ms.date: 08/22/2024
 
 # Manage shared storage in Azure Modeling and Simulation Workbench
 
-Shared storage is accessible between one or more Chambers and is the only means that data can be exchanged between Chambers. Chamber Admins and Workbench Owners can manage the Shared storage in Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.
+Shared storage is accessible between one or more chambers and is the only means that data can be exchanged between chambers. Chamber Admins and Workbench Owners can manage the Shared storage in Azure Modeling and Simulation Workbench. For example, they can increase or decrease the amount of chamber storage. They can also change the performance tier.
 
 This article explains how Chamber Admins and Workbench Owners manage chamber storage.
 
@@ -27,7 +27,7 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
-## Create Shared Storage
+## Create shared storage
 
 If you're a Workbench Owner or Chamber Admin, complete the following steps to access the Shared Storage options:
 
@@ -35,7 +35,7 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 1. Select your workbench from the resource list.
 1. On the left menu, select **Settings** > **Shared Storage**.
 1. Select **Create** from the action bar. The Create shared storage configuration appears.
-1. Fill in a name, set the capacity in 4-TB increments, and select the Chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
+1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
 1. Select **Review + Create**. If the validation checks pass, select **Create**.
 
 ## Manage shared storage

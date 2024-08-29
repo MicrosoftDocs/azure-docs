@@ -20,7 +20,7 @@ The IT Admin is responsible for infrastructure deployment and user provisioning,
 
 A Workbench Owner can create and delete chambers, and invite, remove, or change user roles. They can also define the connectivity methods that their users employ to connect into the workload. The Workbench Owner is also responsible for approving all data export requests and costs accrued by resource consumption during workbench usage.
 
-## Project Manager (Chamber Admin)
+## Project Manager (chamber Admin)
 
 The Project Manager, also known as the *Chamber Admin*, is responsible for installing and managing applications and licenses. They also own the installation and configuration of tools related to compute, network, and storage within the chamber. Chamber Admins set up and manage the chamber and have a higher elevated access within the workloads and the environment. They're responsible for procuring the licenses from the software vendors to enable design teams to run simulations on the deployed workloads.
 

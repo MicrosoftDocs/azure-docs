@@ -45,9 +45,32 @@ landingContent:
             url: ./how-to-guide-download-data.md
           - text: Manage chamber storage
             url: ./how-to-guide-manage-chamber-storage.md
-#          - name: Disaster Recovery
-#            href: ./how-to-guide-disaster-recovery.md
-# Card: Reference
+          - text: Manage shared storage
+            url: ./how-to-guide-manage-shared-storage.md
+          - text: Configure VM firewalls
+            url: ./how-toguide-configure-firewall-rh.md
+  # Card: Concepts
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Workbench
+            url: ./concept-workbench.md
+          - text: Chamber
+            url: ./concept-chamber.md
+          - text: Connector
+            url: ./concept-connector.md
+          - text: User personas
+            url: ./concept-user-personas.md
+          - text: Data pipeline
+            url: ./concept-data-pipeline.md
+          - text: License service
+            url: ./concept-license-service.md
+          - text: Storage
+            url: ./concept-storage.md
+          - text: Disaster recovery
+            url: ./disaster-recovery.md
+  # Card: Reference
 #  - title: Reference
 #    linkLists:
 #      - linkListType: reference

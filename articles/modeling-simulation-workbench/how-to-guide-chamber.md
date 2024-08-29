@@ -44,7 +44,7 @@ Once a Chamber is created, a Workbench Owner or Chamber Admin can administer it.
 If a Chamber is no longer needed, it can be deleted only if it's empty. All nested resources under the Chamber must first be deleted before the Chamber can be deleted. A Chamber's nested resources include VMs, Connectors, and Chamber Storage. Once a Chamber is deleted, it can't be recovered.
 
 1. Navigate to Chamber.
-1. Ensure that all nested resources are deleted. From the **Settings** menu at the left, visit each of the nested resources and ensure that they're empty. Visit the [Deleting nested resources](#deleting-nested-resources) section below to learn how to delete each of those resources.
+1. Ensure that all nested resources are deleted. From the **Settings** menu at the left, visit each of the nested resources and ensure that they're empty. Visit the [Deleting nested resources](#deleting-nested-resources) section to learn how to delete each of those resources.
 1. Select **Delete** from the action bar. Deleting a Chamber can take up to 10 minutes.
 
 ### Deleting nested resources

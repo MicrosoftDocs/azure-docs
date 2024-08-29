@@ -21,19 +21,19 @@ A Workbench is the top-level container for the Azure Modeling and Simulation Wor
 
 ## Chambers
 
-[Chambers](./concept-chamber.md) are contained within a Workbench object and contain user data and workloads in an isolated environment. Users assigned to a Chamber only have visibility to users and resources in that same Chamber. Compute resources are deployed into a Chamber as Workload VMs and several classes of storage are available.
+[Chambers](./concept-chamber.md) are contained within a Workbench object and contain user data and workloads in an isolated environment. Users assigned to a chamber only have visibility to users and resources in that same Chamber. Compute resources are deployed into a Chamber as Workload VMs and several classes of storage are available.
 
 ### Compute
 
-Chamber Workload VMs are the Workbench's compute resource and the encapsulating container for traditional VMs. Unlike traditional Infrastructure-as-a-Service offerings, Workload VMs are created with a sensible set of defaults, eliminating the expertise required to securely deploy a VM into a cloud environment. Workload VMs are isolated from the internet and VMs in other Chambers, but have access to all VMs in the same Chamber. User provisioning is automated at the Chamber level. Chamber VMs offer a select set of the Azure virtual machine (VM) offerings that span diverse memory-to-core ratios and suit different workload requirements. VM offerings include general purpose, compute optimized memory optimized VMs.
+chamber Workload VMs are the Workbench's compute resource and the encapsulating container for traditional VMs. Unlike traditional Infrastructure-as-a-Service offerings, Workload VMs are created with a sensible set of defaults, eliminating the expertise required to securely deploy a VM into a cloud environment. Workload VMs are isolated from the internet and VMs in other chambers, but have access to all VMs in the same chamber. User provisioning is automated at the chamber level. Chamber VMs offer a select set of the Azure virtual machine (VM) offerings that span diverse memory-to-core ratios and suit different workload requirements. VM offerings include general purpose, compute optimized memory optimized VMs.
 
 ## Storage
 
-Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications. Modeling and Simulation Workbench offers a range of storage configurations that offer high-performance, shared, or isolated access. Storage is preconfigured to be accessible to Chambers or between a select set of Chambers.
+Storage components work together to provide high performance for engineering workflows. The storage service enables you to migrate and run enterprise file applications. Modeling and Simulation Workbench offers a range of storage configurations that offer high-performance, shared, or isolated access. Storage is preconfigured to be accessible to Chambers or between a select set of chambers.
 
 ## Networking
 
-Networking is presented as a [Connector](./concept-connector.md) object that attaches to a Chamber. Connectors can be provisioned to allow connection directly from the internet or an Azure virtual network. Azure virtual network connections enable over-provisioned network resources with high bandwidth and low latency. Network quality and throughput impacts job runtime drastically. Azure offers built-in, custom options for fast, scalable, and secure connectivity aided by its wide and private optical-fiber capacity, enabling low-latency access globally. Azure also offers accelerated networking to reduce the number of hops and deliver improved performance.
+Networking is presented as a [Connector](./concept-connector.md) object that attaches to a chamber. Connectors can be provisioned to allow connection directly from the internet or an Azure virtual network. Azure virtual network connections enable over-provisioned network resources with high bandwidth and low latency. Network quality and throughput impacts job runtime drastically. Azure offers built-in, custom options for fast, scalable, and secure connectivity aided by its wide and private optical-fiber capacity, enabling low-latency access globally. Azure also offers accelerated networking to reduce the number of hops and deliver improved performance.
 
 <!-- 
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - The network service creates private connections between the infrastructure on-premises without traversing the public internet. The service offers immense reliability, quicker speeds, and lower latencies than regular internet connections.

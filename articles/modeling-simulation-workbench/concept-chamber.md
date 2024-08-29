@@ -11,7 +11,7 @@ ms.date: 01/01/2023
 ---
 # Chambers in the Azure Modeling and Simulation Workbench
 
-In the Azure Modeling and Simulation Workbench, Chambers are a security boundary for a group virtual machines (VM) (nodes) and share common users. A Chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation. Chamber VMs are all on the same subnet and have no internet access.
+In the Azure Modeling and Simulation Workbench, chambers are a security boundary for a group virtual machines (VM) (nodes) and share common users. A chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation. chamber VMs are all on the same subnet and have no internet access.
 
 ## Key features
 
@@ -21,25 +21,25 @@ In the Azure Modeling and Simulation Workbench, Chambers are a security boundary
 
 ## Chamber environment
 
-Chambers create a secure and isolated environment by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [Connector](./concept-connector.md)  exists per chamber that supports the protocols established through VPN, Azure Express Route, or allowlisted Public IP addresses.
+Chambers create a secure and isolated environment by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [connector](./concept-connector.md)  exists per chamber that supports the protocols established through VPN, Azure Express Route, or allowlisted Public IP addresses.
 
-Only provisioned users can access the chamber environment. User provisioning is done at the Chamber level using Azure's [Identity Access Management](/azure/role-based-access-control/role-assignments-portal). This enables cross-team and/or cross-organization collaboration on the same projects through  Chambers. Multifactor authentication (MFA) enabled through Microsoft Entra ID is recommended to enhance your organization's security.
+Only provisioned users can access the chamber environment. User provisioning is done at the chamber level using Azure's [Identity Access Management](/azure/role-based-access-control/role-assignments-portal). This enables cross-team and/or cross-organization collaboration on the same projects through chambers. Multifactor authentication (MFA) enabled through Microsoft Entra ID is recommended to enhance your organization's security.
 
 ## Chamber storage
 
-Users can resize and tailor the chambers to support storage requirement needs throughout the design process. Chamber users can also allocate Chamber VMs on demand, select the right-sized VM/CPU for the task/job at hand, and decommission the workload when the job is done to save costs.
+Users can resize and tailor the chambers to support storage requirement needs throughout the design process. Chamber users can also allocate chamber VMs on demand, select the right-sized VM/CPU for the task/job at hand, and decommission the workload when the job is done to save costs.
 
 ### Cost optimization
 
 Administrators can optimize their resource consumption without necessarily destroying resources or moving data by:
 
 * Managing the size and number of virtual machines.
-* [Idling](./how-to-guide-idle.md) unused Connectors and Chambers to reduce cost without deleting VMs or storage.
-* Managing the size and performance tier of Chamber storages.
+* [Idling](./how-to-guide-idle.md) unused connectors and chambers to reduce cost without deleting VMs or storage.
+* Managing the size and performance tier of chamber storages.
 
 Learn more about reducing service costs using [Azure Advisor](/azure/advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing) and [right-size VMs best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a Chamber VM](./how-to-guide-chamber.md)
+> [Create a chamber VM](./how-to-guide-chamber.md)

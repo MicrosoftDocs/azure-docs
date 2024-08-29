@@ -21,7 +21,7 @@ VM quotas in Modeling and Simulation Workbench are handled differently than in t
 
 ## General purpose
 
-General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. They make ideal management VMs for managing Chambers, Facilitating file imports or exports, compiling applications, or installing applications to shared storage.
+General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. They make ideal management VMs for managing chambers, Facilitating file imports or exports, compiling applications, or installing applications to shared storage.
 
 ### Dv4-series
 
@@ -101,4 +101,4 @@ M-series VMs have fixed-size temporary storage.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create a Chamber VM](./how-to-guide-chamber-vm.md)
+> [Create a chamber VM](./how-to-guide-chamber-vm.md)

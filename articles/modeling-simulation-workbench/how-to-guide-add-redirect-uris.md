@@ -16,7 +16,7 @@ A redirect Uniform Resource Identifier (URI) is the location where the Microsoft
 ## Prerequisites
 
 * An application registration in Microsoft Entra ID for the Azure Modeling and Simulation Workbench
-* A Workbench instance with a Chamber and Connector created.
+* A Workbench instance with a chamber and Connector created.
 
 ## Add redirect URIs for the application in Microsoft Entra ID
 
