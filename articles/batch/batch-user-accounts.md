@@ -159,8 +159,8 @@ pool = batchClient.PoolOperations.CreatePool(
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
-    new UserAccount("adminUser", "******", ElevationLevel.Admin),
-    new UserAccount("nonAdminUser", "******", ElevationLevel.NonAdmin),
+    new UserAccount("adminUser", "A1bC2d", ElevationLevel.Admin),
+    new UserAccount("nonAdminUser", "A1bC2d", ElevationLevel.NonAdmin),
 };
 
 // Commit the pool.
@@ -208,7 +208,7 @@ pool.UserAccounts = new List<UserAccount>
 {
     new UserAccount(
         name: "adminUser",
-        password: "******",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.Admin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 12345,
@@ -217,7 +217,7 @@ pool.UserAccounts = new List<UserAccount>
             )),
     new UserAccount(
         name: "nonAdminUser",
-        password: "******",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.NonAdmin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 45678,
@@ -251,11 +251,11 @@ batchClient.poolOperations().createPool(addParameter);
 users = [
     batchmodels.UserAccount(
         name='pool-admin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.admin)
     batchmodels.UserAccount(
         name='pool-nonadmin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
