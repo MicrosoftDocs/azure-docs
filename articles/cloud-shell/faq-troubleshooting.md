@@ -183,7 +183,7 @@ command that requires elevated permissions.
      [Manage DNS record sets and records with Azure DNS][02].
 
      > [!NOTE]
-     > This IP address is subject to change periodically. If might need to repeat this process to
+     > This IP address is subject to change periodically. You might need to repeat this process to
      > discover the new IP address.
 
   Alternately, you can deploy your own private Cloud Shell instance. For more information, see
