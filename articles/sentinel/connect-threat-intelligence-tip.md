@@ -138,7 +138,7 @@ The last step in the integration process is to enable the TIP data connector in 
 
 1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
 
-For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+   For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 1. To configure the TIP data connector, select **Configuration** > **Data connectors**.
 

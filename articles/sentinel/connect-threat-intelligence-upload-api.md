@@ -95,7 +95,7 @@ Install the Threat Intelligence Upload Indicators API data connector to see the 
 
 1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
 
-For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+   For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 1. The data connector is now visible in **Configuration** > **Data connectors**. Open the **Data connectors** page to find more information on how to configure your application with this API.
 

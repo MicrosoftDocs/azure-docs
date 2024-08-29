@@ -22,7 +22,7 @@ Bring public, open-source and high-fidelity indicators of compromise (IOCs) gene
 > The Defender Threat Intelligence data connector and the premium Defender Threat Intelligence data connector are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-For more information about the benefits of the standard and premium Defender Threat Intelligence data connectors, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-microsoft-defender-threat-intelligence-data-connector).
+For more information about the benefits of the standard and premium Defender Threat Intelligence data connectors, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector).
 
 ## Prerequisites
 
