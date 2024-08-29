@@ -10,10 +10,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 
 
-#Customer intent: [AI]As a security analyst, I want to integrate my threat intelligence platform with a SIEM solution so that I can centralize and enhance threat detection and response capabilities.
+#Customer intent: [AI]As a security admin, I want to integrate my threat intelligence platform with Microsoft Sentinel so that I can centralize and enhance threat detection and response capabilities.
 
 ---
 

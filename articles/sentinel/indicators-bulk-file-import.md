@@ -11,7 +11,6 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security analyst, I want to bulk import indicators from common file types to my threat intelligence (TI), so I can more effectively share TI during an investigation.
 
 
 #Customer intent: [AI]As a security analyst, I want to import threat indicators in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within my threat intelligence platform.
