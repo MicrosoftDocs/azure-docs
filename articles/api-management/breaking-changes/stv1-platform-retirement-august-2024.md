@@ -46,6 +46,8 @@ If you have existing instances hosted on the `stv1` platform, follow our **[migr
 
 ## What happens after 31 August 2024?
 
+**Your `stv1` instance will not be shut down, deactivated, or deleted.** However, the SLA commitment for the instance ends, and any `stv1` instance after the retirement date will be scheduled for automatic migration to the `stv2` platform.
+
 ### End of SLA commitment for `stv1` instances
 
 As of 1 September 2024, API Management will no longer provide any service level guarantees, and by extension service credits, for performance or availability issues related to the Developer, Basic, Standard, and Premium service instances running on the `stv1` compute platform. Also, no new security and compliance investments will be made in the API Management `stv1` platform. 

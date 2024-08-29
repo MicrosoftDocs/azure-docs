@@ -19,3 +19,6 @@ If you have questions, get fast answers from community experts in [Microsoft Q&A
 1. For **Problem type**, select **Administration and Management**. 
 1. For **Problem subtype**, select **Upgrade, Scale or SKU Changes**. 
 
+> [!NOTE]
+> Azure support can't extend the timeline for automatic migration or for SLA support of `stv1` instances after the retirement date.
+
