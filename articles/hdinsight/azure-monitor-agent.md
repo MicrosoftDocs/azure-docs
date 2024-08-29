@@ -112,9 +112,6 @@ The following steps describe how customers can enable the new Azure Monitor Agen
 
 There are two ways you can access the new tables. 
 
-**Known Issues**
-Logs related to Livy jobs are missing some columns in few tables. Reach out to customer support. 
-
 #### Approach 1: 
 
 1. The first way to access the new tables is through the Log Analytics workspace. 
