@@ -57,7 +57,7 @@
     - name: Tier details
       href: concepts-tier-details.md
     - name: Syncing Reference data values
-      href: concepts-referencedatavalues.md
+      href: concepts-reference-data-values.md
 - name: How-to guides
   items:
     - name: Administration
