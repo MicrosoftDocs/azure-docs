@@ -189,7 +189,7 @@ Forwarding from [::1]:8080 -> 80
 
 From within a new terminal instance, use `curl` to send an HTTP request to `localhost:8080`:
 
-```bash
+```azurecli-interactive
 # Invoke the Spin App
 curl -iX GET localhost:8080
 HTTP/1.1 200 OK
