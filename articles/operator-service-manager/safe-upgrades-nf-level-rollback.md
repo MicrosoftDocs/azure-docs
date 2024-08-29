@@ -14,7 +14,7 @@ A guide to understand and use the optional rollback feature for container networ
 ## Current state
 CNF upgrade workflow via Azure Operator Service Manager (AOSM) currently executes as follows,
 * The network function applications (NfApps) are created or upgraded following either updateDependsOn ordering, if provided, or in the sequential order they appear.
-* NfApps with parameter applicationEnabled roleOverride set to disabled are skipped.
+* NfApps with parameter "applicationEnabled" disabled are skipped.
 * NFApps present before upgrade, but not referenced by the new network function definition version (NFDV) are deleted.
 * The execution is stopped if any of the NfApp upgrades fail.
 * The failure leaves the NF resource in a failed state.
@@ -96,7 +96,7 @@ example:
 Understanding the different pod states is crucial for effective troubleshooting. The following are the most common pod states:
 * Pending: Pod scheduling is in progress by Kubernetes.
 * Running: All containers in the pod are running and healthy.
-* Failed: One or more containers in the pod are terminated with a non zero exit code.
+* Failed: One or more containers in the pod are terminated with a nonzero exit code.
 * CrashLoopBackOff: A container within the pod is repeatedly crashing and Kubernetes is unable to restart it.
 * ContainerCreating: Container creation is in progress by the container runtime.
 
