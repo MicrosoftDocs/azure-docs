@@ -5,12 +5,6 @@ items:
     items:
       - name: What is Azure Modeling and Simulation Workbench?
         href: modeling-simulation-workbench-overview.md
-  #- name: Tutorials
-  #  items:
-  #    - name: Create Azure Modeling and Simulation Workbench
-  #      href: ./tutorial-create-Modeling and Simulation Workbench.md
-  #    - name: Use Azure Modeling and Simulation Workbench
-  #      href: ./tutorial-use-Modeling and Simulation Workbench.md
   - name: Concepts
     items:
       - name: Workbench
@@ -29,8 +23,6 @@ items:
         href: ./concept-vm-offerings.md
       - name: Storage
         href: ./concept-storage.md
-      # - name: Shared storage
-      #   href: ./shared-storage.md
       - name: Business continuity
         items:
           - name: Disaster recovery
@@ -69,21 +61,9 @@ items:
         href: ./how-to-guide-chamber-vm.md
       - name: Register a Resource Provider
         href: ./how-to-guide-register-resource-provider.md
-  #        - name: Disaster Recovery
-  #          href: ./how-to-guide-disaster-recovery.md
   - name: Resources
     items:
       - name: Troubleshoot
         href: ./resources-troubleshoot.md
       - name: Get support
         href: ./resources-get-support.md
-#- name: Reference
-#  items:
-#    - name: Azure CLI
-#      href: /cli/azure/ModSimWorkbench
-#    - name: Azure PowerShell
-#      href: /powershell/module/az.ModSimWorkbench
-#    - name: REST
-#      href: /rest/api/ModSimWorkbench
-#    - name: Resource Manager template
-#      href: /azure/templates/microsoft.ModSimWorkbench/allversions
