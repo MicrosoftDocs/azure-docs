@@ -60,7 +60,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
  
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
-If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
+If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS (Database Management System) as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](/azure/virtual-machines/sizes) and [here (Windows)](/azure/virtual-machines/sizes).
 
@@ -68,7 +68,7 @@ As long as the current IOPS quota per disk is sufficient, it's possible to store
 
 For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools, which are only available in Windows Server 2012 and higher as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). On Linux you can use LVM or mdadm to create one large logical device over multiple disks.
+Alternatively, you can use Windows Storage Pools, which are only available in Windows Server 2012 and higher as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). On Linux, you can use LVM or mdadm to create one large logical device over multiple disks.
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
@@ -129,7 +129,7 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | M64ls |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
 
 #### Large multi-terabyte SAP system: database size 2 TB+: Global Business Suite system
-Especially for such larger systems it is important to evaluate the infrastructure that the system is currently running on and the resource consiuption data of those systems to find the best match of Azure compute and storage infrastructure and configuration.
+Especially for such larger systems it's important to evaluate the infrastructure that the system is currently running on and the resource consumption data of those systems to find the best match of Azure compute and storage infrastructure and configuration.
 
 | VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
