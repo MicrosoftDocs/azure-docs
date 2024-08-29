@@ -11,7 +11,9 @@ ms.date: 05/30/2024
 
 # Select or change Trusted Signing SKU (pricing tier)
 
-Trusted Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.  
+Trusted Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
+
+For more information about pricing, see the Trusted Signing [Pricing](https://azure.microsoft.com/pricing/details/trusted-signing/) article.
 
 ## SKU (pricing tier) overview
 
