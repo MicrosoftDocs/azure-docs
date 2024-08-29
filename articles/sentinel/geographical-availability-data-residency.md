@@ -37,16 +37,16 @@ Microsoft Sentinel can run on workspaces in the following regions:
 
 |Continent | Country | Region |
 |---------|---------|---------|
-|**North America** |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West <br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia|
-| | **Canada** | • Canada Central<br>• Canada East |
+| **North America**| **Canada** | • Canada Central<br>• Canada East |
+| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West <br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia|
 |**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
 |**Asia** | |• East Asia<br>• Southeast Asia |
-| | **Israel** | • Israel |
-| | **Quatar** | • Qatar Central|
-| | **Japan** | • Japan East<br>• Japan West|
 | | **China 21Vianet**| • China East 2<br>• China North 3|
 | | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
+| | **Israel** | • Israel |
+| | **Japan** | • Japan East<br>• Japan West|
 | | **Korea**| • Korea Central<br>• Korea South| 
+| | **Quatar** | • Qatar Central|
 | | **UAE**| • UAE Central<br>• UAE North        |
 |**Europe**| | • North Europe<br>• West Europe|
 | |**France**| • France Central<br>• France South|
