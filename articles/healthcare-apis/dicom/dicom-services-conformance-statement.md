@@ -2,12 +2,12 @@
 title: DICOM Conformance Statement version 1 for Azure Health Data Services
 description: Read about the features and specifications of the DICOM service v1 API, which supports a subset of the DICOMweb Standard for medical imaging data. A DICOM Conformance Statement is a technical document that describes how a device or software implements the DICOM standard.
 services: healthcare-apis
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 10/13/2023
-ms.author: mmitrik
+ms.author: varunbms
 ---
 
 # DICOM Conformance Statement v1
@@ -30,7 +30,7 @@ The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Stan
     * [Request Cancellation](#request-cancellation)
     * [Search Workitems](#search-workitems)
 
-Additionally, the following nonstandard API(s) are supported:
+Additionally, the following nonstandard APIs are supported:
 
 * [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
@@ -393,7 +393,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | ----------- | ------------------- | ------- |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag, which is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value. |
 
@@ -406,7 +406,7 @@ Tags can be encoded in several ways for the query parameter. We have partially i
 | `{group}{element}` | `0020000D`         |
 | `{dicomKeyword}`   | `StudyInstanceUID` |
 
-Here is an example query searching for instances:
+Here's an example query searching for instances:
 
 `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
 
@@ -659,7 +659,7 @@ This transaction retrieves a Workitem. It corresponds to the UPS DIMSE N-GET ope
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.5
 
-If the Workitem exists on the origin server, the Workitem will be returned in an Acceptable Media Type. The returned Workitem will not contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve the attribute's role as an access lock.
+If the Workitem exists on the origin server, the Workitem is returned in an Acceptable Media Type. The returned Workitem won't contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve the attribute's role as an access lock.
 
 | Method  | Path                    | Description   |
 | ------- | ----------------------- | ------------- |
@@ -680,7 +680,7 @@ The `Accept` header is required and must have the value `application/dicom+json`
 #### Retrieve Workitem response payload
 
 * A success response has a single part payload containing the requested Workitem in the Selected Media Type.
-* The returned Workitem will not contain the Transaction UID (0008, 1195) attribute of the Workitem, since that should only be known to the Owner.
+* The returned Workitem won't contain the Transaction UID (0008, 1195) attribute of the Workitem, since that should only be known to the Owner.
 
 ### Update Workitem
 
@@ -688,7 +688,7 @@ This transaction modifies attributes of an existing Workitem. It corresponds to 
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.6
 
-To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` attribute should not be present. For a Workitem in the `IN PROGRESS` state, the request must include the current Transaction UID as a query parameter. If the Workitem is already in the `COMPLETED` or `CANCELED` states, the response is `400 (Bad Request)`.
+To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` attribute shouldn't be present. For a Workitem in the `IN PROGRESS` state, the request must include the current Transaction UID as a query parameter. If the Workitem is already in the `COMPLETED` or `CANCELED` states, the response is `400 (Bad Request)`.
 
 | Method  | Path                            | Description           |
 | ------- | ------------------------------- | --------------------- |
@@ -723,9 +723,9 @@ found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 
 #### Update Workitem transaction response payload
 
-The origin server will support header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
+The origin server supports header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
 
-A success response will have either no payload, or a payload containing a Status Report document.
+A success response has either no payload, or a payload containing a Status Report document.
 
 A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
@@ -735,7 +735,7 @@ This transaction is used to change the state of a Workitem. It corresponds to th
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7
 
-If the Workitem exists on the origin server, the Workitem will be returned in an Acceptable Media Type. The returned Workitem will not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
+If the Workitem exists on the origin server, the Workitem is returned in an Acceptable Media Type. The returned Workitem won't contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
 
 | Method  | Path                            | Description           |
 | ------- | ------------------------------- | --------------------- |
@@ -743,9 +743,9 @@ If the Workitem exists on the origin server, the Workitem will be returned in an
 
 The `Accept` header is required, and must have the value `application/dicom+json`.
 
-The request payload will contain the Change UPS State Data Elements. These data elements are:
+The request payload contains the Change UPS State Data Elements. These data elements are:
 
-* **Transaction UID (0008, 1195)**. The request payload will include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
+* **Transaction UID (0008, 1195)**. The request payload includes a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
 * **Procedure Step State (0074, 1000)**. The legal values correspond to the requested state transition. They are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
 
 #### Change Workitem state response status codes
@@ -762,7 +762,7 @@ The request payload will contain the Change UPS State Data Elements. These data 
 #### Change Workitem state response payload
 
 * Responses include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
-* A success response will have no payload.
+* A success response has no payload.
 * A failure response payload might contain a Status Report describing any failures, warnings, or other useful information.
 
 ### Search Workitems
@@ -781,7 +781,7 @@ The following `Accept` header is supported for searching.
 
 The following parameters for each query are supported.
 
-| Key              | Support Value(s)              | Allowed Count | Description |
+| Key              | Support Values              | Allowed Count | Description |
 | ---------------- | ----------------------------- | ------------- | ----------- |
 | `{attributeID}=` | `{value}`                     | 0...N         | Search for attribute/ value matching in query |
 | `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The other attributes to return in the response; Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
