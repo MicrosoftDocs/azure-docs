@@ -3446,7 +3446,7 @@ groups:
   prompt: Choose a method
   pivots:
   - id: portal
-    title: Azure Portal
+    title: Azure portal
   - id: bicep
     title: Bicep
   - id: terraform
