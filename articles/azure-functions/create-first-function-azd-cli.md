@@ -45,7 +45,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/).
 ::: zone-end  
-+ A secure HTTP test tool for sending HTTP GET and HTTP POST requests to your function endpoints. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
++ A [secure HTTP test tool](functions-develop-local.md#http-test-tools) for sending HTTP GET and HTTP POST requests to your function endpoints. This article uses `curl`.
 
 ## Initialize the project
 
@@ -58,9 +58,12 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-dotnet-azd
     cd http
     ```
+    
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd) and initializes the project in the current folder. 
+
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Create a file named _local.settings.json_ in the app's root folder (`/http`), and add this JSON data to the file:
+3. Create a file named _local.settings.json_ in the app folder (`http`) that contains this JSON data:
 
     ```json
     {
@@ -82,15 +85,23 @@ You can use the `azd init` command to create a local Azure Functions code projec
     cd http
     ```
 
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd) and initializes the project in the current folder. 
+
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Run this command in the app's root folder (`http`):
+3. Create a file named _local.settings.json_ in the app folder (`http`) that contains this JSON data:
 
-    ```console
-    func init --worker-runtime java
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "java"
+        }
+    }
     ```
-    
-    This command restores the _local.settings.json_ file in the app's root folder (`http`), which is required when running locally.
+
+    This file is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -98,16 +109,23 @@ You can use the `azd init` command to create a local Azure Functions code projec
     ```console
     azd init --template functions-quickstart-javascript-azd 
     ```
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-javascript-azd) and initializes the project in the root folder. 
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Run this command in the root folder: 
+3. Create a file named _local.settings.json_ in the root folder that contains this JSON data:
 
-    ```console
-    func init --worker-runtime javascript
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "node"
+        }
+    }
     ```
 
-    This command restores the _local.settings.json_ file in the root folder, which is required when running locally.
+    This file is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -116,16 +134,24 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-powershell-azd
     cd src
     ```
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd) and initializes the project in the root folder. 
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3.  Run this command in the app's root folder (`src`):
+3. Create a file named _local.settings.json_ in the app folder (`http`) that contains this JSON data:
 
-    ```console
-    func init --worker-runtime powershell
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "powershell",
+            "FUNCTIONS_WORKER_RUNTIME_VERSION": "7.2"
+        }
+    }
     ```
 
-    This command restores the _local.settings.json_ file in the app's root folder (`src`), which is required when running locally.
+    This file is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -133,16 +159,23 @@ You can use the `azd init` command to create a local Azure Functions code projec
     ```console
     azd init --template functions-quickstart-typescript-azd
     ```
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd) and initializes the project in the root folder. 
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
-3. Run this command in the root folder:
+3. Create a file named _local.settings.json_ in the root folder that contains this JSON data:
 
-    ```console
-    func init --worker-runtime typescript
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "node"
+        }
+    }
     ```
 
-    This command restores the _local.settings.json_ file in the root folder, which is required when running locally.
+    This file is required when running locally.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -150,7 +183,23 @@ You can use the `azd init` command to create a local Azure Functions code projec
     ```console
     azd init --template functions-quickstart-python-http-azd
     ```
+        This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-http-azd) and initializes the project in the root folder. 
 
+[!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
+
+3. Create a file named _local.settings.json_ in the root folder that contains this JSON data:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "python"
+        }
+    }
+    ```
+
+    This file is required when running locally.
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
 3. Run this command in the root folder:
@@ -178,7 +227,14 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 sudo apt-get install python3-venv
 ```
 
-### [Windows](#tab/windows)
+### [Windows (bash)](#tab/windows-bash)
+
+```bash
+py -m venv .venv
+source .venv/scripts/activate
+```
+
+### [Windows (Cmd)](#tab/windows-cmd)
 
 ```shell
 py -m venv .venv
@@ -191,7 +247,7 @@ py -m venv .venv
 
 ## Run in your local environment  
 
-1. Run this command from your project's root folder in a terminal or command prompt:
+1. Run this command from your app folder in a terminal or command prompt:
 
     ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python,programming-language-javascript" 
     ```console
@@ -212,15 +268,17 @@ py -m venv .venv
 
     When the Azure Functions host starts in your local project folder, it displays the URL endpoints of the HTTP triggered functions in your project. 
 
-1. From your HTTP test tool in a new terminal (or from your browser), call the HTTP GET endpoint, which should look like this URL:
+1. In your browser, navigate to the `httpget` endpoint, which should look like this URL:
 
     <http://localhost:7071/api/httpget>
 
-1. From your HTTP test tool in a new terminal, send an HTTP POST request with a JSON payload like in this example:
+1. From a new terminal or command prompt window, run this `curl` to send an POST request with a JSON payload to the `httppost` endpoint: 
 
-    :::code language="http" source="~/functions-quickstart-dotnet-azd/http/test.http" range="9-15" :::
+    ```console
+    curl -i http://localhost:7071/api/httppost -H "Content-Type: text/json" -d @testdata.json
+    ```
 
-    You can find examples of both HTTP requests in the _test.http_ project file. 
+    This command reads JSON payload data from the `testdata.json` project file. You can find examples of both HTTP requests in the `test.http` project file. 
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 ::: zone pivot="programming-language-python"
@@ -316,21 +374,31 @@ This project is configured to use the `azd up` command to deploy this project to
 
     + Package and deploy your code to the deployment container (equivalent to [`azd deploy`](/azure/developer/azure-developer-cli/reference#azd-deploy)). The app is then started and runs in the deployed package. 
 
-1.  After the command completes successfully, you see links to the resources created. Make a copy of the **Function App** name. If you forgot to save the app name, you can always get it again using the `azd env get-values` command and copying `AZURE_FUNCTION_NAME`.  
+1.  After the command completes successfully, you see links to the resources created. 
 
 ## Invoke the function on Azure
 
 You can now invoke your function endpoints in Azure by making HTTP requests to their URLs using your HTTP test tool or from the browser (for GET requests). When your functions run in Azure, access key authorization is enforced, and you must provide a function access key with your request. 
 
-You can use the Core Tools to obtain the URL endpoints of your functions running in Azure, along with their required access key values.
+You can use the Core Tools to obtain the URL endpoints of your functions running in Azure.
 
-1. In your local terminal or command prompt, run this `func azure functionapp list-functions` command:
+1. In your local terminal or command prompt, run this command to get the URL endpoint values, including access keys:
  
-    ```console
-    func azure functionapp list-functions <APP_NAME> --show-keys 
+    ### [bash](#tab/bash)
+
+    ```bash
+    SET APP_NAME=(azd env get-value AZURE_FUNCTION_NAME)
+    func azure functionapp list-functions $APP_NAME --show-keys
+    ```
+
+    ### [Cmd](#tab/bash)
+    ```cmd
+    for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
+    func azure functionapp list-functions %APP_NAME% --show-keys 
     ``` 
-    
-    In this example, replace `<APP_NAME>` with the name of the function app created by azd during deployment. Using the `--show-keys` option means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
+    ---
+
+    The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
 
 1. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
 
