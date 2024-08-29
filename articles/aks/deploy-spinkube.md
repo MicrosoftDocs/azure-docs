@@ -96,7 +96,7 @@ kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.
 
 The `spin-operator` itself is deployed using a Helm chart:
 
-```bash
+```azurecli-interactive
 helm install spin-operator --version 0.2.0 \
   --namespace spin-operator --create-namespace \
   --wait oci://ghcr.io/spinkube/charts/spin-operator
