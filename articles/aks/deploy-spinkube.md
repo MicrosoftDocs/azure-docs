@@ -61,7 +61,7 @@ helm install \
 
 The `runtime-class-manager` (aka [KWasm][kwasm]) is responsible for deploying and managing `containerd-shims` on the desired Kubernetes nodes. Deploy it by installing its Helm chart:
 
-```bash
+```azurecli-interactive
 # Add Helm repository if not already done
 helm repo add kwasm http://kwasm.sh/kwasm-operator/
 # Install KWasm operator
