@@ -163,7 +163,11 @@ The examples so far explicitly set the parameter to select only one value in the
 
 You can specify the format of the result set via the **Delimiter** and **Quote with** settings. By default, `,` (comma) is used as the delimiter, and `'` (single quote) is used as the quote character. The default returns the values as a collection in the form of `'a', 'b', 'c'` when formatted into the query. You can also limit the maximum number of selections.
 
-When using a multiple select parameter in a query, the KQL referencing the parameter needs to change to work with the format of the result. A single value parameter doesn't include any quotes when formatted into a query, so the usual behavior is to include the quotes in the query itself, like `where name == '{parameter}'`. When using a multiple select parameter, the quotes are included in the formatted parameter, so the query shouldn't include them, like `where name in ({parameter})`. Note how this example also switched from `name ==` to `name in`. The `==` operator only allows a single value, while the `in` operator allows multiple values.
+When using a multiple select parameter in a query, make sure that the KQL referencing the parameter works with the format of the result. For example:
+- a single value parameter doesn't include any quotes when formatted into a query, so make sure to include the quotes in the query itself, for example: `where name == '{parameter}'`. 
+- quotes are included in the formatted parameter when using a multiple select parameter, so make sure that the query doesn't include quotes.  For example, `where name in ({parameter})`. 
+
+Note how this example also switched from `name ==` to `name in`. The `==` operator only allows a single value, while the `in` operator allows multiple values.
 
 ```kusto
 dependencies
