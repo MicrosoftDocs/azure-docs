@@ -340,12 +340,10 @@ After you create an action group, you can view it in the portal:
 
 A phone number or email can be included in action groups in many subscriptions. Azure Monitor uses rate limiting to suspend notifications when too many notifications are sent to a particular phone number, email address or device. Rate limiting ensures that alerts are manageable and actionable.
 
-Rate limiting applies to SMS, voice, and email notifications. All other notification actions aren't rate limited. For information about rate limits, see [Azure Monitor service limits](../service-limits.md).
+Rate limiting applies to SMS, voice, and email notifications. All other notification actions aren't rate limited. Rate limiting applies across all subscriptions. Rate limiting is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions. When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
 
-Rate limiting applies across all subscriptions. Rate limiting is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
-
-When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
-
+For information about rate limits, see [Azure Monitor service limits](../service-limits.md).
+ 
 ## Email Azure Resource Manager
 
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is sent to Microsoft Entra ID **user** or **group** members of the role. This includes support for roles assigned through Azure Lighthouse.
@@ -386,11 +384,11 @@ When you set up the Resource Manager role:
 > It can take up to 24 hours for a customer to start receiving notifications after they add a new Azure Resource Manager role to their subscription.
 ## SMS
 
-For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
-
-For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
-
 You might have a limited number of SMS actions per action group.
+
+- For information about rate limits, see [Azure Monitor service limits](../service-limits.md).
+- For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
+
 
 > [!NOTE]
 >
@@ -454,10 +452,9 @@ You might have a limited number of Azure app actions per action group.
 | 1 | United States |
 
 ## Voice
+You might have a limited number of voice actions per action group. For important information about rate limits, see [Azure Monitor service limits](../service-limits.md).
 
-For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
 
-You might have a limited number of voice actions per action group.
 
 > [!NOTE]
 >
