@@ -70,7 +70,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Data Lake Storage Gen2
+          - text: Azure Data Lake Storage
             url: data-lake-storage-introduction.md
       - linkListType: quickstart
         links:
