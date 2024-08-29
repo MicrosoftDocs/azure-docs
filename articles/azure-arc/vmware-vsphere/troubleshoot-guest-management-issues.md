@@ -2,7 +2,7 @@
 title: Troubleshoot Guest Management Issues
 description: Learn how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
-ms.date: 08/06/2024
+ms.date: 08/29/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: linux-related-content
@@ -22,7 +22,7 @@ This article provides information on how to troubleshoot and resolve the issues 
 
 **Troubleshoot issues while enabling Guest Management on:**
 
-# [A domain-joined Linux VM](#tab/linux)
+# [Arc agent installation fails on a domain-joined Linux VM](#tab/linux)
 
 **Error message**: Enabling Guest Management on a domain-joined Linux VM fails with the error message **InvalidGuestLogin: Failed to authenticate to the system with the credentials**.
 
@@ -55,7 +55,7 @@ Default: The default set of PAM service names includes:
 
 - [Invoke VMScript to a domain-joined Ubuntu VM](https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Invoke-VMScript-to-an-domain-joined-Ubuntu-VM/td-p/2257554).
 
-# [A RHEL-based Linux VM](#tab/rhel)
+# [Arc agent installation fails on RHEL Linux distros](#tab/rhel)
 
 **Applies to:**<br>
 :heavy_check_mark: RedHat Linux :heavy_check_mark: CentOS :heavy_check_mark: Rocky Linux :heavy_check_mark: Oracle Linux :heavy_check_mark: SUSE Linux :heavy_check_mark: SUSE Linux Enterprise Server :heavy_check_mark: Alma Linux :heavy_check_mark: Fedora
