@@ -266,20 +266,6 @@
     href: data-connectors-reference.md
   - name: All connectors
     items:
-    - name: '[Deprecated] Akamai Security Events via Legacy Agent'
-      href: data-connectors/deprecated-akamai-security-events-via-legacy-agent.md
-    - name: '[Deprecated] Aruba ClearPass via Legacy Agent'
-      href: data-connectors/deprecated-aruba-clearpass-via-legacy-agent.md
-    - name: '[Deprecated] Broadcom Symantec DLP via Legacy Agent'
-      href: data-connectors/deprecated-broadcom-symantec-dlp-via-legacy-agent.md
-    - name: '[Deprecated] Cisco Secure Email Gateway via Legacy Agent'
-      href: data-connectors/deprecated-cisco-secure-email-gateway-via-legacy-agent.md
-    - name: '[Deprecated] Claroty via Legacy Agent'
-      href: data-connectors/deprecated-claroty-via-legacy-agent.md
-    - name: '[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent'
-      href: data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md
-    - name: '[Deprecated] FireEye Network Security (NX) via Legacy Agent'
-      href: data-connectors/deprecated-fireeye-network-security-nx-via-legacy-agent.md
     - name: '[Deprecated] Forcepoint CASB via Legacy Agent'
       href: data-connectors/deprecated-forcepoint-casb-via-legacy-agent.md
     - name: '[Deprecated] Forcepoint CSG via Legacy Agent'

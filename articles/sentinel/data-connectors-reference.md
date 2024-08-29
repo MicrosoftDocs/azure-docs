@@ -82,7 +82,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Akamai
 
-- [[Deprecated] Akamai Security Events via Legacy Agent](data-connectors/deprecated-akamai-security-events-via-legacy-agent.md)
 - [[Recommended] Akamai Security Events via AMA](data-connectors/recommended-akamai-security-events-via-ama.md)
 
 ## AliCloud
@@ -110,10 +109,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [ARGOS Cloud Security](data-connectors/argos-cloud-security.md)
 
-## Arista Networks
-
-- [Awake Security](data-connectors/awake-security.md)
-
 ## Armis, Inc.
 
 - [Armis Activities (using Azure Functions)](data-connectors/armis-activities.md)
@@ -126,7 +121,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Aruba
 
-- [[Deprecated] Aruba ClearPass via Legacy Agent](data-connectors/deprecated-aruba-clearpass-via-legacy-agent.md)
 - [[Recommended] Aruba ClearPass via AMA](data-connectors/recommended-aruba-clearpass-via-ama.md)
 
 ## Atlassian
@@ -150,10 +144,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Bitsight data connector (using Azure Functions)](data-connectors/bitsight-data-connector.md)
 
-## Blackberry
-
-- [Blackberry CylancePROTECT](data-connectors/blackberry-cylanceprotect.md)
-
 ## Bosch Global Software Technologies Pvt Ltd
 
 - [AIShield](data-connectors/aishield.md)
@@ -164,12 +154,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Broadcom
 
-- [[Deprecated] Broadcom Symantec DLP via Legacy Agent](data-connectors/deprecated-broadcom-symantec-dlp-via-legacy-agent.md)
 - [[Recommended] Broadcom Symantec DLP via AMA](data-connectors/recommended-broadcom-symantec-dlp-via-ama.md)
 
 ## Cisco
 
-- [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
@@ -191,7 +179,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Claroty
 
-- [[Deprecated] Claroty via Legacy Agent](data-connectors/deprecated-claroty-via-legacy-agent.md)
 - [[Recommended] Claroty via AMA](data-connectors/recommended-claroty-via-ama.md)
 - [Claroty xDome](data-connectors/claroty-xdome.md)
 
@@ -217,7 +204,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Crowdstrike
 
-- [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
 - [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
@@ -304,7 +290,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Fireeye
 
-- [[Deprecated] FireEye Network Security (NX) via Legacy Agent](data-connectors/deprecated-fireeye-network-security-nx-via-legacy-agent.md)
 - [[Recommended] FireEye Network Security (NX) via AMA](data-connectors/recommended-fireeye-network-security-nx-via-ama.md)
 
 ## Flare Systems
