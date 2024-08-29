@@ -6,7 +6,7 @@ ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, devx-track-bicep
 ms.author: karler
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ---
 
 # Quickstart: Provision Azure Spring Apps using Bicep
