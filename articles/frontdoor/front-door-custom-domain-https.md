@@ -216,7 +216,10 @@ When you select the approval link, you're directed to an online approval form. F
 
 - You can approve just the specific host name used in this request. Extra approval is required for subsequent requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and gets autorenew before it expires.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year. If the CNAME record for your custom domain is added or updated to map to your Azure Front Door's default hostname after verification, then it will be autorenewed before it expires.
+
+> [!NOTE]
+> Managed certificate autorenewal requires that your custom domain be directly mapped to your Front Door's default .azurefd.net hostname by a CNAME record.
 
 ## Wait for propagation
 
