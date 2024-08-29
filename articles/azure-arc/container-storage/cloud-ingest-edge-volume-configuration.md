@@ -111,7 +111,7 @@ To create a sub-volume using extension identity to connect to your storage accou
 1. Get the name of your Edge Volume using the following command:
 
     ```bash
-    kubectl get edgevolumes.arccontainerstorage.azure.net
+    kubectl get edgevolumes
     ```
 
 1. Create a file named `edgeSubvolume.yaml` and copy the following contents. These variables must be updated with your information:
@@ -119,7 +119,7 @@ To create a sub-volume using extension identity to connect to your storage accou
    [!INCLUDE [lowercase-note](includes/lowercase-note.md)]
 
    - `metadata::name`: Create a name for your sub-volume.
-   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arccontainerstorage.azure.net`.
+   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes`.
    - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: The container name in your storage account.
    - `spec::storageaccountendpoint`: Navigate to your storage account in the Azure portal. On the **Overview** page, near the top right of the screen, select **JSON View**. You can find the `storageaccountendpoint` link under **properties::primaryEndpoints::blob**. Copy the entire link (for example, `https://mytest.blob.core.windows.net/`).
@@ -139,7 +139,7 @@ To create a sub-volume using extension identity to connect to your storage accou
       ingestPolicy: edgeingestpolicy-default # Optional: See the following instructions if you want to update the ingestPolicy with your own configuration
     ```
 
-1. To apply `edgeSubvolume.yaml`, run:
+2. To apply `edgeSubvolume.yaml`, run:
 
    ```bash
    kubectl apply -f "edgeSubvolume.yaml"
