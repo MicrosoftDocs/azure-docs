@@ -47,4 +47,4 @@ Then, perform the following steps on each of the nodes in your Kubernetes cluste
 
 ## Next steps
 
-[Install Edge Volumes](install-edge-volumes.md)
+[Install Extension](install-edge-volumes.md)

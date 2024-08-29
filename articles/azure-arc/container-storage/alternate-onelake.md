@@ -42,7 +42,6 @@ This configuration is an alternative option that you can use with key-based auth
    metadata:
      ### Create a nane for your PVC ###
      name: <create-a-pvc-name-here>
-     annotations:
      ### Use a namespace that matches your intended consuming pod, or "default" ###
      namespace: <intended-consuming-pod-or-default-here>
    spec:

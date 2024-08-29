@@ -86,7 +86,6 @@ az k8s-extension list --cluster-name ${CLUSTER_NAME} --resource-group ${RESOURCE
    metadata:
      ### Create a name for your PVC ###
      name: <create-persistent-volume-claim-name-here>
-     annotations:
      ### Use a namespace that matched your intended consuming pod, or "default" ###
      namespace: <intended-consuming-pod-or-default-here>
    spec:

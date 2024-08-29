@@ -28,7 +28,6 @@ The *Local Shared Edge Volumes* feature provides highly available, failover-capa
    metadata:
      ### Create a name for your PVC ###
      name: <create-a-pvc-name-here>
-     annotations:
      ### Use a namespace that matches your intended consuming pod, or "default" ###
      namespace: <intended-consuming-pod-or-default-here>
    spec:

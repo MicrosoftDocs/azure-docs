@@ -196,7 +196,6 @@ A connection string can contain a storage key or SAS.
    metadata:
      ### Create a name for the PVC ###
      name: <your-storage-acct-name-secret>
-     annotations:
      ### Use a namespace that matches your intended consuming pod, or "default" ###
      namespace: <your-intended-consuming-pod-or-default>
    spec:

@@ -48,7 +48,7 @@ Yes, data in transit is encrypted using standard HTTPS protocols. Data is decryp
 
 #### Is data encrypted at REST?
 
-Currently, there is no encryption for data at REST.
+Data persisted by the Azure Container Storage enabled by Azure Arc extension is encrypted at REST if the underlying platform provides encrypted disks.
 
 ### ACStor Triplication
 
