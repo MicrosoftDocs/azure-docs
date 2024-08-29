@@ -112,18 +112,18 @@ Consider the following constraints during the implementation of this feature:
 |-------------  | ------------------|
 | :::image type="content" source="media/ui-library-remove-button.png" alt-text="Screenshot that demonstrates the remove button on the bottom bar."::: |  :::image type="content" source="media/ui-library-add-action-button.png" alt-text="Screenshot that demonstrates add custom action into the contextual menu."::: |
 
-#### Use Cases
+#### Use cases
 
 - Custom In-Call Actions: A business application can add a custom "Report Issue" button, allowing users to directly report technical issues during a call.
 - Branding and User Experience: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
 
 To ensure a consistent call experience, , we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons will match the design of the Call Composite, creating a cohesive and professional appearance.
 
-#### Best Practices
+#### Best practices
 
 - Minimalism: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
 - User Testing: Conduct user testing to ensure the customizations meets user needs and don't confuse or overwhelm them.
-- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can re use the [mechanism that UI Library provide by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
+- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
 
 For more information, see [How to customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
 
