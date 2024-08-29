@@ -316,6 +316,10 @@ The steps necessary to restrict network access to resources created through Azur
     | Performance | Select **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
 
+1. Select **Next** until you reach the **Data protection** tab.
+
+1. In **Recovery**, deselect all of the options.
+
 1. Select **Review + Create**.
 
 1. Select **Create**.
