@@ -14,30 +14,29 @@ A guide to understand and use the optional rollback feature for container networ
 ## Current state
 CNF upgrade workflow via Azure Operator Service Manager (AOSM) currently executes as follows,
 * The network function applications (NfApps) are created or upgraded following either updateDependsOn ordering, if provided, or in the sequential order they appear.
-* NfApps with parameter ‘applicationEnabled’ roleoverride set to ‘Disabled’ are skipped.
+* NfApps with parameter applicationEnabled roleOverride set to Ddsabled are skipped.
 * NFApps present before upgrade, but not referenced by the new network function definition version (NFDV) are deleted.
 * The execution is stopped if any of the NfApp upgrades fail.
 * The failure leaves the NF resource in a failed state.
 
 ### Pause on failure 
-With pause on failure, AOSM can rollback the failed NfApp, via the testOptions, installOptions or upgradeOptions parameters. This allows the end user to troubleshoot the failed NfApp and then restart the upgrade from that point forward.  As the default behavior, this is the most effecient upgrade method, but may cause network function (NF) inconsistencies while in a mixed version state. 
+With pause on failure, AOSM rolls back the failed NfApp, via the testOptions, installOptions, or upgradeOptions parameters. This method allows the end user to troubleshoot the failed NfApp and then restart the upgrade from that point forward. As the default behavior, this method is the most efficient upgrade method, but may cause network function (NF) inconsistencies while in a mixed version state. 
 
 
 ## Rollback on failure
-To address risk of mismatched NfApp versions, AOSM now supports NF level rollback on failure. With this option enabled, if an NfApp upgrade fails, both the failed NfApp, and all prior completed NfApps, are rolled back to initial version state. This minimzes, or eliminates, the amount of time the NF is exposed to NfApp version mismatches.  The optional rollback on failure feature works as follows:
-* When a user initiates an upgrade, they enable or disable the rollback on failure feature.
-* If enabled, before the upgrade starts, AOSM captures and stores a snapshot of NfApp versoins.
+To address risk of mismatched NfApp versions, AOSM now supports NF level rollback on failure. With this option enabled, if an NfApp upgrade fails, both the failed NfApp, and all prior completed NfApps, are rolled back to initial version state. This minimizes, or eliminates, the amount of time the NF is exposed to NfApp version mismatches. The optional rollback on failure feature works as follows:
+* A user initiates an upgrade and enables the rollback on failure feature.
+* A snapshot of the current NfApp versions are captured and stored.
 * The snapshot is used to determine the individual NfApp actions taken to reverse actions that completed successfully.
   - helm install action on deleted components,
   - helm rollback action on upgraded components,
   - helm delete action on newly installed components
-* If a NfApp failure occurs, AOSM restores the NfApps to the snapshot version state before the upgrade with most recent actions reverted first.
-* If no NfApp failure occures, AOSM deletes the snapshot and completes the CNF upgrade.
+* NfApp failure occurs, AOSM restores the NfApps to the snapshot version state before the upgrade, with most recent actions reverted first.
 
 **Notes:**
-* If a user does not enable rollback on failure, AOSM will not create a snapshot.
-* Rollback on failure only applies to the successfully completed NFApps. To additionally rollback the failed NfApp use the testOptions, installOptions or upgradeOptions parameters.
-* AOSM will return the following operationsl status and messages, given the respective results:
+* A user does not enable rollback on failure, AOSM does not create a snapshot.
+* A roll back on failure only applies to the successfully completed NFApps. To roll back the failed NfApp use the testOptions, installOptions, or upgradeOptions parameters.
+* AOSM returns the following operational status and messages, given the respective results:
 ```
   - Upgrade Succeeded
     - Provisioning State: Succeeded
@@ -51,7 +50,7 @@ To address risk of mismatched NfApp versions, AOSM now supports NF level rollbac
 ```
 
 ## Configure rollback on failure
-Operator will be able to provide their input by using the roleOverrideValues parameter in the NF payload. The operator can use configuration group value (CGV) or configuration group schema (CGS) to propagate the value in the roleOverrideValues. The roleOverrideValues currently accepts an array of serialized JSONs, with each entry configuring the behaviour override of the NfAapps in the referenced NFDV; after the availability of this feature the roleOverrideValues will also accept another entry matching the JSON schema. 
+Operator provides input using the roleOverrideValues parameter in the NF payload. The operator can use configuration group value (CGV) or configuration group schema (CGS) to propagate into roleOverrideValues. Each roleOverrideValues entry overrides the default behavior of the NfAapps. To support rollback on failure, the roleOverrideValues is extended to accept a new JSON schema parameter. 
 
 ```
 {
@@ -73,8 +72,8 @@ Operator will be able to provide their input by using the roleOverrideValues par
 }
 ```
 **Notes:**
-* If the ‘nfConfiguration’ is not provided through the roleOverrideValues parameter by default the rollback will be set disabled and is enabled only when the ‘rollbackEnabled’ is set to true (Boolean)
-* If multiple entries of ‘nfConfiguration’ are found in the roleOverrideValues then the NF PUT will be returned as BadRequest.
+* If the nfConfiguration is not provided through the roleOverrideValues parameter, by default the rollback is disabled.
+* If multiple entries of nfConfiguration are found in the roleOverrideValues, then the NF reput is returned as a bad request.
 
 ```
 example:
@@ -94,26 +93,24 @@ example:
 ## Troubleshooting Guide:
 ### Understanding Pod States
 Understanding the different pod states is crucial for effective troubleshooting. The following are the most common pod states:
-* Pending: The pod is being scheduled by the Kubernetes scheduler.
+* Pending: Pod scheduling is in progress by Kubernetes.
 * Running: All containers in the pod are running and healthy.
-* Failed: One or more containers in the pod have terminated with a non-zero exit code.
+* Failed: One or more containers in the pod are terminated with a non-zero exit code.
 * CrashLoopBackOff: A container within the pod is repeatedly crashing and Kubernetes is unable to restart it.
-* ContainerCreating: The container is being created by the container runtime.
+* ContainerCreating: Container creation is in progress by the container runtime.
 
 ### Checking Pod Status and Logs
-When troubleshooting a pod, first start by checking its status and logs. The kubectl command-line tool provides a simple way to do this. Use the following commands to check the status of a pod and retrieve its logs:
+When troubleshooting a pod, first start by checking its status and logs using a kubectl command:
 ```
 $ kubectl get pods
 $ kubectl logs <pod-name>
 ```
-The get pods command lists all the pods in the current namespace, along with their current status. The logs command retrieves the logs for a specific pod, allowing you to inspect any errors or exceptions that might have occurred.
-To troubleshoot networking problems, use the following commands:
+The get pods command lists all the pods in the current namespace, along with their current status. The logs command retrieves the logs for a specific pod, allowing you to inspect any errors or exceptions. To troubleshoot networking problems, use the following commands:
 ```
 $ kubectl get services
 $ kubectl describe service <service-name>
 ```
-The get services command displays all the services in the current namespace. Services in Kubernetes are responsible for load balancing requests to pods. The describe command provides additional details about a specific service, including the associated endpoints and any relevant error messages.
-If you are encountering issues with PVCs, you can use the following commands to debug them:
+The get services command displays all the services in the current namespace. The command provides details about a specific service, including the associated endpoints, and any relevant error messages. If you are encountering issues with PVCs, you can use the following commands to debug them:
 ```
 $ kubectl get persistentvolumeclaims
 $ kubectl describe persistentvolumeclaims <pvc-name>
