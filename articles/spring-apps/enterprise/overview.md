@@ -61,11 +61,6 @@ The following articles help you get started:
 * [Deploy your first application to Azure Spring Apps](quickstart.md)
 * [Introduction to the sample app](quickstart-sample-app-introduction.md)
 
-The following articles help you migrate existing Spring Boot apps to Azure Spring Apps:
-
-* [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
-* [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
-
 The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) section.
 
 * [Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md)
