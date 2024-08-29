@@ -264,7 +264,7 @@ If you want to further constrain the Key Vault Data Access Administrator role as
 
 Here are the known issues related to delegating role assignment management with conditions:
 
-- You can't delegate role assignment management with conditions for custom roles using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+- You can't delegate role assignment management for custom roles with conditions using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 - You can't have a role assignment with a Microsoft.Storage data action and an ABAC condition that uses a GUID comparison operator. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---authorization-failed).
 
 ## License requirements
