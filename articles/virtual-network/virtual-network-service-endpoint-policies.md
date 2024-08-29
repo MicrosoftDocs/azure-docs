@@ -95,7 +95,7 @@ Create a virtual network to contain the resources you create in this tutorial.
 
 1. Select **Create**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg*: 
 
@@ -222,7 +222,7 @@ Create a network security group and rules to restrict network access for the sub
 
 1. Select **OK**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Create network security group security rules with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
@@ -330,7 +330,7 @@ The steps necessary to restrict network access to resources created through Azur
     | -------| ------- |
     | Storage account name | Enter **deniedaccount(random-number)**. |
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Create the allowed Azure storage account with [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
@@ -357,7 +357,6 @@ $storageAcctParams = @{
 }
 New-AzStorageAccount @storageAcctParams
 ```
-
 
 ### [CLI](#tab/cli)
 
@@ -387,7 +386,7 @@ New-AzStorageAccount @storageAcctParams
 
 1. Repeat the steps above to create a file share in **deniedaccount(random-number)**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 ### Create allowed storage account
 
@@ -473,7 +472,7 @@ By default, storage accounts accept network connections from clients in any netw
 
 1. Repeat the steps above to deny network access to **deniedaccount(random-number)**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Use [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset) to deny access to the storage accounts except from the virtual network and subnet you created eariler. Once network access is denied, the storage account is not accessible from any network.
 
@@ -573,7 +572,7 @@ This section creates the policy definition with the list of allowed resources fo
 
 1. Select **Create**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) to retrieve the resource ID for the first (allowed) storage account.
 
@@ -631,7 +630,7 @@ After creating the service endpoint policy, you'll associate it with the target 
 
 1. Select **Apply**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the service endpoint policy to the subnet.
 
@@ -706,7 +705,7 @@ To test network access to a storage account, deploy a VM in the subnet.
 
 1. Select **Create**.
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
 
@@ -817,7 +816,7 @@ Wait for the virtual machine to finish deploying before continuing on to the nex
 
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
-### [PowerShell](#tab/portal)
+### [PowerShell](#tab/powershell)
 
 When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
 
