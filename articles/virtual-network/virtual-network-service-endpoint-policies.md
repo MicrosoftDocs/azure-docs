@@ -805,7 +805,7 @@ Create a service endpoint policy
 az network service-endpoint policy create \
   --resource-group test-rg \
   --name service-endpoint-policy \
-  --location eastus
+  --location westus2
 ```
 
 Create and add a policy definition for allowing the previous Azure Storage account to the service endpoint policy
@@ -940,8 +940,6 @@ $vmParams = @{
 New-AzVm @vmParams
 ```
 
-Wait for the virtual machine to finish deploying before continuing on to the next steps.
-
 ### [CLI](#tab/cli)
 
 Create a VM in the *subnet-1* subnet with [az vm create](/cli/azure/vm).
@@ -957,6 +955,8 @@ az vm create \
 ```
 
 ---
+
+Wait for the virtual machine to finish deploying before continuing on to the next steps.
 
 ### Confirm access to the *allowed* storage account
 
