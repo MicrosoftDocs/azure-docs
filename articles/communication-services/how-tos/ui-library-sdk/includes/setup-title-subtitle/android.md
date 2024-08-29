@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ## Customize title and subtitle
 
-To set and update call screen header `title` and `subtitle`, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenHeaderOptions`. Default UI library title will be displayed if `title` value is not configured.
+To set and update call screen header `title` and `subtitle`, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenHeaderOptions`. Default UI library title is displayed if `title` value isn't configured.
 
 #### [Kotlin](#tab/kotlin)
 

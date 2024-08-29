@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ## Customize title and subtitle
 
-To set and update call screen infoHeader `title` & `subtitle`, we have `CallScreenHeaderOptions` to configure and pass to `CallScreenOptions` by param `headerOptions`. The `title`, `Subtitle` in `CallScreenHeaderOptions` are optional parameters and `headerOptions` itself is optional as well.
+To set and update call screen infoHeader `title` & `subtitle`, we have `CallScreenHeaderOptions` to configure and pass to `CallScreenOptions` by param `headerOptions`. The `title`, `Subtitle` in `CallScreenHeaderOptions` are optional parameters and `headerOptions` itself is optional as well. Default UI library title is displayed if `title` value isn't configured.
 
 ```swift
 var callScreenHeaderOptions = CallScreenHeaderOptions(
