@@ -89,7 +89,7 @@ The `spin-operator` consists of two Custom Resource Definitions (CRDs), the Runt
 
 Start by deploying the CRDs and the RuntimeClass for `spin`:
 
-```bash
+```azurecli-interactive
 kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.2.0/spin-operator.crds.yaml
 kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.2.0/spin-operator.runtime-class.yaml
 ```
