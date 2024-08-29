@@ -155,7 +155,7 @@ For App Service, you then make the following modifications:
     STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
     ```
 
-    Here, `FRONTEND_DIR`, to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
+    Here, `FRONTEND_DIR` is used to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
 
 1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. Whitenoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
 
@@ -204,7 +204,7 @@ This container has the following characteristics:
 - Apps are run using the [Gunicorn WSGI HTTP Server](https://gunicorn.org/), using the extra arguments `--bind=0.0.0.0 --timeout 600`.
   - You can provide configuration settings for Gunicorn by [customizing the startup command](#customize-startup-command).
 
-  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described on [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html) (docs.gunicorn.org).
+  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
 
 - By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6+, such as Django.
 
@@ -220,10 +220,10 @@ This container has the following characteristics:
 
 During startup, the App Service on Linux container runs the following steps:
 
-1. Use a [custom startup command](#customize-startup-command), if provided.
-2. Check for the existence of a [Django app](#django-app), and launch Gunicorn for it if detected.
-3. Check for the existence of a [Flask app](#flask-app), and launch Gunicorn for it if detected.
-4. If no other app is found, start a default app that's built into the container.
+1. Use a [custom startup command](#customize-startup-command), if one is provided.
+1. Check for the existence of a [Django app](#django-app), and launch Gunicorn for it if one is detected.
+1. Check for the existence of a [Flask app](#flask-app), and launch Gunicorn for it if one is detected.
+1. If no other app is found, start a default app that's built into the container.
 
 The following sections provide extra details for each option.
 
@@ -252,7 +252,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-If your main app module is contained in a different file, use a different name for the app object, or you want to provide other arguments to Gunicorn, use a [custom startup command](#customize-startup-command).
+If your main app module is contained in a different file, use a different name for the app object. If you want to provide other arguments to Gunicorn, use a [custom startup command](#customize-startup-command).
 
 ### Default behavior
 
@@ -261,8 +261,6 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
 :::image type="content" source="media/configure-language-python/default-python-app.png" alt-text="Screenshot of the default App Service on Linux web page." link="#app-doesnt-appear":::
-
-Again, if you expect to see a deployed app instead of the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
 ## Customize startup command
 
@@ -286,7 +284,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
 ### Example startup commands
 
-- **Added Gunicorn arguments**: The following example adds the `--workers=4` to a Gunicorn command line for starting a Django app:
+- **Added Gunicorn arguments**: The following example adds the `--workers=4` argument to a Gunicorn command line for starting a Django app:
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -294,7 +292,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of gunicorn workers using the `NUM_CORES` environment variable in your startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers)
+    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers using the `NUM_CORES` environment variable in your startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers)
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
@@ -305,7 +303,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     These logs will appear in the [App Service log stream](#access-diagnostic-logs).
 
-    For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
+    For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging).
 
 - **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
 
@@ -327,9 +325,9 @@ App Service ignores any errors that occur when processing a custom startup comma
 
 ## Access app settings as environment variables
 
-App settings are values stored in the cloud specifically for your app as described on [Configure app settings](configure-common.md#configure-app-settings). These settings are available to your app code as environment variables and accessed using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
+App settings are values stored in the cloud specifically for your app, as described in [Configure app settings](configure-common.md#configure-app-settings). These settings are available to your app code as environment variables and accessed using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
 
-For example, if you've created app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
+For example, if you've created an app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
 
 ```python
 db_server = os.environ['DATABASE_SERVER']
@@ -337,14 +335,14 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## Detect HTTPS session
 
-In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
 # Do something when HTTPS is used
 ```
 
-Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. For example in Django, you can use the [SECURE_PROXY_SSL_HEADER](https://docs.djangoproject.com/en/4.1/ref/settings/#secure-proxy-ssl-header) to tell Django to use the `X-Forwarded-Proto` header.
+Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. For example, in Django you can use the [SECURE_PROXY_SSL_HEADER](https://docs.djangoproject.com/en/4.1/ref/settings/#secure-proxy-ssl-header) to tell Django to use the `X-Forwarded-Proto` header.
 
 ## Access diagnostic logs
 
@@ -360,23 +358,23 @@ Use the following steps to access the deployment logs:
 
 1. On the Azure portal for your web app, select **Deployment** > **Deployment Center** on the left menu.
 1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
-1. On the **Log details** page that appears, select the **Show Logs...** link that appears next to "Running oryx build...".
+1. On the **Log details** page that appears, select the **Show Logs** link that appears next to "Running oryx build...".
 
-Build issues such as incorrect dependencies in *requirements.txt* and errors in pre- or post-build scripts will appear in these logs. Errors also appear if your requirements file isn't exactly named *requirements.txt* or doesn't appear in the root folder of your project.
+Build issues such as incorrect dependencies in *requirements.txt* and errors in pre- or post-build scripts will appear in these logs. Errors also appear if your requirements file isn't named *requirements.txt* or doesn't appear in the root folder of your project.
 
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error may be preventing the app container from starting. See [Troubleshooting](#troubleshooting) for steps to investigate possible issues.
+When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error might be preventing the app container from starting. See [Troubleshooting](#troubleshooting) for steps to investigate possible issues.
 
 ## URL rewrites
 
-When deploying Python applications on Azure App Service for Linux, you may need to handle URL rewrites within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware can be used to achieve this. In Django applications, the robust [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) allows for efficient management of URL rewrites.
+When deploying Python applications on Azure App Service for Linux, you might need to handle URL rewrites within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware can be used to achieve this. In Django applications, the robust [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) allows for efficient management of URL rewrites.
 
 ## Troubleshooting
 
-In general, the first step in troubleshooting is to use App Service Diagnostics:
+In general, the first step in troubleshooting is to use App Service diagnostics:
 
 1. In the Azure portal for your web app, select **Diagnose and solve problems** from the left menu.
 1. Select **Availability and Performance**.
@@ -410,7 +408,7 @@ The following sections provide guidance for specific issues.
 
 - <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself didn't start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
 
-  - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
+  - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service plan. The app might take longer to start up when you use free tiers, for example, and becomes responsive after you refresh the browser.
 
   - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
@@ -420,15 +418,15 @@ The following sections provide guidance for specific issues.
 
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
 
-  - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+  - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
 #### ModuleNotFoundError when app starts
 
-If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
 ### Database is locked
 
-When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default rather than using a cloud database such as PostgreSQL for Azure.
+When attempting to run database migrations with a Django app, you might see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database, for which Django is configured by default, rather than using a cloud database such as Azure Database for PostgreSQL.
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
@@ -436,15 +434,15 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 #### Other issues
 
-- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden when you type. The characters are being recorded, however, so type your password as usual and press **Enter** when done.
+- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden when you type. The characters are being recorded, however, so type your password as usual and select **Enter** when done.
 
-- **Commands in the SSH session appear to be cut off**: The editor may not be word-wrapping commands, but they should still run correctly.
+- **Commands in the SSH session appear to be cut off**: The editor might not be word-wrapping commands, but they should still run correctly.
 
-- **Static assets don't appear in a Django app**: Ensure that you've enabled the [whitenoise module](http://whitenoise.evans.io/en/stable/django.html)
+- **Static assets don't appear in a Django app**: Ensure that you've enabled the [WhiteNoise module](http://whitenoise.evans.io/en/stable/django.html).
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
-## More resources
+## Related content
 
 - [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 - [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
