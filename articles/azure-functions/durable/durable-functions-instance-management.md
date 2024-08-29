@@ -712,13 +712,11 @@ public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     [QueueTrigger("suspend-resume-queue")] string instanceId)
 {
+    // To suspend an orchestration
     string suspendReason = "Need to pause workflow";
     await client.SuspendAsync(instanceId, suspendReason);
     
-    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
-    DateTime dueTime = context.CurrentUtcDateTime.AddSeconds(30);
-    await context.CreateTimer(dueTime, CancellationToken.None);
-    
+    // To resume an orchestration
     string resumeReason = "Continue workflow";
     await client.ResumeAsync(instanceId, resumeReason);
 }
@@ -732,13 +730,11 @@ const df = require("durable-functions");
 module.exports = async function(context, instanceId) {
     const client = df.getClient(context);
 
+    // To suspend an orchestration
     const suspendReason = "Need to pause workflow";
     await client.suspend(instanceId, suspendReason);
 
-    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.  
-    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
-    yield context.df.createTimer(deadline.toJSDate());
-
+    // To resume an orchestration
     const resumeReason = "Continue workflow";
     await client.resume(instanceId, resumeReason);
 };
@@ -754,13 +750,11 @@ from datetime import timedelta
 async def main(req: func.HttpRequest, starter: str, instance_id: str):
     client = df.DurableOrchestrationClient(starter)
 
+    # To suspend an orchestration
     suspend_reason = "Need to pause workflow"
     await client.suspend(instance_id, suspend_reason)
 
-    # Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
-    due_time = context.current_utc_datetime + timedelta(seconds=30)
-    yield context.create_timer(due_time)
-
+    # To resume an orchestration
     resume_reason = "Continue workflow"
     await client.resume(instance_id, resume_reason)
 ```
@@ -770,19 +764,19 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
 ```powershell
 param($Request, $TriggerMetadata)
 
-# Get instance id from body
 $InstanceId = $Request.Body.InstanceId
-$SuspendReason = 'Need to pause workflow'
 
+# To suspend an orchestration
+$SuspendReason = 'Need to pause workflow'
 Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 
-# Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.
-$duration = New-TimeSpan -Seconds 30
-Start-DurableTimer -Duration $duration
-
+# To resume an orchestration
 $ResumeReason = 'Continue workflow'
 Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
+
+> [!NOTE]
+> This change applies only to the standalone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK), which is currently [in preview](durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
@@ -793,14 +787,14 @@ public void suspendResumeInstance(
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
     String instanceID = req.getBody();
     DurableTaskClient client = durableContext.getClient();  
+
+    // To suspend an orchestration
     String suspendReason = "Need to pause workflow";
     client.suspendInstance(instanceID, suspendReason);
 
-    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
-    ctx.createTimer(Duration.ofSeconds(30)).await();
-
+    // To resume an orchestration
     String resumeReason = "Continue workflow";
-    client.getClient().resumeInstance(instanceID, resumeReason);
+    client.resumeInstance(instanceID, resumeReason);
 }
 ```
 

@@ -1,11 +1,11 @@
 ---
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 10/31/2023
+ms.date: 4/08/2024
 ms.author: edbaynash
 author: EdB-MSFT
 ---
 
 ### Can I view my Prometheus metrics in Azure Monitor metrics explorer?
 
-Metrics explorer in Azure Monitor doesn't currently support visualizing Prometheus metric data. Consider using [Azure Managed Grafana](../../managed-grafana/index.yml) to visualize your Prometheus metrics.
+Metrics explorer with PromQL supports visualizing Prometheus metrics data using PromQL. To use the Metrics Explorer with PromQL support, select the **Metrics** menu item from any Azure Monitor workspace in the Azure portal. For more information, see [Metrics explorer with PromQL (Preview)](../essentials/metrics-explorer.md).

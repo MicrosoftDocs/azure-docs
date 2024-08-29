@@ -3,7 +3,7 @@ title: Troubleshoot identity provider configuration for the FHIR service in Azur
 description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity providers for scoped access.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/15/2024
@@ -69,7 +69,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
    https://<YOUR_IDENTITY_PROVIDER_AUTHORITY>/authority/v2.0/.well-known/openid-configuration
    ```
 
-8. **Verify the azp or appId (authorized party or appId claim)**. The `azp` or `appId` claim must exactly match the `clientId` value provided in the `smartIdentityProvider` identity provider configuration.
+8. **Verify the azp or appid (authorized party or appid claim)**. The `azp` or `appid` claim must exactly match the `clientId` value provided in the `smartIdentityProvider` identity provider configuration.
 
 9. **Verify the aud (audience claim)**. The `aud` claim must exactly match the `audience` value provided in the `smartIdentityProvider` identity provider configuration.
 

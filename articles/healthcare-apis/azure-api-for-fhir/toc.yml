@@ -125,9 +125,9 @@
       href: tutorial-member-match.md
     - name: Patient/$everything
       href: patient-everything.md
-    - name: $purge-history operation
+    - name: $purge-history
       href: purge-history.md
-    - name: bulk-delete operation
+    - name: $bulk-delete
       href: bulk-delete-operation.md
     - name: $validate
       expanded: false

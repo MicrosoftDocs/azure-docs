@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 03/16/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Geocoding in Azure Maps Power BI Visual
@@ -41,6 +41,13 @@ When entering multiple values into the **Location** field, you create a geo-hier
 To ensure fields are correctly geocoded, you can set the Data Category on the data fields in Power BI. In Data view, select the desired column. From the ribbon, select the Modeling tab and then set the Data Category to one of the following properties: Address, City, Continent, Country, Region, County, Postal Code, State, or Province. These data categories help Azure correctly encode the data. To learn more, see [Data categorization in Power BI Desktop]. If you're live connecting to SQL Server Analysis Services, set the data categorization outside of Power BI using [SQL Server Data Tools (SSDT)].
 
 :::image type="content" source="media/power-bi-visual/data-category.png" alt-text="A screenshot showing the data category drop-down list in Power BI desktop.":::
+
+> [!NOTE]
+> When categorizing geographic fields in Power BI, be sure to enter **State** and **County** data separately for accurate geocoding. Incorrect categorization, such as entering both **State** and **County** data into either category, might work currently but can lead to issues in the future.
+>
+> For instance:
+> - Correct Usage: State = GA, County = Decatur County
+> - Incorrect Usage: State = Decatur County, GA or County = Decatur County, GA
 
 ## Next steps
 

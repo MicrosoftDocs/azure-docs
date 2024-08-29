@@ -5,33 +5,34 @@ ms.topic: include
 ms.date: 01/30/2024
 ---
 
-Run the following command in PowerShell to add or change a session host's friendly name:
 
-```powershell
-$parameters = @{
-   HostPoolName = 'HostPoolName'
-   Name = 'SessionHostName'
-   ResourceGroupName = 'ResourceGroupName'
-   FriendlyName = 'SessionHostFriendlyName'
-}
+1. Launch the [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal with the *PowerShell* terminal type, or run PowerShell on your local device.
 
-Update-AzWvdSessionHost @parameters
-```
+    *  If you're using Cloud Shell, make sure your [Azure context is set to the subscription you want to use](/powershell/azure/context-persistence).
 
+    * If you're using PowerShell locally, first [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps), then make sure your [Azure context is set to the subscription you want to use](/powershell/azure/context-persistence).
 
+2. Run the following command in PowerShell to add or change a session host's friendly name:
 
-### Get the session host friendly name
+   ```azurepowershell
+   $parameters = @{
+      HostPoolName = 'HostPoolName'
+      Name = 'SessionHostName'
+      ResourceGroupName = 'ResourceGroupName'
+      FriendlyName = 'SessionHostFriendlyName'
+   }
 
-To get the session host friendly name, run the following command in PowerShell:
+   Update-AzWvdSessionHost @parameters
+   ```
 
-```powershell
-$sessionHostParams = @{
-  HostPoolName = 'HostPoolName'
-  Name = 'SessionHostName'
-  ResourceGroupName = 'ResourceGroupName'
-}
+3. To get the session host friendly name, run the following command in PowerShell:
 
-Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
-```
+   ```azurepowershell
+   $sessionHostParams = @{
+      HostPoolName = 'HostPoolName'
+      Name = 'SessionHostName'
+      ResourceGroupName = 'ResourceGroupName'
+   }
 
-There isn't currently a way to get the session host friendly name in the Azure portal.
+   Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
+   ```

@@ -2,6 +2,8 @@
 title: Analyze Azure Functions telemetry in Application Insights
 description: Learn how to view and query for Azure Functions telemetry data collected by and stored in Azure Application Insights.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 10/14/2020
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---
@@ -50,7 +52,7 @@ To open Application Insights from a function app in the [Azure portal](https://p
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
-For information about how to use Application Insights, see the [Application Insights documentation](/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](configure-monitoring.md#configure-log-levels).
+For information about how to use Application Insights, see the [Application Insights documentation](../azure-monitor/app/app-insights-overview.md). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](configure-monitoring.md#configure-log-levels).
 
 ![Application Insights Overview tab](media/functions-monitoring/metrics-explorer.png)
 
@@ -84,7 +86,7 @@ The tables that are available are shown in the **Schema** tab on the left. You c
 
 | Table | Description |
 | ----- | ----------- |
-| **traces** | Logs created by the runtime, scale controller, and traces from your function code. |
+| **traces** | Logs created by the runtime, scale controller, and traces from your function code. For Flex Consumption plan hosting, `traces` also includes logs created during code deployment. |
 | **requests** | One request for each function invocation. |
 | **exceptions** | Any exceptions thrown by the runtime. |
 | **customMetrics** | The count of successful and failing invocations, success rate, and duration. |
@@ -155,6 +157,19 @@ traces
 | extend Reason = CustomDimensions.Reason
 | extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
 | extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
+
+## Query Flex Consumption code deployment logs
+
+[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
+
+The following query can be used to search for all code deployment logs for the current function app within the specified time period:
+
+```kusto
+traces
+| extend deploymentId = customDimensions.deploymentId
+| where deploymentId != ''
+| project timestamp, deploymentId, message, severityLevel, customDimensions, appName
 ```
 
 ## Consumption plan-specific metrics

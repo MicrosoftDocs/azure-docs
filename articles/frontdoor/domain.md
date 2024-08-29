@@ -3,7 +3,7 @@ title: 'Domains in Azure Front Door'
 description: Learn about custom domains when using Azure Front Door.
 services: frontdoor
 author: johndowns
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 10/31/2023
 ms.author: jodowns
@@ -139,7 +139,7 @@ To use your certificate with Azure Front Door, it must meet the following requir
 
 #### Import a certificate to Azure Key Vault
 
-Custom TLS certificates must be imported into Azure Key Vault before you can use it with Azure Front Door. To learn how to import a certificate to a key vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
+Custom TLS certificates must be imported into Azure Key Vault before you can use it with Azure Front Door. To learn how to import a certificate to a key vault, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 The key vault must be in the same Azure subscription as your Azure Front Door profile.
 
@@ -165,7 +165,7 @@ After you've imported your certificate to a key vault, create an Azure Front Doo
 
 Then, configure your domain to use the Azure Front Door secret for its TLS certificate.
 
-For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#using-your-own-certificate).
+For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#use-your-own-certificate).
 
 ### Switch between certificate types
 

@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using the Azure portal.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 04/04/2024
 ms.author: cherylmc
-
 ---
+
 # Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet: Azure portal
 
 This article walks you through the steps to configure IPsec/IKE policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using the Azure portal. The following sections help you create and configure an IPsec/IKE policy, and apply the policy to a new or existing connection.
@@ -17,7 +17,7 @@ This article walks you through the steps to configure IPsec/IKE policy for VPN G
 
 The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following diagram.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram showing IPsec/IKE policies for both VNet-to-VNet and Site-to-Site VPN gateways." lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
 1. Create a virtual network and a VPN gateway.
 1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.
@@ -47,17 +47,17 @@ The following table lists the corresponding Diffie-Hellman groups supported by t
 
 [!INCLUDE [Diffie-Hellman groups](../../includes/vpn-gateway-ipsec-ike-diffie-hellman-include.md)]
 
-Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
+For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 
 ## <a name="crossprem"></a>Create S2S VPN connection with custom policy
 
-This section walks you through the steps to create a Site-to-Site VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following diagram:
+This section walks you through the steps to create a Site-to-Site VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following diagram. The on-premises site in this diagram represents **Site6**.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Site-to-Site policy" border="false" lightbox="./media/ipsec-ike-policy-howto/site-to-site-diagram.png":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagram shows site-to-site vpn gateway connection with a custom policy." lightbox="./media/ipsec-ike-policy-howto/site-to-site-diagram.png":::
 
 ### Step 1: Create the virtual network, VPN gateway, and local network gateway for TestVNet1
 
-Create the following resources.For steps, see [Create a Site-to-Site VPN connection](./tutorial-site-to-site-portal.md).
+Create the following resources. For steps, see [Create a Site-to-Site VPN connection](./tutorial-site-to-site-portal.md).
 
 1. Create the virtual network **TestVNet1** using the following values.
 
@@ -137,11 +137,11 @@ Configure a custom IPsec/IKE policy with the following algorithms and parameters
 
 The steps to create a VNet-to-VNet connection with an IPsec/IKE policy are similar to that of an S2S VPN connection. You must complete the previous sections in [Create an S2S vpn connection](#crossprem) to create and configure TestVNet1 and the VPN gateway.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Screenshot shows VNet-to-VNet policy diagram." border="false" lightbox="./media/ipsec-ike-policy-howto/vnet-policy.png":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagram shows VNet-to-VNet policy diagram for TestVNet1 and TestVNet2." lightbox="./media/ipsec-ike-policy-howto/vnet-policy.png":::
 
 ### Step 1: Create the virtual network, VPN gateway, and local network gateway for TestVNet2
 
-Use the steps in the [Create a VNet-to-VNet connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
+Use the steps in the [Create a VNet-to-VNet connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2, and create a VNet-to-VNet connection to TestVNet1.
 
 Example values:
 
@@ -174,9 +174,9 @@ Example values:
 
 ### Step 2: Configure the VNet-to-VNet connection
 
-1. From the VNet1GW gateway, add a VNet-to-VNet connection to VNet2GW, **VNet1toVNet2**.
+1. From the VNet1GW gateway, add a VNet-to-VNet connection to VNet2GW named **VNet1toVNet2**.
 
-1. Next, from the VNet2GW, add a VNet-to-VNet connection to VNet1GW, **VNet2toVNet1**.
+1. Next, from the VNet2GW, add a VNet-to-VNet connection to VNet1GW named **VNet2toVNet1**.
 
 1. After you add the connections, you'll see the VNet-to-VNet connections as shown in the following screenshot from the VNet2GW resource:
 
@@ -210,12 +210,12 @@ Example values:
 
 1. After you complete these steps, the connection is established in a few minutes, and you'll have the following network topology.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy for VNet-to-VNet and S2S VPN." lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
 ## To remove custom policy from a connection
 
 1. To remove a custom policy from a connection, go to the connection resource.
-1. On the **Configuration** page, change the IPse /IKE policy from **Custom** to **Default**. This will remove all custom policy previously specified on the connection, and restore the Default IPsec/IKE settings on this connection.
+1. On the **Configuration** page, change the IPse /IKE policy from **Custom** to **Default**. This removes all custom policy previously specified on the connection, and restore the Default IPsec/IKE settings on this connection.
 1. Select **Save** to remove the custom policy and restore the default IPsec/IKE settings on the connection.
 
 ## IPsec/IKE policy FAQ
@@ -224,4 +224,4 @@ To view frequently asked questions, go to the IPsec/IKE policy section of the [V
 
 ## Next steps
 
-See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
+For more information about policy-based traffic selectors, see [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md).

@@ -1,7 +1,7 @@
 ---
 title: How to submit and manage jobs on an Apache Spark™ cluster in Azure HDInsight on AKS
 description: Learn how to submit and manage jobs on an Apache Spark™ cluster in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
@@ -180,7 +180,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
              
    From pyspark.sql import SparkSession
    Spark = SparkSession.builder.master('yarn').appName('SparkSampleCode').getOrCreate()
-   // Initialize spark context
+   # Initialize spark context
    data1 = [22,40,10,50,70]
    s1 = pd.Series(data1)   #One-dimensional ndarray with axis labels (including time series).
           

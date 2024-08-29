@@ -3,15 +3,15 @@ title: 'Generate and export certificates for P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates for VPN Gateway point-to-site connections.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 06/24/2024
 ms.author: cherylmc
 
 ---
 # Generate and export certificates for point-to-site using PowerShell
 
-Point-to-site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or later, or Windows Server 2016 or later.
+This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or later, or Windows Server 2016 or later. The steps in this article help you create **.pfx** and **.cer** files. If you don't have a Windows computer, you can use a small Windows VM as a workaround.
 
 The PowerShell cmdlets that you use to generate certificates are part of the operating system and don't work on other versions of Windows. The host operating system is only used to generate the certificates. Once the certificates are generated, you can upload them or install them on any supported client operating system.
 

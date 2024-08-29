@@ -5,11 +5,12 @@ services: notification-hubs
 author: TomArcherMsft
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.author: tarcher
 ms.date: 4/14/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure notification hub using Terraform

@@ -3,7 +3,7 @@ title: Integrate Microsoft Defender for Cloud with Azure VMware Solution
 description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the workload protection dashboard.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/27/2023
+ms.date: 2/28/2024
 ms.custom: engagement-fy23
 ---
 
@@ -27,7 +27,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## Prerequisites
 
-- [Plan for optimized use of Defender for Cloud](../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md).
+- [Plan for optimized use of Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide).
 
 - [Review the supported platforms in Defender for Cloud](../security-center/security-center-os-coverage.md).
 
@@ -159,7 +159,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
+    :::image type="content" source="../sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
 
 7. Select **Next: Review**.
 

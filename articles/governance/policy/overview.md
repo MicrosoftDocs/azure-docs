@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 06/15/2023
+ms.date: 04/17/2024
 ms.topic: overview
 ---
 
@@ -165,7 +165,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated.
 
-For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
+For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
 
 ### Recommendations for managing policies
 
@@ -179,12 +179,11 @@ Here are a few pointers and tips to keep in mind:
   the assignment can be scoped down to a subscription or resource group within that management
   group.
 
-- We recommend creating and assigning initiative definitions even for a single policy definition.
-  For example, you have policy definition _policyDefA_ and create it under initiative definition
-  _initiativeDefC_. If you create another policy definition later for _policyDefB_ with goals
-  similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+- We recommend creating and assigning initiative definitions even if starting with a single policy definition. This enables you to add policy definitions to the initiative later without increasing the number of assignments to manage.
 
-    - Once you've created an initiative assignment, policy definitions added to the initiative also
+  - For example, imagine you create policy definition _policyDefA_ and add it to initiative definition  _initiativeDefC_. If you later create another policy definition _policyDefB_ with goals similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+
+  - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
 
   - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
@@ -295,12 +294,7 @@ To learn more about the structures of initiative definitions, review
 
 ### Assignments
 
-An assignment is a policy definition or initiative that has been assigned to a
-specific scope. This scope could range from a [management group](../management-groups/overview.md)
-to an individual resource. The term _scope_ refers to all the resources, resource groups,
-subscriptions, or management groups that the definition is assigned to. Assignments are inherited by
-all child resources. This design means that a definition applied to a resource group is also applied
-to resources in that resource group. However, you can exclude a subscope from the assignment.
+An assignment is a policy definition or initiative that has been assigned to a specific scope. This scope could range from a [management group](../management-groups/overview.md) to an individual resource. The term _scope_ refers to all the resources, resource groups, subscriptions, or management groups that the definition is assigned to. Assignments are inherited by all child resources. This design means that a definition applied to a resource group is also applied to resources in that resource group. However, you can exclude a subscope from the assignment.
 
 For example, at the subscription scope, you can assign a definition that prevents the creation of
 networking resources. You could exclude a resource group in that subscription that is intended for
@@ -327,7 +321,7 @@ available. For information on the assignment structure, see
 
 ## Maximum count of Azure Policy objects
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [policy-limits](../includes/policy/azure-policy-limits.md)]
 
 ## Next steps
 

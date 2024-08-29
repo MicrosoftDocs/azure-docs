@@ -2,13 +2,13 @@
 title: 'Quickstart: Interactive map search with Azure Maps'
 titeSuffix: Microsoft Azure Maps
 description: A quickstart that demonstrates how to create interactive, searchable maps.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
-ms.custom: mvc, mode-other
+ms.subservice: web-sdk
+ms.custom: mvc
 ---
 
 # Quickstart: Create an interactive search map with Azure Maps
@@ -107,6 +107,7 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 [Find an address with Azure Maps search service]: how-to-search-for-address.md
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Interactive Search Quickstart.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Next Steps]: #next-steps
 [open-source map controls]: open-source-projects.md#third-party-map-control-plugins
 [Search nearby points of interest with Azure Maps]: tutorial-search-location.md

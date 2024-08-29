@@ -2,6 +2,7 @@
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 12/15/2022
 ---
 
@@ -131,4 +132,3 @@ Configuring ASP.NET authentication in a Functions startup class can override ser
 Learn about monitoring your function apps:
 > [!div class="nextstepaction"]
 > [Monitor Azure Functions](functions-monitoring.md)
-

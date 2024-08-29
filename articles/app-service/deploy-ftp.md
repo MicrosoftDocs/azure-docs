@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
-ms.date: 01/26/2024
+ms.date: 02/29/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -17,7 +17,7 @@ or API app to [Azure App Service](./overview.md).
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
 > [!NOTE]
-> When [basic authentication is disabled](configure-basic-auth-disable.md), FTP/S deployment doesn't work, and you can't view or configure FTP credentials in the app's Deployment Center.
+> When [FTP basic authentication is disabled](configure-basic-auth-disable.md), FTP/S deployment doesn't work, and you can't view or configure FTP credentials in the app's Deployment Center.
 
 ## Get deployment credentials
 

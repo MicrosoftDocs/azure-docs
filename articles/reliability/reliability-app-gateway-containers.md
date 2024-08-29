@@ -3,8 +3,8 @@ title: Reliability in Azure Application Gateway for Containers
 description: Find out about reliability in Azure Application Gateway for Containers.
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: conceptual
-ms.service: application-gateway
+ms.topic: reliability-article
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: subject-reliability, references_regions
 ms.date: 02/07/2024 

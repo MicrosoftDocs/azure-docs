@@ -3,10 +3,10 @@ title: Supported Azure resource types
 titleSuffix: Azure Load Testing
 description: 'Learn which Azure resource types are supported for server-side monitoring in Azure Load Testing. You can select specific metrics to be monitored during a load test.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 06/02/2023
 ---
 

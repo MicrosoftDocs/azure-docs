@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create and access a dev center for Azure Deployment Environments project using the Azure CLI.
 author: renato-marciano
 ms.author: remarcia
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
 ms.date: 11/29/2023
@@ -158,7 +158,7 @@ To add a catalog, you must specify the GitHub repo URL, the branch, and the fold
 You can use this [sample catalog](https://github.com/Azure/deployment-environments) as your repository. Make a fork of the repository for the following steps.
 
 > [!TIP]
-> If you're attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-for-your-azure-devops-repository).
+> If you're attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-for-your-azure-repos-repository).
 
 1. Navigate to your repository, select **<> Code**, and then copy the clone URL.
 1. Make a note of the branch that you're working in.

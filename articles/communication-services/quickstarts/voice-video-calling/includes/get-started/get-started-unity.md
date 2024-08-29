@@ -163,7 +163,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 3
+    serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -176,7 +176,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    buildHeightMesh: 0
+    accuratePlacement: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -276,10 +276,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 293984669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a77da2e7bbf604c8b001e299ec9185, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c7d18b32fdb6b14e857ebb6d9627958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   callStatus: {fileID: 1529611528}
+  videoPlayer: {fileID: 0}
 --- !u!4 &293984671
 Transform:
   m_ObjectHideFlags: 0
@@ -470,17 +471,9 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -897,7 +890,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1034,7 +1027,7 @@ RectTransform:
   m_Children:
   - {fileID: 1917486034}
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1166,7 +1159,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1438,7 +1431,7 @@ RectTransform:
   m_Children:
   - {fileID: 438770861}
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1668,9 +1661,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1860,7 +1851,7 @@ public class AppManager : MonoBehaviour
     private CallClient callClient;
     private CallAgent callAgent;
     private DeviceManager deviceManager;
-    private Call call;
+    private CommunicationCall call;
     private LocalOutgoingAudioStream micStream;
 
     public string CalleeIdentity { get; set; }
@@ -1902,7 +1893,7 @@ public class AppManager : MonoBehaviour
         // Handle incoming call event
     }
 
-    private void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+    private void OnStateChangedAsync(object sender, Azure.Communication.Calling.UnityClient.PropertyChangedEventArgs args)
     {
         // Handle connected and disconnected state change of a call
     }
@@ -2042,7 +2033,7 @@ private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventA
 ```C#
 private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
 {
-    var call = sender as Call;
+    var call = sender as CommunicationCall;
 
     if (call != null)
     {

@@ -22,7 +22,7 @@ Rolling device certificates will involve updating the certificate stored on the 
 
 There are many ways to obtain new certificates for your IoT devices. These include obtaining certificates from the device factory, generating your own certificates, and having a third party manage certificate creation for you.
 
-Certificates are signed by each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-x509-attestation.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
+Certificates are signed by each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-x509-attestation.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-x509-attestation.md).
 
 There are two different ways to obtain a signing certificate. The first way, which is recommended for production systems, is to purchase a signing certificate from a root certificate authority (CA). This way chains security down to a trusted source.
 
@@ -130,7 +130,7 @@ If you are rolling certificates to handle certificate expirations, you should us
 
    If one of your certificates is nearing its expiration, you can keep it in place as long as the second certificate will still be active after that date.
 
-   Each intermediate certificate should be signed by a verified root CA certificate that has already been added to the provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
+   Each intermediate certificate should be signed by a verified root CA certificate that has already been added to the provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md).
 
    :::image type="content" source="./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png" alt-text="Screenshot that shows replacing an intermediate certificate for an enrollment group.":::
 

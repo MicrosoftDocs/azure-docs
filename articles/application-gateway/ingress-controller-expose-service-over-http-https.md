@@ -3,8 +3,8 @@ title: Expose an AKS service over HTTP or HTTPS using Application Gateway
 description: This article provides information on how to expose an AKS service over HTTP or HTTPS using Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.custom: linux-related-content
+ms.service: azure-application-gateway
+ms.custom:
 ms.topic: how-to
 ms.date: 07/23/2023
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 These tutorials help illustrate the usage of [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Kubernetes service through the [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Prerequisites
 

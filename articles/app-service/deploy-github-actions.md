@@ -28,7 +28,7 @@ When you enable continuous deployment, the app creation wizard automatically pic
 
 | Basic authentication selection | Authentication method |
 |-|-|
-|Disable| [User-assigned identity (OpenID Connect)](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions) |
+|Disable| [User-assigned identity (OpenID Connect)](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions) (recommended) |
 |Enable| [Basic authentication](configure-basic-auth-disable.md) |
 
 > [!NOTE]
@@ -46,7 +46,7 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 ## Set up a GitHub Actions workflow manually
 
-You can also deploy a workflow without using the Deployment Center.
+You can also deploy a workflow without using the Deployment Center. In that case you need to perform 3 steps:
 
 1. [Generate deployment credentials](#1-generate-deployment-credentials)
 1. [Configure the GitHub secret](#2-configure-the-github-secret)
@@ -54,12 +54,62 @@ You can also deploy a workflow without using the Deployment Center.
 
 ### 1. Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with a user-defined managed identity, and the easiest way for that is by [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md)  instead and selecting **User-assigned managed identity**.
+The recommended way to authenticate with Azure App Services for GitHub Actions is with OpenID Connect. This is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
 
-> [!NOTE]
-> Authentication using a user-assigned managed identity is currently in preview. 
+Alternatively, you can authenticate with a User-assigned Managed Identity, a service principal, or a publish profile. 
 
-Alternatively, you can authenticate with a service principal, OpenID Connect, or a publish profile. 
+# [OpenID Connect](#tab/openid)
+
+The below runs you through the steps for creating an active directory application, service principal, and federated credentials using Azure CLI statements. To learn how to create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
+1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+
+    ```azurecli-interactive
+    az ad app create --display-name myApp
+    ```
+
+    This command outputs a JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+
+    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+
+    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+    
+    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+
+    ```azurecli-interactive
+     az ad sp create --id $appId
+    ```
+
+1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, `$webappName` with your web app name, and `$assigneeObjectId` with the generated `id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+
+    ```azurecli-interactive
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
+    ```
+
+1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+
+    * Replace `APPLICATION-OBJECT-ID` with the **appId (generated while creating app)** for your Active Directory application.
+    * Set a value for `CREDENTIAL-NAME` to reference later.
+    * Set the `subject`. Its value is defined by GitHub depending on your workflow:
+      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+    
+    ```azurecli
+    az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
+    ("credential.json" contains the following content)
+    {
+        "name": "<CREDENTIAL-NAME>",
+        "issuer": "https://token.actions.githubusercontent.com",
+        "subject": "repo:organization/repository:ref:refs/heads/main",
+        "description": "Testing",
+        "audiences": [
+            "api://AzureADTokenExchange"
+        ]
+    }     
+    ```
 
 # [Publish profile](#tab/applevel)
 
@@ -102,65 +152,26 @@ In the previous example, replace the placeholders with your subscription ID, res
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
-# [OpenID Connect](#tab/openid)
-
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
-
-1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
-
-    ```azurecli-interactive
-    az ad app create --display-name myApp
-    ```
-
-    This command outputs a JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
-
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
-
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
-
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
-
-    ```azurecli-interactive
-     az ad sp create --id $appId
-    ```
-
-1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
-
-    ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/ --assignee-principal-type ServicePrincipal
-    ```
-
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
-
-    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
-    * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. Its value is defined by GitHub depending on your workflow:
-      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
-    ```azurecli
-    az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
-    ("credential.json" contains the following content)
-    {
-        "name": "<CREDENTIAL-NAME>",
-        "issuer": "https://token.actions.githubusercontent.com",
-        "subject": "repo:organization/repository:ref:refs/heads/main",
-        "description": "Testing",
-        "audiences": [
-            "api://AzureADTokenExchange"
-        ]
-    }     
-    ```
-    
-To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-
 ---
 
 ### 2. Configure the GitHub secret
 
+
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the [Azure/login](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
 
 # [Publish profile](#tab/applevel)
 
@@ -190,22 +201,6 @@ When you configure the GitHub workflow file later, you use the secret for the in
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-# [OpenID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the [Azure/login](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
 ---
 
 ### 3. Add the workflow file to your GitHub repository
@@ -222,6 +217,10 @@ To deploy your code to an App Service app, you use the [azure/webapps-deploy@v3]
 
 The following examples show the part of the workflow that builds the web app, in different supported languages.
 
+# [OpenID Connect](#tab/openid)
+
+[!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
+
 # [Publish profile](#tab/applevel)
 
 [!INCLUDE [deploy-github-actions-publish-profile](includes/deploy-github-actions/deploy-github-actions-publish-profile.md)]
@@ -230,11 +229,67 @@ The following examples show the part of the workflow that builds the web app, in
 
 [!INCLUDE [deploy-github-actions-service-principal](includes/deploy-github-actions/deploy-github-actions-service-principal.md)]
 
-# [OpenID Connect](#tab/openid)
-
-[!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
-
 -----
+
+
+## Frequently Asked Questions
+
+- [How do I deploy a WAR file through Maven plugin and OpenID Connect](#how-do-i-deploy-a-war-file-through-maven-plugin-and-openid-connect)
+- [How do I deploy a WAR file through Az CLI and OpenID Connect](#how-do-i-deploy-a-war-file-through-az-cli-and-openid-connect)
+- [How do I deploy to a Container](#how-do-i-deploy-to-a-container)
+- [How do I update the Tomcat configuration after deployment](#how-do-i-update-the-tomcat-configuration-after-deployment)
+
+### How do I deploy a WAR file through Maven plugin and OpenID Connect 
+
+In case you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli) it will make use of your Azure login credentials.
+
+```yaml
+    - name: Azure CLI script file
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          mvn package azure-webapp:deploy
+```
+
+More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
+
+
+### How do I deploy a WAR file through Az CLI and OpenID Connect 
+
+If you use prefer the Azure CLI to deploy to App Service, you can use the GitHub Action for CLI.
+
+```yaml
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
+```
+
+More information on the GitHub Action for CLI and how to use and configure it can be found in the [Azure CLI GitHub action](https://github.com/Azure/cli). 
+More information on the az webapp deploy command, how to use and the parameter details can be found in the [az webapp deploy documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
+
+### How do I deploy to a Container
+
+With the Azure Web Deploy action, you can automate your workflow to deploy custom containers to App Service using GitHub Actions. Detailed information on the steps to deploy using GitHub Actions, can be found in the [Deploy to a Container](/azure/app-service/deploy-container-github-action).
+
+### How do I update the Tomcat configuration after deployment
+
+In case you would like to update any of your web apps settings after deployment, you can use the [App Service Settings](https://github.com/Azure/appservice-settings) action. 
+
+```yaml
+    - uses: azure/appservice-settings@v1
+      with:
+        app-name: 'my-app'
+        slot-name: 'staging'  # Optional and needed only if the settings have to be configured on the specific deployment slot
+        app-settings-json: '[{ "name": "CATALINA_OPTS", "value": "-Dfoo=bar" }]' 
+        connection-strings-json: '${{ secrets.CONNECTION_STRINGS }}'
+        general-settings-json: '{"alwaysOn": "false", "webSocketsEnabled": "true"}' #'General configuration settings as Key Value pairs'
+      id: settings
+```
+
+More information on this action and how to use and configure it can be found in the [App Service Settings](https://github.com/Azure/appservice-settings) repository.
+
 
 ## Next steps
 

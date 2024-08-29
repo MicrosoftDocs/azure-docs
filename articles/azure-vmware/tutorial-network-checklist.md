@@ -3,7 +3,7 @@ title: Tutorial - Network planning checklist
 description: In this tutorial, learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/20/2023
+ms.date: 5/15/2024
 ms.custom: engagement-fy23
 ---
 
@@ -30,9 +30,9 @@ When you create a virtual network connection in your subscription, the ExpressRo
 > [!NOTE] 
 > The ExpressRoute circuit is not part of a private cloud deployment. The on-premises ExpressRoute circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, use one of your existing ExpressRoute circuits or purchase one in the Azure portal.
 
-When deploying a private cloud, you receive IP addresses for vCenter Server and NSX-T Manager. To access these management interfaces, create more resources in your subscription's virtual network. Find the procedures for creating those resources and establishing [ExpressRoute private peering](tutorial-expressroute-global-reach-private-cloud.md) in the tutorials.
+When deploying a private cloud, you receive IP addresses for vCenter Server and NSX Manager. To access these management interfaces, create more resources in your subscription's virtual network. Find the procedures for creating those resources and establishing [ExpressRoute private peering](tutorial-expressroute-global-reach-private-cloud.md) in the tutorials.
 
-The private cloud logical networking includes a pre-provisioned NSX-T Data Center configuration. A Tier-0 gateway and Tier-1 gateway are pre-provisioned for you. You can create a segment and attach it to the existing Tier-1 gateway or attach it to a new Tier-1 gateway that you define. NSX-T Data Center logical networking components provide East-West connectivity between workloads and North-South connectivity to the internet and Azure services.
+The private cloud logical networking includes a pre-provisioned NSX configuration. A Tier-0 gateway and Tier-1 gateway are pre-provisioned for you. You can create a segment and attach it to the existing Tier-1 gateway or attach it to a new Tier-1 gateway that you define. NSX logical networking components provide East-West connectivity between workloads and North-South connectivity to the internet and Azure services.
 
 >[!IMPORTANT]
 >[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
@@ -41,13 +41,14 @@ The private cloud logical networking includes a pre-provisioned NSX-T Data Cente
 
 The Azure VMware Solution private cloud connects to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing uses Border Gateway Protocol (BGP), is automatically provisioned, and enabled by default for each private cloud deployment.
 
-Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, provisioning, and vMotion networks are provisioned automatically within this address block.
+Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block.
 
 > [!NOTE]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
+> Replication network is not applicable to AV64 nodes and is slated for general deprecation at a future date.
 
 > [!IMPORTANT]
-> Avoid using the following IP schemas reserved for NSX-T Data Center usage:
+> Avoid using the following IP schemas reserved for NSX usage:
 > * 169.254.0.0/24 - used for internal transit network
 > * 169.254.2.0/23 - used for inter-VRF transit network
 > * 100.64.0.0/16 - used to connect T1 and T0 gateways internally
@@ -58,10 +59,10 @@ The subnets:
 
 | Network usage                 | Description                                          | Subnet | Example          |
 | ----------------------------- | ---------------------------------------------------- | ------ | ---------------- |
-| Private cloud management      | Management Network (such as vCenter, NSX-T)          | `/26`  | `10.10.0.0/26`   |
+| Private cloud management      | Management Network (such as vCenter, NSX)            | `/26`  | `10.10.0.0/26`   |
 | HCX Mgmt Migrations           | Local connectivity for HCX appliances (downlinks)    | `/26`  | `10.10.0.64/26`  |
 | Global Reach Reserved         | Outbound interface for ExpressRoute                  | `/26`  | `10.10.0.128/26` |
-| NSX-T Data Center DNS Service | Built-in NSX-T DNS Service                           | `/32`  | `10.10.0.192/32` |
+| NSX DNS Service               | Built-in NSX DNS Service                             | `/32`  | `10.10.0.192/32` |
 | Reserved                      | Reserved                                             | `/32`  | `10.10.0.193/32` |
 | Reserved                      | Reserved                                             | `/32`  | `10.10.0.194/32` |
 | Reserved                      | Reserved                                             | `/32`  | `10.10.0.195/32` |
@@ -77,6 +78,10 @@ The subnets:
 | Reserved                      | Reserved                                            | `/26`  | `10.10.3.64/26`  |
 | Reserved                      | Reserved                                            | `/26`  | `10.10.3.128/26` |
 | Reserved                      | Reserved                                            | `/26`  | `10.10.3.192/26` |
+
+> [!NOTE]
+> ESXi management/vmotion/replication networks are technically capable of supporting 125 Hosts, however supported max is 96 as 29 are reserved for replacements/maintenance(19) and HCX(10).
+
 
 ## Required network ports
 
@@ -95,7 +100,7 @@ The subnets:
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
 | HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
 | Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Supports Network Address Translation-Traversal (NAT-T). |
-| On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
+| On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 4500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
 | HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |
 

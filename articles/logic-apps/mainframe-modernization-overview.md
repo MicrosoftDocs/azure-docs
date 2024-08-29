@@ -3,7 +3,7 @@ title: Mainframe and midrange modernization
 description: Learn about building mainframe and midrange system integration solutions in Azure Logic Apps using mainframe and midrange connectors.
 author: haroldcampos
 ms.author: hcampos
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.topic: conceptual
 ms.date: 11/02/2023
 
@@ -12,9 +12,9 @@ ms.date: 11/02/2023
 
 # Mainframe and midrange modernization with Azure Logic Apps
 
-This guide describes how your organization can increase business value and agility by extending your mainframe and midrange system workloads to Azure using workflows in Azure Logic Apps. The current business world is experiencing an era of hyper innovation and is on a permanent quest to obtain enterprise efficiencies, cost reduction, growth, and business alignment. Organizations are looking for ways to modernize, and one effective strategy is to augment the business value of existing legacy assets.
+This guide describes how your organization can increase business value and agility by modernizing your mainframe and midrange environments using Azure Logic Apps. The current business world is experiencing an era of hyper-innovation and is on a permanent quest to obtain enterprise efficiencies, cost reduction, growth, and business alignment. Organizations are looking for ways to modernize, and one effective strategy is to augment the business value while using existing legacy assets.
 
-For organizations with investments in mainframe and midrange systems, this means making the best use of platforms that helped send humans to the moon or helped build current financial markets and extend their value using the cloud and artificial intelligence (AI). This scenario is where Azure Logic Apps and its native capabilities for integrating with mainframe and midrange systems come into play by opening the door to the AI world for legacy investments. Among other features, Azure Logic Apps incorporates the core capabilities of Host Integration Server (HIS), which has been used for mainframe and midrange integration at the core of Microsoft's most strategic customers over 20+ years. As a result, Azure Logic Apps has become an Integration Platform-as-a-Service (iPaaS) for mainframes.
+For organizations with investments in mainframe and midrange systems, this means making the best use of platforms that helped send humans to the moon or helped build current financial markets and extend their value using the cloud and artificial intelligence (AI). This scenario is where Azure Logic Apps and its native capabilities for integrating with mainframe and midrange systems come into play, by opening the door to the AI world for legacy investments. Among other features, Azure Logic Apps incorporates the core capabilities of Host Integration Server (HIS), which has been used for mainframe and midrange integration at the core of Microsoft's most strategic customers over 20+ years. As a result, Azure Logic Apps has become an Integration Platform-as-a-Service (iPaaS) for mainframe and midrange systems.
 
 When enterprise developers build integration workflows with Azure Logic Apps, they can more quickly deliver new applications using little to no code or less custom code. Developers who use Visual Studio Code and Visual Studio can be more productive than those who use IBM mainframe development tools and technologies because they don't require knowledge about mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision makers to more quickly analyze and report vital legacy information. They can directly access data in mainframe data sources, which removes the need to have mainframe developers create programs that extract and convert complex mainframe structures.
 
@@ -63,6 +63,10 @@ This Azure Logic Apps connector for DB2 enables connections between Standard wor
 
 This Azure Logic Apps "connector" for Host Files provides a thin wrapper around the "Flat File Parser" feature in Host Integration Server. This offline "connector" provides operations that parse or generate binary data to and from host files. These operations require this data to come from any trigger or another action that produces binary data. For more information, see [Parse and generate IBM host files using Azure Logic Apps](../connectors/integrate-host-files-ibm-mainframe.md).
 
+#### IBM i
+
+This Azure Logic Apps connector for IBM i lets Standard workflows interact and integrate with COBOL and RPG programs running on IBM i systems using TCP/IP. If you need to access IBM i environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps using the IBM i connector](../connectors/integrate-ibmi-apps-distributed-program-calls.md).
+
 #### IBM Information Management System (IMS)
 
 This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, which provides high performance access from Standard workflows to IMS transactions using TCP/IP. This model uses the IMS message queue for processing data. For more information, see [Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS connector](../connectors/integrate-ims-apps-ibm-mainframe.md).
@@ -71,27 +75,30 @@ This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, whic
 
 This Azure Logic Apps connector for MQ enables connections between Standard workflows and IBM MQ servers on premises or in Azure. Microsoft also provides IBM MQ integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
 
-## How to modernize mainframe workloads with Azure Logic Apps?
+## Challenges for mainframe and midrange systems modernization
 
-While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. These systems are complex and, in many cases, have been running for over 50 years. So, a successful modernization strategy includes ways to handle the following tasks:
+Mainframe and midrange systems can host multiple environments that contain programs, data, files, and tools. Over the years, these environments might not have been refactored or were left to grow and reach their limits, despite hardware upgrades. These environments might also have been maintained by multiple developers and IT admins, who follow different programming patterns and techniques, or recruited other parties to help with tasks that require expertise scarce in the market. Along with a shrinking pool of experienced professionals, all these factors create a complex and challenging job of modernizing mainframe and midrange environments.
+
+While the following list isn't comprehensive, defining a successful modernization strategy minimally includes ways to handle the following tasks:
 
 - Maintain the current service level indicators and objectives for your environments.
 - Manage coexistence between legacy data along with migrated data.
+- Conduct DevOps across environments during coexistence.
 - Manage application interdependencies.
 - Define the future of the mainframe scheduler and jobs.
 - Define a strategy for replacing commercial off-the-shelf (COTS) products.
 - Conduct hybrid functional and nonfunctional testing activities.
 - Maintain external dependencies or interfaces.
-
-The following paths are the most common ways to modernize mainframe applications:
+   
+With these tasks in mind, customers typically choose any of the following paths to conduct mainframe and midrange systems modernization:
 
 - Big bang
 
-  This approach is largely based on the waterfall software delivery model but with iterations in phases.
+  This approach is largely based on the waterfall software delivery model but with iterations in phases. The big bang approach is adopted more by customers with small mainframe or midrange systems and low complexity environments due to a low number of lines of code, low application density, and well-known legacy systems or programming languages.
 
 - Agile waves
 
-  This approach follows the Agile principles of software engineering.
+  This approach follows the Agile principles of software engineering. The Agile waves approach is adopted more by customers with larger mainframe or midrange systems and high complexity environments due to a high number of lines of code, high application density, lesser-known systems or programming languages, and a high number of dependencies and interfaces. 
 
 The choice between these paths depends on your organization's needs and scenarios. Each path has benefits and drawbacks to consider. The following sections provide more information about these modernization approaches.
 
@@ -117,6 +124,8 @@ Organizations that typically choose this approach focus on locking time, migrati
 
 - Migrations can take months or even years.
 
+- Deployments to production are riskier.
+
 - The analysis that you perform at the start of the migration journey or during planning is no longer accurate because that information is usually outdated.
 
 - Organizations typically focus on having comprehensive documentation to reduce delivery risks for delivery.
@@ -125,7 +134,7 @@ Organizations that typically choose this approach focus on locking time, migrati
 
 ### Agile waves
 
-An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break. However, when the migration team matures after several sprints of execution, the journey becomes smoother. The goal is to frequently release features to production and to provide business value sooner than with a big bang approach.
+An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break down and to align the migration team. However, after the migration team matures following several sprints of execution, the journey becomes smoother. The goal of this approach is to frequently release features to production and to provide business value sooner than with a big bang approach.
 
 An Agile waves migration typically has the following sprints:
 
@@ -144,6 +153,9 @@ An Agile waves migration typically has the following sprints:
 :::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves per streams." lightbox="media/mainframe-modernization-overview/mainframe-streams.png":::
 
 Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
+
+Microsoft recommends modernizing mainframe and midrange system workloads by following an iterative, Agile waves-based model by focusing on investments in the new platform, while limiting the growth of legacy systems. This approach considerably reduces implementation risks by preserving the existing business value, while introducing the modernized environment.  That way, your team can also leverage technology skills that help your business be more competitive. This scenario is where Azure Logic Apps can help you in your modernization journey.
+
 
 ## Modernization patterns
 

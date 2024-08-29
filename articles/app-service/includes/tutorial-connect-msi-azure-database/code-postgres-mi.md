@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 For more information, see the following resources:
 
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
 
 
 # [Python](#tab/python-postgres-mi)
@@ -95,7 +95,7 @@ For more information, see the following resources:
      
     # Uncomment the following lines according to the authentication type.
     # For system-assigned identity.
-    # credential = DefaultAzureCredential()
+    # cred = DefaultAzureCredential()
 
     # For user-assigned identity.
     # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')

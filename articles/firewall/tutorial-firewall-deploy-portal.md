@@ -3,7 +3,7 @@ title: Deploy & configure Azure Firewall using the Azure portal
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 11/14/2023
 ms.author: victorh
@@ -29,7 +29,7 @@ For production deployments, a [hub and spoke model](/azure/architecture/referenc
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+:::image type="content" source="media/tutorial-firewall-deploy-portal/tutorial-network.png" alt-text="Diagram of Firewall network infrastructure." lightbox="media/tutorial-firewall-deploy-portal/tutorial-network.png":::
 
 In this article, you learn how to:
 
@@ -94,6 +94,9 @@ This virtual network has two subnets.
 1. Select **Review + create**.
 1. Select **Create**.
 
+> [!NOTE]
+> Azure Firewall uses public IPs as needed based on available ports. After randomly selecting a public IP to connect outbound from, it will only use the next available public IP after no more connections can be made from the current public IP. In scenarios with high traffic volume and throughput, it is recommended to use a NAT Gateway to provide outbound connectivity. SNAT ports are dynamically allocated across all public IPs associated with NAT Gateway. To learn more see [integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway). 
+
 ### Create a virtual machine
 
 Now create the workload virtual machine, and place it in the **Workload-SN** subnet.
@@ -122,7 +125,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 1. Review the settings on the summary page, and then select **Create**.
 1. After the deployment is complete, select **Go to resource** and note the **Srv-Work** private IP address that you'll need to use later.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 
 ## Examine the firewall

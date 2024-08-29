@@ -4,7 +4,7 @@ description: Learn to deploy a Blazor app on Azure Static Web Apps.
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 07/21/2023
 ms.author: cshoe
@@ -133,11 +133,11 @@ If you're not going to use this application, you can delete the Azure Static Web
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate and authorize](./authentication-authorization.md)
+> [Authenticate and authorize](./authentication-authorization.yml)
 
 ## Related articles
 
-- [Set up authentication and authorization](authentication-authorization.md)
-- [Configure app settings](application-settings.md)
+- [Set up authentication and authorization](authentication-authorization.yml)
+- [Configure app settings](application-settings.yml)
 - [Enable monitoring](monitor.md)
 - [Azure CLI](https://github.com/Azure/static-web-apps-cli)

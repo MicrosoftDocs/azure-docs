@@ -1,8 +1,9 @@
 ---
 title: Azure Service Bus messaging - advanced features
-description: This article provides a high-level overview of advanced features in Azure Service Bus. 
-ms.topic: overview
-ms.date: 06/08/2023
+description: This article provides a high-level overview of advanced features in Azure Service Bus such as sessions, scheduled delivery, autodelete on idle, etc.
+ms.topic: concept-article
+ms.date: 07/25/2024
+#customer intent: as a developer of messaging applications, I want to know what features are supported by Azure Service Bus to make informed decisions. 
 ---
 
 # Azure Service Bus - advanced features
@@ -27,27 +28,33 @@ Messages in the dead-letter queue are annotated with the reason why they've been
 You can submit messages to a queue or a topic for delayed processing, setting a time when the message becomes available for consumption. Scheduled messages can also be canceled. For more information, see [Scheduled messages](message-sequencing.md#scheduled-messages).
 
 ## Message deferral
-A queue or subscription client can defer retrieval of a received message until a later time. The message may have been posted out of an expected order and the client wants to wait until it receives another message. Deferred messages remain in the queue or subscription and must be reactivated explicitly using their service-assigned sequence number. For more information, see [Message deferral](message-deferral.md).
+A queue or subscription client can defer retrieval of a received message until a later time. The message might have been posted out of an expected order and the client wants to wait until it receives another message. Deferred messages remain in the queue or subscription and must be reactivated explicitly using their service-assigned sequence number. For more information, see [Message deferral](message-deferral.md).
 
 ## Transactions
 A transaction groups two or more operations together into an execution scope. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).
 
 ## Autodelete on idle
-Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The interval is reset when a message is added to or removed from the subscription. The minimum duration is 5 minutes. For an overview on what is considered as idleness for entities, please check [Idleness](message-expiration.md#idleness).
+Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The interval is reset when a message is added to or removed from the subscription. The minimum duration is 5 minutes. For an overview on what is considered as idleness for entities, see [Idleness](message-expiration.md#idleness).
 
 ## Duplicate detection
 The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).
+
+## Batch deletion of Messages
+Azure Service Bus supports deletion of messages in batches. It's useful in scenarios when messages within queues or subscriptions have become expired, or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
 
 ## Support ordering
 The **Support ordering** feature allows you to specify whether messages that are sent to a topic are forwarded to the subscription in the same order in which they were sent. This feature doesn't support partitioned topics. For more information, see [TopicProperties.SupportOrdering](/dotnet/api/azure.messaging.servicebus.administration.topicproperties.supportordering) in .NET or [TopicProperties.setOrderingSupported](/java/api/com.azure.messaging.servicebus.administration.models.topicproperties.setorderingsupported) in Java.
 
 ## Geo-disaster recovery
-When an Azure region experiences downtime, the disaster recovery feature enables message processing to continue operating in a different region or data center. The feature keeps a structural mirror of a namespace available in the secondary region and allows the namespace identity to switch to the secondary namespace. Already posted messages remain in the former primary namespace for recovery once the availability episode subsides. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
+When an Azure region experiences downtime, the disaster recovery feature enables message processing to continue operating in a different region or data center. The feature keeps a structural mirror of a namespace available in the secondary region and allows the namespace identity to switch to the secondary namespace. Already posted messages remain in the former primary namespace for recovery once the availability episode subsides. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). This feature replicates only metadata (entities, configuration, properties) of Service Bus entities, not the data in them. 
+
+## Geo replication
+The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes).
 
 ## Security
-Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Microsoft Entra ID](service-bus-authentication-and-authorization.md) role-based security. 
+Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Microsoft Entra ID](service-bus-authentication-and-authorization.md) role-based security. 
 
 For protection against unwanted traffic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks. 
 
-## Next steps
+## Related content
 See [Service Bus messaging samples](service-bus-samples.md) that show how to use these Service Bus features.

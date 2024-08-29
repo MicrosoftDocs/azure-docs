@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure Global Reach'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau 
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure ExpressRoute Global Reach
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
 
  ## Before you begin
 

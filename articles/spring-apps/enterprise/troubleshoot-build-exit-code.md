@@ -2,9 +2,9 @@
 title: Troubleshoot common build issues in Azure Spring Apps
 description: Learn how to troubleshoot common build issues in Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 10/24/2022
+ms.date: 08/28/2024
 ms.author: yili7
 ms.custom: devx-track-java
 ---
@@ -22,7 +22,7 @@ This article describes how to troubleshoot build issues with your Azure Spring A
 
 The Azure Spring Apps Enterprise plan uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
-When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
+When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/for-platform-operators/concepts/lifecycle/).
 
 The following list describes some common exit codes:
 

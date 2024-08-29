@@ -5,13 +5,16 @@ services: api-management
 author: dlepow
 manager: erikre
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/03/2018
 ms.author: danlep
 
 ---
 # Advanced request throttling with Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Being able to throttle incoming requests is a key role of Azure API Management. Either by controlling the rate of requests or the total requests/data transferred, API Management allows API providers to protect their APIs from abuse and create value for different API product tiers.
 
 ## Rate limits and quotas
@@ -37,7 +40,7 @@ Rate throttling capabilities that are scoped to a particular subscription are us
 ## Custom key-based throttling
 
 > [!NOTE]
-> The `rate-limit-by-key` and `quota-by-key` policies are not available when in the Consumption tier of Azure API Management. 
+> The `rate-limit-by-key` and `quota-by-key` policies are not available when in the Consumption tier of Azure API Management. The `quota-by-key` policy is also currently not available in the v2 tiers.
 
 The [rate-limit-by-key](rate-limit-by-key-policy.md) and [quota-by-key](quota-by-key-policy.md) policies provide a more flexible solution to traffic control. These policies allow you to define expressions to identify the keys that are used to track traffic usage. The way this works is easiest illustrated with an example. 
 

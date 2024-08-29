@@ -1,13 +1,11 @@
 ---
 title: Microsoft Entra joined session hosts in Azure Virtual Desktop
 description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
-services: virtual-desktop
-author: Heidilohr
-
-ms.service: virtual-desktop
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 11/14/2023
-ms.author: helohr
+ms.date: 06/04/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Microsoft Entra joined session hosts in Azure Virtual Desktop
@@ -20,8 +18,8 @@ The following known limitations may affect access to your on-premises or Active 
 
 - Azure Virtual Desktop (classic) doesn't support Microsoft Entra joined VMs.
 - Microsoft Entra joined VMs don't currently support external identities, such as Microsoft Entra Business-to-Business (B2B) and Microsoft Entra Business-to-Consumer (B2C).
-- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.md) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
-- The [Remote Desktop app for Windows](users/connect-microsoft-store.md) doesn't support Microsoft Entra joined VMs.
+- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
+- The [Remote Desktop Store app](users/connect-windows.md?pivots=rd-store) for Windows doesn't support Microsoft Entra joined VMs.
 
 <a name='deploy-azure-ad-joined-vms'></a>
 
@@ -82,7 +80,7 @@ If you're using Microsoft Entra multifactor authentication and you don't want to
 
 ## User profiles
 
-You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files or Azure NetApp Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
+You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files or Azure NetApp Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
 
 ## Accessing on-premises resources
 
@@ -93,7 +91,7 @@ While you don't need an Active Directory to deploy or access your Microsoft Entr
 Now that you've deployed some Microsoft Entra joined VMs, we recommend enabling single sign-on before connecting with a supported Azure Virtual Desktop client to test it as part of a user session. To learn more, check out these articles:
 
 - [Configure single sign-on](configure-single-sign-on.md)
-- [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md)
+- [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
 - [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md)

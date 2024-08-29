@@ -3,13 +3,15 @@ title: Tutorial - Publish versions of your API using Azure API Management
 description: Follow the steps of this tutorial to learn how to publish multiple API versions in API Management.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: danlep
 ---
 # Tutorial: Publish multiple versions of your API 
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 There are times when it's impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want an approach that's easy to understand. As shown in this tutorial, it is possible to provide multiple *versions* in Azure API Management. 
 
@@ -91,7 +93,7 @@ When you create multiple versions, the Azure portal creates a *version set*, whi
 
 You can interact directly with version sets by using the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az-apim-api-versionset-list) command:
 

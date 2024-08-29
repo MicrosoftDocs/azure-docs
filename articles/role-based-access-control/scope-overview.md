@@ -1,7 +1,6 @@
 ---
 title: Understand scope for Azure RBAC
 description: Learn about scope for Azure role-based access control (Azure RBAC) and how to determine the scope for a resource.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -77,7 +76,7 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
     ![Screenshot that shows resource IDs for a storage account in Azure portal.](./media/scope-overview/scope-resource-id.png)
 
-- Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
+- Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.yml) or [Azure CLI](role-assignments-list-cli.yml) to list the role assignment. In the output, the scope will be listed as a property.
 
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01/pro

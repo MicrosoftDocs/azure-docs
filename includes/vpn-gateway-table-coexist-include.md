@@ -1,15 +1,11 @@
 ---
- title: include file
- description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 04/26/2019
+ ms.date: 02/28/2024
  ms.author: cherylmc
- ms.custom: include file
 ---
-| **Deployment model/method** | **Azure portal** | **PowerShell** | 
+| Deployment model| Azure portal| PowerShell | 
 | --- | --- | --- |
-| Resource Manager | **Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
-| Classic | **Not Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| Resource Manager |[Tutorial](../articles/expressroute/how-to-configure-coexisting-gateway-portal.md)| [Tutorial](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|

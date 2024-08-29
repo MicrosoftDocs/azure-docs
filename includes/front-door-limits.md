@@ -3,7 +3,7 @@
  description: include file
  services: frontdoor
  author: duongau
- ms.service: frontdoor
+ ms.service: azure-frontdoor
  ms.topic: include
  ms.date: 06/19/2023
  ms.author: duau
@@ -24,6 +24,7 @@
 | URLs in a single cache purge call | 100 |
 | Maximum bandwidth<sup>1</sup> | 75 Gbps |
 | Maximum requests per second per profile<sup>1</sup> | 100,000 |
+| HTTP header size limit (per header) | 32 KB |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
@@ -34,7 +35,7 @@
 | Web application firewall HTTP header name length | 256 |
 | Web application firewall cookie name length | 256 |
 | Web application firewall exclusion limit | 100 |
-| Web application firewall HTTP request body size inspected | 128 KB |
+| Web application firewall HTTP request body inspection limit | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
 <sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
@@ -69,6 +70,7 @@
 | Maximum security policy per profile | 100 | 200 |
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
+| HTTP header size limit (per header) | 32 KB | 32 KB|
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
@@ -80,7 +82,7 @@
 | WAF HTTP header name length | 256 | 256 |
 | WAF cookie name length | 256 | 256|
 | WAF exclusion per policy | 100 | 100 |
-| WAF HTTP request body size inspected | 128 KB | 128 KB |
+| WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
 
 <sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

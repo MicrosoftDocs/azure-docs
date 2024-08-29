@@ -3,7 +3,7 @@ title: Create a job with Azure Container Apps using the Azure portal
 description: Learn to create an on-demand or scheduled job in Azure Container Apps using the Azure portal
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 08/21/2023
@@ -110,8 +110,6 @@ Next, create an environment for your container app.
 1. Select **View logs**.
 
     The logs show the output of the job execution. It may take a few minutes for the logs to appear.
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

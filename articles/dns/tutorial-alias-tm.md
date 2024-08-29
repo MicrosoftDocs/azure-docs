@@ -4,9 +4,9 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to create and configure an Azure DNS alias record to support using your apex domain name with Traffic Manager.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 11/30/2023
+ms.date: 03/08/2024
 ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
@@ -39,6 +39,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
+
+## Register the Microsoft.Network resource provider
+
+To create alias records, you must register the **Microsoft.Network** resource provider. If the DNS zone and the alias target resource are in different subscriptions, both subscriptions must be registered. You can register resource providers using Azure CLI, PowerShell, or the Azure portal. See the following example:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Network
+```
+
+For more information, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).  
 
 ## Create the network infrastructure
 

@@ -158,3 +158,96 @@ private async void BackgroundBlur_Click(object sender, RoutedEventArgs e)
     }
 }
 ```
+
+### Background replacement
+
+Background Replacement is a Video Effect that allows a person's background to be replaced. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+
+To enable Background Replacement Video Effect:
+
+- Add the `BackgroundReplacementEffect` instance to the MainPage.
+
+```C#
+public sealed partial class MainPage : Page
+{
+    private BackgroundReplacementEffect backgroundReplacementVideoEffect = new BackgroundReplacementEffect();
+}
+```
+
+- Create a method that obtains the `VideoEFfects` Feature subscribes to the events:
+
+```C#
+private async void LocalVideoEffectsFeature_VideoEffectEnabled(object sender, VideoEffectEnabledEventArgs e)
+{
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+    {
+        BackgroundReplacement.IsChecked = true;
+    });
+}
+
+private async void LocalVideoEffectsFeature_VideoEffectDisabled(object sender, VideoEffectDisabledEventArgs e)
+{
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+    {
+        BackgroundReplacement.IsChecked = false;
+    });
+}
+
+private void LocalVideoEffectsFeature_VideoEffectError(object sender, VideoEffectErrorEventArgs e)
+{
+    String effectName = args.VideoEffectName;
+    String errorCode = args.Code;
+    String errorMessage = args.Message;
+
+    Trace.WriteLine("VideoEffects VideoEffectError on effect " + effectName + "with code "
+        + errorCode + "and error message " + errorMessage);
+}
+```
+
+- Set a custom background by passing in the image through a buffer.
+
+```C#
+//example of getting the image from storage folder
+MemoryBuffer memoryBuffer = new MemoryBuffer(0);
+StorageFolder InstallationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+StorageFile file = InstallationFolder.GetFileAsync("image.jpg").GetAwaiter().GetResult();
+if (File.Exists(file.Path))
+{
+    byte[] imageBytes = File.ReadAllBytes(file.Path);
+    memoryBuffer = new MemoryBuffer((uint)imageBytes.Length);
+    using (IMemoryBufferReference reference = memoryBuffer.CreateReference())
+    {
+        byte* dataInBytes;
+        uint capacityInBytes;
+
+        (reference.As<IMemoryBufferByteAccess>()).GetBuffer(out dataInBytes, out capacityInBytes);
+        for (int i = 0; i < imageBytes.Length; i++)
+        {
+            dataInBytes[i] = imageBytes[i];
+        }
+    }
+    return memoryBuffer;
+}
+backgroundReplacementVideoEffect.Buffer = memoryBuffer;
+```
+
+
+- Enable and disable the Background Replacement effect:
+
+```C#
+private async void BackgroundReplacement_Click(object sender, RoutedEventArgs e)
+{
+    if (localVideoEffectsFeature.IsEffectSupported(backgroundReplacementVideoEffect))
+    {
+        var backgroundReplacementCheckbox = sender as CheckBox;
+        if (backgroundReplacementCheckbox.IsChecked.Value)
+        {
+            localVideoEffectsFeature.EnableEffect(backgroundReplacementVideoEffect);
+        }
+        else
+        {
+            localVideoEffectsFeature.DisableEffect(backgroundReplacementVideoEffect);
+        }
+    }
+}
+```

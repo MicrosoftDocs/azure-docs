@@ -3,11 +3,11 @@ metadata:
   title: "Traffic analytics FAQ"
   titleSuffix: Azure Network Watcher
   description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
-  ms.author: halkazwini
   author: halkazwini
-  ms.service: network-watcher
+  ms.author: halkazwini
+  ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 12/13/2023
+  ms.date: 07/08/2024
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
@@ -23,7 +23,7 @@ sections:
       - question: |
           How can I check if I have the required roles?
         answer: |
-          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md). If you can't see the role assignments, contact the respective subscription admin.
+          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin.
 
       - question: |
           Can I enable flow logs for network security groups that are in different regions than my workspace region?
@@ -58,12 +58,12 @@ sections:
       - question: |
           Can I store raw logs in a different subscription than the subscription used for network security groups or virtual networks?
         answer: |
-          Yes. You can configure flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group (NSG flow logs) or virtual network (VNet flow logs). The destination storage account must share the same Microsoft Entra Tenant of the network security group (NSG flow logs) or virtual network (VNet flow logs).
+          Yes. You can configure flow logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group (network security group flow logs) or virtual network (virtual network flow logs). The destination storage account must share the same Microsoft Entra tenant of the network security group or virtual network.
 
       - question: |
           Can my flow log resources and storage accounts be in different tenants?
         answer: |
-          No. All resources must be in the same tenant including network security groups (NSG flow logs), virtual networks (VNet flow logs), flow logs, storage accounts and Log Analytics workspaces (if traffic analytics is enabled).
+          No. All resources must be in the same tenant including network security groups (network security group flow logs), virtual networks (virtual network flow logs), flow logs, storage accounts and Log Analytics workspaces (if traffic analytics is enabled).
 
       - question: |
           Can I configure a different retention policy for the storage account than Log Analytics workspace?
@@ -73,7 +73,7 @@ sections:
       - question: |
           Will I lose the data stored in Log Analytics workspace if I delete the storage account used for flow logging?
         answer: |
-          No. If you delete the storage account that is used for NSG/VNet flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but Traffic Analytics will no longer process any new additional flow logs until you update the flow logs to use a different storage account.
+          No. If you delete the storage account that is used for flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but traffic analytics will no longer process any new additional flow logs until you update the flow logs to use a different storage account.
 
       - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
@@ -127,10 +127,8 @@ sections:
       - question: |
           How is traffic analytics priced?
         answer: |
-          Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
-          
-          For example, as per the [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/), considering West Central US region, if flow logs data stored in a storage account processed by traffic analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
-          10 x 2.3$ + 1 x 2.76$ = 25.76$
+          Traffic analytics is metered. The metering is based on processing of raw flow log data by the service. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).          
+          Enhanced logs ingested in Log Analytics workspace can be retained at no charge for up to first 31 days (or 90 days if Microsoft Sentinel is enabled on the workspace). For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
           
       - question: |
           How frequently does traffic analytics process data?

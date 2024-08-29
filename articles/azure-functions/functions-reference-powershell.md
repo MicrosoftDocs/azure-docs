@@ -415,7 +415,7 @@ Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To u
 
 ### Changing the PowerShell version
 
-Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To upgrade your Function App to PowerShell 7.2, ensure the value of FUNCTIONS_EXTENSION_VERSION is set to ~4. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To upgrade your Function App to PowerShell 7.2, ensure the value of FUNCTIONS_EXTENSION_VERSION is set to ~4. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
@@ -493,6 +493,8 @@ The following considerations apply when using dependency management:
 + Managed dependencies requires access to `https://www.powershellgallery.com` to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+
++ Managed dependencies aren't supported when you host your function app in a [Flex Consumption plan](flex-consumption-plan.md). You must instead [define your own custom modules](#custom-modules).
 
 ### Dependency management app settings
 

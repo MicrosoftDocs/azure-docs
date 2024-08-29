@@ -3,7 +3,7 @@ title: Monitor UE usage with Event Hubs
 description: Information on using Azure Event Hubs to monitor UE usage in your private mobile network. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 05/24/2023
 ms.custom: template-concept
@@ -29,8 +29,8 @@ UE usage monitoring can be enabled during [site creation](create-a-site.md) or a
 
 Once Event Hubs is receiving data from your AP5GC deployment, you can write an application using SDKs [such as .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal) to consume event data and produce metrics.
 
->[!TIP]
-> If you create the managed identity after enabling UE usage monitoring, you will need to refresh the packet core configuration by making a dummy configuration change. See [Modify a packet core instance](modify-packet-core.md).
+>[!IMPORTANT]
+> If you create the managed identity after enabling UE usage monitoring, you will need to refresh the packet core configuration by making a dummy configuration change. This could be a change that will have no impact on your deployment and can be left in place, or a change that you immediately revert. See [Modify a packet core instance](modify-packet-core.md). If you do not refresh the packet core configuration, packet capture will fail.
 
 ## Reported UE usage data
 

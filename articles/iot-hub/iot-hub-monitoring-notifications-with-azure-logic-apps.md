@@ -57,7 +57,7 @@ Prepare the following prerequisites before beginning this tutorial.
   * Java SDK: [send-event](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-event/README.md)
   * Node.js SDK: [simple_sample_device](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js)
   * C SDK: [iothub_II_client_shared_sample](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/samples/iothub_ll_client_shared_sample/iothub_ll_client_shared_sample.c)
-  * Codeless: [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
+  * Codeless: [Raspberry Pi online simulator](raspberry-pi-get-started.md)
 
 ## Create Service Bus namespace and queue
 

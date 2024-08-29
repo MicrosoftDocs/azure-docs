@@ -34,7 +34,7 @@ The following IoT device over the air update types are currently supported with 
     * [Proxy update for downstream devices](device-update-howto-proxy-updates.md)
 
 * Constrained devices:
-    * AzureRTOS Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
+    * Eclipse ThreadX Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
 
 * Disconnected devices:
     * [Understand support for disconnected device update](connected-cache-disconnected-device-update.md)
@@ -198,9 +198,7 @@ This section describes how to start and verify the Device Update agent as a modu
 
 You can also build and modify your own customer Device Update agent. Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent from source.
 
-Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
-the agent. Now, make the changes needed to incorporate the agent into your image.  Look at how to
-[modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
+Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md) the agent. Now, make the changes needed to incorporate the agent into your image.  Look at how to [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
 
 ## Troubleshooting guide
 

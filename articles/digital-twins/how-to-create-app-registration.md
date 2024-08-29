@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: Create a Microsoft Entra app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/11/2023
+ms.date: 08/16/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -37,9 +37,8 @@ Navigate to [Microsoft Entra ID](https://portal.azure.com/#blade/Microsoft_AAD_I
 :::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Screenshot of the Microsoft Entra service page in the Azure portal, showing the steps to create a new registration in the 'App registrations' page." lightbox="media/how-to-create-app-registration/new-registration.png":::
 
 In the **Register an application** page that follows, fill in the requested values:
-* **Name**: a Microsoft Entra application display name to associate with the registration
-* **Supported account types**: Select **Accounts in this organizational directory only (Default Directory only - Single tenant)**
-* **Redirect URI**: An **Microsoft Entra application reply URL** for the Microsoft Entra application. Add a **Public client/native (mobile & desktop)** URI for `http://localhost`.
+* **Name**: A Microsoft Entra application display name to associate with the registration.
+* **Supported account types**: Select **Accounts in this organizational directory only (Default Directory only - Single tenant)**.
 
 When you're finished, select the **Register** button.
 
@@ -94,7 +93,7 @@ In this section, you'll run a CLI command to create an app registration with the
 Run the following command to create the registration. If you're using Cloud Shell, the path to the manifest.json file is `@manifest.json`.
 
 ```azurecli-interactive
-az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --native-app --required-resource-accesses "<path-to-manifest.json>"
+az ad app create --display-name <app-registration-name> --sign-in-audience AzureADMyOrg --required-resource-accesses "manifest.json"
 ```
 
 The output of the command is information about the app registration you've created. 
@@ -133,17 +132,18 @@ Take note of the **Application (client) ID** and **Directory (tenant) ID** shown
 
 # [CLI](#tab/cli)
 
-You can find both of these values in the output from the `az ad app create` command that you ran [earlier](#run-the-creation-command). (You can also bring up the app registration's information again using [az ad app show](/cli/azure/ad/app#az-ad-app-show).)
+You can find the app ID in the output from the `az ad app create` command that you ran [earlier](#run-the-creation-command) (or bring up the information again using [az ad app show](/cli/azure/ad/app#az-ad-app-show)).
 
-Look for these values in the result:
-
-Application (client) ID:
+Look for `appId` in the result:
 
 :::image type="content" source="media/how-to-create-app-registration/cli-app-id.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The appId value is highlighted.":::
 
-Directory (tenant) ID:
+You can display your tenant ID in the shell using the [az account tenant list](/cli/azure/account/tenant) command. 
 
-:::image type="content" source="media/how-to-create-app-registration/cli-tenant-id.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The GUID value in the odata.metadata is highlighted.":::
+>[!NOTE]
+>This command group is experimental and currently under development.
+
+:::image type="content" source="media/how-to-create-app-registration/cli-tenant-id.png" alt-text="Screenshot of Cloud Shell output of the tenant command. The tenantId value is highlighted.":::
 
 ---
 
@@ -213,15 +213,15 @@ Use these steps to create the role assignment for your registration.
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
     | Role | Select as appropriate |
     | Members > Assign access to | User, group, or service principal |
-    | Members > Members | **+ Select members**, then search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
+    | Members > Members | **+ Select members**, then search for the name of the app registration |
     
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the Roles tab in the Add role assignment page." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the Roles tab in the Add role assignment page." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 
    :::image type="content" source="media/how-to-create-app-registration/add-role.png" alt-text="Screenshot of the Members tab in the Add role assignment page." lightbox="media/how-to-create-app-registration/add-role.png":::
 

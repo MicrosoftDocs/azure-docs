@@ -2,9 +2,9 @@
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 This article shows you how to use the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs.
 
 The following video describes end-to-end automation using tools of your choice, including Azure Pipelines.
 
@@ -93,7 +93,7 @@ steps:
 
 First, use the following steps to set up an existing Azure Spring Apps instance for use with Azure DevOps.
 
-1. Go to your Azure Spring Apps instance, then create a new app. 
+1. Go to your Azure Spring Apps instance, then create a new app.
 1. Go to the Azure DevOps portal, then create a new project under your chosen organization. If you don't have an Azure DevOps organization, you can create one for free.
 1. Select **Repos**, then import the [Spring Boot demo code](https://github.com/spring-guides/gs-spring-boot) to the repository.
 
@@ -116,10 +116,10 @@ To deploy using a pipeline, follow these steps:
 1. Disable **Use Staging Deployment**.
 1. Set **Package or folder** to *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
 1. Select **Add** to add this task to your pipeline.
-  
+
    Your pipeline settings should match the following image.
 
-   :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::
+   :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of Azure DevOps that shows the New pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::
 
    You can also build and deploy your projects using following pipeline template. This example first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Apps task for Azure Pipelines.
 
@@ -189,7 +189,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Add a new pipeline, and select **Empty job** to create a job.
 1. Under **Stages** select the line **1 job, 0 task**
 
-   :::image type="content" source="media/how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job." lightbox="media/how-to-cicd/create-new-job.jpg":::
+   :::image type="content" source="media/how-to-cicd/create-new-job.jpg" alt-text="Screenshot of Azure DevOps that shows the Pipelines tab with the 1 job, 0 task link highlighted." lightbox="media/how-to-cicd/create-new-job.jpg":::
 
    1. Select the **+** to add a task to the job.
    1. Search for the **Azure Spring Apps** template, then select **Add** to add the task to the job.
@@ -205,7 +205,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Navigate to the **Azure Spring Apps Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
 1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
 
-   :::image type="content" source="media/how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box." lightbox="media/how-to-cicd/change-artifact-path.jpg":::
+   :::image type="content" source="media/how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of Azure DevOps that shows the Select a file or folder dialog box." lightbox="media/how-to-cicd/change-artifact-path.jpg":::
 
 1. Select the **+** to add another **Azure Spring Apps** task to the job.
 1. Change the action to **Set Production Deployment**.

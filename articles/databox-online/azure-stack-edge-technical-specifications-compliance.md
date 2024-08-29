@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/12/2023
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA technical specifications
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 The hardware components of your Microsoft Azure Stack Edge Pro FPGA device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
@@ -34,7 +36,7 @@ A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](/azure/machine-learning/how-to-deploy-fpga-web-service#fpga-support-in-azure).|
 
 ## Power supply unit specifications
 

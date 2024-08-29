@@ -1,12 +1,12 @@
 ---
 title: Azure Maps community Open-source projects | Microsoft Azure Maps
 description: Open-source projects coordinated for the Microsoft Azure Maps platform.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Azure Maps community - Open-source projects
@@ -110,6 +110,7 @@ Find more open-source Azure Maps projects.
 [Azure Maps Jupyter Notebook samples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps OpenLayers plugin]: https://github.com/azure-samples/azure-maps-openlayers
+[Azure Maps Open Source Projects]: https://github.com/Microsoft/Maps/blob/master/AzureMaps.md
 [Azure Maps Overview Map module]: https://github.com/Azure-Samples/azure-maps-overview-map
 [Azure Maps Scale Bar Control module]: https://github.com/Azure-Samples/azure-maps-scale-bar-control
 [Azure Maps Selection Control module]: https://github.com/Azure-Samples/azure-maps-selection-control

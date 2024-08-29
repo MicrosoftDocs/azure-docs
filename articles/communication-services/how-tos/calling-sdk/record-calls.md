@@ -28,8 +28,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 - Optional: Completion of the [quickstart to add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Record calls client-side JavaScript](./includes/record-calls/record-calls-web.md)]
-[!INCLUDE [Local recording notification for Teams JavaScript](./includes/record-calls/record-calls-locally-web.md)]
+[!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"

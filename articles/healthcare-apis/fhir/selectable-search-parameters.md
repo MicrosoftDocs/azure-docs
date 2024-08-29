@@ -2,7 +2,7 @@
 title:  Selectable search parameters for the FHIR service in Azure Health Data Services
 description: Learn how to use selectable search parameters in the FHIR service of Azure Health Data Services to customize and optimize your searches on FHIR resources. Save storage space and improve performance by enabling only the search parameters you need.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 01/24/2023
@@ -161,7 +161,7 @@ A reindex job can be executed against the entire FHIR service database or agains
 
 ## Frequently Asked Questions
 
-**What is the behavior if the query is includes a search parameter with status 'Supported'?**
+**What is the behavior if the query includes a search parameter with status 'Supported'?**
 
 The search parameter in the 'Supported' state needs to be reindexed. Until then, the search parameter is not activated. In case a query is executed on a non-active search parameter, the FHIR service will render a response without considering that search parameter. In the response, there will be a warning message indicating that the search parameter was not indexed and therefore not used in the query. To render an error in such situations, use the 'Prefer: handling' header with the value 'strict'. By setting this header, warnings will be reported as errors.
 

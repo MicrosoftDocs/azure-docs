@@ -1,9 +1,9 @@
 ---
 title: Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
 description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
-ms.topic: conceptual
-ms.date: 11/06/2023
-ms.service: backup
+ms.topic: how-to
+ms.date: 06/14/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -12,7 +12,12 @@ ms.author: v-abhmallick
 
 This article describes how to back up Azure Database for PostgreSQL Flexible Server. 
 
-[Learn about](./backup-azure-database-postgresql-flex-support-matrix.md) the supported scenarios and known limitations of Azure Database for PostgreSQL Flexible server backup.
+## Prerequisites
+
+Before you configure backup for Azure Database for PostgreSQL Flexible server:
+
+- [Review the supported scenarios and known limitations](./backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.
+- Ensure that you have the required [permissions for the backup operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
 
 ## Configure backup 
 

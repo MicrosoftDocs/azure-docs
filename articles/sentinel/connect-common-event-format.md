@@ -3,6 +3,7 @@ title: Get CEF-formatted logs from your device or appliance into Microsoft Senti
 description: Use the Log Analytics agent, installed on a Linux-based log forwarder, to ingest logs sent in Common Event Format (CEF) over Syslog into your Microsoft Sentinel workspace.
 author: yelevin
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
@@ -74,7 +75,7 @@ For more information, see [Deploy a log forwarder to ingest Syslog and CEF logs 
 
 Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements.
 
-For more information, see [Secure VM in Azure](../virtual-machines/security-policy.md) and [Best practices for Network security](../security/fundamentals/network-best-practices.md).
+For more information, see [Secure VM in Azure](/azure/virtual-machines/security-policy) and [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
 If your devices are sending Syslog and CEF logs over TLS, such as when your log forwarder is in the cloud, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS. 
 

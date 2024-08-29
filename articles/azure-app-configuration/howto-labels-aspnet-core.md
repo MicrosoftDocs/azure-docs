@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: maud-lv
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 07/11/2023
+ms.date: 02/20/2024
 ms.author: malev
 
 ---
@@ -42,8 +42,6 @@ using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
 
-### [ASP.NET Core 6.0+](#tab/core6x)
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,29 +54,6 @@ builder.Configuration.AddAzureAppConfiguration(options =>
                 .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
     });
 ```
-
-### [ASP.NET Core 3.x](#tab/core3x)
-
-```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(options =>
-                options
-                    .Connect(settings.GetConnectionString("AppConfig"))
-                    // Load configuration values with no label
-                    .Select(KeyFilter.Any, LabelFilter.Null)
-                    // Override with any configuration values specific to current hosting env
-                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-            );
-        })
-        .UseStartup<Startup>());
-```
-
----
 
 > [!IMPORTANT]
 > The preceding code snippet uses the Secret Manager tool to load App Configuration connection string. For information storing the connection string using the Secret Manager, see [Quickstart for Azure App Configuration with ASP.NET Core](quickstart-aspnet-core-app.md).

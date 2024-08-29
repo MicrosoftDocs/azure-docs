@@ -78,7 +78,9 @@ For testing, you register `https://jwt.ms`, a Microsoft web application with dec
 
 Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
 
-## Create a xID policy key
+<a name='create-a-xid-policy-key'></a>
+
+## Create an xID policy key
 
 Store the Client Secret from xID in your Azure AD B2C tenant. For the following instructions, use the directory with the Azure AD B2C tenant.
 

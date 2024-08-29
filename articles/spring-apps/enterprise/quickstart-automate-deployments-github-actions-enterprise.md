@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-terraform
 ---
 
@@ -143,4 +143,4 @@ Continue on to any of the following optional quickstarts:
 - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
-- [Integrate Azure Open AI](quickstart-fitness-store-azure-openai.md)
+- [Integrate Azure OpenAI](quickstart-fitness-store-azure-openai.md)

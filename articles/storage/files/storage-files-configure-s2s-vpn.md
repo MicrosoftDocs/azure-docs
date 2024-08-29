@@ -1,22 +1,22 @@
 ---
-title: Configure a Site-to-Site (S2S) VPN for use with Azure Files
-description: Learn how to configure a Site-to-Site (S2S) VPN for use with Azure Files.
+title: Configure a site-to-site VPN for Azure Files
+description: Learn how to configure a site-to-site (S2S) VPN for use with Azure Files so you can mount your Azure file shares from on premises.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/08/2023
+ms.date: 05/09/2024
 ms.author: kendownie
 ---
 
-# Configure a Site-to-Site VPN for use with Azure Files
+# Configure a site-to-site VPN for use with Azure Files
 
-You can use a Site-to-Site (S2S) VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a Site-to-Site VPN using [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), which is an Azure resource offering VPN services, and is deployed in a resource group alongside storage accounts or other Azure resources.
+You can use a site-to-site (S2S) VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a S2S VPN using [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), which is an Azure resource offering VPN services, and is deployed in a resource group alongside storage accounts or other Azure resources.
 
 ![A topology chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a S2S VPN](media/storage-files-configure-s2s-vpn/s2s-topology.png)
 
 We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this article for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a Site-to-Site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a Site-to-Site VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+The article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a S2S VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## Applies to
 
@@ -113,7 +113,7 @@ A local network gateway is an Azure resource that represents your on-premises ne
 
 The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) might have a link to your device vendor's instructions for configuring with Azure virtual network gateway.
 
-## Create the Site-to-Site connection
+## Create the site-to-site connection
 
 To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, follow these steps.
 

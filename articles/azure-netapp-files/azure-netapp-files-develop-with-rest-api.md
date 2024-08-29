@@ -197,4 +197,4 @@ The following example shows how to create a snapshot of a volume:
 
 ## Next steps
 
-[See the Azure NetApp Files REST API reference](/rest/api/netapp/)
+* [Azure NetApp Files REST API reference](/rest/api/netapp/)

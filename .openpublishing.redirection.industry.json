@@ -1,0 +1,230 @@
+{
+    "redirections": [
+    {
+        "source_path": "articles/industry/agriculture/configure-rules-alerts-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/configure-rules-alerts-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/disaster-recovery-for-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/disaster-recovery-for-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/generate-maps-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/generate-maps-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/get-drone-imagery-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/get-drone-imagery-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/get-sensor-data-from-sensor-partner.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/get-sensor-data-from-sensor-partner",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/get-weather-data-from-weather-partner.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/get-weather-data-from-weather-partner",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/imagery-partner-integration-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/imagery-partner-integration-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/ingest-historical-telemetry-data-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/ingest-historical-telemetry-data-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/install-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/install-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/integration-patterns-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/integration-patterns-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/manage-farms-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/manage-farms-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/manage-users-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/manage-users-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/overview-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/overview-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/query-telemetry-data-from-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/query-telemetry-data-from-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/references-for-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/references-for-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/rest-api-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/rest-api-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/sensor-partner-integration-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/sensor-partner-integration-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/troubleshoot-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/troubleshoot-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/agriculture/weather-partner-integration-in-azure-farmbeats.md",
+        "redirect_url": "/previous-versions/azure/industry/agriculture/weather-partner-integration-in-azure-farmbeats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/industry/index.yml",
+        "redirect_url": "/previous-versions/azure/industry/index",
+        "redirect_document_id": false
+      },
+      
+      {
+        "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
+        "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide.md",
+        "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/data-mgmt-in-banking-overview.md",
+        "redirect_url": "/azure/industry-marketing/financial/data-mgmt-in-banking-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/FSI-risk-modeling.md",
+        "redirect_url": "/azure/industry-marketing/financial/FSI-risk-modeling",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/index.md",
+        "redirect_url": "/azure/industry-marketing/financial/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/mobile-bank-fraud-overview.md",
+        "redirect_url": "/azure/industry-marketing/financial/mobile-bank-fraud-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/risk-grid-banking-overview.md",
+        "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/financial/risk-grid-banking-solution-guide.md",
+        "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-solution-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/health/index.md",
+        "redirect_url": "/azure/industry-marketing/health/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/health/overview-healthcare-ai-blueprint.md",
+        "redirect_url": "/azure/industry-marketing/health/overview-healthcare-ai-blueprint",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/health/sg-healthcare-ai-blueprint.md",
+        "redirect_url": "/azure/industry-marketing/health/sg-healthcare-ai-blueprint",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/Compute-in-manufacturing-overview.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/Compute-in-manufacturing-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/extracting-insights-from-iot-data.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/extracting-insights-from-iot-data-overview.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/index.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/predictive-maintenance-overview.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/manufacturing/predictive-maintenance-solution.md",
+        "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-solution",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/index.md",
+        "redirect_url": "/azure/industry-marketing/retail/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/migrating-ecommerce-solution-to-azure.md",
+        "redirect_url": "/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/recommendation-engine-optimization.md",
+        "redirect_url": "/azure/industry-marketing/retail/recommendation-engine-optimization",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/retail-data-management-overview.md",
+        "redirect_url": "/azure/industry-marketing/retail/retail-data-management-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/sku-optimization-overview.md",
+        "redirect_url": "/azure/industry-marketing/retail/sku-optimization-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/sku-optimization-solution-guide.md",
+        "redirect_url": "/azure/industry-marketing/retail/sku-optimization-solution-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/industry/retail/visual-search-use-case-overview.md",
+        "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
+        "redirect_document_id": false
+    }
+    ]
+}

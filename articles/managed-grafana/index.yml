@@ -6,11 +6,11 @@ summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guid
 metadata:
   title: Azure Managed Grafana
   description: Learn about Azure Managed Grafana
-  ms.service: managed-grafana
+  ms.service: azure-managed-grafana
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 01/18/2023
+  ms.date: 05/30/2024
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -64,8 +64,12 @@ landingContent:
             url: how-to-connect-to-data-source-privately.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
+          - text: Connect to self-hosted Prometheus via managed private endpoint
+            url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
+          - text: Grafana settings
+            url: grafana-settings.md
 
   - title: Set up Grafana monitoring
     linkLists:

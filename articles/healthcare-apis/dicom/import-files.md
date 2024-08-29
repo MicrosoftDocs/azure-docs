@@ -2,8 +2,8 @@
 title: Import DICOM files into the DICOM service
 description: Learn how to import DICOM files by using bulk import in Azure Health Data Services.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: quickstart
 ms.date: 10/05/2023
 ms.author: mmitrik
@@ -15,7 +15,7 @@ Bulk import is a quick way to add data to the DICOM&reg; service. Importing DICO
 
 - **Backup and migration**: For example, your organization might have many DICOM instances stored in local or on-premises systems that you want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
 
-- **Machine learning development**: For example, your organization might have a large dataset of DICOM instances that you want to use for training machine learning models. With bulk import, you can upload the data to the DICOM service and then access it from [Microsoft Fabric](get-started-with-analytics-dicom.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), or other tools.
+- **Machine learning development**: For example, your organization might have a large dataset of DICOM instances that you want to use for training machine learning models. With bulk import, you can upload the data to the DICOM service and then access it from [Microsoft Fabric](get-started-with-analytics-dicom.md), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), or other tools.
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ DICOM images are added to the DICOM service by copying them into the `import-con
 
 #### Grant write access to the import container
 
-The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 #### Upload DICOM images to the import container
 

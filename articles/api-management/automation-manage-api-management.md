@@ -5,12 +5,15 @@ services: api-management, automation
 author: dlepow
 manager: eamono
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
 ---
 # Managing Azure API Management using Azure Automation
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This guide introduces you to the Azure Automation service, and how it can be used to simplify management of Azure API Management.
 
 ## What is Azure Automation?

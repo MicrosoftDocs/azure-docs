@@ -5,8 +5,8 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: troubleshooting
-ms.date: 01/03/2024
-ms.service: site-recovery
+ms.date: 03/29/2024
+ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ You should see the event **Data change rate beyond supported limits**:
 
 If you select the event, you should see the exact disk information:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Page that shows the data change rate event details.":::
+ 
 
 ### Azure Site Recovery limits
 
@@ -159,3 +159,7 @@ Restart the following services:
 - VSS service.
 - Azure Site Recovery VSS Provider.
 - VDS service.
+
+## Next steps
+
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

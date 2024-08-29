@@ -7,7 +7,7 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 03/27/2024
 ms.author: terrylan
 
 ---
@@ -17,7 +17,7 @@ This article contains security best practices to use when you're designing, depl
 
 ## Best practices
 
-These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+These best practices are intended to be a resource for IT pros. IT pros include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 * [Best practices for protecting secrets](secrets-best-practices.md)
 * [Azure database security best practices](/azure/azure-sql/database/security-best-practice)
@@ -27,7 +27,7 @@ These best practices are intended to be a resource for IT pros. This might inclu
 * [Azure operational security best practices](operational-best-practices.md)
 * [Azure PaaS Best Practices](paas-deployments.md)
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
-* [Best practices for Azure VM security](iaas.md)
+* [Best practices for IaaS workloads in Azure](iaas.md)
 * [Implementing a secure hybrid network architecture in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 * [Internet of Things security best practices](../../iot/iot-overview-security.md)
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
@@ -36,4 +36,4 @@ These best practices are intended to be a resource for IT pros. This might inclu
 
 ## Next steps
 
-Microsoft has found that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
+Microsoft finds that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations to help secure the services you use in Azure.

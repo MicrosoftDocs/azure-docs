@@ -2,7 +2,7 @@
 title: Use Apache Pig
 titleSuffix: Azure HDInsight
 description: Learn how to use Pig with Apache Hadoop on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/16/2023
@@ -64,7 +64,7 @@ DUMP RESULT;
 
 The following image shows a summary of what each transformation does to the data.
 
-:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations" border="false":::
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations." border="false":::
 
 ## <a id="run"></a>Run the Pig Latin job
 

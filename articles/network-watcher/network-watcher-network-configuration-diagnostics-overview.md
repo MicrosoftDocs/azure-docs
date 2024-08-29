@@ -2,14 +2,12 @@
 title: NSG diagnostics
 titleSuffix: Azure Network Watcher
 description: Learn about NSG diagnostics tool in Azure Network Watcher.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.author: halkazwini
 ms.reviewer: shijaiswal
 ms.topic: conceptual
 ms.date: 06/27/2023
-ms.custom: template-concept, engagement-fy23
 ---
 
 # NSG diagnostics overview

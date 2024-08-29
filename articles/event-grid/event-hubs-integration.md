@@ -59,7 +59,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     1. If you're using the Cloud Shell for the first time:
         1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
 
-            :::image type="content" source="media/event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Screenshot of Cloud Shell with Bash selected.":::
+            :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
         1. Create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files.
 
@@ -237,6 +237,12 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
     ```
 
     :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results.":::
+
+
+
+> [!IMPORTANT]
+> We use connection string to authenticate to Azure Event Hubs namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign the identity an appropriate role (Azure Event Hubs Owner, Azure Event Hubs Data Sender, or Azure Event Hubs Data Receiver) on the Event Hubs namespace. For more information, see [Authorize access to Event Hubs using Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
+
 
 ## Monitor the solution
 This section helps you with monitoring or troubleshooting the solution.

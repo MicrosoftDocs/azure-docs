@@ -6,7 +6,7 @@ ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 06/19/2024
 ms.author: banders
 ms.custom: references_regions, subject-reliability
 ---
@@ -78,7 +78,7 @@ Here are some examples of markup application for hypothetical usage costs, purch
 
 | **Charge type** | **Partner** | **Customer** |
 | --- | --- | --- |
-| **Usage charges** | $1000 | $990 |
+| **Usage charges** | $1000 | $900 |
 | **Resource price** | $2.00/hour | $1.9/hour |
 | **Credit balance** | $500 of $1500 remaining | $450 of $1350 remaining |
 

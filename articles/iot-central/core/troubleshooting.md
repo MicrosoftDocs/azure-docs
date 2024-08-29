@@ -274,6 +274,10 @@ The export definition page shows information about failed connections to the exp
 
 :::image type="content" source="media/troubleshooting/export-error.png" alt-text="Screenshot that shows an example export error.":::
 
+## Data export missing data issues
+
+Data export only exports data that arrives in your application after you enable data export. If you need to export historical data or data that was missed while your data export was temporarily switched off, you can use the IoT Central REST API to query for device telemetry. Use a query to retrieve the missing data and then add the data to your export destination. To learn more, see [How to use the IoT Central REST API to query devices](howto-query-with-rest-api.md).
+
 ## Next steps
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).

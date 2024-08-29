@@ -3,7 +3,7 @@ title: Configure multiple service identity providers for the FHIR service in Azu
 description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services by using OpenID Connect and SMART on FHIR v1 Scopes.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: tutorial
@@ -16,7 +16,7 @@ ms.author: namalu
 In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. 
 
 ## Identity providers prerequisite
-Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appId` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
+Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appid` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
 
 ## Enable additional identity providers with Azure Resource Manager (ARM)
 
@@ -78,7 +78,7 @@ You must include at least one application configuration and at most two in the `
 
 #### Identify the application with the `clientId` string
 
-The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appId) claim against the `clientId` string. The FHIR service rejects requests with a `401 Unauthorized` error code if the `clientId` string and the token claim don't match exactly.
+The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appid) claim against the `clientId` string. The FHIR service rejects requests with a `401 Unauthorized` error code if the `clientId` string and the token claim don't match exactly.
 
 #### Validate the access token with the `audience` string
 

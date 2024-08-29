@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn about options to secure access to the API Management developer portal, including Microsoft Entra ID, Azure AD B2C, and basic authentication
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: danlep
@@ -12,8 +12,13 @@ ms.author: danlep
 
 # Secure access to the API Management developer portal
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 
 API Management has a fully customizable, standalone, managed [developer portal](api-management-howto-developer-portal.md), which can be used externally (or internally) to allow developer users to discover and interact with the APIs published through API Management. The developer portal has several options to facilitate secure user sign-up and sign-in. 
+
+> [!NOTE]
+> By default, the developer portal enables anonymous access. This means that anyone can view the portal and content such as APIs without signing in, although functionality such as using the test console is restricted. You can enable a setting that requires users to sign-in to view the developer portal. In the Azure portal, in the left menu of your API Management instance, under **Developer portal**, select **Identities** > **Settings**. Under **Anonymous users**, select (enable) **Redirect anonymous users to sign-in page**.
 
 ## Authentication options
 

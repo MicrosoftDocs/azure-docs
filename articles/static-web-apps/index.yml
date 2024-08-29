@@ -7,10 +7,10 @@ metadata:
   title: Azure Static Web Apps documentation
   description: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
   ms.topic: landing-page
-  ms.service: static-web-apps
+  ms.service: azure-static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/19/2021
+  ms.date: 06/25/2024
 
 landingContent:
   - title: About Static Web Apps
@@ -78,7 +78,7 @@ landingContent:
           - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Authentication and authorization
-            url: authentication-authorization.md
+            url: authentication-authorization.yml
           - text: Build configuration with GitHub Actions
             url: build-configuration.md?tabs=github-actions
           - text: Build configuration with Azure DevOps

@@ -22,7 +22,7 @@ For help with setting up or troubleshooting the Live Data feature, review the [s
 
 The Live Data feature directly accesses the Kubernetes API. For more information about the authentication model, see [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, select **Go Live (preview)** and then select the **Cluster** tab.
+This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, slide the **Live** option to **On**.
 
 :::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png" alt-text="Screenshot that shows the Go Live option in the Cluster view." lightbox="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png":::
 

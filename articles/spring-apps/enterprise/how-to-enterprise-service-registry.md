@@ -3,9 +3,9 @@ title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise p
 description: How to use Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: yoterada
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -62,7 +62,7 @@ https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId
 
 The following screenshot shows Spring Initializr with the required settings.
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Screenshot of Spring Initializr.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Screenshot of the Spring Initializr page that shows the required settings.":::
 
 Next, select **GENERATE** to get a sample project for Spring Boot with the following directory structure.
 
@@ -222,10 +222,10 @@ You can also set up the application bindings from the Azure portal, as shown in 
 You can now choose to bind your application to the Service Registry directly when creating a new app by using the following commands:
 
 ```azurecli
-az spring app create \ 
-    --resource-group <resource-group> \ 
-    --service <service-name> \ 
-    --name <app-name> \ 
+az spring app create \
+    --resource-group <resource-group> \
+    --service <service-name> \
+    --name <app-name> \
     --bind-service-registry
 ```
 

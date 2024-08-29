@@ -1,7 +1,7 @@
 ---
 title: Which OT appliances do I need? - Microsoft Defender for IoT
 description: Learn about the deployment options for Microsoft Defender for IoT sensors and on-premises management consoles.
-ms.date: 04/04/2022
+ms.date: 03/10/2024
 ms.topic: limits-and-quotas
 ---
 
@@ -47,7 +47,7 @@ Use the following hardware profiles for production line monitoring, typically in
 |Hardware profile  |SPAN/TAP throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |L500   | Up to 200 Mbps        |   1,000      |Physical / Virtual         |
-|L100    | Up to 60 Mbps        |   800      | Physical / Virtual        |
+|L100   | Up to 10 Mbps         |   800        | Physical / Virtual        |
 
 > [!IMPORTANT]
 > Defender for IoT software versions require a minimum disk size of 100 GB. The L60 hardware profile, which only supports 60 GB of hard disk, has been deprecated.

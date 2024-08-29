@@ -3,7 +3,7 @@ title:        Protect APIs hosted in APIM using Azure Web Application Firewall w
 description:  This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
 author:      sowmyam2019 # GitHub alias
 ms.author:   sowmyam # Microsoft alias
-ms.service:  web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic:    how-to
 ms.reviewer: vhorne
 ms.date: 07/13/2023
@@ -81,7 +81,7 @@ Azure WAF detection mode is used for testing and validating the policy. Detectio
 ## Restrict APIM access through the Azure Front Door only
 
 Requests routed through the Front Door include headers specific to your Front Door configuration. You can configure the 
-[API Management policy reference](../../api-management/api-management-policies.md#access-restriction-policies) as an inbound APIM policy to filter incoming requests based on the unique value of the X-Azure-FDID HTTP request header that is sent to API Management. This header value is the Azure Front Door ID, which is available on the AFD Overview page.
+[check-header policy](../../api-management/api-management-policies.md#authentication-and-authorization) as an inbound APIM policy to filter incoming requests based on the unique value of the X-Azure-FDID HTTP request header that is sent to API Management. This header value is the Azure Front Door ID, which is available on the AFD Overview page.
 
  
 1. Copy the Front Door ID from the AFD overview page.

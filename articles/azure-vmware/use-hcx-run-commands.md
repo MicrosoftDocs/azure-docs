@@ -4,7 +4,7 @@ description: Use VMware HCX Run Commands in Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
-ms.date: 12/20/2023
+ms.date: 3/22/2024
 ---
 
 # Use VMware HCX Run Commands
@@ -16,11 +16,9 @@ This article describes two VMware HCX commands: **Restart HCX Manager** and **Sc
 
 This Command checks for active VMware HCX migrations and replications. If none are found, it restarts the VMware HCX Cloud Manager (VMware HCX VM's guest OS). 
 
-1. Navigate to the Run Command panel in an Azure VMware Solution private cloud on the Azure portal.
-
-   :::image type="content" source="media/hcx-commands/run-command-private-cloud.png" alt-text="Diagram that  lists all available Run command packages and Run commands." border="false" lightbox="media/hcx-commands/run-command-private-cloud.png":::        
+1. Navigate to the Run Command panel under Operations in an Azure VMware Solution private cloud on the Azure portal. Select package "Microsoft.AVS.HCX" to view available HCX run commands.  
    
-1. Select the **Microsoft.AVS.Management** package dropdown menu and select the **Restart-HcxManager** command. 
+1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Restart-HcxManager** command. 
 1. Set parameters and select **Run**. 
 Optional run command parameters.   
 
@@ -47,7 +45,7 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
 
 1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
 
-1. Select the **Microsoft.AVS.Management** package dropdown menu and select the ``Set-HcxScaledCpuAndMemorySetting`` command.
+1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the ``Set-HcxScaledCpuAndMemorySetting`` command.
  
     :::image type="content" source="media/hcx-commands/set-hcx-scale.png" alt-text="Diagram that shows run command parameters for Set-HcxScaledCpuAndMemorySetting command." border="false" lightbox="media/hcx-commands/set-hcx-scale.png"::: 
  
@@ -65,4 +63,4 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
     > VMware HCX cloud manager will be unavailable during the scaling. 
 
  ## Next step
-To learn more about Run Commands, see [Run Commands](concepts-run-command.md)
+To learn more about Run Commands, see [Run Commands](using-run-command.md)

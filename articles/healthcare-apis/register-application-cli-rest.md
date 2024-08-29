@@ -3,7 +3,7 @@ title: Register a client application in Microsoft Entra ID using CLI and REST AP
 description: This article describes how to register a client application Microsoft Entra ID using CLI and REST API.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 05/03/2022
 ms.author: chrupa
@@ -50,7 +50,7 @@ In practice, you'll define variables, assign values to them, and set references 
 ### Define app registration name, etc.
 appregname=myappregtest1
 clientid=$(az ad app create --display-name $appregname --query appId --output tsv)
-objectid=$(az ad app show --id $clientid --query objectId --output tsv)
+objectid=$(az ad app show --id $clientid --query Id --output tsv)
 ```
 
 You can use `echo $<variable name>` to display the value of a specified variable.

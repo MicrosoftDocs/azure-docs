@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory
 description: Overview of the ADF SAP Knowledge Center and ADF SAP IP
 author: ukchrist
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/20/2023
 ---

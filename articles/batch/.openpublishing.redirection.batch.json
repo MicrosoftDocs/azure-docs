@@ -1,0 +1,229 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/batch-ai/cli-samples.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/clusters.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/cntk-training-python.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/cntk-training-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/how-to-migrate.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/how-to-migrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/index.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/migrate-to-new-api.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/how-to-migrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/overview-what-happened-batch-ai.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/overview.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quickstart-cli.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/quickstart-tensorflow-training-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quickstart-create-cluster-cli.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quickstart-create-cluster-portal.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/quickstart-create-cluster-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quickstart-python.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/cntk-training-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quickstart-tensorflow-training-cli.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/quickstart-tensorflow-training-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/quota-limits.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/quota-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/resource-concepts.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/resource-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/tutorial-horovod-tensorflow.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/tutorial-horovod-tensorflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch-ai/use-azure-storage.md",
+            "redirect_url": "/previous-versions/azure/batch-ai/use-azure-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-api-basics.md",
+            "redirect_url": "/azure/batch/batch-service-workflow-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-api-differences.md",
+            "redirect_url": "/azure/batch/batch-apis-tools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-certificates.md",
+            "redirect_url": "/azure/batch/credential-access-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-dotnet-get-started.md",
+            "redirect_url": "/azure/batch/quick-run-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-integration-policies.md",
+            "redirect_url": "/azure/batch/policy-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-low-pri-vms.md",
+            "redirect_url": "/azure/batch/batch-spot-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+            "redirect_url": "/azure/batch/batch-js-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-pool-no-public-ip-address.md",
+            "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-rendering-application-reference.md",
+            "redirect_url": "/previous-versions/aure/batch/articles/batch/batch-rendering-application-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-rendering-applications.md",
+            "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-rendering-render-managers.md",
+            "redirect_url": "/azure/batch/batch-rendering-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-rendering-using.md",
+            "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-using",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-retry-after-errors.md",
+            "redirect_url": "/azure/batch/error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-visual-studio-templates.md",
+            "redirect_url": "/azure/batch/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/big-compute-resources.md",
+            "redirect_url": "/azure/architecture/topics/high-performance-computing/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/budget.md",
+            "redirect_url": "/azure/batch/plan-to-manage-costs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/cli-samples.md",
+            "redirect_url": "/azure/batch/scripts/batch-cli-sample-create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/high-availability-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-batch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/policy-samples.md",
+            "redirect_url": "/azure/batch/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/scripts/batch-cli-sample-manage-pool.md",
+            "redirect_url": "/azure/batch/scripts/batch-cli-sample-manage-windows-pool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/tutorial-r-doazureparallel.md",
+            "redirect_url": "/azure/batch/tutorial-parallel-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/tutorial-rendering-batchexplorer-blender.md",
+            "redirect_url": "/azure/batch/batch-rendering-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/tutorial-rendering-cli.md",
+            "redirect_url": "/azure/batch/batch-rendering-service",
+            "redirect_document_id": false
+        }
+    ]
+}

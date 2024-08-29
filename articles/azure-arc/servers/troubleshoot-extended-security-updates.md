@@ -1,8 +1,8 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 02/20/2024
-ms.topic: conceptual
+ms.date: 07/03/2024
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot delivery of Extended Security Updates for Windows Server 2012
@@ -63,7 +63,10 @@ Ensure that both the licensing package and servicing stack update (SSU) are down
 
 ### Error: Trying to check IMDS again (HRESULT 12002 or 12029)
 
-If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following two methods:
+If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following methods.
+
+> [!IMPORTANT]
+> If you're running the [latest version of the Azure Connected machine agent](agent-release-notes.md), it's not necessary to install the intermediate CA certificates or allow access to the PKI URL. However, if a license was already assigned before the agent was upgraded, it can take up to 15 days for the older license to be replaced. During this time, the intermediate cert will still be required. After upgrading the agent, you can delete the license file `%ProgramData%\AzureConnectedMachineAgent\certs\license.json` to force it to be refreshed.
 
 #### Option 1: Allow access to the PKI URL
 
@@ -76,18 +79,18 @@ Once the network changes are made to allow access to the PKI URL, try installing
 If you're unable to allow access to the PKI URL from your servers, you can manually download and install the certificates on each machine.
 
 1. On any computer with internet access, download these intermediate CA certificates:
-    1. [Microsoft Azure TLS Issuing CA 01](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt)
-    1. [Microsoft Azure TLS Issuing CA 02](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2002%20-%20xsign.crt)
-    1. [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005%20-%20xsign.crt)
-    1. [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006%20-%20xsign.crt)
+    1. [Microsoft Azure RSA TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003%20-%20xsign.crt)
+    1. [Microsoft Azure RSA TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004%20-%20xsign.crt)
+    1. [Microsoft Azure RSA TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2007%20-%20xsign.crt)
+    1. [Microsoft Azure RSA TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2008%20-%20xsign.crt)
 1. Copy the certificate files to your Windows Server 2012 (R2) machines.
 1. Run any one set of the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
 
     ```
-    certutil -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
-    certutil -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
-    certutil -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
-    certutil -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure RSA TLS Issuing CA 03 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure RSA TLS Issuing CA 04 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure RSA TLS Issuing CA 07 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure RSA TLS Issuing CA 08 - xsign.crt"
     ```
 
 1. Try installing the Windows updates again. You may need to reboot your computer for the validation logic to recognize the newly imported intermediate CA certificates.

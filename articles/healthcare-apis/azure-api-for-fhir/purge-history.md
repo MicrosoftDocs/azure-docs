@@ -2,7 +2,7 @@
 title: History Management in Azure API for FHIR
 description: This article describes the $purge-history operation for Azure API for FHIR.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023
@@ -17,6 +17,9 @@ History in FHIR gives you the ability to see all previous versions of a resource
 
 All past versions of a resource are considered obsolete and the current version of a resource should be used for normal business workflow operations. However, it can be useful to see the state of a resource as a point in time when a past decision was made.
 
+The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. 
+
+
 Azure API for FHIR allows you to manage history with 
 1. Disabling history
    To disable history, one time support ticket needs to be created. After disable history configuration is set, history isn't created for resources on the FHIR server. Resource version is incremented.
@@ -29,6 +32,8 @@ Azure API for FHIR allows you to manage history with
 The `$purge-history` operation was created to help with the management of resource history in Azure API for FHIR. It's uncommon to need to purge resource history. However, it's needed in cases when the system level or resource level versioning policy changes, and you want to clean up existing resource history.
 
 Since `$purge-history` is a resource level operation versus a type level or system level operation, you'll need to run the operation for every resource that you want remove the history from.
+
+By default, the purge history operation waits for successful completion before deleting resources. However, if any errors occur during the execution of the purge-history operation, the deletion of resources is rolled back. To prevent this rollback behavior, use the optional query parameter ‘allowPartialSuccess’ and set it to true during the purge-history call. This step ensures that the transaction isn't rolled back in case of an error.
 
 ## Examples of purge history
 
@@ -43,6 +48,12 @@ For example:
 ```http
 DELETE https://workspace-fhir.fhir.azurehealthcareapis.com/Observation/123/$purge-history
 ```
+
+To use the 'allowPartialSuccess' parameter, you need to set it to true. The template of request is:
+```http
+DELETE <FHIR-Service-Url>/<Resource-Type>/<Resource-Id>/$purge-history?allowPartialSuccess=true
+```
+
 ## Next steps
 
 In this article, you learned how to purge the history for resources in Azure API for FHIR. For more information about Azure API for FHIR, see

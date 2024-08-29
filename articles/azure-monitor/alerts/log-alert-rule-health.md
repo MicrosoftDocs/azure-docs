@@ -15,8 +15,11 @@ ms.date: 02/08/2024
 [Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. This article explains how to view the health status of your log search alert rule, and tells you what to do if there are issues affecting your log search alert rules.
 
 Azure Service Health monitors:
-- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. 
+- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. See [here](../../service-health/resource-health-checks-resource-types.md) for the resource health checks performed on log search alert rules.
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your log search alert rule, including communications about outages, planned maintenance activities, and other health advisories.
+
+ > [!NOTE]
+> Today, the report health status is supported only for rules with a frequency of 15 minutes or lower. For rules that run at a frequency greater than 15 minutes (such as 30 minutes, 1 hour, etc.), the status in the resource health blade will be ‘Unavailable’.
 
 ## Permissions required
 
@@ -46,10 +49,11 @@ To view the health of your log search alert rule and set up health status alerts
 
 This table describes the possible resource health status values for a log search alert rule:
 
-| Resource health status | Description |Recommended steps|
-|---|---|
-|Available|There are no known issues affecting this log search alert rule.|     |
-|Unknown|This log search alert rule is currently disabled or in an unknown state.|[Log alert was disabled](alerts-troubleshoot-log.md#log-search-alert-was-disabled).|
+|Resource health status|Description|Recommended steps|
+|----|----|----|
+|Available|There are no known issues affecting this log search alert rule.|  |
+|Unknown|This log search alert rule is currently disabled or in an unknown state.|Check if this log alert rule has been disabled. See [Log alert was disabled](alerts-troubleshoot-log.md) for more information. <br>|
+|Unavailable|If your rule runs less frequently than every 15 minutes (for example, if it is set to run every 30 minutes or 1 hour), it won’t provide health status updates. An ‘unavailable’ status is to be expected and is not indicative of an issue.|To get the health status of an alert rule, set the frequency of the alert rule to 15 min or less.|
 |Unknown reason|This log search alert rule is currently unavailable due to an unknown reason.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|
 |Degraded due to unknown reason|This log search alert rule is currently degraded due to an unknown reason.|     |
 |Setting up resource health|Setting up Resource health for this resource.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|
@@ -57,7 +61,7 @@ This table describes the possible resource health status values for a log search
 |Syntax error |The query is failing because of a syntax error.| Review the query and try again.|
 |The response size is too large|The query is failing because its response size is too large.|Review your query and the [log queries limits](../service-limits.md#log-queries-and-language).|
 |Query consuming too many resources |The query is failing because it's consuming too many resources.|Review your query. View our [best practices for optimizing log queries](../logs/query-optimization.md).|
-|Query validation error|The query is failing because of a validation error. |Check if the table referenced in your query is set to [Compare the Basic and Analytics log data plans](../logs/basic-logs-configure.md#compare-the-basic-and-analytics-log-data-plans), which doesn't support alerts. |
+|Query validation error|The query is failing because of a validation error. |Check if the table referenced in your query is set to the [Basic or Auxiliary table plans](../logs/logs-table-plans.md), which don't support alerts. |
 |Workspace not found |The target Log Analytics workspace for this alert rule couldn't be found. |The target specified in the scope of the alert rule was moved, renamed, or deleted. Recreate your alert rule with a valid Log Analytics workspace target.|
 |Application Insights resource not found|The target Application Insights resource for this alert rule couldn't be found.     |The target specified in the scope of the alert rule was moved, renamed, or deleted. Recreate your alert rule with a valid Log Analytics workspace target.    |
 |Query is throttled|The query is failing for the rule because of throttling (Error 429).     |Review your query and the [log queries limits](../service-limits.md#user-query-throttling).    |
@@ -65,6 +69,7 @@ This table describes the possible resource health status values for a log search
 |NSP validation failed |The query is failing because of NSP validations issues.| Review your network security perimeter rules to ensure your alert rule is correctly configured.|
 |Active alerts limit exceeded |Alert evaluation failed due to exceeding the limit of fired (non- resolved) alerts per day.     |See [Azure Monitor service limits](../service-limits.md).   |
 |Dimension combinations limit exceeded | Alert evaluation failed due to exceeding the allowed limit of dimension combinations values meeting the threshold.|See [Azure Monitor service limits](../service-limits.md).     |
+|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health, the frequency should be 5 minutes or lower. |
 
 
 ## Add a new resource health alert

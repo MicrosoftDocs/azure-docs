@@ -2,7 +2,7 @@
 title: Troubleshoot collection of Prometheus metrics in Azure Monitor
 description: Steps that you can take if you aren't collecting Prometheus metrics as expected.
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 02/28/2024
 ms.reviewer: aul
 ---
 
@@ -10,11 +10,13 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected in Azure Monitor.
 
-Replica pod scrapes metrics from `kube-state-metrics` and custom scrape targets in the `ama-metrics-prometheus-config` configmap. DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
+Replica pod scrapes metrics from `kube-state-metrics`, custom scrape targets in the `ama-metrics-prometheus-config` configmap and custom scrape targets defined in the [Custom Resources](prometheus-metrics-scrape-crd.md). DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
 
 ## Troubleshoot using powershell script
 
 If you encounter an error while you attempt to enable monitoring for your AKS cluster, please follow the instructions mentioned [here](https://github.com/Azure/prometheus-collector/tree/main/internal/scripts/troubleshoot) to run the troubleshooting script. This script is designed to do a basic diagnosis of for any configuration issues on your cluster and you can ch the generated files while creating a support request for faster resolution for your support case.
+
+## Missing metrics
 
 ## Metrics Throttling
 
@@ -23,6 +25,8 @@ In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` a
 :::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
 
 If either of them are more than 100%, ingestion into this workspace is being throttled. In the same workspace, navigate to `New Support Request` to create a request to increase the limits. Select the issue type as `Service and subscription limits (quotas)` and the quota type as `Managed Prometheus`.
+
+You can also monitor and set up an alert on the ingestion limits. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota) to avoid metrics ingestion throttling.
 
 ## Intermittent gaps in metric data collection
 
@@ -36,8 +40,8 @@ Check the pod status with the following command:
 kubectl get pods -n kube-system | grep ama-metrics
 ```
 
-- There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replica pod, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
-- Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied:
+- There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replica pod, one `ama-metrics-operator-targets-*`, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
+- Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied. The ama-metrics-operator-targets-* pod might have an extra restart at the beginning and this is expected:
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/pod-status.png" alt-text="Screenshot showing pod status." lightbox="media/prometheus-metrics-troubleshoot/pod-status.png":::
 
@@ -50,6 +54,10 @@ kubectl describe pod <ama-metrics pod name> -n kube-system
 - This command provides the reason for the restarts. Pod restarts are expected if configmap changes have been made. If the reason for the restart is `OOMKilled`, the pod can't keep up with the volume of metrics. See the scale recommendations for the volume of metrics.
 
 If the pods are running as expected, the next place to check is the container logs.
+
+## Check for relabeling configs
+
+If metrics are missing, you can also check if you have relabeling configs. With relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets. Refer to [Prometheus relabel config documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) for more details.
 
 ## Container logs
 View the container logs with the following command:
@@ -66,6 +74,14 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
       - If so, check that the Data Collection Rule and Data Collection Endpoint exist in your resource group.
       - Also verify that the Azure Monitor Workspace exists.
       - Verify that you don't have a private AKS cluster and that it's not linked to an Azure Monitor Private Link Scope for any other service. This scenario is currently not supported.
+
+### Config Processing 
+View the container logs with the following command:
+
+```
+kubectl logs <ama-metrics-operator-targets pod name> -n kube-system -c config-reader
+```
+
 - Verify there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
 - If you did include a custom Prometheus config, verify that it's recognized in the logs. If not:
   - Verify that your configmap has the correct name: `ama-metrics-prometheus-config` in the `kube-system` namespace.
@@ -81,6 +97,10 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
         scrape_configs:
         - job_name: <your scrape job here>
     ```
+- If you did create [Custom Resources](prometheus-metrics-scrape-crd.md), you should have seen any validation errors during the creation of pod/service monitors. If you still don't see the metrics from the targets make sure that the logs show no errors.
+```
+kubectl logs <ama-metrics-operator-targets pod name> -n kube-system -c targetallocator
+```
 - Verify there are no errors from `MetricsExtension` regarding authenticating with the Azure Monitor workspace.
 - Verify there are no errors from the `OpenTelemetry collector` about scraping the targets.
 
@@ -97,13 +117,14 @@ If there are no errors in the logs, the Prometheus interface can be used for deb
 
 ## Prometheus interface
 
-Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090. Port-forward into either the replica pod or one of the daemon set pods to check the config, service discovery and targets endpoints as described here to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
+Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090. 
+Custom config and [Custom Resources](prometheus-metrics-scrape-crd.md) targets are scraped by the `ama-metrics-*` pod and the node targets by the `ama-metrics-node-*` pod.
+Port-forward into either the replica pod or one of the daemon set pods to check the config, service discovery and targets endpoints as described here to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
 - Open a browser to the address `127.0.0.1:9090/config`. This user interface has the full scrape configuration. Verify all jobs are included in the config.
 :::image type="content" source="media/prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs." lightbox="media/prometheus-metrics-troubleshoot/config-ui.png":::
-
 
 - Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, when missing metrics from a certain pod, you can find if that pod was discovered and what its URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery." lightbox="media/prometheus-metrics-troubleshoot/service-discovery.png":::
@@ -112,23 +133,39 @@ Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 - Go to `127.0.0.1:9090/targets` to view all jobs, the last time the endpoint for that job was scraped, and any errors 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/targets.png" alt-text="Screenshot showing targets." lightbox="media/prometheus-metrics-troubleshoot/targets.png":::
 
+### Custom Resources
+- If you did include [Custom Resources](prometheus-metrics-scrape-crd.md), make sure they show up under configuration, service discovery and targets.
+
+#### Configuration
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-pod-monitor-config.png" alt-text="Screenshot showing configuration jobs for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-pod-monitor-config.png":::
+
+#### Service Discovery
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-sd-pod-svc-monitor.png" alt-text="Screenshot showing sd for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-sd-pod-svc-monitor.png":::
+
+#### Targets
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-targets-pod-svc-monitor.png" alt-text="Screenshot showing targets for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-targets-pod-svc-monitor.png":::
+
+
 If there are no issues and the intended targets are being scraped, you can view the exact metrics being scraped by enabling debug mode.
 
 ## Debug mode
 
-The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](prometheus-metrics-scrape-configuration.md#debug-mode). This mode can affect performance and should only be enabled for a short time for debugging purposes.
+> [!WARNING]
+> This mode can affect performance and should only be enabled for a short time for debugging purposes.
 
-When enabled, all Prometheus metrics that are scraped are hosted at port 9090. Run the following command:
+The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](prometheus-metrics-scrape-configuration.md#debug-mode).
+
+When enabled, all Prometheus metrics that are scraped are hosted at port 9091. Run the following command:
 
 ```
-kubectl port-forward <ama-metrics pod name> -n kube-system 9090
+kubectl port-forward <ama-metrics pod name> -n kube-system 9091
 ``` 
 
-Go to `127.0.0.1:9090/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This user interface can be accessed for every `ama-metrics-*` pod. If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. Also check for exceeding the ingestion quota for Prometheus metrics as specified in this article.
+Go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This user interface can be accessed for every `ama-metrics-*` pod. If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. Also check for exceeding the ingestion quota for Prometheus metrics as specified in this article.
 
 ## Metric names, label names & label values
 
-Agent based scraping currently has the limitations in the following table:
+Metrics scraping currently has the limitations in the following table:
 
 | Property | Limit |
 |:---|:---|
@@ -149,7 +186,15 @@ If you see metrics missed, you can first check if the ingestion limits are being
 - Events Per Minute Ingested Limit - The maximum number of events per minute that can be ingested before getting throttled
 - Events Per Minute Ingested % Utilization - The percentage of current metric ingestion rate limit being util
 
+To avoid metrics ingestion throttling, you can **monitor and set up an alert on the ingestion limits**. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota).
+
 Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace. Ensure you include the ID, internal ID and Location/Region for the Azure Monitor workspace in the support request, which you can find in the `Properties' menu for the Azure Monitor workspace in the Azure portal.
+
+## Creation of Azure Monitor Workspace failed due to Azure Policy evaluation
+
+If creation of Azure Monitor Workspace fails with an error saying "*Resource 'resource-name-xyz' was disallowed by policy*", there might an Azure policy that is preventing the resource to be created. If there is a policy that enforces a naming convention for your Azure resources or resource groups, you will need to create an exemption for the naming convention for creation of an Azure Monitor Workspace.
+
+When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form "*azure-monitor-workspace-name*" will automatically be created in a resource group in the form "*MA_azure-monitor-workspace-name_location_managed*". Currently there is no way to change the names of these resources, and you will need to set an exemption on the Azure Policy to exempt the above resources from policy evaluation. See [Azure Policy exemption structure](../../governance/policy/concepts/exemption-structure.md).
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: Related GitHub Projects for Azure Health Data Services
 description: Lists all Open Source (GitHub) repositories
 services: healthcare-apis
 author: evachen96
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: reference
-ms.date: 10/18/2023
+ms.date: 03/11/2024
 ms.author: evach
 ---
 
@@ -80,7 +80,7 @@ This solution enables you to transform the data into tabular format as it gets w
 
 ## DICOM service
 
-The DICOM service provides an open-source [Medical Imaging Server](https://github.com/microsoft/dicom-server) for DICOM that is easily deployed on Azure. It allows standards-based communication with any DICOMweb™ enabled systems, and injects DICOM metadata into a FHIR server to create a holistic view of patient data. See [DICOM service](./dicom/get-started-with-dicom.md) for more information.
+The DICOM service provides an open-source [Medical Imaging Server](https://github.com/microsoft/dicom-server) for DICOM that is easily deployed on Azure. It allows standards-based communication with any DICOMweb™ enabled systems, and injects DICOM metadata into a FHIR server to create a holistic view of patient data. For more information, see [Manage medical imaging data with the DICOM service](./dicom/dicom-data-lake.md).
 
 ## Next steps
 

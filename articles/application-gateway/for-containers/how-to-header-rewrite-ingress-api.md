@@ -3,14 +3,14 @@ title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
-# Header rewrite for Azure Application Gateway for Containers - Ingress API (preview)
+# Header rewrite for Azure Application Gateway for Containers - Ingress API
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
 
@@ -19,32 +19,31 @@ Application Gateway for Containers allows you to rewrite HTTP headers of client 
 Header rewrites take advantage of Application Gateway for Container's IngressExtension custom resource.
 
 ## Background
+
 Header rewrites enable you to modify the request and response headers to and from your backend targets.
 
 The following figure illustrates an example of a request with a specific user agent being rewritten to a simplified value called `rewritten-user-agent` when the request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-ingress-api/header-rewrite.png) ](./media/how-to-header-rewrite-ingress-api/header-rewrite.png#lightbox)
+[![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-ingress-api/header-rewrite.png)](./media/how-to-header-rewrite-ingress-api/header-rewrite.png#lightbox)
 
 ## Prerequisites
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
-  
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
-## Deploy the required Gateway API resources
+   ```bash
+   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   ```
+  
+   This command creates the following on your cluster:
+
+   - a namespace called `test-infra`
+   - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+
+## Deploy the required Ingress API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
@@ -80,6 +79,7 @@ EOF
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
+
 1. Set the following environment variables
 
 ```bash
@@ -91,6 +91,7 @@ FRONTEND_NAME='frontend'
 ```
 
 2. Create an Ingress resource to listen for requests to `contoso.com`
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -166,12 +167,11 @@ status:
         protocol: TCP
 ```
 
-
 Once the Ingress is created, next we need to define an IngressExtension with the header rewrite rules.
 
-In this example, we set a static user-agent with a value of `rewritten-user-agent`. 
+In this example, we set a static user-agent with a value of `rewritten-user-agent`.
 
-This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
+This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
 > For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
@@ -194,13 +194,14 @@ spec:
                 value: "rewritten-user-agent"
             add:
               - name: "AGC-Header-Add"
-                value: "agc-value"
+                value: "AGC-value"
             remove:
               - "client-custom-header"
 EOF
 ```
 
-Once the HTTPRoute resource is created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
+
 ```bash
 kubectl get IngressExtension header-rewrite -n test-infra -o yaml
 ```
@@ -223,6 +224,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -261,6 +263,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com -H "user-agent: my-u
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -291,7 +294,7 @@ Via the response we should see:
 }
 ```
 
-Specifying a `client-custom-header` header with the value `moo` should be stripped from the request when AGC initiates the connection to the backend service:
+Specifying a `client-custom-header` header with the value `moo` should be stripped from the request when Application Gateway for Containers initiates the connection to the backend service:
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
@@ -299,6 +302,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com -H "client-custom-he
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -329,4 +333,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and modified header values via Gateway API on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller, deployed a backend application and modified header values via Ingress API on Application Gateway for Containers.

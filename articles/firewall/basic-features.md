@@ -1,17 +1,17 @@
 ---
 title: Azure Firewall Basic features
-description: Learn about Azure Firewall Basic features
+description: Learn about Azure Firewall Basic features.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 06/14/2024
 ms.author: victorh
 ---
 
 # Azure Firewall Basic features
 
-[Azure Firewall](overview.md) Basic is a managed, cloud-based network security service that protects your Azure Virtual Network resources. 
+[Azure Firewall Basic](overview.md#azure-firewall-basic)  is a managed, cloud-based network security service that protects your Azure Virtual Network resources. 
 
 :::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
 
@@ -29,7 +29,7 @@ Azure Firewall Basic includes the following features:
 - Azure Monitor logging
 - Certifications
 
-To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+To compare Azure Firewall features for all Firewall versions, see [Choose the right Azure Firewall version to meet your needs](choose-firewall-sku.md).
  
 ## Built-in high availability
 
@@ -37,7 +37,7 @@ High availability is built in, so no extra load balancers are required and there
 
 ## Availability Zones
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons.  For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons. For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -45,7 +45,7 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 
 ## Application FQDN filtering rules
 
-You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
+You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require Transport Layer Security (TLS) termination.
 
 The following video shows how to create an application rule: <br><br>
 
@@ -77,6 +77,8 @@ If your organization uses a public IP address range for private networks, Azure 
 
 You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
 
+For more detailed information about Azure Firewall NAT behaviors, see [Azure Firewall NAT Behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
+
 ## Inbound DNAT support
 
 Inbound Internet network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
@@ -85,7 +87,7 @@ Inbound Internet network traffic to your firewall public IP address is translate
 
 You can associate [multiple public IP addresses](deploy-multi-public-ip-powershell.md) with your firewall. 
 
-This enables the following scenarios:
+Multiple public IP addresses enable the following scenarios:
 
 - DNAT - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - SNAT - More ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md) to simplify this configuration.

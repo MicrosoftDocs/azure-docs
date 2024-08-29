@@ -1,6 +1,6 @@
 ---
 title: Planning for an Azure Elastic SAN
-description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
+description: Plan for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual

@@ -38,7 +38,7 @@ section outlines the expected steps for migration.
 1. Unregister servers from Azure Automation State Configuration
 1. Assign configurations to servers using machine configuration
 
-Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
+Machine configuration uses DSC version 2 with PowerShell version 7. DSC version 3 can coexist with
 older versions of DSC in [Windows][02] and [Linux][03]. The implementations are separate. However,
 there's no conflict detection.
 
@@ -102,7 +102,7 @@ $getParams = @{
     AutomationAccountName = '<your-automation-account-name>'
 }
 
-Get-AzAutomationDscConfiguration @params
+Get-AzAutomationDscConfiguration @getParams
 ```
 
 ```Output

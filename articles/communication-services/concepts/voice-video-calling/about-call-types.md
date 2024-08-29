@@ -2,12 +2,12 @@
 title: Voice and video concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services call types.
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 06/30/2021
+ms.author: micahvivion
+ms.date: 03/11/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -41,10 +41,16 @@ A group call on Azure Communication Services happens when three or more particip
 A call that takes place within the context of a Room. A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../rooms/room-concept.md). 
 
 ### Supported video standards
-We support H.264 (MPEG-4).
+We support H.264 (MPEG-4) video codec.
 
 ### Video quality
-We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) SDK, we support Standard HD 720p. The quality depends on the available bandwidth.
+| Maximum video resolution | WebJS | iOS | Android | Windows |
+| ------------- | ----- | ----- | ------- | ------- |
+| **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
+| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
+| **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
+
+The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streans and other overall call parameters.
 
 ## Next steps
 

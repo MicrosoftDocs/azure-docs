@@ -2,7 +2,7 @@
 title: View and manage labs
 description: Learn how to create a lab, configure a lab, view all the labs, or delete a lab. 
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.date: 07/04/2023
 ---
 
 # Manage labs in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article describes how to create and delete labs. It also shows you how to view all the labs in a lab plan.
 
@@ -24,6 +26,8 @@ This article describes how to create and delete labs. It also shows you how to v
 ## View all labs
 
 # [Lab Services website](#tab/lab-services-website)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Navigate to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 
@@ -44,6 +48,8 @@ This article describes how to create and delete labs. It also shows you how to v
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 To access your lab in Teams:
 
 1. Sign into Microsoft Teams with your organizational account.
@@ -57,6 +63,8 @@ To access your lab in Teams:
     :::image type="content" source="./media/how-to-manage-labs/teams-view-labs.png" alt-text="Screenshot that shows the list of labs in Microsoft Teams.":::
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Sign into Canvas, and select your course.
 

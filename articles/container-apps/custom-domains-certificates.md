@@ -3,10 +3,10 @@ title: Custom domain names and certificates in Azure Container Apps
 description: Learn to manage custom domain names and certificates in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 05/28/2024
 ms.author: cshoe
 ---
 
@@ -16,20 +16,20 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 - Every domain name must be associated with a TLS/SSL certificate. You can upload your own certificate or use a [free managed certificate](custom-domains-managed-certificates.md).
 - Certificates are applied to the container app environment and are bound to individual container apps. You must have role-based access to the environment to add certificates.
-- [SNI domain certificates](https://wikipedia.org/wiki/Server_Name_Indication) are required.
+- [SNI (Server Name Identification) domain certificates](https://wikipedia.org/wiki/Server_Name_Indication) are required.
 - Ingress must be enabled for the container app.
 
 > [!NOTE]
-> If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
+> If you configure a [custom environment DNS (Domain Name System) suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
 
 ## Add a custom domain and certificate
 
 > [!IMPORTANT]
-> If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.  
+> If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.
 
 1. Navigate to your container app in the [Azure portal](https://portal.azure.com)
 
-1. Verify that your app has ingress enabled by selecting **Ingress** in the *Settings* section.  If ingress is not enabled, enable it with these steps:
+1. Verify that your app has ingress enabled by selecting **Ingress** in the *Settings* section. If ingress isn't enabled, enable it with these steps:
 
    1. Set *HTTP Ingress* to **Enabled**.
    1. Select the desired *Ingress traffic* setting.
@@ -60,7 +60,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
     | Domain type | Record type | Notes |
     |--|--|--|
-    | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
+    | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS (Domain Name System) zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
 1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it.
@@ -101,7 +101,7 @@ You can manage your certificates through the following actions:
 | Action | Description |
 |--|--|
 | Add | Select the **Add certificate** link to add a new certificate. |
-| Delete | Select the trash can icon to remove a certificate.  |
+| Delete | Select the trash can icon to remove a certificate. |
 | Renew | The *Health status* field of the table indicates that a certificate is expiring soon within 60 days of the expiration date. To renew a certificate, select the **Renew certificate** link to upload a new certificate. |
 
 ### Container app

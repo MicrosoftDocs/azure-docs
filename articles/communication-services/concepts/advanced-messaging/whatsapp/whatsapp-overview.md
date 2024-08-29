@@ -6,16 +6,14 @@ author: darmour
 manager: sundraman
 services: azure-communication-services
 ms.author: darmour
-ms.date: 06/26/2023
+ms.date: 02/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Advanced Messaging for WhatsApp in Azure Communication Services
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
-
-Azure Communication Services enables you to send and receive WhatsApp messages using the Azure Communication Services Messaging SDK. This SDK can be used to engage in conversation with a customer for product inquiry and customer service scenarios. It can also be used to send out messages like appointment reminders, shipping updates, two-factor authentication, and other notification scenarios.
+Azure Communication Services enables you to send and receive WhatsApp messages using the Azure Communication Services Messaging SDK. You can use this SDK to engage in conversations with customers for product inquiry and customer service scenarios. You can also use it to send messages such as appointment reminders, shipping updates, two-factor authentication, and other notification scenarios.
 
 [!INCLUDE [Survey Request](../../../includes/survey-request.md)]
 

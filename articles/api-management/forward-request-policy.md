@@ -4,13 +4,15 @@ description: Reference for the forward-request policy available for use in Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 10/19/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Forward request
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
@@ -44,7 +46,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Examples
 
@@ -151,6 +153,6 @@ This operation level policy doesn't forward requests to the backend service.
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Routing](api-management-policies.md#routing)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

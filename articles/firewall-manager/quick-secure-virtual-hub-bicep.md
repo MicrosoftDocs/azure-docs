@@ -6,7 +6,7 @@ author: vhorne
 ms.author: victorh
 ms.date: 06/28/2022
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 In this quickstart, you use Bicep to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 

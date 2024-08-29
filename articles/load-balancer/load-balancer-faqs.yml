@@ -4,9 +4,9 @@ metadata:
   description: Answers to frequently asked questions about the Azure Load Balancer. 
   services: load-balancer
   author: mbender-ms
-  ms.service: load-balancer
+  ms.service: azure-load-balancer
   ms.topic: faq
-  ms.date: 04/17/2023
+  ms.date: 04/10/2024
   ms.author: mbender
   ms.custom: engagement-fy23
 title: Load Balancer frequently asked questions
@@ -75,7 +75,12 @@ sections:
       - question: |
           How do connections to Azure Storage in the same region work?
         answer: |
-          Having outbound connectivity via the scenarios above isn't necessary to connect to storage in the same region as the VM. Use network security groups (NSGs) as explained above to prevent this behavior. For connectivity to storage in other regions, outbound connectivity is required. The source IP address in the storage diagnostic logs is an internal provider address, and not the public IP address of your VM when connecting to storage from a VM in the same region. To restrict access to your storage account to VMs in one or more virtual network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Don't use your public IP address when configuring your storage account firewall. When service endpoints are configured, you see your virtual network private IP address in your storage diagnostic logs and not the internal provider address.
+          Azure's internal network infrastructure keeps traffic between Azure services in the same region stays within the Azure network, by default. This means when Load Balancer and Azure Storage account are in the same region, the traffic between them doesn't traverse the internet by remaining on the internal Azure network backbone. However, the exact behavior can depend on the specific configuration of your Azure services, including network security group rules, routing, and any other network controls you have in place.
+
+      - question: |
+          How do connections to Azure Storage in different regions work?
+        answer: |
+          For connectivity to storage in other regions, outbound connectivity is required. The source IP address in the storage diagnostic logs is an internal provider address, and not the public IP address of your VM when connecting to storage from a VM in the same region. To restrict access to your storage account to VMs in one or more virtual network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Don't use your public IP address when configuring your storage account firewall. When service endpoints are configured, you see your virtual network private IP address in your storage diagnostic logs and not the internal provider address.
           
       - question: |
           Does Azure Load Balancer support TLS/SSL termination?
@@ -109,6 +114,11 @@ sections:
            Using outbound rules allows you fine grained control over all aspects of outbound connectivity.
            
       - question: |
+          Is it expected for one frontend IP to be used when I have multiple frontend IP addresses or a prefix on my outbound rules?
+        answer: |
+          Azure Load Balancer will use IPs as needed based on available ports. It will only use the next frontend IP once the connections cannot be made from the one IP.
+      
+      - question: |
           How can I view the traffic from my configured health probe(s)?
         answer: |
           To view the traffic sent to each backend instance from the health probe you can use IP stack statistics with a tool such as netstat. The health probe traffic originates from 168.63.129.16.
@@ -126,7 +136,12 @@ sections:
       - question: |
           Can I ping my load balancer?
         answer: |
-          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md)  
+          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md) 
+          
+      - question: |
+          Can I include On-premises IPs in the backend pool of Azure Load Balancer?
+        answer: |
+          No, Azure Load Balancer does not support the direct addition of On-premises IPs to its backend pool. The load balancer employs a platform-specific IP address (168.63.129.16) for health probes, limited to communication within Azure's virtual network. Consequently, it cannot probe resources located on-premises.
 
 additionalContent: |
 

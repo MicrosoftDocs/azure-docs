@@ -2,7 +2,7 @@
 title: Receive activity log alerts on Azure service notifications using Azure portal
 description: Learn how to use the Azure portal to set up activity log alerts for service health notifications by using the Azure portal.
 ms.topic: quickstart
-ms.date: 06/27/2019
+ms.date: 07/31/2024
 ---
 
 # Create activity log alerts on service notifications using the Azure portal
@@ -30,10 +30,6 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/alerts/alerts-activity-log.md).
 
-## Watch a video on setting up your first Azure Service Health alert
-
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
-
 ## Create a Service Health alert using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
@@ -47,7 +43,7 @@ For information on how to configure service health notification alerts by using 
 
     ![The "Create service health alert" command](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1. The **Create an alert rule wizard** opens to the **Conditions** tab, with the **Scope** tab already populated. Follow the steps for Service Health alerts, starting from the **Conditions** tab, in the [create a new alert rule wizard](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. The **Create an alert rule wizard** opens to the **Conditions** tab, with the **Scope** tab already populated. Follow the steps for Service Health alerts, starting from the **Conditions** tab, in the [create a new alert rule wizard](../azure-monitor/alerts/alerts-create-activity-log-alert-rule.md?tabs=activity-log).
 
 
 Learn how to [Configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).

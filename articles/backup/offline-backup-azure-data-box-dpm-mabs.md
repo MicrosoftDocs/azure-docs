@@ -2,8 +2,8 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 08/04/2022
-ms.service: backup
+ms.date: 05/24/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -54,9 +54,11 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 - The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
-    > [!NOTE]
-    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this isn't mandatory.
+
+  >[!NOTE]
+  >We recommend that the target storage account and the Recovery Services vault be in the same region. However, this isn't mandatory.
 
 ### Order and receive the Data Box device
 
@@ -116,7 +118,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 5. On the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 6. On the **Choose replica creation method** page, select **Automatically over the network.**
 7. On the **Choose consistency check options** page, select how you want to automate consistency checks.
-8. On the **Specify online protection data** page, select the member you want enable online protection.
+8. On the **Specify online protection data** page, select the member you want to enable online protection.
 
     ![Specify online protection data](./media/offline-backup-azure-data-box-dpm-mabs/specify-online-protection-data.png)
 

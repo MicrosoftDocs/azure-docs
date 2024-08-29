@@ -5,13 +5,12 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you learn how to add data channel messaging to your existing Windows calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 05/04/2023
+ms.date: 03/01/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 >[!IMPORTANT]
 > Please be aware that the current Data Channel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 
@@ -25,18 +24,21 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | DataChannelCallFeature | Used to start and manage data channel feature. | 
 | DataChannelSender | Used to manage a data channel as a sender and send data. | 
 | DataChannelReceiver | Used to manage a data channel as a receiver and receive data. |
-| DataChannelSenderCreateOptions | Used for representing options to create a data channel sender. |
-### Events
-| Name | Description |  
-| - | - |
-| DataChannelReceiverCreated | Describes the event when a receiver is created. A new receiver is created when receiving a data message from another endpoint through a new data channel for the first time. |
-| DataChannelReceiverMessageReceived | Describes the event when a data message is received and ready to be fetched. |
-| DataChannelReceiverClosed | Describes the event when a data channel receiver is to be closed. |
+| DataChannelSenderOptions | Used for representing options to create a data channel sender. |
 ### Enums
 | Name | Description |  
 | - | - | 
 | DataChannelPriority | Describes the priority options of data channel. Values: { `Normal`, `High` }. | 
 | DataChannelReliability | Describes the reliability options of data channel. Values: { `Lossy`, `Durable` }. |
+### Error Code
+| Name | Description |  
+| - | - | 
+| _DataChannelFailedToStart_ | `GetDataChannelSender()` can fail with this error code, indicating underlying Data Channel is not ready to be used. | 
+| _DataChannelRandomIdNotAvailable_ | `GetDataChannelSender()` can fail with this error code, indicating all available random channel IDs have already been used. | 
+| _DataChannelSenderClosed_ | `SendMessage()` can fail with this error code, indicating the sender has already been closed previously. |
+| _DataChannelMessageSizeOverLimit_ | `SendMessage()` can fail with this error code, indicating the message data size exceeds the limit. You can get the message size limit using `MaxMessageSizeInBytes` in `DataChannelSender`. |
+| _DataChannelMessageFailureForBandwidth_ | `SendMessage()` can fail with this error code, indicating a failure in sending the message due to not enough bandwidth. | 
+| _DataChannelMessageFailureForTrafficLimit_ | `SendMessage()` can fail with this error code, indicating a failure in sending the message due to the overall usage of Data Channel not in compliance with the traffic limit rules. Refer to [Data Channel Concept Document](../../../../concepts/voice-video-calling/data-channel.md) for details of the traffic limit. |
 ### Methods
 #### Enable Data Channel feature
 
@@ -61,23 +63,22 @@ void DataChannelReceiverCreatedHandler(object sender, DataChannelReceiverCreated
 ```
 2. Attach the `DataChannelReceiverCreatedHandler`.
 ```csharp
-dataChannelCallFeature.DataChannelReceiverCreated += DataChannelReceiverCreatedHandler;
+dataChannelCallFeature.ReceiverCreated += DataChannelReceiverCreatedHandler;
  ```
-3. Define the DataChannelReceiverMessageReceived event handler.
+3. Define the MessageReceived event handler.
 ```csharp
-void MessageReceivedHandler(object sender, DataChannelReceiverMessageReceivedEventArgs args) 
+void MessageReceivedHandler(object sender, PropertyChangedEventArgs args) 
 {
-    DataChannelMessage message = args.Receiver.ReadMessage(); // read the data message from the receiver
-    uint sequence = message.SequenceNumber; // get the message sequence number
+    DataChannelMessage message = (sender as DataChannelReceiver).ReceiveMessage(); // read the data message from the receiver
+    long sequence = message.SequenceNumber; // get the message sequence number
     byte[] data = message.Data; // get the data content
 }
 ```
-4. Define the DataChannelReceiverClosed event handler.
+4. Define the Closed event handler.
 ```csharp
-void ReceiverClosedHandler(object sender, DataChannelReceiverClosedEventArgs args) 
+void ReceiverClosedHandler(object sender, PropertyChangedEventArgs args) 
 {
-        DataChannelReceiver receiver = ergs.Receiver; // get the data channel receiver to be closed
-        // clean up resources related to the receiver
+    DataChannelReceiver receiver = sender as DataChannelReceiver; // get the data channel receiver to be closed
 };
 ```
 5. Attach the `MessageReceivedHandler` and `ReceiverClosedHandler`.
@@ -86,20 +87,21 @@ receiver.MessageReceived += MessageReceivedHandler;
 receiver.Closed += ReceiverClosedHandler;
 ```
 #### Sending data message
-1. Configure the DataChannelSenderCreateOptions.
+1. Configure the DataChannelSenderOptions.
 ```csharp
-DataChannelSenderCreateOptions options = new DataChannelSenderCreateOptions();
+DataChannelSenderOptions options = new DataChannelSenderOptions();
 options.ChannelId = 1000;
 options.BitrateInKbps = 32;
-options.Priority = DataChannelPriority.NORMAL;
-options.Reliability = DataChannelReliability.LOSSY;
+options.Priority = DataChannelPriority.Normal;
+options.Reliability = DataChannelReliability.Lossy;
 var participants = new List<CallIdentifier> { /* identifier1, identifier2, ... */ };
 options.Participants = participants.AsReadOnly();
 ```
 2. Define the DataChannelSender and send data message
 ```csharp
-DataChannelSender dataChannelSender = dataChannelCallFeature.CreateDataChannelSender(options);
-dataChannelSender.SetParticipants(new List<CallIdentifier>().AsReadOnly()); // change participants in the channel if needed
-dataChannelSender.SendMessageAsync(msgData); // msgData contains the byte[] data to be sent
-
+DataChannelSender sender = dataChannelCallFeature.GetDataChannelSender(options);
+// msgData contains the byte[] data to be sent
+sender.SendMessage(msgData);
+// change participants in the channel if needed
+sender.SetParticipants(new List<CallIdentifier>().AsReadOnly()); 
 ```

@@ -3,8 +3,8 @@ title: Create additional Packet Core instances for a site - Azure portal
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create additional packet core instances for a site in your private mobile network. 
 author: James-Green-Microsoft
-ms.author: jamesgreen
-ms.service: private-5g-core
+ms.author: jagre
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.custom: template-how-to 

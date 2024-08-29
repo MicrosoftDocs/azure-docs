@@ -15,7 +15,7 @@ The following code example demonstrates how to connect to Service Bus using pass
 A .NET application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
-ServiceBusClient serviceBusClient = new(
-    new Uri($"https://{serviceBusNamespace}.blob.core.windows.net"),
+client = new ServiceBusClient(
+    "<NAMESPACE-NAME>.servicebus.windows.net",
     new DefaultAzureCredential());
 ```

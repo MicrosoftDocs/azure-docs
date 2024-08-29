@@ -3,7 +3,7 @@ title: Template resource location
 description: Describes how to set resource location in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
 
 # Set resource location in ARM template

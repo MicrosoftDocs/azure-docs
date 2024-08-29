@@ -1,0 +1,56 @@
+# %version 1
+contentPath: articles\storage\blobs\assign-azure-role-data-access.md
+
+steps:
+- task: SetPlaceholder@1
+  textToReplace: <email>
+  replacementText: 
+  uid: cb105ef6
+- task: SetPlaceholder@1
+  textToReplace: <subscription-id>
+  replacementText: 
+  uid: e3ce9356
+- task: SetPlaceholder@1
+  textToReplace: ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+  replacementText: 
+  uid: 2de8753c
+- task: SetPlaceholder@1
+  textToReplace: <resource-group-name>
+  replacementText: myResourceGroup
+  uid: 542306be
+- task: SetPlaceholder@1
+  textToReplace: <storage-account-name>
+  replacementText: 
+  uid: "57011072"
+- task: SetPlaceholder@1
+  textToReplace: <container-name>
+  replacementText: 
+  uid: c0f2f9d5
+- task: RunCommand@1
+  environment:
+    type: azure-cloud-shell-pwsh
+  outputValidationRules:
+  - operator: contains
+    value: 'RoleDefinitionName : Storage Blob Data Contributor'
+  uid: fee1778
+- task: RunCommand@1
+  environment:
+    type: azure-cloud-shell-pwsh
+  outputValidationRules:
+  - operator: contains
+    value: 'RoleDefinitionName : Storage Blob Data Reader'
+  uid: 3361d580
+- task: RunCommand@1
+  environment:
+    type: az-cli
+  outputValidationRules:
+  - operator: contains
+    value: '"roleDefinitionName": "Storage Blob Data Contributor"'
+  uid: 60f1639b
+- task: RunCommand@1
+  environment:
+    type: az-cli
+  outputValidationRules:
+  - operator: contains
+    value: '"roleDefinitionName": "Storage Blob Data Reader"'
+  uid: 8cdad632
