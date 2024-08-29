@@ -55,7 +55,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ### Cluster management
 
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
-* Don't create new MachineConfig objects or modify existing one, unless explicitly supported in Azure Red Hat OpenShift documentation.
+* Don't create new MachineConfig objects or modify existing ones, unless explicitly supported in Azure Red Hat OpenShift documentation.
 * Don't create new KubeletConfig objects or modify existing ones, unless explicitly supported in Azure Red Hat OpenShift documentation.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
