@@ -20,10 +20,9 @@ Dependency Agent collects data about processes running on the virtual machine an
 
 ## Dependency Agent requirements
 
-* Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
-
-* On both the Windows and Linux versions, Dependency Agent collects data using a user-space service and a kernel driver.
-    * Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+* Requires the Azure Monitor Agent to be installed on the same machine.
+* Collects data using a user-space service and a kernel driver on both Windows and Linux.
+    * Supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     * For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
 ## Install or upgrade Dependency Agent 
@@ -32,9 +31,14 @@ You can upgrade Dependency Agent for Windows and Linux manually or automatically
 
 | Environment | Installation method | Upgrade method |
 |-------------|---------------------|----------------|
-| Azure VM | Dependency Agent VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agent is automatically upgraded by default unless you configured your Azure Resource Manager template to opt out by setting the property *autoUpgradeMinorVersion* to **false**. The upgrade for minor version where auto upgrade is disabled, and a major version upgrade follow the same method - uninstall and reinstall the extension. |
+| Azure VM | Dependency Agent VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agent is automatically upgraded by default unless you configured your Azure Resource Manager template to opt out by setting the property `autoUpgradeMinorVersion` to **false**. The upgrade for minor version where auto upgrade is disabled, and a major version upgrade follow the same method - uninstall and reinstall the extension. |
 | Custom Azure VM images | Manual install of Dependency Agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 | Non-Azure VMs | Manual install of Dependency Agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
+
+> [!NOTE]
+> Dependency Agent is installed automatically when VM Insights is enabled for process and connection data via the [Azure portal](vminsights-enable-portal.md), [PowerShell](./vminsights-enable-powershell.md), [ARM template deployment](./vminsights-enable-resource-manager.md), or [Azure policy](./vminsights-enable-policy.md).
+>
+> If VM insights is enabled exclusively for performance data, Dependency Agent won't be installed.
 
 ### Manually install or upgrade Dependency Agent on Windows 
 
@@ -100,6 +104,9 @@ curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
 If Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
 ## Uninstall Dependency Agent
+
+> [!NOTE]
+> If Dependency Agent was installed manually, it won’t show up in the Azure portal and has to be uninstalled manually. It will show up if installed via the Azure portal, PowerShell, ARM template deployment, and Azure policy.
 
 1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
 
