@@ -211,7 +211,7 @@ kubectl delete spinapp hello-spinkube
 
 To uninstall SpinKube from the AKS cluster, use the following commands:
 
-```bash
+```azurecli-interactive
 # Remove the spin-operator
 helm delete spin-operator --namespace spin-operator
 
