@@ -193,7 +193,7 @@ When these special items are selected, the parameter value is automatically set 
 
 ### Special casing All, and allowing an empty selection to be treated as All
 
-When you select the **All** option, an extra field appears, which allows you to specify that a special value that is used for the parameter if the **All** option is selected. This special value is useful for cases where "All" could be a large number of items and could generate a very large query.
+When you select **All**, an additional field appears, which allows you to specify a special value for the **All** parameter. This is useful when "All" could be a large number of items and could generate a very large query.
 
 :::image type="content" source="./media/workbooks-dropdowns/dropdown-all.png" alt-text="Screenshot of the New Parameter window in the Azure portal. The All option is selected and the All option and Select All value field are highlighted." lightbox="./media/workbooks-dropdowns/dropdown-all.png":::
 
