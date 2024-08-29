@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 08/29/2024
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -104,12 +104,17 @@ The following properties are supported for a SharePoint Online List linked servi
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No          |
+| ***For ServicePrincipalCert*** | | |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory. | No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. | No |
+|  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
-
-**Example:**
+**Example 1: Using service principal key authentication**
 
 ```json
 {
@@ -119,11 +124,45 @@ The following properties are supported for a SharePoint Online List linked servi
         "typeProperties": {
             "siteUrl": "<site URL>",
             "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType":  "ServicePrincipalKey",
             "servicePrincipalKey": {
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
             "tenantId": "<tenant ID>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example 2: Using service principal certificate authentication**
+
+```json
+{
+    "name": "SharePointOnlineList",
+    "properties": {
+        "type": "SharePointOnlineList",
+        "typeProperties": {
+            "siteUrl": "<site URL>",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenantId": "<tenant ID>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
