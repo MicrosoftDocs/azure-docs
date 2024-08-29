@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/19/2024
+ms.date: 08/27/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -52,7 +52,7 @@ spec:
 ```
 
 > [!IMPORTANT]
-> The service account token (SAT) authentication method in the default BrokerAuthentication resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default BrokerAuthentication resource. If you must change the configuration, modify the `authenticationMethods` field in this BrokerAuthentication resource but do not remove the SAT authentication method with the `aio-mq` audience. Preferably, create a new BrokerAuthentication resource with a different name and deploy it using `kubectl apply`.
+> The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource. If you need to make changes, modify the `authenticationMethods` field in this resource while retaining the SAT authentication method with the `aio-mq` audience. Preferably, you can create a new *BrokerAuthentication* resource with a different name and deploy it using `kubectl apply`.
 
 To change the configuration, modify the `authenticationMethods` setting in this BrokerAuthentication resource or create new brand new BrokerAuthentication resource with a different name. Then, deploy it using `kubectl apply`.
 
@@ -113,7 +113,7 @@ To learn more about each of the authentication options, see the following sectio
 
 ## X.509
 
-First, a trusted root CA certificate is required to validate the client certificate. Client certificates must be rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs. To import a root certificate that can be used to validate client certificates, import the certificate PEM as ConfigMap under the key `client_ca.pem`. For example:
+A trusted root CA certificate is required to validate the client certificate. Client certificates must be rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs. To import a root certificate that can be used to validate client certificates, import the certificate PEM as *ConfigMap* under the key `client_ca.pem`. For example:
 
 ```bash
 kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
@@ -121,8 +121,11 @@ kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operat
 
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
-```console
-$ kubectl describe configmap client-ca -n azure-iot-operations
+```bash
+kubectl describe configmap client-ca -n azure-iot-operations
+```
+
+```Output
 Name:         client-ca
 Namespace:    azure-iot-operations
 
@@ -131,9 +134,7 @@ Data
 client_ca.pem:
 ----
 -----BEGIN CERTIFICATE-----
-MIIBmzCCAUGgAwIBAgIQVAZ2I0ydpCut1imrk+fM3DAKBggqhkjOPQQDAjAsMRAw
-...
-t2xMXcOTeYiv2wnTq0Op0ERKICHhko2PyCGGwnB2Gg==
+<Certificate>
 -----END CERTIFICATE-----
 
 
@@ -141,7 +142,7 @@ BinaryData
 ====
 ```
 
-Once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding it as one of the authentication methods as part of a BrokerAuthentication resource linked to a TLS-enabled listener. For example:
+Once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding it as one of the authentication methods as part of a *BrokerAuthentication* resource linked to a TLS-enabled listener. For example:
 
 ```yaml
 spec:
