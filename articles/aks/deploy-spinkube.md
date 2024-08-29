@@ -137,7 +137,7 @@ spin registry push ttl.sh/hello-spinkube:0.0.1
 
 By using the `spin kube scaffold` command, you can create necessary Kubernetes deployment manifests. You can deploy those to Kubernetes using your preferred tooling:
 
-```bash
+```azurecli-interactive
 # Create Kubernetes Deployment Manifests
 spin kube scaffold --from ttl.sh/hello-spinkube:0.0.1 > spinapp.yaml
 
