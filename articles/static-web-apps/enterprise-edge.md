@@ -3,7 +3,7 @@ title: Enterprise-grade edge in Azure Static Web Apps
 description: Learn about Azure Static Web Apps enterprise-grade edge.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: cshoe

@@ -5,10 +5,9 @@ description: This article demonstrates how to visualize warnings and errors retu
 author: faterceros
 ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 ---
 
 # Using the Azure Maps Drawing Error Visualizer with Creator

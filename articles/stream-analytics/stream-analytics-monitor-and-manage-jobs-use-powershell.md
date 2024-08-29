@@ -1,7 +1,7 @@
 ---
 title: Monitor and manage Azure Stream Analytics jobs with PowerShell
 description: This article describes how to use Azure PowerShell and cmdlets to monitor and manage Azure Stream Analytics jobs.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017 
 ms.custom: devx-track-azurepowershell

@@ -1,7 +1,7 @@
 ---
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
-ms.service: backup
+ms.service: azure-backup
 ms.date: 05/27/2024
 ms.topic: conceptual
 author: AbhishekMallick-MS

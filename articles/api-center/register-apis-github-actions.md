@@ -1,7 +1,7 @@
 ---
 title: Register APIs using GitHub Actions - Azure API Center
 description: Learn how to automate the registration of APIs in your API center using a CI/CD workflow based on GitHub Actions.
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.author: danlep

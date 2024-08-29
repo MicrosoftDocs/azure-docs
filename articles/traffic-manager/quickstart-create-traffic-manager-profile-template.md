@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 02/19/2023
 ms.topic: quickstart
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 

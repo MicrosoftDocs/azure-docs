@@ -3,7 +3,6 @@ title: Copy data from SharePoint Online List
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

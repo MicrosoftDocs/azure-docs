@@ -389,6 +389,9 @@ The new work item integration offers the following features over [classic](#clas
 
     You can set specific work item properties directly from the template itself. This includes the assignee, iteration path, projects, & more depending on your version control provider.
 
+   > [!NOTE]
+   > For on-premises Azure DevOps environments, a sample URL such as https://dev.azure.com/test/test can be used as a placeholder for the Azure DevOps Project URL. Once the work item template is created, you can modify the URL and its validation rule within the generated [Azure workbook](/azure/azure-monitor/visualize/workbooks-create-workbook).
+
 ## Create a work item
 
  You can access your new template from any End-to-end transaction details that you can access from Performance, Failures, Availability, or other tabs.

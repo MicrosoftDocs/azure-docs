@@ -3,7 +3,7 @@ title: 'Link a VNet to an ExpressRoute circuit - Azure CLI'
 description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
@@ -110,9 +110,9 @@ The Circuit Owner can review all authorizations that are issued on a particular 
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**To add authorizations**
+**To create an authorization**
 
-The Circuit Owner can add authorizations by using the following example:
+The Circuit Owner can create an authorization by using the following example:
 
 ```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1

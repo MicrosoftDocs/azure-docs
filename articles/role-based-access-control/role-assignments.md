@@ -4,7 +4,7 @@ description: Learn about Azure role assignments in Azure role-based access contr
 author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 08/01/2024
 ms.author: jodowns
 ---
 # Understand Azure role assignments
@@ -154,7 +154,7 @@ For more information about conditions, see [What is Azure attribute-based access
 > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is integrated into role assignment steps. For example, you can assign roles to users for a limited period of time. You can also make users eligible for role assignments so that they must activate to use the role, such as request approval. Eligible role assignments provide just-in-time access to a role for a limited period of time. You can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is integrated into role assignment steps. For example, you can assign roles to users for a limited period of time. You can also make users eligible for role assignments so that they must activate to use the role, such as request approval. Eligible role assignments provide just-in-time access to a role for a limited period of time. You can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
 The assignment type options available to you might vary depending or your PIM policy. For example, PIM policy defines whether permanent assignments can be created, maximum duration for time-bound assignments, roles activations requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
 

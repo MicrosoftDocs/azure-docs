@@ -1,21 +1,18 @@
 ---
 title: How to use reporting and image rendering in Azure Managed Grafana
 description: Learn how to create reports in Azure Managed Grafana and understand performance and limitations of image rendering
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/06/2023
+ms.date: 08/28/2024
 --- 
 
-# Use reporting and image rendering (preview)
+# Use reporting and image rendering
 
 In this guide, you learn how to create reports from your dashboards in Azure Managed Grafana. You can configure to have these reports emailed to intended recipients on a regular schedule or on-demand.
 
 Generating reports in the PDF format requires Grafana's image rendering capability, which captures dashboard panels as PNG images. Azure Managed Grafana installs the image renderer for your instance automatically.
-
-> [!IMPORTANT]
-> Reporting and image rendering are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Image rendering performance
 

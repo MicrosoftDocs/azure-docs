@@ -2,7 +2,7 @@
 title: How to enable your own persistent storage in Azure Spring Apps | Microsoft Docs
 description: Learn how to bring your own storage as persistent storages in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
 ms.author: xuycao

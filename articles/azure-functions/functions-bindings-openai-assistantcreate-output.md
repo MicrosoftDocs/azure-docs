@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI assistant create output binding allows you to create a new assistant chat bot from your function code execution.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](/azure/ai-services/openai/concepts/assistants).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -53,7 +53,7 @@ This example demonstrates the creation process, where the HTTP PUT function that
 
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="7-29" :::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="7-29" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

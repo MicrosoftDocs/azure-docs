@@ -196,7 +196,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificateOrders | resource group | 3-30 | Alphanumerics. |
+> | certificateOrders | resource group | 3-50 | Alphanumerics. |
 
 ## Microsoft.CognitiveServices
 
@@ -696,9 +696,8 @@ In the following tables, the term alphanumeric refers to:
 > | kubernetesClusters | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
 > | kubernetesClusters / agentPools | kubernetes cluster | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
 > | kubernetesClusters / features | kubernetes cluster | 2-63 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric.<br><br> Only predefined values. |
-> | l2Network | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
-> | l3Network | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
-> | l3Network | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | l2Networks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
+> | l3Networks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
 > | racks | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
 > | registrationHubs | resource group | 2-30 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |
 > | registrationHubs / machines | registration hub | 2-40 | Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric. |

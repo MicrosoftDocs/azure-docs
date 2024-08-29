@@ -3,7 +3,6 @@ title: Copy and transform data from and to a REST endpoint
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -649,7 +648,7 @@ Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
-*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 

@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 06/11/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -261,7 +261,7 @@ To decommission a model, you can use the [DecommissionModel](/dotnet/api/azure.d
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
-You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
+You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digital-twin-models-update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-decommission-model.json":::
 
@@ -297,7 +297,7 @@ To delete a model, you can use the [DeleteModel](/dotnet/api/azure.digitaltwins.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
-You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_delete) REST API call.
+You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digital-twin-models-delete) REST API call.
 
 #### After deletion: Twins without models
 

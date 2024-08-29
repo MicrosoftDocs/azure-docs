@@ -4,7 +4,7 @@ description: This article provides information for Cloud Solution Providers that
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 06/30/2023
 ms.author: duau

@@ -3,7 +3,7 @@ title: Region code names for Azure Private 5G Core
 description: Learn about the region code names used for the location parameter in Azure Private 5G Core ARM templates
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: reference
 ms.custom: references_regions
 ms.date: 11/17/2022

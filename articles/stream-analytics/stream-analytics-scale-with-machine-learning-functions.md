@@ -2,7 +2,7 @@
 title: Scale Machine Learning Studio (classic) functions in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs that use Machine Learning Studio (classic) functions, by configuring partitioning and stream units.
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 01/15/2021
 ---
@@ -19,7 +19,7 @@ This article discusses how to efficiently scale Azure Stream Analytics jobs that
 
 A Machine Learning Studio (classic) function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Studio (classic) Web Service requests.
 
-You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Machine Learning Studio (classic) Web Services](../machine-learning/classic/consume-web-services.md). Support for Studio (classic) in Stream Analytics.
+You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Machine Learning Studio (classic) Web Services](/azure/machine-learning/classic/consume-web-services). Support for Studio (classic) in Stream Analytics.
 
 ## Configure a Stream Analytics job with Studio (classic) functions
 
@@ -53,7 +53,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 You can also configure the 'max concurrent calls' on the Studio (classic) web service. It's recommended to set this parameter to the maximum value (200 currently).
 
-For more information on this setting, review the [Scaling article for Machine Learning Studio (classic) Web Services](../machine-learning/classic/create-endpoint.md).
+For more information on this setting, review the [Scaling article for Machine Learning Studio (classic) Web Services](/azure/machine-learning/classic/create-endpoint).
 
 ## Example – Sentiment Analysis
 The following example includes a Stream Analytics job with the sentiment analysis Studio (classic) function, as described in the [Stream Analytics Machine Learning Studio (classic) integration tutorial](stream-analytics-machine-learning-integration-tutorial.md).

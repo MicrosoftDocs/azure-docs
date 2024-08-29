@@ -46,7 +46,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   ```
 
 > [!NOTE]
-> Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. For more information, see [planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance) which explains how update runs handle member clusters that have been configured with planned maintenance windows.
+> Update runs honor [planned maintenance windows](/azure/aks/planned-maintenance) that you set at the AKS cluster level. For more information, see [planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance) which explains how update runs handle member clusters that have been configured with planned maintenance windows.
 
 
 Update run supports two options for the sequence in which the clusters are upgraded:
@@ -74,7 +74,7 @@ Update run supports two options for the sequence in which the clusters are upgra
 
     For the node image, the following options are available:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
-    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](/azure/aks/release-tracker) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 ### [Azure CLI](#tab/cli)
 
@@ -105,7 +105,7 @@ When creating an update run, you have the ability to control the scope of the up
 
 Also, `--node-image-selection` flag supports the following values:
 - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
-- **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+- **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](/azure/aks/release-tracker) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 
 **Starting an update run**:
@@ -202,7 +202,7 @@ You can define an update run using update stages in order to sequentially order 
 
     For the node image, the following options are available:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
-    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](/azure/aks/release-tracker) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 
 1. Click on **Create** at the bottom of the page to create the update run. Specifying stages and their order every time when creating an update run can get repetitive and cumbersome. Update strategies simplify this process by allowing you to store templates for update runs. For more information, see [update strategy creation and usage](#create-an-update-run-using-update-strategies).
@@ -262,7 +262,7 @@ You can define an update run using update stages in order to sequentially order 
 
     Also, `--node-image-selection` flag supports the following values:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
-    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](/azure/aks/release-tracker) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 1. Run the following command to start this update run:
 

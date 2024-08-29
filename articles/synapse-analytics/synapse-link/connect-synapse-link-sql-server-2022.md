@@ -2,7 +2,7 @@
 title: Create Azure Synapse Link for SQL Server 2022
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
 author: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: engagement-fy23
@@ -305,6 +305,6 @@ A shared access signature token is required for the SQL change feed to get acces
 
 If you're using a database other than SQL Server 2022, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md)

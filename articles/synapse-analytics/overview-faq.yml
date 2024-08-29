@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Azure Synapse Analytics
   description: FAQ for Azure Synapse Analytics
   author: whhender
-  ms.service: synapse-analytics
+  ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: overview
   ms.date: 11/16/2022
@@ -66,7 +66,7 @@ sections:
       - question: |
           Is Azure Synapse Link to Azure Cosmos DB generally available?
         answer: |
-          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md).
+          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link).
 
       - question: |
           Is Azure Synapse Link for SQL generally available?

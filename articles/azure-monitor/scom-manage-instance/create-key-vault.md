@@ -26,13 +26,11 @@ Azure Key Vault is a cloud service that provides a secure store for keys, secret
 
 1. In the Azure portal, search for and select **Key vaults**.
 
-     :::image type="Key vaults in portal" source="media/create-key-vault/azure-portal-key-vaults-inline.png" alt-text="Screenshot that shows the icon for key vaults in the Azure portal." lightbox="media/create-key-vault/azure-portal-key-vaults-expanded.png":::
+     :::image type="Key vaults in portal" source="media/create-key-vault/azure-portal-key-vaults.png" alt-text="Screenshot that shows the icon for key vaults in the Azure portal.":::
 
    The **Key vaults** page opens.
 
 1. Select **Create**.
-
-     :::image type="Key vault" source="media/create-key-vault/key-vaults-inline.png" alt-text="Screenshot that shows the Create button for creating a key vault." lightbox="media/create-key-vault/key-vaults-expanded.png":::
 
 1. For **Basics**, do the following:
     - **Project details**:
@@ -47,6 +45,7 @@ Azure Key Vault is a cloud service that provides a secure store for keys, secret
         - **Purge protection**: We recommend enabling this feature to have a mandatory retention period.
 
    :::image type="Create a key vault" source="media/create-key-vault/create-a-key-vault.png" alt-text="Screenshot that shows basic information for creating a key vault.":::
+
 1. Select **Next**. For now, no change is required in access configuration. Access configuration is done in the [step 5](create-user-assigned-identity.md).
 
 1. For **Networking**, do the following:
@@ -54,12 +53,11 @@ Azure Key Vault is a cloud service that provides a secure store for keys, secret
     - Under **Public Access**, for **Allow access from**, select **All networks**.
 
    :::image type="Networking tab" source="media/create-key-vault/networking-inline.png" alt-text="Screenshot that shows selections for enabling public access on the Networking tab." lightbox="media/create-key-vault/networking-expanded.png":::
+
 1. Select **Next**.
 1. For **Tags**, select the tags if required and select **Next**.
 1. For **Review + create**, review the selections and select **Create** to create the key vault.
   
-    :::image type="Tab for reviewing selections before creating a key vault" source="media/create-key-vault/review.png" alt-text="Screenshot that shows the tab for reviewing selections before you create a key vault.":::
-
 ## Next steps
 
 - [Create a user-assigned identity](create-user-assigned-identity.md)

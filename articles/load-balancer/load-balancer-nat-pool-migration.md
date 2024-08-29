@@ -3,7 +3,7 @@ title: Azure Load Balancer NAT Pool to NAT Rule Migration
 description: Process for migrating NAT Pools to NAT Rules on Azure Load Balancer.
 services: load-balancer
 author: mbrat2005
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbratschun
@@ -38,7 +38,7 @@ The migration process will create a new Backend Pool for each Inbound NAT Pool e
 ### Prerequisites 
 
 * In order to migrate a Load Balancer's NAT Pools to NAT Rules, the Load Balancer SKU must be 'Standard'. To automate this upgrade process, see the steps provided in [Upgrade a Basic Load Balancer to Standard with PowerShell](upgrade-basic-standard-with-powershell.md).
-* Virtual Machine Scale Sets associated with the target Load Balancer must use either a 'Manual' or 'Automatic' upgrade policy--'Rolling' upgrade policy is not supported. For more information, see [Virtual Machine Scale Sets Upgrade Policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md)
+* Virtual Machine Scale Sets associated with the target Load Balancer must use either a 'Manual' or 'Automatic' upgrade policy--'Rolling' upgrade policy is not supported. For more information, see [Virtual Machine Scale Sets Upgrade Policies](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy)
 * Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 * Install the [Azure PowerShell modules](/powershell/azure/install-azure-powershell)
 
@@ -63,7 +63,7 @@ Install-Module -Name AzureLoadBalancerNATPoolMigration -Scope CurrentUser -Repos
 
 #### Example: pass a Load Balancer from the pipeline
    ```azurepowershell
-   Get-AzLoadBalancer -ResourceGroupName -ResourceGroupName <loadBalancerResourceGroupName> -Name <LoadBalancerName> | Start-AzNATPoolMigration
+   Get-AzLoadBalancer -ResourceGroupName <loadBalancerResourceGroupName> -Name <LoadBalancerName> | Start-AzNATPoolMigration
    ```
 
 ## Common Questions

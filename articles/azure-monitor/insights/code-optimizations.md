@@ -8,6 +8,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 06/25/2024
 ms.reviewer: ryankahng
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Monitor and analyze runtime behavior with Code Optimizations (Preview)

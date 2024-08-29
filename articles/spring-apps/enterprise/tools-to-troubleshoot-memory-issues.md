@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Provides a list of tools for troubleshooting Java memory issues.
 author: KarlErickson
 ms.author: kaiqianyang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java
@@ -57,7 +57,7 @@ App memory usage is a percentage equal to the app memory used divided by the app
 
 For JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committed`, and `jvm.memory.max`, which are described in the following list.
 
-"JVM memory" isn't a clearly defined concept. Here, `jvm.memory` is the sum of [heap memory](concepts-for-java-memory-management.md#heap-memory) and former permGen part of [non-heap memory](concepts-for-java-memory-management.md#non-heap-memory). JVM memory doesn't include direct memory or other memory like the thread stack. Spring Boot Actuator gathers these three metrics and determines the scope of `jvm.memory`.
+"JVM memory" isn't a clearly defined concept. Here, `jvm.memory` is the sum of [heap memory](../basic-standard/concepts-for-java-memory-management.md#heap-memory) and former permGen part of [non-heap memory](../basic-standard/concepts-for-java-memory-management.md#non-heap-memory). JVM memory doesn't include direct memory or other memory like the thread stack. Spring Boot Actuator gathers these three metrics and determines the scope of `jvm.memory`.
 
 - `jvm.memory.used` is the amount of used JVM memory, including used heap memory and used former permGen in non-heap memory.
 
@@ -69,13 +69,13 @@ For JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committe
 
 - `jvm.memory.max` is the maximum amount of JVM memory, not to be confused with the real available amount.
 
-  The value of `jvm.memory.max` can sometimes be confusing because it can be much higher than the available app memory. To clarify, `jvm.memory.max` is the sum of all maximum sizes of heap memory and the former permGen part of [non-heap memory](concepts-for-java-memory-management.md#non-heap-memory), regardless of the real available memory. For example, if an app is set with 1 GB of memory in the Azure Spring Apps portal, then the default heap memory size is 0.5 GB. For more information, see the [Default maximum heap size](concepts-for-java-memory-management.md#default-maximum-heap-size) section of [Java memory management](concepts-for-java-memory-management.md).
+  The value of `jvm.memory.max` can sometimes be confusing because it can be much higher than the available app memory. To clarify, `jvm.memory.max` is the sum of all maximum sizes of heap memory and the former permGen part of [non-heap memory](../basic-standard/concepts-for-java-memory-management.md#non-heap-memory), regardless of the real available memory. For example, if an app is set with 1 GB of memory in the Azure Spring Apps portal, then the default heap memory size is 0.5 GB. For more information, see the [Default maximum heap size](../basic-standard/concepts-for-java-memory-management.md#default-maximum-heap-size) section of [Java memory management](../basic-standard/concepts-for-java-memory-management.md).
 
   If the default *compressed class space* size is 1 GB, then the value of `jvm.memory.max` is larger than 1.5 GB regardless of whether the app memory size 1 GB. For more information, see [Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide: Other Considerations](https://docs.oracle.com/javase/9/gctuning/other-considerations.htm) in the Oracle documentation.
 
 #### jvm.gc.memory.allocated/promoted
 
-These two metrics are for observing Java garbage collection (GC). For more information, see the [Java garbage collection](concepts-for-java-memory-management.md#java-garbage-collection) section of [Java memory management](concepts-for-java-memory-management.md). The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider modifying the following maximum memory sizes.
+These two metrics are for observing Java garbage collection (GC). For more information, see the [Java garbage collection](../basic-standard/concepts-for-java-memory-management.md#java-garbage-collection) section of [Java memory management](../basic-standard/concepts-for-java-memory-management.md). The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC. If you want to adjust the frequency of garbage collection, consider modifying the following maximum memory sizes.
 
 - `jvm.gc.memory.allocated` is the amount of increase in the size of the young generation memory pool after one GC and before the next. This value reflects minor GC.
 
@@ -97,7 +97,7 @@ For more information, see [Capture heap dump and thread dump manually and use Ja
 
 ## Modify configurations to fix problems
 
-Some issues you might identify include [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection. If you identify any of these issues, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
+Some issues you might identify include [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection. If you identify any of these issues, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](../basic-standard/concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](../basic-standard/concepts-for-java-memory-management.md#important-jvm-options).
 
 You can modify the JVM options by using the Azure portal or the Azure CLI.
 
@@ -124,5 +124,5 @@ az spring app update \
 
 ## See also
 
-- [Java memory management](concepts-for-java-memory-management.md)
+- [Java memory management](../basic-standard/concepts-for-java-memory-management.md)
 - [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md)

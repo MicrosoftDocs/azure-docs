@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/30/2024
+ms.date: 08/01/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -12,7 +12,7 @@ ms.custom: references_regions
 # Support matrix for Azure Update Manager
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End-Of-Life guidance](../virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End-Of-Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
@@ -25,9 +25,9 @@ This article details the Windows and Linux operating systems supported and syste
 
 ### Support for automatic VM Guest patching
 
-If [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
+If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 
-- For marketplace images, see the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
+- For marketplace images, see the list of [supported OS images](/azure/virtual-machines/automatic-vm-guest-patching#supported-os-images).
 - For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
 
 ### Support for Check for Updates/One time Update/Periodic assessment and Scheduled patching
@@ -61,8 +61,6 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|
 |microsoftwindowsserver | windowsserverupgrade | * |
-|microsoftwindowsserver | windowsserverhotpatch-previews | windows-server-2022-azure-edition-hotpatch |
-| | microsoftserveroperatingsystems-previews | windows-server-vnext-azure-edition-core |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 |microsoftsqlserver | sql2016sp1-ws2016 | standard |
 | | sql2016sp2-ws2016 | standard|
@@ -88,13 +86,13 @@ Following is the list of supported images and no other marketplace images releas
 |microsoft-dsvm | aml-workstation | ubuntu |
 || ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
 || ubuntu-2004 | 2004, 2004-gen2 |
-|redhat | rhel| 7*,8*,9* | 74-gen2 |
-|redhat | rhel-ha | 8* | 8.1, 81_gen2 |
+|redhat | rhel| 7*,8*,9* |  |
+|redhat | rhel-ha | 8* | 81_gen2 |
 |redhat | rhel-raw | 7*,8*,9* | |
-|redhat | rhel-sap | 7*| 7.4, 7.5, 7.7 |
+|redhat | rhel-sap | 7*|  |
 |redhat | sap-apps | 7*, 8* |
 |redhat | rhel-sap* | 9_0 |
-|redhat | rhel-sap-ha| 7*, 8* | 7.5|
+|redhat | rhel-sap-ha| 7*, 8* | |
 |redhat | rhel-sap-apps | 90sapapps-gen2 |
 |redhat | rhel-sap-ha | 90sapha-gen2 |
 |redhat | rhel-byos | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 |
@@ -145,7 +143,7 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-ci | 7-ci |
 | |centos-lvm | 7-lvm-gen2 |
 |almalinux | almalinux </br> | 8-gen1, 8-gen2, 9-gen1, 9-gen2|
-||almalinux-x86_64 | 8-gen1, :8-gen2, 9-gen1, 9-gen2
+||almalinux-x86_64 | 8-gen1, 8-gen2, 9-gen1, 9-gen2
 ||almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
 | aviatrix-systems | aviatrix-bundle-payg  | aviatrix-enterprise-bundle-byol|
 || aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
@@ -165,7 +163,7 @@ Following is the list of supported images and no other marketplace images releas
 
 ### Custom images
 
-We support VMs created from customized images (including images uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview)) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+We support VMs created from customized images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview)) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
 
    |**Windows operating system**|
@@ -217,7 +215,7 @@ The following table lists the workloads that aren't supported.
    | **Workloads**| **Notes**
    |----------|-------------|
    | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
-   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the Virtual Machine Scale Sets.|
+   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) to patch the Virtual Machine Scale Sets.|
    | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
 As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
@@ -284,7 +282,7 @@ Update Manager doesn't support driver updates.
 
 #### Extended Security Updates (ESU) for Windows Server
 
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available are default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available by default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
 
 
 #### Microsoft application updates on Windows

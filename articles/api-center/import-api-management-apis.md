@@ -2,7 +2,7 @@
 title: Import APIs from Azure API Management - Azure API Center
 description: Add APIs to your Azure API center inventory from your API Management instance.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: danlep 

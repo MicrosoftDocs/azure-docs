@@ -2,7 +2,7 @@
 title: Connect Azure Cache for Redis to your application in Azure Spring Apps
 description: Learn how to connect Azure Cache for Redis to your application in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: karler

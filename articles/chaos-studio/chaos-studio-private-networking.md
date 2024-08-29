@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/26/2022
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-azurecli
 ---
 
@@ -42,7 +42,7 @@ If you're using the CLI, the container and relay subnets can have any name (subj
 
 ## Example: Use Chaos Studio with a private AKS cluster
 
-This example shows how to configure a private AKS cluster to use with Chaos Studio. It assumes you already have a private AKS cluster within your Azure subscription. To create one, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
+This example shows how to configure a private AKS cluster to use with Chaos Studio. It assumes you already have a private AKS cluster within your Azure subscription. To create one, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 ### [Azure portal](#tab/azure-portal)
 

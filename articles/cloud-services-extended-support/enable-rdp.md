@@ -2,7 +2,7 @@
 title: Apply the Remote Desktop in Cloud Services (extended support) 
 description: Enable Remote Desktop for Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

@@ -4,7 +4,7 @@ titleSuffix: Azure Peering Service
 description: Learn how to access Azure Peering Service connection telemetry including prefix latency and prefix events.
 services: peering-service
 author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: halkazwini

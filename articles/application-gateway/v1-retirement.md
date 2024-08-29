@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides a high-level overview of the retirement of Application gateway V1 SKUs. 
 services: application-gateway
 author: MJyot
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: mjyothish

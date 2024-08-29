@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Install Azure Container Storage using Azure Arc CLI commands
 
-This article shows you how to create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage on the cluster using Azure Arc CLI commands.
+This article shows you how to create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage on the cluster using Azure Arc CLI commands.
 
 > [!IMPORTANT]
 > This article describes a manual installation process that only certain customers will want to use, for example if you want to install an older version of Azure Container Storage. The preferred method of installing the latest production version of Azure Container Storage is using AKS CLI as described in [this QuickStart](container-storage-aks-quickstart.md).
@@ -94,7 +94,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 * **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md)**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
-* **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
+* **[Azure Disks](/azure/virtual-machines/managed-disks-overview)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
 * **Ephemeral Disk**: This option uses local NVMe or temp SSD drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
@@ -102,12 +102,12 @@ Before you create your cluster, you should understand which back-end storage opt
 
 To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
-If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
+If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes.
 
-If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
+If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](/azure/virtual-machines/ev3-esv3-series) is required.
 
 > [!IMPORTANT]
-> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+> You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
 ## Create AKS cluster
 
@@ -123,7 +123,7 @@ az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> 
 The deployment will take a few minutes to complete.
 
 > [!NOTE]
-> When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks).
+> When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. For more information, see [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks).
 
 ## Connect to the cluster
 
@@ -160,7 +160,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 Next, you must update your node pool label to associate the node pool with the correct IO engine for Azure Container Storage.
 
 > [!IMPORTANT]
-> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. Before you can install Azure Container Storage, you must update the user node pool label as described in this section. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the agent/system nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
+> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. Before you can install Azure Container Storage, you must update the user node pool label as described in this section. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](/azure/aks/create-node-pools#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the agent/system nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
 Run the following command to update the node pool label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Traffic Manager
 description: Learn how to add an external endpoint to an existing Azure Traffic Manager profile using an Azure Template.
 author: greg-lindsay
 ms.author: greglin
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.custom: template-how-to

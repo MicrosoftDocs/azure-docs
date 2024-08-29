@@ -4,7 +4,7 @@ description: This article describes how to create an Azure Virtual WAN in one re
 services: firewall-manager
 author: jomore
 ms.topic: tutorial
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell

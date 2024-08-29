@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ---
 
 # Azure SignalR Service monitoring data reference

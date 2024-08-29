@@ -3,7 +3,7 @@ title: What is auto registration feature in Azure DNS private zones?
 description: Overview of auto registration feature in Azure DNS private zones.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
 ms.date: 06/28/2024
 ms.author: greglin

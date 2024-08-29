@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Install Azure Container Storage for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install the latest production version of Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install the latest production version of Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
 > Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads.
@@ -95,7 +95,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 * **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md)**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
-* **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
+* **[Azure Disks](/azure/virtual-machines/managed-disks-overview)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
 * **Ephemeral Disk**: This option uses local NVMe or temp SSD drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
@@ -118,11 +118,11 @@ The resources consumed are per node, and will be consumed for each node in the n
 
 To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
-Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
-- If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5**.
-- If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
-- If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](../../virtual-machines/ev3-esv3-series.md).
+- If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5**.
+- If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3**.
+- If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](/azure/virtual-machines/ev3-esv3-series).
 
 ## Create a new AKS cluster and install Azure Container Storage
 
@@ -134,7 +134,7 @@ Running this command will enable Azure Container Storage on the system node pool
 
 By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart.md#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-storage-pool-parameters.md).
 
-\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
+\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will install the data plane components by default. Otherwise, users have the option to pass the preferred node pool to `acstor` through Azure CLI. If the cluster only has the system node pool, it will be labeled and used for Azure Container Storage by default. It's important to note that only data plane components will be restricted to the labeled node pool. The control plane components of Azure Container Storage aren't limited to the labeled nodes and may be installed on the system node pool as well. 
 
 ```azurecli-interactive
 az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
@@ -143,7 +143,7 @@ az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart.md#enable-additional-storage-pool-types).
 
 > [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](container-storage-aks-quickstart.md#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool wont be created.
 
 ## Display available storage pools
 

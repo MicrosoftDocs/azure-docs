@@ -257,7 +257,9 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
 1. Set up your custom CEF connector from Logstash:
 
-    1. Deploy our [ARM template](https://aka.ms/DeployCEFresources) to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
+    1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE):
+
+        [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FDataConnectors%2Fmicrosoft-sentinel-log-analytics-logstash-output-plugin%2Fexamples%2Fauxiliry-logs%2Farm-template%2Fdeploy-dcr-dce-cef-table.json)
 
     1. Note the following details from the ARM template output:
 
@@ -268,65 +270,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
     1. Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
 
-    1. Use the following sample script to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. In this script:
-    
-        - Replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
-        - Add the Logstash ['prune' filter plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-prune.html) to your filter section to include only the following field names in your events:
-        
-            :::row:::
-                :::column:::
-                - `Message`
-                - `TimeGenerated`
-                - `Activity`
-                - `LogSeverity`
-                - `CefVersion`
-                :::column-end:::
-                :::column:::
-                - `DeviceVendor`
-                - `DeviceProduct`
-                - `DeviceVersion`
-                - `DeviceEventClassID`
-                :::column-end:::
-            :::row-end:::
-
-        ```json
-        input { 
-        syslog { 
-            port => 514 
-            codec => cef 
-          } 
-        } 
-        filter{ 
-          ruby { 
-            code => " 
-              require 'json' 
-              new_hash = event.to_hash 
-              event.set('Message', new_hash.to_json) 
-            " 
-          } 
-          mutate{ 
-            rename => {"name" => "Activity"} 
-            rename => {"severity" => "LogSeverity"} 
-            rename => {"cefVersion" => "CefVersion"} 
-            rename => {"deviceVendor" => "DeviceVendor"} 
-            rename => {"deviceProduct" => "DeviceProduct"} 
-            rename => {"deviceVersion" => "DeviceVersion"} 
-            rename => {"deviceEventClassId" => "DeviceEventClassID"} 
-            rename => {"@timestamp" => "TimeGenerated"} 
-            add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"}     
-          } 
-        } 
-         output { 
-          microsoft-sentinel-log-analytics-logstash-output-plugin { 
-            client_app_Id => "00000000-0000-0000-0000-000000000000" 
-            client_app_secret => "00000000-0000-0000-0000-000000000000" 
-            tenant_id => "000000000-0000-0000-0000-000000000000" 
-            data_collection_endpoint => "https://xxxxxxxxxxxxx.ingest.monitor.azure.com" 
-            dcr_immutable_id => "dcr-x-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-            dcr_stream_name => "Custom-LS-CefAux_CL"  
-          } 
-        }
-        ```
+    1. Use our [sample script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf) to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. In this script, make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
 
 1. Check to see that your CEF data is flowing from Logstash as expected. For example, in Microsoft Sentinel, go to the **Logs** page and run the following query:
 

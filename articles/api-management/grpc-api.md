@@ -4,7 +4,7 @@ description: Learn how to import a gRPC service definition as an API to an API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: danlep

@@ -7,12 +7,12 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure networking documentation
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 05/03/2024
+  ms.date: 07/31/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -48,7 +48,7 @@ productDirectory:
   summary: Select an Azure networking scenario to learn how Azure can enhance connectivity to your resources, deliver and protect applications, and help secure your environment. # Optional but good for SEO. Remove if not applicable.
   items:
     # Card
-    - title: Networking foundations
+    - title: Networking foundation
       # imageSrc should be square in ratio with no white space
       imageSrc: ./media/index/networking-foundations.svg
       summary: Manage and diagnose your network with Azure network foundation services.
@@ -68,6 +68,11 @@ productDirectory:
       imageSrc: ./media/index/network-security.svg
       summary: Protect your network from cyber security attacks with Azure network security services.
       url: ./security/index.yml
+    # Card
+    - title: Network monitoring and management
+      imageSrc: ./media/index/network-monitoring-and-management.svg
+      summary: Monitor and manage your network with Azure network monitoring and management services.
+      url: ./monitoring-management/index.yml
 
 # additionalContent section (optional)
 # Card with links style
