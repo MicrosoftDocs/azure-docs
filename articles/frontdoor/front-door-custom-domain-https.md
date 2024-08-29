@@ -198,7 +198,7 @@ If the CNAME record entry for your endpoint no longer exists or it contains the 
 
 After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS is active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. DigiCert domain validation works at the subdomain level. You need to prove ownership of each subdomain separately.
 
-![WHOIS record](./media/front-door-custom-domain-https/whois-record.png)
+:::image type="content" source="./media/front-door-custom-domain-https/whois-record.png" alt-text="Screenshot of WHOIS record.":::
 
 DigiCert also sends a verification email to other email addresses. If the WHOIS registrant information is private, verify that you can approve directly from one of the following addresses:
 
