@@ -112,7 +112,7 @@ kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.
 
 In this section you will verify the SpinKube installation, by creating a simple Spin App using the `spin` CLI and JavaScript. Start by creating a new Spin App using the `http-js` template:
 
-```bash
+```azurecli-interactive
 # Create a new Spin App
 spin new -t http-js --accept-defaults hello-spinkube
 
