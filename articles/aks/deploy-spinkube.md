@@ -104,7 +104,7 @@ helm install spin-operator --version 0.2.0 \
 
 Finally, create a `SpinAppExecutor` in the default namespace:
 
-```bash
+```azurecli-interactive
 kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.2.0/spin-operator.shim-executor.yaml
 ```
 
