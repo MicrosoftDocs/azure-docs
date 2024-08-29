@@ -511,7 +511,7 @@ Create a context for your storage account and key with [New-AzStorageContext](/p
 
 ```azurepowershell-interactive
 $storageContext1 = New-AzStorageContext $storageAcctName1 $storageAcctKey1
-``
+```
 
 Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare).
 
@@ -536,7 +536,7 @@ Create a context for your storage account and key with [New-AzStorageContext](/p
 
 ```azurepowershell-interactive
 $storageContext2= New-AzStorageContext $storageAcctName2 $storageAcctKey2
-``
+```
 
 Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare).
 
@@ -780,7 +780,7 @@ Use [New-AzServiceEndpointPolicy](/powershell/module/az.network/new-azserviceend
 ```azurepowershell-interactive
 $sepolicyParams = @{
     ResourceGroupName = "test-rg"
-    Name = "mysepolicy"
+    Name = "sepolicy"
     Location = "westus2"
     ServiceEndpointPolicyDefinition = $policyDefinition
 }
