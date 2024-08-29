@@ -105,7 +105,8 @@ If your query result/JSON contains a `group` field, the dropdown list displays g
     :::image type="content" source="./media/workbooks-dropdowns/dropdown-dynamic.png" lightbox="./media/workbooks-dropdowns/dropdown-dynamic.png" alt-text="Screenshot that shows the creation of a dynamic dropdown parameter." border="false":::
 
 ## Example: Custom labels, selecting the first item by default, and grouping by operation name
-The query used in the preceding dynamic dropdown parameter returns a list of values that are rendered faithfully in the dropdown list. But what if you wanted a different display name or one of the names to be selected? Dropdown parameters use value, label, selection, and group columns for this functionality.
+The query used in the preceding dynamic dropdown parameter returns a list of values that are rendered in the dropdown list. 
+If you want a different display name, or to allow the user to select the display name, use the value, label, selection, and group columns.
 
 The following sample shows how to get a list of distinct Application Insights dependencies. The display names are styled with an emoji, the first item is selected by default, and the items are grouped by operation names:
 
