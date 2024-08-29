@@ -10,7 +10,7 @@ zone_pivot_groups: attach-app
 
 # Attach your application (preview)
 
-This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-pvc.md).
+This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-persistent-volume.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-persistent-volume-claim.md).
 
 ::: zone pivot="attach-iot-op"
 ## Configure the Azure IoT Operations data processor

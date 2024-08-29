@@ -55,4 +55,4 @@ az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name
 
 ## Next steps
 
-Once you complete these prerequisites, you can begin to [create a Persistent Volume (PV) with Storage Key Authentication](create-pv.md).
+Once you complete these prerequisites, you can begin to [create a Persistent Volume (PV) with Storage Key Authentication](create-persistent-volume.md).

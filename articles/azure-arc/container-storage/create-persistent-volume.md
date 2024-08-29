@@ -96,5 +96,5 @@ Make a note of the `metadata: name:` as you must specify it in the `spec: volume
 
 ## Next steps
 
-- [Create a persistent volume claim](create-pvc.md)
+- [Create a persistent volume claim](create-persistent-volume-claim.md)
 - [Azure Container Storage enabled by Azure Arc overview](overview.md)

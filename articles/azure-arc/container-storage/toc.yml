@@ -52,9 +52,9 @@ items:
     - name: Attach applications
       items:
       - name: Create a persistent volume
-        href: create-pv.md
+        href: create-persistent-volume.md
       - name: Create persistent volume claim
-        href: create-pvc.md
+        href: create-persistent-volume-claim.md
       - name: Attach your app
         href: attach-app.md
     - name: Monitor deployment
