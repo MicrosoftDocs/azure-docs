@@ -54,7 +54,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-csharp"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template functions-quickstart-dotnet-azd
     cd http
     ```
@@ -77,7 +77,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-java"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template azure-functions-java-flex-consumption-azd 
     cd http
     ```
@@ -95,7 +95,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-javascript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template functions-quickstart-javascript-azd 
     ```
 
@@ -112,7 +112,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-powershell"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template functions-quickstart-powershell-azd
     cd src
     ```
@@ -130,7 +130,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-typescript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template functions-quickstart-typescript-azd
     ```
 
@@ -147,7 +147,7 @@ You can use the `azd init` command to create a local Azure Functions code projec
 ::: zone pivot="programming-language-python"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
-    ```azd
+    ```console
     azd init --template functions-quickstart-python-http-azd
     ```
 
@@ -290,7 +290,7 @@ This project is configured to use the `azd up` command to deploy this project to
 
 1. Run this command to create the Azure resources and deploy your app to Azure.
 
-    ```azd
+    ```console
     azd up
     ```
 
@@ -341,7 +341,7 @@ Use the `azd env get-values` command to review all of the variables in your envi
 
 When you're done working with your function app and related resources, you can use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
 
-```azd
+```console
 azd down
 ```
 
