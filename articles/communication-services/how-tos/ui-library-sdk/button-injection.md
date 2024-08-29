@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android
 #Customer intent: As a developer, I want to customize the button bar actions in the UI Library.
 ---
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 # Customize the button bar
 
 To implement custom actions or modify the current button layout, you can interact with the Native UI Library's API. This API involves defining custom button configurations, specifying actions, and managing the button bar's current actions. The API provides methods for adding custom actions, and removing existing buttons, all of which are accessible via straightforward function calls.
