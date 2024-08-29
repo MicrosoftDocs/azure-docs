@@ -23,7 +23,7 @@ To complete this quickstart, you need:
 > [!NOTE]
 > This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
 
-## 1 - Sample application
+## Sample application
 
 This quickstart can be completed using either Flask, Django, or FastAPI. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
 
@@ -141,7 +141,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ---
 
-## 2 - Create a web app in Azure
+## Create a web app in Azure
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the Azure CLI, [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or [Azure portal](https://portal.azure.com/).
 
@@ -191,7 +191,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 3 - Deploy your application code to Azure
+## Deploy your application code to Azure
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
@@ -215,7 +215,7 @@ Azure App service supports multiple methods to deploy your application code to A
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 4 - Configure startup script
+## Configure startup script
 
 Based on the presence of certain files in a deployment, App Service automatically detects whether an app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder.
 
@@ -281,7 +281,7 @@ For FastAPI, you must configure a custom startup command for App Service to run 
 
 ---
 
-## 5 - Browse to the app
+## Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
 
@@ -293,7 +293,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 6 - Stream logs
+## Stream logs
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
