@@ -204,7 +204,7 @@ Hello from JS-SDK
 
 To remove the Spin App from the AKS cluster use `kubectl delete spinapp` as shown here:
 
-```bash
+```azurecli-interactive
 # Remove the hello-spinkube Spin App
 kubectl delete spinapp hello-spinkube
 ```
