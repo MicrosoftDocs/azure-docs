@@ -15,7 +15,7 @@ The project source uses the Azure Developer CLI (azd) to simplify deploying your
 
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
-Because of the Flex Consumption plan, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+By default, the Flex Consumption plan follows a _pay for what you use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
