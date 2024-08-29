@@ -45,7 +45,7 @@ landingContent:
           - text: Index and search workflows
             url: concepts-index-and-search.md
           - text: Syncing Reference data values
-            url: concepts-referencedatavalues.md
+            url: concepts-reference-data-values.md
       - linkListType: whats-new
         links:
           - text: Release notes
