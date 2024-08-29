@@ -119,7 +119,7 @@ Benefits:
 * Increases user engagement, conversion rates, and customer loyalty through relevant and personalized experiences.
 * Drives revenue growth and customer retention by targeting audiences with tailored messages and offers.
  
-### Performance optimization experiments:
+### Performance optimization experiments
 
 Objective: Improve application performance and user experience through performance optimization experiments.
 
