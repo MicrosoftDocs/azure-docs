@@ -35,7 +35,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy the DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you deploy an instance of the DICOM service, retrieve the URL for your App service.
+After deploying an instance of the DICOM service, retrieve the URL for your App service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.

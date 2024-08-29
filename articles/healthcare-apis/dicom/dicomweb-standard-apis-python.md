@@ -264,7 +264,7 @@ _Details:_
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
    * Authorization: Bearer $token"
 
-All three of the dcm files that we uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
+All three of the dcm files that uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}'

@@ -44,7 +44,7 @@ The service uses REST API versioning. The version of the REST API must be explic
 
 This version of the conformance statement corresponds to the `v1` version of the REST APIs.  
 
-For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
+For information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
 You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 

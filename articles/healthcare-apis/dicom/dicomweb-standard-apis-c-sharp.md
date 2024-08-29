@@ -62,7 +62,7 @@ With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Del
 
 ## Store DICOM instances (STOW)
 
-By using the DicomWebClient, we can now store DICOM files.
+Using the DicomWebClient, we can now store DICOM files.
 
 ### Store single instance
 
