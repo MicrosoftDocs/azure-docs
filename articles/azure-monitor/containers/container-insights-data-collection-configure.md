@@ -277,9 +277,11 @@ Use the following procedure to configure and deploy your ConfigMap configuration
 1. Create a ConfigMap by running the following kubectl command: 
 
     ```azurecli
+    kubectl config set-context <cluster-name>
     kubectl apply -f <configmap_yaml_file.yaml>
     
     # Example: 
+    kubectl config set-context my-cluster
     kubectl apply -f container-azm-ms-agentconfig.yaml
     ```
 
@@ -295,7 +297,7 @@ Use the following procedure to configure and deploy your ConfigMap configuration
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod.
 
 ```azurecli
-kubectl logs ama-logs-fdf58 -n kube-system
+kubectl logs ama-logs-fdf58 -n kube-system -c ama-logs
 ```
 
 If there are configuration errors from the Azure Monitor Agent pods, the output will show errors similar to the following:

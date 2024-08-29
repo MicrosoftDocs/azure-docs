@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java
 ---
 
