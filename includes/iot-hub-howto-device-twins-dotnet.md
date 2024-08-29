@@ -11,6 +11,12 @@ ms.date: 07/12/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
+## Overview
+
+This section describes how to use the .NET/C# SDK to create device and backend service application code.
+
+Visual Studio is required to use the .NET/C# SDK.
+
 ## Create a device application
 
 Device applications can read and write twin reported properties, and be notified of desired twin property changes that are set by a backend application or IoT Hub.
@@ -37,7 +43,7 @@ The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) clas
 
 Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with device connection string and the connection transport protocol.
 
-The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
+The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) transport protocol parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
 
 This example connects to a device using the `Mqtt` transport protocol.
 
@@ -92,7 +98,7 @@ catch (Exception ex)
 
 ### Create a desired property update callback handler
 
-You can create a desired property update callback handler that executes when the desired property is changed in the device by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
+You can create a desired property update callback handler that executes when a desired property is changed in the device by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
 
 For example, this call sets up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired property is changed.
 
@@ -132,7 +138,10 @@ The SDK includes this [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp
 
 ## Create a backend application
 
-A backend application runs independently of a device and IoT Hub, and connects to a device through IoT Hub.
+A backend application:
+
+* Connects to a device through IoT Hub
+* Can read device reported and desired properties, write device desired properties, and run device queries
 
 The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
 
@@ -174,7 +183,7 @@ After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.az
 
 Use the device twin [Tags](/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property to read and write device tag information.
 
-##### Write using a Twin object
+##### Update using a Twin object
 
 This example creates a `location` tag patch, assigns it to the `Twin` object using the `Tags` property, and then applies the patch using `UpdateTwinAsync`.
 
@@ -207,7 +216,7 @@ catch (Exception e)
 }
 ```
 
-##### Write using a JSON string
+##### Update using a JSON string
 
 You can also create and apply a device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub parses and applies the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields are not be applied.
 
