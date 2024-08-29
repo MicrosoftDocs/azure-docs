@@ -17,16 +17,15 @@ manager: jsuri
 
 ::: zone pivot="portal"
 
-## Create a VM in the Azure portal
+This article describes how to provision a VM using vCenter resources from Azure portal.
 
-This article describes how to provision a VM using vCenter resources from Azure Portal.
+## Create a VM in the Azure portal
 
 Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
 ### Prerequisites
 
 - An Azure subscription and resource group where you have an Arc VMware VM contributor role.
-
 - A resource pool/cluster/host on which you have Arc Private Cloud Resource User Role.
 - A virtual machine template resource on which you have Arc Private Cloud Resource User Role.
 - A virtual network resource on which you have Arc Private Cloud Resource User Role.
@@ -377,9 +376,9 @@ Confirm the prompt by entering yes to apply the changes.
 
 ### Best practices
 
-1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
-2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
-3.	**State management**: Regularly back up your Terraform state files to avoid data loss.
+- **Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
+- **Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
+- **State management**: Regularly back up your Terraform state files to avoid data loss.
 
 By following these steps, you can effectively create and manage HCRP and Arc VMware VMs on Azure using Terraform and install guest agents on the created VMs.
 
@@ -585,9 +584,9 @@ Confirm the prompt by entering yes to apply the changes.
 
 ### Best practices
 
-1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
-2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
-3.	**State management**: Regularly back up your Terraform state files to avoid data loss.
+- **Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
+- **Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
+- **State management**: Regularly back up your Terraform state files to avoid data loss.
 
 ::: zone-end
 
