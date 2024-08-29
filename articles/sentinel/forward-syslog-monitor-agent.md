@@ -42,7 +42,7 @@ To complete the steps in this tutorial, you must have the following resources an
 - A Log Analytics workspace.
 - A Linux server that's running an operating system that supports Azure Monitor Agent.
    - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
-   - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+   - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - A Linux-based device that generates event log data like a firewall network device.
 
 ## Configure Azure Monitor Agent to collect Syslog data
@@ -103,7 +103,7 @@ If you're forwarding Syslog data to an Azure VM, follow these steps to allow rec
 
 ### Configure the Linux Syslog daemon
 
-Connect to your Linux VM and run the following command to configure the Linux Syslog daemon:
+Connect to your Linux VM and configure the Linux Syslog daemon. For example, run the following command, adapting the command as needed for your network environment:
 
 ```bash
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py

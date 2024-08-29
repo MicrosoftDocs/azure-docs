@@ -631,9 +631,9 @@ The following table lists services that can access your storage account data if 
 | Azure Key Vault Managed HSM     | `Microsoft.keyvault/managedHSMs`        | Enables access to storage accounts. |
 | Azure Logic Apps                | `Microsoft.Logic/integrationAccounts`   | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Logic Apps                | `Microsoft.Logic/workflows`             | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
-| Azure Machine Learning          | `Microsoft.MachineLearningServices`     | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
-| Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning          | `Microsoft.MachineLearningServices`     | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |
 | Azure Migrate                   | `Microsoft.Migrate/migrateprojects`     | Enables access to storage accounts. |
 | Azure Spatial Anchors           | `Microsoft.MixedReality/remoteRenderingAccounts` | Enables access to storage accounts. |
@@ -657,7 +657,7 @@ If your account doesn't have the hierarchical namespace feature enabled on it, y
 
 You can use the same technique for an account that has the hierarchical namespace feature enabled on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob that the storage account contains. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has access.
 
-You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
 We recommend that you [use resource instance rules to grant access to specific resources](#grant-access-from-azure-resource-instances).
 

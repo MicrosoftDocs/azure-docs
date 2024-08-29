@@ -28,7 +28,8 @@ The storage with cool access feature provides options for the “coolness period
 * You can't use [large volume](large-volumes-requirements-considerations.md) with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md): 
-    * The cool access setting on the destination is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+    * The cool access setting on the destination volume is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication  only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+    * In cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
 * Considerations for using cool access with [snapshot restore](snapshots-restore-new-volume.md):
     * When restoring a snapshot of a cool access enabled volume to a new volume, the new volume inherits the cool access configuration from the parent volume. Once the new volume is created, the cool access settings can be modified.  
     * You can't restore from a snapshot of a non-cool-access volume to a cool access volume.  Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
@@ -65,41 +66,19 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 # [Premium](#tab/premium)
 
-You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Premium storage with cool access. 
+You must submit a waitlist request to accessing this feature using the [request form](https://aka.ms/ANFcoolaccesssignup). The feature can take approximately one week to be enabled after you submit the waitlist request. Check the status of feature registration by using the command:
 
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
+```
 
 # [Ultra](#tab/ultra)
 
-You must submit a [waitlist request](https://aka.ms/ANFcoolaccesssignup) before enabling Ultra storage with cool access. 
+You must submit a waitlist request to accessing this feature using the [request form](https://aka.ms/ANFcoolaccesssignup). The feature can take approximately one week to be enabled after you submit the waitlist request. Check the status of feature registration by using the command:
 
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
+```
 
 ---
 

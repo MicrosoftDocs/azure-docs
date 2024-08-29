@@ -33,7 +33,7 @@
     - name: Mainstream services
       items:
       - name: Azure AI Search
-        href: ../search/search-howto-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: /azure/search/search-howto-move-across-regions?toc=/azure/operational-excellence/toc.json
       - name: Azure Application Gateway and Web Application Firewall
         href: relocation-app-gateway.md
       - name: Azure API Management
@@ -67,7 +67,7 @@
         - name: Relocate Azure Event Grid system topics
           href: relocation-event-grid-system-topics.md
       - name: Azure Functions
-        href: ../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-functions.md
       - name: Azure Logic apps
         href: ../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Monitor - Log Analytics Workspace
@@ -90,6 +90,8 @@
         href: relocation-automation.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Static Web Apps
+        href: relocation-static-web-apps.md
       - name: Power BI
         href: /power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json
  

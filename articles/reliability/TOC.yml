@@ -119,7 +119,7 @@
         - name: Disaster recovery
           href: ../load-balancer/tutorial-cross-region-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Storage-Disk Storage
-        href: ../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/virtual-machines/disks-incremental-snapshots?tabs=azure-resource-manage.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
         href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
       - name: Azure Service Bus
@@ -127,9 +127,9 @@
       - name: Azure Service Fabric
         items:
         - name: Availability zones
-          href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Disaster recovery
-          href: ../service-fabric/service-fabric-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
+          href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
       - name: Azure Site Recovery
         items:
         - name: Availability zones
@@ -153,7 +153,7 @@
       - name: Azure Virtual Network
         items:
         - name: Availability zones
-          href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: ../virtual-network/virtual-networks-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#virtual-networks-and-availability-zones
         - name: Disaster recovery
           href: ../virtual-network/virtual-network-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
       - name: Azure VPN Gateway
@@ -165,7 +165,7 @@
   - name: Mainstream services
     items:
     - name: Azure AI Search
-      href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure API Management
       items:
       - name: Availability zones
@@ -227,7 +227,7 @@
     - name: Azure DDoS Protection
       href: reliability-ddos.md
     - name: Azure Disk Encryption 
-      href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/virtual-machines/disks-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DNS 
       href: reliability-dns.md
     - name: Azure Event Grid
@@ -329,7 +329,7 @@
     - name: Azure IoT Hub
       href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery
     - name: Azure Machine Learning Service
-      href: ../machine-learning/v1/how-to-high-availability-machine-learning.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure NetApp Files
       href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Private 5G Core

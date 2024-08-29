@@ -242,7 +242,7 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No       |
 
 * Specifying node sizes
-See the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which might not be good enough for your scenario. 
+See the [Sizes of Virtual Machines](/azure/virtual-machines/sizes) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which might not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 
@@ -251,7 +251,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you might receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.
+If you specify a wrong value for these properties, you might receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](/azure/virtual-machines/sizes) article.
 
 ### Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service. The computing environment is managed by the user and the service uses it to execute the activities.
