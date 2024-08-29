@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the Upload Indicators API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The Threat Intelligence Upload Indicators API allows you to use these solutions to import threat indicators into Microsoft Sentinel. The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need of the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The Threat Intelligence Upload Indicators API allows you to use these solutions to import threat indicators into Microsoft Sentinel. The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need for the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
 
 :::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
 
@@ -32,10 +32,10 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Prerequisites
 
-- To install, update, and delete standalone content or solutions in **Content hub**, you need the Microsoft Sentinel Contributor role at the resource group level. You don't need to install the data connector to use the API endpoint.
+- To install, update, and delete standalone content or solutions in the **Content hub**, you need the Microsoft Sentinel Contributor role at the resource group level. You don't need to install the data connector to use the API endpoint.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must be able to register a Microsoft Entra application.
-- The Microsoft Entra application must be granted the Microsoft Sentinel Contributor role at the workspace level.
+- Your Microsoft Entra application must be granted the Microsoft Sentinel Contributor role at the workspace level.
 
 ## Instructions
 
@@ -70,7 +70,7 @@ For more information on generating a client secret, see [Add a client secret](..
 
 ## Assign a role to the application
 
-The Upload Indicators API ingests threat indicators at the workspace level and allows a least privilege role of Microsoft Sentinel Contributor.
+The Upload Indicators API ingests threat indicators at the workspace level and allows a least-privilege role of Microsoft Sentinel Contributor.
 
 1. From the Azure portal, go to **Log Analytics workspaces**.
 1. Select **Access control (IAM)**.
@@ -97,7 +97,7 @@ Install the Threat Intelligence Upload Indicators API data connector to see the 
 
 For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
-1. The data connector is now visible in **Configuration** > **Data Connectors**. Open the **Data connectors** page to find more information on how to configure your application with this API.
+1. The data connector is now visible in **Configuration** > **Data connectors**. Open the **Data connectors** page to find more information on how to configure your application with this API.
 
     :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the Upload Indicators API data connector listed." lightbox="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png":::
 

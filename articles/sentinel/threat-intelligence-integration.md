@@ -19,7 +19,7 @@ Microsoft Sentinel gives you a few different ways to [use threat intelligence fe
 - Connect to [TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source.
 - Connect directly to the [Microsoft Defender Threat Intelligence](connect-mdti-data-connector.md) feed.
 - Make use of any custom solutions that can communicate directly with the [Threat Intelligence Upload Indicators API](connect-threat-intelligence-upload-api.md). 
-- You can also connect to threat intelligence sources from playbooks to enrich incidents with threat intelligence information that can help direct investigation and response actions.
+- Connect to threat intelligence sources from playbooks to enrich incidents with threat intelligence information that can help direct investigation and response actions.
 
 > [!TIP]
 > If you have multiple workspaces in the same tenant, such as for [Managed Security Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it might be more cost effective to connect threat indicators only to the centralized workspace.
@@ -37,7 +37,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### Cybersixgill Darkfeed
 
 - Learn about [Cybersixgill integration with Microsoft Sentinel](https://www.cybersixgill.com/partners/azure-sentinel/).
-- To connect Microsoft Sentinel to the Cybersixgill TAXII server and get access to Darkfeed, [contact azuresentinel@cybersixgill.com](mailto://azuresentinel@cybersixgill.com) to obtain the API root, collection ID, username, and password.
+- Connect Microsoft Sentinel to the Cybersixgill TAXII server and get access to Darkfeed. [Contact azuresentinel@cybersixgill.com](mailto://azuresentinel@cybersixgill.com) to obtain the API root, collection ID, username, and password.
 
 ### Cyware threat intelligence exchange (CTIX)
 
@@ -48,7 +48,7 @@ One component of Cyware's TIP, CTIX, is actioning intel with a TAXII feed for yo
 ### ESET
 
 - Learn about [ESET's threat intelligence offering](https://www.eset.com/int/business/services/threat-intelligence/).
-- To connect Microsoft Sentinel to the ESET TAXII server, obtain the API root URL, collection ID, username, and password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
+- Connect Microsoft Sentinel to the ESET TAXII server. Obtain the API root URL, collection ID, username, and password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
 
 ### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
@@ -65,7 +65,7 @@ One component of Cyware's TIP, CTIX, is actioning intel with a TAXII feed for yo
 ### IntSights
 
 - Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
-- To connect Microsoft Sentinel to the IntSights TAXII server, obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data you want to send to Microsoft Sentinel.
+- Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data you want to send to Microsoft Sentinel.
 
 ### Kaspersky
 
@@ -120,8 +120,8 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 ### MISP open-source threat intelligence platform
 
 - Push threat indicators from MISP to Microsoft Sentinel by using the Threat Intelligence Upload Indicators API with [MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
-- See [MISP2Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
-- Learn more about the [MISP Project](https://www.misp-project.org/) in Azure Marketplace.
+- See [MISP2Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview) in Azure Marketplace.
+- Learn more about the [MISP Project](https://www.misp-project.org/).
 
 ### Palo Alto Networks MineMeld
 

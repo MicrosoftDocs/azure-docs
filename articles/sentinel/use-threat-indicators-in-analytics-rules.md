@@ -21,7 +21,7 @@ Power your analytics rules with your threat indicators to automatically generate
 
 - Threat indicators. These indicators can be from threat intelligence feeds, threat intelligence platforms, bulk import from a flat file, or manual input.
 - Data sources. Events from your data connectors must be flowing to your Microsoft Sentinel workspace.
-- An analytics rule of the format `TI map...` that can map the threat indicators you have with the events you ingested.
+- An analytics rule of the format `TI map...`. It must use this format so that it can map the threat indicators you have with the events you ingested.
 
 ## Configure a rule to generate security alerts
 
@@ -61,7 +61,7 @@ This particular analytics rule requires the Azure Activity data connector (to im
 
     You can leave the default settings or change them to meet your requirements. You can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you're finished, select the **Automated response** tab.
 
-1. Configure any automation you want to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel is done by using combinations of automation rules and playbooks powered by Azure Logic Apps. To learn more, see [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When you're finished, select **Next: Review >** to continue.
+1. Configure any automation you want to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel uses combinations of automation rules and playbooks powered by Azure Logic Apps. To learn more, see [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When you're finished, select **Next: Review >** to continue.
 
 1. When you see a message stating that the rule validation passed, select **Create** and you're finished.
 
