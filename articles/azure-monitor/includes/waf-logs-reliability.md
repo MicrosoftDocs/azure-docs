@@ -15,7 +15,7 @@ Azure Monitor Logs offers a number of features that can make your workspaces mor
 
 #### In-region protection using availability zones
 
-[!INCLUDE [logs-availability-zones](includes/logs-availability-zones.md)]
+[!INCLUDE [logs-availability-zones](../includes/logs-availability-zones.md)]
 
 #### Backup of data from specific tables using continuous export 
 
