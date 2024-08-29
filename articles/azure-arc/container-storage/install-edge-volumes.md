@@ -56,8 +56,8 @@ If you run a single node or 2-node cluster with **Ubuntu** or **Edge Essentials*
 1. Create a file named **edgeConfig.yaml** with the following contents:
 
    ```yaml
-   apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfigurations
+   apiVersion: arccontainerstorage.azure.net/v1
+   kind: EdgeStorageConfiguration
    metadata:
      name: edge-storage-configuration
    spec:
@@ -85,8 +85,8 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
    > To relocate storage to a different location on disk, update `diskMountPoint` with your desired path.
 
    ```yaml
-   apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfigurations
+   apiVersion: arccontainerstorage.azure.net/v1
+   kind: EdgeStorageConfiguration
    metadata:
      name: edge-storage-configuration
    spec:
@@ -94,7 +94,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
        - acstor-arcstorage-storage-pool
      serviceMesh: "osm"
    ---
-   apiVersion: arcstorage.azure.net/v1
+   apiVersion: arccontainerstorage.azure.net/v1
    kind: ACStorConfiguration
    metadata:
      name: acstor-configuration
@@ -121,8 +121,8 @@ If you run a single-node or multi-node cluster with **Arc-connected AKS** or **A
 1. Create a file named **edgeConfig.yaml** with the following contents:
 
    ```yaml
-   apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfigurations
+   apiVersion: arccontainerstorage.azure.net/v1
+   kind: EdgeStorageConfiguration
    metadata:
      name: edge-storage-configuration
    spec:

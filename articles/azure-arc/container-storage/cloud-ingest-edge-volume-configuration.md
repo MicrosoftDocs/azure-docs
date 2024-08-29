@@ -43,7 +43,7 @@ While it's not recommended, if you prefer to use key-based authentication, follo
 
 1. Navigate to your Arc-connected cluster.
 1. Select **Extensions**.
-1. Select your Edge Volumes extension.
+1. Select your Azure Container Storage enabled by Azure Arc extension.
 1. Note the Principal ID under **Cluster Extension Details**.
   
 #### [Azure CLI](#tab/cli)
@@ -111,7 +111,7 @@ To create a sub-volume using extension identity to connect to your storage accou
 1. Get the name of your Edge Volume using the following command:
 
     ```bash
-    kubectl get edgevolumes.arcstorage.azure.net
+    kubectl get edgevolumes.arccontainerstorage.azure.net
     ```
 
 1. Create a file named `edgeSubvolume.yaml` and copy the following contents. These variables must be updated with your information:
@@ -119,13 +119,13 @@ To create a sub-volume using extension identity to connect to your storage accou
    [!INCLUDE [lowercase-note](includes/lowercase-note.md)]
 
    - `metadata::name`: Create a name for your sub-volume.
-   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
+   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arccontainerstorage.azure.net`.
    - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: The container name in your storage account.
    - `spec::storageaccountendpoint`: Navigate to your storage account in the Azure portal. On the **Overview** page, near the top right of the screen, select **JSON View**. You can find the `storageaccountendpoint` link under **properties::primaryEndpoints::blob**. Copy the entire link (for example, `https://mytest.blob.core.windows.net/`).
 
     ```yaml
-    apiVersion: "arcstorage.azure.net/v1"
+    apiVersion: "arccontainerstorage.azure.net/v1"
     kind: EdgeSubvolume
     metadata:
       name: <create-a-subvolume-name-here>
@@ -158,7 +158,7 @@ To create a sub-volume using extension identity to connect to your storage accou
    - `spec::eviction::minDelaySec`: The number of seconds before a clean file is eligible for eviction (defaults to 300). This number can range between 0 and 31536000.
 
     ```yaml
-    apiVersion: arcstorage.azure.net/v1
+    apiVersion: arccontainerstorage.azure.net/v1
     kind: EdgeIngestPolicy
     metadata:
       name: <create-a-policy-name-here> # This must be updated and referenced in the spec::ingestPolicy section of the edgeSubvolume.yaml

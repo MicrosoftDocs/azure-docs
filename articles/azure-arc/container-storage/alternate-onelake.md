@@ -67,7 +67,7 @@ You can use the following process to create a sub-volume using Extension Identit
 1. Get the name of your Edge Volume using the following command:
 
    ```bash
-   kubectl get edgevolumes.arcstorage.azure.net
+   kubectl get edgevolumes.arccontainerstorage.azure.net
    ```
 
 1. Create a file named `edgeSubvolume.yaml` and copy/paste the following contents. The following variables must be updated with your information:
@@ -75,13 +75,13 @@ You can use the following process to create a sub-volume using Extension Identit
    [!INCLUDE [lowercase-note](includes/lowercase-note.md)]
 
    - `metadata::name`: Create a name for your sub-volume.
-   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arcstorage.azure.net`.
+   - `spec::edgevolume`: This name was retrieved from the previous step using `kubectl get edgevolumes.arccontainerstorage.azure.net`.
    - `spec::path`: Create your own subdirectory name under the mount path. Note that the following example already contains an example name (`exampleSubDir`). If you change this path name, line 33 in `deploymentExample.yaml` must be updated with the new path name. If you choose to rename the path, don't use a preceding slash.
    - `spec::container`: Details of your One Lake Data Lake Lakehouse (for example, `<WORKSPACE>/<DATA_LAKE>/Files`).
    - `spec::storageaccountendpoint`: Your storage account endpoint is the prefix of your Power BI web link. For example, if your OneLake page is `https://contoso-motors.powerbi.com/`, then your endpoint is `https://contoso-motors.dfs.fabric.microsoft.com`.
 
     ```yaml
-    apiVersion: "arcstorage.azure.net/v1"
+    apiVersion: "arccontainerstorage.azure.net/v1"
     kind: EdgeSubvolume
     metadata:
       name: <create-a-subvolume-name-here>
@@ -114,7 +114,7 @@ You can use the following process to create a sub-volume using Extension Identit
    - `spec::eviction::minDelaySec`: The number of seconds before a clean file is eligible for eviction (defaults to 300). This number can range between 0 and 31536000.
 
     ```yaml
-    apiVersion: arcstorage.azure.net/v1
+    apiVersion: arccontainerstorage.azure.net/v1
     kind: EdgeIngestPolicy
     metadata:
       name: <create-a-policy-name-here> # This will need to be updated and referenced in the spec::ingestPolicy section of the edgeSubvolume.yaml
