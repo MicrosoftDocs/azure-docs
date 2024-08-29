@@ -30,12 +30,11 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Show shared screen content in the participant gallery |
 |                                                                                                 | Enable participant avatar customization                |
 |                                                                                                 | Show a participant roster                                     |
-| Call configuration                                                                    | Manage the microphone device                           |
+| Call management                                                                    | Manage the microphone device                           |
 |                                                                                                 | Manage the camera device                               |
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
-|                                                                                                 | Enable end call confirmation dialogue                 |
-|                                                                                                 | Skip setup screen                 |
+|                                                                                                 | Subscribe events       |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
@@ -43,6 +42,8 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | CallKit and TelecomManager Support                 |
 | Customize the experience                                                                        | Button bar customization                                        |
 |                                                                                                 | Title and subtitle configuration                                        |
+|                                                                                                 | Enable end call confirmation dialogue                 |
+|                                                                                                 | Skip setup screen                 |
 
 ## Call integration
 
@@ -96,13 +97,19 @@ Closed captions enable a wide range of scenarios, including interoperability wit
 
 If you're looking more detailed information about closed captions, feel free to visit [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. Additionally, if you want to jump directly into the configuration of closed captions directly within the UI Library, you can follow our [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
+### Events
+
+Developers can now subscribe to events within the Call Composite, enabling them to attach listeners to specific events throughout the call lifecycle. This enhancement provides greater control and customization opportunities, allowing developers to trigger custom actions based on events like  participant join, or participants left the call. Whether it's for logging interactions, dynamically updating user interfaces, or enhancing overall functionality.
+
+For more information, see [How to handle events](../../../how-tos/ui-library-sdk/events.md).
+
 ### Localization
 
 Localization is key to making products for users around the world and who speak different languages. UI Library supports 12 languages: English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish, and Chinese. It also supports right-to-left languages. For more information, see [How to add localization to your app](../../../how-tos/ui-library-sdk/localization.md).
 
 ### Multitasking and Picture-in-Picture
 
-UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking, which will take user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture.](../../../how-tos/ui-library-sdk/picture-in-picture.md)
+UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking, which takes the user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture.](../../../how-tos/ui-library-sdk/picture-in-picture.md)
 
 ### Screen orientation
 
@@ -157,25 +164,25 @@ The functionality allows developers to add new actions into the contextual menu 
 
 Consider the following constraints during the implementation of this feature:
 
-- Icons and Labels: Icons are added only for new actions. The button bar icons keep the predefined icon, labels should be concise to fit the menu dimension.
+- Icons and Labels: Icons are added only for new actions. The button bar icons keep the predefined icons and the labels should be concise to fit the menu dimension.
 - Accessibility Considerations: Developers should ensure that all custom buttons are accessible, including appropriate labeling for screen readers.
 
 |Remove buttons | Add custom actions|
 |-------------  | ------------------|
 | :::image type="content" source="media/ui-library-remove-button.png" alt-text="Screenshot that demonstrates the remove button on the bottom bar."::: |  :::image type="content" source="media/ui-library-add-action-button.png" alt-text="Screenshot that demonstrates add custom action into the contextual menu."::: |
 
-#### Use Cases
+#### Use cases
 
 - Custom In-Call Actions: A business application can add a custom "Report Issue" button, allowing users to directly report technical issues during a call.
 - Branding and User Experience: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
 
-To ensure a consistent call experience, , we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons will match the design of the Call Composite, creating a cohesive and professional appearance.
+To ensure a consistent call experience, we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons match the design of the Call Composite, creating a cohesive and professional appearance.
 
-#### Best Practices
+#### Best practices
 
-- Minimalism: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
+- Clean design: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
 - User Testing: Conduct user testing to ensure the customizations meets user needs and don't confuse or overwhelm them.
-- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can re use the [mechanism that UI Library provide by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
+- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
 
 For more information, see [How to customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
 
@@ -193,7 +200,15 @@ You can use the UI Library call composite for iOS and Android to create a custom
 
 ### Title and Subtitle
 
-Some text
+The UI Library allows you to input custom strings, making it easier to tailor the call interface to suit your specific needs. You can customize the title and subtitle of a call, both during the setup phase and while the call is in progress.
+
+For example, in a corporate environment, you can set the title to reflect the meeting's agenda and the subtitle to indicate an announcement, and for customer support, agents can use titles to display the nature of the inquiry, enhancing clarity and communication.
+
+Additionally, during calls with time-sensitive discussions, you can use the subtitle to display the call duration, ensuring all participants are aware of the time constraints.
+
+For more information, visit the tutorial: [How to setup the title and subtitle](../../../how-tos/ui-library-sdk/setup-title-subtitle.md).
+
+-----------------------------------------
 
 ## Chat use cases
 

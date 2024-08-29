@@ -443,6 +443,8 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Customize the button bar
           href: how-tos/ui-library-sdk/button-injection.md
+        - name: Customize the title and subtitle
+          href: how-tos/ui-library-sdk/setup-title-subtitle.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -451,6 +453,8 @@ items:
           href: how-tos/ui-library-sdk/picture-in-picture.md
         - name: Enable skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Events
+          href: how-tos/ui-library-sdk/events.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
         - name: Integrate CallKit
