@@ -76,7 +76,7 @@ helm install \
 
 Once `runtime-class-manager` is installed on your AKS cluster, you must annotate the Kubernetes nodes that should be able to run Spin Apps with `kwasm.sh/kwasm-node=true`. You can use `kubectl annotate node` to annotate either a subset of the nodes available in your AKS cluster or - as shown in the following snippet - all nodes of your AKS cluster:
 
-```bash
+```azurecli-interactive
 # Provision containerd-shim-spin to all nodes
 kubectl annotate node --all kwasm.sh/kwasm-node=true
 ```
