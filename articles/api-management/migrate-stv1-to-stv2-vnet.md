@@ -17,7 +17,7 @@ ms.author: danlep
 This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform in-place to the `stv2` platform when the instance is injected (deployed) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
 > [!NOTE]
-> **New in August 2024**: To help you migrate your VNet-injected instance, we've improved your migration options in the portal! You can now migrate your instance in-place and keep the same subnet and IP address.
+> **New in August 2024**: To help you migrate your VNet-injected instance, we've improved the migration options in the portal! You can now migrate your instance in-place and keep the same subnet and IP address.
 
 For a VNet-inject instance, you have the following migration options:
 
@@ -134,8 +134,8 @@ When migrating a VNet-injected instance and keeping the same subnet configuratio
 1. In the left menu, under **Settings**, select **Platform migration**.
 1. On the **Platform migration** page, in **Step 1**, review migration requirements and prerequisites. Select **Keep the same subnet**.
 1. In **Step 2**, select one of the two IP address options.
-       > [!NOTE]
-       > If your VNet is in external mode, take note of the [precreated public IP address](#precreated-IP-address-for-migration) for the migration process. Use this address to configure network connectivity for your migrated instance.
+    > [!NOTE]
+    > If your VNet is in external mode, take note of the pecreated public IP address for the migration process. Use this address to configure network connectivity for your migrated instance.
 1. In **Step 3**, confirm that your subnet meets the migration requirements. Select **Verify** to run automated checks on the subnet. If problems are detected, adjust your subnet configuration and run checks again. For other network dependencies, such as DNS and firewall rules, check manually.
 1. In **Step 4**, confirm that you want to migrate, and select **Start migration**. 
     The status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
