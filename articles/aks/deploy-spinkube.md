@@ -154,6 +154,9 @@ You can retrieve the list of Spin Apps using `kubectl get spinapps`
 ```azurecli-interactive
 # Get all Spin Apps in the default namespace
 kubectl get spinapps
+```
+
+```OUTPUT
 NAME             READY   DESIRED   EXECUTOR
 hello-spinkube   2       2         containerd-shim-spin
 ```
@@ -163,16 +166,27 @@ Upon deployment, the `spin-operator` creates underlying Kubernetes primitives su
 ```azurecli-interactive
 # Retrieve Kubernetes primitives created by the spin-operator
 kubectl get service
+```
+
+```OUTPUT
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
 hello-spinkube   ClusterIP   10.43.35.78   <none>        80/TCP    24s
+```
 
-
+```azurecli-interactive
 kubectl get deployment
+```
+
+```OUTPUT
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 hello-spinkube   2/2     2            2           38s
+```
 
-
+```azurecli-interactive
 kubectl get pod
+```
+
+```OUTPUT
 NAME                              READY   STATUS    RESTARTS   AGE
 hello-spinkube-5b8579448d-zmc6x   1/1     Running   0          51s
 hello-spinkube-5b8579448d-bhkp9   1/1     Running   0          51s
@@ -183,6 +197,9 @@ To invoke the Spin App, you configure port-forwarding to the service provisioned
 ```azurecli-interactive
 # Establish port forwarding
 kubectl port-forward svc/hello-spinkube 8080:80
+```
+
+```OUTPUT
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 ```
@@ -192,6 +209,9 @@ From within a new terminal instance, use `curl` to send an HTTP request to `loca
 ```azurecli-interactive
 # Invoke the Spin App
 curl -iX GET localhost:8080
+```
+
+```OUTPUT
 HTTP/1.1 200 OK
 content-type: text/plain
 content-length: 17
