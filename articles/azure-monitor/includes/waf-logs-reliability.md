@@ -11,7 +11,7 @@ Log Analytics workspaces offer a high degree of reliability. The ingestion pipel
 
 ### Azure Monitor Logs features that enhance resilience
 
-Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs. Some are in-region solutions, and others provide cross-regional redundancy; some are applied automatically and others require manual triggering.  
+Azure Monitor Logs offers a number of features that can make your workspaces more resilient against various types of issues. These features complement one another, so you can use all of them, or none, based on your needs.  
 
 This video provides an overview of reliability and resilience options available for Log Analytics workspaces:
 
@@ -36,16 +36,15 @@ The export mechanism doesn’t provide protection from incidents impacting the i
 
 Workspace replication (preview) is the most extensive resilience solution as it replicates the Log Analytics workspace and incoming logs to another region. 
 
-This lets you switch from the primary workspace location to the secondary without extra configuration to any of your agents or other clients.  Workspace replication protects both your logs and the service operations, and allows you to continue monitoring your systems in the event of region-wide incidents, regardless of whether they stem from the infrastructure or the application layer. 
+This lets you switch from the primary workspace location to the replicated workspace in the secondary region without extra configuration to any of your agents or other clients.  Workspace replication protects both your logs and the service operations, and allows you to continue monitoring your systems in the event of region-wide incidents, regardless of whether they stem from the infrastructure or the application layer. 
 
-When workspace replication is enabled, an empty copy of your workspace is created on another region, with the same configuration as your main, primary workspace. Any changes to your workspace configuration are automatically synced to the secondary workspaces. Note that you can’t manage or directly access the secondary workspace, which is why we sometimes refer to it as “shadow workspace”. It’s only used for resiliency purposes. 
 
 ### Design checklist
 
 > [!div class="checklist"]
-> - Service and data resilience to region-wide incidents - To ensure that your workspace continues working and your logs remain available in the event of an incident that impacts the entire region, enable workspace replication. This is a paid feature, so consider whether your want to replicate all of your incoming logs, or only some data streams. 
-> - In-region protection against datacenter failure – Create your workspace in a region that supports data resilience. 
-> - Cross-regional backup of data in specific tables - Use the continuous export feature to export data from specific tables to a zone-redundant storage account. 
+> - To ensure service and data resilience to region-wide incidents, enable workspace replication. This is a paid feature, so consider whether your want to replicate all of your incoming logs, or only some data streams. 
+> - To ensure in-region protection against datacenter failure, create your workspace in a region that supports data resilience. 
+> - For cross-regional backup of data in specific tables, use the continuous export feature to send data to a zone-redundant storage account. 
 > - Monitor the health of your Log Analytics workspaces.
  
 ### Configuration recommendations
