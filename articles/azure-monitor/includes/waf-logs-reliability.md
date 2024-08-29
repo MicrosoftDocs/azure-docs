@@ -36,7 +36,7 @@ The export mechanism doesn’t provide protection from incidents impacting the i
 
 Workspace replication (preview) is the most extensive resilience solution as it replicates the Log Analytics workspace and incoming logs to another region. 
 
-This lets you switch from the primary workspace location to the replicated workspace in the secondary region without extra configuration to any of your agents or other clients.  Workspace replication protects both your logs and the service operations, and allows you to continue monitoring your systems in the event of region-wide incidents, regardless of whether they stem from the infrastructure or the application layer. 
+Workspace replication protects both your logs and the service operations, and allows you to continue monitoring your systems in the event of region-wide incidents, regardless of whether they stem from the infrastructure or the application layer. 
 
 
 ### Design checklist
