@@ -121,7 +121,7 @@ spec:
 
 ## Custom Health Probe
 
-Application Gateway [can be configured](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When these annotations are present, Kubernetes Ingress controller [creates a custom probe](./application-gateway-create-probe-portal) to monitor the backend application and applies the changes to the application gateway.
+Application Gateway [can be configured](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When these annotations are present, Kubernetes Ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application and applies the changes to the application gateway.
 
 `health-probe-hostname`: This annotation allows a custom hostname on the health probe.<br>
 `health-probe-port`: This annotation configures a custom health probe port.<br>
@@ -433,7 +433,7 @@ spec:
 
 ## Hostname Extension
 
-Application Gateway can be configured to accept multiple hostnames. The hostname-extention annotation allows for this by letting you define multiple hostnames including wildcard hostnames. This will append the hostnames onto the FQDN that is defined in the ingress spec.rules.host on the frontend listener so it is [configured as a multisite listener.](./multiple-site-overview)
+Application Gateway can be configured to accept multiple hostnames. The hostname-extention annotation allows for this by letting you define multiple hostnames including wildcard hostnames. This will append the hostnames onto the FQDN that is defined in the ingress spec.rules.host on the frontend listener so it is [configured as a multisite listener.](./multiple-site-overview.md)
 
 ### Usage
 
@@ -516,7 +516,7 @@ spec:
 
 ## Application Gateway SSL Certificate
 
-The SSL certificate [can be configured to Application Gateway](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/ssl-cert?view=azure-cli-latest#az-network-application-gateway-ssl-cert-create) either from a local PFX certificate file or a reference to a Azure Key Vault unversioned secret Id. When the annotation is present with a certificate name and the certificate is pre-installed in Application Gateway, Kubernetes Ingress controller will create a routing rule with a HTTPS listener and apply the changes to your App Gateway. appgw-ssl-certificate annotation can also be used together with ssl-redirect annotation in case of SSL redirect.
+The SSL certificate [can be configured to Application Gateway](https://learn.microsoft.com/cli/azure/network/application-gateway/ssl-cert#az-network-application-gateway-ssl-cert-create) either from a local PFX certificate file or a reference to a Azure Key Vault unversioned secret Id. When the annotation is present with a certificate name and the certificate is pre-installed in Application Gateway, Kubernetes Ingress controller will create a routing rule with a HTTPS listener and apply the changes to your App Gateway. appgw-ssl-certificate annotation can also be used together with ssl-redirect annotation in case of SSL redirect.
 
 Please refer to appgw-ssl-certificate feature for more details.
 
@@ -660,8 +660,8 @@ spec:
 ## Rewrite Rule Set Custom Resource
 
 > **_NOTE:_** [Application Gateway for Containers](https://aka.ms/agc) has been released, which introduces numerous performance, resilience, and feature changes. Please consider leveraging Application Gateway for Containers for your next deployment.
-> URL Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](https://learn.microsoft.com/azure/application-gateway/for-containers/how-to-url-rewrite-gateway-api?tabs=alb-managed) and [here for Ingress API](https://learn.microsoft.com/azure/application-gateway/for-containers/how-to-url-rewrite-ingress-api?tabs=alb-managed).
-> Header Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](https://learn.microsoft.com/azure/application-gateway/for-containers/how-to-header-rewrite-gateway-api?tabs=alb-managed) and [here for Ingress API](https://learn.microsoft.com/azure/application-gateway/for-containers/how-to-header-rewrite-ingress-api?tabs=alb-managed).
+> URL Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-url-rewrite-gateway-api.md) and [here for Ingress API](for-containers/how-to-url-rewrite-ingress-api.md).
+> Header Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-header-rewrite-gateway-api.md).
 
 > Note: This feature is supported since 1.6.0-rc1. Please use [`appgw.ingress.kubernetes.io/rewrite-rule-set`](#rewrite-rule-set) which allows using an existing rewrite rule set on Application Gateway.
 
