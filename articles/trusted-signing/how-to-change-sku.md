@@ -9,11 +9,11 @@ ms.date: 05/30/2024
 ---
 
 
-# Select or change Trusted Signing SKU (pricing tier)
+# Change a Trusted Signing account SKU (pricing tier)
 
 Trusted Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 
-For more information about pricing, see the Trusted Signing [Pricing](https://azure.microsoft.com/pricing/details/trusted-signing/) article.
+For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
 
 ## SKU (pricing tier) overview
 
@@ -40,15 +40,15 @@ Things to keep in mind:
 - SKU updates are effective beginning in the next billing cycle.
 - SKU limitations for an updated SKU are enforced after the update is successful.
 - After you change the SKU, you must manually refresh the account overview to see the updated SKU under **SKU (Pricing tier)**. (We are actively working to resolve this known limitation.)
-- To downgrade to Basic:
-
-  - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of the Public Trust type, you need to delete any single profile to be eligible to downgrade. The same limitation applies for other certificate profile types.
-  - In the Azure portal, on the **Certificate Profiles** pane, make sure that you select **Status: All** to view all certificate profiles. Viewing all certificate profiles can help you delete all relevant certificate profiles to meet the criteria to downgrade.
-
-    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows selecting all certificate profile statuses to view all certificate profiles." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
 - To upgrade to Premium:
 
   - No limitations are applied when you upgrade from the Basic SKU to the Premium SKU.
+- To downgrade to Basic:
+
+  - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of the Public Trust type, you must delete any single profile to be eligible to downgrade. The same limitation applies for other certificate profile types.
+  - In the Azure portal, on the **Certificate Profiles** pane, make sure that you select **Status: All** to view all certificate profiles. Viewing all certificate profiles can help you delete all relevant certificate profiles to meet the criteria to downgrade.
+
+    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows selecting all certificate profile statuses to view all certificate profiles." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
 
 # [Azure portal](#tab/sku-portal)
 
