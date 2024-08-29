@@ -38,7 +38,7 @@ You can upgrade Dependency Agent for Windows and Linux manually or automatically
 > [!NOTE]
 > Dependency Agent is installed automatically when VM Insights is enabled for process and connection data via the [Azure portal](vminsights-enable-portal.md), [PowerShell](vminsights-enable-powershell.md), [ARM template deployment](vminsights-enable-resource-manager.md), or [Azure policy](vminsights-enable-policy.md).
 >
-> If VM insights is enabled exclusively for performance data, Dependency Agent won't be installed.
+> If VM Insights is enabled exclusively for performance data, Dependency Agent won't be installed.
 
 ### Manually install or upgrade Dependency Agent on Windows 
 
@@ -106,7 +106,7 @@ If Dependency Agent fails to start, check the logs for detailed error informatio
 ## Uninstall Dependency Agent
 
 > [!NOTE]
-> If Dependency Agent was installed manually, it won’t show up in the Azure portal and has to be uninstalled manually. It will only show up in the Azure portal if it was installed via the [Azure portal](vminsights-enable-portal.md), [PowerShell](vminsights-enable-powershell.md), [ARM template deployment](vminsights-enable-resource-manager.md), or [Azure policy](vminsights-enable-policy.md).
+> If Dependency Agent was installed manually, it won’t show in the Azure portal and has to be uninstalled manually. It will only show if it was installed via the [Azure portal](vminsights-enable-portal.md), [PowerShell](vminsights-enable-powershell.md), [ARM template deployment](vminsights-enable-resource-manager.md), or [Azure policy](vminsights-enable-policy.md).
 
 1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
 
