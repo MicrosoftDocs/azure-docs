@@ -185,20 +185,20 @@ Now that you have an existing environment and admin client container app, you ca
 
 1. Go to your container app's environment in the portal.
 
-2. From the left menu, under *Services* category, select **Services**.
+1. From the left menu, under *Services* category, select **Services**.
 
-3. Select **+ Configure** drop down, and select **Java component**.
+1. Select **+ Configure** drop down, and select **Java component**.
 
-4. In the *Configure Java component* panel, enter the following values.
+1. In the *Configure Java component* panel, enter the following values.
 
   | Property | Value |
   |---|---|
   | **Java component type** | Select **Admin for Spring**. |
   | **Java component name** | Enter **admin**. |
 
-5. Select **Next**.
+1. Select **Next**.
 
-6. On the *Review* tab, select **Configure**.
+1. On the *Review* tab, select **Configure**.
 
 ---
 
