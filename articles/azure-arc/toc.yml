@@ -20,6 +20,9 @@
   - name: About Azure Arc resource bridge
     displayName: appliance
     href: ./resource-bridge/overview.md
+  - name: What's new with Arc resource bridge
+    displayName: release, notes
+    href: ./resource-bridge/release-notes.md
   - name: System requirements
     displayName: resource bridge
     href: ./resource-bridge/system-requirements.md

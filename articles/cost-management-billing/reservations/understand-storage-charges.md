@@ -6,7 +6,7 @@ author: akashdubey-ms
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/20/2024
+ms.date: 08/27/2024
 ms.author: akashdubey
 ---
 
@@ -33,6 +33,8 @@ The following examples show how the reserved capacity discount applies, dependin
 Suppose that you purchased 100 TiB of reserved capacity in the US West 2 region for a one-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
 
 Assume that the cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next 12 months.
+
+In this example, 100 TB of reserved capacity appears as a quantity in Azure usage reports including your Azure invoice and the Services view in Cost analysis. It appears as 3,303 hours. It represents the total amount of the reservation (100 TB / days in a month) * 1024. So, for the example in July: (100 TB / 31 days) = 3.2258 TB * 1024 = 3,303.22 GB (per day).
 
 For these examples, assume that you signed up for a monthly reservation payment plan. The following scenarios describe what happens if you under-use or overuse your reserved capacity.
 
