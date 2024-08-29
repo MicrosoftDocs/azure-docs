@@ -129,6 +129,8 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | M64ls |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
 
 #### Large multi-terabyte SAP system: database size 2 TB+: Global Business Suite system
+Especially for such larger systems it is important to evaluate the infrastructure that the system is currently running on and the resource consiuption data of those systems to find the best match of Azure compute and storage infrastructure and configuration.
+
 | VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | vCPU: =>128 |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
