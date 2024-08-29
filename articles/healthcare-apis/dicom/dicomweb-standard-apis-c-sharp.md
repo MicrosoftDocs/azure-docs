@@ -332,7 +332,7 @@ string sopInstanceUidRed = "1.2.826.0.1.3680043.8.498.47359123102728459884412887
 DicomWebResponse response = await client.DeleteInstanceAsync(studyInstanceUid, seriesInstanceUid, sopInstanceUidRed);
 ```
 
-This reponse deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
+This response deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
 
 ### Delete a specific series within a study
 
