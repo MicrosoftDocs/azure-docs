@@ -9,10 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security analyst, I want to edit or bulk edit my watchlists so I can keep them up to date.
 
 
-#Customer intent: [AI]As a security analyst, I want to manage and update watchlists in a cloud-based SIEM platform so that I can efficiently monitor and respond to potential threats.
+#Customer intent: [AI]As a security analyst, I want to manage Microsoft Sentinel watchlists so that I can efficiently monitor and respond to potential threats.
 
 ---
 

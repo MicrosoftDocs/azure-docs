@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal.
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to discover, deploy, and manage SIEM content and solutions so that I can enhance threat detection, investigation, and response capabilities within my organization.
+#Customer intent: [AI]As a security operations center (SOC) analyst, I want to manage SIEM content and solutions so that I can enhance threat detection, investigation, and response capabilities within my organization.
 
 ---
 

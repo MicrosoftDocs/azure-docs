@@ -9,7 +9,6 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security architect or SOC analyst, I want to connect my data source so that I can ingest data into Microsoft Sentinel for security monitoring and threat protection.
 
 
 #Customer intent: [AI]As a security analyst, I want to install and configure data connectors in my SIEM platform so that I can ingest and analyze data from various sources for threat detection and response.
