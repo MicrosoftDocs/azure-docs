@@ -15,16 +15,6 @@ The Azure Modeling and Simulation Workbench provides a secure, cloud-based envir
 
 This article shows how to create, manage, and delete a Chamber.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Required: Make Prerequisites the first H2 after the H1. 
-
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
--->
-
 ## Prerequisites
 
 * A Modeling and Simulation Workbench top-level Workbench has been created.
