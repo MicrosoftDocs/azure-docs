@@ -75,7 +75,7 @@ The following sections describe how customers can use the new Azure Monitor Agen
 >
 > For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).  
 
-### Approach 1: enable Azure monitor agent using Portal 
+### Enable Azure monitor agent using Portal 
 
 Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the Monitoring section.  
 
