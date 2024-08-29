@@ -14,9 +14,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA).
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA)
 
-* The [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) feature is now generally available (GA).
+    In environments with Azure NetApp Files volumes that are shared among multiple departments, projects and users, users can see the existence of other files and folders in directory listings even if they do not have permissions to access those items. Enabling Access-based enumeration (ABE) on Azure NetApp Files volumes ensures users only see those files and folders in directory listings that they have permission to access. If a user does not have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user’s view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and conversely hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files SMB and dual-protocol (with NTFS security style) volumes.
+
+* [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) are now generally available (GA)
+
+    By default, Azure NetApp Files SMB and dual-protocol volumes show up in the list of shares in Windows Files Explorer. In certain scenarios, customers may wish to exclude specific Azure NetApp Files volumes from being listed due to their sensitive content or other reasons. You can now configure these volumes as non-browsable in Azure NetApp Files. This new feature prevents the Windows client from browsing the share, and the share does not show up in the Windows File Explorer. This new capability provides an additional layer of security by not displaying these shares. This setting does not impact permissions and users who have access to the share will maintain access.
 
 ## August 2024
 
