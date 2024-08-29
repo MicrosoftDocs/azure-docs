@@ -69,7 +69,8 @@ helm install \
   kwasm-operator kwasm/kwasm-operator \
   --namespace kwasm \
   --create-namespace \
-  --set kwasmOperator.installerImage=ghcr.io/spinkube/containerd-shim-spin/node-installer:v0.14.1
+  --version 0.2.3 \
+  --set kwasmOperator.installerImage=ghcr.io/spinkube/containerd-shim-spin/node-installer:v0.15.1
 ```
 
 #### Provision containerd-shim-spin to Kubernetes nodes
