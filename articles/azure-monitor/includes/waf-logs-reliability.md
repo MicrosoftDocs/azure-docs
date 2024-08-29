@@ -43,9 +43,9 @@ When workspace replication is enabled, an empty copy of your workspace is create
 ### Design checklist
 
 > [!div class="checklist"]
-> - Service and data resilience to region-wide incidents - To ensure that your workspace continues working and your logs remain available in the event of an incident that impacts the entire region, [enable workspace replication](). This is a paid feature, so consider whether your want to replicate all of your incoming logs, or only some data streams. 
-> - In-region protection against datacenter failure – To protect your logs against a datacenter failure, create your workspace in a region that has data resilience protection (link). 
-> - Cross-regional backup of data in specific tables - To create a safe copy of your logs create a storage account that is replicated across regions (such as RA-GRS or RA-GZRS) to be used with the data export feature. Note that replication across regions is done periodically by the storage account, and that if log ingestion breaks (due to an incident), the export process will stop as well.
+> - Service and data resilience to region-wide incidents - To ensure that your workspace continues working and your logs remain available in the event of an incident that impacts the entire region, enable workspace replication. This is a paid feature, so consider whether your want to replicate all of your incoming logs, or only some data streams. 
+> - In-region protection against datacenter failure – Create your workspace in a region that supports data resilience. 
+> - Cross-regional backup of data in specific tables - Use the continuous export feature to export data from specific tables to a zone-redundant storage account. 
 > - Monitor the health of your Log Analytics workspaces.
  
 ### Configuration recommendations
