@@ -180,7 +180,7 @@ hello-spinkube-5b8579448d-bhkp9   1/1     Running   0          51s
 
 To invoke the Spin App, you configure port-forwarding to the service provisioned by the `spin-operator` and use `curl` for sending HTTP requests:
 
-```bash
+```azurecli-interactive
 # Establish port forwarding
 kubectl port-forward svc/hello-spinkube 8080:80
 Forwarding from 127.0.0.1:8080 -> 80
