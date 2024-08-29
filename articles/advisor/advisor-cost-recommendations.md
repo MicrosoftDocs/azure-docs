@@ -67,7 +67,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
 
 ### Burstable recommendations
 
-We evaluate if workloads are eligible to run on specialized SKUs called **Burstable SKUs** that support variable workload performance requirements and are less expensive than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](../virtual-machines/sizes-b-series-burstable.md).
+We evaluate if workloads are eligible to run on specialized SKUs called **Burstable SKUs** that support variable workload performance requirements and are less expensive than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](/azure/virtual-machines/sizes-b-series-burstable).
 
 A burstable SKU recommendation is made if:
 

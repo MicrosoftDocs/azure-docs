@@ -78,7 +78,7 @@ You can find more information about the offering and our partner solutions [here
 - **Programming model**: Zero to minimal changes for containerized applications. Support is limited to containers that are Linux based (containers using a Linux base image for the container).
 - **Ideal Workloads**: Rapid development and deployment of simple containerized workloads without orchestration. Support for bursting from AKS using Virtual Nodes.
 
-You can find more details at [Getting started with Confidential Containers on ACI](../container-instances/container-instances-confidential-overview.md).
+You can find more details at [Getting started with Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview).
 
 ## Learn more
 

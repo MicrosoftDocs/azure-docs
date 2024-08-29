@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 08/21/2024
 ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
@@ -129,7 +129,7 @@ However, you may experience small CPU, memory, and I/O overhead associated with 
 
    The minidump is first written to disk and the amount of disk spaced is roughly the same as the working set of the original process. Writing the minidump can induce page faults as memory is read. 
 
-   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is be proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
+   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
 
 **When `TrackException` is called:**
 
@@ -170,7 +170,7 @@ Based on how Snapshot Debugger was enabled, see the following options:
 
 * If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of `Microsoft.ApplicationInsights.SnapshotCollector`.
 
-For the latest updates and bug fixes [consult the release notes](./snapshot-debugger.md#release-notes-for-microsoftapplicationinsightssnapshotcollector).
+For the latest updates and bug fixes [consult the release notes](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/blob/main/CHANGELOG.md).
 
 ## Check the uploader logs
 

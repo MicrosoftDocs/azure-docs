@@ -83,7 +83,7 @@ A CimFS image is a combination of several files: one file has the `.cim` file ex
 | `region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1` | 217 KB |
 | `region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2` | 264,132 KB |
 
-The following table is a performance comparison between VHDX and CimFS. These numbers were the result of a test run with 500 files of 300 MB each per format and the tests were performed on a [DSv4 Azure virtual machine](../virtual-machines/dv4-dsv4-series.md).
+The following table is a performance comparison between VHDX and CimFS. These numbers were the result of a test run with 500 files of 300 MB each per format and the tests were performed on a [DSv4 Azure virtual machine](/azure/virtual-machines/dv4-dsv4-series).
 
 | Metric | VHD | CimFS |
 |--|--|--|

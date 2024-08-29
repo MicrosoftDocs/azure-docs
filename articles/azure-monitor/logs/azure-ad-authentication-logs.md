@@ -7,7 +7,7 @@ ms.date: 08/24/2021
 
 # Microsoft Entra authentication for Azure Monitor Logs
 
-Azure Monitor can [collect data in Azure Monitor Logs from multiple sources](data-platform-logs.md#data-collection). These sources include agents on virtual machines, Application Insights, diagnostic settings for Azure resources, and the Data Collector API.
+Azure Monitor can [collect data in Azure Monitor Logs from multiple sources](data-platform-logs.md#data-collection-routing-and-transformation). These sources include agents on virtual machines, Application Insights, diagnostic settings for Azure resources, and the Data Collector API.
 
 Log Analytics agents use a workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor. To learn more, see [Send data from agents](data-security.md#2-send-data-from-agents). The Data Collector API uses the same workspace key to [authorize access](data-collector-api.md#authorization).
 

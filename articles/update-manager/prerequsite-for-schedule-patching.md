@@ -15,7 +15,7 @@ ms.author: sudhirsneha
 
 This article is an overview on how to configure schedule patching and automatic guest virtual machine (VM) patching on Azure VMs by using the new prerequisite to ensure business continuity. The steps to configure both the patching options on Azure Arc VMs remain the same.
 
-Currently, you can enable [automatic guest VM patching](../virtual-machines/automatic-vm-guest-patching.md) (autopatch) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API, where patches are automatically applied during off-peak hours.
+Currently, you can enable [automatic guest VM patching](/azure/virtual-machines/automatic-vm-guest-patching) (autopatch) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API, where patches are automatically applied during off-peak hours.
 
 For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your maintenance window. You can [enable schedule patching](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API and attaching a schedule to the Azure VM. So, the VM properties couldn't be differentiated between **schedule patching** or **Automatic guest VM patching** because both had the patch mode set to **Azure-orchestrated**.
 
@@ -26,7 +26,7 @@ In some instances, when you remove the schedule from a VM, there's a possibility
 
 ## Schedule patching in an availability set
 
-All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
 VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
 
