@@ -36,6 +36,8 @@
     href: azure-portal-video-series.md
 - name: Dashboards
   items:
+  - name: Create and manage dashboards in Dashboard hub
+    href: dashboard-hub.md
   - name: Create an Azure dashboard
     href: azure-portal-dashboards.md
   - name: Share an Azure dashboard
