@@ -45,7 +45,7 @@ items:
         href: ./how-to-guide-download-data.md
       - name: Manage Chamber Storage
         href: ./how-to-guide-manage-chamber-storage.md
-      - name: Manage Shared Storage
+      - name: Manage shared storage
         href: ./how-to-guide-manage-shared-storage.md
       - name: Manage Red Hat firewalls
         href: ./how-to-guide-configure-firewall-rh.md
