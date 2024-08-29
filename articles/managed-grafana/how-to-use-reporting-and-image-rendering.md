@@ -5,7 +5,7 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 28/08/2024
+ms.date: 08/28/2024
 --- 
 
 # Use reporting and image rendering
