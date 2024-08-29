@@ -14,7 +14,7 @@ ms.date: 01/18/2024
 
 This how-to guide shows how to access your Azure Blob Storage account and container from a workflow in Azure Logic Apps using the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your storage container or in other systems, and run actions to work with data in your storage container. For example, you can access and manage files stored as blobs in your Azure storage account.
 
-You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
+You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multitenant Azure Logic Apps and single-tenant Azure Logic Apps. With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
 
 ## Connector technical reference
 
@@ -22,13 +22,10 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureblob/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted), which appears in the connector gallery under **Runtime** > **Shared**,  and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), and appears in the connector gallery under **Runtime** > **In App**. The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureblob/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
-
-- For logic app workflows running in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 - Azure Blob Storage *managed* connector actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The Blob Storage action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content) implicitly uses chunking.
 
@@ -438,7 +435,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in the same region.
 
-  You can put your storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to deploy that logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. ISE-based storage connectors, such as the ISE-versioned Azure Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
+  You can put your storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to create a Standard logic app, which can connect to resources in a virtual network.
 
 - Your logic app and storage account exist in different regions.
 
@@ -508,7 +505,7 @@ To set up the exception and managed identity support, first configure appropriat
 
 Next, [enable managed identity support](../logic-apps/create-managed-service-identity.md) on your logic app resource.
 
-The following steps are the same for Consumption logic apps in multi-tenant environments and Standard logic apps in single-tenant environments.
+The following steps are the same for Consumption logic apps in multitenant environments and Standard logic apps in single-tenant environments.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 

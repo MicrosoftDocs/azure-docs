@@ -26,8 +26,8 @@ Virtual Rooms empower developers with essential security and control capabilitie
 | Voice (VoIP) | ✔️ |
 | Video | ✔️ |
 | Client initiated dial-out to a PSTN number | ✔️ |
-| Server-side call management (Call Automation)*  | ✔️ |
 | Server initiated dial-out to a PSTN number** | ✔️ |
+| Server-side call management (Call Automation)*  | ✔️ |
 | PSTN Dial-in | ❌ |
 | Async Messaging (Chat) | ❌ |
 | Interoperability with Microsoft Teams | ❌ |
@@ -39,6 +39,7 @@ Virtual Rooms empower developers with essential security and control capabilitie
 ## When to use Virtual Rooms
 
 Following table shows when to use Virtual Rooms.
+
 | Condition | Use Rooms | 
 | ------ | ------ |
 | When it is important to control who is allowed to join a call (invite-only experience). | ✔️ |
@@ -70,12 +71,12 @@ At a high level, to conduct calls in a Virtual Rooms you need to create and mana
 | Get list of users invited to join a Virtual Room | ✔️ | ❌ |  ❌ |
 | A user initiates a Virtual Rooms call or joins an in-progress call | ❌ | ✔️ |  ❌ |
 | Dial-out to a PSTN user  | ❌ | ✔️ | ✔️* |
-| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️ |
-| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️ |
+| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️* |
+| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️* |
 | Start/Stop call captions and change captions language | ❌ | ✔️* |  ❌ |
 | Manage call recording | ❌ | ❌ |  ✔️* |
 | Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
-| Send announcements to participants | ❌ | ❌ | ✔️* |
+| Play audio prompts to participants  | ❌ | ❌ | ✔️* |
 
 [Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client-side in-call operations and explains how to use them.
 
@@ -127,6 +128,17 @@ Developers can allow/disallow the ability for call participants to dial-out to a
 1. Participants start a room call
 1. A participant with Presenter role adds PSTN number into a call
 1. PSTN user accepts and joins a room call
+
+
+### Virtual Rooms API/SDKs
+
+Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
+- Create
+- Modify
+- Delete
+- Set and update the list of participants
+- Set and modify the Room validity
+- Assign roles and permissions to users
 
 |Virtual Rooms SDK | Version | State|
 |-------------------| :-----------------------: | :-----------------------------: |
@@ -216,6 +228,7 @@ The *Open Room* concept is now deprecated. Going forward, *Invite Only* rooms ar
 ## Next steps:
 - Use the [QuickStart to create, manage, and join a room](../../quickstarts/rooms/get-started-rooms.md).
 - Learn how to [join a room call](../../quickstarts/rooms/join-rooms-call.md).
+- Learn how to [manage a room call](../../quickstarts/rooms/manage-rooms-call.md).
 - Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md).
 - Analyze your Rooms data, see: [Rooms Logs](../Analytics/logs/rooms-logs.md).
 - Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md).

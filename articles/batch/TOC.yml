@@ -145,6 +145,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Rotate Batch account keys
+      href: account-key-rotation.md
   - name: Authenticate with Microsoft Entra ID
     items:
     - name: Microsoft Entra ID with Batch service

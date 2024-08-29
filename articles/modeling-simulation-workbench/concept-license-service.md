@@ -30,6 +30,6 @@ For silicon EDA, our service automation deploys license servers for each of the 
 
 This flow is extendible and can also include other software vendors across industry verticals."
 
-## Next steps
+## Related content
 
-- [Manage users in Azure Modeling and Simulation Workbench](./how-to-guide-manage-users.md)
+- Learn more about the benefits and key features of using [Shared storage](./shared-storage.md).

@@ -127,7 +127,7 @@ Azure Application Gateway shouldn't exhibit 500 response codes. Open a support r
 
 HTTP 502 errors can have several root causes, for example:
 - NSG, UDR, or custom DNS is blocking access to backend pool members.
-- Backend VMs or instances of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) aren't responding to the default health probe.
+- Backend VMs or instances of [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).

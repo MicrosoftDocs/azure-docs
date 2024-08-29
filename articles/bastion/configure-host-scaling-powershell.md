@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: azure-bastion
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 08/12/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling using Azure PowerShell.
 ---
@@ -34,8 +34,8 @@ This article helps you add more scale units (instances) to Azure Bastion to acco
 1. Confirm "Y" to overwrite the resource. After the resource is overwritten, the specified value is shown in the output for "Scale Units".
 
    >[!NOTE]
-   > Any changes to the host scale units will disrupt active bastion connections.
-   >
+   > Host scaling instance count requires Standard SKU tier or higher. Any changes to the host scale units will disrupt active bastion connections.
+   >s
 
 ## Next steps
 

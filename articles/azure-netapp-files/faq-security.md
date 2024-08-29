@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/15/2024
+ms.date: 08/07/2024
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -20,7 +20,7 @@ NFSv3 protocol doesn't provide support for encryption, so this data-in-flight ca
 
 ## Can the storage be encrypted at rest?
 
-All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. Learn [how encryption keys managed](#how-are-encryption-keys-managed).
+All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. Learn [how encryption keys are managed](#how-are-encryption-keys-managed).
 
 ## Is Azure NetApp Files cross-region and cross-zone replication traffic encrypted?
 
@@ -34,7 +34,7 @@ Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](
 
 Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the transition, you cannot revert back to platform-managed keys. For additional information, see [Transition an Azure NetApp Files volume to customer-managed keys](configure-customer-managed-keys.md#transition).
 
-Also, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access [with the Azure NetApp Files feedback form](https://aka.ms/ANFFeedback). As capacity becomes available, requests will be approved.
+<!-- Also, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access [with the Azure NetApp Files feedback form](https://aka.ms/ANFFeedback). As capacity becomes available, requests will be approved. -->
 
 ## Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 

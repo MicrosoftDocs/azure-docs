@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create HDInsight on AKS cluster pool using Azure CLI'
 description: Learn how to use Azure CLI to create an HDInsight on AKS cluster pool.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 06/18/2024

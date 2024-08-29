@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) terminology - Azure
 description: The terminology used for basic elements of an Azure Virtual Desktop (classic) environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop (classic) terminology
 

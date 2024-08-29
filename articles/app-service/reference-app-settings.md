@@ -282,7 +282,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
 > |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
 > |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
-> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
 > |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
 > |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
 > |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
