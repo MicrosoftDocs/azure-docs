@@ -151,7 +151,7 @@ Having an Spin App deployed to the AKS cluster, you can explore different object
 
 You can retrieve the list of Spin Apps using `kubectl get spinapps`
 
-```bash
+```azurecli-interactive
 # Get all Spin Apps in the default namespace
 kubectl get spinapps
 NAME             READY   DESIRED   EXECUTOR
