@@ -52,17 +52,14 @@ For more information about device twins, see [Understand device twins](iot-hub-d
 
 This article shows you how to:
 
-* Retrieve a device twin and update it's properties
+* Retrieve a device twin and update reported properties
 * Update device twin tags
-* Query device twin information, using SQL-like IoT Hub query language
-* Use a backend application to add tags and query device twins.
-* Report a device twin connectivity channel condition reported property.
-* Query devices from your back-end app using filters on the tags and properties previously created.
-
-This article is meant to complement runnable SDK samples that are referenced from within this article.
+* Create a device desired property update notificaiton callback
+* Use a backend application to update tags and desired properties
+* Query devices from your back-end app using filters on the tags and properties previously created
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> This article is meant to complement compilable [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end apps.
 
 ## Prerequisites
 
@@ -72,25 +69,25 @@ This article is meant to complement runnable SDK samples that are referenced fro
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-## Get the IoT Hub service connection string
+* IoT Hub service connection string
 
-In this article, you create a back-end service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. Your service needs the **service connect** permission to modify desired properties of a device twin, and it needs the **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one.
+  In this article, you create a back-end service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. Your service needs the **service connect** permission to modify desired properties of a device twin, and it needs the **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one.
 
-To create a shared access policy that grants **service connect** and **registry read** permissions and get a connection string for this policy, follow these steps:
+  To create a shared access policy that grants **service connect** and **registry read** permissions and get a connection string for this policy, follow these steps:
 
-1. In the Azure portal, select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
+  1. In the Azure portal, select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
 
-1. On the left-side pane of your hub, select **Shared access policies**.
+  1. On the left-side pane of your hub, select **Shared access policies**.
 
-1. From the top menu above the list of policies, select **Add shared policy access policy**.
+  1. From the top menu above the list of policies, select **Add shared policy access policy**.
 
-1. In the **Add shared access policy** pane on the right, enter a descriptive name for your policy, such as "serviceAndRegistryRead". Under **Permissions**, select **Registry Read** and **Service Connect**, and then select **Add**.
+  1. In the **Add shared access policy** pane on the right, enter a descriptive name for your policy, such as "serviceAndRegistryRead". Under **Permissions**, select **Registry Read** and **Service Connect**, and then select **Add**.
 
-1. Select your new policy from the list of policies.
+  1. Select your new policy from the list of policies.
 
-1. Select the copy icon for the **Primary connection string** and save the value.
+  1. Select the copy icon for the **Primary connection string** and save the value.
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](/azure/iot-hub/authenticate-authorize-sas).
+  For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](/azure/iot-hub/authenticate-authorize-sas).
 
 :::zone pivot="programming-language-csharp"
 

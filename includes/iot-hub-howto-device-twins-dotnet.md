@@ -11,9 +11,6 @@ ms.date: 07/12/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-> [!NOTE]
-> See [Azure IoT SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
-
 ## Create a device application
 
 Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
@@ -24,15 +21,25 @@ This section describes how to use device application code to:
 * Update reported device twin properties
 * Create a desired property update callback handler
 
+### Add device NuGet Package
+
+Device client applications requre the **Microsoft.Azure.Devices.Client** NuGet package.
+
+To install the **Microsoft.Azure.Devices.Client** NuGet package:
+
+1. In your application **Solution Explorer**, right-click your project, and then select **Manage NuGet Packages**.
+1. Select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**.
+1. Select **Install**. This downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
+
 ### Connect to a device
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods you require to interact with device twins from the device.
 
-Connect to the device using the device connection string that you gathered in prerequisites using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with the connection protocol.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with device connection string and the connection transport protocol.
 
 The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
 
-This example connects to the device.
+This example connects to a device using the `Mqtt` transport protocol.
 
 ```csharp
 using Microsoft.Azure.Devices.Client;
@@ -47,9 +54,9 @@ _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString,
 
 ### Retrieve a device twin and examine reported properties
 
- Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the device twin properties. The result [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object includes the device twin reported properties. There are many `Twin` object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can access including Twin `Properties`, `Status`, `Tags`, and `Version`.
+ Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the current device twin properties. The result [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object includes the device twin reported properties. There are many `Twin` object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can use to access specific areas of the Twin JSON data including Twin `Properties`, `Status`, `Tags`, and `Version`.
 
- This example retrieves device twin reported properties and prints the first twin value in JSON format.
+ This example retrieves device twin reported properties and prints the twin values in JSON format.
 
 ```csharp
 Console.WriteLine("Retrieving twin...");
@@ -60,7 +67,13 @@ Console.WriteLine($"\t{twin.ToJson()}");
 
 ### Update reported device twin properties
 
-To update a reported property, create a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) object, then use [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.updatereportedpropertiesasync) to push reported property changes to the IoT hub service.
+To update a twin reported property:
+
+1. Create a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) object for the reported property update
+1. Update one or more reported properties within the `TwinCollection` object
+1. Use [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.updatereportedpropertiesasync) to push reported property changes to the IoT hub service
+
+For example:
 
 ```csharp
 try
@@ -79,17 +92,17 @@ catch (Exception ex)
 
 ### Create a desired property update callback handler
 
-You can create a desired property update callback handler that executes when the desired property is changed in the device by passing the callback handler method to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
+You can create a desired property update callback handler that executes when the desired property is changed in the device by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
 
-For example, this call will set up the system to notify `OnDesiredPropertyChangedAsync` whenever a desired property is changed.
+For example, this call will set up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired property is changed.
 
 ```csharp
 await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChangedAsync, null);
 ```
 
-The twin properties are passed to the callback method and can be examined.
+The twin properties are passed to the callback method as a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection?view=azure-dotnet&branch=main) and can be examined as `KeyValuePair` structures.
 
-For example:
+This example receives the desired property updates as a `TwinCollection`, then loops through and prints the `KeyValuePair` collection updates. After looping through the `KeyValuePair` collection, the code calls `UpdateReportedPropertiesAsync` to update the `DateTimeLastDesiredPropertyChangeReceived` reported property to keep the last updated time up to date.
 
 ```csharp
 private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredProperties, object userContext)
@@ -128,37 +141,83 @@ This section describes how to create backend application code to:
 * Read and update device twin fields
 * Create a device twin query
 
+### Add service NuGet Package
+
+Backend service applications requre the **Microsoft.Azure.Devices** NuGet package.
+
+To install the **Microsoft.Azure.Devices** NuGet package:
+
+1. In your application **Solution Explorer**, right-click your project, and then select **Manage NuGet Packages**.
+1. Select **Browse** and search for and choose **Microsoft.Azure.Devices**.
+1. Select **Install**. This downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
+
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). The backend application connects to the device through IoT Hub.
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the IoT Hub service connection string that you created in the Prerequisites section. The backend application connects to the device through IoT Hub.
 
 ```csharp
 using Microsoft.Azure.Devices;
 static RegistryManager registryManager;
-static string connectionString = "{device connection string}";
+static string connectionString = "{service connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
 
 ### Read and update device twin fields
 
-You can retrieve device twin fields into a into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
+You can retrieve current device twin fields into a into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
 
-The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields.
+The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`.
 
-After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to write `Twin` object field updates back to a device. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`. Use a `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateTwinAsync`.
+After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to write `Twin` object field updates back to a device. Use a `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateTwinAsync`.
 
-#### View and update Tags
+#### Read and update device twin tags
 
-Use the device twin [Tags](/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property is to read and write device tag information. Update twin `tags` using a JSON-formatted patch.
+Use the device twin [Tags](/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property to read and write device tag information.
 
-You can also create and apply a single device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub will parse and apply the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields will not be applied.
+##### Write using a Twin object
+
+This example creates a `location` tag patch, assigns it to the `Twin` object using the `Tags` property, and then applies the patch using `UpdateTwinAsync`.
+
+```csharp
+// Retrieve the device twin
+var twin = await registryManager.GetTwinAsync("myDeviceId");
+
+// Create the tag patch
+var tagspatch =
+   @"{
+   tags: {
+         location: {
+            region: 'US',
+            plant: 'Redmond43'
+         }
+   }
+}";
+
+// Assign the patch to the Twin object
+twin.Tags["location"] = tagspatch;
+
+// Apply the patch to update the device twin tags
+try
+{
+   await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
+}
+catch (Exception e)
+{
+   console.WriteLine("Twin update failed.", e.Message);
+}
+```
+
+##### Write using a JSON string
+
+You can also create and apply a device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub will parse and apply the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields will not be applied.
 
 This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, creates a JSON-formatted `tag` patch with region and plant location information, then calls `UpdateTwinAsync` to apply the patch to update the device twin. An error message is displayed if `UpdateTwinAsync` failed.
 
 ```csharp
 // Retrieve the device twin
 var twin = await registryManager.GetTwinAsync("myDeviceId");
-// Create a tags patch
+
+// Create the JSON tags patch
 var patch =
    @"{
       tags: {
@@ -179,22 +238,18 @@ catch (Exception e)
 }
 ```
 
-#### View and update twin properties
+#### View and update twin desired properties
 
-Use the device twin [Properties](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
+Use device twin [Properties.Desired](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
 
-This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin desired property, then calls `UpdateTwinAsync` to apply the patch to update the device twin.
+This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin `speed` desired property, and then calls `UpdateTwinAsync` to apply the patch to update the device twin.
 
 ```csharp
 // Retrieve the device twin
 var twin = await registryManager.GetTwinAsync("myDeviceId");
 
-twin.Properties.Desired["speed"] = @"type: "5G"";
+twin.Properties.Desired["speed"] = "type: '5G'";
 await registryManager.UpdateTwinAsync(twin.DeviceId, twin, twin.ETag);
-
-// Apply the patch to update the device twin tags
-try
-await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
 ```
 
 #### Other twin update methods
@@ -206,7 +261,7 @@ You can also apply twin updates using these SDK methods:
 
 ### Create a device twin query
 
-This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
+This section demonstrates two device twin queries. Device twin queries are SQL-like queries that return a result set of device twins.
 
 To create a device twin query, call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain an [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
 
