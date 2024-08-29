@@ -13,7 +13,7 @@ By using dropdown parameters, you can collect one or more input values from a kn
 
 The easiest way to specify a dropdown parameter is by providing a static list in the parameter setting. A more interesting way is to get the list dynamically via a KQL query. You can also specify whether it's single or multi-select by using parameter settings. If it's multi-select, you can specify how the result set should be formatted, for example, as delimiter or quotation.
 
-## Building dropdown parameters (value, label, selection, and group)
+## Dropdown parameter components
 When using either static JSON content or getting dynamic values from queries, dropdown parameters allow up to four fields of information, in this specific order:
 
 1. `value` (required): the first column / field in the data is used as the literal value of the parameter. In the case of simple static JSON parameters, it can be as simple as the JSON content `["dev", "test", "prod"]`, which would create a dropdown of three items with those values as both the value and the label in the dropdown. The name of this field doesn't need to be `value`, the dropdown will use the first field in the data no matter the name.
