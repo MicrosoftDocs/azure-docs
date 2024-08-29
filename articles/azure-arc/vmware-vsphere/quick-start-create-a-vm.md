@@ -2,7 +2,7 @@
 title: Create a virtual machine on VMware vCenter using Azure Arc
 description: In this quickstart, you learn how to create a virtual machine on VMware vCenter using Azure Arc
 ms.topic: tutorial
-ms.date: 08/21/2024
+ms.date: 08/29/2024
 ms.service: azure-arc
 zone_pivot_groups: vmware-portal-bicep-terraform
 ms.subservice: azure-arc-vmware-vsphere
@@ -15,11 +15,11 @@ manager: jsuri
 
 # Create a virtual machine on VMware vCenter using Azure Arc
 
-This article describes how to provision a VM using vCenter resources through Azure.
-
 ::: zone pivot="portal"
 
 ## Create a VM in the Azure portal
+
+This article describes how to provision a VM using vCenter resources from Azure Portal.
 
 Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
@@ -69,6 +69,9 @@ Follow these steps to create VM in the Azure portal:
 ::: zone-end
 
 ::: zone pivot="bicep"
+
+This article describes how to provision a VM using vCenter resources using a Bicep template.
+
 ## Create an Arc VMware machine using Bicep template
 
 The following bicep template can be used to create an Arc VMware machine. [Here](/azure/templates/microsoft.connectedvmwarevsphere/2023-12-01/virtualmachineinstances?pivots=deployment-language-arm-template) is the list of available Azure Resource Manager (ARM), Bicep, and Terraform templates for Arc-enabled VMware resources. To trigger any other Arc operation, convert the corresponding [ARM template to Bicep template](/azure/azure-resource-manager/bicep/decompile#decompile-from-json-to-bicep).
@@ -146,6 +149,9 @@ output vmId string = vm.id
 ::: zone-end
 
 ::: zone pivot="terraform"
+
+This article describes how to provision a VM using vCenter resources using a Terraform template.
+
 ## Create an Arc VMware machine with Terraform
 
 ### Prerequisites
@@ -156,11 +162,12 @@ output vmId string = vm.id
 
 Follow these steps to create an Arc VMware machine using Terraform. The following two scenarios are covered in this article:
 
-1.	For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId. 
-2.	Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
+1.	For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents. 
+2.	Create a new Arc VMware VM using templates, Resource pool, Datastore and install Arc agents.
 
 ### Scenario 1
-For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId.
+
+For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents.
 
 #### Step 1: Define variables in a variables.tf file
 
@@ -266,7 +273,7 @@ vm_password          = " The admin password for the VM "
 
 #### Step 3: Modify the configuration to use variables
 
-main.tf
+Create a file named *main.tf* and insert the following code.
 
 ```terraform
 terraform {
@@ -333,7 +340,7 @@ resource "azapi_resource" "test_inventory_vm0001" {
   depends_on = [azapi_resource.test_machine0001]
 }
  
-# Create a guest agent for the VM instance
+# Install Arc agent on the VM
 resource "azapi_resource" "guestAgent" {
   type      = "Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/guestAgents@2023-10-01"
   parent_id = azapi_resource.test_inventory_vm0001.id
@@ -378,7 +385,7 @@ By following these steps, you can effectively create and manage HCRP and Arc VMw
 
 ### Scenario 2
 
-Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
+Create a new Arc VMware VM using templates, Resource pool, Datastore and install Arc agents.
 
 #### Step 1: Define variables in a variables.tf file
 
@@ -463,7 +470,7 @@ custom_location_id   = "/subscriptions/your-subscription-id/resourceGroups/your-
 
 #### Step 3: Modify the configuration to use variables
 
-main.tf
+Create a file named *main.tf* and insert the following code.
 
 ```terraform
 terraform {
