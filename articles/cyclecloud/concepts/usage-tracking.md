@@ -30,10 +30,11 @@ Current spend with overage:
 
 ## Notifications
 
-If you wish to receive email or Slack notifications when your cluster exceeds the budget, enter one of the following:
+If you wish to receive email, Microsoft Teams, or Slack™ notifications when your cluster exceeds the budget, enter one of the following:
 
 * **User Name**: Emails the address associated with the user account.
 * **Email Address**: Enter an email address for the alert.
+* **Teams**: If you are using [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software), you can set up a [webhook](/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook). Note: this method is deprecated and will be discontinued. There is currently no support in CycleCloud for the new Workflows method.
 * **Slack**: If you are using [Slack](https://slack.com/), you can set up a [webhook](https://api.slack.com/incoming-webhooks) to have notifications sent to a specific channel.
 
 Add the alert recipient's information and click **Save**. To add additional recipients, click the **+**, or **-** to delete.
