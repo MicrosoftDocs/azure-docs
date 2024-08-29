@@ -36,9 +36,10 @@ If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes. The process takes longer for multi-region deployments and in scenarios that involve changing the subnet more than once.
+* The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes. Plan longer times for multi-region deployments and in scenarios that involve changing the subnet more than once.
 * The API Management status in the Azure portal will be **Updating**.
 * For certain migration options, the VIP address (or addresses, for a multi-region deployment) of the instance will change. If you migrate and keep the same subnet configuration, you can choose to preserve the VIP address or a new public VIP will be generated. 
+        [!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
 * For migration scenarios when a new VIP address is generated:
     * Azure manages the migration. 
     * The gateway DNS still points to the old compute if a custom domain is in use. 
