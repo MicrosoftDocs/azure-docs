@@ -57,7 +57,7 @@ If you run a single node or 2-node cluster with **Ubuntu** or **Edge Essentials*
 
    ```yaml
    apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfiguration
+   kind: EdgeStorageConfigurations
    metadata:
      name: edge-storage-configuration
    spec:
@@ -86,7 +86,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
 
    ```yaml
    apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfiguration
+   kind: EdgeStorageConfigurations
    metadata:
      name: edge-storage-configuration
    spec:
@@ -122,7 +122,7 @@ If you run a single-node or multi-node cluster with **Arc-connected AKS** or **A
 
    ```yaml
    apiVersion: arcstorage.azure.net/v1
-   kind: EdgeStorageConfiguration
+   kind: EdgeStorageConfigurations
    metadata:
      name: edge-storage-configuration
    spec:
