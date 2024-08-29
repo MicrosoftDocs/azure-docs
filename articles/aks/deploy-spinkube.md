@@ -125,7 +125,7 @@ npm install
 
 The `spin` CLI create a basic *Hello, World* application, package and push the Spin App without further modifications to a OCI compliant container registry:
 
-```bash
+```azurecli-interactive
 # Compile the app to Wasm
 spin build
 
