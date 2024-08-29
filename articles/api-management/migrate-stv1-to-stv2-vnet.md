@@ -39,17 +39,17 @@ If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes.
+* The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes. The process will be longer for multi-region deployments and for scenarios that require multiple migration paths.
 * The API Management status in the Azure portal will be **Updating**.
 * For certain migration options, the VIP address (or addresses, for a multi-region deployment) of the instance will change. If you migrate and keep the same subnet configuration, you can choose to preserve the VIP address or a new public VIP will be generated. 
-* For migration scenarios when a new VIP address is generated:
+* For migration scenarios when a new VIP address is generated (new IP address option for same-subnet migration, or when changing to a new subnet):
     * Azure manages the migration. 
     * The gateway DNS still points to the old compute if a custom domain is in use. 
     * If custom DNS isn't in use, the gateway and portal DNS points to the new compute immediately.
     * For an instance in internal VNet mode, customer manages the DNS, so the DNS entries continue to point to old compute until updated by the customer.
     * It's the DNS that points to either the new or the old compute and hence no downtime to the APIs.
     * Changes are required to your firewall rules, if any, to allow the new compute subnet to reach the backends.
-    * After successful migration, the old compute is automatically decommissioned after a short period. Using the **Platform migration** blade in the portal, you can enable a migration setting to retain the old gateway for 48 hours. *The 48 hour delay option is only available for VNet-injected services.* 
+    * After successful migration, the old compute is automatically decommissioned after a short period. When changing to a new subnet using the **Platform migration** blade in the portal, you can enable a migration setting to retain the old gateway for 48 hours. *The 48 hour delay option is only available for VNet-injected services.* 
 
 ## Prerequisites
 
