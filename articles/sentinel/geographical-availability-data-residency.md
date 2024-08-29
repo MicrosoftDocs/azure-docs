@@ -35,10 +35,9 @@ Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explo
 
 Microsoft Sentinel can run on workspaces in the following regions:
 
-|Continent | General region / Country | Country-specific region |
+|Continent | Country | Region |
 |---------|---------|---------|
-|**North America** |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West |
-| | **Azure government** |• USGov Arizona<br>• USGov Virginia |
+|**North America** |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West <br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia|
 | | **Canada** | • Canada Central<br>• Canada East |
 |**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
 |**Asia** | |• East Asia<br>• Southeast Asia |
@@ -57,5 +56,5 @@ Microsoft Sentinel can run on workspaces in the following regions:
 | |**Sweden**| • Sweden Central | 
 | | **Switzerland**| • Switzerland North<br>• Switzerland West| 
 | | **UK**| • UK South<br>• UK West |
-|**Australia** | | • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
-|**Africa** | | • South Africa North |
+|**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
+|**Africa** | **South Africa**| • South Africa North |
