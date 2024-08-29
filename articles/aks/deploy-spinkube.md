@@ -42,7 +42,7 @@ To deploy SpinKube on an AKS cluster, you must have its dependencies installed. 
 
 If you haven't deployed `cert-manager` to your AKS cluster yet, you can install it by deploying its Custom Resource Definitions (CRDs), followed by the `cert-manager` Helm chart provided through the `jetstack` repository:
 
-```bash
+```azurecli-interactive
 # Deploy cert-manager CRDs
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.3/cert-manager.crds.yaml
 
