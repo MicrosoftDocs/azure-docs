@@ -29,13 +29,13 @@ The following table describes key account details for the Basic SKU and the Prem
 | Private Trust signing             | Yes               | Yes  |
 
 > [!NOTE]
-> The pricing tier is also called the account *SKU*.
+> The pricing tier is also called the *account SKU*.
 
 ## Change the SKU
 
 You can change the SKU for a Trusted Signing account at any time by upgrading to Premium or by downgrading to Basic. You can change the SKU by using either the Azure portal or the Azure CLI.
 
-Things to keep in mind:
+Considerations:
 
 - SKU updates are effective beginning in the next billing cycle.
 - SKU limitations for an updated SKU are enforced after the update is successful.
