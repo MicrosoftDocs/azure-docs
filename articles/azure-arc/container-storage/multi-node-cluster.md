@@ -53,6 +53,8 @@ This section describes how to prepare Linux with Ubuntu if you run a multi-node 
    kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortExclusionList":[443,2379,2380], "inboundPortExclusionList":[443,2379,2380]}}}' --type=merge
    ```
 
+Then, perform the following steps on each of the nodes in your Kubernetes cluster:
+
 [!INCLUDE [multi-node-ubuntu](includes/multi-node-ubuntu.md)]
 
 ::: zone-end

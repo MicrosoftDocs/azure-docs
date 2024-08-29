@@ -33,13 +33,13 @@ If you previously installed Azure Container Storage enabled by Azure Arc, you mu
    kubectl delete -f "YOUR_PV_FILE_NAME_HERE.yaml"
    ```
 
-2. After you delete your configPod, PVC, and PV from the previous step, uninstall the extension using the following command. Replace `YOUR_RESOURCE_GROUP_NAME_HERE`, `YOUR_CLUSTER_NAME_HERE`, and `YOUR_EXTENSION_NAME_HERE` with your respective information:
+1. After you delete your configPod, PVC, and PV from the previous step, uninstall the extension using the following command. Replace `YOUR_RESOURCE_GROUP_NAME_HERE`, `YOUR_CLUSTER_NAME_HERE`, and `YOUR_EXTENSION_NAME_HERE` with your respective information:
 
    ```azurecli
    az k8s-extension delete --resource-group YOUR_RESOURCE_GROUP_NAME_HERE --cluster-name YOUR_CLUSTER_NAME_HERE --cluster-type connectedClusters --name YOUR_EXTENSION_NAME_HERE
    ```
 
-3. If you installed the extension prior to the 1.1.0-preview release (released on 4/19/24) and have a preexisting `config.json` file, be aware that the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`. You can find the new values in the instructions for your specific environment (Arc-connected AKS on Azure, Edge Essentials, or Ubuntu).
+1. If you installed the extension prior to the 1.1.0-preview release (released on 4/19/24) and have a preexisting `config.json` file, be aware that the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`. You can find the new values in the instructions for your specific environment (Arc-connected AKS on Azure, Edge Essentials, or Ubuntu).
 
 [!INCLUDE [prepare-linux-content](includes/prepare-linux-content.md)]
 

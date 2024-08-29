@@ -40,7 +40,7 @@ First, install and configure Open Service Mesh (OSM) using the following command
 az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
 ```
 
-Then, do the following:
+Then, perform the following steps on each of the nodes in your Kubernetes cluster:
 
 [!INCLUDE [multi-node-ubuntu](includes/multi-node-ubuntu.md)]
 ::: zone-end

@@ -28,7 +28,7 @@ ms.author: sethm
    > [!NOTE]
    > The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
 
-1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
+1. Set the number of **HugePages** to 512 using the following command:
 
    ```bash
    HUGEPAGES_NR=512
