@@ -119,16 +119,18 @@ $vnet = @{
 $virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
-Create a subnet in the virtual network. In this example, a subnet named *subnet-1* is created with a service endpoint for *Microsoft.Storage*: 
+Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), and then write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). The following example adds a subnet named _subnet-1_ to the virtual network and creates the service endpoint for *Microsoft.Storage*.
 
 ```azurepowershell-interactive
-$subnetpriv = @{
+$subnet = @{
     Name = "subnet-1"
-    AddressPrefix = "10.0.0.0/24"
     VirtualNetwork = $virtualNetwork
+    AddressPrefix = "10.0.0.0/24"
     ServiceEndpoint = "Microsoft.Storage"
 }
-$virtualNetwork | Set-AzVirtualNetwork @subnetpriv
+Add-AzVirtualNetworkSubnetConfig @subnet
+
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ### [CLI](#tab/cli)
@@ -529,7 +531,7 @@ $storageAcctParams2 = @{
     ResourceGroupName = "test-rg"
     AccountName = $storageAcctName2
 }
-$storageAcctKey2 = (Get-AzStorageAccountKey @storageAcctParams1).Value[0]
+$storageAcctKey2 = (Get-AzStorageAccountKey @storageAcctParams2).Value[0]
 ```
 
 Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key.
@@ -780,7 +782,7 @@ Use [New-AzServiceEndpointPolicy](/powershell/module/az.network/new-azserviceend
 ```azurepowershell-interactive
 $sepolicyParams = @{
     ResourceGroupName = "test-rg"
-    Name = "sepolicy"
+    Name = "service-endpoint-policy"
     Location = "westus2"
     ServiceEndpointPolicyDefinition = $policyDefinition
 }
@@ -802,7 +804,7 @@ Create a service endpoint policy
 ```azurecli-interactive
 az network service-endpoint policy create \
   --resource-group test-rg \
-  --name sepolicy \
+  --name service-endpoint-policy \
   --location eastus
 ```
 
@@ -811,7 +813,7 @@ Create and add a policy definition for allowing the previous Azure Storage accou
 ```azurecli-interactive
 az network service-endpoint policy-definition create \
   --resource-group test-rg \
-  --policy-name sepolicy \
+  --policy-name service-endpoint-policy \
   --name policy-definition \
   --service "Microsoft.Storage" \
   --service-resources $serviceResourceId
@@ -865,7 +867,7 @@ az network vnet subnet update \
   --resource-group test-rg \
   --name subnet-1 \
   --service-endpoints Microsoft.Storage \
-  --service-endpoint-policy sepolicy
+  --service-endpoint-policy service-endpoint-policy
 ```
 
 ---
@@ -925,7 +927,7 @@ To test network access to a storage account, deploy a VM in the subnet.
 
 ### [PowerShell](#tab/powershell)
 
-Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you're prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
+Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you're prompted for credentials. The values that you enter are configured as the user name and password for the VM.
 
 ```azurepowershell-interactive
 $vmParams = @{
