@@ -133,6 +133,37 @@ $virtualNetwork | Set-AzVirtualNetwork @subnetpriv
 
 ### [CLI](#tab/cli)
 
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *test-rg* in the *westus2* location.
+
+```azurecli-interactive
+az group create \
+  --name test-rg \
+  --location westus2
+```
+
+Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
+
+```azurecli-interactive
+az network vnet create \
+  --name vnet-1 \
+  --resource-group test-rg \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name subnet-1 \
+  --subnet-prefix 10.0.0.0/24
+```
+
+In this example, a service endpoint for *Microsoft.Storage* is created for the subnet *subnet-1*:
+
+```azurecli-interactive
+az network vnet subnet create \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-1 \
+  --address-prefix 10.0.0.0/24 \
+  --service-endpoints Microsoft.Storage
+```
+
+
 ---
 
 ## Restrict network access for the subnet
@@ -289,6 +320,58 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### [CLI](#tab/cli)
 
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *nsg-1*.
+
+```azurecli-interactive
+az network nsg create \
+  --resource-group test-rg \
+  --name nsg-1
+```
+
+Associate the network security group to the *subnet-1* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *nsg-1* network security group to the *subnet-1* subnet:
+
+```azurecli-interactive
+az network vnet subnet update \
+  --vnet-name vnet-1 \
+  --name subnet-1 \
+  --resource-group test-rg \
+  --network-security-group nsg-1
+```
+
+Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service:
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group test-rg \
+  --nsg-name nsg-1 \
+  --name Allow-Storage-All \
+  --access Allow \
+  --protocol "*" \
+  --direction Outbound \
+  --priority 100 \
+  --source-address-prefix "VirtualNetwork" \
+  --source-port-range "*" \
+  --destination-address-prefix "Storage" \
+  --destination-port-range "*"
+```
+
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group test-rg \
+  --nsg-name nsg-1 \
+  --name Deny-Internet-All \
+  --access Deny \
+  --protocol "*" \
+  --direction Outbound \
+  --priority 110 \
+  --source-address-prefix "VirtualNetwork" \
+  --source-port-range "*" \
+  --destination-address-prefix "Internet" \
+  --destination-port-range "*"
+```
+
 ---
 
 ## Restrict network access to Azure Storage accounts
@@ -360,6 +443,30 @@ New-AzStorageAccount @storageAcctParams
 
 ### [CLI](#tab/cli)
 
+Create two Azure storage accounts with [az storage account create](/cli/azure/storage/account).
+
+```azurecli-interactive
+storageAcctName1="allowedaccount"
+
+az storage account create \
+  --name $storageAcctName1 \
+  --resource-group test-rg \
+  --sku Standard_LRS \
+  --kind StorageV2
+```
+
+Use the same command to create the denied Azure storage account, but change the name to *deniedaccount*.
+
+```azurecli-interactive
+storageAcctName2="deniedaccount"
+
+az storage account create \
+  --name $storageAcctName2 \
+  --resource-group test-rg \
+  --sku Standard_LRS \
+  --kind StorageV2
+```
+
 ---
 
 ### Create file shares
@@ -388,7 +495,7 @@ New-AzStorageAccount @storageAcctParams
 
 ### [PowerShell](#tab/powershell)
 
-### Create allowed storage account
+### Create allowed storage account file share
 
 Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the allowed storage account.
 
@@ -413,7 +520,7 @@ Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-
 $share1 = New-AzStorageShare file-share -Context $storageContext1
 ```
 
-### Create denied storage account
+### Create denied storage account file share
 
 Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage account key for the allowed storage account. You will use this key in the next step to create a file share in the denied storage account.
 
@@ -429,7 +536,7 @@ $storageAcctKey2 = (Get-AzStorageAccountKey @storageAcctParams1).Value[0]
 Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key.
 
 ```azurepowershell-interactive
-$storageContext12= New-AzStorageContext $storageAcctName2 $storageAcctKey2
+$storageContext2= New-AzStorageContext $storageAcctName2 $storageAcctKey2
 ``
 
 Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare).
@@ -439,6 +546,48 @@ $share2 = New-AzStorageShare file-share -Context $storageContext2
 ```
 
 ### [CLI](#tab/cli)
+
+### Create allowed storage account file share
+
+Retrieve the connection string for the storage accounts into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
+
+```azurecli-interactive
+saConnectionString1=$(az storage account show-connection-string \
+  --name $storageAcctName1 \
+  --resource-group test-rg \
+  --query 'connectionString' \
+  --out tsv)
+```
+
+Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
+
+```azurecli-interactive
+az storage share create \
+  --name file-share \
+  --quota 2048 \
+  --connection-string $saConnectionString1 > /dev/null
+```
+
+### Create denied storage account file share
+
+Retrieve the connection string for the storage accounts into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
+
+```azurecli-interactive
+saConnectionString2=$(az storage account show-connection-string \
+  --name $storageAcctName2 \
+  --resource-group test-rg \
+  --query 'connectionString' \
+  --out tsv)
+```
+
+Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
+
+```azurecli-interactive
+az storage share create \
+  --name file-share \
+  --quota 2048 \
+  --connection-string $saConnectionString2 > /dev/null
+```
 
 ---
 
@@ -522,8 +671,39 @@ $networkRuleParams2 = @{
 Add-AzStorageAccountNetworkRule @networkRuleParams2
 ```
 
-
 ### [CLI](#tab/cli)
+
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account is not accessible from any network.
+
+```azurecli-interactive
+az storage account update \
+  --name $storageAcctName1 \
+  --resource-group test-rg \
+  --default-action Deny
+
+az storage account update \
+  --name $storageAcctName2 \
+  --resource-group test-rg \
+  --default-action Deny
+```
+
+### Enable network access only from the virtual network subnet
+
+Allow network access to the storage account from the *subnet-1* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
+
+```azurecli-interactive
+az storage account network-rule add \
+  --resource-group test-rg \
+  --account-name $storageAcctName1 \
+  --vnet-name vnet-1 \
+  --subnet subnet-1
+
+az storage account network-rule add \
+  --resource-group test-rg \
+  --account-name $storageAcctName2 \
+  --vnet-name vnet-1 \
+  --subnet subnet-1
+```
 
 ---
 
@@ -610,6 +790,34 @@ $sepolicy = New-AzServiceEndpointPolicy @sepolicyParams
 
 ### [CLI](#tab/cli)
 
+Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be approved for this subnet
+
+Use [az storage account show](/cli/azure/storage/account) to get the resource ID for the storage account that is allowed.
+
+```azurecli-interactive
+serviceResourceId=$(az storage account show --name allowedaccount --query id --output tsv)
+```
+
+Create a service endpoint policy
+
+```azurecli-interactive
+az network service-endpoint policy create \
+  --resource-group test-rg \
+  --name sepolicy \
+  --location eastus
+```
+
+Create and add a policy definition for allowing the previous Azure Storage account to the service endpoint policy
+
+```azurecli-interactive
+az network service-endpoint policy-definition create \
+  --resource-group test-rg \
+  --policy-name sepolicy \
+  --name policy-definition \
+  --service "Microsoft.Storage" \
+  --service-resources $serviceResourceId
+```
+
 ---
 
 ## Associate a service endpoint policy to a subnet
@@ -649,6 +857,17 @@ $virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet) to associate the service endpoint policy to the subnet.
+
+```azurecli-interactive
+az network vnet subnet update \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-1 \
+  --service-endpoints Microsoft.Storage \
+  --service-endpoint-policy sepolicy
+```
 
 ---
 
@@ -723,6 +942,18 @@ New-AzVm @vmParams
 Wait for the virtual machine to finish deploying before continuing on to the next steps.
 
 ### [CLI](#tab/cli)
+
+Create a VM in the *subnet-1* subnet with [az vm create](/cli/azure/vm).
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-1 \
+  --image Win2022Datacenter \
+  --admin-username azureuser \
+  --vnet-name vnet-1 \
+  --subnet subnet-1
+```
 
 ---
 
@@ -829,6 +1060,15 @@ Remove-AzResourceGroup @params
 ```
 
 ### [CLI](#tab/cli)
+
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
+```
 
 ---
 
