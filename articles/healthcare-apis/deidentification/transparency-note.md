@@ -1,3 +1,4 @@
+---
 title:  The Azure Health Data Services de-identification service (preview) transparency note
 description: The basics of Azure Health Data Services’ de-identification service and Responsible AI
 author: kimiamavon
