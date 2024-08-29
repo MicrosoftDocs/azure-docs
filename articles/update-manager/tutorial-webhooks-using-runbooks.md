@@ -118,7 +118,7 @@ In this tutorial, you learn how to:
 
 #### [Start VMs](#tab/script-on)
 
-```
+```powershell
 param 
 ( 
     [Parameter(Mandatory=$false)] 
@@ -216,7 +216,7 @@ foreach($id in $jobsList)
 
 #### [Stop VMs](#tab/script-off)
 
-```
+```powershell
 param 
 ( 
 
@@ -320,7 +320,7 @@ foreach($id in $jobsList)
 ```
 
 #### [Cancel a schedule](#tab/script-cancel)
-```
+```powershell
 Invoke-AzRestMethod ` 
 -Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" ` 
 -Payload  

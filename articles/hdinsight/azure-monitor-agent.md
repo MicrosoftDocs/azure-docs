@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 08/29/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -63,8 +63,8 @@ The following sections describe how customers can use the new Azure Monitor Agen
 
 > [!NOTE]
 > Customers using Azure Monitor Classic will no longer work after 31 August, 2024.  
-> Customers using New Azure Monitor experience (preview) are required to migrate to Azure Monitor Agent (AMA) before Jaunary 31, 2025.
-> Clusters with mage **2407260448** with the latest HDInsight API **API Number** will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using image **2407260448**. 
+> Customers using New Azure Monitor experience (preview) are required to migrate to Azure Monitor Agent (AMA) before January 31, 2025.
+> Clusters with image **2407260448** with the latest HDInsight API [2024-08-01-preview](/rest/api/hdinsight/extensions/enable-azure-monitor-agent?view=rest-hdinsight-2024-08-01-preview&preserve-view=true) will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using image **2407260448**. 
 
 ### Activate a new Azure Monitor Agent integration 
 
@@ -75,7 +75,7 @@ The following sections describe how customers can use the new Azure Monitor Agen
 >
 > For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).  
 
-### Approach 1: enable Azure monitor agent using Portal 
+### Enable Azure monitor agent using Portal 
 
 Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the Monitoring section.  
 
@@ -111,9 +111,6 @@ The following steps describe how customers can enable the new Azure Monitor Agen
 ### Access the new tables 
 
 There are two ways you can access the new tables. 
-
-**Known Issues**
-Logs related to Livy jobs are missing some columns in few tables. Reach out to customer support. 
 
 #### Approach 1: 
 

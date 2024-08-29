@@ -35,7 +35,7 @@ The OpenAPI Doc for the supported versions can be found at the following url:
 `<service_url>/v<version>/api.yaml`
 
 ## DICOM Conformance Statement
-All versions of the DICOM APIs conform to the DICOMweb™ Standard specifications, but different versions might expose different APIs.  See the specific version of the conformance statement for details:
+All versions of the DICOM APIs conform to the DICOMweb™ Standard specifications, but different versions might expose different APIs. See the specific version of the conformance statement for details:
 
 * [DICOM Conformance Statement v1](dicom-services-conformance-statement.md)
 * [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md)
@@ -79,6 +79,6 @@ Example:
 [ApiVersion("1.0-prerelease", Deprecated = true)]
 ```
 
-[ ![Screenshot of the API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
+[![Screenshot of the API supported and deprecated versions.](media/api-supported-deprecated-versions.png)](media/api-supported-deprecated-versions.png#lightbox)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
