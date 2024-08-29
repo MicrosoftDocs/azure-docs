@@ -47,6 +47,7 @@ Microsoft Sentinel can run on workspaces in the following regions:
 :::row:::
     :::column:::
     **North America**
+
     **US**:
     - Central US
     - East US
@@ -62,9 +63,11 @@ Microsoft Sentinel can run on workspaces in the following regions:
     - USNat West
     - USSec East
     - USSec West
+
     **Azure government**:
     - USGov Arizona
     - USGov Virginia
+
     **Canada**
     - Canada Central
     - Canada East 
@@ -80,19 +83,24 @@ Microsoft Sentinel can run on workspaces in the following regions:
     - Israel
     - Southeast Asia
     - Qatar Central
+
     **Japan**:
     - Japan East
     - Japan West
+
     **China 21Vianet**:
     - China East 2
     - China North 3
+
     **India**:
     - Central India
     - Jio India West
     - Jio India Central
+
     -**Korea**
     - Korea Central
     - Korea South
+
     **UAE**
     - UAE Central
     - UAE North
@@ -101,21 +109,28 @@ Microsoft Sentinel can run on workspaces in the following regions:
     **Europe**
     - North Europe
     - West Europe
+
     **France**
     - France Central
     - France South
+
     **Germany**
     - Germany West Central
+
     **Italy**
     - Italy North
+
     **Norway**
     - Norway East
     - Norway West
+
     **Sweden**
     - Sweden Central
+
     **Switzerland**
     - Switzerland North
     - Switzerland West
+
     **UK**
     - UK South
     - UK West
