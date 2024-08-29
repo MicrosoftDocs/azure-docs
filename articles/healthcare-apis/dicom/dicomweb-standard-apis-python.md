@@ -7,7 +7,7 @@ ms.subservice: dicom-service
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
-ms.author: varunbms
+ms.author: buchvarun
 ---
 
 # Use DICOMweb Standard APIs with Python

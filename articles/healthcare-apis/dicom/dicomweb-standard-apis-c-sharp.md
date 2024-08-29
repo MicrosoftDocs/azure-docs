@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 10/18/2023
-ms.author: varunbms
+ms.author: buchvarun
 ---
 
 # Use C# and DICOMweb Standard APIs

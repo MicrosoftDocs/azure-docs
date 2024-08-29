@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 10/13/2023
-ms.author: varunbms
+ms.author: buchvarun
 ---
 
 # DICOM Conformance Statement v1

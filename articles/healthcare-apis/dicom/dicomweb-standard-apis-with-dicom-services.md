@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 05/29/2024
-ms.author: varunbms
+ms.author: buchvarun
 ---
 
 # Access DICOMweb APIs to manage DICOM data
