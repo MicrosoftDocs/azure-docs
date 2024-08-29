@@ -31,7 +31,7 @@ A Workbench Owner can create a Chamber in an existing Workbench. Chambers can't 
 
 ## Manage a Chamber
 
-Once a Chamber is created, a Workbench Owner or Chamber Admin can administer it. A Chamber can be stopped, started, or restarted. Chambers are the scope of user role assignments, as well as defining boundary for data.
+Once a Chamber is created, a Workbench Owner or Chamber Admin can administer it. A Chamber can be stopped, started, or restarted. Chambers are the scope of user role assignments, and defining boundary for data.
 
 * [Manage users](./how-to-guide-manage-users.md)
 * [Manage license servers or upload licenses](./how-to-guide-licenses.md)
