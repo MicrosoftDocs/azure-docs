@@ -128,14 +128,14 @@ The following table describes the production settings that are relevant to Azure
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a secret in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternatively [store the value as a secret in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include the app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternatively store the values (especially the username and password) as [Azure Key Vault secrets](/azure/key-vault/secrets/quick-create-python). |
 
 ## Serve static files for Django apps
 
-If your Django web app includes static front-end files, first follow the instructions on [Managing static files](https://docs.djangoproject.com/en/4.1/howto/static-files/) in the Django documentation.
+If your Django web app includes static front-end files, first follow the instructions on [managing static files](https://docs.djangoproject.com/en/4.1/howto/static-files/) in the Django documentation.
 
 For App Service, you then make the following modifications:
 
@@ -157,15 +157,15 @@ For App Service, you then make the following modifications:
 
     Here, `FRONTEND_DIR` is used to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
 
-1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. Whitenoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
+1. Add `whitenoise` to your *requirements.txt* file. [WhiteNoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. WhiteNoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
 
-1. In your *settings.py* file, add the following line for Whitenoise:
+1. In your *settings.py* file, add the following line for WhiteNoise:
 
     ```python
     STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
     ```
 
-1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include Whitenoise:
+1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include WhiteNoise:
 
     ```python
     MIDDLEWARE = [                                                                   
@@ -183,7 +183,7 @@ For App Service, you then make the following modifications:
 
 ## Serve static files for Flask apps
 
-If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.2.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
+If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.2.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
 
 To serve static files directly from a route on your application, you can use the [`send_from_directory`](https://flask.palletsprojects.com/en/2.2.x/api/#flask.send_from_directory) method:
 
@@ -238,7 +238,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 
 If you want more specific control over the startup command, use a [custom startup command](#customize-startup-command), replace `<module>` with the name of folder that contains *wsgi.py*, and add a `--chdir` argument if that module isn't in the project root. For example, if your *wsgi.py* is located under *knboard/backend/config* from your project root, use the arguments `--chdir knboard/backend config.wsgi`.
 
-To enable production logging, add the `--access-logfile` and `--error-logfile` parameters as shown in the examples for [custom startup commands](#customize-startup-command).
+To enable production logging, add the `--access-logfile` and `--error-logfile` parameters as shown in the examples for [custom startup commands](#example-startup-commands).
 
 ### Flask app
 
@@ -280,7 +280,7 @@ To specify a startup command or command file:
 
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
 
-App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free, and that a startup command file is deployed to App Service along with your app code. You can also check the [Diagnostic logs](#access-diagnostic-logs) for more information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
+App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free, and that a startup command file is deployed to App Service along with your app code. You can also check the [diagnostic logs](#access-diagnostic-logs) for more information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
 
 ### Example startup commands
 
@@ -292,7 +292,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers using the `NUM_CORES` environment variable in your startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers)
+    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers using the `NUM_CORES` environment variable in your startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
