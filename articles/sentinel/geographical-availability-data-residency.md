@@ -35,120 +35,27 @@ Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explo
 
 Microsoft Sentinel can run on workspaces in the following regions:
 
-|Continent | Region |
-|---------|---------|
-|**North America** |   **US**<br><br>• Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West<br><br>**Azure government**<br><br>• USGov Arizona<br>• USGov Virginia<br><br>**Canada**<br><br>• Canada Central<br>• Canada East |
-|**South America** | • Brazil South<br>• Brazil Southeast |
-|**Asia** | • East Asia<br>• Israel<br>• Southeast Asia<br>• Qatar Central<br><br>**Japan**<br><br>• Japan East<br>• Japan West<br><br>**China 21Vianet**<br><br>• China East 2<br>• China North 3<br><br>**India**<br><br>• Central India<br>• Jio India West<br>• Jio India Central<br><br>**Korea**<br><br>• Korea Central<br>• Korea South<br><br>**UAE**<br><br>• UAE Central<br>• UAE North        |
-|**Europe**| • North Europe<br>• West Europe<br><br>**France**<br><br>• France Central<br>• France South<br><br>**Germany**<br><br>• Germany West Central<br><br>**Italy**<br><br>• Italy North<br><br>**Norway**<br><br>• Norway East<br>• Norway West<br><br>**Sweden**<br><br>• Sweden Central <br><br>**Switzerland**<br><br>• Switzerland North<br>• Switzerland West<br><br>**UK**<br><br>• UK South<br>• UK West |
-|**Australia** | • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
-|**Africa** | • South Africa North |
-
-:::row:::
-    :::column:::
-    **North America**
-
-    **US**:
-    - Central US
-    - East US
-    - East US 2
-    - East US 2 EUAP
-    - North Central US
-    - South Central US
-    - West US
-    - West US 2
-    - West US 3
-    - West Central US
-    - USNat East
-    - USNat West
-    - USSec East
-    - USSec West
-
-    **Azure government**:
-    - USGov Arizona
-    - USGov Virginia
-
-    **Canada**
-    - Canada Central
-    - Canada East 
-    :::column-end:::
-    :::column:::
-    **South America**
-    - Brazil South
-    - Brazil Southeast
-    :::column-end:::
-    :::column:::
-    **Asia**
-    - East Asia
-    - Israel
-    - Southeast Asia
-    - Qatar Central
-
-    **Japan**:
-    - Japan East
-    - Japan West
-
-    **China 21Vianet**:
-    - China East 2
-    - China North 3
-
-    **India**:
-    - Central India
-    - Jio India West
-    - Jio India Central
-
-    -**Korea**
-    - Korea Central
-    - Korea South
-
-    **UAE**
-    - UAE Central
-    - UAE North
-    :::column-end:::
-    :::column:::
-    **Europe**
-    - North Europe
-    - West Europe
-
-    **France**
-    - France Central
-    - France South
-
-    **Germany**
-    - Germany West Central
-
-    **Italy**
-    - Italy North
-
-    **Norway**
-    - Norway East
-    - Norway West
-
-    **Sweden**
-    - Sweden Central
-
-    **Switzerland**
-    - Switzerland North
-    - Switzerland West
-
-    **UK**
-    - UK South
-    - UK West
-    :::column-end:::
-    :::column:::
-    **Australia**
-    - Australia Central
-    - Australia Central 2
-    - Australia East
-    - Australia Southeast
-    :::column-end:::
-    :::column:::
-    **Africa**
-    - South Africa North
-    :::column-end:::
-:::row-end:::
-
-
-|North America  |South America |Asia  |Europe  |Australia  |Africa |
-|---------|---------|---------|---------|---------|---------|
-|**US**<br><br>• Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West<br><br>**Azure government**<br><br>• USGov Arizona<br>• USGov Virginia<br><br>**Canada**<br><br>• Canada Central<br>• Canada East    |• Brazil South<br>• Brazil Southeast |• East Asia<br>• Southeast Asia<br>• Qatar Central<br><br>**Japan**<br><br>• Japan East<br>• Japan West<br><br>**China 21Vianet**<br><br>• China East 2<br>• China North 3<br><br>**India**<br><br>• Central India<br>• Jio India West<br>• Jio India Central<br><br>**Korea**<br><br>• Korea Central<br>• Korea South<br><br>**UAE**<br><br>• UAE Central<br>• UAE North         |• North Europe<br>• West Europe<br><br>**France**<br><br>• France Central<br>• France South<br><br>**Germany**<br><br>• Germany West Central<br><br>**Italy**<br><br>• Italy North<br><br>**Norway**<br><br>• Norway East<br>• Norway West<br><br>**Sweden**<br><br>• Sweden Central <br><br>**Switzerland**<br><br>• Switzerland North<br>• Switzerland West<br><br>**UK**<br><br>• UK South<br>• UK West	       |• Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	         |• South Africa North	 |
+|Continent | General region / Country | Country-specific region |
+|---------|---------|---------|
+|**North America** |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West |
+| | **Azure government** |• USGov Arizona<br>• USGov Virginia |
+| | **Canada** | • Canada Central<br>• Canada East |
+|**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
+|**Asia** | |• East Asia<br>• Southeast Asia |
+| | **Israel** | • Israel |
+| | **Quatar** | • Qatar Central|
+| | **Japan** | • Japan East<br>• Japan West|
+| | **China 21Vianet**| • China East 2<br>• China North 3|
+| | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
+| | **Korea**| • Korea Central<br>• Korea South| 
+| | **UAE**| • UAE Central<br>• UAE North        |
+|**Europe**| | • North Europe<br>• West Europe|
+| |**France**| • France Central<br>• France South|
+| |**Germany**| • Germany West Central|
+| | **Italy** |• Italy North|
+| | **Norway**|• Norway East<br>• Norway West|
+| |**Sweden**| • Sweden Central | 
+| | **Switzerland**| • Switzerland North<br>• Switzerland West| 
+| | **UK**| • UK South<br>• UK West |
+|**Australia** | | • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
+|**Africa** | | • South Africa North |
