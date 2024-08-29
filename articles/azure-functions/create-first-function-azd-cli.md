@@ -183,7 +183,8 @@ You can use the `azd init` command to create a local Azure Functions code projec
     ```console
     azd init --template functions-quickstart-python-http-azd
     ```
-        This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-http-azd) and initializes the project in the root folder. 
+        
+    This pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-http-azd) and initializes the project in the root folder. 
 
 [!INCLUDE [functions-quickstart-azd-env](../../includes/functions-quickstart-azd-env.md)]
 
@@ -391,11 +392,12 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
     func azure functionapp list-functions $APP_NAME --show-keys
     ```
 
-    ### [Cmd](#tab/bash)
+    ### [Cmd](#tab/cmd)
     ```cmd
     for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
     func azure functionapp list-functions %APP_NAME% --show-keys 
     ``` 
+
     ---
 
     The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
