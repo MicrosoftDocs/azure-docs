@@ -7,7 +7,7 @@ ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java, mode-api
 ms.author: vramasubbu
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ---
 
 # Quickstart: Provision Azure Spring Apps using Azure CLI
