@@ -56,6 +56,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
   name: adx
+  namespace: azure-iot-operations
 spec:
   endpointType: DataExplorer
   dataExplorerSettings:

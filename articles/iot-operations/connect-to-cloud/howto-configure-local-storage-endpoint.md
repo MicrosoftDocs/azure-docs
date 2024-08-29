@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
 ---
@@ -29,6 +29,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
 metadata:
   name: esa
+  namespace: azure-iot-operations
 spec:
   endpointType: localStorage
   localStorageSettings:

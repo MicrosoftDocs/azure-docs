@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/27/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -16,26 +16,26 @@ ms.date: 08/27/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
+MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources. For a list of the available settings, see the [Broker Authentication]() API reference.
 
 ## Link BrokerListener and BrokerAuthentication
 
-The following rules apply to the relationship between BrokerListener and BrokerAuthentication:
+The following rules apply to the relationship between BrokerListener and *BrokerAuthentication*:
 
-* Each BrokerListener can have multiple ports. Each port can be linked to a BrokerAuthentication resource. 
-* Each BrokerAuthentication can support multiple authentication methods at once.
+* Each BrokerListener can have multiple ports. Each port can be linked to a *BrokerAuthentication* resource. 
+* Each *BrokerAuthentication* can support multiple authentication methods at once.
 
-To link a BrokerListener to a BrokerAuthentication resource, specify the `authenticationRef` field in the `ports` setting of the BrokerListener resource. To learn more, see [BrokerListener resource](./howto-configure-brokerlistener.md).
+To link a BrokerListener to a *BrokerAuthentication* resource, specify the `authenticationRef` field in the `ports` setting of the BrokerListener resource. To learn more, see [BrokerListener resource](./howto-configure-brokerlistener.md).
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations Preview deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview deploys a default *BrokerAuthentication* resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
 ```
 
-The output shows the default BrokerAuthentication resource, with metadata removed for brevity:
+The output shows the default *BrokerAuthentication* resource, with metadata removed for brevity:
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -48,13 +48,13 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-          - aio-mq
+          - "aio-mq"
 ```
 
 > [!IMPORTANT]
 > The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource. If you need to make changes, modify the `authenticationMethods` field in this resource while retaining the SAT authentication method with the `aio-mq` audience. Preferably, you can create a new *BrokerAuthentication* resource with a different name and deploy it using `kubectl apply`.
 
-To change the configuration, modify the `authenticationMethods` setting in this BrokerAuthentication resource or create new brand new BrokerAuthentication resource with a different name. Then, deploy it using `kubectl apply`.
+To change the configuration, modify the `authenticationMethods` setting in this *BrokerAuthentication* resource or create new brand new *BrokerAuthentication* resource with a different name. Then, deploy it using `kubectl apply`.
 
 ## Authentication flow
 
@@ -251,7 +251,7 @@ Clients authentication via SAT can optionally have their SATs annotated with att
 
 ### Enable Service Account Token (SAT) authentication
 
-Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `ServiceAccountToken` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the MQTT broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
+Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource to specify `ServiceAccountToken` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the MQTT broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
 
 ```yaml
 spec:
@@ -259,8 +259,8 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-        - aio-mq
-        - my-audience
+        - "aio-mq"
+        - "my-audience"
 ```
 
 Apply your changes with `kubectl apply`. It might take a few minutes for the changes to take effect.
@@ -296,7 +296,7 @@ spec:
           expirationSeconds: 86400
 ```
 
-Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the BrokerAuthentication resource.
+Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the *BrokerAuthentication* resource.
 
 Once the pod is created, start a shell in the pod:
 
@@ -351,19 +351,19 @@ The custom authentication server must present a server certificate, and MQTT bro
 
 ### Enable custom authentication for a listener
 
-Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `custom` as a valid authentication method. Then, specify the parameters required to communicate with a custom authentication server.
+Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource to specify `Custom` as a valid authentication method. Then, specify the parameters required to communicate with a custom authentication server.
 
 This example shows all possible parameters. The exact parameters required depend on each custom server's requirements.
 
 ```yaml
 spec:
   authenticationMethods:
-    - custom:
+    - method: Custom
+      customSettings:
         # Endpoint for custom authentication requests. Required.
         endpoint: https://auth-server-template
-        # Trusted CA certificate for validating custom authentication server certificate.
-        # Required unless the server certificate is publicly-rooted.
-        caCert: custom-auth-ca
+        # Optional CA certificate for validating the custom authentication server's certificate.
+        caCertConfigMap: custom-auth-ca
         # Authentication between MQTT broker with the custom authentication server.
         # The broker may present X.509 credentials or no credentials to the server.
         auth:

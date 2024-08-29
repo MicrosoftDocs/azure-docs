@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
@@ -68,6 +68,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
   name: my-dataflow
+  namespace: azure-iot-operations
 spec:
   profileRef: profile
   mode: Enabled
@@ -313,6 +314,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
   name: my-dataflow
+  namespace: azure-iot-operations
 spec:
   profileRef: profile
   mode: Enabled

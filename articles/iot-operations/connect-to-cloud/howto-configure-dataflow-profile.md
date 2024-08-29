@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/03/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
 ---
@@ -21,6 +21,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowProfile
 metadata:
   name: my-dataflow-profile
+  namespace: azure-iot-operations
 spec:
   instanceCount: 1
   tolerations:

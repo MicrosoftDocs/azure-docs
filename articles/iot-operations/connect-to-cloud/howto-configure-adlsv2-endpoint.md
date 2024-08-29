@@ -79,6 +79,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
   name: my-dataflow
+  namespace: azure-iot-operations
 spec:
   profileRef: profile
   mode: Enabled

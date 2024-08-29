@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 07/11/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -16,7 +16,7 @@ ms.date: 07/11/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The **Broker** resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
+The *Broker* resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
 
@@ -133,45 +133,7 @@ kubectl apply -f <path-to-yaml-file>
 
 ## Configure MQTT broker advanced settings
 
-The following table lists the properties of the broker advanced settings that include client configurations, encryption of internal traffic, certificate rotation, and node tolerations.
-
-| Name                                | Type                     | Description                                                                 |
-|-------------------------------------|--------------------------|-----------------------------------------------------------------------------|
-| clients                             | ClientConfig             | Configurations related to all clients                                      |
-| clients.maxKeepAliveSeconds         | `integer`                | Upper bound of a client's keep alive, in seconds                           |
-| clients.maxMessageExpirySeconds     | `integer`                | Upper bound of message expiry interval, in seconds                         |
-| clients.maxReceiveMaximum           | `integer`                | Upper bound of receive maximum that a client can request in the CONNECT packet |
-| clients.maxSessionExpirySeconds     | `integer`                | Upper bound of session expiry interval, in seconds                         |
-| clients.subscriberQueueLimit        | `SubscriberQueueLimit`    | The limit on the number of queued messages for a subscriber                |
-| clients.subscriberQueueLimit.length | `integer`                | The maximum length of the queue before messages are dropped       |
-| clients.subscriberQueueLimit.strategy | `SubscriberMessageDropStrategy` | The strategy for dropping messages from the queue              |
-| clients.subscriberQueueLimit.strategy.DropOldest | `string` | The oldest message is dropped                                       |
-| clients.subscriberQueueLimit.strategy.None     | `string` | Messages are never dropped                                          |
-| encryptInternalTraffic              | Encrypt                  | The setting to enable or disable encryption of internal traffic            |
-| encryptInternalTraffic.Disabled     | `string`                 | Disable internal traffic encryption                                       |
-| encryptInternalTraffic.Enabled      | `string`                 | Enable internal traffic encryption                                        |
-| internalCerts                       | CertManagerCertOptions   | Certificate rotation and private key configuration                         |
-| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
-| internalCerts.privateKey            | `CertManagerPrivateKey`  | Configuration of certificate private key                                   |
-| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
-| internalCerts.privateKey.algorithm  | PrivateKeyAlgorithm      | Algorithm for private key                                                  |
-| internalCerts.privateKey.rotationPolicy | PrivateKeyRotationPolicy | Cert-manager private key rotation policy                                |
-| internalCerts.privateKey.algorithm.Ec256   | `string`| Algorithm - EC256  |
-| internalCerts.privateKey.algorithm.Ec384   | `string`| Algorithm - EC384  |
-| internalCerts.privateKey.algorithm.Ec521   | `string`| Algorithm - EC521  |
-| internalCerts.privateKey.algorithm.Ed25519 | `string`| Algorithm - Ed25519|
-| internalCerts.privateKey.algorithm.Rsa2048 | `string`| Algorithm - RSA2048|
-| internalCerts.privateKey.algorithm.Rsa4096 | `string`| Algorithm - RSA4096|
-| internalCerts.privateKey.algorithm.Rsa8192 | `string`| Algorithm - RSA8192|
-| internalCerts.privateKey.rotationPolicy.Always  | `string`| Always rotate key |
-| internalCerts.privateKey.rotationPolicy.Never   | `string`| Never rotate key  |
-| tolerations                         | NodeTolerations          | The details of tolerations that are applied to all *Broker* pods             |
-| tolerations.effect                  | `string`                 | Toleration effect                                                          |
-| tolerations.key                     | `string`                 | Toleration key                                                             |
-| tolerations.operator                | `TolerationOperator`     | Toleration operator. For example, "Exists" or "Equal".                              |
-| tolerations.value                   | `string`                 | Toleration value                                                            |
-| tolerations.operator.Equal          | `string`                 | Equal operator                                                             |
-| tolerations.operator.Exists         | `string`                 | Exists operator                                                             |
+The broker advanced settings include client configurations, encryption of internal traffic, and certificate rotations. For more information on the advanced settings, see the [Broker]() API reference.
 
 Here's an example of a *Broker* with advanced settings:
 
@@ -198,11 +160,6 @@ spec:
       privateKey:
         algorithm: Rsa2048
         rotationPolicy: Always
-    tolerations:
-        effect: string
-        key: string
-        operator: Equal
-        value: string
 ```
 
 ## Configure MQTT broker diagnostic settings
@@ -214,29 +171,7 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 
 To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
-You can configure diagnostics using the *Broker* custom resource definition (CRD). The following table shows the properties of the broker diagnostic settings and all default values.
-
-| Name                                 | Format           | Default | Description                                                     |
-| ------------------------------------ | ---------------- | ------- | --------------------------------------------------------------- |
-| logs.exportIntervalSeconds           | integer          | 30      | How often to export the logs to the open telemetry collector    |
-| logs.exportLogLevel                  | string           | error   | The level of logs to export                                     |
-| logs.level                           | string           | info    | The log level. For example, `debug`, `info`, `warn`, `error`, `trace` |
-| logs.openTelemetryCollectorAddress   | string           |         | The open telemetry collector endpoint where to export           |
-| metrics.exportIntervalSeconds        | integer          | 30      | How often to export the metrics to the open telemetry collector |
-| metrics.mode                         | MetricsEnabled   | Enabled | The toggle to enable/disable metrics.                           |
-| metrics.openTelemetryCollectorAddress| string           |         | The open telemetry collector endpoint where to export           |
-| metrics.prometheusPort               | integer          | 9600    | The prometheus port to expose the metrics                       |
-| metrics.stalenessTimeSeconds         | integer          | 600     | The time used to determine if a metric is stale and drop from the metrics cache |
-| metrics.updateIntervalSeconds        | integer          | 30      | How often to refresh the metrics                                |
-| selfcheck.intervalSeconds            | integer          | 30      | The self check interval                                         |
-| selfcheck.mode                       | SelfCheckMode    | Enabled | The toggle to enable/disable self check                         |
-| selfcheck.timeoutSeconds             | integer          | 15      | The timeout for self check                                      |
-| traces.cacheSizeMegabytes            | integer          | 16      | The cache size in megabytes                                     |
-| traces.exportIntervalSeconds         | integer          | 30      | How often to export the metrics to the open telemetry collector |
-| traces.mode                          | TracesMode       | Enabled | The toggle to enable/disable traces                             |
-| traces.openTelemetryCollectorAddress | string           |         | The open telemetry collector endpoint where to export           |
-| traces.selfTracing                   | SelfTracing      |         | The self tracing properties                                     |
-| traces.spanChannelCapacity           | integer          | 1000    | The span channel capacity                                       |
+You can configure diagnostics using the *Broker* custom resource definition (CRD). For more information on the diagnostics settings, see the [Broker]() API reference.
 
 Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 
@@ -247,33 +182,28 @@ metadata:
   name: broker
   namespace: azure-iot-operations
 spec:
-  mode: auto
   diagnostics:
     logs:
-      exportIntervalSeconds: 220
-      exportLogLevel: nym
-      level: debug
-      openTelemetryCollectorAddress: acfqqatmodusdbzgomgcrtulvjy
+      level: "debug"
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
     metrics:
-      stalenessTimeSeconds: 463
-      mode: Enabled
-      exportIntervalSeconds: 246
-      openTelemetryCollectorAddress: vyasdzsemxfckcorfbfx
-      prometheusPort: 60607
-      updateIntervalSeconds: 15
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
+        intervalSeconds: 60
     selfCheck:
       mode: Enabled
-      intervalSeconds: 106
-      timeoutSeconds: 70
+      intervalSeconds: 120
+      timeoutSeconds: 60
     traces:
-      cacheSizeMegabytes: 97
+      cacheSizeMegabytes: 32
       mode: Enabled
-      exportIntervalSeconds: 114
-      openTelemetryCollectorAddress: oyujxiemzlqlcsdamytj
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
       selfTracing:
         mode: Enabled
-        intervalSeconds: 179
-      spanChannelCapacity: 47152
+        intervalSeconds: 120
+      spanChannelCapacity: 1000
 ```
 
 ## Configure encryption of internal traffic
@@ -343,9 +273,8 @@ The value of the *ephemeralVolumeClaimSpec* property is used as the ephemeral.*v
 For example, to use an ephemeral volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
-diskBackedMessageBufferSettings:
+diskBackedMessageBuffer:
   maxSize: "1G"
-
   ephemeralVolumeClaimSpec:
     storageClassName: "foo"
     accessModes:
@@ -363,9 +292,8 @@ The value of the *persistentVolumeClaimSpec* property is used as the *volumeClai
 For example, to use a *persistent* volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml 
-diskBackedMessageBufferSettings:
+diskBackedMessageBuffer:
   maxSize: "1G"
-
   persistentVolumeClaimSpec:
     storageClassName: "foo"
     accessModes:
@@ -381,7 +309,7 @@ Only use *emptyDir* volume when using a cluster with filesystem quotas. For more
 For example, to use an emptyDir volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
-      diskBackedMessageBufferSettings:
+      diskBackedMessageBuffer:
         maxSize: "1G"
 ```
 

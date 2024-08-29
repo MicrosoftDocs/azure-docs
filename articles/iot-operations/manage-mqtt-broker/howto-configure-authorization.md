@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/15/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
@@ -16,22 +16,22 @@ ms.date: 07/15/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
+Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the *BrokerAuthorization* resource. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
 
 ## Link BrokerAuthorization to BrokerListener
 
-To link a BrokerListener to a BrokerAuthorization resource, specify the `authenticationRef` field in the `ports` setting of the BrokerListener resource. Similar to BrokerAuthentication, the BrokerAuthorization resource can be linked to multiple BrokerListener ports. The authorization policies apply to all linked listener ports. However, there's one key difference compared with BrokerAuthentication:
+To link a *BrokerListener* to a *BrokerAuthorization* resource, specify the `authenticationRef` field in the `ports` setting of the *BrokerListener* resource. Similar to BrokerAuthentication, the *BrokerAuthorization* resource can be linked to multiple *BrokerListener* ports. The authorization policies apply to all linked listener ports. However, there's one key difference compared with BrokerAuthentication:
 
 > [!IMPORTANT]
-> To have the BrokerAuthorization configuration apply to a listener port, at least one BrokerAuthentication must also be linked to that listener port.
+> To have the *BrokerAuthorization* configuration apply to a listener port, at least one BrokerAuthentication must also be linked to that listener port.
 
-To learn more about BrokerListener, see [BrokerListener resource](howto-configure-brokerlistener.md).
+To learn more about *BrokerListener*, see [BrokerListener resource](howto-configure-brokerlistener.md).
 
 ## Authorization rules
 
-To configure authorization, create a BrokerAuthorization resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs).
+To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs).
 
-The specification of a BrokerAuthorization resource has the following fields:
+The specification of a *BrokerAuthorization* resource has the following fields:
 
 | Field Name | Required | Description |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ The specification of a BrokerAuthorization resource has the following fields:
 
 <!-- TODO: replace above table with link to API reference docs instead -->
 
-The following example shows how to create a BrokerAuthorization resource using both usernames and attributes:
+The following example shows how to create a *BrokerAuthorization* resource using both usernames and attributes:
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -62,8 +62,8 @@ spec:
     rules:
       - principals:
           usernames:
-            - temperature-sensor
-            - humidity-sensor
+            - "temperature-sensor"
+            - "humidity-sensor"
           attributes:
             - city: "seattle"
               organization: "contoso"
@@ -166,7 +166,7 @@ spec:
               - "odd-numbered-orders"
           - method: Subscribe
             topics:
-              - "orders"                                       
+              - "orders"
 ```
 
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
@@ -192,7 +192,7 @@ kubectl edit brokerauthorization my-authz-policies
 
 ## Disable authorization
 
-To disable authorization, omit `authorizationRef` in the `ports` setting of a BrokerListener resource.
+To disable authorization, omit `authorizationRef` in the `ports` setting of a *BrokerListener* resource.
 
 ## Unauthorized publish in MQTT 3.1.1
 
