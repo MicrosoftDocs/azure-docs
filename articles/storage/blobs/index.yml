@@ -62,9 +62,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Use AI to understand blob data 
-            url: ../../search/search-blob-ai-integration.md?toc=/azure/storage/blobs/toc.json
+            url: /azure/search/search-blob-ai-integration?toc=/azure/storage/blobs/toc.json
           - text: Search your blob content
-            url: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json
+            url: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Analytics and insights
     linkLists:
