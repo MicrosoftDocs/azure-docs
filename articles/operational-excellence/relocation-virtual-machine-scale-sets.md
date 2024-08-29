@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Virtual Machine Scale Sets to another region.
-description: Learn how to relocate Azure Virtual Machine Scale Sets to another region.
+title: Relocate Azure Virtual Machine Scale Sets to another region
+description: Learn how to relocate Azure Virtual Machine Scale Sets to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -62,7 +62,7 @@ In this section, follow the steps below to prepare for relocating a Virtual Mach
     - *Explort Template*. Relocate the Load balancer along with public IP to the target region using the export template option. For information on how to do this, see [Move an external load balancer to another region using the Azure portal](../load-balancer/move-across-regions-external-load-balancer-portal.md).
 
     >[!IMPORTANT]
-    > Because Public IP’s are a regional resource, Azure Resource Mover recreates Load Balancer at the target region with a new public IP address. 
+    > Because public IPs are a regional resource, Azure Resource Mover re-creates Load Balancer at the target region with a new public IP address. 
 
 1. Manually set the source Virtual Machine Scale Set instance count to 0.
 
