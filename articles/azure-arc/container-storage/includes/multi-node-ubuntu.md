@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 08/16/2024
+ms.date: 08/30/2024
 author: sethmanheim
 ms.author: sethm
 ---
@@ -9,7 +9,7 @@ ms.author: sethm
 Then, perform the following steps in your Kubernetes cluster:
 
 > [!IMPORTANT]
-> The following steps must be completed for **each node** in your Kubernetes cluster.
+> You must complete the following steps for each node in your Kubernetes cluster.
 
 1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
 
@@ -41,9 +41,8 @@ Then, perform the following steps in your Kubernetes cluster:
    echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
    ```
 
-1. Restart K3s using:
-   
+1. Restart K3s using the following command:
+
    ```bash
    sudo systemctl restart k3s || sudo systemctl restart k3s-agent
    ```
-   
