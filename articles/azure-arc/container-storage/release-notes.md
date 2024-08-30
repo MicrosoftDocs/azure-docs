@@ -4,7 +4,7 @@ description: Learn about new features and known issues in Azure Container Storag
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 08/30/2024
 
 ---
 
@@ -32,15 +32,16 @@ This article provides information about new features and known issues in Azure C
 
 ## FAQ
 
-### Uninstall previous instance of Azure Container Storage enabled by Azure Arc extension
+### Uninstall previous instance of the Azure Container Storage enabled by Azure Arc extension
 
-#### If I installed a the 1.2.0-preview or any preview prior to that, how do I uninstall the extension? 
+#### If I installed the 1.2.0-preview or any preview prior to that, how do I uninstall the extension?
 
- If you previously installed a version of Azure Container Storage enabled by Azure Arc before version 2.1.0-preview, you must uninstall that previous instance in order to install the newer version. 
- 
- > [!NOTE] The extension name for Arc Container Stoarge enabled by Azure Arc was previously "Edge Storage Accelerator". If you still have this instance installed, the extension will be referred to as "microsoft.edgestorageaccelerator" in the Azure Portal.
+If you previously installed a version of Azure Container Storage enabled by Azure Arc before version **2.1.0-preview**, you must uninstall that previous instance in order to install the newer version.
 
-1. Before you are able to delete the extension, you will need to delete your configPod(s), Persistent Volume Claim(s), and Persistent Volume(s) using the following commands in the following order. Replace `YOUR_POD_FILE_NAME_HERE`, `YOUR_PVC_FILE_NAME_HERE`, and `YOUR_PV_FILE_NAME_HERE` with your respective file names. If you have more than one of each type, add one line per instance:
+> [!NOTE]
+> The extension name for Azure Container Storage enabled by Azure Arc was previously **Edge Storage Accelerator**. If you still have this instance installed, the extension is referred to as **microsoft.edgestorageaccelerator** in the Azure portal.
+
+1. Before you can delete the extension, you must delete your configPods, Persistent Volume Claims, and Persistent Volumes using the following commands in this order. Replace `YOUR_POD_FILE_NAME_HERE`, `YOUR_PVC_FILE_NAME_HERE`, and `YOUR_PV_FILE_NAME_HERE` with your respective file names. If you have more than one of each type, add one line per instance:
 
    ```bash
    kubectl delete -f "YOUR_POD_FILE_NAME_HERE.yaml"
@@ -48,13 +49,13 @@ This article provides information about new features and known issues in Azure C
    kubectl delete -f "YOUR_PV_FILE_NAME_HERE.yaml"
    ```
 
-1. After you delete your configPod(s), PVC(s), and PV(s) from the previous step, you can uninstall the extension using the following command. Replace `YOUR_RESOURCE_GROUP_NAME_HERE`, `YOUR_CLUSTER_NAME_HERE`, and `YOUR_EXTENSION_NAME_HERE` with your respective information:
+1. After you delete your configPods, PVCs, and PVs in the previous step, you can uninstall the extension using the following command. Replace `YOUR_RESOURCE_GROUP_NAME_HERE`, `YOUR_CLUSTER_NAME_HERE`, and `YOUR_EXTENSION_NAME_HERE` with your respective information:
 
    ```azurecli
    az k8s-extension delete --resource-group YOUR_RESOURCE_GROUP_NAME_HERE --cluster-name YOUR_CLUSTER_NAME_HERE --cluster-type connectedClusters --name YOUR_EXTENSION_NAME_HERE
    ```
 
-1. If you installed the extension prior to the 1.1.0-preview release (released on 4/19/24) and have a preexisting `config.json` file, be aware that the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`. 
+1. If you installed the extension prior to the **1.1.0-preview** release (released on 4/19/24) and have a preexisting `config.json` file, be aware that the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`.
 
 ### Encryption
 
