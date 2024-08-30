@@ -1,6 +1,6 @@
 ---
-title: Azure Operator Service Manager Release Notes
-description: Tracking of major and minor releases of Azure Operator Service Manager.
+title: Release notes for Azure Operator Service Manager
+description: Official documentation and tracking for major and minor releases.
 author: msftadam
 ms.author: adamdor
 ms.date: 08/14/2024
