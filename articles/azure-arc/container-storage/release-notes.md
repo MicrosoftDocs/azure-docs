@@ -34,9 +34,9 @@ This article provides information about new features and known issues in Azure C
 
 ### Uninstall previous instance of the Azure Container Storage enabled by Azure Arc extension
 
-#### If I installed the 1.2.0-preview or any preview prior to that, how do I uninstall the extension?
+#### If I installed the 1.2.0-preview or any earlier release, how do I uninstall the extension?
 
-If you previously installed a version of Azure Container Storage enabled by Azure Arc before version **2.1.0-preview**, you must uninstall that previous instance in order to install the newer version.
+If you previously installed a version of Azure Container Storage enabled by Azure Arc earlier than **2.1.0-preview**, you must uninstall that previous instance in order to install the newer version.
 
 > [!NOTE]
 > The extension name for Azure Container Storage enabled by Azure Arc was previously **Edge Storage Accelerator**. If you still have this instance installed, the extension is referred to as **microsoft.edgestorageaccelerator** in the Azure portal.
@@ -55,7 +55,7 @@ If you previously installed a version of Azure Container Storage enabled by Azur
    az k8s-extension delete --resource-group YOUR_RESOURCE_GROUP_NAME_HERE --cluster-name YOUR_CLUSTER_NAME_HERE --cluster-type connectedClusters --name YOUR_EXTENSION_NAME_HERE
    ```
 
-1. If you installed the extension prior to the **1.1.0-preview** release (released on 4/19/24) and have a preexisting `config.json` file, be aware that the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`.
+1. If you installed the extension before the **1.1.0-preview** release (released on 4/19/24) and have a pre-existing `config.json` file, the `config.json` schema changed. Remove the old `config.json` file using `rm config.json`.
 
 ### Encryption
 
@@ -65,7 +65,7 @@ There are three types of encryption that might be interesting for an Azure Conta
 
 - **Cluster to Blob Encryption**: Data in transit from the cluster to blob is encrypted using standard HTTPS protocols. Data is decrypted once it reaches the cloud.
 - **Encryption Between Nodes**: This encryption is covered by Open Service Mesh (OSM) that is installed as part of setting up your Azure Container Storage enabled by Azure Arc cluster. It uses standard TLS encryption protocols.
-- **On Disk Encryption**: This is encryption at rest. This is not currently offered by Azure Container Storage enabled by Azure Arc.
+- **On Disk Encryption**: Encryption at rest. Not currently supported by Azure Container Storage enabled by Azure Arc.
 
 #### Is data encrypted in transit?
 
@@ -83,7 +83,7 @@ ACStor triplication stores data across three different nodes, each with its own 
 
 #### Can ACStor triplication occur on a single physical device?
 
-No, ACStor triplication is not designed to operate on a single physical device with three attached hard drives.
+No, ACStor triplication isn't designed to operate on a single physical device with three attached hard drives.
 
 ## Next steps
 
