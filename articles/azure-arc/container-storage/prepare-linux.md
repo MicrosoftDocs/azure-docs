@@ -43,14 +43,14 @@ In summary, a [single-node Kubernetes cluster](single-node-cluster.md) might be 
 
 ### Single-node or 2-node cluster
 
-- Standard_D8ds_v4 VM recommended
+- Standard_D8ds_v5 VM recommended
 - Equivalent specifications per node:
   - 4 CPUs
   - 16 GB RAM
 
 ### Multi-node cluster
 
-- Standard_D8as_v4 VM recommended
+- Standard_D8as_v5 VM recommended
 - Equivalent specifications per node:
   - 8 CPUs
   - 32 GB RAM
