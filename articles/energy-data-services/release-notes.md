@@ -23,6 +23,15 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## August 2024
+
+### Compliant with M23 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M23 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M23](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M23-Release-Notes) The upgrade with the OSDU&reg; M23 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+### Syncing Reference Values
+We are releasing a Limited Preview for syncing Reference Values with your Azure Data Manager for Energy data partitions. Note that this feature is currently only available for newly created Azure Data Manager for Energy after feature enablement for your Azure subscription. Learn more about [Reference Values on Azure Data Manager for Energy](concepts-reference-data-values.md).
+
 ## June 2024
 
 ### Azure Data Manager for Energy Developer Tier Price Update
