@@ -13,7 +13,7 @@ ms.author: buchvarun
 
 Bulk import is a quick way to add data to the DICOM&reg; service. Importing DICOM files with the bulk import capability enables:
 
-- **Backup and migration**. For example, your organization might have many DICOM instances stored in local or on-premises systems, which you may want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
+- **Backup and migration**. For example, your organization might have many DICOM instances stored in local or on-premises systems, which you want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
 
 - **Machine learning development**. For example, your organization might have a large dataset of DICOM instances that you want to use for training machine learning models. With bulk import, you can upload the data to the DICOM service and then access it from [Microsoft Fabric](get-started-with-analytics-dicom.md), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), or other tools.
 
