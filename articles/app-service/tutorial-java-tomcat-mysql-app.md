@@ -501,7 +501,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 1. Back in the codespace terminal, run `azd deploy`.
  
@@ -633,7 +633,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-- The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Note that anything you install doesn't persist across app restarts.
+- The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Remember that anything you install doesn't persist across app restarts.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM in one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
@@ -653,7 +653,7 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 #### What can I do with GitHub Copilot in my codespace?
 
-You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
 A few tips for you when you talk to GitHub Copilot:
 
@@ -664,7 +664,7 @@ A few tips for you when you talk to GitHub Copilot:
 
 Here are some other things you can say to fine-tune the answer you get.
 
-* Please change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
+* Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
 * Some imports in your code are using javax but I have a Jakarta app.
 * I want this code to run only if the environment variable AZURE_MYSQL_CONNECTIONSTRING is set.
 * I want this code to run only in Azure App Service and not locally.

@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
-In this tutorial, you learn how to build, configure, and deploy a secure Spring Boot application in Azure App Service that's connected to a MongoDB database in Azure (actually, a Cosmos DB database with MongoDB API). When you are finished, you will have a Java SE application running on Azure App Service on Linux.
+In this tutorial, you learn how to build, configure, and deploy a secure Spring Boot application in Azure App Service that connects to a MongoDB database in Azure (actually, a Cosmos DB database with MongoDB API). When you're finished, you'll have a Java SE application running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-browse-app-2.png" alt-text="Screenshot of Spring Boot application storing data in Cosmos DB.":::
 
@@ -177,10 +177,10 @@ App settings are one way to keep connection secrets out of your code repository.
         **Step 1:** In the App Service page, 
         1. In the left menu, select **Settings > Environment variables**. 
         1. Next to **AZURE_COSMOS_CONNECTIONSTRING**, select **Show value**.
-        This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which is not the best. You will change this.
+        This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how see the value of an app setting." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-1.png":::
+        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -246,9 +246,9 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row:::
     :::column span="2":::
         **Step 6:** You're back in the edit dialog for **defaultConnector**.
-        1. I the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the Key Vault Connection dropdown automatically selects it.
+        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the Key Vault Connection dropdown automatically selects it.
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service", ignore it. The app creation wizard already secured the Cosmos DB database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the Cosmos DB database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -257,7 +257,7 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** To verify that you have secured the secrets: 
+        **Step 7:** To verify that you secured the secrets: 
         1. From the left menu, select **Environment variables** again.
         1. Make sure that the app setting **spring.data.mongodb.uri** exists. The default connector generated it for you, and your Spring Boot application already uses the variable.
         1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
@@ -304,7 +304,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         **Step 3:** 
         1. Select the **Logs** tab. See that a new deployment already ran, but the status is **Failed**.
         1. Select **Build/Deploy Logs**.
-        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In Annotataions, you see the error `The string 'java21' is not valid SeVer notation for a Java version`. If you want, click the failed **build** step in the page to get more information.
+        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In **Annotations**, you see the error `The string 'java21' is not valid SeVer notation for a Java version`. If you want, select the failed **build** step in the page to get more information.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing an error in the deployment center's Logs page." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png":::
@@ -322,8 +322,8 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 :::row:::
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**  
-        1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
-        1. Ask, "*@workspace why do i get the error in github actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
+        1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
+        1. Ask, "*@workspace why do i get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and make the suggested fix.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -507,7 +507,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *B1* tier is created.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Azure Cosmos DB accountn with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
+    - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
     - **Azure Cache for Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
     - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
@@ -536,7 +536,7 @@ The AZD template you use generated the connectivity variables for you already as
             - azure.keyvault.scope
     </pre>
 
-    `spring.data.mongodb.uri` contains the connection URI to the Cosmos DB database in Azure. This is a standard Spring Data variable, which your application is already using in the *src/main/resources/application.properties* file. 
+    `spring.data.mongodb.uri` contains the connection URI to the Cosmos DB database in Azure. It's a standard Spring Data variable, which your application is already using in the *src/main/resources/application.properties* file. 
 
 1. In the explorer, navigate to *src/main/resources/application.properties* and see that your Spring Boot app is already using the `spring.data.mongodb.uri` variable to access data.
 
@@ -546,58 +546,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Modify sample code and redeploy
-
-# [With GitHub Copilot](#tab/copilot)
-
-1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
-
-1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
-
-1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-spring-boot-mongodb-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
-
-1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
-
-    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
-
-1. Back in the codespace terminal, run `azd deploy`.
- 
-    ```bash
-    azd deploy
-    ```
-
-# [Without GitHub Copilot](#tab/nocopilot)
-
-1. Back in the GitHub codespace of your sample fork, from the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
-
-1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
-
-    ```java
-    String azureDbUrl= System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
-    if (azureDbUrl!=null) {
-        logger.info("Detected Azure MySQL connection string. Adding Tomcat data source...");
-        props.put("jakarta.persistence.nonJtaDataSource", "java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
-    }
-    ```
-    
-    This code checks to see if the `AZURE_MYSQL_CONNECTIONSTRING` app setting exists, and changes the data source to `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found earlier in *context.xml* in the SSH shell.
-
-1. Back in the codespace terminal, run `azd deploy`.
- 
-    ```bash
-    azd deploy
-    ```
-
------
-
-> [!TIP]
-> You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
->
-> To find out how the War file is packaged, you can run `azd package --debug` by itself.
-
-Having issues? Check the [Troubleshooting section](#troubleshooting).
-
-## 6. Browse to the app
+## 5. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
@@ -616,7 +565,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
@@ -634,7 +583,7 @@ Learn more about logging in Java apps in the series on [Enable Azure Monitor Ope
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 
@@ -656,7 +605,11 @@ Depending on your subscription and the region you select, you might see the depl
 
 `InternalServerError: An unexpected error occured while processing the request.`
 
-This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+Or,
+
+`Sorry, we are currently experiencing high demand in East US region, and cannot fulfill your request at this time.`
+
+The error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 
 #### The deployed sample app doesn't show the tasks list app
 
@@ -687,9 +640,9 @@ Pricing for the created resources is as follows:
 
 The Java SE container in App Service already has network connectivity to Cosmos DB, but doesn't contain any migration tools or other MongoDB tools. You have a few options:
 
-- Run database migrations automatically at app start. Both Hibernate and Flyway can do this.
-- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like [Flyway](https://documentation.red-gate.com/fd/command-line-184127404.html), then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
-- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network and run database migrations from there.
+- Run database migrations automatically at app start, such as with Hibernate and or Flyway.
+- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like [Flyway CLI](https://documentation.red-gate.com/fd/command-line-184127404.html), then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
+- [Integrate the Azure cloud shell](../cloud-shell/private-vnet.md) with the virtual network and run database migrations from there.
 
 #### How does local app development work with GitHub Actions?
 
@@ -707,7 +660,7 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 #### What can I do with GitHub Copilot in my codespace?
 
-You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
 A few tips for you when you talk to GitHub Copilot:
 
