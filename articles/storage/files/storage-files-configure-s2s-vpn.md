@@ -4,7 +4,7 @@ description: Learn how to configure a site-to-site (S2S) VPN for use with Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 08/30/2024
 ms.author: kendownie
 ---
 
@@ -40,9 +40,11 @@ If you don't have an existing network appliance, Windows Server contains a built
 
 To add a new or existing virtual network to your storage account, follow these steps.
 
+# [Portal](#tab/azure-portal)
+
 1. Sign in to the Azure portal and navigate to the storage account containing the Azure file share you would like to mount on-premises.
 
-1. In the table of contents for the storage account, select **Security + networking > Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
+1. In the service menu, under **Security + networking**, select **Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
 
 1. To add a virtual network, select the **Enabled from selected virtual networks and IP addresses** radio button. Under the **Virtual networks** subheading, select either **+ Add existing virtual network** or **+ Add new virtual network**. Creating a new virtual network will result in a new Azure resource being created. The new or existing virtual network resource must be in the same region as the storage account, but it doesn't need to be in the same resource group or subscription. However, keep in mind that the resource group, region, and subscription you deploy your virtual network into must match where you deploy your virtual network gateway in the next step.
 
@@ -53,6 +55,59 @@ To add a new or existing virtual network to your storage account, follow these s
    If you haven't enabled public network access to the virtual network previously, the Microsoft.Storage service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
 
 1. Select **Save** at the top of the page.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+1. Sign in to the Azure portal.
+
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+   
+1. If you want to add a new virtual network and subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>` and `<resource-group-name>` with your own values. If desired, provide your own values for `$location`, `$vnetName`, and `$subnetName`. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values.
+
+   ```azurepowershell
+   # Select subscription  
+   $subscriptionId = 'your-subscription-id'  
+   Select-AzSubscription -SubscriptionId $subscriptionId  
+     
+   # Define parameters  
+   $resourceGroup = 'resource-group-name'  
+   $location = 'East US'  
+   $vnetName = 'myVNet'
+   $subnetName = 'mySubnet'   
+     
+   # Define subnet configuration  
+   $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24  
+     
+   # Create a virtual network  
+   New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $subnetConfig  
+   ```
+
+1. If you have an existing virtual network you want to use, make sure it has at least one gateway subnet. If it doesn't, you'll need to add a gateway subnet before proceeding.
+
+
+# [Azure CLI](#tab/azure-cli)
+
+1. Sign in to the Azure portal.
+
+   ```azurecli
+   az login
+   ```
+
+1. If you want to add a new virtual network and subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>` and `<resource-group-name>` with your own values. Replace `<virtual-network-name>` with the name of the new virtual network you want to create. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values. The virtual network will be created in the same region as the resource group.
+
+   ```azurecli
+   # Set your subscription  
+   az account set --subscription "your-subscription-id"  
+     
+   # Create a virtual network and subnet
+   az network vnet create --resource-group <resource-group-name> --name <virtual-network-name> --address-prefix 10.0.0.0/16 --subnet-name <subnet-name> --subnet-prefix 10.0.0.0/24  
+   ```
+
+1. If you have an existing virtual network you want to use, make sure it has at least one gateway subnet. If it doesn't, you'll need to add a gateway subnet before proceeding.
+
+---
 
 ## Deploy a virtual network gateway
 
@@ -86,6 +141,7 @@ To deploy a virtual network gateway, follow these steps.
    - **Configure BGP**: Select **Disabled**, unless your configuration specifically requires Border Gateway Protocol. If you do require this setting, the default ASN is 65515, although this value can be changed. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
+
 
 ### Create a local network gateway for your on-premises gateway
 
