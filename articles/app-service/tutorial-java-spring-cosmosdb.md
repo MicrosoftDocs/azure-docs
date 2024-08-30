@@ -595,29 +595,20 @@ azd down
 
 ## Troubleshooting
 
-- [The portal deployment view for Azure Cosmos DB shows a Conflict status](#the-portal-deployment-view-for-azure-database-for-mysql-flexible-server-shows-a-conflict-status)
+- [The portal deployment view for Azure Cosmos DB shows a Conflict status](#the-portal-deployment-view-for-azure-cosmos-db-shows-a-conflict-status)
 - [The deployed sample app doesn't show the tasks list app](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
-- [I see a 404 Page Not Found error in the deployed sample app](#i-see-a-404-page-not-found-error-in-the-deployed-sample-app)
 
 #### The portal deployment view for Azure Cosmos DB shows a Conflict status
 
 Depending on your subscription and the region you select, you might see the deployment status for Azure Cosmos DB to be `Conflict`, with the following message in Operation details:
 
-`InternalServerError: An unexpected error occured while processing the request.`
-
-Or,
-
-`Sorry, we are currently experiencing high demand in East US region, and cannot fulfill your request at this time.`
+`Sorry, we are currently experiencing high demand in <region> region, and cannot fulfill your request at this time.`
 
 The error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 
 #### The deployed sample app doesn't show the tasks list app
 
 If you see a `Hey, Java developers!` page instead of the tasks list app, App Service is most likely still loading the updated container from your most recent code deployment. Wait a few minutes and refresh the page.
-
-#### I see a 404 Page Not Found error in the deployed sample app
-
-Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` data source. If you made the changes and redeployed your code, App Service is most likely still loading the updated container. Wait a few minutes and refresh the page.
 
 ## Frequently asked questions
 
@@ -631,7 +622,7 @@ Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MY
 Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The Azure Cosmos DB account is created in **Serverless** tier and there's a small cost associated with this tier. See [Azure Cosmos DB pricing](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/serverless/).
+- The Azure Cosmos DB account is created in **Serverless** tier and there's a small cost associated with this tier. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/serverless/).
 - The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
