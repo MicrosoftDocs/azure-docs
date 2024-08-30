@@ -3,7 +3,7 @@ title: Understand the Azure Digital Twins model parser | Microsoft Docs
 description: As a developer, learn how to use the DTDL parser to validate models.
 author: timlt
 ms.author: timlt
-ms.date: 1/23/2024
+ms.date: 08/30/2024
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot
@@ -11,7 +11,7 @@ ms.service: iot
 
 # Understand the digital twins model parser
 
-The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a DTDL v2 or v3 model. The DTDL model may be defined in multiple files.
+The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a DTDL v2 or v3 model. The DTDL model can be defined in multiple files.
 
 ## Install the DTDL model parser
 
