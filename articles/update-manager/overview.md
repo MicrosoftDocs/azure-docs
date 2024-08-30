@@ -24,7 +24,7 @@ You can use Update Manager in Azure to:
 - Enable [periodic assessment](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours.
 - Use flexible patching options such as:
     - [Customer-defined maintenance schedules](https://aka.ms/umc-scheduled-patching) for both Azure and Arc-connected machines.
-    - [Automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
+    - [Automatic virtual machine (VM) guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
 - Build custom reporting dashboards for reporting update status and [configure alerts](https://aka.ms/aum-alerts) on certain conditions.
 - Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](/azure/azure-arc/) through a single pane. The different types of machines that can be managed are:
 - 
@@ -48,7 +48,7 @@ Update Manager offers many new features and provides enhanced and native functio
   - Offers enhanced flexibility
     - Take immediate action either by [installing updates immediately](https://aka.ms/on-demand-patching) or [scheduling them for a later date](https://aka.ms/umc-scheduled-patching).
     - [Check updates automatically](https://aka.ms/aum-policy-support) or [on demand](https://aka.ms/on-demand-assessment).
-    - Secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
+    - Secure machines with new ways of patching such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
     - Sync patch cycles in relation to **patch Tuesday** the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month. 
 - Reporting and alerting
     - Build custom reporting dashboards through [Azure Workbooks](manage-workbooks.md) to monitor the update compliance of your infrastructure. 

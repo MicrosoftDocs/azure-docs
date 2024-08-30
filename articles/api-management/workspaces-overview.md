@@ -91,7 +91,7 @@ Manage gateway capacity by manually adding or removing scale units, similar to t
 Workspace gateways need to be in the same Azure region and subscription as the API Management service. 
 
 > [!NOTE]
-> Starting in August 2024, workspace gateway support will be rolled out in the following regions. These regions are a subset of those where API Management is available.
+> These regions are a subset of those where API Management is available.
 
 * West US
 * North Central US

@@ -26,6 +26,7 @@ Directory sizes are specific to a single directory and don't combine in sizes. F
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
 For a 320-MiB directory, the number of blocks is 655360, with each block size being 512 bytes. (That is, 320x1024x1024/512.) This number translates to approximately 4-5 million files maximum for a 320-MiB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files with non-ASCII characters in the directory. 
+
 You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB). If you reach the maximum size limit for a single directory for Azure NetApp Files, the error `No space left on device` occurs.   
 
 For a 320-MB directory, the number of blocks is 655,360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files with non-ASCII characters in the directory. For information on how to monitor the maxdirsize, see [Monitoring `maxdirsize`]().
@@ -121,4 +122,5 @@ In this case, consider corrective actions such as moving or deleting files.
 ## More information 
 
 * [Azure NetApp Files resources limits](azure-netapp-files-resource-limits.md)
+* [Understand `maxfiles`](maxfiles-concept.md)
 * [Understand file path lengths in Azure NetApp Files](understand-path-lengths.md)

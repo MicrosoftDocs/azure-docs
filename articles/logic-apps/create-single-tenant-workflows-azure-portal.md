@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 08/30/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -42,6 +42,8 @@ For more information, see the following documentation:
 
 - [Single-tenant versus multitenant](single-tenant-overview-compare.md)
 - [Create and deploy to different environments](logic-apps-overview.md#resource-environment-differences)
+
+To create a Standard logic app workflow from a prebuilt template that follows a commonly used pattern, see [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md).
 
 To create and manage a Standard logic app workflow using other tools, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). With Visual Studio Code, you can develop, test, and run workflows in your *local* development environment.
 
@@ -128,6 +130,14 @@ More workflows in your logic app raise the risk of longer load times, which nega
    When you finish, your settings look similar to the following example:
 
    :::image type="content" source="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png" alt-text="Screenshot shows Azure portal and page named Create Logic App Workflow Service Plan." lightbox="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png":::
+
+   > [!NOTE]
+   > 
+   > By default, the language worker runtime value for your Standard logic app is **`dotnet`**. 
+   > Previously, **`node`** was the default value. However, **`dotnet`** is now the default value 
+   > for all new and existing deployed Standard logic apps, even for apps that had a different value. 
+   > This change shouldn't affect your workflow's runtime, and everything should work the same way 
+   > as before. For more information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
 

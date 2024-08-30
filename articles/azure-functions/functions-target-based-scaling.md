@@ -393,7 +393,7 @@ Examples for the Node.js v4 programming model aren't yet available.
 ---
 
 > [!NOTE]
-> Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
+> Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling) and [lease ownership](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling).
 
 ### Apache Kafka
 
