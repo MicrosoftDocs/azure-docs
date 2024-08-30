@@ -14,7 +14,7 @@ You can use the call composite in Communication Services to create these use cas
 
 | Area                                                                 | Use cases                                                       |
 | -------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Call types                                                           | Join a Microsoft Teams meeting                                  |
+| [Call types](#call-integration)                                                           | Join a Microsoft Teams meeting                                  |
 |                                                                      | Join a Microsoft Teams meeting using Meeting ID and Passcode    |
 |                                                                      | Join a call by using a group ID                                 |
 |                                                                      | Join a call by using a room  ID                                 |
@@ -22,7 +22,7 @@ You can use the call composite in Communication Services to create these use cas
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
 |                                                                                                 | Admit/Reject lobby participants                                 |
-| [Closed Captions](#closed-captions)                                                                                 | Teams interoperability                                      |
+| [Closed Captions](#closed-captions)                                                             | Teams interoperability                                      |
 |                                                                                                 | Group call, Rooms call, and 1:1 call                                       |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
@@ -34,13 +34,13 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Manage the camera device                               |
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
-|                                                                                                 | Subscribe events       |
+|                                                                                                 | [Subscribe events](#events)       |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
-|                                                                                                 | CallKit and TelecomManager Support                 |
-| Customize the experience                                                                        | Button bar customization                                        |
+|                                                                                                 | [CallKit and TelecomManager Support](#os-integrations)                 |
+| [Customize the experience](#customize-the-call-experience)                                      | Button bar customization                                        |
 |                                                                                                 | Title and subtitle configuration                                        |
 |                                                                                                 | Enable end call confirmation dialogue                 |
 |                                                                                                 | Skip setup screen                 |
