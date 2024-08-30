@@ -1,6 +1,6 @@
 ---
 title: Control upgrade failure behavior with Azure Operator Service Manager
-description: Learn about behaviors including pause on failure and rollback on failure.
+description: Learn about recovery behaviors including pause on failure and rollback on failure.
 author: msftadam
 ms.author: adamdor
 ms.date: 08/30/2024
