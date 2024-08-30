@@ -4,16 +4,16 @@ description: An overview of service modes in Azure SignalR Service.
 author: vicancy
 ms.service: azure-signalr-service
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 08/30/2024
 ms.author: lianwei
 ---
 # Service mode in Azure SignalR Service
 
-Service mode is an important concept in Azure SignalR Service. SignalR Service currently supports three service modes: *Default*, *Serverless*, and *Classic*. Your SignalR Service resource will behave differently in each mode. In this article, you'll learn how to choose the right service mode based on your scenario.
+Service mode is an important concept in Azure SignalR Service. SignalR Service currently supports three service modes: *Default*, *Serverless*, and *Classic*. Your SignalR Service resource behaves differently in each mode. In this article, you learn how to choose the right service mode based on your scenario.
 
 ## Setting the service mode
 
-You'll be asked to specify a service mode when you create a new SignalR resource in the Azure portal.
+You're asked to specify a service mode when you create a new SignalR resource in the Azure portal.
 
 :::image type="content" source="media/concept-service-mode/create.png" alt-text="Azure portal – Choose service mode when creating a SignalR Service":::
 
@@ -25,7 +25,7 @@ Use `az signalr create` and `az signalr update` to set or change the service mod
 
 ## Default mode
 
-As the name implies, *Default* mode is the default service mode for SignalR Service. In Default mode, your application works as a typical [ASP.NET Core SignalR](/aspnet/core/signalr/introduction) or ASP.NET SignalR (deprecated) application. You have a web server application that hosts a hub, called a *hub server*, and clients have full duplex communication with the hub server. The difference between ASP.NET Core SignalR and Azure SignalR Service is instead of connecting client and hub server directly, client and server both connect to SignalR Service and use the service as a proxy. The following diagram shows the typical application structure in Default mode.
+As the name implies, *Default* mode is the default service mode for SignalR Service. In Default mode, your application works as a typical [ASP.NET Core SignalR](/aspnet/core/signalr/introduction) or ASP.NET SignalR (deprecated) application. You have a web server application that hosts a hub, called a *hub server*, and clients have full duplex communication with the hub server. The difference between ASP.NET Core SignalR and Azure SignalR Service is this: With ASP.NET Core SignalR, the client connects directly to the hub server. With Azure SignalR Service, both the client and the hub server connect to SignalR Service and use the service as a proxy. The following diagram shows the typical application structure in Default mode.
 
 :::image type="content" source="media/concept-service-mode/default.png" alt-text="Application structure in Default mode":::
 
@@ -33,7 +33,7 @@ Default mode is usually the right choice when you have a SignalR application tha
 
 ### Connection routing in Default mode
 
-In Default mode, there are WebSocket connections between hub server and SignalR Service called *server connections*. These connections are used to transfer messages between a server and client. When a new client is connected, SignalR Service will route the client to one hub server (assume you've more than one server) through existing server connections. The client connection will stick to the same hub server during its lifetime. This property is referred to as *connection stickiness*. When the client sends messages, they always go to the same hub server. With stickiness behavior, you can safely maintain some states for individual connections on your hub server. For example, if you want to stream something between server and client, you don't need to consider the case where data packets go to different servers.
+In Default mode, there are WebSocket connections between hub server and SignalR Service called *server connections*. These connections are used to transfer messages between a server and client. When a new client is connected, SignalR Service routes the client to one hub server (assume you have more than one server) through existing server connections. The client connection sticks to the same hub server during its lifetime. This property is referred to as *connection stickiness*. When the client sends messages, they always go to the same hub server. With stickiness behavior, you can safely maintain some states for individual connections on your hub server. For example, if you want to stream something between server and client, you don't need to consider the case where data packets go to different servers.
 
 > [!IMPORTANT]
 > In Default mode a client cannot connect without a hub server being connected to the service first. If all your hub servers are disconnected due to network interruption or server reboot, your client connections will get an error telling you no server is connected. It's your responsibility to make sure there is always at least one hub server connected to SignalR service. For example, you can design your application with multiple hub servers, and then make sure they won't all go offline at the same time.
@@ -45,11 +45,11 @@ The default routing model also means when a hub server goes offline, the connect
 
 ## Serverless mode
 
-Unlike Default mode, Serverless mode doesn't require a hub server to be running, which is why this mode is named "serverless." SignalR Service is responsible for maintaining client connections. There's no guarantee of connection stickiness and HTTP requests may be less efficient than WebSockets connections.
+Unlike Default mode, Serverless mode doesn't require a hub server to be running, which is why this mode is named "serverless." SignalR Service is responsible for maintaining client connections. There's no guarantee of connection stickiness and HTTP requests might be less efficient than WebSockets connections.
 
 Serverless mode works with Azure Functions to provide real time messaging capability. Clients work with [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md), called *function binding*, to send messages as an output binding.
 
-Because there's no server connection, if you try to use a server SDK to establish a server connection you'll get an error. SignalR Service will reject server connection attempts in Serverless mode.
+Because there's no server connection, if you try to use a server SDK to establish a server connection you get an error. SignalR Service rejects server connection attempts in Serverless mode.
 
 Serverless mode doesn't have connection stickiness, but you can still have a server-side application push messages to clients. There are two ways to push messages to clients in Serverless mode:
 
@@ -59,7 +59,7 @@ Serverless mode doesn't have connection stickiness, but you can still have a ser
 > [!NOTE]
 > Both REST API and WebSockets are supported in SignalR service [management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). If you're using a language other than .NET, you can also manually invoke the REST APIs following this [specification](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 
-It's also possible for your server application to receive messages and connection events from clients. SignalR Service will deliver messages and connection events to pre-configured endpoints (called *upstream endpoints*) using web hooks. Upstream endpoints can only be configured in Serverless mode. For more information, see [Upstream endpoints](concept-upstream.md).
+It's also possible for your server application to receive messages and connection events from clients. SignalR Service delivers messages and connection events to preconfigured endpoints (called *upstream endpoints*) using web hooks. Upstream endpoints can only be configured in Serverless mode. For more information, see [Upstream endpoints](concept-upstream.md).
 
 
 
@@ -72,9 +72,9 @@ The following diagram shows how Serverless mode works.
 > [!NOTE]
 > Classic mode is mainly for backward compatibility for applications created before the Default and Serverless modes were introduced. Don't use Classic mode except as a last resort. Use Default or Serverless for new applications, based on your scenario. You should consider redesigning existing applications to eliminate the need for Classic mode.
 
-Classic is a mixed mode of Default and Serverless modes. In Classic mode, connection type is decided by whether there's a hub server connected when the client connection is established. If there's a hub server, the client connection will be routed to a hub server. If a hub server isn't available, the client connection will be made in a limited serverless mode where client-to-server messages can't be delivered to a hub server. Classic mode serverless connections don't support some features such as upstream endpoints.
+Classic is a mixed mode of Default and Serverless modes. In Classic mode, connection type is decided by whether there's a hub server connected when the client connection is established. If there's a hub server, the client connection is routed to a hub server. If a hub server isn't available, the client connection is made in a limited serverless mode where client-to-server messages can't be delivered to a hub server. Classic mode serverless connections don't support some features such as upstream endpoints.
 
-If all your hub servers are offline for any reason, connections will be made in Serverless mode. It's your responsibility to ensure that at least one hub server is always available. 
+If all your hub servers are offline for any reason, connections are made in Serverless mode. It's your responsibility to ensure that at least one hub server is always available. 
 
 ## Choose the right service mode
 
