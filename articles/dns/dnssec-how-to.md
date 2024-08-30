@@ -1,14 +1,14 @@
 ---
-title: How to sign your Azure pubic DNS zone with DNSSEC (Preview)
+title: How to sign your Azure public DNS zone with DNSSEC (Preview)
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 08/19/2024
+ms.date: 08/30/2024
 ms.author: greglin
 ---
 
-# How to sign your Azure pubic DNS zone with DNSSEC (Preview)
+# How to sign your Azure public DNS zone with DNSSEC (Preview)
 
 This article shows you how to sign your DNS zone with DNSSEC using the Azure portal.
 
@@ -16,33 +16,6 @@ This article shows you how to sign your DNS zone with DNSSEC using the Azure por
 
 * The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).
 * The parent DNS zone must be signed with DNSSEC. Most major top level domains (.com, .net, .org) are already signed.
-* You must register to the public preview for DNSSEC, using either the [Azure portal](#register-using-the-azure-portal) or the [Azure CLI](#register-using-the-azure-cli). 
-
-## Register to the preview
-
-### Register using the Azure CLI
-
-Register for the preview using the Azure CLI:
-
-```azurepowershell-interactive
-Set-AzContext -Subscription <subscription-id>
-Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
-Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
-```
-
-### Register using the Azure portal
-
-Use the following steps to enroll into the public preview for DNSSEC zone signing via the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the search box, enter preview and select **Preview features**.
-3. You see a list of available preview features and your current registration status.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
-
-6. From **Preview features** type into the filter box **AllowDnsSecSigning**, check the feature, and click **Register**.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
 ## Sign a zone with DNSSEC
 
