@@ -19,6 +19,25 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 > [!NOTE]
 > Azure Monitor Logs is one half of the data platform that supports Azure Monitor. The other is [Azure Monitor Metrics](../essentials/data-platform-metrics.md), which stores numeric data in a time-series database. 
 
+## How Azure Monitor Logs works
+
+Azure Monitor Logs provides you with the tools to: 
+
+* **Collect any data** by using Azure Monitor data collection methods. Transform data based on your needs to optimize costs, remove personal data, and so on, and route data to tables in your Log Analytics workspace.
+* **Manage and optimize log data and costs** by configuring your Log Analytics workspace and log tables, including table schemas, table plans, data retention, data aggregation, who has access to which data, and log-related costs.
+* **Retrieve data in near-real time** by using Kusto Query language (KQL), or KQL-based tools and features that don't require KQL knowledge, such as Simple mode in the Log Analytics user interface, prebuilt curated monitoring experiences called Insights, and predefined queries.
+* **Use data flexibly** for a range of use cases, including data analysis, troubleshooting, alerting, dashboards and reports, custom applications, and other Azure or non-Azure services. 
+
+:::image type="content" source="media/data-platform-logs/azure-monitor-logs-overview.png" lightbox="media/data-platform-logs/azure-monitor-logs-overview.png" alt-text="A diagram that shows how Azure Monitor and Azure Monitor Logs provide an end-to-end solution for collecting, managing, retrieving, and working with log data.":::
+
+## Data collection, routing, and transformation
+
+Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
+
+:::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
+
+For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
+
 ## Log Analytics workspace    
 
 A [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) is a data store that holds tables into which you collect data. 
@@ -35,34 +54,6 @@ To address the data storage and consumption needs of various personas who use a 
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
-## Kusto Query Language (KQL) and Log Analytics 
-
-You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly. Use KQL to explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
-
-Log Analytics is a tool in the Azure portal for running log queries and analyzing their results. [Log Analytics Simple mode](log-analytics-simple-mode.md) lets any user, regardless of their knowledge of KQL, retrieve data from one or more tables with one click. A set of controls lets you explore and analyze the retrieved data using the most popular Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience.
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
-
-If you're familiar with KQL, you can use Log Analytics KQL mode to edit and create queries, which you can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
-
-For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). 
-
-## Built-in insights and custom dashboards, workbooks, and reports
-
-Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
-
-:::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
-
-You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
-
-
-## Data collection, routing, and transformation
-
-Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
-
-:::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
-
-For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
 
 ## Table plans
 
@@ -106,6 +97,26 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 > [!NOTE]
 > The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
+## Kusto Query Language (KQL) and Log Analytics 
+
+You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly. Use KQL to explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
+
+Log Analytics is a tool in the Azure portal for running log queries and analyzing their results. [Log Analytics Simple mode](log-analytics-simple-mode.md) lets any user, regardless of their knowledge of KQL, retrieve data from one or more tables with one click. A set of controls lets you explore and analyze the retrieved data using the most popular Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience.
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
+
+If you're familiar with KQL, you can use Log Analytics KQL mode to edit and create queries, which you can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
+
+For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). 
+
+## Built-in insights and custom dashboards, workbooks, and reports
+
+Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
+
+:::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
+
+You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
+
 ## Use cases 
 
 This table describes some of the ways that you can use the data you collect in Azure Monitor Logs to derive operational and business value.
@@ -134,7 +145,7 @@ These services store their data in Azure Monitor Logs so that it can be analyzed
 
 | Service | More information |
 |:--------------|:-----------------|
-| Microsoft Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Design a Log Analytics workspace architecture](./workspace-design.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/log-plans.md)</li><li>[Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)</li><li>[Charges for workspaces with Microsoft Sentinel](./cost-logs.md#workspaces-with-microsoft-sentinel)</li></ul> |
+| Microsoft Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design a Log Analytics workspace architecture](./workspace-design.md)</li><li>s[Microsoft Sentinel sample workspace designs](../../sentinel/sample-workspace-designs.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/log-plans.md)</li><li>[Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)</li><li>[Charges for workspaces with Microsoft Sentinel](./cost-logs.md#workspaces-with-microsoft-sentinel)</li></ul> |
 | Microsoft Defender for Cloud | <ul><li>[Continuously export Microsoft Defender for Cloud data](/azure/defender-for-cloud/continuous-export)</li><li>[Data consumption](/azure/defender-for-cloud/data-security#data-consumption)</li><li>[Frequently asked questions about Log Analytics workspaces used with Microsoft Defender for Cloud](/azure/defender-for-cloud/faq-data-collection-agents)</li><li>[Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</li><li>[Charges for workspaces with Microsoft Defender for Cloud](./cost-logs.md#workspaces-with-microsoft-defender-for-cloud)</li></ul> |
 
 ## Next steps

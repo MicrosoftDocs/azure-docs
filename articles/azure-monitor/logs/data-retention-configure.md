@@ -133,7 +133,7 @@ Status code: 200
 
 To set the default interactive retention period of Analytics tables within a Log Analytics workspace, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
 
-This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the long-term retention period is 23 months:
+This example sets the table's interactive retention to 30 days:
 
 ```azurecli
 az monitor log-analytics workspace update --resource-group myresourcegroup --retention-time 30 --workspace-name myworkspace
