@@ -103,7 +103,7 @@ If you're forwarding Syslog data to an Azure VM, follow these steps to allow rec
 
 ### Configure the Linux Syslog daemon
 
-Connect to your Linux VM and run the following command to configure the Linux Syslog daemon:
+Connect to your Linux VM and configure the Linux Syslog daemon. For example, run the following command, adapting the command as needed for your network environment:
 
 ```bash
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py
