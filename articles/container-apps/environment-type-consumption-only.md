@@ -19,7 +19,7 @@ This article explains features of the *Consumption-only (v1)* environment type. 
 
 While Consumption-only environments are an option, for new Container Apps environments that need the consumption model, creating a *Workload profiles v2* environment with the built-in [consumption workload profile](./structure.md#workload-profiles) is recommended.
 
-The Consumption-only environment type works on the consumption plan. Apps running in the The Consumption-only have access to 4 vCPUs with 8GB of memory. There is no access to GPUs in a Consumption-only environment.
+The Consumption-only environment type works on the consumption plan. Apps running in the Consumption-only have access to 4 vCPUs with 8 GB of memory. There's no access to GPUs in a Consumption-only environment.
 
 If your application requires any capability outside these parameters, then run your apps on dedicated [workload profile](structure.md).
 
