@@ -100,6 +100,8 @@
         href: relocation-automation.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure NetApp Files
+        href: relocation-netapp.md
       - name: Azure Static Web Apps
         href: relocation-static-web-apps.md
       - name: Power BI
