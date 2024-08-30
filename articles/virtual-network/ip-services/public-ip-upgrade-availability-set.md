@@ -36,15 +36,15 @@ The module logs all upgrade activity to a file named `AvSetPublicIPUpgrade.log`,
 Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAvSetBasicPublicIPUpgrade).
 
 ```powershell
-PS C:\> Install-Module -Name AzureAvSetBasicPublicIPUpgrade -Scope CurrentUser -Repository PSGallery -Force
+Install-Module -Name AzureAvSetBasicPublicIPUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 ## Use the module
 
-1. Use `Connect-AzAccount` to connect to the required Microsoft Entra tenant and Azure subscription
+1. Use `Select-AzSubscription` to select the Azure subscription where your Availability Set exists
 
     ```powershell
-    PS C:\> Connect-AzAccount -Tenant <TenantId> -Subscription <SubscriptionId>
+    Select-AzSubscription -Subscription <SubscriptionId>
     ```
 2. Locate the Availability Set with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
 
@@ -52,7 +52,7 @@ PS C:\> Install-Module -Name AzureAvSetBasicPublicIPUpgrade -Scope CurrentUser -
     - *AvailabilitySetName  [string] Required* - This parameter is the name of your Availability Set.
     - *ResourceGroupName [string] Required* - This parameter is the resource group for your Availability Set with the Basic Public IPs attached that you want to upgrade.
 
-4. Run the Upgrade command.
+4. Run the upgrade, using the following examples or `Get-Help Start-AzAvSetPublicIPUpgrade` for guidance.
 
 ### Example uses of the script
 
@@ -68,15 +68,14 @@ Start-AzAvSetPublicIPUpgrade -availabilitySetName 'myAvSet' -resourceGroupName '
 
 Attempt upgrade of VMs in a every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs are skipped.
 ```powershell
-        Get-AzAvailabilitySet -resourceGroupName 'myRG' | Start-AzAvSetPublicIPUpgrade -skipVMMissingNSG
+Get-AzAvailabilitySet -resourceGroupName 'myRG' | Start-AzAvSetPublicIPUpgrade -skipVMMissingNSG
 ```
 
 Recover from a failed migration, passing the name and resource group of the Availability Set to recover, along with the recovery log file.
 ```powershell
-        Start-AzAvSetPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroup rg-myrg
+Start-AzAvSetPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroup rg-myrg
 ```
  
-
 ### Recovering from a failed migration
 
 If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be retried to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `AvSetPublicIPUpgrade.log` created in the location where the script was executed.
@@ -84,7 +83,7 @@ If a migration fails due to a transient issue, such as a network outage or clien
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the Availability Set to recover with the `-AvailabilitySetName` parameter, as shown in this example.
 
 ```powershell
-    Start-VMPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -VMResourceGroup rg-myrg
+Start-VMPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroupName rg-myrg
 ```
 
 ## Common questions
