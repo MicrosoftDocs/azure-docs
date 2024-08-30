@@ -24,7 +24,7 @@ Within the OSDU Data Platform framework, reference data values play a crucial ro
 In addition to enabling data interpretation and collaboration, reference data is required for data ingestion via the OSDU manifest ingestion workflow. Manifests provide a specific container for reference data values, which are then used to validate the ingested data and generate metadata for later discovery and use. To learn more about manifest-based ingestion, see [Manifest-based ingestion concepts](concepts-manifest-ingestion.md). 
 
 The OSDU Data Platform categorizes Reference data values into the following three buckets:
-* **FIXED** values: These set fo reference values are universally recognized and used across OSDU deployments and the energy sector. These values can't be extended or changed except by OSDU community governance updates
+* **FIXED** values: This set of reference values is universally recognized and used across OSDU deployments and the energy sector. These values can't be extended or changed except by OSDU community governance updates
 * **OPEN** values: The OSDU community provides an initial list of OPEN values upon which you can extend but not otherwise change
 * **LOCAL** values: The OSDU community provides an initial list of LOCAL values that you can freely change, extend, or entirely replace
 
