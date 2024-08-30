@@ -23,7 +23,7 @@ The article describes how to prepare Linux for Edge Volumes using AKS enabled by
 
 ### Uninstall previous instance of Azure Container Storage enabled by Azure Arc extension
 
-If you previously installed a version of Azure Container Storage enabled by Azure Arc before version 2.1.0-preview, you must uninstall that previous instance in order to install the newer version. Versions after 2.1.0-preview will be upgradable and will not require this uninstall. 
+If you previously installed a version of Azure Container Storage enabled by Azure Arc before version 2.1.0-preview, you must uninstall that previous instance in order to install the newer version. If you installed the 1.2.0-preview release or any release prior to that, please use instructions provided [here](release-notes.md#if-i-installed-a-the-120-preview-or-any-preview-prior-to-that-how-do-i-uninstall-the-extension). Versions after 2.1.0-preview will be upgradable and will not require this uninstall. 
 
 1. In order to delete the old version of the extension, the Kubernetes resources holding references to old version of the extension must be cleaned up. Any pending resources will hold the clean-up of the extension. There are at least two ways to clean up these resources, either using `kubectl delete <resource_type> <resource_name>` or by 'un-applying' the YAML files used to create the resources. The resources that need to be deleted are typically the 'pod(s)', the PVC referenced, and the subvolume CRD (if *Cloud Ingest Edge Volume* was configured). Alternatively, the 4 following YAML files can be be fed to 'kubectl delete -f' using the following commands in the specified order. These variables must be updated with your information:
 
