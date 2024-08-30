@@ -151,7 +151,7 @@ In this example, a _tumbling window trigger_ is used to periodically run the pip
 
 ### Configure trigger run parameters
 
-Triggers define when a pipeline runs. They also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution. The **Copy DICOM Metadata Changes to Delta** template defines a parameters that are described in the following table. If no value is supplied during configuration, the listed default value is used for each parameter.
+Triggers define when a pipeline runs. They also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution. The **Copy DICOM Metadata Changes to Delta** template defines parameters that are described in the following table. If no value is supplied during configuration, the listed default value is used for each parameter.
 
 | Parameter name    | Description                            | Default value |
 | ----------------- | -------------------------------------- | ------------- |
