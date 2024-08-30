@@ -35,7 +35,7 @@
     items:
       - name: Get Started with Safe Upgrade Practices
         href: safe-upgrade-practices.md
-      - name: NF Level Rollback
+      - name: Control rollback beavhior on upgrade failure 
         href: safe-upgrades-nf-level-rollback.md
 - name: Quickstarts
   expanded: false
