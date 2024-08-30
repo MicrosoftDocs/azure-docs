@@ -314,7 +314,8 @@ Before you can create your logic app, create a local project so that you can man
    > [!NOTE]
    > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
    > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
-   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
+   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), 
+   > either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
 
 1. If Visual Studio Code prompts you to open your project in the current Visual Studio Code or in a new Visual Studio Code window, select **Open in current window**. Otherwise, select **Open in new window**.
 
@@ -327,6 +328,22 @@ Before you can create your logic app, create a local project so that you can man
    ![Screenshot shows Explorer pane with project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
    [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+
+   > [!NOTE]
+   > 
+   > By default, in your **local.settings.json** file, the language worker runtime value for your 
+   > Standard logic app is **`dotnet`**. Previously, **`node`** was the default value. However, 
+   > **`dotnet`** is now the default value for all new and existing deployed Standard logic apps, 
+   > even for apps that had a different value. This change shouldn't affect your workflow's runtime, 
+   > and everything should work the same way as before. For more information, see the 
+   > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   >
+   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
+   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
+   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
+   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
+   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
+   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="convert-project-nuget"></a>
 
