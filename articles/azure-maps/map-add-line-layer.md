@@ -3,7 +3,7 @@ title: Add a line layer to a map | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Web SDK to add line layers to maps and to customize lines with symbols and color gradients.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/06/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -35,7 +35,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 The following screenshot shows a sample of the above functionality.
 
-:::image type="content" source="./media/map-add-line-layer/add-line-layer.png"alt-text="A screenshot showing a line layer on an Azure Maps map.":::
+:::image type="content" source="./media/map-add-line-layer/add-line-layer.png" lightbox="./media/map-add-line-layer/add-line-layer.png" alt-text="A screenshot showing a line layer on an Azure Maps map.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -123,7 +123,7 @@ function InitMap()
 
 This code creates a map that appears as follows:
 
-:::image type="content" source="./media/map-add-line-layer/add-symbols-along-a-line.png"alt-text="A screenshot showing a line layer on an Azure Maps map with arrow symbols along the line.":::
+:::image type="content" source="./media/map-add-line-layer/add-symbols-along-a-line.png" lightbox="./media/map-add-line-layer/add-symbols-along-a-line.png" alt-text="A screenshot showing a line layer on an Azure Maps map with arrow symbols along the line.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true]
@@ -150,7 +150,7 @@ For a fully functional sample that shows how to apply a stroke gradient to a lin
 
 The Line layer has several styling options. For a fully functional sample that interactively demonstrates the line options, see [Line Layer Options] in the [Azure Maps Samples]. For the source code for this sample, see [Line Layer Options source code].
 
-:::image type="content" source="./media/map-add-line-layer/line-layer-options.png"alt-text="A screenshot showing the Line Layer Options sample that shows how the different options of the line layer affect rendering.":::
+:::image type="content" source="./media/map-add-line-layer/line-layer-options.png" lightbox="./media/map-add-line-layer/line-layer-options.png" alt-text="A screenshot showing the Line Layer Options sample that shows how the different options of the line layer affect rendering.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result]
