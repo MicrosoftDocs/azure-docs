@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ms.custom: mvc
 ---
 

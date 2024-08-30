@@ -42,7 +42,7 @@ Transfer is ideal for copying content between two Azure container registries in 
 
 * **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. For demonstration purposes, the templates and commands used in this article also assume that the source and target key vaults are located in the same resource groups as the source and target registries, respectively. This use of common resource groups isn't required, but it simplifies the templates and commands used in this article.
 
-   If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
+   If needed, create key vaults with the [Azure CLI](/azure/key-vault/secrets/quick-create-cli) or other tools.
 
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
@@ -161,4 +161,4 @@ az keyvault secret set \
 [az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
 [az-acr-import]: /cli/azure/acr#az_acr_import
 [az-resource-delete]: /cli/azure/resource#az_resource_delete
-[kv-managed-sas]: ../key-vault/secrets/overview-storage-keys.md
+[kv-managed-sas]: /azure/key-vault/secrets/overview-storage-keys

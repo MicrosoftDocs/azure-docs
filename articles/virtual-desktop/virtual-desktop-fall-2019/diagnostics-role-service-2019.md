@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) diagnose issues - Azure
 description: How to use the Azure Virtual Desktop (classic) diagnostics feature to diagnose issues.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Identify and diagnose issues in Azure Virtual Desktop (classic)
 

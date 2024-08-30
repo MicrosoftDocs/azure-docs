@@ -35,7 +35,7 @@ For more information, review the following documentation:
 
 * Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
 
-  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+  * [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
   * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
@@ -45,7 +45,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 ## High-level steps
 
@@ -117,7 +117,7 @@ The following sections describe the methods that the example connector implement
 > when support is available, and assign a role that has the least required privilege.
 >
 > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-> [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
 > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
 > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
 > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 

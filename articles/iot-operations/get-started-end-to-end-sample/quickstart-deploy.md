@@ -118,13 +118,13 @@ It can take several minutes for the deployment to complete. Continue running the
 
 To view your resources on the Azure portal, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
-1. From the **Overview** page of the resource group, select the name of your Azure IoT Operations instance.
+1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
 
-   :::image type="content" source="./media/quickstart-deploy/view-components.png" alt-text="Screenshot that shows the deployed components on your Arc-enabled cluster.":::
+   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 
 ## How did we solve the problem?
 

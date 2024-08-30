@@ -13,8 +13,9 @@ metadata:
     - ignite-2023
     - ignite-2023-copilotinAzure
     - build-2024
+    - copilot-learning-hub
   ms.topic: hub-page
-  ms.date: 07/17/2024
+  ms.date: 08/29/2024
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
@@ -60,6 +61,9 @@ conceptualContent:
         # Card
         - title: Work smarter with Azure services
           links:
+            - url: ./execute-commands.md
+              itemType: get-started
+              text: Execute commands
             - url: ./deploy-vms-effectively.md
               itemType: get-started
               text: Deploy VMs effectively
@@ -90,6 +94,9 @@ conceptualContent:
             - url: ./generate-powershell-scripts.md
               itemType: get-started
               text: Generate PowerShell scripts
+            - url: ./generate-terraform-configurations.md
+              itemType: get-started
+              text: Generate Terraform configurations
             - url: ./generate-kubernetes-yaml.md
               itemType: get-started
               text: Generate Kubernetes YAML files

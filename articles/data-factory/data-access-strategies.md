@@ -78,6 +78,6 @@ For more information about supported network security mechanisms on data stores 
 
 For more information, see the following related articles:
 * [Supported data stores](./copy-activity-overview.md#supported-data-stores-and-formats)
-* [Azure Key Vault ‘Trusted Services’](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Azure Key Vault ‘Trusted Services’](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 * [Azure Storage ‘Trusted Microsoft Services’](../storage/common/storage-network-security.md#trusted-microsoft-services)
 * [Managed identity for Data Factory](./data-factory-service-identity.md)

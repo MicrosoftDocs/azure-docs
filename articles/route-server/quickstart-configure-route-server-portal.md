@@ -5,15 +5,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 08/11/2023
-ms.custom: mode-ui, template-quickstart
+ms.date: 08/13/2024
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create and configure Route Server using the Azure portal
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
+In this quickstart, you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure Portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
@@ -52,8 +52,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 1. Select **Review + create**, review the summary, and then select **Create**. 
 
-    > [!NOTE]
-    > The deployment of the Route Server will take about 20 minutes.
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 ## Set up peering with NVA
 
@@ -93,7 +92,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
-[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
+[!INCLUDE [Downtime note](../../includes/route-server-note-vng-downtime.md)]
 
 1. Go to the Route Server that you want to configure.
 

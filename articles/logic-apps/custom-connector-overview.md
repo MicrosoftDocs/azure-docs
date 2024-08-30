@@ -27,7 +27,7 @@ This article provides an overview about custom connectors for [Consumption logic
 * [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
 * [Managed connectors in Azure Logic Apps](../connectors/managed.md)
 * [Connector overview](/connectors/connectors)
-* [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
 <a name="custom-connector-consumption"></a>
 
@@ -122,7 +122,7 @@ The following sections provide more information about the methods that your conn
 > when support is available, and assign a role that has the least required privilege.
 >
 > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-> [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
 > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
 > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
 > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 

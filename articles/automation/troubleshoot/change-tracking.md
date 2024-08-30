@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 ms.custom: linux-related-content
 ms.date: 02/15/2021
 ms.topic: troubleshooting
+ms.service: azure-automation
 ---
 
 # Troubleshoot Change Tracking and Inventory issues

@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a custom WebGL layer to a map

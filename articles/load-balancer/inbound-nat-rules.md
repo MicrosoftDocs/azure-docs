@@ -21,15 +21,17 @@ An inbound NAT rule is used for port forwarding. Port forwarding lets you connec
 
 ## Types of inbound NAT rules
 
-There are two types of inbound NAT rule available for Azure Load Balancer, single virtual machine and multiple virtual machines.
+There are two types of inbound NAT rule available for Azure Load Balancer, version 1 and version 2. 
+>[!NOTE]
+> The recommendation is to use Inbound NAT rule V2 for Standard Load Balancer deployments. 
 
-### Single virtual machine
+### Inbound NAT rule V1
 
-A single virtual machine inbound NAT rule is defined for a single target virtual machine. The load balancer's frontend IP address and the selected frontend port are used for connections to the virtual machine.
+Inbound NAT rule V1 is defined for a single target virtual machine. Inbound NAT pools are feature of Inbound NAT rules V1 and automatically creates Inbound NAT rules per VMSS intance. The load balancer's frontend IP address and the selected frontend port are used for connections to the virtual machine.
 
 :::image type="content" source="./media/inbound-nat-rules/inbound-nat-rule.png" alt-text="Diagram of a single virtual machine inbound NAT rule.":::
 
-### Multiple virtual machines and virtual machine scale sets
+### Inbound NAT rule V2
 
 A multiple virtual machines inbound NAT rule references the entire backend pool in the rule. A range of frontend ports are preallocated based on the rule settings of **Frontend port range start** and **Maximum number of machines in the backend pool**.
 

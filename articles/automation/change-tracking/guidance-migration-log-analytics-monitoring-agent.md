@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 05/01/2024
 ms.author: sudhirsneha
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version

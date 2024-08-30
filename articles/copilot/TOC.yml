@@ -20,6 +20,8 @@
   items:
   - name: Get resource information
     href: get-information-resource-graph.md
+  - name: Execute commands
+    href: execute-commands.md
   - name: Deploy VMs effectively
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
@@ -40,6 +42,8 @@
     href: generate-cli-scripts.md
   - name: Generate PowerShell scripts
     href: generate-powershell-scripts.md
+  - name: Generate Terraform infrastructure
+    href: generate-terraform-configurations.md
   - name: Author API Management policies
     href: author-api-management-policies.md
   - name: Work with AKS clusters

@@ -5,7 +5,6 @@ author: ju-shim
 ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 11/15/2023
@@ -31,6 +30,7 @@ We offer the following VM sizes:
 | **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
+| **NCCadsH100v5-series** | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
@@ -113,7 +113,7 @@ As we work to onboard more OS images with confidential OS disk encryption, there
 - [SUSE Enterprise Linux 15 SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
 - [SUSE Enterprise Linux 15 SAP SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
 
-For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
+For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2). 
 
 ### High availability and disaster recovery
 
@@ -125,7 +125,7 @@ Azure Resource Manager is the deployment and management service for Azure. You c
 
 - Secure and organize your resources after deployment with the management features, like access control, locks, and tags. 
 - Create, update, and delete resources in your Azure subscription using the management layer.
-- Use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors. There is an available [ARM template for confidential VMs](https://aka.ms/CVMTemplate). 
+- Use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors.
 
 Make sure to specify the following properties for your VM in the parameters section (`parameters`): 
 
