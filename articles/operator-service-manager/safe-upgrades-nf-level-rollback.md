@@ -98,7 +98,7 @@ example:
 > * If multiple entries of nfConfiguration are found in the roleOverrideValues, then the NF reput is returned as a bad request.
 
 ## How to troubleshoot rollback on failure
-### Understanding Pod States
+### Understand pod states
 Understanding the different pod states is crucial for effective troubleshooting. The following are the most common pod states:
 * Pending: Pod scheduling is in progress by Kubernetes.
 * Running: All containers in the pod are running and healthy.
@@ -106,7 +106,7 @@ Understanding the different pod states is crucial for effective troubleshooting.
 * CrashLoopBackOff: A container within the pod is repeatedly crashing and Kubernetes is unable to restart it.
 * ContainerCreating: Container creation is in progress by the container runtime.
 
-### Checking Pod Status and Logs
+### Check pod status and logs
 First start by checking pod status and logs using a kubectl command:
 ```
 $ kubectl get pods
