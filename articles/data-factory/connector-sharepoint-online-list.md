@@ -108,8 +108,8 @@ The following properties are supported for a SharePoint Online List linked servi
 | ***For ServicePrincipalKey*** | | |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No          |
 | ***For ServicePrincipalCert*** | | |
-| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory. | No |
-| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. | No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
