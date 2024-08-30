@@ -127,8 +127,6 @@ $vmss = Get-AzVmss -ResourceGroupName "MyResourceGroup" -VMScaleSetName "MyVMSca
 
 $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].loadBalancerInboundNatPools = $null 
 
-Update-AzVmss -ResourceGroupName $resourceGroupName -Name $vmssName -VirtualMachineScaleSet $vmss 
-
 # Upgrade all instances in the VMSS 
 
 Update-AzVmssInstance -ResourceGroupName $resourceGroupName -VMScaleSetName $vmssName -InstanceId "*"

@@ -70,6 +70,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |1| 379-BCQY | iDRAC Group Manager, Disabled |
 |1| 470-AFBU | BOSS Blank |
 |1| 770-BCWN | ReadyRails Sliding Rails With Cable Management Arm |
+|2| 450-AKMP | Dual, Hot-Plug, Redundant Power Supply (1+1), 600W MM **for US**<br> Dual, Hot-Plug, Redundant Power Supply (1+1), 700W MM HLAC (Only for 200-240Vac) titanium **for Europe** |
 
 ## Install Defender for IoT software on the DELL R360
 
