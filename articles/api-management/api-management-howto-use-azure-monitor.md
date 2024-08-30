@@ -42,7 +42,7 @@ API Management emits [metrics](../azure-monitor/essentials/data-platform-metrics
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 
     > [!TIP]
-    > API Management recently introduced separate CPU Percentage of Gateway and Memory Percentage of Gateway metrics, which can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
+    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
 
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
 
