@@ -433,8 +433,8 @@
         href: create-cross-zone-replication.md
   - name: Relocate
     items:
-  - name: Relocate volume to another region
-    href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
+    - name: Relocate volume to another region
+      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API
