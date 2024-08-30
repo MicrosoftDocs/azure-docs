@@ -142,11 +142,9 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-This section shows you to grant Azure Spring Apps the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+This section shows you to grant Azure Spring Apps the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) permissions on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 > [!NOTE]
-> The minimal required permissions are [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
->
 > If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
 ### [Azure portal](#tab/azure-portal)
@@ -159,11 +157,14 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Owner` role to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the `Network Contributor` and `User Access Administrator` roles to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
+   > [!NOTE]
+   > Role `User Access Administrator` is in the **Privileged administrator roles** and `Network Contributor` is in the **Job function roles**.
+   > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
 
-   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal Access Control page with Add role assignment pane and Select box with Azure Spring Cloud Resource Provider highlighted." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
-
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-user-assign-administrator-role.png" alt-text="Screenshot of the Azure portal Access Control page with assigning User Assign Administrator Role." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-user-assign-administrator-role.png":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-network-contributor-role.png" alt-text="Screenshot of the Azure portal Access Control page with assigning Network Contributor role." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-network-contributor-role.png":::
 
 ### [Azure CLI](#tab/azure-CLI)
 
@@ -177,7 +178,12 @@ export VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
     --output tsv)
 
 az role assignment create \
-    --role "Owner" \
+    --role "User Access Administrator" \
+    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+
+az role assignment create \
+    --role "Network Contributor" \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
@@ -292,7 +298,7 @@ The route tables to which your custom vnet is associated must meet the following
 
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Apps service instance. You can't change to use another route table after Azure Spring Apps has been created.
 * Both the Spring application subnet and the service runtime subnet must associate with different route tables or neither of them.
-* Permissions must be assigned before instance creation. Be sure to grant Azure Spring Cloud Resource Provider the `Owner` permission (or `User Access Administrator` and `Network Contributor` permissions) on your route tables.
+* Permissions must be assigned before instance creation. Be sure to grant Azure Spring Apps Resource Provider the `User Access Administrator` and `Network Contributor` permissions on your route tables.
 * You can't update the associated route table resource after cluster creation. While you can't update the route table resource, you can modify custom rules on the route table.
 * You can't reuse a route table with multiple instances due to potential conflicting routing rules.
 
