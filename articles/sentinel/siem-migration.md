@@ -8,6 +8,7 @@ ms.date: 9/01/2024
 ms.author: austinmc
 appliesto: 
 - Microsoft Sentinel in the Azure portal
+- Microsoft Sentinel in the Defender portal
 #customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 ---
 
