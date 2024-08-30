@@ -31,7 +31,7 @@ To effectively treat patients, research treatments, diagnose illnesses, or get a
 
 FHIR&reg; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or other organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
+- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or other organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to de-identify PHI data because the service is validated for PHI compliance.
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
