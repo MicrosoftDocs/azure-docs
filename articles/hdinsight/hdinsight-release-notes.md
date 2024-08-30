@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2024
+ms.date: 08/30/2024
 ---
 
 # Azure HDInsight release notes
@@ -19,6 +19,13 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
+
+### Release date: Aug 30, 2024
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
+
+Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches Ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
 ### Release date: Aug 09, 2024
 
