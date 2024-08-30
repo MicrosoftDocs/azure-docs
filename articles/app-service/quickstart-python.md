@@ -351,16 +351,16 @@ Starting Live Log Stream ---
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where you enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
 | [!INCLUDE [Stream logs from Azure portal 2](./includes/quickstart-python/stream-logs-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="A screenshot of how to view logs in the Azure portal." lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting). If that doesn't help, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Clean up resources
 
-When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. Removing the resource group ensures that you don't incur extra charges and helps keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -401,13 +401,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 > [Tutorial: Python (Django or Flask) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](./configure-language-python.md)
+> [Configure a Python app](./configure-language-python.md)
 
 > [!div class="nextstepaction"]
 > [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](./tutorial-custom-container.md)
+> [Tutorial: Run a Python app in a custom container](./tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Secure an app with a custom domain and certificate](tutorial-secure-domain-certificate.md)
