@@ -213,7 +213,7 @@ Azure App Service supports multiple methods to deploy your application code to A
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting). If that doesn't help, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Configure startup script
 
@@ -283,7 +283,7 @@ For FastAPI, you must configure a custom startup command for App Service to run 
 
 ## Browse to the app
 
-Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
+Browse to the deployed application in your web browser by using the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
@@ -291,11 +291,11 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service.
 
-Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting). If that doesn't help, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Stream logs
 
-Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
+Azure App Service captures all message output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
 ### [Flask](#tab/flask)
 
@@ -311,11 +311,11 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ---
 
-The contents of the App Service diagnostic logs can be reviewed using the Azure CLI, VS Code, or Azure portal.
+You can review the contents of the App Service diagnostic logs by using the Azure CLI, VS Code, or the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
+First, you need to configure Azure App Service to output logs to the App Service filesystem by using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
 [!INCLUDE [CLI stream logs configure](./includes/quickstart-python/stream-logs-cli-1.md)]
 
