@@ -149,7 +149,7 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 
 None
 
-## Release Version 2.0.2788-135
+## Release 2.0.2788-135
 
 Document Revision 1.1
 
@@ -160,7 +160,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Release Version: Version 2.0.2788-135
 * Release Date: August 21, 2024
 * Is NFO update required: YES, Update only
-*  Dependency Versions: Go/1.22.4  Helm/3.15.2
+* Dependency Versions: Go/1.22.4  Helm/3.15.2
 
 ### Release Installation
 This release can be installed with as an update on top of release 2.0.2783-134.  
