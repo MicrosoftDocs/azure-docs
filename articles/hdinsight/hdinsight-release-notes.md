@@ -27,8 +27,6 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches Ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
-### Release date: Aug 09, 2024
-
 This release note applies to 
 
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
@@ -52,16 +50,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 > Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
-
-## Updates
-
-**[Addition of Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
-
-Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
-
-> [!NOTE]
-> Effective Image number 2407260448, customers using portal for log analytics will have default [Azure Monitor Agent](./azure-monitor-agent.md) experience. In case you wish to switch to Azure Monitor experience (preview), you can pin your clusters to old images by creating a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
