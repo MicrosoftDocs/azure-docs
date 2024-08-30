@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/21/2024
+ms.date: 08/30/2024
 ms.author: cshoe
 ---
 
@@ -13,13 +13,17 @@ ms.author: cshoe
 
 In Azure Container Apps, the environment type determines functionality and billing methods associated with your applications.
 
-The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. You only pay for resources consumed by your application. |
+The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. You only pay for resources consumed by your application.
 
-This article covers details around the **Consumption-only (v1)** environment type. For more information on the default **Workload profiles (v2)** environment type, see [Compute and billing structures in Azure Container Apps](structure.md).
+This article explains features of the *Consumption-only (v1)* environment type. For more information on the default *Workload profiles (v2)* environment type, see [Compute and billing structures in Azure Container Apps](structure.md).
 
-While Consumption-only environments are an option, for new Container Apps environments that need the consumption model, creating a Workload profiles environment with the built-in [consumption workload profile](./structure.md#workload-profiles) is recommended.
+While Consumption-only environments are an option, for new Container Apps environments that need the consumption model, creating a *Workload profiles v2* environment with the built-in [consumption workload profile](./structure.md#workload-profiles) is recommended.
 
-Consumption-only (v1) environment run exclusively on the consumption plan, which bills as your application consumes resources.
+The Consumption-only environment type works on the consumption plan. Apps running in the The Consumption-only have access to 4 vCPUs with 8GB of memory. There is no access to GPUs in a Consumption-only environment.
+
+If your application requires any capability outside these parameters, then run your apps on dedicated [workload profile](structure.md).
+
+*Consumption-only (v1)* environment run exclusively on the consumption plan, which bills as your application consumes resources.
 
 ## FAQ
 
