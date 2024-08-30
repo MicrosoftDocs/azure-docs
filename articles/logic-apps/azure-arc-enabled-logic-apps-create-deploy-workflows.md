@@ -477,7 +477,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
 > The **APP_KIND** app setting for your logic app is set to **workflowApp**, but in some scenarios, 
 > this app setting is missing, for example, due to Azure Resource Manager templates or other scenarios 
 > where the setting might not be included. If certain actions don't work, such as the 
-> **Execute JavaScript Code** action or the workflow steps working, check that the 
+> **Execute JavaScript Code** action or the workflow stops working, check that the 
 > **APP_KIND** app setting exists and is set to to **workflowapp**. For more information, see the 
 > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
