@@ -3,12 +3,14 @@ title: Control upgrade failure behavior with Azure Operator Service Manager
 description: Learn about behaviors including pause on failure and rollback on failure.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/28/2024
+ms.date: 08/30/2024
 ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
 ---
 
 # Control upgrade failure behavior
+
+## Overview
 This guide describes the Azure Operator Service Manager (AOSM) upgrade failure behavior features for container network functions (CNFs). These features, as part of the AOSM safe upgrade practices initiative, offer a choice between faster retries, with pause on failure, versus return to starting point, with rollback on failure.
 
 ## Pause on failure
