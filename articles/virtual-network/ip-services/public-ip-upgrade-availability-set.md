@@ -31,11 +31,6 @@ The module logs all upgrade activity to a file named `AvSetPublicIPUpgrade.log`,
 
 * **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default," meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
-### Prerequisites
-
-- Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
-- Ensure whether you have the latest Az PowerShell module installed (and install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell) if not)
-
 ## Download the script
 
 Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAvSetBasicPublicIPUpgrade).
