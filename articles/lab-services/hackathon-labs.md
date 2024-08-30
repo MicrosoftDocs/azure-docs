@@ -3,8 +3,8 @@ title: Use Azure Lab Services for hackathon
 description: Learn how to use Azure Lab Services for creating labs that you can use for running hackathons.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 05/22/2023
 ---
