@@ -373,8 +373,6 @@
           href: appliance-catalog/dell-edge-5200.md
         - name: Dell PowerEdge R360
           href: appliance-catalog/dell-poweredge-r360-e1800.md
-        - name: Dell PowerEdge R350
-          href: appliance-catalog/dell-poweredge-r350-e1800.md
       - name: Production line
         items:
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
@@ -403,6 +401,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: Dell PowerEdge R350
+          href: appliance-catalog/dell-poweredge-r350-e1800.md
         - name: Dell PowerEdge R340 XL (E1800)
           href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
         - name: HPE Edgeline EL300 (L500 Rugged)

@@ -13,7 +13,7 @@ ms.author: banders
 
 # Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 
-You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](../../ai-services/openai/how-to/provisioned-throughput-onboarding.md).
+You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
 
 To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and then add the Azure OpenAI SKU to your cart. Then you choose the quantity of provisioned throughput units that you want to purchase.
 

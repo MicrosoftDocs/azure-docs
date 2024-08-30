@@ -80,7 +80,7 @@ Create a Service Bus namespace, topic, and subscription. For more information, s
 
 # [Cosmos DB](#tab/cosmosdb)
 
-Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](../cosmos-db/scripts/cli/nosql/create.md).
+Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](/azure/cosmos-db/scripts/cli/nosql/create).
 
 ---
 
