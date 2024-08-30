@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
  
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 08/02/2023
+ms.topic: concept-article
+ms.date: 08/30/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -142,6 +142,8 @@ When API Management receives an API request from a client with a subscription ke
 
     If a valid key for an active subscription at an appropriate scope is provided, access is allowed. Policies are applied depending on the configuration of the policy definition at that scope.
 
+1. Check if the API requires a subscription. If the API doesn't require a subscription, handle the request in the context of the API and operation.
+
 1. Otherwise, access is denied (401 Access denied error).
 
 ### API request without a subscription key
@@ -160,19 +162,20 @@ The following table summarizes how the gateway handles API requests with or with
 |All products assigned to API require subscription  |API requires subscription  |API call with subscription key  |API call without subscription key  | Typical scenarios |
 |---------|---------|---------|---------|----|
 |✔️     | ✔️     | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access denied        | Protected API access using product-scoped or API-scoped subscription  |
-|✔️     |  ❌    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |  Access allowed (API context)   | • Protected API access with product-scoped subscription<br/><br/>• Anonymous access to API. If anonymous access isn’t intended, configure API-level policies to enforce authentication and authorization. |
-|❌<sup>1</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
-|❌<sup>1</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
+|✔️     |  ❌    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/>• Other key not scoped to applicable API        |  Access allowed (API context)   | • Protected API access with product-scoped subscription<br/><br/>• Anonymous access to API. If anonymous access isn't intended, configure API-level policies to enforce authentication and authorization. |
+|❌<sup>1</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/>• Other key not scoped to applicable product        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn't intended, configure with product policies to enforce authentication and authorization  |
+|❌<sup>1</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn't intended, configure with product policies to enforce authentication and authorization  |
 
 <sup>1</sup> An open product exists that's associated with the API. 
 
 ### Considerations
 
 -	API access in a product context is the same, whether the product is published or not. Unpublishing the product hides it from the developer portal, but it doesn’t invalidate new or existing subscription keys.
--	Even if a product or API doesn't require a subscription, a valid key from an active subscription that enables access to the product or API can still be used.
+-	If a product associated with the API or the API doesn't require a subscription, any subscription key may be passed in the request and will be ignored.
 -	API access "context" means the policies and access controls that are applied at a particular scope (for example, API or product).
 
-## Next steps
+## Related content
+
 Get more information on API Management:
 
 + Learn how API Management [policies](set-edit-policies.md#configure-policies-at-different-scopes) get applied at different scopes.
