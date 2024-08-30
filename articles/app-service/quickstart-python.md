@@ -374,7 +374,7 @@ az group delete \
 
 The `--no-wait` argument allows the command to return before the operation is complete.
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-aztools) 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
