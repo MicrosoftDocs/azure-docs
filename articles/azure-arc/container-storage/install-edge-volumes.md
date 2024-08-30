@@ -32,7 +32,7 @@ kubectl patch meshconfig osm-mesh-config \
 Install the Azure Container Storage enabled by Azure Arc extension using the following command:
 
 ```azurecli
-az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name "${YOUR-CLUSTER-NAME}" --cluster-type connectedClusters --name acsa --extension-type microsoft.arc.containerstorage
+az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name "${YOUR-CLUSTER-NAME}" --cluster-type connectedClusters --name azure-arc-containerstorage --extension-type microsoft.arc.containerstorage
 ```
 
 > [!NOTE]
