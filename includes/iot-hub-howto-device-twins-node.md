@@ -79,7 +79,7 @@ const Protocol = require('azure-iot-device-mqtt').Mqtt;
 
 Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
-* **connStr** - A connection string which encapsulates "device connect" permissions for an IoT hub. The connection string contains Hostname, Device ID & Shared Access Key in this format:
+* **connStr** - A connection string that encapsulates "device connect" permissions for an IoT hub. The connection string contains Hostname, Device ID & Shared Access Key in this format:
 "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>".
 * **transportCtor** - The transport protocol.
 
@@ -176,7 +176,7 @@ For example:
      };
     ```
 
-1. This code sets up a desired properties change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there is a desired property change within this group, min and max temperature change messages will be displayed to the console:
+1. This code sets up a desired properties change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there is a desired property change within this group, min and max temperature change messages that are displayed to the console:
 
     ```javascript
     twin.on('properties.desired.climate', function (delta) {

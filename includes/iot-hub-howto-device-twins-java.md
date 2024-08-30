@@ -102,15 +102,15 @@ System.out.println("Successfully set property \"HomeTemp(F)\" to value " + newTe
 
 ### Subscribe to desired property changes
 
-Call [subscribeToDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.device.internalclient?#com-microsoft-azure-sdk-iot-device-internalclient-subscribetodesiredproperties(java-util-map(com-microsoft-azure-sdk-iot-device-devicetwin-property-com-microsoft-azure-sdk-iot-device-devicetwin-pair(com-microsoft-azure-sdk-iot-device-devicetwin-propertycallback(java-lang-string-java-lang-object)-java-lang-object)))) to subscribe to desired properties. This client will receive a callback with a `Twin` object each time a desired property is updated. That callback will either contain the full desired properties set, or only the updated desired property depending on how the desired property was changed.
+Call [subscribeToDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.device.internalclient?#com-microsoft-azure-sdk-iot-device-internalclient-subscribetodesiredproperties(java-util-map(com-microsoft-azure-sdk-iot-device-devicetwin-property-com-microsoft-azure-sdk-iot-device-devicetwin-pair(com-microsoft-azure-sdk-iot-device-devicetwin-propertycallback(java-lang-string-java-lang-object)-java-lang-object)))) to subscribe to desired properties. This client receives a callback with a `Twin` object each time a desired property is updated. That callback either contains the full desired properties set, or only the updated desired property depending on how the desired property was changed.
 
-This example subscribes to desired propery changes. Any desired property changes will be passed to a handler named `DesiredPropertiesUpdatedHandler`.
+This example subscribes to desired property changes. Any desired property changes are passed to a handler named `DesiredPropertiesUpdatedHandler`.
 
 ```java
 client.subscribeToDesiredProperties(new DesiredPropertiesUpdatedHandler(), null);
 ```
 
-In this example, the `DesiredPropertiesUpdatedHandler` desired property change callback handler calls [getDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getdesiredproperties()) to retrieve the property changes, then prints out the updated twin properties.
+In this example, the `DesiredPropertiesUpdatedHandler` desired property change callback handler calls [getDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getdesiredproperties()) to retrieve the property changes, then prints the updated twin properties.
 
 ```java
   private static class DesiredPropertiesUpdatedHandler implements DesiredPropertiesCallback
@@ -231,7 +231,7 @@ To update device twin fields:
 
 This section demonstrates two device twin queries. Device twin queries are SQL-like queries that return a result set of device twins.
 
-The [Query](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.query) class contains methods that can be used to create SQL-style queries to IoT Hub for twins, jobs, device jobs or raw data.
+The [Query](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.query) class contains methods that can be used to create SQL-style queries to IoT Hub for twins, jobs, device jobs, or raw data.
 
 To create a device query:
 
