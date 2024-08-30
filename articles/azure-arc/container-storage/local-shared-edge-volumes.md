@@ -35,7 +35,7 @@ The *Local Shared Edge Volumes* feature provides highly available, failover-capa
        - ReadWriteMany
      resources:
        requests:
-         storage: 10Gi
+         storage: 2Gi
      storageClassName: unbacked-sc
    ```
 

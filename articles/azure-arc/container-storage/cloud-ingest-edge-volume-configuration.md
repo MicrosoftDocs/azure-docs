@@ -93,7 +93,7 @@ az k8s-extension list --cluster-name ${CLUSTER_NAME} --resource-group ${RESOURCE
        - ReadWriteMany
      resources:
        requests:
-         storage: 10Gi
+         storage: 2Gi
      storageClassName: cloud-backed-sc
    ```
 

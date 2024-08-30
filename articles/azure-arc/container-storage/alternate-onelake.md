@@ -49,7 +49,7 @@ This configuration is an alternative option that you can use with key-based auth
        - ReadWriteMany
      resources:
        requests:
-         storage: 10Gi
+         storage: 2Gi
      storageClassName: cloud-backed-sc
    ```
 

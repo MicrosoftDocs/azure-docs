@@ -203,7 +203,7 @@ A connection string can contain a storage key or SAS.
        - ReadWriteMany
      resources:
        requests:
-         storage: 10Gi
+         storage: 2Gi
      storageClassName: cloud-backed-sc
    ```
 
