@@ -2,7 +2,7 @@
 title: Troubleshooting Linux update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-ms.date: 11/01/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.custom: linux-related-content
@@ -10,6 +10,9 @@ ms.service: azure-automation
 ---
 
 # Troubleshoot Linux update agent issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
 
 There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Linux Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 

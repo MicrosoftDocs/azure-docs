@@ -4,7 +4,7 @@ description: Learn about zero downtime deployment with blue-green deployment str
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 08/29/2024
 ms.author: haital
 ms.custom: devx-track-java
 ---

@@ -12,13 +12,13 @@ Use the `CallComposite` and the `ChatComposite` in the Azure Communication Servi
 
 You can use the call composite in Communication Services to create these use cases:
 
-| Area                                                                                            | Use cases                                              |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Call types                                                                                      | Join a Microsoft Teams meeting                                     |
-|                                                                                                 | Join a Microsoft Teams meeting using Meeting ID and Passcode      |
-|                                                                                                 | Join a call by using a group ID                                  |
-|                                                                                                 | Join a call by using a room  ID                                  |
-|                                                                                                 | Make and Receive 1:1 Calls                      |
+| Area                                                                 | Use cases                                                       |
+| -------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Call types                                                           | Join a Microsoft Teams meeting                                  |
+|                                                                      | Join a Microsoft Teams meeting using Meeting ID and Passcode    |
+|                                                                      | Join a call by using a group ID                                 |
+|                                                                      | Join a call by using a room  ID                                 |
+|                                                                      | Make and Receive 1:1 Calls                                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
 |                                                                                                 | Admit/Reject lobby participants                                 |
@@ -41,6 +41,8 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
 |                                                                                                 | CallKit and TelecomManager Support                 |
+| Customize the experience                                             | Button bar customization                                        |
+
 
 ### Teams interoperability
 
@@ -93,6 +95,37 @@ You can use the UI Library call composite for iOS and Android to create a custom
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="Screenshot that shows Android theming for a caller experience."::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="Screenshot that shows iOS theming for a caller experience.":::  |
+
+### Button bar customization
+
+The functionality allows developers to add new actions into the contextual menu or remove current buttons in the button bar, providing the flexibility to introduce custom actions and tailor the user interface according to specific application needs.
+
+- Add Custom Buttons: Developers can introduce new buttons into the contextual button bar to trigger custom actions.
+- Remove Existing Buttons: Unnecessary default buttons can be removed to streamline the interface: camera, microphone o audio selection.
+
+Consider the following constraints during the implementation of this feature:
+
+- Icons and Labels: Icons are added only for new actions. The button bar icons keep the predefined icon, labels should be concise to fit the menu dimension.
+- Accessibility Considerations: Developers should ensure that all custom buttons are accessible, including appropriate labeling for screen readers.
+
+|Remove buttons | Add custom actions|
+|-------------  | ------------------|
+| :::image type="content" source="media/ui-library-remove-button.png" alt-text="Screenshot that demonstrates the remove button on the bottom bar."::: |  :::image type="content" source="media/ui-library-add-action-button.png" alt-text="Screenshot that demonstrates add custom action into the contextual menu."::: |
+
+#### Use cases
+
+- Custom In-Call Actions: A business application can add a custom "Report Issue" button, allowing users to directly report technical issues during a call.
+- Branding and User Experience: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
+
+To ensure a consistent call experience, , we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons will match the design of the Call Composite, creating a cohesive and professional appearance.
+
+#### Best practices
+
+- Minimalism: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
+- User Testing: Conduct user testing to ensure the customizations meets user needs and don't confuse or overwhelm them.
+- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
+
+For more information, see [How to customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
 
 ### Screen size
 
