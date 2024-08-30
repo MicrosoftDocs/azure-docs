@@ -62,7 +62,7 @@ This article provides suggestions to troubleshoot common problems with the REST 
 ## The service principal certificate in Azure Key Vault is not correct
 
 - **Message**: `"Failed to create certificate from certificate raw data and password. Cannot find the requested object."` 
-- **Cause**: The service principal certificate in Azure Key Vault is not correct.
+- **Cause**: Only support the base64 string service principal certificate for Rest connector service principal certificate authentication.
 - **Recommendation**: Follow this [section](connector-rest.md#save-the-service-principal-certificate-in-azure-key-vault) to save the service principal certificate in Azure Key Vault correctly.
 
 ## Related content
