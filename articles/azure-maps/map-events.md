@@ -28,7 +28,7 @@ The [Map Events] sample highlights the name of the events that are firing as you
 
 The [Layer Events] sample highlights the name of the events that are firing as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events. For the source code for this sample, see [Layer Events source code].
 
-:::image type="content" source="./media/map-events/layer-events.png" lightbox=="./media/map-events/layer-events.png" alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
+:::image type="content" source="./media/map-events/layer-events.png" lightbox="./media/map-events/layer-events.png" alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
