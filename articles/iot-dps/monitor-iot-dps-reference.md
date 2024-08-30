@@ -84,7 +84,7 @@ The following JSON is an example of a successful attestation attempt from a devi
   {
     "CallerIPAddress": "24.18.226.XXX",
     "Category": "DeviceOperations",
-    "CorrelationId": "68952383-80c0-436f-a2e3-f8ae9a41c69d",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "DurationMs": "226",
     "Level": "Information",
     "OperationName": "AttestationAttempt",
@@ -117,7 +117,7 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
   {
     "CallerIPAddress": "13.91.244.XXX",
     "Category": "ServiceOperations",
-    "CorrelationId": "23bd419d-d294-452b-9b1b-520afef5ef52",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "DurationMs": "98",
     "Level": "Information",
     "OperationName": "Upsert",

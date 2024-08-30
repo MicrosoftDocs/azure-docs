@@ -250,5 +250,5 @@ The health status warning due to test failover will be available as part of Gene
 
 Learn more about:
 
--  [Azure managed disk](../virtual-machines/disks-shared.md).
+-  [Azure managed disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
