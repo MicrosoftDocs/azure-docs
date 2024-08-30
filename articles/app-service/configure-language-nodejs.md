@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -120,7 +120,7 @@ app.listen(port, () => {
 
 ## Customize build automation
 
-If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
+If you deploy your app by using Git, or by using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
@@ -129,7 +129,7 @@ If you deploy your app using Git, or zip packages [with build automation enabled
 1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> As described in [npm docs](https://docs.npmjs.com/misc/scripts), scripts named `prebuild` and `postbuild` run before and after `build`, respectively, if specified. `preinstall` and `postinstall` run before and after `install`, respectively.
+> As is noted in the [npm docs](https://docs.npmjs.com/misc/scripts), scripts named `prebuild` and `postbuild` run before and after `build`, respectively, if specified. `preinstall` and `postinstall` run before and after `install`, respectively.
 
 `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
 
@@ -140,19 +140,19 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+For information about additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
 For more information on how App Service runs and builds Node.js apps in Linux, see [Oryx documentation: How Node.js apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
 
 ## Configure Node.js server
 
-The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
+The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, with npm start, or with a custom command.
 
 |Tool|Purpose|
 |--|--|
 |[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
-|[Run npm start](#run-npm-start)|Development use only.|
-|[Run custom command](#run-custom-command)|Either development or staging.|
+|[Run with npm start](#run-with-npm-start)|Development use only.|
+|[Run with a custom command](#run-with-a-custom-command)|Either development or staging.|
 
 ### Run with PM2
 
@@ -179,7 +179,7 @@ To add a custom start file, run the following command in the [Cloud Shell](https
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename-with-extension>"
 ```
 
-### Run custom command
+### Run with a custom command
 
 App Service can start your app using a custom command, such as an executable like *run.sh*. For example, to run `npm run start:prod`, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -187,7 +187,7 @@ App Service can start your app using a custom command, such as an executable lik
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
 ```
 
-### Run npm start
+### Run with npm start
 
 To start your app using `npm start`, just make sure a `start` script is in the *package.json* file. For example:
 
@@ -321,7 +321,7 @@ fi
 
 In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted, inspect the `X-Forwarded-Proto` header.
 
-Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/guide/behind-proxies.html). For example:
+Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/en/guide/behind-proxies.html). For example:
 
 ```javascript
 app.set('trust proxy', 1)
