@@ -48,4 +48,6 @@ Schedule the following activities monthly.
 
 ## Related content
 
+- [Security operations overview](/security/operations/overview)
+- [Implement Microsoft Sentinel and Microsoft Defender XDR for Zero Trust](/security/operations/siem-xdr-overview)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
