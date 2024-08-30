@@ -114,7 +114,7 @@ Some common reasons for errors:
 
 ## Azure monitor agent
 
-The Azure Monitor Agent is implemented as an [Azure VM extension](../virtual-machines/extensions/overview.md) 
+The Azure Monitor Agent is implemented as an [Azure VM extension](/azure/virtual-machines/extensions/overview) 
 ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling the Azure Monitor Agent won't require you to restart your server.
 
 Ensure that you configure collection of logs and metrics using the Data Collection Rule.

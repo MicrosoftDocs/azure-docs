@@ -78,14 +78,14 @@ Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Mach
 #### Windows VM/VMSS
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable the [Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
+If you have Software Assurance, you can enable the [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 > [!NOTE]
 > The query has a Quick Fix column that helps you to apply Azure Hybrid Benefit to Windows VMs.
 
 #### Linux VM/VMSS
 
-[Azure Hybrid Benefit for Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+[Azure Hybrid Benefit for Linux](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
 
 #### SQL
 
@@ -117,7 +117,7 @@ The following queries show compute resources that you can optimize to save money
 
 #### Virtual Machines in a Stopped State
 
-This query identifies Virtual Machines that aren't properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you're still billed for the resource as the hardware remains allocated for you. Learn more about [States and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
+This query identifies Virtual Machines that aren't properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you're still billed for the resource as the hardware remains allocated for you. Learn more about [States and billing status of Azure Virtual Machines](/azure/virtual-machines/states-billing).
 
 #### Deallocated virtual machines
 
