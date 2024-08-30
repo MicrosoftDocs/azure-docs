@@ -251,7 +251,7 @@ In this section, you learn how to disable HTTPS for your custom domain.
 
 4. Choose the custom domain for which you want to disable HTTPS.
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain-https-enabled.png" alt-text="Screenshot of the custom domains list.":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain-certificate-deployed.png" alt-text="Screenshot of the custom domains list.":::
 
 5. Choose **Off** to disable HTTPS, then select **Apply**.
 
