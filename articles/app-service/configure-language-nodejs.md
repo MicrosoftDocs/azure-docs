@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required npm dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -92,13 +92,13 @@ Your Node.js app needs to listen to the right port to receive incoming requests.
 
 ::: zone pivot="platform-windows"  
 
-In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how to get the the port number of a simple Express app:
+In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how to do that in a simple Express app:
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"  
 
-App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how to get the port numboer of a simple Express app:
+App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how to do that in a simple Express app:
 
 ::: zone-end
 
@@ -122,7 +122,7 @@ app.listen(port, () => {
 
 If you deploy your app by using Git, or by using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
-1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run custom script, if one is specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
 1. Run `npm run build` if a build script is specified in your *package.json*.
 1. Run `npm run build:azure` if a build:azure script is specified in your *package.json*.
