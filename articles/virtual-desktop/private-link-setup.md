@@ -144,10 +144,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 

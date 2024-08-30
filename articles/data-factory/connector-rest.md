@@ -648,7 +648,7 @@ Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
-*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 
