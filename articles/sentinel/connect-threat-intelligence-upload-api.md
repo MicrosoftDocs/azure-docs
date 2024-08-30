@@ -26,9 +26,9 @@ For more information about threat intelligence, see [Threat intelligence](unders
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
 For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
