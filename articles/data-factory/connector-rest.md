@@ -141,12 +141,11 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
 | servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
-| servicePrincipalCredential | When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br> When you use **ServicePrincipalCert** as the credential type, store embeddedCert and embeddedCertPassword in object. For more information, see the property description and JSON example below. | No |
 | ***For ServicePrincipalKey*** | | |
 | servicePrincipalKey | When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | ***For ServicePrincipalCert*** | | |
-| embeddedCert | When you use **ServicePrincipalCert** as the credential type, specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). You also need to go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No |
-| embeddedCertPassword | When you use **ServicePrincipalCert** as the credential type, specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 |  |  |  |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
@@ -191,15 +190,13 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalCredentialType": "ServicePrincipalCert",
-            "servicePrincipalCredential": { 
-                "embeddedCert": { 
-                    "type": "SecureString", 
-                    "value": "<the base64 encoded certificate of your application registered in Microsoft Entra ID>"
-                },
-                "embeddedCertPassword": {
-                    "type": "SecureString", 
-                    "value": "<password of your certificate>"
-                }
+            "servicePrincipalEmbeddedCert": {
+                "type": "SecureString",
+                "value": "<the base64 encoded certificate of your application registered in Microsoft Entra ID>"
+            },
+            "servicePrincipalEmbeddedCertPassword": {
+                "type": "SecureString",
+                "value": "<password of your certificate>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>"
