@@ -1,9 +1,9 @@
 ---
-title: Safe Upgrade Practices for CNFs
-description: Safely execute complex upgrades of workloads with Azure Operator Service Manager.
+title: Get started with Azure Operator Service Manager Safe Upgrade Practices 
+description: Safely execute complex upgrades of CNF workloads on Azure Operator Nexus
 author: msftadam
 ms.author: adamdor
-ms.date: 08/16/2024
+ms.date: 08/30/2024
 ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
 ---
