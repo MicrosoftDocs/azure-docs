@@ -1,6 +1,6 @@
 ---
-title: Relocate AzureNetApp Files resource to another region
-description: Learn how to relocate an Azure NetApp Files resource to another region
+title: Relocate AzureNetApp Files volume to another region
+description: Learn how to relocate an Azure NetApp Files volume to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -11,9 +11,9 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure NetApp Files resource to another region
+# Relocate Azure NetApp Files volume to another region
 
-This article cover guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) resources to another region.
+This article cover guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) volumes to another region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
