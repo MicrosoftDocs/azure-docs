@@ -78,15 +78,30 @@ The following release notes are for Azure File Sync version 19.1.0.0 (released S
 
 ### Improvements and issues that are fixed
 
-- Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints.
-	- We're reducing the time it takes for the new server endpoint to be ready to use. When a new server endpoint is provisioned, it could take hours and sometime days for the server to be ready to use. With our latest improvements, we've substantially shortened this duration for a more efficient setup process.
-	- The improvement applies to the following scenarios, when the server endpoint location is empty (no files or directories):
-		- Creating the first server endpoint of new sync topology after data is copied to the Azure File Share.
-		- Adding a new empty server endpoint to an existing sync topology.
-	- How to get started: Sign up for the public preview [here](https://forms.office.com/r/gCLr1PDZKL).
-- Sync performance improvements
-	- Sync upload performance has improved, and performance numbers will be posted when they are available. This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded, for example ACL changes.
-- Miscellaneous reliability and telemetry improvements for cloud tiering and sync
+**Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints.**
+
+We have reduced the time it takes for the new server endpoint to be ready to use. Prior to the v19 release, when a new server endpoint is provisioned, it could take hours and sometime days for the server to be ready to use. With our latest improvements, we've substantially shortened this duration, ensuring a faster setup process.
+
+The improvement applies to the following scenarios, when the server endpoint location is empty (no files or directories):
+- Creating the first server endpoint of new sync topology after data is copied to the Azure File Share.
+- Adding a new empty server endpoint to an existing sync topology.
+
+This improvement will be gradually enabled in all regions within the next month. Once the improvement is enabled in your region, you will see a Provisioning steps tab in the portal after server endpoint creation which allows you to easily determine when the server endpoint is ready for use. For more information, see [Create an Azure File Sync server endpoint](file-sync-server-endpoint-create.md#provisioning-steps) documentation.
+
+**Preview: Managed Identity support for Azure File Sync service and servers**  
+Azure File Sync support for managed identities eliminates the need for shared keys as a method of authentication by utilizing a system-assigned managed identity provided by Microsoft Entra ID.
+
+When you enable this configuration, the system-assigned managed identities will be used for the following scenarios:
+- Storage Sync Service authentication to Azure file share
+- Registered server authentication to Azure file share
+- Registered server authentication to Storage Sync Service
+
+Azure File Sync support for system-assigned managed identities will be in preview soon. More details will be provided once this feature is enabled in all regions.
+
+**Sync performance improvements**  
+Sync performance has significantly improved for file share migrations and when metadata-only is changed (for example, ACL changes). Performance numbers will be posted when they are available.
+
+**Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 
 ### Evaluation Tool
 
@@ -98,11 +113,11 @@ For more information on how to install and configure the Azure File Sync agent w
 
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
-- The agent is supported only on Windows Server 2019, Windows Server 2016 and Windows Server 2022.
+- The agent is supported only on Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025.
 - The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, the existing agent must be uninstalled. Restart the server and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
+- The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default and TLS 1.0 and 1.1 are not supported.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
-- All supported Azure File Sync agent versions use TLS 1.2 by default and TLS 1.0 and 1.1 are not supported. Starting with v18 agent version TLS 1.3 will be supported for Windows Server 2022.
 
 ### Interoperability
 
@@ -114,7 +129,7 @@ For more information on how to install and configure the Azure File Sync agent w
 
 The following items don't sync, but the rest of the system continues to operate normally:
 
-- Azure File Sync v17 agent and later supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
+- Azure File Sync supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
 - Extended attributes.
