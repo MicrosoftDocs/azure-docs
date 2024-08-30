@@ -1,5 +1,5 @@
 ---
-title: Relocate AzureNetApp Files volume to another region
+title: Relocate Azure NetApp Files volume to another region
 description: Learn how to relocate an Azure NetApp Files volume to another region
 author: anaharris-ms
 ms.author: anaharris
@@ -13,7 +13,7 @@ ms.custom:
 
 # Relocate Azure NetApp Files volume to another region
 
-This article cover guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) volumes to another region.
+This article covers guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) volumes to another region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
@@ -27,7 +27,7 @@ Before you begin the relocation planning stage, first review the following prere
 - Source and target regions must be paired regions. To see if they're paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
 
 - Understand all dependent resources. Some of the resources could be:
-    - Azure Entra ID
+    - Microsoft Entra ID
     - [Virtual Network](./relocation-virtual-network.md)
     - Azure DNS
     - [Storage services](./relocation-storage-account.md)
@@ -42,7 +42,7 @@ Before you begin the relocation process, make sure to complete the following pre
 
 - The network configurations (including separate subnets if needed and IP ranges) should already be planned and prepared
 
-- Turn off replication procedures to disaster recovery region. IF you've established a disaster recovery (DR) solution using replication to a DR region, turn off replication to the DR site before initiating relocation procedures.
+- Turn off replication procedures to disaster recovery region. If you've established a disaster recovery (DR) solution using replication to a DR region, turn off replication to the DR site before initiating relocation procedures.
 
 - Understand the following considerations in regards to replication:
     
@@ -52,7 +52,7 @@ Before you begin the relocation process, make sure to complete the following pre
     
     - Azure NetApp Files replication doesn't currently support multiple subscriptions. All replications must be performed under a single subscription.
     
-    - There are resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md)
+    - There are resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md).
     
 ## Redeploy
 
@@ -80,6 +80,7 @@ To learn how to clean up a replication, see [Delete volume replications or volum
 
 
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
+
 To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 - [Requirements for Active Directory Connections](/azure/azure-netapp-files/create-active-directory-connections#requirements-for-active-directory-connections)
