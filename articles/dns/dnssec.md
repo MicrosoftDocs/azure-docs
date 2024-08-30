@@ -5,7 +5,7 @@ author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 07/30/2024
+ms.date: 08/30/2024
 ms.author: greglin
 ---
 
@@ -20,6 +20,9 @@ DNS zones can be secured with DNSSEC using a process called zone signing. Signin
 Validation of DNS responses occurs by using digital signatures included with DNS responses. These digital signatures are contained in DNSSEC-related resource records that are generated and added to the zone during zone signing.
 
 ## Why sign a zone with DNSSEC?
+
+> [!NOTE]
+> DNSSEC zone signing is currently in Public Preview. For more information, see [How to sign your Azure public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
 
 DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks, also known as DNS redirection. DNS hijacking occurs when a client device is redirected to a malicious server by using incorrect (spoofed) DNS responses. An example of how DNS hijacking works is shown in the following figure.
 
