@@ -21,7 +21,8 @@ ms.custom: template-how-to, engagement-fy23
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
 For an in-depth walk-through of the upgrade module and process, see the following video:
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
+
+> [!VIDEO 8e203b99-41ff-4454-9cbd-58856708f1c6]
 
 - 03:06 - <a href="https://learn-video.azurefd.net/vod/player?id=8e203b99-41ff-4454-9cbd-58856708f1c6?#time=0h3m06s" target="_blank">Step-by-step</a>
 - 32:54 - <a href="https://learn-video.azurefd.net/vod/player?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s" target="_blank">Recovery</a>
@@ -39,7 +40,7 @@ The PowerShell module performs the following functions:
 - Migrates Virtual Machine Scale Set and Virtual Machine backend pool members from the Basic Load Balancer to the Standard Load Balancer.
 - Creates and associates a network security group with the Virtual Machine Scale Set or Virtual Machine to ensure load balanced traffic reaches backend pool members, following Standard Load Balancer's move to a default-deny network policy.
 - Upgrades instance-level Public IP addresses associated with Virtual Machine Scale Set or Virtual Machine instances
-- Upgrades [Inbound NAT Pools to Inbound NAT Rules](load-balancer-nat-pool-migration.md#why-migrate-to-nat-rules) for Virtual Machine Scale Set backends. Specify `-skipUpgradeNATPoolsToNATRules` to skip this upgrade.
+- Upgrades Inbound NAT Pools to Inbound NAT Rules for Virtual Machine Scale Set backends, creating a new backend pool for each migrated NAT Pool. Specify `-skipUpgradeNATPoolsToNATRules` to skip this upgrade and use the [standalone NAT Pool migration module](load-balancer-nat-pool-migration.md) later for more backend pool options.
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
@@ -304,7 +305,8 @@ For internal Load Balancers, Outbound Rules are not an option because there is n
 The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerBackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. 
 
 Watch a video of the recovery process: 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
+
+> [!VIDEO 8e203b99-41ff-4454-9cbd-58856708f1c6]
 
 If your failed migration was targeting multiple load balancers at the same time, using the `-MultiLBConfig` parameter, recover each Load Balancer individually using the same process as below. 
 

@@ -120,9 +120,9 @@ Requests can originate from any of these sources:
 
 - Hadoop workloads that use the [Azure Blob File System driver (ABFS)](../blobs/data-lake-storage-abfs-driver.md) driver
 
-- Clients that use [Data Lake Storage Gen2 REST APIs](/rest/api/storageservices/data-lake-storage-gen2) or Data Lake Storage Gen2 APIs from an Azure Storage client library
+- Clients that use [Data Lake Storage REST APIs](/rest/api/storageservices/data-lake-storage-gen2) or Data Lake Storage APIs from an Azure Storage client library
 
-The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
+The correct pricing page for these requests is the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
@@ -163,7 +163,7 @@ If you've been using Blob Storage for some time, you should periodically review 
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
-If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
+If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
 You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See any of these articles:
 
