@@ -91,7 +91,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
      name: edge-storage-configuration
    spec:
      defaultDiskStorageClasses:
-       - acstor-azuredisk-internal
+       - acstor-arcstorage-storage-pool
      serviceMesh: "osm"
    ---
    apiVersion: arccontainerstorage.azure.net/v1
@@ -99,7 +99,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
    metadata:
      name: acstor-configuration
    spec:
-       diskMountPoint: /var
+       diskMountPoint: /mnt
        diskCapacity: 10Gi
        createStoragePool:
            enabled: true

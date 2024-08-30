@@ -6,6 +6,11 @@ author: sethmanheim
 ms.author: sethm
 ---
 
+Then, perform the following steps in your Kubernetes cluster:
+
+> [!IMPORTANT]
+> The following steps must be completed for **each node** in your Kubernetes cluster.
+
 1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
 
    ```bash
