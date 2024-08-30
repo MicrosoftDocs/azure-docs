@@ -59,7 +59,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 1. [Create the target NetApp account](../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-1. (Optional) [Create the target capacity pool](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+1. [Create the target capacity pool](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
 1. [Delegate a subnet in the target region](../azure-netapp-files/azure-netapp-files-delegate-subnet.md). Azure NetApp Files creates a system route to the delegated subnet. Peering and endpoints can be used to connect to the target as needed. 
 
