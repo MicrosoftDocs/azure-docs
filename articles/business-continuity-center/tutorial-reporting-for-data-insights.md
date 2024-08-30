@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 ---
 
 
-# Tutorial: Set up and view reports
+# Tutorial: Configure and view reports
 
 This tutorial describes how to set up and view reports in Azure Business Continuity Center.
 
