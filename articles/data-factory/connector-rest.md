@@ -142,7 +142,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
 | servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
 | ***For ServicePrincipalKey*** | | |
-| servicePrincipalKey | When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | ***For ServicePrincipalCert*** | | |
 | servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
