@@ -266,10 +266,10 @@ You're now ready to run the device code and the service code that initiates a re
 
    The following shows the device response to the reboot direct method:
 
-   ![Simulated device app output](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Simulated device app output](./media/device-management-python/device.png)
 
    The following shows the service calling the reboot direct method and polling the device twin for status:
 
-   ![Trigger reboot service output](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Trigger reboot service output](./media/device-management-python/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
