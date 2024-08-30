@@ -32,7 +32,7 @@ kubectl patch meshconfig osm-mesh-config \
 Install the Azure Container Storage enabled by Azure Arc extension using the following command:
 
 ```azurecli
-az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name "${YOUR-CLUSTER-NAME}" --cluster-type connectedClusters --name esa --extension-type microsoft.arc.containerstorage
+az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name "${YOUR-CLUSTER-NAME}" --cluster-type connectedClusters --name acsa --extension-type microsoft.arc.containerstorage
 ```
 
 > [!NOTE]
@@ -91,7 +91,7 @@ If you run a 3 or more node Kubernetes cluster with **Ubuntu** or **Edge Essenti
      name: edge-storage-configuration
    spec:
      defaultDiskStorageClasses:
-       - acstor-arcstorage-storage-pool
+       - acstor-arccontainerstorage-storage-pool
      serviceMesh: "osm"
    ---
    apiVersion: arccontainerstorage.azure.net/v1
