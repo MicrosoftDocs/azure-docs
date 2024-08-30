@@ -206,6 +206,8 @@
     href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
+  - name: Configure data boundary
+    href: manage-data-boundary.md
 - name: Reference
   items:
   - name: REST
