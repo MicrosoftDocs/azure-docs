@@ -450,7 +450,7 @@ You can now invoke your function endpoints in Azure by making HTTP requests to t
 
 You can use the Core Tools to obtain the URL endpoints of your functions running in Azure.
 
-1. In your local terminal or command prompt, run this command to get the URL endpoint values:
+1. In your local terminal or command prompt, run these commands to get the URL endpoint values:
  
     ### [bash](#tab/bash)
 
@@ -467,7 +467,7 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
 
     ---
 
-    The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
+    The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option with `func azure functionapp list-functions` means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
 
 1. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
@@ -489,7 +489,7 @@ azd down --no-prompt
 ```
 
 >[!NOTE]  
->The `--no-prompt` option has `azd` delete your resource group without a confirmation. 
+>The `--no-prompt` option instructs `azd` to delete your resource group without a confirmation from you. 
 >
 >This command doesn't affect your local code project. 
 
