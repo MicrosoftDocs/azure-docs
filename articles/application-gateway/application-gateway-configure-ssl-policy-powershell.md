@@ -176,7 +176,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool for backend web servers
-$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 192.168.1.1,192.168.1.2,192.168.1.3
 
 # Define the backend http settings to be used.
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
