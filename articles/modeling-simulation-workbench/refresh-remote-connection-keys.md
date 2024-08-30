@@ -11,13 +11,13 @@ ms.date: 08/29/2023
 
 # Refresh remote connection keys
 
-The Modeling and Simulation Workbench offers provisioned users secure remote connectivity to all chamber workloads. To set up remote access, register a new application in Microsoft Entra ID and add a client secret as described in the [Quickstart](/azure/modeling-simulation-workbench/quickstart-create-portal#create-an-application-in-microsoft-entra-id). Registering your application establishes a trust relationship between the Modeling and Simulation Workbench remote desktop authentication and the Microsoft identity platform. Creating a client secret allows the Modeling and Simulation Workbench to redirect Microsoft Entra sign-in requests directly to your organization's Microsoft Entra ID and enables a single sign-on experience for onboarded users. 
+The Modeling and Simulation Workbench offers provisioned users secure remote connectivity to all chamber workloads. To set up remote access, register a new application in Microsoft Entra ID and add a client secret as described in [Create an Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/quickstart-create-portal#add-a-client-secret). Registering your application establishes a trust relationship between the Modeling and Simulation Workbench remote desktop authentication and the Microsoft identity platform. Creating a client secret allows the Modeling and Simulation Workbench to redirect Microsoft Entra sign-in requests directly to your organization's Microsoft Entra ID and enables a single sign-on experience for onboarded users. 
 
 ## Client secret lifetime
 
 The client secret lifetime is typically set to 12 months, per the QuickStart recommendation. If the workbench’s lifetime extends beyond the secret’s lifespan, the app secrets will expire resulting in users losing access to the chambers. Expired client secrets disrupt remote authentication, causing a blue screen.
 
-To address an expired client secret, you need to create a new secret by following steps outlined [in Create an application in Microsoft Entra ID](/azure/modeling-simulation-workbench/quickstart-create-portal#create-an-application-in-microsoft-entra-id). After creating a new secret, you need to update the Modeling and Simulation Workbench with that new client secret URL. 
+To address an expired client secret, you need to create a new secret by following steps outlined in [Create an application in Microsoft Entra ID](/azure/modeling-simulation-workbench/quickstart-create-portal#create-an-application-in-microsoft-entra-id). After creating a new secret, you need to update the Modeling and Simulation Workbench with that new client secret URL. 
 
 ## Update the client secret URL
 
