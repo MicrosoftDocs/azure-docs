@@ -74,7 +74,7 @@ Use the following steps to configure Remote Desktop to use multiple monitors.
 
 1. Select **Connect** to start the Remote Desktop session.
 
-# [macOS](#tab/macOS)
+# [Microsoft Remote Desktop for macOS](#tab/macOS)
 
 1. Open Remote Desktop.
  
