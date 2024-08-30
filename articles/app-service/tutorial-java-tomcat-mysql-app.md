@@ -102,8 +102,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Region** to run the app physically in the world.
+* The **Name** for the web app. It's the name used as part of the DNS name for your app in the form of `https://<app-name>.azurewebsites.net`.
+* The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
 * The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.

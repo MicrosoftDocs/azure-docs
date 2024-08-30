@@ -113,8 +113,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB. For the creation process, you specify:
 
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Region** to run the app physically in the world.
+* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
 * The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
@@ -185,7 +185,7 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2: Create a key vault for secure management of secrets.
+        **Step 2:** Create a key vault for secure management of secrets.
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-spring-cosmosdb-tutorial**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
@@ -197,7 +197,7 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:
+        **Step 3:**
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
@@ -345,7 +345,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 6:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Fix error in java-version`.
+        1. In the textbox, type a commit message like `Fix error in java-version`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
