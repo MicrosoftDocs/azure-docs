@@ -23,7 +23,7 @@ Device applications can read and write twin reported properties, and be notified
 
 This section describes how to create device application code to:
 
-* Retrieve a device twin and examine reported properties
+* Retrieve and view a device twin
 * Update reported device twin properties
 * Subscribe to desired property changes
 
@@ -61,13 +61,14 @@ To connect to a device:
     client.open(true);
     ```
 
-### Retrieve a device twin and examine reported properties
+### Retrieve and view a device twin
 
-After opening the client connection, call [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the current twin properties.
+After opening the client connection, call [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the current twin properties into a `Twin` object.
 
 For example:
 
 ```java
+private static Twin twin;
 System.out.println("Getting current twin");
 twin = client.getTwin();
 System.out.println("Received current twin:");
@@ -82,9 +83,9 @@ To update reported properties:
 
 1. Call [getReportedProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getreportedproperties()) to fetch the twin reported properties into a [TwinCollection](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection) object.
 
-1. Use [put](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection?#com-microsoft-azure-sdk-iot-deps-twin-twincollection-put(java-lang-string-java-lang-object)) to update a reported property. Call `put` for each reported property update.
+1. Use [put](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection?#com-microsoft-azure-sdk-iot-deps-twin-twincollection-put(java-lang-string-java-lang-object)) to update a reported property within the `TwinCollection` object. Call `put` for each reported property update.
 
-1. Use [updateReportedProperties](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-device-devicetwin-devicetwin-updatereportedproperties(java-util-set(com-microsoft-azure-sdk-iot-device-devicetwin-property))) to update the group of reported properties that were updated using the `put` method.
+1. Use [updateReportedProperties](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-device-devicetwin-devicetwin-updatereportedproperties(java-util-set(com-microsoft-azure-sdk-iot-device-devicetwin-property))) to apply the group of reported properties that were updated using the `put` method.
 
 For example:
 
@@ -159,6 +160,8 @@ To connect to IoT Hub to view and update device twin information:
 1. Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub. As parameters, supply the **IoT Hub service connection string** that you created in the Prerequisites section and the `DeviceTwinClientOptions` object.
 1. The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
 
+For example:
+
 ```java
 import com.microsoft.azure.sdk.iot.service.devicetwin.*;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
@@ -218,7 +221,7 @@ To update device twin fields:
     twinClient.updateTwin(device);
     }
 
-    // Retrieve the device twin with the tag values from IoT Hub
+    // Retrieve and display the device twin with the tag values from IoT Hub
     System.out.println("Device twin after update:");
     twinClient.getTwin(device);
     System.out.println(device);

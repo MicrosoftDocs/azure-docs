@@ -52,7 +52,7 @@ using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Shared;
 using Newtonsoft.Json;
 
-static string DeviceConnectionString = "{IoT Hub device connection string}";
+static string DeviceConnectionString = "{IoT hub device connection string}";
 static _deviceClient = null;
 _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
@@ -162,7 +162,7 @@ To install the **Microsoft.Azure.Devices** NuGet package:
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the **IoT Hub service connection string** that you created in the Prerequisites section. The backend application connects to the device through IoT Hub.
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the **IoT Hub service connection string** that you created in the Prerequisites section.
 
 ```csharp
 using Microsoft.Azure.Devices;
@@ -177,7 +177,7 @@ You can retrieve current device twin fields into a [Twin](/dotnet/api/microsoft.
 
 The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`.
 
-After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to write `Twin` object field updates back to a device. Use a `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateTwinAsync`.
+After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to write `Twin` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateTwinAsync`.
 
 #### Read and update device twin tags
 
@@ -205,7 +205,7 @@ var tagspatch =
 // Assign the patch to the Twin object
 twin.Tags["location"] = tagspatch;
 
-// Apply the patch to update the device twin tags
+// Apply the patch to update the device twin tags section
 try
 {
    await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
@@ -218,7 +218,7 @@ catch (Exception e)
 
 ##### Update using a JSON string
 
-You can also create and apply a device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub parses and applies the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields are not be applied.
+You can create and apply a JSON-formatted device twin information update patch. IoT Hub parses and applies the patch if it is correctly formatted.
 
 This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, creates a JSON-formatted `tag` patch with region and plant location information, then calls `UpdateTwinAsync` to apply the patch to update the device twin. An error message is displayed if `UpdateTwinAsync` failed.
 
@@ -249,9 +249,9 @@ catch (Exception e)
 
 #### View and update twin desired properties
 
-Use device twin [Properties.Desired](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
+Use device twin [TwinProperties.Desired](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) property to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
 
-This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin `speed` desired property, and then calls `UpdateTwinAsync` to apply the patch to update the device twin.
+This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin `speed` desired property, and then calls `UpdateTwinAsync` to apply the `Twin` object to update the device twin.
 
 ```csharp
 // Retrieve the device twin
@@ -265,14 +265,14 @@ await registryManager.UpdateTwinAsync(twin.DeviceId, twin, twin.ETag);
 
 You can also apply twin updates using these SDK methods:
 
-* Call [ReplaceTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.replacetwinasync) to replace the entire device twin schema.
+* Call [ReplaceTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.replacetwinasync) to replace the entire device twin.
 * Call [UpdateTwins2Async](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwins2async) to update a list of twins previously created within the system.
 
 ### Create a device twin query
 
 This section demonstrates two device twin queries. Device twin queries are SQL-like queries that return a result set of device twins.
 
-To create a device twin query, call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain an [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
+To create a device twin query, call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a twins SQL query and obtain an [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface. You can optionally call `CreateQuery` with a second parameter to specify a maximum number of items per page.
 
 Next call `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method as many times as needed to retrieve all twin results.
 

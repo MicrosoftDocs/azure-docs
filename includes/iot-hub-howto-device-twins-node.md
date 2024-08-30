@@ -29,23 +29,13 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 
 ### Install SDK packages
 
-Run these command to install the **azure-iot-device** device SDK, the **azure-iot-device-mqtt** on your development machine:
+Run this command to install the **azure-iot-device** device SDK on your development machine:
 
 ```cmd/sh
 npm init --yes
-npm install azure-iot-device azure-iot-device-mqtt --save
 ```
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device twin data.
-
-### Create modules
-
-Create Client and Protocol modules using the installed packages.
-
-```javascript
-const Client = require('azure-iot-device').Client;
-const Protocol = require('azure-iot-device-mqtt').Mqtt;
-```
 
 ### Choose a transport protocol
 
@@ -57,31 +47,52 @@ The `Client` object supports these protocols:
 * `MqttWs`
 * `AmqpWs`
 
+Install needed transport protocols on your development machine.
+
+For example, this command installs the `Mqtt` protocol:
+
+```cmd/sh
+npm install azure-iot-device azure-iot-device-mqtt --save
+```
+
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
-This example assigns the AMQP protocol to a `Protocol` variable.
+### Create Client and Protocol modules
+
+Create a Client module using the installed package.
+
+For example,
 
 ```javascript
-const Protocol = require('azure-iot-device-mqtt').Amqp;
+const Client = require('azure-iot-device').Client;
+```
+
+Create a Protocol module using an installed transport package.
+
+This example assigns the MQTT protocol:
+
+```javascript
+const Protocol = require('azure-iot-device-mqtt').Mqtt;
 ```
 
 ### Add the IoT Hub string and transport protocol
 
-Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to establish a device-to-IoT hub connection using these parameters:
+Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
 * **connStr** - A connection string which encapsulates "device connect" permissions for an IoT hub. The connection string contains Hostname, Device ID & Shared Access Key in this format:
-"HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>". See the prerequisites section for how to look up the device primary connection string.
+"HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>".
 * **transportCtor** - The transport protocol.
 
 ```javascript
+const deviceConnectionString = "{IoT hub device connection string}"
 const Protocol = require('azure-iot-device-mqtt').Amqp;
 let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
 ### Open the connection to IoT Hub
 
-Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
-Use `.catch(err)` to catch an error and call handler code.
+Use [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
+Use `.catch(err)` to catch an error and execute handler code.
 
 For example:
 
@@ -94,19 +105,19 @@ client.open()  //open the connection
 
 ### Retrieve a device twin and examine reported properties
 
-Call [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to assign the twin object. This object can be used to read device twin information.
+Call [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to retrieve current device twin information into a [Twin](/javascript/api/azure-iot-device/twin) object.
 
 For example:
 
 ```javascript
-client.getTwin(function(err, twin) {
+client.getTwin(function(err, twin))
 if (err)
     console.error('could not get twin');
 ```
 
 ### Update reported device twin properties
 
-Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update device reported properties. Include a JSON-formatted patch as the first parameter and callback method as the second parameter to the method.
+Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update device reported properties. Include a JSON-formatted patch as the first parameter and function execution status callback method as the second parameter to the method.
 
 In this example, a JSON-formatted device twin patch is stored in the `patch` variable. The patch contains a device twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there is an error, a console error message is displayed.
 
@@ -134,9 +145,9 @@ The desired property event listener can take one of the following forms:
 
 #### Receive all patches with a single event handler
 
-You can create code to receive any desired property change.
+You can create a listener to receive any desired property change.
 
-This code will output any properties that are received from the service.
+This example code outputs any properties that are received from the service.
 
 ```javascript
 twin.on('properties.desired', function (delta) {
@@ -147,7 +158,7 @@ twin.on('properties.desired', function (delta) {
 
 #### Receive an event if anything changes under a properties grouping
 
-You can create code to receive an event if anything under a property grouping changes.
+You can create a listener to receive an event if anything under a property grouping changes.
 
 For example:
 
@@ -181,7 +192,7 @@ For example:
 
 You can set up a listener for a single property change. In this example, the code for this event is executed only if the `fanOn` boolean value is part of the patch. The code outputs the new desired `fanOn` state whenever the service updates it.
 
-In this example, a backend application applies this desired property patch:
+1. A backend application applies this desired property patch:
 
 ```javascript
  const twinPatch2 = {
@@ -197,7 +208,7 @@ In this example, a backend application applies this desired property patch:
 };
 ```
 
-The listener triggers only when the `fanOn` property changes:
+1. The listener triggers only when the `fanOn` property changes:
 
 ```javascript
 twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
@@ -215,15 +226,12 @@ The SDK contains two device twin samples:
 
 ## Create a backend application
 
-A backend application:
-
-* Connects to a device through IoT Hub
-* Can read device reported and desired properties, write device desired properties, and run device queries
+A backend application connects to a device through IoT Hub and can read device reported and desired properties, write device desired properties, and run device queries.
 
 This section describes how to create a backend application that:
 
-* Retrieve and update a device twin
-* Create a device twin query
+* Retrieves and updates a device twin
+* Creates a device twin query
 
 ### Install service SDK packages
 
@@ -297,7 +305,7 @@ Use [createQuery](/javascript/api/azure-iothub/registry?#azure-iothub-registry-c
 * **sqlQuery** - The query written as an SQL string.
 * **pageSize** - The desired number of results per page (optional. default: 1000, max: 10000).
 
-When the code creates the query object, it specifies the maximum number of returned documents in the second parameter. The query object contains a `hasMoreResults` boolean property that you can use to invoke the `nextAsTwin` methods multiple times to retrieve all results. A method called `next` is available for results that are not device twins, for example, the results of aggregation queries.
+If the **pageSize** parameter is specified, the query object contains a `hasMoreResults` boolean property that you can check and use the `nextAsTwin` method to get the next twin results page as many times as needed to retrieve all results. A method called `next` is available for results that are not device twins, for example, the results of aggregation queries.
 
 This example query selects only the device twins of devices located in the `Redmond43` plant.
 
