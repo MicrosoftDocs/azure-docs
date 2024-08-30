@@ -417,7 +417,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.225.88.213
+    203.0.113.34
     ```
 
 1. Close the Bastion connection to **vm-spoke**.
