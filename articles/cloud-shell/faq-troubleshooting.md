@@ -121,12 +121,12 @@ command that requires elevated permissions.
   - `*.servicebus.windows.net`
   - `*.servicebus.usgovcloudapi.net` for Azure Government Cloud
 
-### Accessing Cloud Shell from subnet that uses a private DNS resolver - Failed to request a terminal
+### Failed to request a terminal - Accessing Cloud Shell from a network that uses a private DNS resolver
 
 - **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
   request a terminal due to DNS resolution problems. This failure can be caused when you launch a
   Cloud Shell session from a host in a network that has a private DNS Zone for the servicebus
-  domain. This can also happen if you are using a private on-premises DNS server.
+  domain. This error can also occur if you're using a private on-premises DNS server.
 
 - **Resolution**: You can add a DNS record for the Azure Relay instance that Cloud Shell uses.
 
@@ -171,7 +171,7 @@ command that requires elevated permissions.
      Address: 40.84.152.91
      ```
 
-  1. Add an A record for the public IP in the Private DNS Zone of the VNET isolated setup. For this
+  1. Add an A record for the public IP in the Private DNS Zone of your private network. For this
      example, the DNS record would have the following properties:
 
      - Name: ccon-prod-southcentralus-aci-02
