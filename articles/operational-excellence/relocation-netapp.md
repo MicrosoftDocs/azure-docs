@@ -1,6 +1,6 @@
 ---
-title: Relocate AzureNetApp Files to another region
-description: Learn how to relocate an Azure NetApp Files to nother region
+title: Relocate AzureNetApp Files resource to another region
+description: Learn how to relocate an Azure NetApp Files resource to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -11,7 +11,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure NetApp Files to another region
+# Relocate Azure NetApp Files resource to another region
 
 This article cover guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) resources to another region.
 
@@ -34,15 +34,10 @@ Before you begin the relocation planning stage, first review the following prere
     - [Capacity pools](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
 
 
-
-## Downtime
-
-
-
 ## Prepare
 
 
-- The target Microsoft Entra ID connection must have access to the DNS servers or Microsoft Entra Domain Services Domain Controllers that are reachable from the delegated subnet in the target region.
+- The target Microsoft Entra ID connection must have access to the DNS servers, AD DS Domain Controllers, or Microsoft Entra Domain Services Domain Controllers that are reachable from the delegated subnet in the target region.
 
 - The network configurations (including separate subnets if needed and IP ranges) should already be planned and prepared
 
@@ -77,11 +72,21 @@ Before you begin the relocation planning stage, first review the following prere
 
 Once the replication is complete, you can then safely delete the replication peering the source volume.
 
+To learn how to cleanup a replication, see [Delete volume replications or volumes](/azure/azure-netapp-files/cross-region-replication-delete).
+
+
 ## Related content
 
 
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
 To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
+- [Requirements for Active Directory Connections](/azure/azure-netapp-files/create-active-directory-connections#requirements-for-active-directory-connections)
+ 
+- [Guidelines for Azure NetApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies)
+ 
+- [Fail over to the destination region](s/azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery#fail-over-to-destination-volume)
+
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 - [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
