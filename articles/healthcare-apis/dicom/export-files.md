@@ -178,7 +178,7 @@ Content-Type: application/json
 
 ## Errors
 
-If there are any user errors when you export a DICOM file, the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files, and the caller can review it. You can find the error log at `<export blob container uri>/<operation ID>/errors.log`.
+If there are any user errors exporting a DICOM file, the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files, and the caller can review it. You can find the error log at `<export blob container uri>/<operation ID>/errors.log`.
 
 #### Format
 

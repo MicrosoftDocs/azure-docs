@@ -9,9 +9,9 @@ ms.date: 10/13/2023
 ms.author: buchvarun
 ---
 
-# Enable audit and diagnostic logging in the DICOM&reg; service
+# Enable audit and diagnostic logging in the DICOM service
 
-In this article, you'll learn how to enable diagnostic logging in DICOM service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is required. The feature in DICOM service that enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you'll learn how to enable diagnostic logging in DICOM&reg; service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is required. The feature in DICOM service that enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## Enable logs
 
