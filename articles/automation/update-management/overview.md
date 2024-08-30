@@ -4,7 +4,7 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 07/15/2024
+ms.date: 08/30/2024
 ms.topic: conceptual
 ms.service: azure-automation
 ---
@@ -15,8 +15,16 @@ ms.service: azure-automation
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 > [!Important]
-> - Azure Automation Update Management will  retire on **31 August 2024**. Follow the guidelines for [migration to Azure Update Manager](../../update-manager/guidance-migration-automation-update-management-azure-update-manager.md).
-> - Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+> - Azure Automation Update Management has retired on **31 August 2024**. Follow the guidelines for [migration to Azure Update Manager](../../update-manager/guidance-migration-automation-update-management-azure-update-manager.md).
+> - Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) has [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+
+> [!Important]
+> You can expect the following if you use the capability using Change Tracking & Inventory Log Analytics Agent.
+> - **Functionality**: The functional capabilities of Change Tracking with Log Analytics agent would continue to work till Feb'2025. However, the support will be limited and can lead to potential issues over time.
+> - **Installation**: The ability to configure Change Tracking & Inventory using MMA/OMS agents will be removed from the Azure portal soon.
+>- **Customer Support**: You will not be able to get support through existing channels for Change Tracking & Inventory with MMA/OMS. Microsoft will provide support on a best effort basis.
+> - **New capabilities and support matrix**:  No new capabilities will be added, including functionality for additional Windows or Linux versions.
+> - **File Integrity Monitoring**: Microsoft Defender for Servers Plan 2 will offer a new File Integrity Monitoring (FIM) solution powered by Microsoft Defender for Endpoint (MDE) integration. Microsoft Defender for Cloud recommends disabling FIM over MMA by November 2024 and onboarding your environment to the new FIM version based on Defender for Endpoint. File Integrity Monitoring based on Log Analytics Agent (MMA) is supported till November 2024. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#migration-from-fim-over-log-analytics-agent-mma).
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
 
