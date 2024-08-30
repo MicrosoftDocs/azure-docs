@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 08/23/2024
+ms.date: 08/27/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -44,11 +44,11 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 - [Phoenix](connector-phoenix.md)
 
 
-## Connectors deprecated
+## Connectors that is deprecated
 
 The following connector was deprecated.
 
-- [Amazon Marketplace Web Service (MWS)](connector-amazon-marketplace-web-service.md)
+- [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)
 
 ## Options to replace deprecated connectors
 
