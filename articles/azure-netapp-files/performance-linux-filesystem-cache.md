@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 03/02/2024
+ms.date: 08/30/2024
 ms.author: anfdocs
 ---
 # Linux filesystem cache best practices for Azure NetApp Files
@@ -38,7 +38,7 @@ These tunables define the starting point where the Linux write-back mechanism be
 
 ### `vm.dirty_expire_centisecs` 
 
-This tunable defines how old a dirty buffer can be before it must be tagged for asynchronously writing out. Take  SAS Viya’s CAS workload for example. An ephemeral write-dominant workload found that setting this value to 300 centiseconds (3 seconds) was optimal, with 3000 centiseconds (30 seconds) being the default. 
+This tunable defines how old a dirty buffer can be before it must be tagged for asynchronously writing out. Take SAS Viya’s CAS workload for example. An ephemeral write-dominant workload found that setting this value to 300 centiseconds (3 seconds) was optimal, with 3000 centiseconds (30 seconds) being the default. 
 
 SAS Viya shares CAS data into multiple small chunks of a few megabytes each. Rather than closing these file handles after writing data to each shard, the handles are left open and the buffers within are memory-mapped by the application. Without a close, there's no flush until either memory pressure or 30 seconds has passed. Waiting for memory pressure proved suboptimal as did waiting for a long timer to expire. Unlike SAS GRID, which looked for the best overall throughput, SAS Viya looked to optimize write bandwidth. 
 
@@ -62,7 +62,9 @@ Setting the filesystem cache parameters as described in this section has been sh
 
 To understand what is going with virtual memory and the write-back, consider the following code snippet and output. *Dirty* represents the amount dirty memory in the system, and *writeback* represents the amount of memory actively being written to storage. 
 
-`# while true; do echo "###" ;date ; egrep "^Cached:|^Dirty:|^Writeback:|file" /proc/meminfo; sleep 5; done`
+```
+# while true; do echo "###" ;date ; egrep "^Cached:|^Dirty:|^Writeback:|file" /proc/meminfo; sleep 5; done`
+```
 
 The following output comes from an experiment where the `vm.dirty_ratio` and the `vm.dirty_background` ratio were set to 2% and 1% of physical memory respectively. In this case, flushing began at 3.8 GiB, 1% of the 384-GiB memory system. Writeback closely resembled the write throughput to NFS. 
 
