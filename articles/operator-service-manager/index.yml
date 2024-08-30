@@ -90,7 +90,7 @@ landingContent:
             url: safe-upgrade-practices.md
       - linkListType: concept
         links:
-          - text: NF level rollback
+          - text: Control rollback beavhior on upgrade failure
             url: safe-upgrades-nf-level-rollback.md
             
   # Card
