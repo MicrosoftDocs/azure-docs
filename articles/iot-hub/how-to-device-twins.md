@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure IoT Hub device twins
 titleSuffix: Azure IoT Hub
-description: How to use Azure IoT Hub device twins and the Azure IoT SDKs to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
+description: How to use the Azure IoT SDKs to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
 manager: lizross
@@ -47,19 +47,18 @@ The following illustration shows device twin organization:
 
 It is useful to review the various device twin fields that are available using the Azure portal. To learn how, see [How to view and update devices based on device twin properties](/azure/iot-hub/manage-device-twins).
 
-Additionally, the solution back end can query device twins based on all the above data.
-For more information about device twins, see [Understand device twins](iot-hub-devguide-device-twins.md). For more information about querying, see [IoT Hub query language](iot-hub-devguide-query-language.md).
+Additionally, the solution back end can query device twins based on all the above data. For more information about querying, see [IoT Hub query language](iot-hub-devguide-query-language.md).
 
 This article shows you how to:
 
-* Retrieve a device twin and update reported properties
+* View device twin and update reported properties
 * Update device twin tags
 * Create a device desired property update notificaton callback
 * Use a backend application to update tags and desired properties
 * Query devices from your back-end app using filters on the tags and properties previously created
 
 > [!NOTE]
-> This article is meant to complement compilable [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end apps.
+> This article is meant to complement [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end applications.
 
 ## Prerequisites
 

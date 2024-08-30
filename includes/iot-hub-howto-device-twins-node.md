@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure IoT Hub device twins (Node.js)
 titleSuffix: Azure IoT Hub
-description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for Node.js to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
+description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -10,6 +10,12 @@ ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-js
 ---
+
+## Overview
+
+This unit describes how to use the Azure SDK for Python to create device and backend service application code for device twins.
+
+Node.js version 10.0.x or later is required to use the SDK.
 
 ## Create a device application
 
@@ -232,12 +238,12 @@ The [Registry](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gett
 
 ### Connect to IoT hub
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the IoT Hub service connection string that you created in the Prerequisites section.
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the Prerequisites section.
 
 ```javascript
 'use strict';
 var iothub = require('azure-iothub');
-var connectionString = '{iot Hub service connection string}';
+var connectionString = '{Iot Hub service connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
 

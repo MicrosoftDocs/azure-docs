@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure IoT Hub device twins (.NET)
 titleSuffix: Azure IoT Hub
-description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for .NET to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
+description: How to use the Azure IoT SDK for .NET to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -13,9 +13,9 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 ## Overview
 
-This section describes how to use the .NET/C# SDK to create device and backend service application code.
+This unit describes how to use the Azure SDK for .NET to create device and backend service application code for device twins.
 
-Visual Studio is required to use the .NET/C# SDK.
+Visual Studio is required to use the SDK.
 
 ## Create a device application
 
@@ -52,7 +52,7 @@ using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Shared;
 using Newtonsoft.Json;
 
-static string DeviceConnectionString = "{Device connection string}";
+static string DeviceConnectionString = "{IoT Hub device connection string}";
 static _deviceClient = null;
 _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
@@ -162,12 +162,12 @@ To install the **Microsoft.Azure.Devices** NuGet package:
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the IoT Hub service connection string that you created in the Prerequisites section. The backend application connects to the device through IoT Hub.
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the **IoT Hub service connection string** that you created in the Prerequisites section. The backend application connects to the device through IoT Hub.
 
 ```csharp
 using Microsoft.Azure.Devices;
 static RegistryManager registryManager;
-static string connectionString = "{service connection string}";
+static string connectionString = "{IoT hub service connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
 

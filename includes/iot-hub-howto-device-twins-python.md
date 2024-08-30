@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure IoT Hub device twins (Python)
 titleSuffix: Azure IoT Hub
-description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for Python to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
+description: How to use the Azure IoT SDK for Python to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -13,7 +13,7 @@ ms.custom: mqtt, devx-track-python, py-fresh-zinc
 
 ## Overview
 
-This section describes how to use the Python SDK to create device and backend service application code.
+This unit describes how to use the Azure SDK for Python to create device and backend service application code for device twins.
 
 [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
@@ -43,7 +43,7 @@ from azure.iot.device.aio import IoTHubDeviceClient
 
 # substitute the device connection string in conn_str
 # and add it to the IoTHubDeviceClient object
-conn_str = "IOTHUB_DEVICE_CONNECTION_STRING"
+conn_str = "{IOT hub device connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
 # connect the application to the device
@@ -133,7 +133,7 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Connect to IoT hub
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the IoT Hub service connection string that you created in the Prerequisites section.
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the Prerequisites section.
 
 After connecting you can update the device twin.
 
@@ -144,7 +144,7 @@ from azure.iot.hub import IoTHubRegistryManager
 from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, QueryResult
 
 # Connect to IoT hub
-IOTHUB_CONNECTION_STRING = "[IoT Hub service connection string]"
+IOTHUB_CONNECTION_STRING = "{IoT hub service connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
 

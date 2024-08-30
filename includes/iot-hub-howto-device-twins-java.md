@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure IoT Hub device twins (Java)
 titleSuffix: Azure IoT Hub
-description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for Java to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
+description: How to use the Azure IoT SDK for Java to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -13,9 +13,9 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 ## Overview
 
-This unit describes how to use the Java SDK to create device and backend service application code.
+This unit describes how to use the Azure SDK for Java to create device and backend service application code for device twins.
 
-[Java SE Development Kit 8](/azure/developer/java/fundamentals/) is required to run SDK code. Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+[Java SE Development Kit 8](/azure/developer/java/fundamentals/) is required to use the SDK. Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
 
 ## Create a device application
 
@@ -51,7 +51,7 @@ To connect to a device:
 1. Use the `DeviceClient` constructor to add the device primary connection string and protocol.
 
     ```java
-    String connString = "{device connection string}";
+    String connString = "{IoT hub device connection string}";
     DeviceClient client = new DeviceClient(connString, protocol);
     ```
 
@@ -156,7 +156,7 @@ The `ServiceClient` [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.d
 To connect to IoT Hub to view and update device twin information:
 
 1. Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwinclientoptions-devicetwinclientoptions()) object. Set any options that are needed for your application. These options are passed to the `DeviceTwin` object.
-1. Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub. As parameters, supply the IoT Hub service connection string that you created in the Prerequisites section and the `DeviceTwinClientOptions` object.
+1. Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub. As parameters, supply the **IoT Hub service connection string** that you created in the Prerequisites section and the `DeviceTwinClientOptions` object.
 1. The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
 
 ```java
@@ -167,7 +167,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public static final String iotHubConnectionString = "{IoT Hub service connection string}";
+public static final String iotHubConnectionString = "{IoT hub service connection string}";
 public static final String deviceId = "myDeviceId";
 public static final String region = "US";
 public static final String plant = "Redmond43";
