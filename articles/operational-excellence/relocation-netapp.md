@@ -24,9 +24,9 @@ Before you begin the relocation planning stage, first review the following prere
 
 - The target NetApp account instance should already be created.
 
-- Source and target regions must be paired regions. To see if they are paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
+- Source and target regions must be paired regions. To see if they're paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
 
-- Understand all dependent resources. Some of the resources could be the following:
+- Understand all dependent resources. Some of the resources could be:
     - Azure Entra ID
     - [Virtual Network](./relocation-virtual-network.md)
     - Azure DNS
@@ -36,6 +36,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 ## Prepare
 
+Before you begin the relocation process, make sure to complete the following preparations:
 
 - The target Microsoft Entra ID connection must have access to the DNS servers, AD DS Domain Controllers, or Microsoft Entra Domain Services Domain Controllers that are reachable from the delegated subnet in the target region.
 
@@ -45,7 +46,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - Understand the following considerations in regards to replication:
     
-    - SMB, NFS, and dual-protocol volumes are supported. Replication of SMB volumes requires an Microsoft Entra ID connection in the source and target NetApp accounts.
+    - SMB, NFS, and dual-protocol volumes are supported. Replication of SMB volumes requires a Microsoft Entra ID connection in the source and target NetApp accounts.
     
     - The replication destination volume is read-only until the entire move is complete.
     
@@ -72,7 +73,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 Once the replication is complete, you can then safely delete the replication peering the source volume.
 
-To learn how to cleanup a replication, see [Delete volume replications or volumes](/azure/azure-netapp-files/cross-region-replication-delete).
+To learn how to clean up a replication, see [Delete volume replications or volumes](/azure/azure-netapp-files/cross-region-replication-delete).
 
 
 ## Related content
@@ -85,7 +86,7 @@ To learn more about moving resources between regions and disaster recovery in Az
  
 - [Guidelines for Azure NetApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies)
  
-- [Fail over to the destination region](s/azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery#fail-over-to-destination-volume)
+- [Fail over to the destination region](/azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery#fail-over-to-destination-volume)
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
