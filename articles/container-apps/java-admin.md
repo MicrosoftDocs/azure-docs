@@ -106,46 +106,46 @@ Use the following steps to create each of the resources necessary to create a co
 
 1. Enter the following values to *Basics* tab.
 
-  | Property | Value |
-  |---|---|
-  | **Subscription** | Select your Azure subscription. |
-  | **Resource group** | Select **Create new** link to create a new resource group named **my-resource-group**. |
-  | **Container app name** | Enter **sample-admin-client**.  |
-  | **Deployment source** | Select **Container image**. |
-  | **Region** | Select the region nearest you. |
-  | **Container Apps environment** | Select the **Create new** link to create a new environment. |
+    | Property | Value |
+    |---|---|
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select **Create new** link to create a new resource group named **my-resource-group**. |
+    | **Container app name** | Enter **sample-admin-client**.  |
+    | **Deployment source** | Select **Container image**. |
+    | **Region** | Select the region nearest you. |
+    | **Container Apps environment** | Select the **Create new** link to create a new environment. |
 
-  1. In the *Create Container Apps environment* window, enter the following values.
+1. In the *Create Container Apps environment* window, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Environment name** | Enter **my-environment**. |
-  | **Zone redundancy** | Select **Disabled**.  |
-
-  Select the **Create** button, and then select the **Container** tab.
-
+    | Property | Value |
+    |---|---|
+    | **Environment name** | Enter **my-environment**. |
+    | **Zone redundancy** | Select **Disabled**.  |
+  
+    Select the **Create** button, and then select the **Container** tab.
+  
 1. In *Container* tab, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Name** | Enter **sample-admin-client**. |
-  | **Image source** | Select **Docker Hub or other registries**. |
-  | **Image type** | Select **Public**. |
-  | **Registry login server** | Enter **mcr.microsoft.com**. |
-  | **Image and tag** | Enter **javacomponents/samples/sample-admin-for-spring-client:latest**. |
-
-  Select the **Ingress** tab.
+    | Property | Value |
+    |---|---|
+    | **Name** | Enter **sample-admin-client**. |
+    | **Image source** | Select **Docker Hub or other registries**. |
+    | **Image type** | Select **Public**. |
+    | **Registry login server** | Enter **mcr.microsoft.com**. |
+    | **Image and tag** | Enter **javacomponents/samples/sample-admin-for-spring-client:latest**. |
+  
+    Select the **Ingress** tab.
 
 1. In *Ingress* tab, enter the following and leave the rest of the form with their default values.
 
-  | Property | Value |
-  |---|---|
-  | **Ingress** | Select **Enabled**. |
-  | **Ingress traffic** | Select **Accept traffic from anywhere**. |
-  | **Ingress type** | Select **HTTP**. |
-  | **Target port** | Enter **8080**. |
-
-  Select **Review + create**.
+    | Property | Value |
+    |---|---|
+    | **Ingress** | Select **Enabled**. |
+    | **Ingress traffic** | Select **Accept traffic from anywhere**. |
+    | **Ingress type** | Select **HTTP**. |
+    | **Target port** | Enter **8080**. |
+  
+    Select **Review + create**.
 
 1. Once the validation checks pass, select **Create** to create your container app.
 
@@ -191,10 +191,10 @@ Now that you have an existing environment and admin client container app, you ca
 
 1. In the *Configure Java component* panel, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Java component type** | Select **Admin for Spring**. |
-  | **Java component name** | Enter **admin**. |
+    | Property | Value |
+    |---|---|
+    | **Java component type** | Select **Admin for Spring**. |
+    | **Java component name** | Enter **admin**. |
 
 1. Select **Next**.
 
@@ -229,7 +229,7 @@ Now that you have an existing environment and admin client container app, you ca
 
 1. From the list, select **admin**.
 
-1. Under *bindings, select the *App name* drop-down and select  **sample-admin-client**.
+1. Under *Bindings*, select the *App name* drop-down and select  **sample-admin-client**.
 
 1. Select the **Review** tab.
 
@@ -255,12 +255,12 @@ This property indicates that the Admin for Spring component client should prefer
 
 To remove a binding from a container app, use the `--unbind` option.
 
-  ``` azurecli
-    az containerapp update \
-      --name $APP_NAME \
-      --unbind $JAVA_COMPONENT_NAME \
-      --resource-group $RESOURCE_GROUP
-  ```
+``` azurecli
+  az containerapp update \
+    --name $APP_NAME \
+    --unbind $JAVA_COMPONENT_NAME \
+    --resource-group $RESOURCE_GROUP
+```
 
 ### [Azure portal](#tab/azure-portal)
 
