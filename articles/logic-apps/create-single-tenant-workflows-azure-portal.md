@@ -138,6 +138,13 @@ More workflows in your logic app raise the risk of longer load times, which nega
    > for all new and existing deployed Standard logic apps, even for apps that had a different value. 
    > This change shouldn't affect your workflow's runtime, and everything should work the same way 
    > as before. For more information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   >
+   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
+   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
+   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
+   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
+   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
+   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
 

@@ -210,7 +210,7 @@ The machines are in a shutdown state.
 
 #### Resolution
 
-Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
+Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](/azure/virtual-machines/maintenance-configurations#shut-down-machines).
 
 ### Patch run failed with Maintenance window exceeded property showing true even if time remained
 

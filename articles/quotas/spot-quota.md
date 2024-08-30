@@ -17,7 +17,7 @@ Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They'
 - The first tier is the total regional vCPU quota.
 - The second tier is the VM-family vCPU quota such as D-series vCPUs.
 
-Spot vCPU quotas apply to [spot virtual machines (VMs)](../virtual-machines/spot-vms.md) across all VM families (SKUs).
+Spot vCPU quotas apply to [spot virtual machines (VMs)](/azure/virtual-machines/spot-vms) across all VM families (SKUs).
 
 This article shows you how to request quota increases for spot vCPUs. You can also request increases for [VM-family vCPU quotas](per-vm-quota-requests.md) or [vCPU quotas by region](regional-quota-requests.md).
 
@@ -60,6 +60,6 @@ Your request will be reviewed, and you'll be notified if the request can be fulf
 
 ## Next steps
 
-- Learn more about [Azure virtual machines](../virtual-machines/spot-vms.md).
+- Learn more about [Azure virtual machines](/azure/virtual-machines/spot-vms).
 - Learn more in [Quotas overview](quotas-overview.md).
 - Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).

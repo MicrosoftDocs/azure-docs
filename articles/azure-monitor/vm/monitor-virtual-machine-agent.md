@@ -14,7 +14,7 @@ ms.reviewer: Xema Pathak
 This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to deploy the Azure Monitor agent to your Azure and hybrid virtual machines in Azure Monitor.
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm).
 
 Any monitoring tool like Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor uses the [Azure Monitor agent](../agents/agents-overview.md), which supports virtual machines in Azure, other cloud environments, and on-premises. 
 
@@ -52,7 +52,7 @@ There are three different options for connect your hybrid virtual machines to Az
 :::image type="content" source="media/monitor-virtual-machines/network-diagram.png" alt-text="Diagram that shows the network." lightbox="media/monitor-virtual-machines/network-diagram.png":::
 
 ## Agent deployment options
-The Azure Monitor agent is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md), so you can install it using a variety of standard methods including PowerShell, CLI, and Resource Manager templates. See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md) for details on each. Other notable methods for installation are described below.
+The Azure Monitor agent is implemented as a [virtual machine extension](/azure/virtual-machines/extensions/overview), so you can install it using a variety of standard methods including PowerShell, CLI, and Resource Manager templates. See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md) for details on each. Other notable methods for installation are described below.
 
 | Method | Scenarios | Details |
 |:---|:---|:---|

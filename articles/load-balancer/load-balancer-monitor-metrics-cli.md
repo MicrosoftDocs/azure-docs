@@ -72,12 +72,12 @@ user@Azure:~$ az monitor metrics list --resource <resource_id> --metric DipAvail
       "displayDescription": "Average Load Balancer health probe status per time duration",
       "errorCode": "Success",
       "errorMessage": null,
-      "id": "/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myResourceGroup2/providers/Microsoft.Network/loadBalancers/myLoadBalancer/providers/Microsoft.Insights/metrics/DipAvailability",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/providers/Microsoft.Insights/metrics/DipAvailability",
       "name": {
         "localizedValue": "Health Probe Status",
         "value": "DipAvailability"
       },
-      "resourceGroup": "myResourceGroup2",
+      "resourceGroup": "myResourceGroup",
       "timeseries": [],
       "type": "Microsoft.Insights/metrics",
       "unit": "Count"
