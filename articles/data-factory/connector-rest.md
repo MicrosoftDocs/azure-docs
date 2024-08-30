@@ -218,9 +218,8 @@ You have two options to save the service principal certificate in Azure Key Vaul
 
 - **Option 1**
 
-    1. Convert the service principal certificate to a base64 string. Learn more from this [article](https://blog.tekspace.io/convert-certificate-from-pfx-to-base64-with-powershell/)
-      
-       :::image type="content" source="media/connector-rest/get-base64-string.png" alt-text="Screenshot of getting 64base string.":::
+    1. Convert the service principal certificate to a base64 string. Learn more from this [article](https://blog.tekspace.io/convert-certificate-from-pfx-to-base64-with-powershell/).
+
     
     2. Save the base64 string as a secret in Azure Key Vault.
     	
@@ -230,7 +229,7 @@ You have two options to save the service principal certificate in Azure Key Vaul
 
 - **Option 2**
 	
-    If you can't download the certificate from Azure Key Vault, you can use this [template]( ConvertCertToBase64StringInAKVPipeline.zip) to save the converted service principal certificate as a secret in Azure Key Vault. 
+    If you can't download the certificate from Azure Key Vault, you can use this [template](https://supportability.visualstudio.com/256c8350-cb4b-49c9-ac6e-a012aeb312d1/_apis/git/repositories/da6cf5d9-0dc5-4ba9-a5e2-6e6a93adf93c/Items?path=/AzureDataFactory/.attachments/ConvertCertToBase64StringInAKVPipeline-47f8e507-e7ef-4343-a73b-733b9a7f8e4e.zip&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&includeContentMetadata=true&versionDescriptor.version=master) to save the converted service principal certificate as a secret in Azure Key Vault. 
         
     :::image type="content" source="media/connector-rest/template-pipeline.png" alt-text="Screenshot of template pipeline to save service principal certificate as a secret in AKV.":::
  
