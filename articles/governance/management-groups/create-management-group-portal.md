@@ -52,7 +52,7 @@ directory. You receive a notification when the process is complete. For more inf
      on this management group. This identifier isn't editable after creation as it's used throughout
      the Azure system to identify this group. The
      [root management group](./overview.md#root-management-group-for-each-directory) is
-     automatically created with an ID that is the Azure Active Directory ID. For all other
+     automatically created with an ID that is the Microsoft Entra ID. For all other
      management groups, assign a unique ID.
    - The display name field is the name that is displayed within the Azure portal. A separate
      display name is an optional field when creating the management group and can be changed at any time.

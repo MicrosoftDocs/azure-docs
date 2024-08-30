@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 08/12/2024
+ms.date: 08/30/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -17,11 +17,11 @@ You can save money on Azure OpenAI provisioned throughput by committing to a res
 
 To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and then add the Azure OpenAI SKU to your cart. Then you choose the quantity of provisioned throughput units that you want to purchase.
 
-When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
+When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates.
 
 A reservation applies to provisioned deployments only and doesn't include other offerings such as standard deployments or fine tuning. Azure OpenAI Service Provisioned Reservations also don't guarantee capacity availability. To ensure capacity availability, the recommended best practice is to create your deployments before you buy your reservation.
 
-When the reservation expires, Azure OpenAI deployments continue to run but are billed at the pay-as-you-go rate.
+When the reservation expires, Azure OpenAI deployments continue to run but are billed at the hourly rate.
 
 You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Azure OpenAI reservation auto renewal, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
@@ -40,7 +40,7 @@ For more information about how enterprise customers and pay-as-you-go customers 
 
 The Azure OpenAI reservation size should be based on the total provisioned throughput units that you consume via deployments. Reservation purchases are made in one provisioned throughput unit increments.
 
-For example, assume that your total consumption of provisioned throughput units is 64 units. You want to purchase a reservation for all of it, so you should purchase 64 of reservation quantity.
+For example, assume that your total consumption of provisioned throughput units is 100 units. You want to purchase a reservation for all of it, so you should purchase 100 of reservation quantity.
 
 ## Buy a Microsoft Azure OpenAI reservation
 
