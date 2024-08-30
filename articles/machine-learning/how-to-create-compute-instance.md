@@ -5,12 +5,13 @@ description: Learn how to create an Azure Machine Learning compute instance. Use
 services: machine-learning
 ms.service: azure-machine-learning
 ms.subservice: compute
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, FY25Q1-Linter
 ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: vijetaj
-ms.date: 06/10/2024
+ms.date: 08/21/2024
+# customer intent: To create a compute instance in Azure Machine Learning for development and testing purposes.
 ---
 
 # Create an Azure Machine Learning compute instance
@@ -73,10 +74,11 @@ Or use the following examples to create a compute instance with more options:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
 
-For more information on the classes, methods, and parameters used in this example, see the following reference documents:
+For more information on the classes, methods, and parameters for creating a compute instance, see the following reference documents:
 
 * [`AmlCompute` class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute)
-* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance)
+* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance). 
+* [`ComputeInstanceSshSettings` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstancesshsettings)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -649,9 +651,12 @@ Access the custom applications that you set up in studio:
 > It might take a few minutes after setting up a custom application until you can access it via the links. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 > If the custom image is pulled from an Azure Container Registry, you'll need a **Contributor** role for the workspace. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-## Next steps
+## Related content
 
 * [Manage an Azure Machine Learning compute instance](how-to-manage-compute-instance.md)
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
+* Use the compute instance in VS Code:
+    * [Tutorial: Model development on a cloud workstation](tutorial-cloud-workstation.md)
+    * [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md)

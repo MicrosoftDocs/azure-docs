@@ -84,7 +84,7 @@ as retrieving package repository updates (for example, `apt update`) or installi
 It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
 Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
 execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
-[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#supported-os-images).
 For Windows operating systems, ensure that you aren't enabling the property
 `virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
 
@@ -240,7 +240,7 @@ facilities.
 
 ### Isolated nodes
 
-Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](/azure/virtual-machines/isolation).
 
 ### Avoid creating directory junctions in Windows
 
@@ -289,7 +289,7 @@ In this example, this device would be `/dev/disk/azure/scsi1/lun0`. You could pr
 tooling required for your workflow. Alternatively, you can use `lsblk` with `blkid` to map the UUID for the disk.
 
 For more information about Azure data disks in Linux, including alternate methods of locating data disks and `/etc/fstab` options,
-see this [article](../virtual-machines/linux/add-disk.md). Ensure that there are no dependencies or races as described by the Tip
+see this [article](/azure/virtual-machines/linux/add-disk). Ensure that there are no dependencies or races as described by the Tip
 note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
@@ -313,7 +313,7 @@ Where disk number 2 is the uninitialized data disk attached to this compute node
 and formatted as required for your workflow.
 
 For more information about Azure data disks in Windows, including sample PowerShell scripts, see this
-[article](../virtual-machines/windows/attach-disk-ps.md). Ensure any sample scripts are validated for idempotency before
+[article](/azure/virtual-machines/windows/attach-disk-ps). Ensure any sample scripts are validated for idempotency before
 promotion into production use.
 
 ### Collect Batch agent logs

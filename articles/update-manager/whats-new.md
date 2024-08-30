@@ -86,7 +86,7 @@ Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/
 
 ### Azure Migrate, Azure Backup, Azure Site Recovery VMs support
 
-Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
+Azure Update Manager now supports [specialized](/azure/virtual-machines/linux/imaging#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
 
 ## September 2023
 
@@ -119,7 +119,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 

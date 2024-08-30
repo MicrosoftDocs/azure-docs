@@ -77,8 +77,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md)
-* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview)
+* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](/azure/virtual-machines/linux/disk-encryption-powershell-quickstart)
 
 ## Virtual machine backup
 
