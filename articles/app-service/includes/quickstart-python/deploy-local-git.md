@@ -27,11 +27,11 @@ You can now push code from your local Git repository to Azure using the Git remo
 git push azure main:master
 ```
 
-The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in the previous step. Git will then cache these credentials so you won't have to re-enter them on subsequent deployments.
+The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in the previous step. Git will then cache these credentials so you won't have to reenter them on subsequent deployments.
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
-First, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you will be pushing code to.  Make a copy of this value as you will need it in a later step.
+First, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you'll be pushing code to.  Make a copy of this value as you'll need it in a later step.
 
 [!INCLUDE [CLI deploy configure](./deploy-local-instructions-cli-1.md)]
 
