@@ -41,3 +41,9 @@ Then, perform the following steps in your Kubernetes cluster:
    echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
    ```
 
+1. Restart K3s using:
+   
+   ```bash
+   sudo systemctl restart k3s || sudo systemctl restart k3s-agent
+   ```
+   
