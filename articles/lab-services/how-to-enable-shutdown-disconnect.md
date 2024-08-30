@@ -5,8 +5,8 @@ description: Learn how to enable or disable automatic shutdown of lab VMs in Azu
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/01/2023
 ---

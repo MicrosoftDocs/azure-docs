@@ -2,13 +2,15 @@
 title: Troubleshoot Windows update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
-ms.date: 01/25/2020
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.service: azure-automation
 ---
 
 # Troubleshoot Windows update agent issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 There can be many reasons why your machine isn't showing up as ready (healthy) during an Update Management deployment. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
