@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure App Service by usi
 author: msangapu-msft
 ms.author: msangapu
 ms.custom: subject-cost-optimization
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 06/23/2021
 ---

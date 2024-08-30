@@ -511,7 +511,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2403 - Current
+    - name: 2407 - Current
+      href: azure-stack-edge-gpu-2407-release-notes.md
+    - name: 2403
       href: azure-stack-edge-gpu-2403-release-notes.md
     - name: 2312
       href: azure-stack-edge-gpu-2312-release-notes.md

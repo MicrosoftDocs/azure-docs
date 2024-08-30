@@ -6,7 +6,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 08/16/2024
 # Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my Standard workflow in Azure Logic Apps.
 ---
 
@@ -20,7 +20,7 @@ ms.date: 08/14/2024
 
 Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
-For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
+For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
 
 > [!TIP]
 >
@@ -108,11 +108,10 @@ The **Chunk text** action splits content into smaller pieces for subsequent acti
 
 1. On the designer, select the **Chunk text** action.
 
-1. After the action information pane opens, on the **Parameters** tab, for the **Chunking Strategy** property, select either **FixedLength** or **TokenSize** as the chunking method.
+1. After the action information pane opens, on the **Parameters** tab, for the **Chunking Strategy** property, select **TokenSize** as the chunking method, if not already selected.
 
    | Strategy | Description |
    |----------|-------------|
-   | **FixedLength** | Split the specified content, based on the number of characters. |
    | **TokenSize** | Split the specified content, based on the number of tokens. |
 
 1. After you select the strategy, select inside the **Text** box to specify the content for chunking.
@@ -145,23 +144,11 @@ Now, when you add other actions that expect and use tokenized input, such as the
 
 | Name | Value | Data type | Description | Limits |
 |------|-------|-----------|-------------|-------|
-| **Chunking Strategy** | **FixedLength** or **TokenSize** | String enum | **FixedLength**: Split the content, based on the number of characters <br><br>**TokenSize**: Split the content, based on the number of tokens. <br><br>Default: **FixedLength** | Not applicable |
+| **Chunking Strategy** | **TokenSize** | String enum | Split the content, based on the number of tokens. <br><br>Default: **TokenSize** | Not applicable |
 | **Text** | <*content-to-chunk*> | Any | The content to chunk. | See [Limits and configuration reference guide](logic-apps-limits-and-config.md#character-limits) |
-
-For **Chunking Strategy** set to **FixedLength**:
-
-| Name | Value | Data type | Description | Limits |
-|------|-------|-----------|-------------|-------|
-| **MaxPageLength** | <*max-char-per-chunk*> | Integer | The maximum number of characters per content chunk. <br><br>Default: **5000** | Minimum: **1** |
-| **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. | Minimum: **0** |
-| **Language** | <*language*> | String | The [language](/azure/ai-services/language-service/language-detection/language-support) to use for the resulting chunks. <br><br>Default: **en-us** | Not applicable |
-
-For **Chunking Strategy** set to **TokenSize**:
-
-| Name | Value | Data type | Description | Limits |
-|------|-------|-----------|-------------|-------|
+| **EncodingModel** | <*encoding-method*> | String enum | The encoding model to use: <br><br>- Default: **cl100k_base (gpt4, gpt-3.5-turbo, gpt-35-turbo)** <br><br>- **r50k_base (gpt-3)** <br><br>- **p50k_base (gpt-3)** <br><br>- **p50k_edit (gpt-3)** <br><br>- **cl200k_base (gpt-4o)** <br><br>For more information, see [OpenAI - Models overview](https://platform.openai.com/docs/models/overview). | Not applicable |
 | **TokenSize** | <*max-tokens-per-chunk*> | Integer | The maximum number of tokens per content chunk. <br><br>Default: None | Minimum: **1** <br>Maximum: **8000** |
-| **Encoding model** | <*encoding-method*> | String enum | The encoding model to use: <br><br>- Default: **cl100k_base (gpt4, gpt-3.5-turbo, gpt-35-turbo)** <br><br>- **r50k_base (gpt-3)** <br><br>- **p50k_base (gpt-3)** <br><br>- **p50k_edit (gpt-3)** <br><br>- **cl200k_base (gpt-4o)** <br><br>For more information, see [OpenAI - Models overview](https://platform.openai.com/docs/models/overview). | Not applicable |
+| **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. | Minimum: **0** |
 
 > [!TIP]
 >
@@ -192,7 +179,7 @@ The following example includes other actions that create a complete workflow pat
 | 2 | Get the content. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
 | 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
 | 4 | Create token string. | **Parse a document** | A **Data Operations** action that produces a tokenized string using the output from the **Compose** action. |
-| 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on either the number of characters or tokens per content chunk. |
+| 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on the number of tokens per content chunk. |
 | 6 | Convert tokenized and chunked text to JSON. | **Parse JSON** | A **Data Operations** action that converts the chunked output into a JSON array. |
 | 7 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
 | 8 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |

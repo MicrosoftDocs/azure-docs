@@ -22,6 +22,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 * The cluster must have a minimum of three worker nodes and three master nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group isn't supported.
+* Don't create more than 250 worker nodes on a cluster. 250 is the maximum number of nodes that can be created on a cluster. See [Configure multiple IP addresses per ARO cluster load balancer](howto-multiple-ips.md) for more information.
 * If you're making use of infrastructure nodes, don't run any undesignated workloads on them as this can affect the Service Level Agreement and cluster stability. Also, it's recommended to have three infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use an RHEL compute node.
 * Don't attempt to remove, replace, add, or modify a master node. That's a high risk operation that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, contact support before making any changes.

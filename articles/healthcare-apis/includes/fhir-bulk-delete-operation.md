@@ -1,7 +1,7 @@
 ---
 title: Common content for the `$bulk-delete` operation
 description: Explains the `$bulk-delete` operation for the FHIR service and the Azure API for FHIR service in Azure Health Data Services.
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: include
 ms.date: 04/01/2024
 ms.author: kesheth

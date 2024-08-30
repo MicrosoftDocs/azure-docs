@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: wenhaozhang
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 6/29/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 

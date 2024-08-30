@@ -1,6 +1,6 @@
 ---
 author: msangapu-msft
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 01/05/2024
 ms.author: msangapu

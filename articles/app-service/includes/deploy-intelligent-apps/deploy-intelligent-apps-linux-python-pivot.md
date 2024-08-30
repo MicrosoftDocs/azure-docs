@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: python
 ms.custom: linux-related-content
 ms.topic: article
@@ -12,7 +12,7 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 #### Prerequisites
 
-- An [Azure OpenAI resource](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Flask web application. Create the sample app using our [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
 
 ### Setup flask web app
@@ -86,7 +86,7 @@ After the files are updated, we can start preparing our environment variables to
 
 In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `api_version` and `azure__endpoint` values.  Otherwise, you need each of the following:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `api_version` and `azure__endpoint` values.  Otherwise, you need each of the following:
 
 - `api_key`
 - `api_version`

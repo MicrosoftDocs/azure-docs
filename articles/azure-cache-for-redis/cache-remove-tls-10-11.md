@@ -1,11 +1,11 @@
 ---
 title: Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 description: Learn how to remove TLS 1.0 and 1.1 from your application when communicating with Azure Cache for Redis
-author: flang-msft
-ms.service: azure-cache-redis
+
+
 ms.topic: conceptual
 ms.date: 09/12/2023
-ms.author: franlanglois
+
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, php, python
 

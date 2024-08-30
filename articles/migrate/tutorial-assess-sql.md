@@ -221,4 +221,4 @@ The confidence rating helps you estimate the reliability of size recommendations
 ## Next steps
 
 - [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- Start migrating SQL instances and databases using [Azure Database Migration Service](../dms/dms-overview.md).
+- Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).

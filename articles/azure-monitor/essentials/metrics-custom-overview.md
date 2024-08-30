@@ -31,7 +31,7 @@ In general, there's no cost to ingest standard metrics (platform metrics) into a
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
 > [!NOTE]
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data.
+> To provide a better experience, custom metrics sent to Azure Monitor from the Application Insights Classic API (SDKs) are always stored in both Log Analytics and the Metrics Store. Your cost to store these metrics is only based on the volume ingested by Log Analytics. There is no additional cost for data stored in the Metrics Store.
 
 ## Custom metric definitions
 

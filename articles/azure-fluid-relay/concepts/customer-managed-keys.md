@@ -2,7 +2,7 @@
 title: Customer-managed keys for Azure Fluid Relay encryption
 description: Better understand the data encryption with CMK
 ms.date: 10/08/2021
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: reference
 ---
 
