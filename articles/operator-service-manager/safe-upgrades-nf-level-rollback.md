@@ -9,10 +9,10 @@ ms.service: azure-operator-service-manager
 ---
 
 # Rollback on upgrade failure
-This guide describes the Azure Operator Service Manager (AOSM) optional rollback on failure feature for container network functions (CNFs). This feature, as part of the AOSM safe upgrade practices initiative, reduces the service impact of unexpected upgrade failures for network functionfs (NFs) where comprehensive forward and backward version network function application (NfApp) compatibility is not available.
+This guide describes the Azure Operator Service Manager (AOSM) optional rollback on failure feature for container network functions (CNFs). This feature, as part of the AOSM safe upgrade practices initiative, reduces the service impact of unexpected upgrade failures for network functions (NFs) where comprehensive forward and backward version network function application (NfApp) compatibility is not available.
 
 ## Pause on failure
-In the case of an unexpected failure during an upgrade, historically AOSM has supported the pause on failure approach.  This method remains the default and implements the following workflow logic;
+In the case of an unexpected failure during an upgrade, historically AOSM supports the pause on failure approach. This method remains the default and implements the following workflow logic;
 * The NfApps are created or upgraded following either updateDependsOn ordering, if provided, or in the sequential order they appear.
 * NfApps with parameter "applicationEnabled" disabled are skipped.
 * NFApps present before upgrade, but not referenced by the new network function definition version (NFDV) are deleted.
@@ -54,7 +54,7 @@ AOSM returns the following operational status and messages, given the respective
 ```
 
 ## How to configure rollback on failure
-The most flexible method to control failure behavior is to extend a new CGS parameter, rollbackEnabled, to allow for CGV control via roleOverrideValues in the NF payload. First, define the CGS parameter: 
+The most flexible method to control failure behavior is to extend a new configuration group schema (CGS) parameter, rollbackEnabled, to allow for configuration group value (CGV) control via roleOverrideValues in the NF payload. First, define the CGS parameter: 
 ```
 {
   "description": "NF configuration",
@@ -77,7 +77,7 @@ The most flexible method to control failure behavior is to extend a new CGS para
 > [!NOTE]
 > * If the nfConfiguration isn't provided through the roleOverrideValues parameter, by default the rollback is disabled.
 
-With the new rollbackEnable paramater defined, the Operator can now provide a run time value, under roleOverrideValues, as part of NF reput payload.
+With the new rollbackEnable parameter defined, the Operator can now provide a run time value, under roleOverrideValues, as part of NF reput payload.
 ```
 example:
 {
