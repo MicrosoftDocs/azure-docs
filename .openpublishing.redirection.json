@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-app-configuration/rest-api-postman.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/rest-api-fiddler.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-fiddler",
+      "redirect_document_id": false
+    },
+    { 
       "source_path": "articles/kinect-dk/index.yml",
       "redirect_url": "/previous-versions/azure/kinect-dk/index",
       "redirect_document_id": false
@@ -233,11 +243,6 @@
     {
       "source_path": "articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/ai-studio/how-to/commitment-tier.md",
-      "redirect_url": "/azure/ai-services/commitment-tier.md",
       "redirect_document_id": false
     },
     {
@@ -3116,16 +3121,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
-      "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/open-datasets/tutorial-opendatasets-automl.md",
-      "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
       "redirect_url": "/azure/openshift/howto-byok",
       "redirect_document_id": false
@@ -4748,6 +4743,16 @@
     {
       "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-portal.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
       "redirect_document_id": false
     }
   ]
