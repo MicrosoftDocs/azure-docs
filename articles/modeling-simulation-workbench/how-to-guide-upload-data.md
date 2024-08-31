@@ -18,7 +18,7 @@ You can use Azure Modeling and Simulation Workbench to run your design applicati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- A user who's provisioned as a Chamber Admin or Chamber User.
+- A user provisioned as a Chamber Admin or Chamber User.
 - [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on the machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can upload files.
 
 ## Sign in to the Azure portal

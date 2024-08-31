@@ -8,7 +8,7 @@ ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 
-#Customer intent: As a Modeling and Simulation Workbench user, I want to understand the Connector component.
+#Customer intent: As a Modeling and Simulation Workbench user, I want to understand the component.
 ---
 # Connectors in Azure Modeling and Simulation Workbench
 

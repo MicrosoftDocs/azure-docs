@@ -13,7 +13,7 @@ ms.date: 08/18/2024
 
 **Applies to:** :heavy_check_mark: Chambers :heavy_check_mark: Connectors :heavy_check_mark: Chamber VMs
 
-Chambers, connectors, and VMs in the Azure Modeling and Simulation Workbench can be started, stopped, or restarted as needed. Idle mode, a cost optimization feature requires that chambers and connectors be stopped to realize cost savings. These resources are running after creation and don't need to be started.
+Chambers, connectors, and virtual machines (VM) in the Azure Modeling and Simulation Workbench can be started, stopped, or restarted as needed. Idle mode, a cost optimization feature requires that chambers and connectors be stopped to realize cost savings. These resources are running after creation and don't need to be started.
 
 License servers are controlled by the chamber in which they reside and don't have their own start/stop controls. License servers can only be enabled or disabled. See [Manage license servers](./how-to-guide-licenses.md) to learn how to manage chamber license servers.
 

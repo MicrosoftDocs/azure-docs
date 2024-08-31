@@ -17,7 +17,7 @@ This article shows how to create, manage, and delete a chamber.
 
 ## Prerequisites
 
-* A Modeling and Simulation Workbench top-level Workbench has been created.
+* A Modeling and Simulation Workbench top-level Workbench is created.
 * A user account with Workbench Owner privileges (Subscription Owner or Subscription Contributor) role.
 
 ## Create a chamber
@@ -47,7 +47,7 @@ Once a chamber is created, a Workbench Owner or chamber Admin can administer it.
 
 ## Delete a chamber
 
-If a chamber is no longer needed, it can be deleted only if it's empty. All nested resources under the chamber must first be deleted before the chamber can be deleted. A chamber's nested resources include VMs, Connectors, and chamber Storage. Once a chamber is deleted, it can't be recovered.
+If a chamber is no longer needed, it can be deleted only if it's empty. All nested resources under the chamber must first be deleted before the chamber can be deleted. A chamber's nested resources include virtual machines (VM), connectors, and chamber storage. Once a chamber is deleted, it can't be recovered.
 
 1. Navigate to chamber.
 1. Ensure that all nested resources are deleted. From the **Settings** menu at the left, visit each of the nested resources and ensure that they're empty. Visit the [Deleting nested resources](#deleting-nested-resources) section to learn how to delete each of those resources.
@@ -55,10 +55,10 @@ If a chamber is no longer needed, it can be deleted only if it's empty. All nest
 
 ### Deleting nested resources
 
-Nested resources of a chamber must first be deleted before the top-level chamber can be deleted. A chamber can't be deleted if it still has a Connector, chamber Storage, or VM deployed within it. License servers are chamber infrastructure, aren't user deployable, and don't apply to this requirement.
+Nested resources of a chamber must first be deleted before the top-level chamber can be deleted. A chamber can't be deleted if it still has a connector, chamber storage, or VM deployed within it. License servers are chamber infrastructure, aren't user deployable, and don't apply to this requirement.
 
-* [Manage Connectors](./how-to-guide-set-up-networking.md)
-* [Manage chamber Storage](./how-to-guide-manage-chamber-storage.md)
+* [Manage connectors](./how-to-guide-set-up-networking.md)
+* [Manage chamber storage](./how-to-guide-manage-chamber-storage.md)
 * [Manage chamber VMs](./how-to-guide-chamber-vm.md)
 
 ## Related content

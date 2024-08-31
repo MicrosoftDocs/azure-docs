@@ -11,7 +11,7 @@ ms.date: 08/20/2024
 ---
 # Register Azure Modeling and Simulation Workbench resource provider
 
-To install the Azure Modeling and Simulation Workbench, the resource provider must be registered with the target subscription. Registering the resource provider gives the subscription access to the application.  You should only register the resource providers you intend to use with the subscription.
+To install the Azure Modeling and Simulation Workbench, the resource provider must be registered with the target subscription. Registering the resource provider gives the subscription access to the application. You should only register the resource providers you intend to use with the subscription.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Some application issues and certain updates require the resource provider to be 
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of the Azure portal in a web browser, showing search subscriptions.":::
 
-1. On the **Subscriptions** page, select the subscription you want to view. In the screenshot below, 'Documentation Testing 1' is shown as an example.
+1. On the **Subscriptions** page, select the subscription you want to view. In the example, 'Documentation Testing 1' is shown as an example.
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of the Azure portal in a web browser, showing select subscriptions.":::
 

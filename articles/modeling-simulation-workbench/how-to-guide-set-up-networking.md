@@ -21,11 +21,11 @@ Each chamber has a dedicated connector. Each connector can support either of the
 
 ## Add a VPN or ExpressRoute connection
 
-If your organization has a presence in Azure or requires that connections to the Workbench be over a VPN, the VPN or ExpressRoute Connector should be used.
+If your organization has a presence in Azure or requires that connections to the Workbench be over a VPN, the VPN or ExpressRoute connector should be used.
 
-When a Connector is created, the Workbench Owner (Subscription Owner) can link an existing virtual network with a VPN gateway and/or ExpressRoute gateway. This link provides a secure connection between your on-premises network and the chamber.
+When a connector is created, the Workbench Owner (Subscription Owner) can link an existing virtual network with a VPN gateway and/or ExpressRoute gateway. This link provides a secure connection between your on-premises network and the chamber.
 
-### Create a VPN or ExpressRoute Connector
+### Create a VPN or ExpressRoute connector
 
 1. Before you create a [Connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, the Workbench needs a role assignment. Azure Modeling and Simulation Workbench requires the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
 
@@ -43,7 +43,7 @@ When a Connector is created, the Workbench Owner (Subscription Owner) can link a
 
 ## Edit allowed public IP addresses
 
-IP addresses can be allowlisted in the Azure portal to allow connections to a chamber. Only one IP address can be specified for a Public IP Connector when  creating a new Workbench. After the Connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
+IP addresses can be allowlisted in the Azure portal to allow connections to a chamber. Only one IP address can be specified for a Public IP connector when  creating a new Workbench. After the connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
 
 Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
 
@@ -85,12 +85,12 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 
 ### IP addresses
 
-For the Public IP Connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses
+For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses
 
 > [!CAUTION]
 > The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled when more users are added to the Chamber. Discovery of endpoint IP addresses may be incomplete once the userbase increases.
 
-For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute Connector is suggested. When using a VPN Gateway, the access point of the
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute connector is suggested. When using a VPN Gateway, the access point of the
 
 ## Next steps
 

@@ -26,7 +26,7 @@ Users with access to the chamber can export data from the chamber via the data p
 
 1. **Identify file to export.** The export process is triggered when a user places a file to export into a designated area within the chamber. A chamber Admin or chamber User copies the file to the data out folder within the pipeline. The data pipeline detects the copied file and creates a file object. The file creation activity is traceable in the logs and enables the next step of the data pipeline.
 
-1. **Request file to export.** A Chamber Admin reviews files staged in the data pipeline and requests to export. The pipeline manager creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
+1. **Request file to export.** A Chamber Admin reviews the files staged in the data pipeline and requests to export. The pipeline manager creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
 
 1. **Approve/reject export request.** The Workbench Owner either approves or rejects the export file request. Only a Workbench Owner can approve or reject requests. The individual who approves or denies can't be the same person who initially requested the export.
 

@@ -85,7 +85,7 @@ Esv5-series virtual machines run on Intel® Xeon® Platinum 8473C (Sapphire Rapi
 
 ### M family
 
-The 'M' family of VM size series are one of Azure's ultra memory-optimized VM instances. They're designed for memory-intensive workloads, such as large in-memory databases, data warehousing, and high-performance computing (HPC). Equipped with substantial RAM capacities and high vCPU capabilities, M-family VMs support applications and services that require massive amounts of memory and significant computational power. This makes them well-suited for handling tasks like real-time data processing, complex scientific simulations, and large-scale enterprise resource planning (ERP) systems, ensuring peak performance for the most demanding data-centric applications.
+The 'M' family of VM size series are one of Azure's ultra memory-optimized VM instances. They're designed for memory-intensive workloads, such as large in-memory databases, data warehousing, and high-performance computing (HPC). The M-family is equipped with substantial RAM capacities and high vCPU capabilities, M-family VMs support applications and services that require massive amounts of memory and significant computational power. This makes them well-suited for handling tasks like real-time data processing, complex scientific simulations, and large-scale enterprise resource planning (ERP) systems, ensuring peak performance for the most demanding data-centric applications.
 
 M-series VMs have fixed-size temporary storage.
 

@@ -29,13 +29,13 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ## Create shared storage
 
-If you're a Workbench Owner or Chamber Admin, complete the following steps to access the Shared Storage options:
+If you're a Workbench Owner or Chamber Admin, complete the following steps to access the shared storage options:
 
 1. Enter **Modeling and Simulation Workbench** in the global search. Under **Services**, select **Modeling and Simulation Workbench**.
 1. Select your workbench from the resource list.
-1. On the left menu, select **Settings** > **Shared Storage**.
+1. On the left menu, select **Settings** > **Shared storage**.
 1. Select **Create** from the action bar. The Create shared storage configuration appears.
-1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the Shared Storage should be accessible to.
+1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the shared storage should be accessible to.
 
 :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Screenshot of shared storage create dialog.":::
 
@@ -47,7 +47,7 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 
 1. Enter **Modeling and Simulation Workbench** in the global search. Then, under **Services**, select **Modeling and Simulation Workbench**.
 1. Select your workbench from the resource list.
-1. On the left menu, select **Settings** > **Shared Storage**. In the resource list, select the storage to be managed.
+1. On the left menu, select **Settings** > **Shared storage**. In the resource list, select the storage to be managed.
 
 ### Resize chamber storage
 

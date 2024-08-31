@@ -18,16 +18,16 @@ This article describes how to grant or remove user access to your chamber.
 
 ## Prerequisites
 
-- To provision users in a chamber, make sure that those users exist in your company's Microsoft Entra tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra tenant.
+* Users to be added must already exist in your company's Microsoft Entra ID tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra ID tenant.
 
-- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set in the user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of <jane.doe@contoso.com> must also have email alias of <jane.doe@contoso.com>.
+* Email fields for users must be populated in the Microsoft Entra ID user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of <jane.doe@contoso.com> must also have email alias of <jane.doe@contoso.com>.
 
 ## Assign user roles
 
 You can assign user roles at either of these levels:
 
-- Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads in a chamber.
-- Users assigned at the *chamber level* can perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads.
+* Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads in a chamber.
+* Users assigned at the *chamber level* can perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads.
 
 ### Assign access to read and create workloads
 

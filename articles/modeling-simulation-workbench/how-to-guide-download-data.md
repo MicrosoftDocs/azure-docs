@@ -20,7 +20,7 @@ This article explains the steps to export data from Azure Modeling and Simulatio
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- A user who's a Workbench Owner (Subscription Owner or Subscription Contributor), and a user who's provisioned as a Chamber Admin or Chamber User.
+- A user who's a Workbench Owner (Subscription Owner or Subscription Contributor), and a user provisioned as a Chamber Admin or Chamber User.
 - [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on the machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can export files.
 
 ## Sign in to the Azure portal
@@ -42,7 +42,7 @@ To export a file, you first need to copy the file to the data-out folder in the 
 
 1. On the left menu, select **Settings** > **Chamber**. A resource list appears. Select the chamber that you want to export data from.
 
-1. On the left menu, select **Settings** > **Connector**.  In the resource list, select the displayed connector.
+1. On the left menu, select **Settings** > **Connector**. In the resource list, select the displayed connector.
 
 1. Select the **Dashboard URL** link to open the ETX dashboard.
 
