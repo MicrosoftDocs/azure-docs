@@ -99,6 +99,20 @@ Follow these steps to begin the configuration:
     ```azurepowershell-interactive
     Set-AzKeyVaultAccessPolicy -VaultName "your_key_vault_name" -PermissionsToSecrets get -ObjectId $identity.PrincipalId
     ```
+ The $identity.PrincipalId in the Set-AzKeyVaultAccessPolicy command refers to the Object ID of the identity (either a user, group, or service principal) that you want to grant access to the Key Vault.
+To get the PrincipalId:
+a. For a User or Group:
+• Navigate to the Azure Active Directory in the Azure portal.
+• Select Users or Groups.
+• Find the specific user or group and click on it.
+• The Object ID will be listed on the overview page.
+b. For a Service Principal (Managed Identity):
+• If you are using a User-Assigned Managed Identity, you can retrieve it using PowerShell:
+$identity = New-AzUserAssignedIdentity -ResourceGroupName "your_resource_group" -Name "your_identity_name"
+$identity.PrincipalId
+• If you are using a System-Assigned Managed Identity, you can find it in the Azure portal under the Identity section of the resource (like a VM or App Service) that has the managed identity enabled.
+
+![image](https://github.com/user-attachments/assets/314a5b83-5371-4716-9ded-f50c2a80c885)
 
    The user identity acquired the access to retrieve the secrets, such as CAK and CKN, from the Key Vault.
 
@@ -137,6 +151,27 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
+    The $MacSecCKNSecret.Id refers to the identifier of a secret stored in Azure Key Vault. This secret is used for configuring MACsec (Media Access Control Security) on your ExpressRoute Direct ports. Here’s a brief overview of how to obtain and use this identifier:
+a. Navigate to Azure Key Vault:
+• Sign in to the Azure portal)).
+• In the left-hand menu, select Key vaults.
+• Choose the Key Vault where your MACsec secret is stored.
+b. Access the Secret:
+• In the Key Vault, go to the Secrets section.
+• Find and select the secret you created for MACsec (e.g., macsecckn1).
+c. Retrieve the Secret Identifier:
+• Once you select the secret, you will see its details.
+• Look for the Secret Identifier. It will be in the format https://<your-key-vault-name>.vault.azure.net/secrets/<secret-name>/<secret-version>.
+![image](https://github.com/user-attachments/assets/9373a672-dc16-4701-b815-03ef5b019ce5)
+
+If user wants to do this on Portal,
+
+1. Go to Expressroute >> Links >> Identity
+2. Add the above created or linked Managed identity here.
+3. Once the Identity is added, the MACsec option will be activated to be "Enabled"
+4. Once Enabled, user can update CAK and CKN settings for both the links.
+![image](https://github.com/user-attachments/assets/68b6ff43-1aef-41a0-8f74-7dc8fb751511)
+
 1. (Optional) If the ports are in Administrative Down state you can run the following commands to bring up the ports.
 
     ```azurepowershell-interactive
