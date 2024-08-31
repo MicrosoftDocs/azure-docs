@@ -33,9 +33,9 @@ Users can resize and tailor the chambers to support storage requirement needs th
 
 Administrators can optimize their resource consumption without necessarily destroying resources or moving data by:
 
-* Managing the size and number of virtual machines.
-* [Idling](./how-to-guide) unused connectors and chambers to reduce cost without deleting VMs or storage.
-* Managing the size and performance tier of chamber storages.
+* [Managing](./how-to-guide-chamber-vm.md) the size and number of virtual machines.
+* [Idling](./how-to-guide-chamber-idle.md) unused chambers to reduce cost without deleting VMs or storage.
+* [Managing](./how-to-guide-manage-chamber-storage.md) the size and performance tier of chamber storages.
 
 Learn more about reducing service costs using [Azure Advisor](/azure/advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing) and [right-size VMs best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms).
 

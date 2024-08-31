@@ -54,7 +54,7 @@ items:
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md
       - name: Place a chamber into Idle mode
-        href: ./how-to-guide
+        href: ./how-to-guide-chamber-idle.md
       - name: Add redirect URIs
         href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
