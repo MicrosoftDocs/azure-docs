@@ -22,6 +22,8 @@ Before you begin configuring MACsec, ensure that you meet the following prerequi
 * You familiarized yourself with the [ExpressRoute Direct provisioning workflows](expressroute-erdirect-about.md).
 * You created an [ExpressRoute Direct port resource](expressroute-howto-erdirect.md) as per the instructions.
 * You installed the latest version of Azure PowerShell on your computer if you intend to run PowerShell locally.
+* To make below configuration, user needs to be added to "Key Vault Administrator" role. 
+
 
 ### Working with Azure PowerShell
 
