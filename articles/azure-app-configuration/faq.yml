@@ -68,7 +68,7 @@ sections:
           
       - question: How much does App Configuration cost?
         answer: |
-          There are three pricing tiers: Free, Standard, and Premium. For detailed pricing information, please refer to the [App Configuration pricing page](https://azure.microsoft.com/en-us/pricing/details/app-configuration/).
+          There are three pricing tiers: Free, Standard, and Premium. For detailed pricing information, please refer to the [App Configuration pricing](https://azure.microsoft.com/en-us/pricing/details/app-configuration/) page.
           
           If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. If you have an existing store, you can upgrade it at any time, for example, from the Free tier to the Standard or Premium tier, or from the Standard tier to the Premium tier.
           
