@@ -74,7 +74,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    203.0.113.24
+    203.0.113.0.25
     ```
 
 1. Close the bastion connection to **vm-1**.
