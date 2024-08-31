@@ -2,7 +2,7 @@
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
-ms.topic: how-to
+ms.topic: include
 ms.date: 08/20/2024
 ---
 
@@ -35,4 +35,5 @@ To add the redirect URIs:
 1. Paste the **Authentication reply URL** you documented in the previous step.
 
 1. Select **Save**.
+
    :::image type="content" source="../media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you set the second Redirect URI.":::

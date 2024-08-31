@@ -1,6 +1,6 @@
 ---
 title: "Register resource provider: Azure Modeling and Simulation Workbench"
-description: Register the Azure Modeling and Simulation Workbench resource provider
+description: Register the Azure Modeling and Simulation Workbench resource provider.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -26,7 +26,7 @@ To install the Azure Modeling and Simulation Workbench, the resource provider mu
 
 * A Microsoft Entra tenant.
 
-## Register Azure Modeling and Simulation Workbench resource provider
+## Register the resource provider
 
 [!INCLUDE [register-resource-provider](includes/register-resource-provider.md)]
 

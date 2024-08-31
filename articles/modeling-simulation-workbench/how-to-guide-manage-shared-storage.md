@@ -17,11 +17,11 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 
 ## Prerequisites
 
-[!INCLUDE [prereq-account-sub](includes/prereq/prereq-account-sub.md)]
+[!INCLUDE [prerequisite-account-sub](includes/prereq/prerequisite-account-sub.md)]
 
-[!INCLUDE [prereq-mswb-chamber](includes/prereq/prereq-mswb-chamber.md)]
+[!INCLUDE [prerequisite-mswb-chamber](includes/prereq/prerequisite-mswb-chamber.md)]
 
-[!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
+[!INCLUDE [prerequisite-user-chamber-admin](includes/prereq/prerequisite-user-chamber-admin.md)]
 
 ## Sign in to the Azure portal
 
@@ -35,7 +35,10 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 1. Select your workbench from the resource list.
 1. On the left menu, select **Settings** > **Shared Storage**.
 1. Select **Create** from the action bar. The Create shared storage configuration appears.
-1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the Shared Storage should be accessible to. :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Detail of shared storage create dialog.":::
+1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the Shared Storage should be accessible to.
+
+:::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Screenshot of shared storage create dialog.":::
+
 1. Select **Review + Create**. If the validation checks pass, select **Create**.
 
 ## Manage shared storage

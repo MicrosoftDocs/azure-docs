@@ -18,11 +18,11 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 
 ## Prerequisites
 
-[!INCLUDE [prereq-account-sub](includes/prereq/prereq-account-sub.md)]
+[!INCLUDE [prerequisite-account-sub](includes/prereq/prerequisite-account-sub.md)]
 
-[!INCLUDE [prereq-mswb-chamber](includes/prereq/prereq-mswb-chamber.md)]
+[!INCLUDE [prerequisite-mswb-chamber](includes/prereq/prerequisite-mswb-chamber.md)]
 
-[!INCLUDE [prereq-user-chamber-admin](includes/prereq/prereq-user-chamber-admin.md)]
+[!INCLUDE [prerequisite-user-chamber-admin](includes/prereq/prerequisite-user-chamber-admin.md)]
 
 ## Access storage options in a chamber
 

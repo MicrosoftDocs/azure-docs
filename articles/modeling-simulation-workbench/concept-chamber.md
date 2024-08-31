@@ -11,7 +11,7 @@ ms.date: 01/01/2023
 ---
 # Chambers in the Azure Modeling and Simulation Workbench
 
-In the Azure Modeling and Simulation Workbench, chambers are a security boundary for a group virtual machines (VM) (nodes) and share common users. A chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation. chamber VMs are all on the same subnet and have no internet access.
+In the Azure Modeling and Simulation Workbench, chambers are a security boundary for a group virtual machines (VM) (nodes) and share common users. A chamber provides a full-featured and secure environment for users to run engineering applications and workloads together in isolation. Chamber VMs are all on the same subnet and have no internet access.
 
 ## Key features
 

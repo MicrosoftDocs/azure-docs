@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure Modeling and Simulation Workbench (preview) in the Azure portal
-description: In this quickstart, you learn how to use the Azure portal to create an Azure Modeling and Simulation Workbench.
+description: Learn how to use the Azure portal to create an Azure Modeling and Simulation Workbench.
 author: becha8
 ms.author: becha
 ms.reviewer: becha
@@ -55,8 +55,6 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 >
 > To allow your application to continue sooner than waiting for all regions to complete, don't block the creation of resources for a resource provider in the registering state.
 
-<a name='create-an-application-in-azure-active-directory'></a>
-
 ## Create an application in Microsoft Entra ID
 
 To create an application in Microsoft Entra ID, you first register the application and add a client secret.  Then you create a Key Vault, set up Key Vault role assignments, and add client secrets to the Key Vault.
@@ -67,7 +65,9 @@ Registering your application establishes a trust relationship between Modeling a
 
 Follow these steps to create the app registration:
 
-1. If you have access to multiple tenants, use the Directories + subscriptions** filter :::image type="content" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" alt-text="Showing filter icon."::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" alt-text="":::
+
+in the top menu to switch to the tenant in which you want to register the application.
 
 1. Search for and select **Microsoft Entra ID**.
 
@@ -94,7 +94,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
-1. Select ** 6 months** for the **Expires**.
+1. Select **6 months** for the **Expires**.
 1. Select **Add**.
 1. The application properties display. Locate the **Client secret value** and document it. You need the Client secret value when you create your Key Vault. Make sure you write it down now, as it will never be displayed again once you leave this page.
 
@@ -115,7 +115,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
 
    - In **Access policy**, select **Azure role-based access control** under **Permission model**.
 
-      :::image type="content" source="/azure/key-vault/media/rbac/image-1.png" alt-text="Enable Azure RBAC permissions - new vault":::
+      :::image type="content" source="/azure/key-vault/media/rbac/image-1.png" alt-text="Screenshot of new Key Vault settings with RBAC permissions.":::
 
    - Leave the other options to their defaults.
 1. After providing the information as instructed, select **Create**.
@@ -169,7 +169,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
 
 To create an Azure Modeling and Simulation Workbench, you first fill out the Azure portal wizard fields for naming and connectivity preferences. Then you submit the form to create a Workbench.
 
-1. While you're signed in the Azure portal, go to https://*\<AzurePortalUrl\>*/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches. For example, go to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches for Azure public cloud.
+1. While you're signed in the Azure portal, go to https://*\<AzurePortalUrl\>*/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches. For example, go to <https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches> for Azure public cloud.
 
 1. On the **Modeling and Simulation Workbenches (preview)** page, select **Create**. The **Create an Azure Modeling and Simulation Workbench** page opens.
 
@@ -212,7 +212,7 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
 1. Select **Review + create** button at the bottom of the page.
 
-     :::image type="content" source="./media/quickstart-create-portal/create-03.png" alt-text="Screenshot of the Chamber details section showing where you type and select the values.":::
+     :::image type="content" source="./media/quickstart-create-portal/create-03.png" alt-text="Screenshot of the chamber details section showing where you type and select the values.":::
 
 1. On the **Review + create** page, you can see the details about the Azure Modeling and Simulation Workbench you're about to create. When you're ready, select **Create**.
 
@@ -234,7 +234,7 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Chamber Admins and Chamber Users *MUST* have an alias set within their Microsoft Entra profile email field, or they can't log into the environment. To check this, go to Microsoft Entra ID in your Azure portal and under Manage -> Select Users, search for the user by name. Under the Properties tab, look for the email field and ensure it has the email address of the user populated. Also, the role assignment must be done ONLY at the chamber resource level, not at any other resource level. Duplicate and/or multiple role assignments are not allowed and will result in a failed connection.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal.":::
@@ -242,8 +242,6 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 1. Select **Review + assign** to assign the selected role.
 
 1. Repeat steps 3-6 to assign the **Chamber User** role to other users who need to work on the chamber. Also, remember to assign any provisioned chamber admins/users the ‘Reader’ and 'Classic storage account contributor' role at the Resource Group level to enable permissions to access workbench resources and deploy workload VMs respectively.
-
-<a name='add-redirect-uris-for-the-application-in-azure-active-directory'></a>
 
 ## Add redirect URIs for the application in Microsoft Entra ID
 
@@ -279,7 +277,7 @@ Or instead, to delete the newly created Modeling and Simulation Workbench resour
 
 1. Open your Modeling and Simulation Workbench in the Azure portal and select **All resources** from the left side menu. Then search for the Modeling and Simulation Workbench you created. For example, in this quickstart, we used *myModSimWorkbench* as the name of the Workbench.
 
-1. To delete a resource, select the **Delete** button located on the top pane of the **Overview page** for each resource. You must delete the child resources before deleting their parents. For example, first delete any Chamber VMs and Connectors. Then delete Storages. Then delete Chambers. Delete Workbenches last.
+1. To delete a resource, select the **Delete** button located on the top pane of the **Overview page** for each resource. You must delete the child resources before deleting their parents. For example, first delete any chamber VMs and Connectors. Then delete Storages. Then delete chambers. Delete Workbenches last.
 
 ## Next steps
 

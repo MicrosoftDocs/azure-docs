@@ -1,6 +1,6 @@
 ---
 title: What is Azure Modeling and Simulation Workbench?
-description: A brief overview of Azure Modeling and Simulation Workbench
+description: A brief overview of Azure Modeling and Simulation Workbench.
 author: becha8
 ms.author: becha
 ms.reviewer: becha
@@ -24,7 +24,7 @@ The Azure Modeling and Simulation Workbench is a secure, on-demand service that 
 
 ## Isolated chambers
 
-The Modeling and Simulation [Workbench](./concept-workbench.md) can be created with one or more isolated chambers, where access can be provided to a group of users to work with complete privacy. These isolated chambers allow intellectual property (IP) owners to operate within a private environment to retain full control of their IP and limit who can access it. RBAC [(Role Based Access Control)](/azure/role-based-access-control/overview) allows only provisioned [Chamber](./concept-chamber.md) Users and Chamber Admins to have access to the chamber, through multifactor authentication using [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) services. Once in the chamber, users have access to all the resources within that specific isolated Chamber environment, including private storage and workload VMs.
+The Modeling and Simulation [Workbench](./concept-workbench.md) can be created with one or more isolated chambers, where access can be provided to a group of users to work with complete privacy. These isolated chambers allow intellectual property (IP) owners to operate within a private environment to retain full control of their IP and limit who can access it. RBAC [(Role Based Access Control)](/azure/role-based-access-control/overview) allows only provisioned [Chamber](./concept-chamber.md) Users and Chamber Admins to have access to the chamber, through multifactor authentication using [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) services. Once in the chamber, users have access to all the resources within that specific isolated chamber environment, including private storage and workload VMs.
 
 ## Compute capabilities
 
@@ -46,7 +46,6 @@ To use the Modeling and Simulation Workbench APIs, you must create your Azure Mo
 - Sweden Central
 - USGov Arizona
 - USGov Virginia
-
 
 ## Contact us
 

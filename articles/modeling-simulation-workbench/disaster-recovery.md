@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery for Modeling and Simulation Workbench
-description: This article provides an overview of disaster recovery for Azure Modeling and Simulation Workbench workbench component.
+description: This article provides an overview of disaster recovery for Azure Modeling and Simulation Workbench workbench .component.
 author: meaghanlewis
 ms.author: mosagie
 ms.service: modeling-simulation-workbench
@@ -17,9 +17,10 @@ Planning for disaster recovery involves identifying expected recovery point obje
 A typical disaster recovery workflow starts with a failure of a critical service in your primary region. As the issue gets investigated, Azure publishes an expected time for the primary region to recover. If this timeframe is not acceptable for business continuity, and the problem does not impact your secondary region, you would start the process to fail over to the secondary region.
 
 ## Achieving business continuity for Azure Modeling and Simulation Workbench
-To be prepared for a data center outage, you can have a Modeling and Simulation workbench instance provisioned in a secondary region. 
 
-These Workbench resources can be configured to match the resources that exist in the primary Azure Modeling and Simulation workbench instance. Users in the workbench instance environment can be provisioned ahead of time, or when you switch to the secondary region. Chamber and connector resources can be put in a stopped state post deployment to invoke idle billing meters when not being used actively. 
+To be prepared for a data center outage, you can have a Modeling and Simulation workbench instance provisioned in a secondary region.
+
+These Workbench resources can be configured to match the resources that exist in the primary Azure Modeling and Simulation workbench instance. Users in the workbench instance environment can be provisioned ahead of time, or when you switch to the secondary region. Chamber and connector resources can be put in a stopped state post deployment to invoke idle billing meters when not being used actively.
 
 Alternatively, if you don't want to have an Azure Modeling and Simulation Workbench instance provisioned in the secondary region until an outage impacts your primary region, follow the provided steps in the Quickstart, but stop before creating the Azure Modeling and Simulation Workbench instance in the secondary region. That step can be executed when you choose to create the workbench resources in the secondary region as a failover.
 
@@ -47,21 +48,20 @@ List of supported regions can be found on the [Azure product availability roadma
   
 Then, create a backup of your Azure Key Vault and keys used by Azure Modeling and Simulation in Key Vault including:
 
-1.	Application Client Id key
-2.	Application Secret key
+1. Application Client Id key
+2. Application Secret key
 
 ## Configure the new instance
 
 In the event of your primary region failure, and decision to work in a backup region, you would create a Modeling and Simulation Workbench instance in your backup region.
 
-1. Register to the Azure Modeling and Simulation Workbench Resource Provider as described in [Create an Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/quickstart-create-portal#register-azure-modeling-and-simulation-workbench-resource-provider). 
+1. Register to the Azure Modeling and Simulation Workbench Resource Provider as described in [Create an Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/quickstart-create-portal#register-azure-modeling-and-simulation-workbench-resource-provider).
 
 1. Create an Azure Modeling and Simulation Workbench using this section of the Quickstart.
 
 1. If desired, upload data into the new backup instance following Upload Files section of instructions.
 
 You can now do your work in the new workbench instance created in the backup region.
-
 
 ## Cleanup
 

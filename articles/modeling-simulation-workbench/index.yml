@@ -48,7 +48,7 @@ landingContent:
           - text: Manage shared storage
             url: ./how-to-guide-manage-shared-storage.md
           - text: Configure VM firewalls
-            url: ./how-to-guide-configure-firewall-rh.md
+            url: ./how-to-guide-configure-firewall-red-hat.md
   # Card: Concepts
   - title: Concepts
     linkLists:

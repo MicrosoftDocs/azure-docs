@@ -1,6 +1,6 @@
 ---
 title: "Manage users: Azure Modeling and Simulation Workbench"
-description: In this how-to guide, you learn how to manage users' access to Azure Modeling and Simulation Workbench.
+description: Learn how to manage users' access to Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu

@@ -1,13 +1,13 @@
 ---
 title: "Start, stop, and restart chambers, connectors, and VMs: Azure Modeling and Simulation Workbench"
-description: How to start, stop, and restart chambers, connectors, and VMs in the Azure Modeling and Simulation Workbench
+description: How to start, stop, and restart chambers, connectors, and VMs in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/18/2024
 
-#CustomerIntent: As a workbench user, I want to control Chambers, VMs, and connectors.
+#CustomerIntent: As a workbench user, I want to control chambers, VMs, and connectors.
 ---
 # Start, stop, and restart chambers, connectors, and VMs
 

@@ -1,6 +1,6 @@
 ---
 title: "Create and Manage Chamber VMs: Azure Modeling and Simulation Workbench"
-description: How to create and manage a Chamber VM in the Azure Modeling and Simulation Workbench
+description: How to create and manage a chamber VM in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -36,31 +36,42 @@ The Azure Modeling and Simulation Workbench offers a select set of high-performa
 
 All VMs are created with Red Hat Enterprise Linux version 8.8.
 
-1. From the chamber overview page, select **Chamber VM** from the **Settings** menu in the left pane. :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-menu.png" alt-text="Detail of Chamber Settings menu with Chamber VM in red box.":::
-1. On the Chamber VM page, select **Create** from the action bar. :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create.png" alt-text="Detail of Chamber VM action bar with 'Create' button annotated in red box.":::
-1. In the Create Chamber VM dialog, enter the name of the Chamber VM, the VM type, and the number of VMs to be created (default is 1). The VM image type will be expanded in the future to support software for other scientific and engineering applications. :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create-dialog.png" alt-text="Create Chamber VM dialog with textboxes and ReviewCreate button marked in red.":::. Read about the [Chamber VM offerings] (./concept-vm-offerings.md) to help you select the correct VM for your workload.
+1. From the chamber overview page, select **Chamber VM** from the **Settings** menu in the left pane.
+
+:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-menu.png" alt-text="Screenshot of chamber settings menu with chamber VM in red box.":::
+
+1. On the chamber VM page, select **Create** from the action bar.
+
+:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create.png" alt-text="Screenshot of chamber VM action bar with 'Create' button annotated in red box.":::
+
+1. In the Create chamber VM dialog, enter the name of the chamber VM, the VM type, and the number of VMs to be created (default is 1). The VM image type will be expanded in the future to support software for other scientific and engineering applications.
+
+:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create-dialog.png" alt-text="Screenshot of Create chamber VM dialog with textboxes and ReviewCreate button marked in red.":::\.
+
+ Read about the [Chamber VM offerings] (./concept-vm-offerings.md) to help you select the correct VM for your workload.
+
 1. Select **Review + create**.
-1. If prevalidation checks are successful, the **Create** button will be enabled. Selecte **Create**. A Chamber VM typically can take up to 10 minutes to deploy. Once deployed, the **Power state** status shows as "Running".
+1. If prevalidation checks are successful, the **Create** button will be enabled. Selecte **Create**. A chamber VM typically can take up to 10 minutes to deploy. Once deployed, the **Power state** status shows as "Running".
 
-## Manage a Chamber VM
+## Manage a chamber VM
 
-Once a chamber VM is created, a Workbench Owner or Chamber Admin can administer it. Chamber VMs can only be stopped, started, or restarted. Chamber VMs can't be migrated or resized. Chamber VMs don't accept user role assignments. User administration happens at the Chamber level. Chambers have access to Shared Storage (shared between Chambers) and Chamber Storage, which is accessible only within the Chamber by the members. IP addresses are managed by the deployment engine. Data and OS disks aren't configurable in Chamber VMs. Microsoft recommends installing all your applications and data on the Chamber Storage volumes to allow you to create and destroy VMs that are instantly ready for use. All VMs have access to the Chamber License servers.
+Once a chamber VM is created, a Workbench Owner or chamber Admin can administer it. Chamber VMs can only be stopped, started, or restarted. Chamber VMs can't be migrated or resized. Chamber VMs don't accept user role assignments. User administration happens at the chamber level. Chambers have access to Shared Storage (shared between chambers) and chamber Storage, which is accessible only within the chamber by the members. IP addresses are managed by the deployment engine. Data and OS disks aren't configurable in chamber VMs. Microsoft recommends installing all your applications and data on the chamber Storage volumes to allow you to create and destroy VMs that are instantly ready for use. All VMs have access to the chamber License servers.
 
 * [Manage users](./how-to-guide-manage-users.md)
-* [How to start, stop, or restart a Chamber](./how-to-guide-start-stop-restart.md)
+* [How to start, stop, or restart a chamber](./how-to-guide-start-stop-restart.md)
 * [Manage Storage](./how-to-guide-manage-chamber-storage.md)
 * [About license servers](./concept-license-service.md)
 
-## Delete a Chamber VM
+## Delete a chamber VM
 
-If a Chamber VM is no longer needed, it can be deleted. VMs don't need to be stopped before being deleted. Once a Chamber is deleted, it can't be recovered.
+If a chamber VM is no longer needed, it can be deleted. VMs don't need to be stopped before being deleted. Once a chamber is deleted, it can't be recovered.
 
-1. Navigate to the Chamber VM.
-1. Select **Delete** from the action bar. Deleting a Chamber can take up to 10 minutes.
+1. Navigate to the chamber VM.
+1. Select **Delete** from the action bar. Deleting a chamber can take up to 10 minutes.
 
 ## Related content
 
 * [Manage users](./how-to-guide-manage-users.md)
-* [Start, stop, or restart a Chamber](./how-to-guide-start-stop-restart.md)
-* [Manage Chamber Storage](./how-to-guide-manage-chamber-storage.md)
+* [Start, stop, or restart a chamber](./how-to-guide-start-stop-restart.md)
+* [Manage chamber Storage](./how-to-guide-manage-chamber-storage.md)
 * [License servers](./concept-license-service.md)

@@ -2,7 +2,7 @@
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
-ms.topic: how-to
+ms.topic: include
 ms.date: 08/20/2024
 ---
 
