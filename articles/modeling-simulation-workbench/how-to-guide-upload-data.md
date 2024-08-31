@@ -51,9 +51,9 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 A Chamber Admin or Chamber User can access the uploaded file from the chamber by accessing the following path: */mount/datapipeline/datain*.
 
 > [!IMPORTANT]
-> If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed.
-> The /mount/datapipeline/datain directory has a file size of 1TB, so if the imported dataset is larger than this, then free up space by moving the files over to /mount/chamberstorages/”Workbench chamber storage”
-> Note that the /datapipeline directory is Azure Files based, whereas the /chamberstorages directory is high-performance Azure NetApp Files. Always copy over the tools/binaries/IP from the /datapipeline/datain folder /chamberstorages directory under the specific chamber’s private storage.
+> If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed. The `/mount/datapipeline/datain` directory has a volume size of 1TB, so if the imported dataset is larger than this, free up space by moving the files over to `/mount/chamberstorages/`.
+>
+> Note that the `/mount/datapipeline` volume is Azure Files based, whereas the `/mount/chamberstorages` volume is high-performance Azure NetApp Files. Always copy over the tools, binaries, and IP from the `/mount/datapipeline/datain` folder to `/mount/chamberstorages` volume under the specific chamber’s private storage.
 
 ## Next steps
 

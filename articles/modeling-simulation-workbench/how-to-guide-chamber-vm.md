@@ -38,15 +38,15 @@ All VMs are created with Red Hat Enterprise Linux version 8.8.
 
 1. From the chamber overview page, select **Chamber VM** from the **Settings** menu in the left pane.
 
-:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-menu.png" alt-text="Screenshot of chamber settings menu with chamber VM in red box.":::
+    :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-menu.png" alt-text="Screenshot of chamber settings menu with chamber VM in red box.":::
 
 1. On the chamber VM page, select **Create** from the action bar.
 
-:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create.png" alt-text="Screenshot of chamber VM action bar with 'Create' button annotated in red box.":::
+    :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create.png" alt-text="Screenshot of chamber VM action bar with 'Create' button annotated in red box.":::
 
 1. In the Create chamber VM dialog, enter the name of the chamber VM, the VM type, and the number of VMs to be created (default is 1). The VM image type will be expanded in the future to support software for other scientific and engineering applications.
 
-:::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create-dialog.png" alt-text="Screenshot of Create chamber VM dialog with textboxes and ReviewCreate button marked in red.":::\.
+    :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create-dialog.png" alt-text="Screenshot of Create chamber VM dialog with textboxes and ReviewCreate button marked in red.":::\.
 
  Read about the [Chamber VM offerings] (./concept-vm-offerings.md) to help you select the correct VM for your workload.
 

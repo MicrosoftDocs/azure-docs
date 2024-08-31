@@ -31,19 +31,19 @@ The current setting of the control can be viewed on the connector overview page.
 1. Navigate to the connector of the chamber to be checked.
 1. On the Overview page, check the **Copy/paste** status in the right column.
 
-:::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-status.png" alt-text="Screenshot of connector overview with copy/paste status outlined in red.":::
+    :::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-status.png" alt-text="Screenshot of connector overview with copy/paste status outlined in red.":::
 
 ## Enable or disable copy/paste
 
 1. Navigate to the connector of the chamber to be configured.
 1. On the Overview page, select **Configure copy/paste** from the action bar.
 
-:::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-configure-button.png" alt-text="Screenshot of connector overview with copy/paste configuration button highlighted in red.":::
+    :::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-configure-button.png" alt-text="Screenshot of connector overview with copy/paste configuration button highlighted in red.":::
 The copy/paste control dialog appears.
 
 1. Select the desired setting. Select **Save**.
 
-:::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-control.png" alt-text="Screenshot of copy/paste control dialog showing enable and disable radio buttons.":::
+    :::image type="content" source="media/howtoguide-enable-copy-paste/copy-paste-control.png" alt-text="Screenshot of copy/paste control dialog showing enable and disable radio buttons.":::
 
 ## Copy and paste using the client
 
@@ -57,7 +57,7 @@ In the Windows native ETX client, the copy/paste menu can be accessed from the a
 1. Select **Edit** then either **Copy X Selection** or **Paste to X Selection**.
 1. Highlighting either option produces another flyout menu of sources or destinations.
 
-:::image type="content" source="media/howtoguide-enable-copy-paste/etx-windows-copy-paste-menu.png" alt-text="Screenshot of Windows ETX copy/paste menu.":::
+    :::image type="content" source="media/howtoguide-enable-copy-paste/etx-windows-copy-paste-menu.png" alt-text="Screenshot of Windows ETX copy/paste menu.":::
 
 #### [Web client](#tab/web)
 

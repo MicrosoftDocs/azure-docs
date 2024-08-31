@@ -27,11 +27,11 @@ A Workbench Owner can create a chamber in an existing Workbench. Chambers can't 
 1. From the Workbench overview page, select **Chamber** from the **Settings** menu in the left pane.
 1. In the chamber page, select **Create** from the action bar.
 
-:::image type="content" source="media/howtoguide-create-chamber/chamber-create-button.png" alt-text="Screenshot of chamber action bar with Create button annotated in red box.":::
+    :::image type="content" source="media/howtoguide-create-chamber/chamber-create-button.png" alt-text="Screenshot of chamber action bar with Create button annotated in red box.":::
 
 1. In the next dialog, only the name of a chamber is required. Enter a name and select **Next**.
 
-:::image type="content" source="media/howtoguide-create-chamber/chamber-create-name.png" alt-text="Screenshot of chamber name dialog.":::
+    :::image type="content" source="media/howtoguide-create-chamber/chamber-create-name.png" alt-text="Screenshot of chamber name dialog.":::
 
 1. If prevalidation checks are successful, select **Create**. A chamber typically takes around 15 minutes to deploy.
 

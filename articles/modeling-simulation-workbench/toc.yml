@@ -54,7 +54,7 @@ items:
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md
       - name: Place a chamber into Idle mode
-        href: ./how-to-guide-idle.md
+        href: ./how-to-guide
       - name: Add redirect URIs
         href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
@@ -69,3 +69,5 @@ items:
         href: ./resources-troubleshoot.md
       - name: Get support
         href: ./resources-get-support.md
+      - name: AzCopy
+        href: /azure/storage/common/storage-use-azcopy-v10?tabs=dnf

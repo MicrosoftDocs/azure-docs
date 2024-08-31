@@ -37,7 +37,7 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 1. Select **Create** from the action bar. The Create shared storage configuration appears.
 1. Fill in a name, set the capacity in 4-TB increments, and select the chambers that the shared storage should be accessible to.
 
-:::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Screenshot of shared storage create dialog.":::
+    :::image type="content" source="media/howtoguide-shared-storage/shared-storage-create.png" alt-text="Screenshot of shared storage create dialog.":::
 
 1. Select **Review + Create**. If the validation checks pass, select **Create**.
 

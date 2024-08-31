@@ -54,7 +54,7 @@ To edit the list of allowed IP addresses:
 1. Select **Submit** to save your changes.
 1. Refresh the view for connector networking and confirm that your changes appear.
 
- :::image type="content" source="./media/resources-troubleshoot/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the allowlist for chamber connector networking.":::
+    :::image type="content" source="./media/resources-troubleshoot/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the allowlist for chamber connector networking.":::
 
 ## Redirect URIs
 
@@ -68,7 +68,7 @@ To find redirect URIs:
    - **Dashboard reply URL**: For example, https://<*dashboardFqdn*>/etx/oauth2/code
    - **Authentication reply URL**: For example, https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
 
-:::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page that shows where you select the reply URLs.":::
+    :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page that shows where you select the reply URLs.":::
 
 The redirect URIs must be registered with the Application registration to properly authenticate and redirect users to the workbench. To learn how to add redirect URIs, see [How to add redirect URIs](./how-to-guide-add-redirect-uris.md).
 
@@ -85,13 +85,14 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 
 ### IP addresses
 
-For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses
+For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses when the public IP connector is implemented.
 
 > [!CAUTION]
-> The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled when more users are added to the Chamber. Discovery of endpoint IP addresses may be incomplete once the userbase increases.
+> The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled when more users are added to the chamber. Discovery of endpoint IP addresses may be incomplete once the userbase increases.
 
-For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute connector is suggested. When using a VPN Gateway, the access point of the
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a VPN and ExpressRoute connector is suggested. When using a VPN Gateway, the access point of the workbench is limited only to the gateway IP address.
 
 ## Next steps
 
-To learn how to import data into an Azure Modeling and Simulation Workbench chamber, see [Import data](./how-to-guide-upload-data.md).
+> [!div class="nextstepaction"]
+> [Import data](./how-to-guide-upload-data.md)
