@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
- If you still have active Co-Administrator or Service Administrator role assignments, convert these roles to Azure RBAC immediately. This article describes the retirement of the Co-Administrator and Service Administrator roles and how to convert these role assignments.
+If you still have active Co-Administrator or Service Administrator role assignments, convert these roles to Azure RBAC immediately. This article describes the retirement of the Co-Administrator and Service Administrator roles and how to convert these role assignments.
 
 ## Frequently asked questions
 
