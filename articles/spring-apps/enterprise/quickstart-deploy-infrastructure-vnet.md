@@ -7,7 +7,7 @@ ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java, mode-arm, devx-track-arm-template
 ms.author: rhudson
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ---
 
 # Quickstart: Provision Azure Spring Apps using an ARM template
