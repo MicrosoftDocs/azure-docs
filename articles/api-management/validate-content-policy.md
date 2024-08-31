@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 08/30/2024
 ms.author: danlep
 ---
 
@@ -47,7 +47,7 @@ The policy validates the following content in the request or response against th
     <content-type-map any-content-type-value="content type string" missing-content-type-value="content type string">
         <type from | when="content type string" to="content type string" />
     </content-type-map>
-    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
+    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" case-insensitive-property-names="true | false"/>
 </validate-content>
 ```
 
@@ -90,6 +90,7 @@ The policy validates the following content in the request or response against th
 | schema-id | Name of an existing schema that was [added](#schemas-for-content-validation) to the API Management instance for content validation. If not specified, the default schema from the API definition is used. | No | N/A |
 | schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`. The attribute should return a JSON object that API Management handles as a valid JSON schema.<br/><br/> For an XML schema, `schema-ref` isn't supported, and any top-level schema element can be used as the root of the XML request or response payload. The validation checks that all elements starting from the XML request or response payload root adhere to the provided XML schema. | No | N/A |
 | allow-additional-properties |  Boolean. For a JSON schema, specifies whether to implement a runtime override of the `additionalProperties` value configured in the schema: <br> - `true`: allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to not allow additional properties. <br> - `false`: do not allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to allow additional properties.<br/><br/>If the attribute isn't specified, the policy validates additional properties according to configuration of the `additionalProperties` field in the schema. | No |   N/A  |
+| case-insensitive-property-names | Boolean. For a JSON schema, specifies whether to compare property names of JSON objects without regard to case. <br> - `true`: compare property names case insensitively. <br> - `false`: compare property names case sensitively. | No | false |
 
 [!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 
