@@ -296,7 +296,7 @@ A number of the performance maximums in this article are related to the network 
 
 TCP performance relies heavily on RTT and packet Loss. The PING utility available in Windows and Linux provides the easiest way to measure RTT and packet loss. The output of PING will show the minimum/maximum/average latency between a source and destination. It will also show packet loss. PING uses the ICMP protocol by default. You can use PsPing to test TCP RTT. For more information, see [PsPing](/sysinternals/downloads/psping).
 
-Neither ICMP nor TCP pings measure the accelerated networking datapath. To measure this, please read about Latte and SockPerf in [this article](/azure/virtual-network/virtual-network-test-latency).
+Neither ICMP nor TCP pings measure the accelerated networking datapath. To measure this, please read about Latte and SockPerf in [this article](./virtual-network-test-latency.md).
 
 ### Measure actual bandwidth of a virtual machine
 
