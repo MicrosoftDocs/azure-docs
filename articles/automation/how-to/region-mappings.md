@@ -1,7 +1,7 @@
 ---
 title: Supported regions for linked Log Analytics workspace
 description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
-ms.date: 02/10/2024
+ms.date: 08/30/2024
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
@@ -11,6 +11,8 @@ ms.custom: references_regions
 
 > [!NOTE]
 > Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance.
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
 

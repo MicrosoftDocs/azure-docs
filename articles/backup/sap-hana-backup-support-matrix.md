@@ -4,7 +4,7 @@ description: In this article, learn about the supported scenarios and limitation
 ms.topic: conceptual
 ms.date: 01/30/2024
 ms.custom: references_regions 
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

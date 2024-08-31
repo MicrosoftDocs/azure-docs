@@ -4,7 +4,7 @@ description: Introduction to key scenarios, capabilities, and concepts of the v2
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/08/2024
 ms.author: danlep
@@ -87,7 +87,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Zone redundancy 
 * Multi-region deployment 
 * Multiple custom domain names 
-* Capacity metric
+* Capacity metric - replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics
 * Autoscaling
 * Inbound connection using a private endpoint
 * Injection in a VNet in external mode or internal mode

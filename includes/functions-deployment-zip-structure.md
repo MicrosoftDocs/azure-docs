@@ -19,4 +19,4 @@ The archive must include the [host.json](../articles/azure-functions/functions-h
 * [Python](../articles/azure-functions/functions-reference-python.md#folder-structure)
 
 > [!IMPORTANT]
-> Make sure to compress the contents of any output folder, rather than the parent folder itself. When Azure Functions extracts the contents of the zip archive, it needs to immediately see the `host.json` file.
+> For languages that generate compiled output for deployment, make sure to compress the contents of the output folder you plan to publish and not the entire project folder. When Functions extracts the contents of the zip archive, the `host.json` file must exist in the root of the package.

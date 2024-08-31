@@ -1,6 +1,6 @@
 ---
 author: mumian
-ms.service: blueprints
+ms.service: azure-blueprints
 ms.topic: include
 ms.date: 09/15/2023
 ms.author: jgao

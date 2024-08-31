@@ -4,7 +4,7 @@ metadata:
   description: This page provides answers to frequently asked questions about Azure Front Door.
   author: duongau
   ms.author: duau
-  ms.service: frontdoor
+  ms.service: azure-frontdoor
   ms.topic: faq
   ms.date: 06/17/2024
 title: Frequently asked questions for Azure Front Door

@@ -1,7 +1,7 @@
 ---
 title: Trino connectors
 description: Connectors available for Trino.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---

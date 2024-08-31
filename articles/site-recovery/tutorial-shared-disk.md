@@ -2,7 +2,7 @@
 title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 05/08/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -250,5 +250,5 @@ The health status warning due to test failover will be available as part of Gene
 
 Learn more about:
 
--  [Azure managed disk](../virtual-machines/disks-shared.md).
+-  [Azure managed disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).

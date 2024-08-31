@@ -8,13 +8,15 @@ ms.date: 07/12/2024
 
 # Use Advisor score
 
+This article shows you how to use Azure Advisor score to measure optimization progress.
+
 ## Introduction to score
 
-Azure Advisor provides best practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
+Advisor provides best-practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
 
 * Improve the posture of your workloads and optimize your Azure deployments.
 * Proactively prevent top issues by following best practices.
-* Assess your Azure workloads against the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* Assess your Azure workloads against the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 As a core feature of Advisor, Advisor score can help you achieve these goals effectively and efficiently.
 
@@ -22,7 +24,7 @@ To get the most out of Azure, it's crucial to understand where you are in your w
 
 It's also important to track and report the progress you're making in this optimization journey. With Advisor score, you can easily do all these things with the new gamification experience.
 
-As your personalized cloud consultant, Azure Advisor continually assesses your usage telemetry and resource configuration to check for industry best practices. Advisor then aggregates its findings into a single score. With this score, you can tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions.
+As your personalized cloud consultant, Advisor continually assesses your usage telemetry and resource configuration to check for industry best practices. Advisor then aggregates its findings into a single score. With this score, you can tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions.
 
 The Advisor score consists of an overall score, which can be further broken down into five category scores. One score for each category of Advisor represents the five pillars of the Well-Architected Framework.
 
@@ -30,13 +32,13 @@ You can track the progress you make over time by viewing your overall score and 
 
 ## Use Advisor score in the portal
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
 
-1. Select **Advisor score** in the left menu pane to open score page.
+1. Select **Advisor score** on the left pane to open the score page.
 
-:::image type="content" source="./media/advisor-score.png" alt-text="Screenshot that shows the Advisor Score entry point." lightbox="./media/advisor-score.png":::
+:::image type="content" source="./media/advisor-score.png" alt-text="Screenshot that shows the Advisor score entry point." lightbox="./media/advisor-score.png":::
 
 ## Interpret an Advisor score
 
@@ -46,22 +48,22 @@ Advisor displays your overall Advisor score and a breakdown for Advisor categori
 * **Score by category** for each recommendation tells you which outstanding recommendations improve your score the most. These values reflect both the weight of the recommendation and the predicted ease of implementation. These factors help to make sure you can get the most value with your time. They also help you with prioritization.
 * **Category score impact** for each recommendation helps you prioritize your remediation actions for each category.
 
-The contribution of each recommendation to your category score is shown clearly on the **Advisor score** page in the Azure portal. You can increase each category score by the percentage point listed in the **Potential score increase** column. This value reflects both the weight of the recommendation within the category and the predicted ease of implementation to address the potentially easiest tasks. Focusing on the recommendations with the greatest score impact will help you make the most progress with time.
+The contribution of each recommendation to your category score is shown clearly on the **Advisor score** page in the Azure portal. You can increase each category score by the percentage point listed in the **Potential score increase** column. This value reflects both the weight of the recommendation within the category and the predicted ease of implementation to address the potentially easiest tasks. Focusing on the recommendations with the greatest score impact helps you make the most progress with time.
 
 ![Screenshot that shows the Advisor score impact.](https://user-images.githubusercontent.com/41593141/195171044-6a45fa99-a291-49f3-8914-2b596771e63b.png)
 
-If any Advisor recommendations aren't relevant for an individual resource, you can postpone or dismiss those recommendations. They'll be excluded from the score calculation with the next refresh. Advisor will also use this input as feedback to improve the model.
+If any Advisor recommendations aren't relevant for an individual resource, you can postpone or dismiss those recommendations. They're excluded from the score calculation with the next refresh. Advisor also uses this input as feedback to improve the model.
 
 ## How is an Advisor score calculated?
 
 Advisor displays your category scores and your overall Advisor score as percentages. A score of 100% in any category means all your resources, *assessed by Advisor*, follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources, assessed by Advisor, follows Advisor recommendations.
 
-**Each of the five categories has a highest potential score of 100.** Your overall Advisor score is calculated as a sum of each applicable category score, divided by the sum of the highest potential score from all applicable categories. In most cases this means adding up five Advisor scores for each category and dividing by 500. But *each category score is calculated only if you use resources that are assessed by Advisor*.
+**Each of the five categories has a highest potential score of 100.** Your overall Advisor score is calculated as a sum of each applicable category score, divided by the sum of the highest potential score from all applicable categories. In most cases, this means adding up five Advisor scores for each category and dividing by 500. But *each category score is calculated only if you use resources that are assessed by Advisor*.
 
 ### Advisor score calculation example
 
-* **Single subscription score:** This example is the simple mean of all Advisor category scores for your subscription. If the Advisor category scores are - **Cost** = 73, **Reliability** = 85, **Operational excellence** = 77, and **Performance** = 100, the Advisor score would be (73 + 85 + 77 + 100)/(4x100) = 0.84% or 84%.
-* **Multiple subscriptions score:** When multiple subscriptions are selected, the overall Advisor score is calculated as an average of aggregated category scores. Each category score is calculated using individual subscription score and subscription consumsumption based weight. Overall score is calculated as sum of aggregated category scores divided by the sum of the highest potential scores.
+* **Single subscription score:** This example is the simple mean of all Advisor category scores for your subscription. If the Advisor category scores are **Cost** = 73, **Reliability** = 85, **Operational excellence** = 77, and **Performance** = 100, the Advisor score would be (73 + 85 + 77 + 100)/(4x100) = 0.84% or 84%.
+* **Multiple subscriptions score:** When multiple subscriptions are selected, the overall Advisor score is calculated as an average of aggregated category scores. Each category score is calculated by using the individual subscription score and the subscription consumption-based weight. The overall score is calculated as the sum of aggregated category scores divided by the sum of the highest potential scores.
 
 ### Scoring methodology
 
@@ -76,9 +78,11 @@ The calculation of the Advisor score can be summarized in four steps:
    * Resources with long-standing recommendations count more against your score.
    * Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely.
 
-Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md) model. A simple average produces the final Advisor score.
+Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](/azure/defender-for-cloud/secure-score-security-controls) model. A simple average produces the final Advisor score.
 
-## Frequently Asked Questions (FAQs)
+## Frequently asked questions (FAQs)
+
+Here are answers to common questions about Advisor score.
 
 ### How often is my score refreshed?
 
@@ -88,9 +92,9 @@ Your score is refreshed at least once per day.
 
 Your score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
 
-### I implemented a recommendation but my score did not change. Why the score did not increase?
+### I implemented a recommendation but my score didn't change. Why didn't the score increase?
 
-The score does not reflect adopted recommendations right away. It takes at least 24 hours for the score to change after the recommendation is remediated. 
+The score doesn't reflect adopted recommendations right away. It takes at least 24 hours for the score to change after the recommendation is remediated.
 
 ### Why do some recommendations have the empty "-" value in the category score impact column?
 
@@ -106,7 +110,7 @@ This message means that the recommendation is new, and we're working on bringing
 
 ### What if a recommendation isn't relevant?
 
-If you dismiss a recommendation from Advisor, it is excluded from the calculation of your score. Dismissing recommendations also helps Advisor improve the quality of recommendations.
+If you dismiss a recommendation from Advisor, it's excluded from the calculation of your score. Dismissing recommendations also helps Advisor improve the quality of recommendations.
 
 ### Why don't I have a score for one or more categories or subscriptions?
 
@@ -130,9 +134,9 @@ The scoring methodology is designed to control for the number of resources on a 
 
 ### Does my score depend on how much I spend on Azure?
 
-No. Your score isn't necessarily a reflection of how much you spend. Unnecessary spending will result in a lower **Cost** score.
+No. Your score isn't necessarily a reflection of how much you spend. Unnecessary spending results in a lower **Cost** score.
 
-## Next steps
+## Related content
 
 For more information about Advisor recommendations, see:
 

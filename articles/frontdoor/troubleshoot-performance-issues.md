@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose, and resolve potential latency or bandwidth problems associated with Azure Front Door and site performance.
 services: frontdoor
 author: sbdoroff
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/30/2023
 ms.author: stdoroff
@@ -41,65 +41,47 @@ If one of the origin servers is slow, then the first request for an object via A
 
    To check response headers, use the following `curl` examples in Bash. You can also use your browser's developer tools by selecting the F12 key. Select the **Networking** tab, select the relevant file to be investigated, and then select the **Headers** tab. If the file is missing, reload the page with the developer tools open.
 
-   The initial response should have an `x-cache` header with a `TCP_MISS` value. The Azure Front Door POP forwards requests with this value to the origin. The origin sends the return traffic on that same path to the requesting client.
+   The initial response should have an `x-cache` header with a `TCP_MISS` or `CONFIG_NOCACHE` value. The Azure Front Door POP forwards requests with this value to the origin. The origin sends the return traffic on that same path to the requesting client.
 
    Here's an example that shows `TCP_MISS`:
 
    ```bash
-   $ curl -I "https://S*******.z01.azurefd.net/media/EteSQSGXMAYVUN_?format=jpg&name=large"
+   $ curl -I https://www.contoso.com/styles.css
    HTTP/2 200
-   cache-control: max-age=604800, must-revalidate
-   content-length: 248381
-   content-type: image/jpeg
-   last-modified: Fri, 05 Feb 2021 15:34:05 GMT
-   accept-ranges: bytes
-   age: 0
-   server: ECS (sjc/4E76)
-   x-xcachep2c-originurl: https://p****.com:443/media/EteSQSGXMAYVUN_?    format=jpg&name=large
-   x-xcachep2c-originip: 72.21.91.70
-   access-control-allow-origin: *
-   access-control-expose-headers: Content-Length
-   strict-transport-security: max-age=631138519
-   surrogate-key: media media/bucket/9 media/1357714621109579782
+   date: Wed, 28 Aug 2024 17:02:09 GMT
+   content-type: text/css
+   content-length: 2837
+   last-modified: Thu, 09 May 2024 20:49:36 GMT
+   etag: "b15-6180b8e9bd897"
+   vary: Accept-Encoding
+   x-azure-ref: 20240828T170209Z-AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00
+   x-fd-int-roxy-purgeid: 0
    x-cache: TCP_MISS
-   x-connection-hash: 8c9ea346f78166a032b347a42d8cc561
-   x-content-type-options: nosniff
-   x-response-time: 26
-   x-tw-cdn: VZ
-   x-azure-ref-originshield: 0MlAkYAAAAACtEkUH8vEbTIFoZe4xuRLOU0pDRURHRTA1MDgAZDM0ZjBhNGUtMjc4
-   x-azure-ref:     0MlAkYAAAAACayEVNiWaKRI61MXUgRe97REFMRURHRTEwMTQAZDM0ZjBhNGUtMjc4 
-   date: Wed, 10 Feb 2021 21:29:22 GMT
+   accept-ranges: bytes
    ```
 
    Here's an example that shows `TCP_HIT`:
 
    ```bash
-   $ curl -I "https://S*******.z01.azurefd.net/media/EteSQSGXMAYVUN_?format=jpg&name=large"
+   curl -I https://www.contoso.com/styles.css
    HTTP/2 200
-   cache-control: max-age=604800, must-revalidate
-   content-length: 248381
-   content-type: image/jpeg
-   last-modified: Fri, 05 Feb 2021 15:34:05 GMT
-   accept-ranges: bytes
-   age: 0
-   server: ECS (sjc/4E76)
-   x-xcachep2c-originurl: https://p****.com:443/media/EteSQSGXMAYVUN_?format=jpg&name=large
-   x-xcachep2c-originip: 72.21.91.70
-   access-control-allow-origin: *
-   access-control-expose-headers: Content-Length
-   strict-transport-security: max-age=631138519
-   surrogate-key: media media/bucket/9 media/1357714621109579782
+   date: Wed, 28 Aug 2024 17:04:38 GMT
+   content-type: text/css
+   content-length: 2837
+   last-modified: Thu, 09 May 2024 20:49:36 GMT
+   etag: "b15-6180b8e9bd897"
+   vary: Accept-Encoding
+   x-azure-ref: 20240828T170438Z-BB22CC33DD44EE55FF66AA77BB88CC99DD00EE11
+   x-fd-int-roxy-purgeid: 0
    x-cache: TCP_HIT
-   x-connection-hash: 8c9ea346f78166a032b347a42d8cc561
-   x-content-type-options: nosniff
-   x-response-time: 26
-   x-tw-cdn: VZ
-   x-azure-ref-originshield: 0MlAkYAAAAACtEkUH8vEbTIFoZe4xuRLOU0pDRURHRTA1MDgAZDM0ZjBhNGUtMjc4Mi00OWVhLWIzNTYtN2MzYj
-   x-azure-ref: 0NVAkYAAAAABHk4Fx0cOtQrp6cHFRf0ocREFMRURHRTEwMDUAZDM0ZjBhNGUtMjc4Mi00OWVhLWIzNTYtN2MzYj
-   date: Wed, 10 Feb 2021 21:29:25 GMT
+   x-cache-info: L1_T2
+   accept-ranges: bytes
    ```
 
 1. Continue to request against the endpoint until the `x-cache` header has a `TCP_HIT` value.
+
+   If you initially saw `CONFIG_NOCACHE`, then caching is not enabled in the route configuration.  In this case, you will not see `TCP_HIT`.
+
 1. If the performance problem is resolved, the problem was based on the origin's speed and not the performance of Azure Front Door. The owner needs to address the Azure Front Door cache settings or the origin to improve performance.
 
    If the problem persists, the source might be the client that's requesting the content or the Azure Front Door service. Move to Scenario 2 to identify the source.

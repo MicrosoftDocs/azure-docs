@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to enable NSG flow logs programmatically using a Bicep file to log the traffic flowing through a network security group.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
 ms.date: 09/29/2023
 ms.custom: devx-track-bicep, subject-bicepqs, mode-arm

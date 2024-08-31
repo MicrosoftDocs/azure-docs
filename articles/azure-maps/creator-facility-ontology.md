@@ -1,13 +1,12 @@
 ---
 title: Facility Ontology in Microsoft Azure Maps Creator
 description: Facility Ontology that describes the feature class definitions for Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 zone_pivot_groups: facility-ontology-schema
 ---
 

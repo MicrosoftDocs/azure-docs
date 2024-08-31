@@ -3,7 +3,6 @@ title: Troubleshoot the change data capture resource
 titleSuffix: Azure Data Factory
 description: Learn how to troubleshoot issues with the change data capture resource in Azure Data Factory. 
 author: n0elleli
-ms.service: data-factory
 ms.subservice:
 ms.topic: troubleshooting
 ms.date: 01/05/2024

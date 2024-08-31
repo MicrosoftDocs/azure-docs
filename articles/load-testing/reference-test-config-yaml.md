@@ -3,7 +3,7 @@ title: Load test configuration YAML
 titleSuffix: Azure Load Testing
 description: 'Learn how to configure a load test by using a YAML file. The YAML configuration is used for setting up automated load testing in a CI/CD pipeline.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
 ms.author: ninallam
 author: ninallam

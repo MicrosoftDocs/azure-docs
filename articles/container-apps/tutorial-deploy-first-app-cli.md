@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 03/21/2022
 ms.author: cshoe

@@ -57,7 +57,7 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
       };
       ```
 
-1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
+1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp%2Cquick-create#publish-to-azure).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
 ## Configure Azure function to use your blob storage

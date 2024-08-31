@@ -5,7 +5,7 @@ description: Learn how to create an Internet facing load balancer with IPv6 usin
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender
@@ -191,7 +191,7 @@ This example creates the following items:
 
 ## Create virtual machines and assign the newly created NICs
 
-For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](/azure/virtual-machines/windows/quick-create-powershell?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Create an Availability Set and Storage account
 

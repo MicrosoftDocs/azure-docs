@@ -29,8 +29,6 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 ## Prerequisites
 
-To follow this example, you need these items:
-
 * An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
@@ -42,6 +40,8 @@ To follow this example, you need these items:
 * An existing [X12 agreement](logic-apps-enterprise-integration-x12.md) in your integration account.
 
 * To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Azure Logic Apps](quickstart-create-logic-apps-with-visual-studio.md).
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receiver"></a>
 
@@ -166,7 +166,7 @@ the batch into subsets to collect messages with that key.
 
 ## Test your workflows
 
-To test your batching solution, post X12 messages to your batch sender logic app from a local tool or app that can send HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/). Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
+To test your batching solution, post X12 messages to your batch sender logic app workflow using your HTTP request tool and its instructions. Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Connect Stream Analytics jobs to resources in an Azure Virtual Network (V
 description: This article describes how to connect an Azure Stream Analytics job with resources that are in a VNET.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2023
 ms.custom:

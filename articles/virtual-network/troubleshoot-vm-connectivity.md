@@ -6,7 +6,7 @@ ms.author: allensu
 manager: dcscontentpm
 audience: ITPro
 ms.topic: troubleshooting
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.localizationpriority: medium
 ms.date: 08/29/2019
 ---
@@ -23,6 +23,11 @@ This article helps administrators diagnose and resolve connectivity problems tha
 
 To resolve these problems, follow the steps in the following section.
 
+> [!NOTE]  
+> You can use the following:
+> * `netstat -an` to list the ports that the VM is listening to
+> * Test-NetConnection module in PowerShell to display diagnostic information for a connection such as ping test and tcp test
+> 
 ## Resolution
 
 ### Azure VM cannot connect to another Azure VM in same virtual network
@@ -67,11 +72,11 @@ To connect by using Remote Desktop, follow these steps.
 3. Select the virtual machine in the list.
 4. On the page for the virtual machine, select **Connect**.
 
-For more information, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+For more information, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 **Linux**:
 
-For more information, see [Connect to a Linux VM in Azure](../virtual-machines/linux/quick-create-portal.md).
+For more information, see [Connect to a Linux VM in Azure](/azure/virtual-machines/linux/quick-create-portal).
 
 If the Remote Desktop or SSH connection is successful, go to next step.
 

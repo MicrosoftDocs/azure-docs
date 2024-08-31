@@ -1,12 +1,12 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Create a dataset using a GeoJson package (Preview)

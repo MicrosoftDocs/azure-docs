@@ -3,7 +3,7 @@ title: 'Security admin rules in Azure Virtual Network Manager'
 description: Learn about what security admin rules are in Azure Virtual Network Manager, how they work, and how traffic rules are evaluated including nonapplication of security admin rules and exceptions.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 12/07/2023
 ms.custom: template-concept, engagement-fy23

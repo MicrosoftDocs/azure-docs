@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 08/05/2024
 
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
@@ -102,3 +102,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

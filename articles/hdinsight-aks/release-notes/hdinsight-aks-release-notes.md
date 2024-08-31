@@ -1,9 +1,9 @@
 ---
 title: Release notes for Azure HDInsight on AKS  
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 03/20/2024
+ms.date: 08/05/2024
 ---
 
 # Azure HDInsight on AKS release notes
@@ -29,40 +29,42 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: March 20, 2024
+### Release date: Aug 05, 2024
 
 **This release applies to the following**
 
-- Cluster Pool Version: 1.1
-- Cluster Version: 1.1.1
+- Cluster Pool Version: 1.2
+- Cluster Version: 1.2.1
 - AKS version: 1.27
-
 
 ### New Features
 
-**Apache Flink Application Mode Cluster**
+**MSI based SQL authentication**
+Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This feature helps to further secure the cluster connection with Metastore.
 
-Application mode clusters are designed to support dedicated resources for large and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the [Application Mode Cluster](https://flink.apache.org/2020/07/14/application-deployment-in-flink-current-state-and-the-new-application-mode/#application-mode). This mode allows you to allocate dedicated resources for specific Apache Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.  
+**Configurable VM SKUs for Head node, SSH node** 
+This functionality allows users to choose specific SKUs for head nodes, worker nodes, and SSH nodes, offering the flexibility to select according to the use case and the potential to lower total cost of ownership (TCO).
 
-For more information, see [Apache Flink Application Mode cluster on HDInsight on AKS](../flink/application-mode-cluster-on-hdinsight-on-aks.md).
+**Multiple MSI in cluster**
+Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
+For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
 
-**Private Clusters for HDInsight on AKS**
+### Updated
 
-With private clusters, and outbound cluster settings you can now control ingress and egress traffic from HDInsight on AKS cluster pools and clusters.
+**Script action**
+Script Action now can be added with Sudo user permission. Users can now install multiple dependencies including custom jars to customize the clusters as required. 
 
-- Use Azure Firewall or Network Security Groups (NSGs) to control the egress traffic, when you opt to use outbound cluster pool with load balancer.
-- Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
-- Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
-- Avoid creating public IPs for the cluster. Use private ingress feature on your clusters.
+**Library Management**
+Maven repository shortcut feature added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
 
-For more information, see [Control network traffic from HDInsight on AKS Cluster pools and cluster](../control-egress-traffic-from-hdinsight-on-aks-clusters.md).
-
-**In place Upgrade**
-
-Upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest cluster package hotfixes, security updates, and AKS patches, without recreating clusters. For more information, see [Upgrade your HDInsight on AKS clusters and cluster pools](../in-place-upgrade.md).
+**Spark 3.4**
+Spark 3.4 update brings a range of new features includes 
+* API enhancements
+* Structured streaming improvements
+* Improved usability and developer experience
 
 > [!IMPORTANT]
-> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.1 and cluster version 1.1.1.
+> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
 
 ### Known issues
 
@@ -80,15 +82,15 @@ Upgrade your clusters and cluster pools with the latest software updates. This m
 
 |Workload|Version|
 | -------- | -------- |
-|Trino | 426 |
+|Trino | 440 |
 |Flink | 1.17.0 |
-|Apache Spark | 3.3.1 |
+|Apache Spark | 3.4 |
 
 **Supported Java and Scala versions**
 
 |Workload |Java|Scala|
 | ----------- | -------- | -------- |
-|Trino |Open JDK 17.0.7  |- |
+|Trino |Open JDK 21.0.2  |- |
 |Flink  |Open JDK 11.0.21 |2.12.7 |
 |Spark  |Open JDK 1.8.0_345  |2.12.15 |
 

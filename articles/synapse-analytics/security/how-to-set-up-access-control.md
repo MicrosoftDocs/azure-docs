@@ -2,7 +2,7 @@
 title: Access control in Synapse workspace how to 
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 author: talk2rick
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: how-to 
 ms.subservice: security 
 ms.date: 5/23/2022
@@ -98,7 +98,7 @@ Identify the following information about your storage:
     | Assign access to |SERVICEPRINCIPAL |
     | Members |workspace1_SynapseAdministrators, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ## Step 3: Create and configure your Synapse workspace
 
@@ -140,7 +140,7 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 
 ## Step 5: Grant Synapse administrators an Azure Contributor role for the workspace
@@ -160,7 +160,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users need an 
     | Assign access to | SERVICEPRINCIPAL |
     | Members | workspace1_SynapseAdministrators  |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png) 
 
 ## Step 6: Assign an SQL Active Directory Admin role
 

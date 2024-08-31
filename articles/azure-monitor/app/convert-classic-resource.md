@@ -41,7 +41,7 @@ Workspace-based Application Insights resources allow you to take advantage of th
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate changes the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
-Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level).
+Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-configure.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-configure.md#configure-table-level-retention).
 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
@@ -65,7 +65,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
   > [!NOTE]
-  > - If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#configure-retention-and-archive-at-the-table-level).
+  > - If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-configure.md?tabs=portal-1%2cportal-2#configure-table-level-retention).
   > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention continues to be billed through that Application Insights resource until the data exceeds the retention period.
   > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 - Understand [workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
@@ -365,7 +365,7 @@ There's usually no difference, with two exceptions.
 - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model doesn't receive the free data.
 - Application Insights resources that were in the basic pricing tier before April 2018 continue to be billed at the same nonregional price point as before April 2018. Application Insights resources created after that time, or those resources converted to be workspace-based, will receive the current regional pricing. For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-The migration to workspace-based Application Insights offers many options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
+The migration to workspace-based Application Insights offers many options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [Basic and Auxiliary logs](../logs/cost-logs.md#basic-and-auxiliary-table-plans).  
 
 ### How will telemetry capping work?
 
@@ -500,7 +500,7 @@ Legacy table: availabilityResults
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -517,7 +517,7 @@ Legacy table: availabilityResults
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |location|string|Location|string|
 |message|string|Message|string|
@@ -544,7 +544,7 @@ Legacy table: browserTimings
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -559,7 +559,7 @@ Legacy table: browserTimings
 |customMeasurements|dynamic|Measurements|Dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|datetime|
 |networkDuration|real|NetworkDurationMs|real|
@@ -588,7 +588,7 @@ Legacy table: dependencies
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -606,7 +606,7 @@ Legacy table: dependencies
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -633,7 +633,7 @@ Legacy table: customEvents
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -648,7 +648,7 @@ Legacy table: customEvents
 |customMeasurements|dynamic|Measurements|Dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -670,7 +670,7 @@ Legacy table: customMetrics
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -683,7 +683,7 @@ Legacy table: customMetrics
 |cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dynamic|Properties|Dynamic|
 |`iKey`|string|`IKey`|string|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -698,9 +698,10 @@ Legacy table: customMetrics
 |user_Id|string|UserId|string|
 |value|real|(removed)||
 |valueCount|int|ItemCount|int|
-|valueMax|real|ValueMax|real|
-|valueMin|real|ValueMin|real|
-|valueSum|real|ValueSum|real|
+|valueMax|real|Max|real|
+|valueMin|real|Min|real|
+|valueSum|real|Sum|real|
+|valueStdDev|real|(removed)||
 
 > [!NOTE]
 > Older versions of Application Insights SDKs are used to report standard deviation (`valueStdDev`) in the metrics pre-aggregation. Because adoption in metrics analysis was light, the field was removed and is no longer aggregated by the SDKs. If the value is received by the Application Insights data collection endpoint, it's dropped during ingestion and isn't sent to the Log Analytics workspace. If you want to use standard deviation in your analysis, use queries against Application Insights raw events.
@@ -713,7 +714,7 @@ Legacy table: pageViews
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -730,7 +731,7 @@ Legacy table: pageViews
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -754,7 +755,7 @@ Legacy table: performanceCounters
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |category|string|Category|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
@@ -770,7 +771,7 @@ Legacy table: performanceCounters
 |customDimensions|dynamic|Properties|Dynamic|
 |`iKey`|string|`IKey`|string|
 |instance|string|Instance|string|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -793,7 +794,7 @@ Legacy table: requests
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -810,7 +811,7 @@ Legacy table: requests
 |`id`|string|`Id`|String|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|String|
 |operation_Id|string|OperationId|string|
@@ -837,7 +838,7 @@ Legacy table: exceptions
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |assembly|string|Assembly|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
@@ -859,7 +860,7 @@ Legacy table: exceptions
 |innermostMethod|string|InnermostMethod|string|
 |innermostType|string|InnermostType|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |message|string|Message|string|
 |method|string|Method|string|
@@ -889,7 +890,7 @@ Legacy table: traces
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -904,7 +905,7 @@ Legacy table: traces
 |customMeasurements|dynamic|Measurements|dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |message|string|Message|string|
 |operation_Id|string|OperationId|string|

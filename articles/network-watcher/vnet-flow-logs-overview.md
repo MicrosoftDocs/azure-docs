@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -76,7 +76,7 @@ Key properties of virtual network flow logs include:
 Virtual network flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
-- `flowLogVersion`: Version of the flow log schema.
+- `flowLogVersion`: Version of the flow log.
 - `flowLogGUID`: Resource GUID of the `FlowLog` resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
@@ -132,7 +132,7 @@ In the following example of virtual network flow logs, multiple records follow t
         {
             "time": "2022-09-14T09:00:52.5625085Z",
             "flowLogVersion": 4,
-            "flowLogGUID": "abcdef01-2345-6789-0abc-def012345678",
+            "flowLogGUID": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "macAddress": "00224871C205",
             "category": "FlowLogFlowEvent",
             "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
@@ -146,16 +146,16 @@ In the following example of virtual network flow logs, multiple records follow t
                             {
                                 "rule": "DefaultRule_AllowInternetOutBound",
                                 "flowTuples": [
-                                    "1663146003599,10.0.0.6,52.239.184.180,23956,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003606,10.0.0.6,52.239.184.180,23956,443,6,O,E,NX,3,767,2,1580",
-                                    "1663146003637,10.0.0.6,40.74.146.17,22730,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003640,10.0.0.6,40.74.146.17,22730,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,E,NX,2,134,1,108",
-                                    "1663146017343,10.0.0.6,104.16.218.84,36776,443,6,O,B,NX,0,0,0,0",
-                                    "1663146022793,10.0.0.6,104.16.218.84,36776,443,6,O,E,NX,22,2217,33,32466"
+                                    "1663146003599,10.0.0.6,192.0.2.180,23956,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580",
+                                    "1663146003637,10.0.0.6,203.0.113.17,22730,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003640,10.0.0.6,203.0.113.17,22730,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,E,NX,2,134,1,108",
+                                    "1663146017343,10.0.0.6,198.51.100.84,36776,443,6,O,B,NX,0,0,0,0",
+                                    "1663146022793,10.0.0.6,198.51.100.84,36776,443,6,O,E,NX,22,2217,33,32466"
                                 ]
                             }
                         ]
@@ -173,13 +173,13 @@ In the following example of virtual network flow logs, multiple records follow t
                             {
                                 "rule": "Internet",
                                 "flowTuples": [
-                                    "1663145989563,20.106.221.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
-                                    "1663145989679,20.55.117.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
-                                    "1663145989709,20.55.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
-                                    "1663145990049,13.65.224.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
-                                    "1663145990145,20.55.117.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
-                                    "1663145990175,20.55.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
-                                    "1663146015545,20.106.221.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
+                                    "1663145989563,192.0.2.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
+                                    "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
+                                    "1663145989709,203.0.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
+                                    "1663145990049,198.51.100.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
+                                    "1663145990145,203.0.113.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
+                                    "1663145990175,203.0.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
+                                    "1663146015545,192.0.2.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
                                 ]
                             }
                         ]
@@ -196,11 +196,11 @@ In the following example of virtual network flow logs, multiple records follow t
 
 :::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table that shows the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between `185.170.185.105:35370` and `10.2.0.4:23`:
+Here's an example bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.2.0.4:23`:
 
-`1493763938,185.170.185.105,10.2.0.4,35370,23,6,I,B,NX,,,,`
-`1493695838,185.170.185.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880`
-`1493696138,185.170.185.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072`
+`1493763938,203.0.113.105,10.2.0.4,35370,23,6,I,B,NX,,,,`
+`1493695838,203.0.113.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880`
+`1493696138,203.0.113.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072`
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
@@ -218,6 +218,22 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Supported scenarios
+
+The following table outlines the support scope of flow logs.
+
+| Scope | Network security group flow logs | Virtual network flow logs |
+| --- | --- | --- |
+| Bytes and packets in stateless flows | Not supported | Supported |
+| Identification of virtual network encryption  | Not supported | Supported |
+| Azure API management  | Not supported | Supported |
+| Azure Application Gateway | Not supported | Supported |
+| Azure Bastion | Supported | Supported |
+| Azure Virtual Network Manager | Not supported | Supported |
+| ExpressRoute gateway | Not supported | Supported |
+| Virtual machine scale sets | Supported | Supported |
+| VPN gateway | Not supported | Supported |
 
 ## Availability
 
