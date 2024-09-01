@@ -18,7 +18,7 @@ This article presents the most common firewall configuration commands. For full 
 All the operations referenced here require `sudo` privileges and thus need the Chamber Admin role.
 
 > [!IMPORTANT]
-> VMs can only communicate with other VMs in the same chamber. Chamber-to-chamber traffic is never permitted and modifying firewall rules can't enable cross-Chamber traffic.
+> VMs can only communicate with other VMs in the same chamber. Chamber-to-chamber traffic is never permitted and modifying firewall rules won't enable inter-chamber traffic.
 
 ## Prerequisites
 

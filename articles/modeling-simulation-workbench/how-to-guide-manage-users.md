@@ -90,8 +90,8 @@ When you want to remove user access to your chamber, you need to remove the Cham
 
 1. When you're prompted to confirm role assignment removal, select **Yes**.
 
-> [!NOTE]
-> This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, you must restart the connector. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
+   > [!NOTE]
+   > This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, you must restart the connector. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
 
 ## Next steps
 

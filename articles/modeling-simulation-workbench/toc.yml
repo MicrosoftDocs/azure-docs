@@ -49,7 +49,7 @@ items:
         href: ./how-to-guide-manage-shared-storage.md
       - name: Manage Red Hat firewalls
         href: ./how-to-guide-configure-firewall-red-hat.md
-      - name: Start, stop, and restart chambers, connectors, and VMs
+      - name: Start and stop chambers, connectors, and VMs
         href: ./how-to-guide-start-stop-restart.md
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md

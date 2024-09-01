@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 08/20/2024
 ---
 
-Follow these steps to get register the redirect URIs with the Application Registration:
+Follow these steps to register redirect URIs with the application registration in Microsoft Entra ID:
 
 1. On the overview page for your Modeling and Simulation Workbench workbench, navigate to the connector.
 
@@ -16,9 +16,13 @@ Follow these steps to get register the redirect URIs with the Application Regist
 
    :::image type="content" source="../media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs.":::
 
-To add the redirect URIs:
+## Add redirect URIs
 
-1. In the Azure portal, in **Microsoft Entra ID** > **App registrations**, select your application created in **Register an application** step.
+1. From the Azure portal, navigate to **Microsoft Entra ID**
+
+1. From the left menu, select **App registrations**
+
+1. Locate your application registration you created for your Workbench.
 
 1. Under **Manage**, select **Authentication**.
 
@@ -26,9 +30,8 @@ To add the redirect URIs:
 
 1. Under **Configure platforms**, select the **Web** tile.
 
-1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the Redirect URI field. Then select **Configure**.
-
-   :::image type="content" source="../media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra app Authentication page showing where you configure web authentication.":::
+1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the **Redirect URI** field. Then select **Configure**.
+    :::image type="content" source="../media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Microsoft Entra ID app Authentication page showing where you configure web authentication.":::
 
 1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
 

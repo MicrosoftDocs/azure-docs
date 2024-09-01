@@ -41,16 +41,16 @@ To place a chamber into idle, the connector must be stopped before the chamber i
 
     :::image type="content" source="media/howtoguide-idle/chamber-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a chamber.":::
 
-Wait until the chamber completely stops and the Power state shows **Stopped**.
+    Wait until the chamber completely stops and the Power state shows **Stopped**.
 
-:::image type="content" source="media/howtoguide-idle/chamber-verify-stop.png" alt-text="Screenshot of chamber overview with Power state as Stopped.":::
+    :::image type="content" source="media/howtoguide-idle/chamber-verify-stop.png" alt-text="Screenshot of chamber overview with Power state as Stopped.":::
 
-> [!TIP]
-> The Activity log will show successful stop of both chamber and connector.
+    > [!TIP]
+    > The Activity log will show successful stop of both chamber and connector.
 
-:::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing chamber successfully stopped.":::
+    :::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing chamber successfully stopped.":::
 
-:::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing connector successfully stopped.":::
+    :::image type="content" source="media/howtoguide-idle/connector-log-stop.png" alt-text="Screenshot of activity log showing connector successfully stopped.":::
 
 ## Take a chamber out of idle state
 
