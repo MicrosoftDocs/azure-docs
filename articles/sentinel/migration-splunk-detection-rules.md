@@ -2,8 +2,8 @@
 title: Migrate Splunk detection rules to Microsoft Sentinel
 titleSuffix: Microsoft Sentinel
 description: Learn how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatsons
 ms.topic: how-to
 ms.date: 03/11/2024
 #customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.

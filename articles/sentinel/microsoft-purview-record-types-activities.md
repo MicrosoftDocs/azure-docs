@@ -1,8 +1,8 @@
 ---
 title: Microsoft Purview Information Protection connector reference - audit log record types and activities support in Microsoft Sentinel
 description: This article lists supported audit log record types and activities when using the Microsoft Purview Information Protection connector with Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 01/02/2023
 

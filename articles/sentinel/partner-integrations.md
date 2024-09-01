@@ -1,8 +1,8 @@
 ---
 title: Partner integrations with Microsoft Sentinel
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 01/09/2023
 

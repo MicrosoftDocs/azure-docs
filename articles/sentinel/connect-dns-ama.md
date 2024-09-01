@@ -1,10 +1,10 @@
 ---
 title: Stream and filter Windows DNS logs with the AMA connector 
 description: Use the AMA connector to upload and filter data from your Windows DNS server logs. You can then dive into your logs to protect your DNS servers from threats and attacks.
-author: limwainstein
+author: yelevin
 ms.topic: how-to
 ms.date: 01/05/2022
-ms.author: lwainstein
+ms.author: yelevin
 #Customer intent: As a security operator, I want to proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
 
 

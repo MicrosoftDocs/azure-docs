@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel DNS over AMA connector reference - available fields and normalization schema
 description: This article lists available fields for filtering DNS data using the Windows DNS Events via AMA connector, and the normalization schema for Windows DNS server fields.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 09/01/2022
 

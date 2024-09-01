@@ -1,8 +1,8 @@
 ---
 title: Plan your migration to Microsoft Sentinel | Microsoft Docs
 description: Discover the reasons for migrating from a legacy SIEM, and learn how to plan out the different phases of your migration.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 03/11/2024
