@@ -337,6 +337,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/index.yml",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-maps/about-creator.md",
       "redirect_url": "/azure/azure-maps/creator-indoor-maps",
       "redirect_document_id": true
