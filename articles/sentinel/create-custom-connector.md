@@ -1,10 +1,10 @@
 ---
 title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: limwainstein
+author: austinmccollum
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: austinmc
 
 
 #Customer intent: [AI]As a security analyst, I want to create custom data connectors for Microsoft Sentinel so that I can ingest and analyze data from unsupported sources to enhance my organization's security monitoring and threat detection capabilities.
