@@ -157,12 +157,12 @@
         },        
         {
             "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/create-pv.md",
-            "redirect_url": "/azure/azure-arc/container-storage/create-pv",
+            "redirect_url": "/azure/azure-arc/container-storage/create-persistent-volume",
             "redirect_document_id": false
         },        
         {
             "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/create-pvc.md",
-            "redirect_url": "/azure/azure-arc/container-storage/create-pvc",
+            "redirect_url": "/azure/azure-arc/container-storage/create-create-persistent-volume",
             "redirect_document_id": false
         },        
         {
