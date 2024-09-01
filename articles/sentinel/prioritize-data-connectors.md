@@ -1,10 +1,10 @@
 ---
 title: Prioritize data connectors for Microsoft Sentinel
 description: Learn how to plan and prioritize which data sources to use for your Microsoft Sentinel deployment.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
 ms.date: 06/29/2023
-ms.author: lwainstein
+ms.author: cwatson
 ms.service: microsoft-sentinel
 
 
