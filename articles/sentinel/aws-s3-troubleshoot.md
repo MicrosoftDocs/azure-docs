@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot AWS S3 connector issues - Microsoft Sentinel
 description: Troubleshoot AWS S3 connector issues in Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: troubleshooting
 ms.date: 09/08/2022
 #Customer intent: As a security operator, I want to quickly identify the cause of the problem occurring with the AWS S3 connector so I can find the steps needed to resolve the problem.
