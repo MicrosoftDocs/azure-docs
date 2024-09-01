@@ -1,10 +1,10 @@
 ---
 title: Manage access to Microsoft Sentinel data by resource
 description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: cwatson
 
 
 #Customer intent: [AI]As a security administrator, I want to configure resource-context RBAC so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
