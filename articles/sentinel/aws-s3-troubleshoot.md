@@ -5,7 +5,6 @@ author: yelevin
 ms.author: yelevin
 ms.topic: troubleshooting
 ms.date: 09/08/2022
-#Customer intent: As a security operator, I want to quickly identify the cause of the problem occurring with the AWS S3 connector so I can find the steps needed to resolve the problem.
 
 
 #Customer intent: [AI]As a cloud security engineer, I want to troubleshoot AWS S3 connector issues so that I can ensure seamless log ingestion into my SIEM system.

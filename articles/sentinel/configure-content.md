@@ -5,10 +5,9 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 07/05/2023
 ms.author: cwatson
-#Customer intent: As a SOC analyst, I want to configure the Microsoft Sentinel security content, so I can protect my organization against threats.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to configure security content in my SIEM platform so that I can detect, monitor, and respond to security threats effectively.
+#Customer intent: [AI]As a security operations analyst, I want to configure Microsoft Sentinel security content so that I can detect, monitor, and respond to security threats effectively.
 
 ---
 
