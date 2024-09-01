@@ -1,10 +1,10 @@
 ---
 title: Create a persistent volume (preview)
-description: Learn about creating persistent volumes in Edge Storage Accelerator.
+description: Learn about creating persistent volumes in Cache Volumes.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/26/2024
 
 ---
 
@@ -18,8 +18,8 @@ This section describes the prerequisites for creating a persistent volume (PV).
 
 1. Create a storage account [following the instructions here](/azure/storage/common/storage-account-create?tabs=azure-portal).
 
-    > [!NOTE]
-    > When you create your storage account, create it under the same resource group as your Kubernetes cluster. It is recommended that you also create it under the same region/location as your Kubernetes cluster.
+   > [!NOTE]
+   > When you create your storage account, create it under the same resource group as your Kubernetes cluster. It is recommended that you also create it under the same region/location as your Kubernetes cluster.
 
 1. Create a container in the storage account that you created in the previous step, [following the instructions here](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
@@ -53,9 +53,9 @@ This section describes the prerequisites for creating a persistent volume (PV).
 
 ## Create Persistent Volume (PV)
 
-You must create a Persistent Volume (PV) for the Edge Storage Accelerator to create a local instance and bind to a remote BLOB storage account.  
+You must create a Persistent Volume (PV) for Cache Volumes to create a local instance and bind to a remote BLOB storage account.
 
-Note the `metadata: name:` as you must specify it in the `spec: volumeName` of the PVC that binds to it. Use your storage account and container that you created as part of the [prerequisites](#prerequisites).
+Make a note of the `metadata: name:` as you must specify it in the `spec: volumeName` of the PVC that binds to it. Use your storage account and container that you created as part of the [prerequisites](#prerequisites).
 
 1. Create a file named **pv.yaml**:
 
@@ -96,5 +96,5 @@ Note the `metadata: name:` as you must specify it in the `spec: volumeName` of t
 
 ## Next steps
 
-- [Create a persistent volume claim](create-pvc.md)
-- [Edge Storage Accelerator overview](overview.md)
+- [Create a persistent volume claim](create-persistent-volume-claim.md)
+- [Azure Container Storage enabled by Azure Arc overview](overview.md)

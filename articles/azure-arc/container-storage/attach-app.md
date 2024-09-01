@@ -1,26 +1,26 @@
 ---
 title: Attach your application using the Azure IoT Operations data processor or Kubernetes native application (preview)
-description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application in Edge Storage Accelerator.
+description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application in Azure Container Storage enabled by Azure Arc Cache Volumes.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/26/2024
 zone_pivot_groups: attach-app
 ---
 
 # Attach your application (preview)
 
-This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-pvc.md).
+This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-persistent-volume.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-persistent-volume-claim.md).
 
 ::: zone pivot="attach-iot-op"
 ## Configure the Azure IoT Operations data processor
 
-When you use Azure IoT Operations (AIO), the Data Processor is spawned without any mounts for Edge Storage Accelerator. You can perform the following tasks:
+When you use Azure IoT Operations (AIO), the Data Processor is spawned without any mounts for Cache Volumes. You can perform the following tasks:
 
-- Add a mount for the Edge Storage Accelerator PVC you created previously.
-- Reconfigure all pipelines' output stage to output to the Edge Storage Accelerator mount you just created.  
+- Add a mount for the Cache Volumes PVC you created previously.
+- Reconfigure all pipelines' output stage to output to the Cache Volumes mount you just created.  
 
-## Add Edge Storage Accelerator to your aio-dp-runner-worker-0 pods
+## Add Cache Volumes to your aio-dp-runner-worker-0 pods
 
 These pods are part of a **statefulSet**. You can't edit the statefulSet in place to add mount points. Instead, follow this procedure:
 
@@ -30,7 +30,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
     kubectl get statefulset -o yaml -n azure-iot-operations aio-dp-runner-worker > stateful_worker.yaml
     ```
 
-1. Edit the statefulSet to include the new mounts for ESA in volumeMounts and volumes:
+1. Edit the statefulSet to include the new mounts for Cache Volumes in volumeMounts and volumes:
 
     ```yaml
     volumeMounts: 
@@ -67,15 +67,15 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 
     This deletes all `aio-dp-runner-worker-n` pods. This is an outage-level event.  
 
-1. Create a new statefulSet of aio-dp-runner-worker(s) with the ESA mounts:
+1. Create a new statefulSet of aio-dp-runner-worker(s) with the Cache Volumes mounts:
 
     ```bash
     kubectl apply -f stateful_worker.yaml -n azure-iot-operations
     ```
 
-    When the `aio-dp-runner-worker-n` pods start, they include mounts to ESA. The PVC should convey this in the state.
+    When the `aio-dp-runner-worker-n` pods start, they include mounts to Cache Volumes. The PVC should convey this in the state.
 
-1. Once you reconfigure your Data Processor workers to have access to the ESA volumes, you must manually update the pipeline configuration to use a local path that corresponds to the mounted location of your ESA volume on the worker PODs.
+1. Once you reconfigure your Data Processor workers to have access to the Cache Volumes, you must manually update the pipeline configuration to use a local path that corresponds to the mounted location of your Cache Volume on the worker PODs.
 
    In order to modify the pipeline, use `kubectl edit pipeline <name of your pipeline>`. In that pipeline, replace your output stage with the following YAML:
 
