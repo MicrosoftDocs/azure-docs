@@ -1,10 +1,10 @@
 ---
 title: Third-party monitoring with Prometheus and Grafana (preview)
-description: Learn how to monitor your Edge Storage Accelerator deployment using third-party monitoring with Prometheus and Grafana.
+description: Learn how to monitor your Azure Container Storage enabled by Azure Arc deployment using third-party monitoring with Prometheus and Grafana.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/26/2024
 
 ---
 
@@ -14,7 +14,7 @@ This article describes how to monitor your deployment using third-party monitori
 
 ## Metrics
 
-### Configure an existing Prometheus instance for use with Edge Storage Accelerator
+### Configure an existing Prometheus instance for use with Azure Container Storage enabled by Azure Arc
 
 This guidance assumes that you previously worked with and/or configured Prometheus for Kubernetes. If you haven't previously done so, [see this overview](/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-and-grafana) for more information about how to enable Prometheus and Grafana.
 
@@ -22,8 +22,8 @@ This guidance assumes that you previously worked with and/or configured Promethe
 
 ## Logs
 
-The Edge Storage Accelerator logs are accessible through the Azure Kubernetes Service [kubelet logs](/azure/aks/kubelet-logs). You can also collect this log data using the [syslog collection feature in Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-syslog).
+The Azure Container Storage enabled by Azure Arc logs are accessible through the Azure Kubernetes Service [kubelet logs](/azure/aks/kubelet-logs). You can also collect this log data using the [syslog collection feature in Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-syslog).
 
 ## Next steps
 
-[Edge Storage Accelerator overview](overview.md)
+[Azure Container Storage enabled by Azure Arc overview](overview.md)
