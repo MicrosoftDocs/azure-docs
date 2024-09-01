@@ -6,10 +6,9 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 03/11/2024
-#customer intent: As a SOC administrator, I want to migrate historical data from Splunk so I have continuity when I migrate to Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a data engineer, I want to export historical data from Splunk so that I can migrate it to a new platform for analysis and storage.
+#Customer intent: [AI]As a security operations admin, I want to export historical data from Splunk so that I can migrate it to Microsoft Sentinel for analysis and storage.
 
 ---
 

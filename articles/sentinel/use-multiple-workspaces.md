@@ -5,10 +5,9 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 07/05/2023
 ms.author: cwatson
-#Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
 
 
-#Customer intent: [AI]As a security operations manager, I want to set up and manage multiple workspaces and tenants so that I can efficiently monitor and analyze security data across my entire organization.
+#Customer intent: [AI]As a security architect, I want to use Microsoft Sentinel across multiple workspaces so that I can efficiently monitor and analyze security data across my entire organization.
 
 ---
 

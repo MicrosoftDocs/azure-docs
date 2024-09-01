@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/11/2024
 
 
-#Customer intent: [AI]As a SOC team leader, I want to migrate from a legacy SIEM to a cloud-native SIEM solution so that I can improve threat detection, automate responses, and ensure comprehensive coverage of both on-premises and cloud assets.
+#Customer intent: [AI]As a SOC team leader, I want to migrate from a legacy SIEM to Microsoft Sentinel so that I can improve threat detection, automate responses, and ensure comprehensive coverage of both on-premises and cloud assets.
 
 ---
 
