@@ -1,23 +1,23 @@
 ---
-title: Support and feedback for Edge Storage Accelerator (preview)
-description: Learn how to get support and provide feedback Edge Storage Accelerator.
+title: Support and feedback for Azure Container Storage enabled by Azure Arc (preview)
+description: Learn how to get support and provide feedback on Azure Container Storage enabled by Azure Arc.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 08/26/2024
 
 ---
 
-# Support and feedback for Edge Storage Accelerator (preview)
+# Support and feedback for Azure Container Storage enabled by Azure Arc (preview)
 
-If you experience an issue or need support during the preview, see the following video and steps to request support for Edge Storage Accelerator in the Azure portal:
+If you experience an issue or need support during the preview, see the following video and steps to request support for Azure Container Storage enabled by Azure Arc in the Azure portal:
 
 > [!VIDEO f477de99-2036-41a3-979a-586a39b1854f]
 
-1. Navigate to the desired Arc-connected Kubernetes cluster with the Edge Storage Accelerator extension that you are experiencing issues with.
+1. Navigate to the desired Arc-connected Kubernetes cluster with the Azure Container Storage enabled by Azure Arc extension that you are experiencing issues with.
 1. To expand the menu, select **Settings** on the left blade.
 1. Select **Extensions**.
-1. Select the name for **Type**: `microsoft.edgestorageaccelerator`. In this example, the name is `hydraext`.
+1. Select the name for **Type**: `microsoft.arc.containerstorage`. In this example, the name is `hydraext`.
 1. Select **Help** on the left blade to expand the menu.
 1. Select **Support + Troubleshooting**.
 1. In the search text box, describe the issue you are facing in a few words.
@@ -40,8 +40,8 @@ If you experience an issue or need support during the preview, see the following
 
 ## Release notes
 
-See the [release notes for Edge Storage Accelerator](release-notes.md) for information about new features and known issues.
+See the [release notes for Azure Container Storage enabled by Azure Arc](release-notes.md) for information about new features and known issues.
 
 ## Next steps
 
-[What is Edge Storage Accelerator?](overview.md)
+[What is Azure Container Storage enabled by Azure Arc?](overview.md)

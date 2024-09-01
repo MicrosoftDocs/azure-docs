@@ -1,46 +1,16 @@
 ---
-title: Prepare Linux using a single-node or 2-node cluster (preview)
-description: Learn how to prepare Linux with a single-node or 2-node cluster in Edge Storage Accelerator using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
+ms.service: azure-arc
+ms.topic: include
+ms.date: 08/16/2024
 author: sethmanheim
 ms.author: sethm
-ms.topic: how-to
-ms.custom: linux-related-content
-ms.date: 04/08/2024
-zone_pivot_groups: platform-select
 ---
 
-# Prepare Linux using a single-node or 2-node cluster (preview)
-
-This article describes how to prepare Linux using a single-node or 2-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux.md#prerequisites).
-
-::: zone pivot="aks"
-## Prepare Linux with AKS enabled by Azure Arc
-
-This section describes how to prepare Linux with AKS enabled by Azure Arc if you run a single-node or 2-node cluster.
-
-1. Install Open Service Mesh (OSM) using the following command:
-
-   ```azurecli
-   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
-   ```
-
-1. Disable **ACStor** by creating a file named **config.json** with the following contents:
-
-   ```json
-   {
-     "feature.diskStorageClass": "default",
-     "acstorController.enabled": false
-   }
-   ```
-
-::: zone-end
-
-::: zone pivot="aks-ee"
 ## Prepare Linux with AKS Edge Essentials
 
-This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node or 2-node cluster.
+This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node or two-node cluster.
 
-1. For Edge Essentials to support Azure IoT Operations and Edge Storage Accelerator, the Kubernetes hosts must be modified to support more memory. You can also increase vCPU and disk allocations at this time if you anticipate requiring additional resources for your Kubernetes uses.
+1. For Edge Essentials to support Azure IoT Operations and Azure Container Storage enabled by Azure Arc, the Kubernetes hosts must be modified to support more memory. You can also increase vCPU and disk allocations at this time if you anticipate requiring additional resources for your Kubernetes uses.
 
    Start by following the [How-To guide here](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). The QuickStart uses the default configuration and should be avoided.  
 
@@ -128,53 +98,3 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ```bash
    az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
    ```
-
-1. Disable **ACStor** by creating a file named **config.json** with the following contents:
-
-   ```json
-   {
-     "acstorController.enabled": false,
-     "feature.diskStorageClass": "local-path"
-   }
-   ```
-
-::: zone-end
-
-::: zone pivot="ubuntu"
-## Prepare Linux with Ubuntu
-
-This section describes how to prepare Linux with Ubuntu if you run a single-node or 2-node cluster.
-
-1. Install Open Service Mesh (OSM) using the following command:
-
-   ```bash
-   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
-   ```
-
-1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
-
-   ```bash
-   sysctl fs.inotify.max_user_instances
-   ```
-
-   After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files and reload the **sysctl** settings:
-
-   ```bash
-   echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf
-   sudo sysctl -p
-   ```
-
-1. Disable **ACStor** by creating a file named **config.json** with the following contents:
-
-   ```json
-   {
-     "acstorController.enabled": false,
-     "feature.diskStorageClass": "local-path"
-   }
-   ```
-
-::: zone-end
-
-## Next steps
-
-[Install Edge Storage Accelerator](install-edge-storage-accelerator.md)
