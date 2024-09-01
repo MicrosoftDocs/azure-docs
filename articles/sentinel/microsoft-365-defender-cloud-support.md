@@ -1,8 +1,8 @@
 ---
 title: Support for Microsoft Defender XDR connector data types in Microsoft Sentinel for different clouds (GCC environments)
 description: This article describes support for different Microsoft Defender XDR connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 02/01/2023
 
