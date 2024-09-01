@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Sentinel migration: Export ArcSight data to target platform  | Microsoft Docs"
 description: Learn how to export your historical data from ArcSight.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
 
