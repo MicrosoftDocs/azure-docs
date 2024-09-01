@@ -1,8 +1,8 @@
 ---
 title: Workspace architecture best practices for Microsoft Sentinel
 description: Learn about best practices for designing your Microsoft Sentinel workspace.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 06/28/2023
 
