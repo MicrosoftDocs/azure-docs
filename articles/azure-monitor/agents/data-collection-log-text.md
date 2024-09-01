@@ -2,7 +2,7 @@
 title: Collect logs from a text file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a text file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 07/12/2024
+ms.date: 08/28/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -16,7 +16,7 @@ Many applications and services will log information to text files instead of sta
 ## Prerequisites
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A data collection endpoint (DCE) if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
+- A data collection endpoint (DCE) in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
 - Either a new or existing DCR described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
 
 ## Basic operation
@@ -29,7 +29,7 @@ The following diagram shows the basic operation of collecting log data from a te
 4. If a custom transformation is used, the log entry can be parsed into multiple columns in the target table.
 
 
-:::image type="content" source="media/data-collection-log-text/text-log-collection.png" lightbox="media/data-collection-log-text/text-log-collection.png" alt-text="Diagram showing collection of a text log by the Azure Monitor agent, showing both simple collection and a transformation for a comma-delimited file.":::
+:::image type="content" source="media/data-collection-log-text/text-log-collection.png" lightbox="media/data-collection-log-text/text-log-collection.png" alt-text="Diagram showing collection of a text log by the Azure Monitor agent, showing both simple collection and a transformation for a comma-delimited file." border="false":::
 
 
 ## Text file requirements and best practices
@@ -60,6 +60,7 @@ The incoming stream of data includes the columns in the following table.
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace. You can override this value using a transformation to set `TimeGenerated` to another value. |
 | `RawData` | string | The entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns before sending to the table. |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer with the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
@@ -69,7 +70,7 @@ Before you can collect log data from a text file, you must create a custom table
 > You shouldn’t use an existing custom log table used by MMA agents. Your MMA agents won't be able to write to the table once the first AMA agent writes to the table. You should create a new table for AMA to use to prevent MMA data loss.
 
 
-For example, you can use the following PowerShell script to create a custom table with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
+For example, you can use the following PowerShell script to create a custom table with `RawData`, `FilePath`, and `Computer`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
 
 
 ```powershell
@@ -89,6 +90,10 @@ $tableParams = @'
                     },
                     {
                         "name": "FilePath",
+                        "type": "String"
+                    },
+                    {
+                        "name": "Computer",
                         "type": "String"
                     }
               ]
@@ -138,6 +143,12 @@ Use the following ARM template to create or modify a DCR for collecting text log
               "description": "Unique name for the DCR. "
             }
         },
+        "dataCollectionEndpointResourceId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the data collection endpoint (DCE)."
+            }
+        },
         "location": {
             "type": "string",
             "metadata": {
@@ -173,6 +184,7 @@ Use the following ARM template to create or modify a DCR for collecting text log
             "location": "[parameters('location')]",
             "apiVersion": "2022-06-01",
             "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
                     "Custom-Text-stream": {
                         "columns": [
@@ -186,6 +198,10 @@ Use the following ARM template to create or modify a DCR for collecting text log
                             },
                             {
                                 "name": "FilePath",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Computer",
                                 "type": "string"
                             }
                         ]

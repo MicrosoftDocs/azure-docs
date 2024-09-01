@@ -26,7 +26,7 @@ Failed validation of attributes not required by the API results in the file bein
 A warning is given about each failing attribute per instance. When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
 There are some notable behaviors for optional attributes that fail validation:
- * Searches for the attribute that failed validation returns the study/series/instance if the value is corrected in one of the few ways [mentioned below](#search-results-might-be-incomplete-for-extended-query-tags-with-validation-warnings).
+ * Searches for the attribute that failed validation returns the study/series/instance if the value is corrected in one of the few ways [mentioned here](#search-results-might-be-incomplete-for-extended-query-tags-with-validation-warnings).
  * The attributes aren't returned when retrieving metadata via WADO `/metadata` endpoints.
  
 Retrieving a study/series/instance always returns the original binary files with the original attributes, even if those attributes failed validation.  
