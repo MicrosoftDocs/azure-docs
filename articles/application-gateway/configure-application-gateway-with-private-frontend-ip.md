@@ -151,7 +151,7 @@ The client virtual machine is used to connect to the application gateway backend
 ## Test the application gateway
 
 1. On the myAppGateway page, select **Frontend IP Configurations** to note the frontend private IP address.
-    ![Frontend IP configurations pane with the Private type highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+   ***** ![Frontend IP configurations pane with the Private type highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the browser address bar on myVM3 to access the application gateway backend pool.
 
 ## Next steps
