@@ -49,11 +49,12 @@ For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2
 To enable External Data Sources Preview on your Azure Data Manager for Energy, create an Azure support ticket with the following information: 
 - Subscription ID 
 - Azure Data Manager for Energy developer tier resource name
-- Data partition name (the data partition in which EDS needs to be enabled)
+- Data partition name (the data partition in which EDS needs to be enabled for automated triggering of EDS-Scheduler)
 - Key Vault name (created in [Prerequisites](#prerequisites)) 
 
 > [!NOTE]
 > EDS does not have [multi data partition support for EDS scheduler yet](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51)
+> However multi data partition support is available for manually triggering eds ingest dag.
 
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
@@ -66,7 +67,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-Some EDS capabilities like **Naturalization, Reverse Naturalization** are unavailable in the M23 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M23 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) milestone release.
+Some EDS capabilities like **Naturalization, Reverse Naturalization** are unavailable in the M23 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M23 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) release.
 
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
