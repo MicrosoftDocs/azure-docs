@@ -73,6 +73,8 @@ To run script, copy the following command and replace the parameters with your v
 
 For information on deploying the DCRs, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview) and [Create and edit data collection rules (DCRs) in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-create-edit)
 
+> [!Warning]
+> You shouldn’t use an existing custom log table used by MMA agents. Your MMA agents won't be able to write to the table once the first AMA agent writes to the table. You should create a new table for AMA to use to prevent MMA data loss.
 
 ## Next steps
 
