@@ -46,7 +46,7 @@ To learn how to configure diagnostics settings, see [this article](../azure-moni
 3. To configure the reports, choose one of the following solutions:
 
    - For Azure Site Recovery reports, select [**Azure Site Recovery Jobs**](/azure/azure-monitor/reference/tables/asrjobs) and **Azure Site Recovery Replicated Item Details** options to show the reports.
-   - For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations).
+   - For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations). Learn more [about data model for Azure Backup Diagnostics Events](../backup/backup-azure-reports-data-model?.mdtabs=recovery-services-vaults).
 
 >[!Note]
 >After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
@@ -95,5 +95,5 @@ Learn about [the estimated time that different widgets can take to load; based o
 
 ## Next steps
 
-- [Configure Azure Backup reports](../backup/configure-reports?tabs=recovery-services-vaults.md)
+- [Configure Azure Backup reports](../backup/configure-reports.md?tabs=recovery-services-vaults)
 - [Configure Azure Site Recovery reports (Preview)](../site-recovery/report-site-recovery.md)
