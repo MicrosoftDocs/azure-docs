@@ -76,7 +76,7 @@ func new --template "Http Trigger" --name negotiate
 Open the file in `src/functions/negotiate.js` and replace with the following code:
 
 ```js
-import { app, HttpRequest, HttpResponseInit, InvocationContext, input } from "@azure/functions";
+const { app, input } = require('@azure/functions');
 
 const socketIONegotiate = input.generic({
     type: 'socketionegotiation',
@@ -86,7 +86,7 @@ const socketIONegotiate = input.generic({
     userId: '{query.userId}'
 });
 
-export async function negotiate(request, context) {
+async function negotiate(request, context) {
     let result = context.extraInputs.get(socketIONegotiate);
     return { jsonBody: result };
 };
@@ -111,14 +111,14 @@ func new --template "Http Trigger" --name message
 Open the file `src/functions/message.js` and replace with the following code:
 
 ```js
-import { app, InvocationContext, trigger, output } from "@azure/functions";
+const { app, output, trigger } = require('@azure/functions');
 
 const socketio = output.generic({
   type: 'socketio',
   hub: 'hub',
 })
 
-export async function chat(request, context) {
+async function chat(request, context) {
     context.extraOutputs.set(socketio, {
       actionName: 'sendToNamespace',
       namespace: '/',
@@ -212,12 +212,12 @@ This uses `SocketIOTrigger` to get triggered by a Socket.IO client message and u
     1. Open the file `src/functions/index.js` and replace with the following code:
 
     ```js
-    import { app } from "@azure/functions";
+    const { app } = require('@azure/functions');
 
     const fs = require('fs').promises;
     const path = require('path')
 
-    export async function index(request, context) {
+    async function index(request, context) {
         try {
             context.log(`Http function processed request for url "${request.url}"`);
 
@@ -243,6 +243,7 @@ This uses `SocketIOTrigger` to get triggered by a Socket.IO client message and u
         authLevel: 'anonymous',
         handler: index
     });
+
     ```
 
 ## How to run the App
