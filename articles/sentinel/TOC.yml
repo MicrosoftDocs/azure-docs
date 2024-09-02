@@ -1301,6 +1301,8 @@
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
+    - name: Automation rules reference
+      href: automation-rule-reference.md
   - name: Data collection references
     items:
     - name: Data source schema reference
