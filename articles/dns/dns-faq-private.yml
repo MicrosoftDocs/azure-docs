@@ -106,7 +106,7 @@ sections:
       - question: |
           Which one takes precedence, Azure private DNS or a custom DNS server setup on a VM?
         answer: |
-          That depends how you configured your Azure VMs/VNet. If you specify custom DNS at the VNet or NIC level (by pointing to the IP address of the NIC of the VM running the DNS server), this will take precedence. If not, then the private DNS zone linked to the VNet will apply
+          That depends how you configured your Azure VMs or virtual network. If you specify custom DNS at the virtual-network or NIC level (by pointing to the IP address of the NIC of the VM running the DNS server), this will take precedence. If not, then the private DNS zone linked to the virtual network will apply.
          
           
           ### Do Azure DNS private zones store any customer content?
