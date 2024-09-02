@@ -66,7 +66,7 @@ To set the rule for a specific webapp app, use *insights-activity-logs/ResourceI
 
 ## [CLI](#tab/cli)
 
-Use the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Migration procedures](#migration-procedures) for the Azure Portal.
+Use the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the migration procedures for the Azure Portal.
 
 
 
@@ -112,7 +112,7 @@ The sample policy definition file below sets the retention for all blobs in the 
 
 ## [Templates](#tab/templates)
 
-Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Migration procedures](#migration-procedures) for the Azure Portal.
+Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the migration procedures for the Azure Portal.
 
 ```azurecli
 
