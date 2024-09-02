@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: Learn how Azure Lab Services provides protection with Azure role-based access control (Azure RBAC) integration.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---
