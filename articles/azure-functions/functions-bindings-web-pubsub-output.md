@@ -20,7 +20,7 @@ Use the *Web PubSub* output binding to invoke Azure Web PubSub service to do som
 * Connected clients joined in a specific group
 * A specific client connection
 
-The output binding also allows you to manage clients and groups, as well as grant/revoke permissions targeting specific connectionId with group.
+The output binding also allows you to manage clients and groups, and grant/revoke permissions targeting specific connectionId with group.
 
 * Add connection to group
 * Add user to group
@@ -171,9 +171,9 @@ In C# language, we provide a few static methods under `WebPubSubAction` to help 
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript，programming-language-python，programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-**`actionName`** is the key parameter to resolve the type, available actions are listed as below.
+**`actionName`** is the key parameter to resolve the type. Available actions are listed as follows.
 
 | ActionName | Properties |
 | -- | -- |
@@ -193,7 +193,7 @@ In C# language, we provide a few static methods under `WebPubSubAction` to help 
 | `revokePermission`|ConnectionId, Permission, TargetName |
 
 > [!IMPORTANT]
-> The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`.
+> The message data property in the sent message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`.
 >
 > When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](../azure-functions/functions-triggers-bindings.md?tabs=csharp#trigger-and-binding-definitions) for details.
 

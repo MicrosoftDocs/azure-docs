@@ -6,14 +6,14 @@ ms.date: 09/02/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Web PubSub trigger binding for Azure Functions
 
 Use Azure Web PubSub trigger to handle client events from Azure Web PubSub service.
 
-The trigger endpoint pattern would be like below, which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
+The trigger endpoint pattern would be as follows, which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
 
 ```
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
@@ -174,7 +174,7 @@ module.exports = async function (context) {
 ::: zone-end
 ::: zone pivot="programming-language-java"
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 ::: zone-end
 
 
@@ -190,18 +190,18 @@ The following table explains the binding configuration properties that you set i
 | **hub** | Hub | Required - the value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **eventType** | WebPubSubEventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnected`. </br> </br> For user-defined subprotocols, the event name is `message`. </br> </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. |
-| **clientProtocols** | ClientProtocols | Optional - specifies which client protocol can trigger the Web PubSub trigger functions. </br> </br> The following case-insensitive values are valid: </br> `all`: Accepts all client protocols. Default value. </br> `webPubSub`: Accepts only Web PubSub protocols. </br> `mqtt`: Accepts only MQTT protocols.
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings `WebPubSubConnectionString` by default. And `null` means the validation is not needed and always succeed. |
+| **clientProtocols** | ClientProtocols | Optional - specifies which client protocol can trigger the Web PubSub trigger functions. </br> </br> The following case-insensitive values are valid: </br> `all`: Accepts all client protocols. Default value. </br>`webPubSub`: Accepts only Web PubSub protocols. </br>`mqtt`: Accepts only MQTT protocols.
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings `WebPubSubConnectionString` by default. And `null` means the validation isn't needed and always succeed. |
 
 ## Usages
 
-In C#, `WebPubSubEventRequest` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
+In C#, `WebPubSubEventRequest` is type recognized binding parameter, rest parameters are bound by parameter name. Check following table for available parameters and types.
 
-In weakly typed language like JavaScript, `name` in `function.json` is used to bind the trigger object regarding below mapping table. And respect `dataType` in `function.json` to convert message accordingly when `name` is set to `data` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and is `JObject` converted.
+In weakly typed language like JavaScript, `name` in `function.json` is used to bind the trigger object regarding following mapping table. And respect `dataType` in `function.json` to convert message accordingly when `name` is set to `data` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and is `JObject` converted.
 
 | Binding Name | Binding Type | Description | Properties |
 |---------|---------|---------|---------|
-|request|`WebPubSubEventRequest`|Describes the upstream request|Property differs by different event types, including derived classes `ConnectEventRequest`, `MqttConnectEventRequest`, `ConnectedEventRequest`, `MqttConnectedEventRequest`, `UserEventRequest`, `DisconnectedEventRequest` and `MqttDisconnectedEventRequest`. |
+|request|`WebPubSubEventRequest`|Describes the upstream request|Property differs by different event types, including derived classes `ConnectEventRequest`, `MqttConnectEventRequest`, `ConnectedEventRequest`, `MqttConnectedEventRequest`, `UserEventRequest`, `DisconnectedEventRequest`, and `MqttDisconnectedEventRequest`. |
 |connectionContext|`WebPubSubConnectionContext`|Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Origin, Signature, States |
 |data|`BinaryData`,`string`,`Stream`,`byte[]`| Request message data from client in user `message` event | -|
 |dataType|`WebPubSubDataType`| Request message dataType, which supports `binary`, `text`, `json` | -|
@@ -220,10 +220,9 @@ In weakly typed language like JavaScript, `name` in `function.json` is used to b
 
 | Return Type | Description | Properties |
 |---------|---------|---------|
-|[`ConnectEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.connecteventresponse?view=azure-dotnet)| Response for `connect` event | Groups, Roles, UserId, Subprotocol |
-|[`MqttConnectEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.mqttconnecteventresponse?view=azure-dotnet)| Response for MQTT `connect` event.  | Groups, Roles, UserId, Subprotocol |
-|[`UserEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.usereventresponse?view=azure-dotnet)| Response for user event | DataType, Data |
-|[`EventErrorResponse`](dotnet/api/microsoft.azure.webpubsub.common.eventerrorresponse?view=azure-dotnet)| Error response for the sync event | Code, ErrorMessage |
-|[`*WebPubSubEventResponse`](dotnet/api/microsoft.azure.webpubsub.common.webpubsubeventresponse?view=azure-dotnet)| Base response type of the supported ones used for uncertain return cases | - |
+|[`ConnectEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.connecteventresponse)| Response for `connect` event | Groups, Roles, UserId, Subprotocol |
+|[`UserEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.usereventresponse)| Response for user event | DataType, Data |
+|[`EventErrorResponse`](/dotnet/api/microsoft.azure.webpubsub.common.eventerrorresponse)| Error response for the sync event | Code, ErrorMessage |
+|[`*WebPubSubEventResponse`](/dotnet/api/microsoft.azure.webpubsub.common.webpubsubeventresponse)| Base response type of the supported ones used for uncertain return cases | - |
 
 

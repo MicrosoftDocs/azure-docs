@@ -17,18 +17,18 @@ Our extension provides two input binding targeting different needs.
 
 - [`WebPubSubConnection`](#webpubsubconnection)
 
-  To let a client connect to Azure Web PubSub Service, it must know the service endpoint URL and a valid access token. The `WebPubSubConnection` input binding produces required information, so client doesn't need to handle this token generation itself. Because the token is time-limited and can be used to authenticate a specific user to a connection, don't cache the token or share it between clients. An HTTP trigger working with this input binding can be used for clients to retrieve the connection information.
+  To let a client connect to Azure Web PubSub Service, it must know the service endpoint URL and a valid access token. The `WebPubSubConnection` input binding produces required information, so client doesn't need to handle this token generation itself. The token is time-limited and can authenticate a specific user to a connection. Therefore, don't cache the token or share it between clients. An HTTP trigger working with this input binding can be used for clients to retrieve the connection information.
 
 - [`WebPubSubContext`](#webpubsubcontext)
 
-  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions. See [examples](#example---webpubsubcontext) in below.
+  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in event handler accordingly.
 
 ## `WebPubSubConnection`
 
 ### Example
 
-The following example shows an HTTP trigger function that acquires Web PubSub connection information using the input binding and returns it over HTTP. In below example, the `UserId` is passed in through client request query part like `?userid={User-A}`.
+The following example shows an HTTP trigger function that acquires Web PubSub connection information using the input binding and returns it over HTTP. In following example, the `UserId` is passed in through client request query part like `?userid={User-A}`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -179,7 +179,7 @@ def main(req: func.HttpRequest, connection) -> func.HttpResponse:
 ::: zone pivot="programming-language-java"
 
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 
 ::: zone-end
 
@@ -340,7 +340,7 @@ def main(req: func.HttpRequest, connection) -> func.HttpResponse:
 ::: zone pivot="programming-language-java"
 
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 
 ::: zone-end
 
@@ -355,14 +355,14 @@ The following table explains the binding configuration properties that you set i
 | **name** | n/a | Variable name used in function code for input connection binding object. |
 | **hub** | Hub | Required - The value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **userId** | UserId | Optional - the value of the user identifier claim to be set in the access key token. |
-| **clientProtocol** | ClientProtocol | Optional - The client protocol type. Valid values includes `default`, `mqtt` <br> For MQTT clients, you must set it to `mqtt`. <br> For other clients, you can omit the property or set it to `default`. |
+| **clientProtocol** | ClientProtocol | Optional - The client protocol type. Valid values include `default` and `mqtt`. <br> For MQTT clients, you must set it to `mqtt`. <br> For other clients, you can omit the property or set it to `default`. |
 | **connection** | Connection | Required - The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString"). |
 
 ### Usage
 
 ::: zone pivot="programming-language-csharp"
 
-`WebPubSubConnection` provides below properties.
+`WebPubSubConnection` provides following properties.
 
 | Binding Name | Binding Type | Description |
 |---------|---------|---------|
@@ -375,7 +375,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-`WebPubSubConnection` provides below properties.
+`WebPubSubConnection` provides following properties.
 
 | Binding Name | Description |
 |---------|---------|
@@ -387,17 +387,17 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-java"
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 ::: zone-end
 
 
 ### More customization of generated token
 
-Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`.
+Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` isn't fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`.
 
 ::: zone pivot="programming-language-csharp"
 
-In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
+When customer needs to add roles or delay buildinging the access token in the function, we suggest you to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -437,7 +437,7 @@ public static async Task<Uri> Run(
 
 ::: zone pivot="programming-language-javascript"
 
-In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
+When customer needs to add roles or delay building the access token in the function, we suggest you working with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 
 # [Model v4](#tab/nodejs-v4)
 
@@ -502,7 +502,7 @@ module.exports = async function (context, req) {
 ::: zone pivot="programming-language-java"
 
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 
 ::: zone-end
 
@@ -643,7 +643,7 @@ module.exports = async function (context, req, wpsContext) {
 ::: zone pivot="programming-language-java"
 
 > [!NOTE]
-> The Web PubSub extensions for Java is not supported yet.
+> The Web PubSub extensions for Java isn't supported yet.
 
 ::: zone-end
 
@@ -656,22 +656,22 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubContext`. |
 | **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation is not needed and always succeed. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
 
 
 ### Usage
 
-`WebPubSubContext` provides below properties.
+`WebPubSubContext` provides following properties.
 
 | Binding Name | Binding Type | Description | Properties |
 |---------|---------|---------|---------|
-| request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`. |
+| request | `WebPubSubEventRequest` | Request from client, see following table for details. | `WebPubSubConnectionContext` from request header and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`. |
 | response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases. | - |
 | errorMessage | string | Describe the error details when processing the upstream request. | - |
 | hasError | bool | Flag to indicate whether it's a valid Web PubSub upstream request. | - |
 | isPreflight | bool | Flag to indicate whether it's a preflight request of `AbuseProtection`. | - |
 
-For `WebPubSubEventRequest`, it's deserialized to different classes that provide different information about the request scenario. For `PreflightRequest` or not valid cases, user can check the flags `IsPreflight` and `HasError` to know. It's suggested to return system build response `WebPubSubContext.Response` directly, or customer can log errors on demand. In different scenarios, customer can read the request properties as below.
+For `WebPubSubEventRequest`, it's deserialized to different classes that provide different information about the request scenario. For `PreflightRequest` or not valid cases, user can check the flags `IsPreflight` and `HasError` to know. We suggest you to return system build response `WebPubSubContext.Response` directly, or customer can log errors on demand. In different scenarios, customer can read the request properties as following.
 
 | Derived Class | Description | Properties |
 | -- | -- | -- |
@@ -682,4 +682,4 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
-> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
+> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
