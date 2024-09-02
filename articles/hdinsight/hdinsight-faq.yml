@@ -41,7 +41,7 @@ sections:
       - question: |
           What are the various types of nodes in an HDInsight cluster?
         answer: |
-          See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
+          See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-cluster).
           
       - question: |
           What are the best practices for creating large HDInsight clusters?
