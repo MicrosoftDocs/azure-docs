@@ -34,7 +34,7 @@ Follow the steps below to import key-values from a file.
 
 From the Azure portal, follow these steps:
 
-1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
+1. Navigate to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
     :::image type="content" source="./media/import-export/import-file.png" alt-text="Screenshot of the Azure portal, importing a file.":::
 
@@ -53,20 +53,20 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                                                                                                                                                                             | Example                   |
     |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | File content profile    | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file scheme widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                       |
-    | Import mode    | The import mode is used to decide whether to ignore identical key-values. With the *Ignore match* option, any key-values in the store that are same as in the configuration file are ignored. With the *All* option, that any key-values in the configuration file are updated.   | *Ignore match*                       |
-    | Exclude feature flag    | Choose whether to exclude feature flags when importing.          | *false*                       |
-    | Strict    | If strict mode is set to false, no key-values are deleted. If strict mode is set to true, the behavior depends on the "File content profile" option. With the **Default* option, any key-values in the store with the specified prefix and label that are not included in the configuration file are deleted. With the *KVSet* option, any key-values in the store that are not included in the configuration file are deleted.  | *false*                       |
-    | Separator    | The separator is the character parsed in your imported configuration file to separate key-values that are added to your configuration store. Select one of the following options: *(No separator)*, *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*.           | *:*                       |
-    | Depth    | The depth for flattening the json or yaml file to key-value pairs. Flatten to the deepest level by default. Not applicable for property files or feature flags.           |                      |
-    | Add prefix       | Optional. A key prefix is the beginning part of a key-value's "key" property. Prefixes can be used to manage groups of key-values in a configuration store. The entered prefix will be appended to the front of the "key" property of every key-value you import from this file.               | *TestApp:*                |
-    | Add label        | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                              | *prod*                    |
-    | Add content type | Optional. Indicate if you're importing a JSON file or Key Vault references. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md). | *JSON (application/json)* |
-    | Add tags | Optional. Add tags to the imported key-value pairs. | *{tag: tag1}* |
+    | File content profile    | Conventional configuration file schema. | *Default*                       |
+    | Import mode    | The import mode is used to determine whether to ignore identical key-values. With the *Ignore match* option, any key-values in the store that are the same as those in the configuration file are ignored. With the *All* option, all key-values in the configuration file are updated.   | *Ignore match*                       |
+    | Exclude feature flag    | If selected, feature flags will not be imported. | *unchecked*                       |
+    | Strict    | If the box is checked, any key-values in the store with the specified prefix and label that are not included in the configuration file are deleted when the File content profile is set to Default. When the File content profile is set to KVSet, any key-values in the store that are not included in the configuration file are deleted. If the box is unchecked, no key-values in the store will be deleted.  | *false*                       |
+    | Separator    | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:).           | *:*                       |
+    | Depth    | Optional. The depth for flattening JSON or YAML files into key-value pairs. By default, files are flattened to the deepest level if a separator is selected. This setting is not applicable for property files or feature flags.           |                      |
+    | Add prefix       | Optional. If specified, a prefix will be added to the key names of all imported key-values.               | *TestApp:*                |
+    | Add label        | Optional. If specified, the provided label will be assigned to all imported key-values. | *prod*                    |
+    | Add content type | Optional. If specified, the provided content type will be added to all imported key-values. | *JSON (application/json)* |
+    | Add tags | Optional. If specified, the provided tags will be added to all imported key-values. | *{tag: tag1}* |
 
 1. Select **Apply** to proceed with the import.
 
-You've imported key-values from a JSON file, have assigned them the label "prod" and the prefix "TestApp". The separator ":" is used and all the key-values you've imported have content type set as "JSON", and have tags as "{tag: tag1}".
+You have successfully imported key-values from a JSON file. The key names were flattened using the `:` separator and prefixed with `TestApp:`. All imported key-values are labeled as `prod`, with a content type of `application/json`, and tagged with `tag: tag1`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -116,7 +116,7 @@ Follow the steps below to import key-values and feature flags from an Azure App 
 
 From the Azure portal, follow these steps:
 
-1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
+1. Navigate to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
     :::image type="content" source="./media/import-export/import-app-configuration.png" alt-text="Screenshot of the Azure portal, importing from an App Configuration store.":::
 
@@ -134,18 +134,18 @@ From the Azure portal, follow these steps:
 
     | Parameter                               | Description                                                                                                                                                                                                                                                             | Example                   |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Selection mode   | Select whether to import key-values from the store, which is the default option, or from a snapshot.   | *Default*                    |
-    | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
-    | At a specific time                      | Optional. Fill out to import key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                                                                     | *07/28/2022 12:00:00 AM*  |
-    | From label                              | Select at least one label to import values with the corresponding labels. **Select all** imports key-values with any label, and **(No label)** restricts the import to key-values with no label.                                                                            | *prod*                    |
-    | Exclude feature flag    | If enabled, returns all key-values and excludes feature flags.         | *false*                       |
-    | Add prefix  | Optional. Adds a prefix to your keys. | *prod*                    |
-    | Override labels       | Optional. By default, imported items use their current label. Check the box and enter a label to override these defaults with a custom label.                                                                                                                           | *new*                     |
-    | Override content types | Optional. By default, imported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the imported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for imported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' and isn't updated by this parameter.| *JSON (application/json)* |
+    | Selection mode   | Select whether to import from regular key-values, which is the default option, or from a snapshot.   | *Default*                    |
+    | Key filter | Used to filter key-values based on the key name for import. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
+    | At a specific time                      |Optional. Fill out this field to import key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.| *07/28/2022 12:00:00 AM*  |
+    | From label                              | Select one or more labels to import key-values with the chosen labels. | *prod*                    |
+    | Exclude feature flag    | If selected, feature flags will not be imported.    | *unchecked*                       |
+    | Add prefix  | Optional. If specified, a prefix will be added to the key names of all imported key-values. | *prod*                    |
+    | Override labels       | Optional. By default, the original labels of the source key-values are preserved. To override them, check the box and enter a new label for imported key-values. | *new*                     |
+    | Override content types |  Optional. By default, the original content types of the source key-values are preserved. To override them, check the box and enter a new content type for imported key-values. Note that the content type of feature flags cannot be overridden.  | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the import.
 
-You imported key-values and feature flags that start with "test" and with the "prod" label from an App Configuration store on January 28, 2021 at 12 AM, and assigned them the label "new". All key-values that you imported have content type set as "JSON".
+You imported key-values from an App Configuration store as of January 28, 2021, at 12 AM, with key names starting with `test` and the label `prod`. The imported key-values were assigned the label `new` and the content type `application/json`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ Follow the steps below to import key-values from Azure App Service.
 
 From the Azure portal:
 
-1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
+1. Navigate to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
     :::image type="content" source="./media/import-export/import-app-service.png" alt-text="Screenshot of the Azure portal, importing from App Service.":::
 
@@ -208,16 +208,14 @@ From the Azure portal:
     | Resource group | Select a resource group that contains the App Service with configuration to import. | *my-resource-group*  |
     | Resource       | Select the App Service that contains the configuration you want to import.          | *my-app-service*     |
 
-1. The "Update settings to reference" option is used to update settings in App Service. If checked, the configuration settings in your App Services resource will be updated to App Configuration references. That would be helpful to keep consistent between App Configuration key-value pair and App Services configuration settings. If not checked, no changes to your App Services resource.
-
 1. Fill out the next part of the form:
 
     | Parameter    | Description                                                                                                                                                                                                                                          | Example                   |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Update settings to reference      | Optional. Update settings in App Service to a reference to the latest revision of a key-value in App Configuration.                                                           | *TestApp:*                 |
-    | Add prefix       | Optional. A key prefix is the beginning part of a key-values's "key" property. Prefixes can be used to manage groups of key-values in a configuration store. This prefix is appended to the front of the "key" property of each imported key-value.                                                           | *TestApp:*                 |
-    | Add label        | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.      | *prod*                    |
-    | Add content type | Optional. Indicate if the file you're importing is a Key Vault reference or a JSON file. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md). | *JSON (application/json)* |
+    | Update settings to reference      |  If checked, the app settings in App Service will be updated to App Configuration references for the imported key-values. This allows you to manage your app settings in App Configuration going forward. Your App Service will automatically pull the current value from App Configuration. To learn more, see [Use App Configuration references for App Service and Azure Functions](/azure/app-service/app-service-configuration-references).    | *checked*                 |
+    | Add prefix       | Optional. If specified, a prefix will be added to the key names of all imported key-values.             | *TestApp:*                 |
+    | Add label        | Optional. If specified, the provided label will be assigned to all imported key-values.   | *prod*                    |
+    | Add content type | Optional. If specified, the provided content type will be added to all imported key-values. | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the import.
 
@@ -290,17 +288,15 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
     | Parameter          | Description  | Example                  |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-    | File type          | Select the type of file you're exporting between Yaml, Properties, or Json.   | *JSON*                   | 
-    | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file scheme widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
-    | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
-    | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
-    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
-    | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
-    | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp:*               |
-    | Separator          | The separator is the delimiter for flattening the key-values to Json/Yaml. It supports the configuration's hierarchical structure and doesn't apply to property files and feature flags. Select one of the following options: *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*,  or *(No separator)*. | *;*                      |
+    | File type          | Select the file type for export: YAML, Properties, or JSON. | *JSON*                   | 
+    | File content profile   | Conventional configuration file schema. | *Default*                   |
+    | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.   | *Default*                   | 
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
+    | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
+    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported. Note that you can only select one label when exporting with the Default File content profile. To export key-values with more than one label, use the KVSet File content profile. | *prod*                   |
+    | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it. | *TestApp:*               |
+    | Separator          | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:). | *;*                      |
 
-    > [!IMPORTANT]
-    > If you don't select a *From label*, only key-values without labels will be exported. To export a key-value with a label, you must select its label. Note that you can only select one label when export with Default *File content profile*, in case you want to export the key-values with multi labels specified please use KVSet *File content profile*.
 
 1. Select **Export** to finish the export.
 
@@ -368,9 +364,9 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
-    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
-    | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
-    | Exclude feature flag    | If enabled, excludes feature flags when exporting configuration data.          | *false*                       |
+    | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
+    | From label         | Select one or more labels to export key-values with the chosen labels.  | *prod*                   |
+    | Exclude feature flag    | If selected, feature flags will not be exported.          | *unchecked*                       |
 
 1. Select destination store, fill out the form with the following parameters:
 
@@ -387,7 +383,7 @@ From the Azure portal, follow these steps:
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
     | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp*               |
     | Override labels       | Optional. By default, exported items use their current label. Check the box and enter a label to override these defaults with a custom label.  | *new*                     |
-    | Override content types | Optional. By default, exported items use their current content type. Check the box and select **Key Vault Reference** or **JSON (application/json)** under **Content type** to state that the exported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for exported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' and isn't updated by this parameter.| *JSON (application/json)* |
+    | Override content types | Optional. By default, exported items use their current content type. Check the box and the provided content type will be added to all exported key-values. | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the export.
 
@@ -456,8 +452,8 @@ From the Azure portal, follow these steps:
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
-    | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the key-values in the selected configuration store. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the key-values when left empty.                                               | *07/28/2022 12:00:00 AM* |
-    | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, by default only key-values with the "No Label" label will be exported. See note below.                         | *prod*                   |
+    | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.       | *07/28/2022 12:00:00 AM* |
+    | From label         | Select one or more labels to export key-values with the chosen labels. | *prod*                   |
 
 1. Select a destination store and fill out the form with the following parameters:
 
