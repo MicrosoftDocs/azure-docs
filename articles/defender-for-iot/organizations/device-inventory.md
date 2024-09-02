@@ -103,12 +103,11 @@ The following table lists the columns available in the Defender for IoT device i
 |---------|---------|----|
 |**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in OT Sensor|
 |**Business Function**     | Describes the device's business function. |Editable in Azure|
-| **Class** | The device's class. <br>Default: `IoT` <!-- is this correct for me default was set to OT--> |Editable in Azure|
-|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` <!-- is this correct for me default was set to OT sensor-->| Not editable|
+| **Class** | The device's class. <br>Default: `IoT` |Editable in Azure|
+|**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` | Not editable|
 |**Description** * |The device's description.  |Editable in both Azure and the OT Sensor|
 | **Device Id** | The device's Azure-assigned ID number. |Not editable|
 |  **Firmware model** |  The device's firmware model. |Editable in Azure|
-| ADDED this is in the details pane, but is called (hardware)Model/ Firmware model in the device inventory - i think the Model is the hardware model,  **Firmware name** |  The device's firmware name.|Editable in Azure|
 | **Firmware vendor** |  The vendor of the device's firmware. |Not editable?|
 | **Firmware version** * |The device's firmware version. |Editable in Azure |
 |**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|Not editable|
@@ -119,8 +118,8 @@ The following table lists the columns available in the Defender for IoT device i
 |**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |Not editable|
 |**Location** | The device's physical location.  |Editable in Azure|
 | **MAC Address** * | The device's MAC address.  |Not editable|
-|**Model**  *| The device's hardware model. <See hardware model above. in the details this is called hardware model?>|Editable in Azure |
-|**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |Editable in Azure ??|
+|**Model**  *| The device's hardware model. |Editable in Azure |
+|**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |Editable in Azure |
 |**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
 |**OS architecture** |The device's operating system architecture.  |Not editable|
 |**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Not editable|
