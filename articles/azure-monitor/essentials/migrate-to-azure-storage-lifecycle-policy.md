@@ -29,8 +29,8 @@ An existing diagnostic setting logging to a storage account.
 
 ## Migration procedures
 
-
 ## [Azure portal](#tab/portal)
+
 To migrate your diagnostics settings retention rules, follow the steps below:
 
 1. Go to the Diagnostic Settings page for your logging resource and locate the diagnostic setting you wish to migrate
@@ -66,7 +66,7 @@ To set the rule for a specific webapp app, use *insights-activity-logs/ResourceI
 
 ## [CLI](#tab/cli)
 
-Use the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Azure portal](#azure-portal) section.
+Use the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Migration procedures](#migration-procedures) for the Azure Portal.
 
 
 
@@ -112,7 +112,7 @@ The sample policy definition file below sets the retention for all blobs in the 
 
 ## [Templates](#tab/templates)
 
-Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Azure portal](#azure-portal) section.
+Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. For more information, see the [Migration procedures](#migration-procedures) for the Azure Portal.
 
 ```azurecli
 
