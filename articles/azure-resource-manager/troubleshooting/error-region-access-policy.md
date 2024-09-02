@@ -25,8 +25,8 @@ To maximize access for Azure customers already deployed in an Azure location, Mi
 
 If you recieve this message, there are two possible solutions:
 
-- Alternative region selection: Most users should choose a different Azure region to deploy resources.
-- Remediation request: If one or more subscriptions in your tenant have resources already deployed to West Europe, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
+- Select an alternative region: Most users should choose a different Azure region to deploy resources.
+- Submit a remediation request: If one or more subscriptions in your tenant have resources already deployed to West Europe, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
 
 > [!NOTE]
 > Remember that a remediation request should only be submitted to Microsoft support if there is a clear requirement for deploying resources in the West Europe region. Otherwise, please choose a different Azure region for your deployment.
