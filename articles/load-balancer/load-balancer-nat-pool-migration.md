@@ -139,7 +139,7 @@ $slb | Set-AzLoadBalancer
 
 ## Migration with automation script for Virtual Machine Scale Set 
 
-
+The migration process will reuse existing backend pools with membership matching the NAT Pools to be migrated; if no matching backend pool is found, the script will exit (without making changes). Alternatively, use the  `-backendPoolReuseStrategy` parameter to either always create new backend pools (`NoReuse`) or create a new backend pool if a matching one doesn't exist (`OptionalFirstMatch`). Backend pools and NAT Rule associations can be updated post migration to match your preference.
 ### Prerequisites
 
 Before beginning the migration process, ensure the following prerequisites are met:
