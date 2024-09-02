@@ -139,13 +139,13 @@ From the Azure portal, follow these steps:
     | At a specific time                      |Optional. Fill out this field to import key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.| *07/28/2022 12:00:00 AM*  |
     | From label                              | Select one or more labels to import key-values with the chosen labels. | *prod*                    |
     | Exclude feature flag    | If selected, feature flags will not be imported.    | *unchecked*                       |
-    | Add prefix  | Optional. If specified, a prefix will be added to the key names of all imported key-values. | *prod*                    |
+    | Add prefix  | Optional. If specified, a prefix will be added to the key names of all imported key-values. | *TestApp:*                    |
     | Override labels       | Optional. By default, the original labels of the source key-values are preserved. To override them, check the box and enter a new label for imported key-values. | *new*                     |
     | Override content types |  Optional. By default, the original content types of the source key-values are preserved. To override them, check the box and enter a new content type for imported key-values. Note that the content type of feature flags cannot be overridden.  | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the import.
 
-You imported key-values from an App Configuration store as of January 28, 2021, at 12 AM, with key names starting with `test` and the label `prod`. The imported key-values were assigned the label `new` and the content type `application/json`.
+You imported key-values from an App Configuration store as of January 28, 2021, at 12 AM, with key names starting with `test` and the label `prod`. The key names were prefixed with `TestApp:`. All imported key-values were assigned the label `new` and the content type `application/json`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ From the Azure portal:
 
 1. Select **Apply** to proceed with the import.
 
-You imported all application settings from an App Service as key-values, and assigned them the label "prod" and the prefix "TestApp". All key-values that you imported have content type set as "JSON".
+You imported all application settings from an App Service as key-values, and assigned them the label `prod` and the prefix `TestApp:`. All key-values that you imported have content type set as `application/json`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -278,7 +278,7 @@ Follow the steps below to export configuration data from an app configuration st
 
 From the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. Browse to your App Configuration store, and select **Import/export**.
+1. Navigate to your App Configuration store, and select **Import/export**.
 
     :::image type="content" source="./media/import-export/export-file.png" alt-text="Screenshot of the Azure portal, exporting a file":::
 
@@ -300,7 +300,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Select **Export** to finish the export.
 
-You exported key-values from an App Configuration store as of July 28, 2021, at 12 AM, with the label `prod`, to a JSON file. The prefix `TestApp:` was trimmed from key names, if present, and the separator `:` was used to segment the key names and reconstruct the hierarchical JSON format.
+You exported key-values from an App Configuration store as of July 28, 2021, at 12 AM, with key names starting with `test` and the label `prod`, to a JSON file. The prefix `TestApp:` was trimmed from key names, if present, and the separator `:` was used to segment the key names and reconstruct the hierarchical JSON format.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -352,7 +352,7 @@ You can export values from one App Configuration store to another App Configurat
 
 From the Azure portal, follow these steps:
 
-1. Browse to the App Configuration store that contains the data you want to export, and select **Import/export** from the **Operations** menu.
+1. Navigate to your App Configuration store that contains the data you want to export, and select **Import/export** from the **Operations** menu.
 
     :::image type="content" source="./media/import-export/export-app-configuration.png" alt-text="Screenshot of the Azure portal, exporting from an App Configuration store.":::
 
@@ -438,7 +438,7 @@ Follow the steps below to export key-values to Azure App Service.
 
 From the Azure portal, follow these steps:
 
-1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
+1. Navigate to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
     :::image type="content" source="./media/import-export/export-app-service.png" alt-text="Screenshot of the Azure portal, exporting from App Service.":::
 
@@ -472,7 +472,7 @@ From the Azure portal, follow these steps:
 
 1. Select **Apply** to proceed with the export.
 
-You've exported key-values that have the "prod" label from an App Service resource, at their state from 07/28/2021 12:00:00 AM, and have trimmed the prefix "TestApp". The key-values have been exported with a content type in JSON format.
+You've exported key-values that have the `prod` label from an App Service resource, at their state from July 28, 2021, at 12 AM, and have trimmed the prefix `TestApp:`. The key-values have been exported with a content type `application/json`.
 
 If you checked the box to export key-values as references, the exported key-values are indicated as App Configuration references in the "Source" column of your App Service resource configuration settings.
 
