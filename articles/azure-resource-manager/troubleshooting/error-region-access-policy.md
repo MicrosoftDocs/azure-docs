@@ -1,46 +1,32 @@
 ---
-title: Region Access Policy
-description: 
+title: Location Ineligible
+description: Information about 'location ineligible' error
 ms.topic: troubleshooting
 ms.date: 07/30/2024
 ---
 
-# Region Access Policy
+# Information about Location Ineligible error
 
-This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a `size` parameter for a SKU that's not available.
+This article provides information about the 'location ineligible' error that might occur when you attempt to create new resources in certain Azure regions.
 
 ## Symptom
 
-When a VM is deployed for a SKU that's not available, an error occurs. Azure CLI and Azure PowerShell deployment commands display an error message that the requested size isn't available in the location or zone. In the Azure portal activity log, you'll see error codes `SkuNotAvailable` or `InvalidTemplateDeployment`.
-
-In this example, `New-AzVM` specified the `-Size` parameter for a SKU that's not available. The error code `SkuNotAvailable` is shown in the portal's activity log.
+The following error message is returned when you attempt to create a new resource in Azure's West Europe region using an Azure Resource Manager (ARM) template, Azure CLI, or Azure PowerShell. Or, you might see this error in Azure Portal when you select West Europe in the region drop-down while attempting to create a new resource.
 
 ```Output
-The requested size for resource '<resource ID>' is currently not available in location '<location>'
-zones '<zones>' for subscription '<subscription ID>'.
-Please try another size or deploy to a different location or zones.
-```
-
-When a VM is deployed with an ARM template or Bicep file for a SKU that's not available, a validation error occurs. The error code `InvalidTemplateDeployment` and error message are displayed. The deployment doesn't start so there's no deployment history, but the error is in the portal's activity log.
-
-```Output
-Error: Code=InvalidTemplateDeployment
-Message=The template deployment failed with error: The resource with id: '<resource ID>' failed validation
-with message: The requested size for resource '<resource ID>' is currently not available in
-location '<location>' zones '<zones>' for subscription '<subscription ID>'.
-Please try another size or deploy to a different location or zones.
+The selected region is currently not accepting new customers: https://aka.ms/locationineligible
 ```
 
 ## Cause
 
-You receive this error in the following scenarios:
-
-- When the resource SKU you've selected, such as VM size, isn't available for a location or zone.
-- If you're deploying an Azure Spot VM or Spot scale set instance, and there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](../../virtual-machines/error-codes-spot.md).
+To maximize access for Azure customers already deployed in an Azure location, Microsoft will sometimes restrict access for customers not using that location. This policy is currently in effect for Azure's West Europe region. When you attempt to create resources in West Europe under a tenant that is new to this region, you will recieve the error message mentioned above.
 
 ## Solution
 
-If a SKU isn't available for your subscription in a location or zone that meets your business needs, submit a [SKU request](/troubleshoot/azure/general/region-access-request-process) to Azure Support.
+You 
+
+- When 
+- If 
 
 # [Azure CLI](#tab/azure-cli)
 
