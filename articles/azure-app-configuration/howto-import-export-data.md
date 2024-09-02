@@ -295,12 +295,12 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
     | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported. Note that you can only select one label when exporting with the Default File content profile. To export key-values with more than one label, use the KVSet File content profile. | *prod*                   |
     | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it. | *TestApp:*               |
-    | Separator          | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:). | *;*                      |
+    | Separator          | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:). | *:*                      |
 
 
 1. Select **Export** to finish the export.
 
-You exported key-values that have the "prod" label from a configuration file, at their state from 07/28/2021 12:00:00 AM, and trimmed the prefix "TestApp". Values are separated by ";" in the file.
+You exported key-values from an App Configuration store as of July 28, 2021, at 12 AM, with the label `prod`, to a JSON file. The prefix `TestApp:` was trimmed from key names, if present, and the separator `:` was used to segment the key names and reconstruct the hierarchical JSON format.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -362,10 +362,10 @@ From the Azure portal, follow these steps:
 
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
-    | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
-    | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
+    | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.    | *Default*                   | 
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
-    | From label         | Select one or more labels to export key-values with the chosen labels.  | *prod*                   |
+    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported.  | *prod*                   |
     | Exclude feature flag    | If selected, feature flags will not be exported.          | *unchecked*                       |
 
 1. Select destination store, fill out the form with the following parameters:
@@ -381,13 +381,13 @@ From the Azure portal, follow these steps:
 
     | Parameter   | Description  | Example                   |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Remove prefix             | Optional. This prefix will be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store.                                                         | *TestApp*               |
-    | Override labels       | Optional. By default, exported items use their current label. Check the box and enter a label to override these defaults with a custom label.  | *new*                     |
-    | Override content types | Optional. By default, exported items use their current content type. Check the box and the provided content type will be added to all exported key-values. | *JSON (application/json)* |
+    | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it.  | *TestApp*               |
+    | Override labels       | Optional. By default, the original labels of the source key-values are preserved. To override them, check the box and enter a new label for exported key-values. | *new*                     |
+    | Override content types |  Optional. By default, the original content types of the source key-values are preserved. To override them, check the box and enter a new content type for exported key-values. Note that the content type of feature flags cannot be overridden.  | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the export.
 
-You exported key-values and feature flags that have the label "prod" from an App Configuration store, at their state from 07/28/2022 12:00:00 AM, and trimmed the prefix "TestApp", then assigned them the label "new". All key-values that you exported have content type set as "JSON".
+You exported key-values and feature flags with key names starting with `test` and the label `prod` from an App Configuration store, at their state from July 28, 2022, at 12 AM. The exported key-values were trimmed the prefix `TestApp`, then assigned them the label `new` and the content type `application/json`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -450,10 +450,10 @@ From the Azure portal, follow these steps:
 
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
-    | Selection mode          | Select whether to export key-values from their current state in the store, which is the default option, or from a snapshot.   | *Default*                   | 
-    | Key filter | Optional. Used for filtering keys. If no keys specified, returns all keys by default.    |      Starts with *test*              |
-    | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.       | *07/28/2022 12:00:00 AM* |
-    | From label         | Select one or more labels to export key-values with the chosen labels. | *prod*                   |
+    | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.    | *Default*                   | 
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.  |      Starts with *test*              |
+    | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.    | *07/28/2022 12:00:00 AM* |
+    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported. | *prod*                   |
 
 1. Select a destination store and fill out the form with the following parameters:
 
@@ -468,7 +468,7 @@ From the Azure portal, follow these steps:
 
     | Parameter          | Description                                                                                                                                                                                                                            | Example                   |
     |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Remove prefix             | Optional. This prefix will be trimmed from each exported key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store. Prefix will be ignored for feature flags.           | *TestApp:*                 |
+    | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it.  | *TestApp:*                 |
 
 1. Select **Apply** to proceed with the export.
 
