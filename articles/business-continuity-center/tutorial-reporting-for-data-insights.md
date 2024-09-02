@@ -46,18 +46,20 @@ To learn how to configure diagnostics settings, see [this article](../azure-moni
 3. To configure the reports, choose one of the following solutions:
 
    - For Azure Site Recovery reports, select [**Azure Site Recovery Jobs**](/azure/azure-monitor/reference/tables/asrjobs) and **Azure Site Recovery Replicated Item Details** options to show the reports.
-   - For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations).
+   - For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations). Learn more [about data model for Azure Backup Diagnostics Events](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults).
 
 >[!Note]
->After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data starts flowing in the Log Analytics workspace, you might not see the data in the reports immediately because the data for the current partial day isn't shown in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
->
->We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
+>After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
 
 ## View reports in Azure Business Continuity Center
 
+We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
+
 To view your reports after setting up your vault (to transfer data to Log Analytics workspace), go to **Business Continuity Center** > **Monitoring+Reporting** > **Reports**.
 
-Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. Before you choose the required report, first, select one or more workspace subscriptions, Log Analytics workspaces, and other fields in the report to generate appropriate report with the required information.
+:::image type="content" source="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png" alt-text="Screenshot shows the Reports dashboard in Azure Business Continuity Center." lightbox="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png":::
+
+Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. To view the appropriate report with the required information, select the required report, and then select one or more workspace subscriptions, Log Analytics workspaces, and other fields in the report.
 
 The following table describes the types of available reports:
 
@@ -91,6 +93,7 @@ The reporting solution that Azure Business Continuity Center provides also inclu
 
 Learn about [the estimated time that different widgets can take to load; based on the number of Backup items and the time range for which the report is being viewed](../backup/configure-reports.md?tabs=recovery-services-vaults#query-load-times). To troubleshoot data discrepancy in backup reports, see [this article](../backup/configure-reports.md?tabs=recovery-services-vaults#how-to-troubleshoot).
 
-## Next steps 
+## Next steps
 
-[Govern and view compliance](tutorial-govern-monitor-compliance.md)
+- [Configure Azure Backup reports](../backup/configure-reports.md?tabs=recovery-services-vaults)
+- [Configure Azure Site Recovery reports (Preview)](../site-recovery/report-site-recovery.md)
