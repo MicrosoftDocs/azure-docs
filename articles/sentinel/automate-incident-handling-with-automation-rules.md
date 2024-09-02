@@ -136,6 +136,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - Microsoft Defender XDR
 
 ---
+
 Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
 
 More to the point, the update trigger also uses other operators that check **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
@@ -172,7 +173,9 @@ In *Incident 2*, the outcome is the same, regardless of which type of condition 
 
 The following entities and entity properties can be used as conditions for automation rules:
 
-| Name                          | Type   | Description                                                 |
+##### [Property descriptions](#tab/descriptions)
+
+| Name (in API)                 | Type   | Description                                                 |
 |-------------------------------|--------|-------------------------------------------------------------|
 | AccountAadTenantId            | string | The account Microsoft Entra ID tenant ID                    |
 | AccountAadUserId              | string | The account Microsoft Entra ID user ID                      |
@@ -219,6 +222,58 @@ The following entities and entity properties can be used as conditions for autom
 | RegistryKey                   | string | The registry key path                                       |
 | RegistryValueData             | string | The registry key value in string formatted representation   |
 | Url                           | string | The url                                                     |
+
+##### [Mapping to entities](#tab/mapping)
+
+| Name in API                 | Name in UI drop-down           | Entity:Identity in V3 alert schema |
+| --------------------------- | ------------------------------ | ---------------------------------- |
+| AccountAadTenantId          | Account tenant id              | Account:AadTenantId                |
+| AccountAadUserId            | Account AAD user id            | Account:AadUserId                  |
+| AccountName                 | Account name                   | Account:Name                       |
+| AccountNTDomain             | Account NT domain              | Account:NTDomain                   |
+| AccountPUID                 | Account PUID                   | Account:PUID                       |
+| AccountSid                  | Account SID                    | Account:Sid                        |
+| AccountObjectGuid           | Account object id              | Account:ObjectGuid                 |
+| AccountUPNSuffix            | Account UPN suffix             | Account:UPNSuffix                  |
+| AzureResourceResourceId     | Azure resource id              | AzureResource:ResourceId           |
+| AzureResourceSubscriptionId | Azure resource subscription id | AzureResource:SubscriptionId       |
+| CloudApplicationAppId       | Cloud application id           | CloudApplication:AppId ***(SaasId?)*** |
+| CloudApplicationAppName     | Cloud application name         | CloudApplication:Name              |
+| DNSDomainName               | DNS domain name                | DNS:DomainName                     |
+| FileDirectory               | File directory                 | File:Directory                     |
+| FileName                    | File name                      | File:Name                          |
+| FileHashValue               | File hash                      | FileHash:Value                     |
+| HostAzureID                 | Host Azure id                  | Host:AzureID                       |
+| HostName                    | Host name                      | Host:HostName                      |
+| HostNetBiosName             | ***Host BIOS name!!!***        | Host:NetBiosName                   |
+| HostNTDomain                | Host NT domain                 | Host:NTDomain                      |
+| HostOSVersion               | Host operating system          | Host:OSVersion                     |
+| IoTDeviceId                 | IoT device id                  | IoTDevice:DeviceId                 |
+| IoTDeviceName               | IoT device name                | IoTDevice:DeviceName               |
+| IoTDeviceType               | IoT device type                | IoTDevice:DeviceType               |
+| IoTDeviceVendor             | IoT device vendor              | IoTDevice:***Source? Manufacturer?*** |
+| IoTDeviceModel              | IoT device model               | IoTDevice:Model                    |
+| IoTDeviceOperatingSystem    | IoT device operating system    | IoTDevice:OperatingSystem          |
+| IPAddress                   | IP address                     | IP:Address                         |
+| MailboxDisplayName          | Mailbox display name           | Mailbox:DisplayName                |
+| MailboxPrimaryAddress       | Mailbox primary address        | Mailbox:MailboxPrimaryAddress      |
+| MailboxUPN                  | Mailbox UPN                    | Mailbox:Upn                        |
+| MailMessageDeliveryAction   | Mail message delivery action   | MailMessage:DeliveryAction         |
+| MailMessageDeliveryLocation | Mail message delivery location | MailMessage:DeliveryLocation       |
+| MailMessageRecipient        | Mail message recipient         | MailMessage:Recipient              |
+| MailMessageSenderIP         | Mail message sender IP         | MailMessage:SenderIP               |
+| MailMessageSubject          | Mail message subject           | MailMessage:Subject                |
+| MailMessageP1Sender         | Mail message P1 sender         | MailMessage:***???***              |
+| MailMessageP2Sender         | Mail message P2 sender         | MailMessage:***???***              |
+| MalwareCategory             | Malware category               | Malware:Category                   |
+| MalwareName                 | Malware name                   | Malware:Name                       |
+| ProcessCommandLine          | Process command line           | Process:CommandLine                |
+| ProcessId                   | Process id                     | Process:ProcessId                  |
+| RegistryKey                 | Registry key                   | RegistryKey:Key                    |
+| RegistryValueData           | Registry value                 | RegistryValue:Value                |
+| Url                         | Url                            | Url:Url                            |
+
+---
 
 #### Alert create trigger
 
