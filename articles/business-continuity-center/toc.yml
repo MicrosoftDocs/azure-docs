@@ -28,6 +28,8 @@
     href: tutorial-reporting-for-data-insights.md
   - name: Govern and view compliance
     href: tutorial-govern-monitor-compliance.md
+  - name: Tutorial: Manage the Business Continuity and Disaster Recovery estate using Copilot
+    href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
   - name: Support matrices
