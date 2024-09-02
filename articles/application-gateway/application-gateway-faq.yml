@@ -568,9 +568,9 @@ sections:
 
       - question: Can I configure Application Gateway directly instead of using ingress controller?
         answer: |
-          Directly configure Application Gateway is not supported.
+          Direct configuration of Application Gateway isn't supported.
           
-          If there is a need to change settings on Application Gateway, make the change using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you are trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
+          If there is a need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as by using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you're trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.
