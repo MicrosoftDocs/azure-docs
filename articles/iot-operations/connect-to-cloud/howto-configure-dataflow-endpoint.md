@@ -102,7 +102,7 @@ spec:
   authentication:
     method: serviceAccountToken
     serviceAccountTokenSettings:
-      audience: aio-mqtt
+      audience: aio-mq
   mqttSettings:
     {}
 ```
