@@ -36,46 +36,6 @@ The registration may take up to *10 minutes*. To monitor the registration proces
    az provider show --name Microsoft.KubernetesConfiguration --output table
    ```
 
-### Register the Trusted Access
-
-To enable Trusted Access between the Backup vault and AKS cluster, you must register *TrustedAccessPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands:
-
-## Enable the feature flag
-
-To enable the feature flag follow these steps:
-
-1. Install the *aks-preview* extension:
-
-   ```azurecli-interactive
-   az extension add --name aks-preview
-   ```
-
-1. Update to the latest version of the extension released:
-
-   ```azurecli-interactive
-   az extension update --name aks-preview
-   ```
-
-1. Register the *TrustedAccessPreview* feature flag:
-
-   ```azurecli-interactive
-   az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
-   ```
-   
-   It takes a few minutes for the status to show *Registered*.
-
-1. Verify the registration status:
-
-   ```azurecli-interactive
-   az feature show --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
-   ```
-
-1. When the status shows *Registered*, refresh the `Microsoft.ContainerService` resource provider registration:
-
-   ```azurecli-interactive
-   az provider register --namespace Microsoft.ContainerService
-   ```
-
 ## Backup Extension related operations
 
 This section provides the set of Azure CLI commands to perform create, update, or delete operations on the Backup Extension. You can use the update command to change compute limits for the underlying Backup Extension Pods.
