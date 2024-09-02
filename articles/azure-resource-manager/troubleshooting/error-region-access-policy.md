@@ -2,7 +2,7 @@
 title: Location Ineligible
 description: Information about 'location ineligible' error
 ms.topic: troubleshooting
-ms.date: 07/30/2024
+ms.date: 09/02/2024
 ---
 
 # Information about Location Ineligible error
