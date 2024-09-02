@@ -25,7 +25,7 @@ Use `az signalr create` and `az signalr update` to set or change the service mod
 
 ## Default mode
 
-As the name implies, *Default* mode is the default service mode for SignalR Service. In Default mode, your application works as a typical [ASP.NET Core SignalR](/aspnet/core/signalr/introduction) or ASP.NET SignalR (deprecated) application. You have a web server application that hosts a hub, called a *hub server*, and clients have full duplex communication with the hub server. The difference between ASP.NET Core SignalR and Azure SignalR Service is this: With ASP.NET Core SignalR, the client connects directly to the hub server. With Azure SignalR Service, both the client and the hub server connect to SignalR Service and use the service as a proxy. The following diagram shows the typical application structure in Default mode.
+As the name implies, *Default* mode is the default service mode for SignalR Service. In Default mode, your application works as a typical [ASP.NET Core SignalR](/aspnet/core/signalr/introduction) or ASP.NET SignalR (deprecated) application. You have a web server application that hosts a hub, called a *hub server*, and clients have full duplex communication with the hub server. The difference between ASP.NET Core SignalR and Azure SignalR Service is: With ASP.NET Core SignalR, the client connects directly to the hub server. With Azure SignalR Service, both the client and the hub server connect to SignalR Service and use the service as a proxy. The following diagram shows the typical application structure in Default mode.
 
 :::image type="content" source="media/concept-service-mode/default.png" alt-text="Application structure in Default mode":::
 
@@ -38,7 +38,7 @@ In Default mode, there are WebSocket connections between hub server and SignalR 
 > [!IMPORTANT]
 > In Default mode a client cannot connect without a hub server being connected to the service first. If all your hub servers are disconnected due to network interruption or server reboot, your client connections will get an error telling you no server is connected. It's your responsibility to make sure there is always at least one hub server connected to SignalR service. For example, you can design your application with multiple hub servers, and then make sure they won't all go offline at the same time.
 
-The default routing model also means when a hub server goes offline, the connections routed to that server will be dropped. You should expect connections to drop when your hub server is offline for maintenance, and handle  reconnection to minimize the effects on your application.
+The default routing model also means when a hub server goes offline, the connections routed to that server are dropped. You should expect connections to drop when your hub server is offline for maintenance, and handle  reconnection to minimize the effects on your application.
 
 > [!NOTE]
 > In Default mode you can also use REST API, management SDK, and function binding to directly send messages to a client if you don't want to go through a hub server. In Default mode client connections are still handled by hub servers and upstream endpoints won't work in that mode.
@@ -82,11 +82,11 @@ Now you should understand the differences between service modes and know how to 
 
 - Choose Default mode if you're already familiar with how SignalR library works and want to move from a self-hosted SignalR to use Azure SignalR Service. Default mode works exactly the same way as self-hosted SignalR, and you can use the same programming model in SignalR library. SignalR Service acts as a proxy between clients and hub servers.
 
-- Choose Serverless mode if you're creating a new application and don't want to maintain hub server and server connections. Serverless mode works together with Azure Functions so that you don't need to maintain any server at all. You can still have full duplex communications with REST API, management SDK, or function binding + upstream endpoint, but the programming model will be different than SignalR library.
+- Choose Serverless mode if you're creating a new application and don't want to maintain hub server and server connections. Serverless mode works together with Azure Functions so that you don't need to maintain any server at all. You can still have full duplex communications with REST API, management SDK, or function binding + upstream endpoint, but the programming model is different than SignalR library.
 
 - Choose Default mode if you have *both* hub servers to serve client connections and a backend application to directly push messages to clients. The key difference between Default and Serverless mode is whether you have hub servers and how client connections are routed. REST API/management SDK/function binding can be used in both modes.
 
-- If you really have a mixed scenario, you should consider separating use cases into multiple SignalR Service instances with service mode set according to use. An example of a mixed scenario that requires Classic mode is where you have two different hubs on the same SignalR resource. One hub is used as a traditional SignalR hub and the other hub is used with Azure Functions. This example should be split into two resources, with one instance in Default mode and one in Serverless mode.
+- Consider separating use cases into multiple SignalR Service instances with service mode set according to use, if you really have a mixed scenario. An example of a mixed scenario that requires Classic mode is where you have two different hubs on the same SignalR resource. One hub is used as a traditional SignalR hub and the other hub is used with Azure Functions. This example should be split into two resources, with one instance in Default mode and one in Serverless mode.
 
 ## Next steps
 
