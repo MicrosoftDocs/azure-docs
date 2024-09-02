@@ -98,7 +98,7 @@ kind: DataflowEndpoint
 metadata:
   name: mq
 spec:
-  endpointType: mqtt
+  endpointType: mqttSettings
   authentication:
     method: serviceAccountToken
     serviceAccountTokenSettings:
@@ -117,7 +117,7 @@ kind: DataflowEndpoint
 metadata:
   name: eventgrid
 spec:
-  endpointType: mqtt
+  endpointType: mqttSettings
   authentication:
     method: systemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
@@ -134,7 +134,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 ```yaml
 spec:
-  endpointType: mqtt
+  endpointType: mqttSettings
   authentication:
     ...
   mqttSettings:
@@ -197,7 +197,7 @@ You can also configure shared subscriptions, QoS, MQTT version, client ID prefix
 
 ```yaml
 spec:
-  endpointType: mqtt
+  endpointType: mqttSettings
   mqttSettings:
     sharedSubscription:
       groupMinimumShareNumber: 3
