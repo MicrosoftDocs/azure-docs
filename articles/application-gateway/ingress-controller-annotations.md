@@ -87,7 +87,7 @@ In the previous example, you've defined an ingress resource named `go-server-ing
 
 ## Backend Hostname
 
-This annotations allows us to specify the host name that Application Gateway should use while talking to the Pods.
+This annotation allows us to specify the host name that Application Gateway should use while talking to the Pods.
 
 ### Usage
 
@@ -126,7 +126,7 @@ Application Gateway [can be configured](./application-gateway-probe-overview.md)
 `health-probe-hostname`: This annotation allows a custom hostname on the health probe.<br>
 `health-probe-port`: This annotation configures a custom health probe port.<br>
 `health-probe-path`: This annotation defines a path for the health probe.<br>
-`health-probe-status-code`: This annotation allows for the health probe to accept different http status codes.<br>
+`health-probe-status-code`: This annotation allows the health probe to accept different HTTP status codes.<br>
 `health-probe-interval`: This annotation defines the interval that the health probe runs at.<br>
 `health-probe-timeout`: This annotation defines how long the health probe will wait for a response before failing the probe.<br>
 `health-probe-unhealthy-threshold`: This annotation defines how many health probes must fail for the backend to be marked as unhealthy.
@@ -354,9 +354,9 @@ spec:
 
 ## Override Frontend Port
 
-The annotation allows to configure frontend listener to use different ports other than 80/443 for http/https.
+The annotation allows you to configure a frontend listener to use different ports other than 80/443 for http/https.
 
-If the port is within the App Gw authorized range (1 - 64999), this listener will be created on this specific port. If an invalid port or no port is set in the annotation, the configuration will fallback on default 80 or 443.
+If the port is within the App Gw authorized range (1 - 64999), this listener will be created on this specific port. If an invalid port or no port is set in the annotation, the configuration will fall back on default 80 or 443.
 
 ### Usage
 
@@ -516,7 +516,7 @@ spec:
 
 ## Application Gateway SSL Certificate
 
-The SSL certificate [can be configured to Application Gateway](https://learn.microsoft.com/cli/azure/network/application-gateway/ssl-cert#az-network-application-gateway-ssl-cert-create) either from a local PFX certificate file or a reference to a Azure Key Vault unversioned secret Id. When the annotation is present with a certificate name and the certificate is pre-installed in Application Gateway, Kubernetes Ingress controller will create a routing rule with a HTTPS listener and apply the changes to your App Gateway. appgw-ssl-certificate annotation can also be used together with ssl-redirect annotation in case of SSL redirect.
+The SSL certificate [can be configured to Application Gateway](/cli/azure/network/application-gateway/ssl-cert#az-network-application-gateway-ssl-cert-create) either from a local PFX certificate file or a reference to an Azure Key Vault unversioned secret ID. When the annotation is present with a certificate name and the certificate is pre-installed in Application Gateway, Kubernetes Ingress controller will create a routing rule with a HTTPS listener and apply the changes to your App Gateway. appgw-ssl-certificate annotation can also be used together with ssl-redirect annotation in case of SSL redirect.
 
 Please refer to appgw-ssl-certificate feature for more details.
 
@@ -590,7 +590,7 @@ spec:
 
 ## Application Gateway Trusted Root Certificate
 
-Users now can configure their own root certificates to Application Gateway to be trusted via AGIC. The annotaton appgw-trusted-root-certificate shall be used together with annotation backend-protocol to indicate end-to-end ssl encryption, multiple root certificates, separated by comma, if specified, e.g. "name-of-my-root-cert1,name-of-my-root-certificate2".
+Users now can configure their own root certificates to Application Gateway to be trusted via AGIC. The annotation appgw-trusted-root-certificate can be used together with annotation backend-protocol to indicate end-to-end ssl encryption, multiple root certificates, separated by comma, if specified, for example, "name-of-my-root-cert1,name-of-my-root-certificate2".
 
 ### Usage
 
@@ -659,11 +659,13 @@ spec:
 
 ## Rewrite Rule Set Custom Resource
 
-> **_NOTE:_** [Application Gateway for Containers](https://aka.ms/agc) has been released, which introduces numerous performance, resilience, and feature changes. Please consider leveraging Application Gateway for Containers for your next deployment.
+> [!Note] 
+> [Application Gateway for Containers](https://aka.ms/agc) has been released, which introduces numerous performance, resilience, and feature changes. Please consider leveraging Application Gateway for Containers for your next deployment.
 > URL Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-url-rewrite-gateway-api.md) and [here for Ingress API](for-containers/how-to-url-rewrite-ingress-api.md).
 > Header Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-header-rewrite-gateway-api.md).
 
-> Note: This feature is supported since 1.6.0-rc1. Please use [`appgw.ingress.kubernetes.io/rewrite-rule-set`](#rewrite-rule-set) which allows using an existing rewrite rule set on Application Gateway.
+> [!Note] 
+> This feature is supported since 1.6.0-rc1. Use [`appgw.ingress.kubernetes.io/rewrite-rule-set`](#rewrite-rule-set), which allows using an existing rewrite rule set on Application Gateway.
 
 Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information. Rewrite Rule Set Custom Resource brings this feature to AGIC.
 
@@ -710,7 +712,7 @@ spec:
 
 ## Rule Priority
 
-This annotation allows for application gateway ingress controller to explicitly set the priority of the associated [Request Routing Rules.](./multiple-site-overview#request-routing-rules-evaluation-order)
+This annotation allows for application gateway ingress controller to explicitly set the priority of the associated [Request Routing Rules.](./multiple-site-overview.md#request-routing-rules-evaluation-order)
 
 ### Usage
 
