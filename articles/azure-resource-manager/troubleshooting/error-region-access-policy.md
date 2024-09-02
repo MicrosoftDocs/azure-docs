@@ -43,8 +43,8 @@ If you recieve this message, there are two possible solutions:
 
 1. Select your **Subscription** from the drop-down list. 
 
-1. For **Quota type**, select **Unable to access West Europe region** from the drop-dowm list.
+1. For **Quota type**, select **Unable to access West Europe region** from the drop-down list.
 
-1. Click on **Next** and complete the support request form. Microsoft Customer Support will use the request contact method as needed to complete the process.
+1. Click on **Next** and complete the support request form. Microsoft Customer Support will use the requested contact method as needed to complete the process.
 
 ---
