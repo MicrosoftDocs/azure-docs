@@ -50,6 +50,8 @@
       href: error-resource-quota.md
     - name: SKU not available
       href: error-sku-not-available.md
+    - name: Location Ineligible
+      href: error-region-access-policy.md
 - name: Reference
   items:
   - name: Bicep and ARM template reference
