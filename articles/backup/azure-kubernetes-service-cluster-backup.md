@@ -29,7 +29,7 @@ You can use Azure Backup to back up AKS clusters (cluster resources and persiste
 
 - You must [install the Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
-- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before you initiate backup configuration and restore operations.
+- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and `Microsoft.ContainerService` are registered for your subscription before you initiate backup configuration and restore operations.
 
 - Ensure that you perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before you initiate a backup or restore operation for AKS backup.
 
@@ -161,8 +161,7 @@ To configure backups for AKS cluster:
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/grant-permission.png" alt-text="Screenshot that shows how to proceed to the next step after granting permission.":::
 
    > [!NOTE]
-   > - Before you enable Trusted Access, enable the `TrustedAccessPreview` feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
-   > - If the AKS cluster doesn't have the Backup extension installed, you can perform the installation step that configures backup.
+   > - If the AKS cluster doesn't have the Backup extension installed, you can perform the installation during configuring backup for the cluster.
 
 1. Select the backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
