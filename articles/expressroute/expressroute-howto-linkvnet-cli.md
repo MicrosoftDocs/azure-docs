@@ -110,9 +110,9 @@ The Circuit Owner can review all authorizations that are issued on a particular 
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**To add authorizations**
+**To create an authorization**
 
-The Circuit Owner can add authorizations by using the following example:
+The Circuit Owner can create an authorization by using the following example:
 
 ```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1

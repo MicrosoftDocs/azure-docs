@@ -106,10 +106,10 @@ The following table highlights the packages required for [supported Linux distro
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |    GNU C library | 2.5-12
+|Glibc |    GNU C library | 2.5-12|
 |Openssl    | OpenSSL libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
-|Python | | 2.7 or 3.6+
+|Python | | 2.7 or 3.6-3.11|
 |Python-ctypes | |
 |PAM | Pluggable authentication modules | |
 
