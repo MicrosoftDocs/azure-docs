@@ -57,6 +57,8 @@ To learn how to configure diagnostics settings, see [this article](../azure-moni
 
 To view your reports after setting up your vault (to transfer data to Log Analytics workspace), go to **Business Continuity Center** > **Monitoring+Reporting** > **Reports**.
 
+:::image type="content" source="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png" alt-text="Screenshot shows the Reports dashboard in Azure Business Continuity Center." lightbox="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png":::
+
 Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. Before you choose the required report, first, select one or more workspace subscriptions, Log Analytics workspaces, and other fields in the report to generate appropriate report with the required information.
 
 The following table describes the types of available reports:
