@@ -76,7 +76,7 @@ Follow these steps to list the Service Administrator and Co-Administrators for a
 
 # [Azure Resource Graph](#tab/azure-resource-graph)
 
-Follow these steps to list the number of Service Administrator and Co-Administrators in your subscriptions using Azure Resource Graph.
+Follow these steps to list the number of Service Administrators and Co-Administrators in your subscriptions using Azure Resource Graph.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
