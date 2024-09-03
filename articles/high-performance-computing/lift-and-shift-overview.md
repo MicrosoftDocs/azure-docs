@@ -15,7 +15,7 @@ services:
 
 The following figure represents a typical on-premises HPC cluster in a production environment, which the hardware manufacturer often delivers. Such on-premises environment comprises a set of compute nodes, which may or may not work with virtual machine images and containers. Such nodes execute workloads managed by a job scheduler, which can be Slurm, PBS, or LSF typically. The workloads come from multiple users that have identity management associated with them. Usually there are home directories, scratch disks, and long term storage. Some form of monitoring to check the performance of jobs and health of compute nodes are also available. Users can access the environment via command line, browsers, or some kind of remote visualization technology. The entire environment is hosted in a private network, so users have some mechanism to access the computing facility, either via VPN or via portal.
 
-![On-premise environment Overview](../media/on-premise-old-icons.png "Existing on-premise environment overview")
+:::image type="content" source="media/on-premises-old-icons.png" alt-text="Diagram depicting existing on-premises environment architecture.":::
 
 As we see throughout this document, the environment in the cloud following the Infrastructure-as-a-Service model, conceptually speaking, isn't so different. Some technologies need some updates and some steps during the migration from on-premises to the cloud are necessary.
 
@@ -73,7 +73,7 @@ This persona represents the one who is responsible for the business, which inclu
 
 ## Lift and shift architecture overview
 
-![HPC Cloud Architecture](../media/visio-lift-shift-arch-background.png "Target HPC Cloud architecture overview")
+:::image type="content" source="media/visio-lift-shift-arch-background.png" alt-text="Diagram depicting target HPC Cloud architecture.":::
 
 A production HPC environment in the cloud comprises several components. There are some core components to stand up an environment, such as a job scheduler, a resource provider, an entry pointer for the user to access the environment, compute and storage devices, among others. As the environment gets into production, monitoring, observability, health checks, security, identity management, accountability, different storage options, among other components, start to play a critical role.
 
