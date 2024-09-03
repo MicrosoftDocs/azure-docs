@@ -51,9 +51,9 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 #### Data storage and index meters
 
-Data storage and metadata are billed per GB on a monthly basis. Metadata is stored as part of the object and includes properties and key-value pairs. It does not include blob index tags as those are stored as a sub resource and have their own billing meter. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
+Data storage and metadata are billed per GB on a monthly basis. Most metadata is stored as part of the blob and includes properties and key-value pairs. The metadata that is associated with blobs in the archive tier is stored separately in the cold tier. That way, users can list the blob and its properties, metadata, and index tags. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
 
-The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. 
+Blob index tags are stored as a sub resource in the hot tier, and have their own billing meter. The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. Data associated with the index is always stored in the hot tier.
 
 For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
