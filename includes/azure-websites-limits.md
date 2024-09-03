@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 09/03/2024
 ms.author: msangapu
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
