@@ -294,9 +294,22 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) might have a link to your device vendor's instructions for configuring with Azure virtual network gateway.
 
+When configuring your network appliance, you need the following items:
+
+* A shared key. This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key such as 'abc123'. We recommend that you generate a more complex key to use that complies with your organization's security requirements.
+* The public IP address of your virtual network gateway. To find the public IP address of your virtual network gateway using PowerShell, use the following example. In this example, mypublicip is the name of the public IP address resource that you created in an earlier step.
+
+  ```azurepowershell-interactive
+  Get-AzPublicIpAddress -Name mypublicip -ResourceGroupName <resource-group-name>
+  ```
+
+[!INCLUDE [Configure VPN device](../../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+
 ## Create the site-to-site connection
 
 To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, follow these steps.
+
+# [Portal](#tab/azure-portal)
 
 1. Navigate to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Settings > Connections**, and then select **+ Add**.
 
@@ -335,6 +348,47 @@ To complete the deployment of a S2S VPN, you must create a connection between yo
      - **InitiatorOnly**: Azure VPN gateway will initiate the connection and reject any connection attempts from the on-premises VPN gateway.
 
 1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the connection. You can verify the connection has been made successfully through the virtual network gateway's **Connections** page.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. The `-ConnectionType` for site-to-site VPN is **IPsec**.
+
+1. Set the variables.
+
+   ```azurepowershell-interactive
+   $gateway1 = Get-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroupName <resource-group-name>
+   $local = Get-AzLocalNetworkGateway -Name MyLocalGateway -ResourceGroupName <resource-group-name>
+   ```
+
+1. Create the VPN connection.
+
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName <resource-group-name> `
+   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -SharedKey 'abc123'
+   ```
+
+After a short while, the connection will be established.
+
+There are a few different ways to verify your VPN connection.
+
+[!INCLUDE [Verify connection](../../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. The `-ConnectionType` for site-to-site VPN is **IPsec**.
+
+```azurecli-interactive
+az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group-name> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway MyLocalGateway
+```
+
+After a short while, the connection will be established.
+
+[!INCLUDE [verify connection](../../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+
+If you want to use another method to verify your connection, see [Verify a VPN Gateway connection](../../vpn-gateway/vpn-gateway-verify-connection-resource-manager.md).
+
+---
 
 ## Mount Azure file share
 
