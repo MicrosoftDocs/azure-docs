@@ -4,8 +4,8 @@ description: Learn how you can troubleshoot your lab VM in Azure Lab Services by
 services: lab-services
 ms.service: azure-lab-services
 ms.topic: how-to
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 09/28/2023
 ---
 <!-- As a student, I want to be able to troubleshoot connectivity problems with my VM so that I can get back up and running quickly, without having to escalate an issue -->

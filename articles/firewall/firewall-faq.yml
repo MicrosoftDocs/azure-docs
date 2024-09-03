@@ -40,7 +40,7 @@ sections:
 
           * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
           * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
-          * *NAT rules*: Configure DNAT rules to allow incoming Internet connections.
+          * *NAT rules*: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.
 
           For more information, see [Configure Azure Firewall rules](rule-processing.md).
 

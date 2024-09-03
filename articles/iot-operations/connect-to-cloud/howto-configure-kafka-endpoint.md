@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to
 ---
@@ -14,7 +14,7 @@ ms.date: 08/29/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Kafka endpoints are used in dataflows to setup bi-directional communication between Azure IoT Operations and Apache Kafka brokers. You can configure the endpoint, Transport Layer Security (TLS), authentication, and other settings.
+Kafka endpoints are used in dataflows to set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers. You can configure the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Kafka endpoints are used in dataflows to setup bi-directional communication betw
 
 ## How to create a Kafka dataflow endpoint
 
-To create a dataflow endpoint for Kafka, you need to specify the Kafka broker host, authentication method, TLS settings, and other settings. You can use the endpoint as a source or destination in a dataflow. When used with Azure Event Hubs, you can use managed identity for authentication which eliminates the need to manage secrets.
+To create a dataflow endpoint for Kafka, you need to specify the Kafka broker host, authentication method, TLS settings, and other settings. You can use the endpoint as a source or destination in a dataflow. When used with Azure Event Hubs, you can use managed identity for authentication that eliminates the need to manage secrets.
 
 ### Azure Event Hubs
 
@@ -31,7 +31,7 @@ To create a dataflow endpoint for Kafka, you need to specify the Kafka broker ho
 
 To configure an Azure Event Hubs, we recommend that you use managed identity for authentication.
 
-1. Create an Azure Event Hubs namespace and a Kafka-enabled Event Hub (one for each Kafka topic).
+1. Create an Azure Event Hubs namespace and a Kafka-enabled event hub (one for each Kafka topic).
 
 1. Get the managed identity of the Azure IoT Operations Arc extension.
 
@@ -196,7 +196,7 @@ kafkaSettings:
       secretRef: <your x509 secret name>
 ```
 
-The secret must be in the same namespace as the Kafka dataflow resource. use Kubernetes TLS secret containing the public certificate and private key. For example:
+The secret must be in the same namespace as the Kafka dataflow resource. Use Kubernetes TLS secret containing the public certificate and private key. For example:
 
 ```bash
 kubectl create secret tls my-tls-secret -n azure-iot-operations \
@@ -278,9 +278,9 @@ This ConfigMap should contain the CA certificate in PEM format. The ConfigMap mu
 kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-iot-operations
 ```
 
-This setting is important if the Kafka broker uses a self-signed certificate or a certificate signed by a custom CA that is not trusted by default.
+This setting is important if the Kafka broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
 
-however, in the case of Azure Event Hubs, the CA certificate is not required because the Event Hubs service uses a certificate signed by a public CA that is trusted by default.
+However in the case of Azure Event Hubs, the CA certificate isn't required because the Event Hubs service uses a certificate signed by a public CA that is trusted by default.
 
 ## Kafka messaging settings
 
@@ -300,7 +300,7 @@ The consumer group ID is used to identify the consumer group that the dataflow u
 
 <!-- TODO: check for accuracy -->
 
-This setting takes effect only if the endpoint is used as a source (i.e. the dataflow is a consumer).
+This setting takes effect only if the endpoint is used as a source (that is, the dataflow is a consumer).
 
 ### Compression
 
@@ -311,16 +311,16 @@ kafkaSettings:
   compression: Gzip
 ```
 
-The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in table below.
+The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in the following table.
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | No compression or batching is applied. This is the default value if no compression is specified. |
-| `Gzip` | GZIP compression and batching is applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. This is the only compression method supported by Azure Event Hubs. |
-| `Snappy` | Snappy compression and batching is applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| `Lz4` | LZ4 compression and batching is applied. LZ4 is a very fast compression algorithm that offers low compression ratio and high speed. |
+| `None` | No compression or batching is applied. None is the default value if no compression is specified. |
+| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. GZIP is the only compression method supported by Azure Event Hubs. |
+| `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
+| `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
 
-This setting takes effect only if the endpoint is used as a destination (i.e. the dataflow is a producer).
+This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
 
 ### Batching
 
@@ -329,9 +329,9 @@ Aside from compression, you can also configure batching for messages before send
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | `mode` | Enable batching or not. If not set, the default value is Enabled because Kafka doesn't have a notion of *unbatched* messaging. If set to Disabled, the batching is minimized to create a batch with a single message each time. | No |
-| `latencyMs` | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages will be sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
-| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages will be sent as a batch, regardless of how large they are or how long they have been buffered. If not set, the default value is 100000.  | No |
-| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages will be sent as a batch, regardless of how many they are or how long they have been buffered. The default value is 1000000 (1 MB). | No |
+| `latencyMs` | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
+| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered. If not set, the default value is 100000.  | No |
+| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered. The default value is 1000000 (1 MB). | No |
 
 An example of using batching is:
 
@@ -344,19 +344,19 @@ kafkaSettings:
     maxBytes: 1024
 ```
 
-This means that messages will be sent either when there are 100 messages in the buffer, or when there are 1024 bytes in the buffer, or when 1000 milliseconds have elapsed since the last send, whichever comes first.
+This means that messages will be sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds have elapsed since the last send, whichever comes first.
 
-This setting takes effect only if the endpoint is used as a destination (i.e. the dataflow is a producer).
+This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
 
 ### Partition handling strategy
 
 The partition handling strategy controls how messages are assigned to Kafka partitions when sending them to Kafka topics. Kafka partitions are logical segments of a Kafka topic that enable parallel processing and fault tolerance. Each message in a Kafka topic has a partition and an offset, which are used to identify and order the messages.
 
-This setting takes effect only if the endpoint is used as a destination (i.e. the dataflow is a producer).
+This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
 
 <!-- TODO: double check for accuracy -->
 
-By default, a dataflow assigns messages to random partitions, using a round-robin algorithm . However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
+By default, a dataflow assigns messages to random partitions, using a round-robin algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
 
 | Value | Description |
 | ----- | ----------- |
@@ -373,13 +373,13 @@ kafkaSettings:
   partitionKeyProperty: device-id
 ```
 
-This means that messages with the same "device-id" property will be sent to the same partition.
+This means that messages with the same "device-id" property are sent to the same partition.
 
 ### Kafka acknowledgements
 
 Kafka acknowledgements (acks) are used to control the durability and consistency of messages sent to Kafka topics. When a producer sends a message to a Kafka topic, it can request different levels of acknowledgements from the Kafka broker to ensure that the message is successfully written to the topic and replicated across the Kafka cluster.
 
-This setting takes effect only if the endpoint is used as a destination (i.e. the dataflow is a producer).
+This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
 
 | Value | Description |
 | ----- | ----------- |
@@ -414,17 +414,17 @@ The following sections describe how MQTT properties are translated to Kafka user
 
 #### Kafka endpoint is a destination
 
-When a Kafka endpoint as a dataflow destination, all MQTT v5 specification defined properties are translated Kafka user headers. For example, an MQTT v5 message with "Content Type" being forwarded to Kafka translates into the Kafka **user header** `"Content Type":{specifiedValue}`. Similar rules apply to other built-in MQTT properties, defined in the table below.
+When a Kafka endpoint is a dataflow destination, all MQTT v5 specification defined properties are translated Kafka user headers. For example, an MQTT v5 message with "Content Type" being forwarded to Kafka translates into the Kafka **user header** `"Content Type":{specifiedValue}`. Similar rules apply to other built-in MQTT properties, defined in the table below.
 
 | MQTT Property | Translated Behavior |
 |---------------|----------|
 | Payload Format Indicator  | Key: "Payload Format Indicator" <BR> Value: "0" (Payload is bytes) or "1" (Payload is UTF-8)
 | Response Topic | Key: "Response Topic" <BR> Value: Copy of Response Topic from original message.
 | Message Expiry Interval | Key: "Message Expiry Interval" <BR> Value: UTF-8 representation of number of seconds before message expires. See [Message Expiry Interval property](#the-message-expiry-interval-property) for more details.
-| Correlation Data: | Key: "Correlation Data" <BR> Value: Copy of Correlation Data from original message. Note that unlike many of MQTT v5 properties, which are UTF-8 encoded, Correlation Data can be arbitrary data.
+| Correlation Data: | Key: "Correlation Data" <BR> Value: Copy of Correlation Data from original message. Unlike many MQTT v5 properties that are UTF-8 encoded, correlation data can be arbitrary data.
 | Content Type: | Key: "Content Type" <BR> Value: Copy of Content Type from original message.
 
-MQTT v5 user property key/value pairs ae directly translated to Kafka user headers. If a user header in a message has the same name as a built-in MQTT property (for example, a user header named "Correlation Data") then whether the MQTT v5 specification property value or the user property is forwarded is undefined.
+MQTT v5 user property key value pairs are directly translated to Kafka user headers. If a user header in a message has the same name as a built-in MQTT property (for example, a user header named "Correlation Data") then whether forwarding the MQTT v5 specification property value or the user property is undefined.
 
 Dataflows never receive these properties from an MQTT Broker. Thus, a dataflow never forwards them:
 
@@ -437,15 +437,15 @@ The [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt
 
 When a dataflow receives an MQTT message with the Message Expiry Interval specified, it:
 
-* Records the time the message was received by .
+* Records the time the message was received.
 * Before the message is emitted to the destination, time is subtracted from the message has been queued from the original expiry interval time.
  * If the message has not yet expired (the operation above is > 0), then the message is emitted to the destination and contains the updated Message Expiry Time.
  * If the message has expired (the operation above is <= 0), then the message isn't emitted by the Target.
 
 Examples:
 
-* A dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. 1000 seconds pass before this MQTT Message is sent to the Target. In this case, the destination's message has its Message Expiry Interval set as 2600 (3600 - 1000) seconds.
-* The dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. In this case, however, it takes 4000 seconds to reconnect. The message has expired, and dataflow doesn't forward this message to the destination.
+* A dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. 1,000 seconds pass before this MQTT Message is sent to the Target. In this case, the destination's message has its Message Expiry Interval set as 2600 (3600 - 1000) seconds.
+* The dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. In this case, however, it takes 4,000 seconds to reconnect. The message has expired, and dataflow doesn't forward this message to the destination.
 
 #### Kafka endpoint is a dataflow source
 
@@ -469,7 +469,7 @@ MQTT v5 can only support UTF-8 based properties. If dataflow receives a Kafka me
 * Remove the offending property or properties.
 * Forward the rest of the message on, following the rules described above.
 
-Applications that require binary transfer in Kafka Source headers => MQTT Target properties must first UTF-8 encode them - e.g. via Base64.
+Applications that require binary transfer in Kafka Source headers => MQTT Target properties must first UTF-8 encode them - for example, via Base64.
 
 ##### >=64KB property mismatches
 
@@ -477,3 +477,44 @@ MQTT v5 properties must be smaller than 64 KB. If dataflow receives a Kafka mess
 
 * Remove the offending property or properties.
 * Forward the rest of the message on, following the rules described above.
+
+### CloudEvents
+
+[CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
+
+The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. For example:
+
+```yaml
+mqttSettings:
+  CloudEventAttributes: Propagate # or CreateOrRemap
+```
+
+#### Propagate setting
+
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. If the required properties are present, a `ce_` prefix is added to the CloudEvent property name.
+
+| Name              | Required | Sample value                                           | Output name          | Output value                                                                |
+| ----------------- | -------- | ------------------------------------------------------ | -------------------- |---------------------------------------------------------------------------- |
+| `specversion`     | Yes      | `1.0`                                                  | `ce-specversion`     | Passed through as is                                                        |
+| `type`            | Yes      | `ms.aio.telemetry`                                     | `ce-type`            | Passed through as is                                                        |
+| `source`          | Yes      | `aio://mycluster/myoven`                               | `ce-source`          | Passed through as is                                                        |
+| `id`              | Yes      | `A234-1234-1234`                                       | `ce-id`              | Passed through as is                                                        |
+| `subject`         | No       | `aio/myoven/telemetry/temperature`                     | `ce-subject`         | Passed through as is                                                        |
+| `time`            | No       | `2018-04-05T17:31:00Z`                                 | `ce-time`            | Passed through as is. It's not restamped.                                   |
+| `datacontenttype` | No       | `application/json`                                     | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage. |
+| `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | `ce-dataschema`      | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.  |
+
+#### CreateOrRemap setting
+
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated.
+
+| Name              | Required | Output name          | Generated value if missing                                                    |
+| ----------------- | -------- | -------------------- | ------------------------------------------------------------------------------|
+| `specversion`     | Yes      | `ce-specversion`     | `1.0`                                                                         |
+| `type`            | Yes      | `ce-type`            | `ms.aio-dataflow.telemetry`                                                   |
+| `source`          | Yes      | `ce-source`          | `aio://<target-name>`                                                         |
+| `id`              | Yes      | `ce-id`              | Generated UUID in the target client                                           |
+| `subject`         | No       | `ce-subject`         | The output topic where the message is sent                                    |
+| `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
+| `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
+| `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |

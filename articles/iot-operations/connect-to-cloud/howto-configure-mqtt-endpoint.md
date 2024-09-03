@@ -320,3 +320,44 @@ You can set the keep alive interval for the dataflow MQTT client. The keep alive
 mqttSettings:
   keepAliveSeconds: 60
 ```
+
+### CloudEvents
+
+[CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
+
+The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`.
+
+```yaml
+mqttSettings:
+  CloudEventAttributes: Propagate # or CreateOrRemap
+```
+
+#### Propagate setting
+
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. If the target is Kafka and the required properties are present, a `ce_` prefix is added to the CloudEvent properties.
+
+| Name              | Required | Sample value                                           | Output value                                                                                            |
+| ----------------- | -------- | ------------------------------------------------------ |-------------------------------------------------------------------------------------------------------- |
+| `specversion`     | Yes      | `1.0`                                                  | Passed through as is                                                                                    |
+| `type`            | Yes      | `ms.aio.telemetry`                                     | Passed through as is                                                                                    |
+| `source`          | Yes      | `aio://mycluster/myoven`                               | Passed through as is                                                                                    |
+| `id`              | Yes      | `A234-1234-1234`                                       | Passed through as is                                                                                    |
+| `subject`         | No       | `aio/myoven/telemetry/temperature`                     | Passed through as is                                                                                    |
+| `time`            | No       | `2018-04-05T17:31:00Z`                                 | Passed through as is. It's not restamped. |
+| `datacontenttype` | No       | `application/json`                                     | Changed to the output data content type after the optional transform stage.                             |
+| `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.         |
+
+#### CreateOrRemap setting
+
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated. If the target is Kafka, a `ce_` prefix is added to the CloudEvent properties.
+
+| Name              | Required | Generated value if missing                                                    |
+| ----------------- | -------- | ------------------------------------------------------------------------------|
+| `specversion`     | Yes      | `1.0`                                                                         |
+| `type`            | Yes      | `ms.aio-dataflow.telemetry`                                                   |
+| `source`          | Yes      | `aio://<target-name>`                                                         |
+| `id`              | Yes      | Generated UUID in the target client                                           |
+| `subject`         | No       | The output topic where the message is sent                                    |
+| `time`            | No       | Generated as RFC 3339 in the target client                                    |
+| `datacontenttype` | No       | Changed to the output data content type after the optional transform stage    |
+| `dataschema`      | No       | Schema defined in the schema registry                                         |
