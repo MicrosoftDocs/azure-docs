@@ -107,6 +107,7 @@ Before deploying Azure File Sync, you should evaluate whether it's compatible wi
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
+- The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025.
