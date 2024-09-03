@@ -66,7 +66,7 @@ You can get this information from Microsoft Entra ID through app registration, w
 #### Register an application with Microsoft Entra ID
 
 1. In the Azure portal, go to **Microsoft Entra ID**.
-1. On the menu, select **App Registrations** and then select **New registration**.
+1. On the menu, select **App Registrations**, and then select **New registration**.
 1. Choose a name for your application registration, select **Single tenant**, and then select **Register**.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-register-application.png" alt-text="Screenshot that shows registering an application.":::
@@ -77,7 +77,7 @@ You can get this information from Microsoft Entra ID through app registration, w
 
 1. Go back to the main page of **Microsoft Entra ID**.
 
-1. On the menu, select **App Registrations** and then select your newly registered app.
+1. On the menu, select **App Registrations**, and then select your newly registered app.
 
 1. On the menu, select **API Permissions** > **Add a permission**.
 
@@ -107,7 +107,7 @@ After your app is registered and permissions are granted, you need to get a clie
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-client-secret.png" alt-text="Screenshot that shows getting a client secret.":::
 
-1. Select **Add** and then copy the client secret.
+1. Select **Add**, and then copy the client secret.
 
     > [!IMPORTANT]
     > You must copy the client secret before you leave this screen. You can't retrieve this secret again if you go away from this page. You need this value when you configure your TIP or custom solution.

@@ -75,7 +75,7 @@ The Upload Indicators API ingests threat indicators at the workspace level and a
 1. From the Azure portal, go to **Log Analytics workspaces**.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment**.
-1. On the **Role** tab, select the **Microsoft Sentinel Contributor** role and then select **Next**.
+1. On the **Role** tab, select the **Microsoft Sentinel Contributor** role, and then select **Next**.
 1. On the **Members** tab, select **Assign access to** > **User, group, or service principal**.
 1. Select members. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, search for it by name.
 
