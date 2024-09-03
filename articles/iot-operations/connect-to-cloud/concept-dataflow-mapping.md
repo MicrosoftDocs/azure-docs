@@ -89,7 +89,9 @@ Field references show how to specify paths in the input and output by using dot 
 
 ### MQTT user properties
 
-When you use MQTT as a source or destination, you can access MQTT user properties in the mapping language. User properties can be mapped in the input or output. In the following example, the MQTT `topic` property is mapped to the `origin_topic` field in the output:
+When you use MQTT as a source or destination, you can access MQTT user properties in the mapping language. User properties can be mapped in the input or output. 
+
+In the following example, the MQTT `topic` property is mapped to the `origin_topic` field in the output. 
 
 ```yaml
     inputs:
@@ -98,7 +100,6 @@ When you use MQTT as a source or destination, you can access MQTT user propertie
 ```
 
 You can also map MQTT properties to an output header. In the following example, the MQTT `topic` is mapped to the `origin_topic` field in the output's user property:
-
 
 ```yaml
     inputs:
