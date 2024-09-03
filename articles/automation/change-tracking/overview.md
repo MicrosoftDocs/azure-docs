@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/02/2024
+ms.date: 08/30/2024
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.service: azure-automation
@@ -15,7 +15,16 @@ ms.service: azure-automation
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent will  retire on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
+> Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
+
+> [!Important]
+> You can expect the following if you use the capability using Change Tracking & Inventory Log Analytics Agent.
+> - **Functionality**: The functional capabilities of Change Tracking with Log Analytics agent would continue to work till Feb'2025. However, the support will be limited and can lead to potential issues over time.
+> - **Installation**: The ability to configure Change Tracking & Inventory using MMA/OMS agents will be removed from the Azure portal soon.
+>- **Customer Support**: You will not be able to get support through existing channels for Change Tracking & Inventory with MMA/OMS. Microsoft will provide support on a best effort basis.
+> - **New capabilities and support matrix**:  No new capabilities will be added, including functionality for additional Windows or Linux versions.
+> - **File Integrity Monitoring**: Microsoft Defender for Servers Plan 2 will offer a new File Integrity Monitoring (FIM) solution powered by Microsoft Defender for Endpoint (MDE) integration. Microsoft Defender for Cloud recommends disabling FIM over MMA by November 2024 and onboarding your environment to the new FIM version based on Defender for Endpoint. File Integrity Monitoring based on Log Analytics Agent (MMA) is supported till November 2024. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#migration-from-fim-over-log-analytics-agent-mma).
+
 
 This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include:
 
