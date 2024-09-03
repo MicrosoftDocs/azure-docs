@@ -19,7 +19,7 @@ In the Socket.IO Serverless mode, the client's connection lifecycle is managed t
 
 ### Socket Connects
 
-In the client side, you should use a Socket.IO compatible client. In the following client code, we use the (official JavaScript client SDK)[https://www.npmjs.com/package/socket.io-client].
+In the client side, you should use a Socket.IO compatible client. In the following client code, we use the [official JavaScript client SDK](https://www.npmjs.com/package/socket.io-client).
 
 Client:
 
