@@ -29,14 +29,14 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 ## System prerequisites
 
-Typically, system prerequisites are managed by your **infrastructure** teams.
+Typically, system prerequisites are managed by your **infrastructure** teams. The following system prerequisites are required for deploying the SAP data connector agent container:
 
 | Prerequisite | Description |
 | ---- | ----------- |
 | **System architecture** | The data connector component of the SAP solution is deployed as a Docker container, and each SAP client requires its own container instance.<br>The container host can be either a physical machine or a virtual machine, can be located either on-premises or in any cloud. <br>The VM hosting the container ***does not*** have to be located in the same Azure subscription as your Microsoft Sentinel workspace, or even in the same Microsoft Entra tenant. |
+| **Supported Linux versions** | The SAP data connector agent is tested with the following Linux distributions:<br>- Ubuntu 18.04 or higher<br>- SLES version 15 or higher<br>- RHEL version 7.7 or higher<br><br>If you have a different operating system, you might need to deploy and configure the container manually. For more information, open a support ticket. |
 | **Virtual machine sizing recommendations** | **Minimum specification**, such as for a lab environment:<br>*Standard_B2s* VM, with:<br>- Two cores<br>- 4-GB RAM<br><br>**Standard connector** (default):<br>*Standard_D2as_v5* VM or<br>*Standard_D2_v5* VM, with: <br>- Two cores<br>- 8-GB RAM<br><br>**Multiple connectors**:<br>*Standard_D4as_v5* or<br>*Standard_D4_v5* VM, with: <br>- Four cores<br>- 16-GB RAM |
 | **Administrative privileges** | Administrative privileges (root) are required on the container host machine. |
-| **Supported Linux versions** | The SAP data connector agent is tested with the following Linux distributions:<br>- Ubuntu 18.04 or higher<br>- SLES version 15 or higher<br>- RHEL version 7.7 or higher<br><br>If you have a different operating system, you might need to deploy and configure the container manually. For more information, open a support ticket. |
 | **Network connectivity** | Ensure that the container host has access to: <br>- Microsoft Sentinel <br>- Azure key vault (in deployment scenario where Azure key vault is used to store secrets<br>- SAP system via the following TCP ports: *32xx*, *5xx13*, *33xx*, *48xx* (when SNC is used), where *xx* is the SAP instance number. |
 | **Software utilities** | The [SAP data connector deployment script](reference-kickstart.md) installs the following required software on the container host VM (depending on the Linux distribution used, the list might vary slightly): <br>- [Unzip](http://infozip.sourceforge.net/UnZip.html)<br>- [NetCat](https://sectools.org/tool/netcat/)<br>- [Docker](https://www.docker.com/)<br>- [jq](https://stedolan.github.io/jq/)<br>- [curl](https://curl.se/) |
 | **Managed identity or service principal** | The latest version of the SAP data connector agent requires a managed identity or service principal to authenticate to Microsoft Sentinel. <br><br>Legacy agents are supported for updates to the latest version, and then must use a managed identity or service principal to continue updating to subsequent versions. |

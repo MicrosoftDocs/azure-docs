@@ -43,6 +43,8 @@ Watch a video demonstration of the deployment process described in this article.
 
 ## Create a virtual machine and configure access to your credentials
 
+Create a virtual machine to use for your data connecter agent container. For more information, see [System prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites).
+
 We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
 |Deployment method  |Access method  |
@@ -239,7 +241,7 @@ Advanced users might always want to deploy the data connector agent manually, su
 
 This procedure describes how to create a new agent and connect it to your SAP system using the Azure or Defender portals, authenticating with a managed identity or a Microsoft Entra ID registered application.
 
-1. In the Azure portal, from the Microsoft Sentinel navigation menu, select **Data connectors**. In the Defender portal, select **Microsoft Sentinel > Configuration > Data connectors**.
+1. In Microsoft Sentinel, select **Configuration > **Data connectors**.
 
 1. In the search bar, enter *SAP*. Select **Microsoft Sentinel for SAP** from the search results and then **Open connector page**.
 
@@ -269,7 +271,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment commands** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Under **Just a few more steps before we finish**, copy the *Role assignment commands* from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
@@ -286,7 +288,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
-1. After you've copied the command line, select **Close**.
+1. Copy the command line to a separate location and then select **Close**.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**.
 
@@ -306,7 +308,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
-1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--validate this--> <!--From Naomi - It is not clear how to connect to an SAP system using ASCS. When selecting ABAP server, the solution will not connect to the SAP system, and there is no indication in the documentation what using the Message Server is, since this does not align to the SAP terminology. Update the documentation to align the terminology with SAP terms, and make it clearer what this configuration is used for - use scenarios and examples here.>
+1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--From Naomi - It is not clear how to connect to an SAP system using ASCS. When selecting ABAP server, the solution will not connect to the SAP system, and there is no indication in the documentation what using the Message Server is, since this does not align to the SAP terminology. Update the documentation to align the terminology with SAP terms, and make it clearer what this configuration is used for - use scenarios and examples here.-->
 
     - Under **Select an agent**, select the agent you created earlier.
     - Under **System identifier**, select the server type and provide the server details.
