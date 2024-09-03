@@ -15,7 +15,9 @@ ms.collection: usx-security
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the Upload Indicators API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the Threat Intelligence Upload Indicators API, you can use these solutions to import threat indicators into Microsoft Sentinel. The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need for the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the Threat Intelligence Upload Indicators API, you can use these solutions to import threat indicators into Microsoft Sentinel. 
+
+The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need for the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
 
 :::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
 
