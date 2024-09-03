@@ -1,6 +1,6 @@
 ---
-title: Overview Socket.IO Serverless Mode
-description: Get an overview of Azure's support for the open-source Socket.IO library on serverless mode.
+title: Socket.IO Serverless Mode Specification
+description: Get the specification of Socket.IO Serverless
 keywords: Socket.IO, Socket.IO on Azure, serverless, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
 ms.author: chenyl
@@ -127,7 +127,7 @@ POST {endpoint}/api/hubs/{hub}/:addToGroups?api-version=2024-01-01
 }
 ```
 
-See [Add Connections to Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/add-connections-to-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](https://learn.microsoft.com/azure/azure-web-pubsub/reference-odata-filter) for filter details.
+See [Add Connections to Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/add-connections-to-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
@@ -156,7 +156,7 @@ POST {endpoint}/api/hubs/{hub}/:removeFromGroups?api-version=2024-01-01
 }
 ```
 
-See [Remove Connections From Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/remove-connections-from-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](https://learn.microsoft.com/azure/azure-web-pubsub/reference-odata-filter) for filter details.
+See [Remove Connections From Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/remove-connections-from-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
