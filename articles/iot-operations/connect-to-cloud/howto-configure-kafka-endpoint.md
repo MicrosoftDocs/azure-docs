@@ -479,7 +479,7 @@ MQTT v5 properties must be smaller than 64 KB. If dataflow receives a Kafka mess
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
 
-The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`.
+The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. For example:
 
 ```yaml
 mqttSettings:
