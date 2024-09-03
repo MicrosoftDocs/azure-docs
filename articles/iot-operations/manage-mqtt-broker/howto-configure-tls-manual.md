@@ -88,7 +88,7 @@ spec:
   serviceType: loadBalancer # Optional, defaults to clusterIP
   serviceName: mqtts-endpoint # Match the SAN in the server certificate
   ports:
-    port: 8885 # Avoid port conflict with default listener at 8883
+    port: 8885 # Avoid port conflict with default listener at 18883
     tls:
       mode: Manual
       manual:

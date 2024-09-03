@@ -113,7 +113,7 @@ spec:
     - name: hostname
       value: "aio-broker"
     - name: tcpPort
-      value: "8883"
+      value: "18883"
     - name: useTls
       value: "true"
     - name: caFile

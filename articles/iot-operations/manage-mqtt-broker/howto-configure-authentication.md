@@ -307,7 +307,7 @@ kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 Inside the pod's shell, run the following command to publish a message to the broker:
 
 ```bash
-mosquitto_pub --host aio-broker --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
 ```
 
 The output should look similar to the following:

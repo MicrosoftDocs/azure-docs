@@ -33,7 +33,7 @@ For a list of the available settings, see the [Broker Listener]() API reference.
 
 ## Default BrokerListener
 
-When you deploy Azure IoT Operations Preview, the deployment also creates a *BrokerListener* resource named `listener` in the `azure-iot-operations` namespace. This listener is linked to the default Broker resource named `broker` that's also created during deployment. The default listener exposes the broker on port 8883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](howto-configure-tls-auto.md) by cert-manager. Authorization is disabled by default.
+When you deploy Azure IoT Operations Preview, the deployment also creates a *BrokerListener* resource named `listener` in the `azure-iot-operations` namespace. This listener is linked to the default Broker resource named `broker` that's also created during deployment. The default listener exposes the broker on port 18883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](howto-configure-tls-auto.md) by cert-manager. Authorization is disabled by default.
 
 To inspect the listener, run:
 
@@ -55,7 +55,7 @@ spec:
   serviceType: ClusterIp
   ports:
   - authenticationRef: authn
-    port: 8883
+    port: 18883
     protocol: Mqtt
     tls:
       certManagerCertificateSpec:

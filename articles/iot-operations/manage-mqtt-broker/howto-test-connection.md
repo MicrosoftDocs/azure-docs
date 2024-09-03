@@ -20,7 +20,7 @@ This article shows different ways to test connectivity to MQTT broker with MQTT 
 
 By default, MQTT broker:
 
-- Deploys a [TLS-enabled listener](howto-configure-brokerlistener.md) on port 8883 with *ClusterIp* as the service type. *ClusterIp* means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type *LoadBalancer* or *NodePort*.
+- Deploys a [TLS-enabled listener](howto-configure-brokerlistener.md) on port 18883 with *ClusterIp* as the service type. *ClusterIp* means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type *LoadBalancer* or *NodePort*.
 
 - Accepts [Kubernetes service accounts for authentication](howto-configure-authentication.md) for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method.
 
@@ -87,7 +87,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    mosquitto_pub --host aio-broker --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -104,7 +104,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. To subscribe to the topic, run the following command:
 
     ```console
-    mosquitto_sub --host aio-broker --port 8883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -156,10 +156,10 @@ kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='
 
 Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) MQTT broker to a port on the host system (localhost). You should use this approach because it makes it easier for clients on the same host to access MQTT broker. 
 
-For example, to create a K3d cluster with mapping the MQTT broker's default MQTT port 8883 to localhost:8883:
+For example, to create a K3d cluster with mapping the MQTT broker's default MQTT port 18883 to localhost:18883:
 
 ```bash
-k3d cluster create --port '8883:8883@loadbalancer'
+k3d cluster create --port '18883:18883@loadbalancer'
 ```
 
 But for this method to work with MQTT broker, you must configure it to use a load balancer instead of cluster IP. There are two ways to do this: create a load balancer or patch the existing default BrokerListener resource service type to load balancer.
@@ -177,8 +177,8 @@ But for this method to work with MQTT broker, you must configure it to use a loa
         type: LoadBalancer
         ports:
         - name: mqtt1
-          port: 8883
-          targetPort: 8883
+          port: 18883
+          targetPort: 18883
         selector:
           app: broker
           app.kubernetes.io/instance: broker
@@ -211,7 +211,7 @@ But for this method to work with MQTT broker, you must configure it to use a loa
 
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-broker   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
+    aio-broker   LoadBalancer   10.43.107.11   XXX.XX.X.X    18883:30366/TCP   14h
     ```
 
 1. You can use the external IP address to connect to MQTT broker over the internet. Make sure to use the external IP address instead of `localhost`.
@@ -237,13 +237,13 @@ But for this method to work with MQTT broker, you must configure it to use a loa
 
 With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8s.io/), and other cluster emulation systems, an external IP might not be automatically assigned. For example, it might show as *Pending* state. 
 
-1. To access the broker, forward the broker listening port 8883 to the host.
+1. To access the broker, forward the broker listening port 18883 to the host.
 
     ```bash
-    kubectl port-forward --namespace azure-iot-operations service/aio-broker 8883:mqtts-8883
+    kubectl port-forward --namespace azure-iot-operations service/aio-broker 18883:mqtts-18883
     ```
 
-1. Use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
+1. Use 127.0.0.1 to connect to the broker at port 18883 with the same authentication and TLS configuration as the example without port forwarding.
 
 Port forwarding is also useful for testing MQTT broker locally on your development machine without having to modify the broker's configuration.
 For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
@@ -259,17 +259,17 @@ For Azure Kubernetes Services Edge Essentials, you need to perform a few additio
     
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-broker   LoadBalancer   10.43.107.11   192.168.0.4   8883:30366/TCP   14h
+    aio-broker   LoadBalancer   10.43.107.11   192.168.0.4   18883:30366/TCP   14h
     ```
     
-1. Set up port forwarding to the `aio-broker` service on the external IP address `192.168.0.4` and port `8883`:
+1. Set up port forwarding to the `aio-broker` service on the external IP address `192.168.0.4` and port `18883`:
     ```bash
-    netsh interface portproxy add v4tov4 listenport=8883 connectport=8883 connectaddress=192.168.0.4
+    netsh interface portproxy add v4tov4 listenport=18883 connectport=18883 connectaddress=192.168.0.4
     ```
     
 1. Open the port on the firewall to allow traffic to the broker's service:
     ```bash
-    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 18883 -Action Allow
     ```
 1. Use the host's public IP address to connect to the MQTT broker.
 

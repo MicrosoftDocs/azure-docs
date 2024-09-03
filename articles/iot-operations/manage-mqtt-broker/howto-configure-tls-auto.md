@@ -184,7 +184,7 @@ spec:
   brokerRef: broker
   serviceType: loadBalancer
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-broker'
-  port: 8884 # Avoid conflicts with default port 8883
+  port: 8884 # Avoid conflicts with default port 18883
   tls:
     mode: Automatic
     certManagerCertificateSpec:
@@ -306,7 +306,7 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
             [SIGNATURE]
     ```
 
-* By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
+* By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 18883. You can inspect the issuer with the following command:
 
     ```bash
     kubectl get issuer aio-ca-issuer -n azure-iot-operations -o yaml
