@@ -168,8 +168,6 @@
               href: sap/update-sap-data-connector.md      
           - name: SAP deployment reference (advanced)
             items:
-            - name: SAP solution data reference
-              href: sap/sap-solution-log-reference.md
             - name: Monitored SAP security parameters
               href: sap/sap-suspicious-configuration-security-parameters.md
             - name: Kickstart script reference
@@ -190,6 +188,8 @@
             href: sap/sap-audit-log-workbook.md
           - name: Monitor SAP audit controls
             href: sap/sap-audit-controls-workbook.md   
+        - name: SAP solution data reference
+          href: sap/sap-solution-log-reference.md
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
       - name: SAP BTP

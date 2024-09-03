@@ -337,16 +337,12 @@ The **SAPUsersGetVIP** function is commonly used in *Deterministic and Anomalous
 
 **Parameters:**
 
-<!--doublecheck this table-->
-
 |Name  |Optional/Required  |Default  |Description  |
 |---------|---------|---------|---------|
-|SearchForTags     |  Optional       |   `dynamic('All Tags')`      |   When `SearchForTags` equals `All Tags`, all users are returned along with their tags. <br><br>Otherwise, only users bearing the tags, SAP roles, or SAP profiles specified in `SearchForTags` are returned. `TagsIntersect` shows the tags that are found, and `IntersectionSize` holds the number of tags that are found.      |
-|SpecialFocusTags     |    Optional     |     `Do not return any in-focus users`    |   Returns all users bearing the tags specified in `SpecialFocusTags`, and marked those with `specialFocusTagged = true`.      |
+|**SearchForTags**     |  Optional       |   `dynamic('All Tags')`      |   When `SearchForTags` equals `All Tags`, all users are returned along with their tags. <br><br>Otherwise, only users bearing the tags, SAP roles, or SAP profiles specified in `SearchForTags` are returned. `TagsIntersect` shows the tags that are found, and `IntersectionSize` holds the number of tags that are found.      |
+|**SpecialFocusTags**     |    Optional     |     `Do not return any in-focus users`    |   Returns all users bearing the tags specified in `SpecialFocusTags`, and marked those with `specialFocusTagged = true`.      |
 
 The **SAPUsersGetVIP** function returns the following output:
-
-<!--check this table-->
 
 | Source | Field | Description | Notes  |
 | ------------- | ------------- | ------------- | -------------  |
