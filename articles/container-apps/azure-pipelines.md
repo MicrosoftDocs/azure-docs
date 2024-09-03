@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 09/03/2024
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ ms.author: cshoe
 
 Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your [Azure DevOps repository](/azure/devops/repos/), a pipeline is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
-The pipeline is triggered by commits to a specific branch in your repository. When creating the pipeline, you decide which branch is the trigger.
+Commits to a specific branch in your repository trigger the pipeline. When creating the pipeline, you decide which branch is the trigger.
 
 ## Container Apps Azure Pipelines task
 
@@ -26,7 +26,7 @@ The task supports the following scenarios:
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, and Python
 * Deploy an existing container image to Container Apps
 
-With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation, see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
+With the production release, this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation, see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
 
 ### Usage examples
 
@@ -96,7 +96,7 @@ Take the following steps to configure an Azure DevOps pipeline to deploy to Azur
 
 ### Create an Azure DevOps repository and clone the source code
 
-Before creating a pipeline, the source code for your app must be in a repository. 
+The source code for your app must be in a repository, before creating a pipeline. 
 
 1. Sign in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
 
@@ -114,7 +114,7 @@ Before creating a pipeline, the source code for your app must be in a repository
 
 1. Select **Clone** to view the repository URL and copy it.
 
-1. Open a terminal and run the following command to clone the repository:
+1. To clone the repository, open a terminal and run the following command:
 
     ```bash
     git clone <REPOSITORY_URL> my-container-app
@@ -192,6 +192,6 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
 
 1. Select **Save and run**.
 
-An Azure Pipelines run starts to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run. During the first pipeline run, you may be prompted to authorize the pipeline to use your service connection.
+An Azure Pipelines run starts to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run. During the first pipeline run, you might be prompted to authorize the pipeline to use your service connection.
 
 To deploy a new revision of your app, push a new commit to the *main* branch.
