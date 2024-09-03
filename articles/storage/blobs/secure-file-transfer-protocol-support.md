@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 09/03/2023
 ms.custom: references_regions
 ms.author: normesta
 
@@ -185,6 +185,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - libssh 0.9.5+
 - Maverick Legacy 1.7.15+
 - Moveit 12.7
+- Mule 2.1.2+
 - OpenSSH 7.4+
 - paramiko 2.8.1+
 - phpseclib 1.0.13+
