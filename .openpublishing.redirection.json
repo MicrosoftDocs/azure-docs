@@ -4744,6 +4744,16 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-portal.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
     }
   ]
 }
