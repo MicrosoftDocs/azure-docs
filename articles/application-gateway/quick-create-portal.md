@@ -57,8 +57,6 @@ Create the application gateway using the tabs on the **Create application gatewa
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
-  
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
          ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 

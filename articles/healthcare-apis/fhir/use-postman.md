@@ -201,6 +201,8 @@ Select **Send**. You should see a new patient in the JSON response.
 
 After you obtain a Microsoft Entra access token, you can export FHIR data to an Azure storage account.
 
+To configure export settings and create a Data Lake Storage Gen2 account, refer to [Configure settings for export](./configure-export-data.md).
+
 Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 
 Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **Token** section. Select **Headers** to add two new headers:
