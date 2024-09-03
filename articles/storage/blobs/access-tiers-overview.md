@@ -204,7 +204,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier
 
-The cold tier requires teh following minimum versions of REST, SDKs, and tools
+The cold tier requires the following minimum versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|
