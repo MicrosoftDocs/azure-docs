@@ -145,6 +145,8 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 - Configuration using Azure Resource Manager isn't supported. Instead, configure dataflows using `kubectl` and YAML files as documented.
 
+- When using Event Hubs endpoint as a dataflow source, Kafka headers gets corrupted as its translated to MQTT. To learn more, see [Configure Kafka dataflow endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md#kafka-endpoint-is-a-dataflow-source).
+
 ## Akri services
 
 In the current release, the Akri services don't support any user-configurable scenarios. Full support for Akri services will be added back in an upcoming preview release.
