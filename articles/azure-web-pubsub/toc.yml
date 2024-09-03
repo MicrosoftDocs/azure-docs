@@ -141,6 +141,8 @@
   items: 
     - name: Overview
       href: socketio-overview.md
+    - name: Serverless Mode Overview
+      href: socketio-serverless-overview.md
     - name: Quickstart for Socket.IO users
       href: socketio-quickstart.md
     - name: Tutorials
@@ -148,6 +150,8 @@
       items:
         - name: Build real time code streaming app
           href: socketio-build-realtime-code-streaming-app.md
+        - name: Build chat app with Azure Function in Serverless Mode
+          href: socketio-serverless-tutorial.md
     - name: How-to guides
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
@@ -170,8 +174,14 @@
       items:
         - name: How does Web PubSub support Socket.IO library
           href: socketio-service-internal.md
-        - name: Supported Socket.IO server APIs
+        - name: Azure Function Bindings for Socket.IO
+          href: socketio-serverless-function-binding.md
+        - name: Unsupported Socket.IO server APIs
           href: socketio-supported-server-apis.md
+    - name: Reference
+      items:
+        - name: Socket.IO Serverless Mode Specification
+          href: socketio-serverless-protocol.md
 - name: Samples
   expanded: false
   items: 

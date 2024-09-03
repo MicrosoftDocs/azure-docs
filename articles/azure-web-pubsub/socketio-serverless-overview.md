@@ -28,6 +28,6 @@ With the increasing adoption of serverless computing, we're introducing a new mo
 This artical provides you an overview of the Serverless Mode of Web PubSub for Socket.IO.
 
 > [!div class="nextstepaction"]
-> [Walk through a quickstart with Serverless Mode and Azure Function](./socketio-serverless-quickstart.md)
+> [Tutorial: Build chat app with Azure Function in Serverless Mode](./socketio-serverless-tutorial.md)
 > [Serverless Protocols](./socketio-serverless-protocol.md)
 > [Serverless Function Binding](./socketio-serverless-function-binding.md)

@@ -25,6 +25,9 @@ This artical explains how to use Socket.IO serverless integrate with Azure Funct
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
+> [!IMPORTANT]
+> Azure Function bindings can only integrate with Web PubSub for Socket.IO in Serverlesse Mode.
+
 ### Authenticate and Connection String
 
 In order to let the extension work with Web PubSub for Socket.IO, you will need to provide either access keys or identity based configuration to authenticate with the service. 
