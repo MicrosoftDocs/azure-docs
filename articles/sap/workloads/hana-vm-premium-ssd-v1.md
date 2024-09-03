@@ -107,8 +107,8 @@ Configuration for SAP **/hana/data** volume:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
-| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
-| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps | 6 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 6 x P60<sup>2</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
@@ -143,8 +143,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
-| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
-| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team
@@ -179,8 +179,8 @@ For the other volumes, the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M832s_16_v3 | 15,200 GiB | 8,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
-| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |  
-| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |  
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 |
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 
